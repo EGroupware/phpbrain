@@ -41,7 +41,7 @@ articles deleted successfully	phpbrain	fr	Articles supprimés avec succès
 articles have been published	phpbrain	fr	Les articles ont été publiés
 articles in %1	phpbrain	fr	Articles dans %1
 articles in %1 and all its subcategories	phpbrain	fr	Articles dans %1 et toutes ses sous-catégories
-articles not classified under any category	phpbrain	fr	Articles non classé dans une catégorie
+articles not classified under any category	phpbrain	fr	Articles non classés dans une catégorie
 ascendent	phpbrain	fr	Ascendant
 attach file	phpbrain	fr	Attacher un fichier
 attached files	phpbrain	fr	Fichiers attachés
@@ -130,7 +130,7 @@ kb_contains	phpbrain	fr	La base de connaissances contient
 keywords	phpbrain	fr	Mots-clés
 know_contrib	phpbrain	fr	Connaissez-vous la réponse? Si oui, répondez.
 knowledge base article #%1	phpbrain	fr	Base de connaissance article n°%1
-knowledge base configuration	common	fr	Configuration de la base de connaissance
+knowledge base configuration	common	fr	Configuration de la Base de connaissance
 last modification by %1 on %2	phpbrain	fr	Dernière modification par %1 le %2
 last_mod %1	phpbrain	fr	Dernière modification: %1
 latest	phpbrain	fr	Les derniers en date
@@ -171,7 +171,7 @@ order results by	phpbrain	fr	Trier les résultats par
 outstanding published questions	phpbrain	fr	Questions éditées en suspens
 past %1 months	phpbrain	fr	des derniers %1 mois
 past year	phpbrain	fr	de l'année dernière
-people have rated this article	phpbrain	fr	les gens ont noté cet article
+people have rated this article	phpbrain	fr	personnes ont noté cet article
 phpbrain	common	fr	Base de connaissances
 phpbrain config	admin	fr	Configuration de la base de connaissances
 phpbrain_config	phpbrain	fr	Configuration de base de la base de connaissances
