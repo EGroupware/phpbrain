@@ -6,7 +6,7 @@
 %1 questions_deleted	phpbrain	en	%1 Questions Deleted
 add_answer	phpbrain	en	Add Answer
 add_comments	phpbrain	en	Add Comments
-add_question (%1 open)	phpbrain	en	Add Question (%1 open)
+add_question (%1 open)	phpbrain	en	Add Question (%1 Open)
 allow_html	phpbrain	en	Allow HTML tags in posts
 anon_user	phpbrain	en	Anonymous User
 answer	phpbrain	en	Answer
@@ -41,6 +41,7 @@ not_submit_qs_warn	phpbrain	en	not_submit_qs_warn
 num_faqs %1	phpbrain	en	FAQs(%1)
 num_open %1	phpbrain	en	Open(%1)
 num_pages %1	phpbrain	en	Pages(%1)
+num_tutes %1	phpbrain	en	Tutorials(%1)
 phpbrain	common	en	Knowledge Base
 phpbrain_config	phpbrain	en	Knowledge Base Configuration
 poor	common	en	Poor
