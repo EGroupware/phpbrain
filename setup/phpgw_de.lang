@@ -4,6 +4,8 @@
 %1 matches found	phpbrain	de	%1 Übereinstimmungen gefunden
 %1 questions_activated	phpbrain	de	%1 Fragen aktiviert
 %1 questions_deleted	phpbrain	de	%1 Fragen gelöscht
+/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	de	Das Verzeichnis /kb existiert nicht oder konnte nicht erstellt werden. Bitte kontaktieren Sie den Administrator zur Überprüfung der Konfiguration.
+action	phpbrain	de	Aktion
 add articles	phpbrain	de	Artikel hinzufügen
 add link	phpbrain	de	Link hinzufügen
 add question	phpbrain	de	Frage hinzufügen
@@ -20,7 +22,10 @@ allow_html	phpbrain	de	HTML tags in Beiträgen erlauben
 anon user	admin	de	Anonymer Benutzer
 anon_user	phpbrain	de	Anonymer Benutzer
 answer	phpbrain	de	Antwort
+anytime	phpbrain	de	Zu jederzeit
+anywhere in the article	phpbrain	de	Im gesamten Artikel
 article	phpbrain	de	Artikel
+article added to database, you can now attach files or links, or relate to other articles	phpbrain	de	Der Artikel wurde zur Datenbank hinzugefügt. Sie können nun Links, Dateien oder verwandte Artikel zu diesem Artikel hinzufügen.
 article created	phpbrain	de	Artikel wurde erstellt
 article deleted	phpbrain	de	Artikel gelöscht
 article deleted successfully	phpbrain	de	Artikel wurde erfolgreich gelöscht
@@ -32,11 +37,14 @@ articles deleted successfully	phpbrain	de	Artikel erfolgreich gelöscht
 articles have been published	phpbrain	de	Artikel wurde veröffentlicht
 articles in %1	phpbrain	de	Artikel in %1
 articles in %1 and all its subcategories	phpbrain	de	Artikel in %1 und in allen Unterkategorien
+ascendent	phpbrain	de	Aufsteigend
 attach file	phpbrain	de	Datei hinzufügen
 attached files	phpbrain	de	Hinzugefügte Dateien
 average rating	phpbrain	de	Durchschnittliche Bewertung
+base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	de	Das Hauptverzeichnis existiert nicht. Bitte kontaktieren Sie den Administrator damit dieser die Konfiguration überprüft.
 before submiting a question, please search in the knowledge base first	phpbrain	de	Bevor Sie eine Frage einreichen, durchsuchen Sie bitte die Wissensdatenbank zuerst
 browse	common	de	Ansehen
+by answering this question you will help to get the answer quicker the next time	phpbrain	de	Durch beantworten diese Frage helfen Sie, das nächste mal eine schnellere Antwort zu erhalten.
 cant_post_must_register	phpbrain	de	Sie müssen ein registrierter Benutzer sein um Informationen zur Wissensdatenbank hinzuzufügen
 check_before_submit	phpbrain	de	Bitte überprüfen Sie das diese Information nicht schon in der Wissensdatenbank vorhanden ist, bevor Sie etwas neues eintragen
 close window	phpbrain	de	Fenster schliessen
@@ -45,7 +53,10 @@ comment and rating have been published	phpbrain	de	Kommentar und Bewertung wurde
 comment could not be inserted in the database	phpbrain	de	Der Kommentar konnte nicht zur Datenbank hinzugefügt werden
 comment has been deleted	phpbrain	de	Kommentar wurde hinzugefügt
 comment has been published	phpbrain	de	Kommantar wurde veröffentlicht
+comment has been submited for revision	phpbrain	de	Kommantar wurde eingereicht zur überprüfung
+comment has been submited for revision and rating will be published	phpbrain	de	Kommentar wurde eingereicht zur Überprüfung. Ihre Bewertung wird veröffentlicht
 comments	phpbrain	de	Kommentare
+create a new article to answer the question asked by %1 in %2	phpbrain	de	Einen neuen Artikel erstellen um auf die Frage, gestellt von %1 in %2 zu antworten
 created by %1 on %2	phpbrain	de	Erstellt von %1 in %2
 creation date	phpbrain	de	Erstellungsdatum
 cur_open_qs	phpbrain	de	Zur Zeit offene Fragen
@@ -53,6 +64,7 @@ current_questions	phpbrain	de	momentane Fragen
 date	phpbrain	de	Datum
 delete article	phpbrain	de	Artikel löschen
 delete selected	phpbrain	de	Ausgewählte löschen
+descendent	phpbrain	de	Absteigend
 details	phpbrain	de	Details
 e-mail has been sent	phpbrain	de	Email wurde versendet
 edit article	phpbrain	de	Artikel bearbeiten
@@ -60,21 +72,34 @@ edit_answer	phpbrain	de	Antworten bearbeiten
 edit_faq	phpbrain	de	FAQ bearbeiten
 enable	common	de	Aktivieren
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	de	Bitte geben Sie ein oder zwei Worte ein welche Ihre Frage beschreiben, oder geben Sie die Artikel Nummer ein wenn Sie diese Wissen
+error deleting article from database	phpbrain	de	Es ist ein Fehler beim löschen des Artikel in der Datenbank aufgetreten
 error deleting link	phpbrain	de	Fehler beim löschen des Link
 error downloading file	phpbrain	de	Fehler beim runterladen der Datei
+error moving file to directory	phpbrain	de	Beim verschieben der Datein in den Ordner ist ein Fehler aufgetreten
+error publishing comment	phpbrain	de	Es ist ein Fehler beim veröffentlichen des Kommentars aufgetreten
+error trying to delete comment	phpbrain	de	Es ist ein Fehler beim löschen des Kommentars
+error trying to delete question	phpbrain	de	Es ist ein Fehler beim löschen der Frage
+error trying to edit article	phpbrain	de	Es ist ein Fehler beim versuch diesen Artikel zu bearbeiten
+error: file doesn\'t exist in the database	phpbrain	de	Fehler: Diese Datei existiert nicht
 example	phpbrain	de	Beispiel
 excellent	phpbrain	de	Sehr gut
 faq	phpbrain	de	FAQ
 faq_saved	phpbrain	de	FAQ gespeichert
 faqs	phpbrain	de	FAQs
 faqs_and_tutes	phpbrain	de	FAQs und Anleitungen
+file could be deleted from server but not from database	phpbrain	de	Datei konnte auf dem Server gelöscht werden, jedoch nicht in der Datenbank
 file has been successfully uploaded	phpbrain	de	Datei wurde erfolgreich hochgeladen
 file was deleted successfully	phpbrain	de	Datein wurde erfolgreich gelöscht
+find results	phpbrain	de	Finde Ergebnisse
+have to be approved first	common	de	Müss zuerst überprüft werden
+history	phpbrain	de	Historie
 if you wish, you can comment this article here	phpbrain	de	Sie können diesen Artikel hier kommentieren
 improve_by_rate	phpbrain	de	Helfen Sie und die Qualität der Einträge zu verbesser indem Sie diese beurteilen
 in %1	phpbrain	de	in %1
 in the text	phpbrain	de	im Text
 in the title	phpbrain	de	im Titel
+in the topic	phpbrain	de	im Thema
+include subcategories	phpbrain	de	inklusive Unterkategorien
 inspire_by_suggestions	phpbrain	de	Wenn Sie ein Beispiel suchen, sehen Sie sich doch bitte die offenen Fragen an.
 invalid faq request - or something is nqr	phpbrain	de	Fehler: Nicht gültige FAQ Eingabe
 kb_contains	phpbrain	de	In der Wissensdatenbank befinden sich
@@ -86,13 +111,14 @@ last modification by %1 on %2	phpbrain	de	Zuletzt bearbeitet von %1 am %2
 last_mod %1	phpbrain	de	Zuletzt bearbeitet: %1
 latest	phpbrain	de	Zuletzt
 latest comments	phpbrain	de	Letzte Kommentare
+leave empty to automatically generate an id	phpbrain	de	um automatisch eine ID zu erstellen geben Sie nichts ein
 link could not be added	phpbrain	de	Der Link konnte nicht hinzugefügt werden
 link deleted successfully	phpbrain	de	Link erfolgreich gelöscht
 link has been added	phpbrain	de	Link wurde hinzugefügt
 links	phpbrain	de	Links
 links & files	phpbrain	de	Links und Dateien
 mail article	phpbrain	de	Artikel per Mail versenden
-main view	common	de	Gesamtübersicht
+main view	phpbrain	de	Gesamtübersicht
 maintain_answers	phpbrain	de	Antworten verwalten
 modification date	phpbrain	de	Änderungs Datum
 most viewed	phpbrain	de	Meist gelesen
@@ -134,6 +160,8 @@ rating invalid	phpbrain	de	Bewertung ungültig
 recipient	phpbrain	de	Empfänger
 register	common	de	Registrieren
 related_url	phpbrain	de	Zugehörige URL
+removed file %1	phpbrain	de	Datei %1 gelöscht
+removed link %1	phpbrain	de	Link %1 gelöscht
 reply-to	phpbrain	de	Antwort an
 reset	phpbrain	de	zurücksetzen
 return_to_admin	phpbrain	de	Zurück zur Administration
@@ -159,6 +187,7 @@ the article is empty	phpbrain	de	Dieser Artikel ist leer
 the following errors occurred	phpbrain	de	Die follgenden Fehler sind aufgetreten
 this article hasn\'t yet been published in the knowledge base	phpbrain	de	Dieser Artikel wurde noch nicht veröffentlicht in der Wissendatenbank
 title	phpbrain	de	Titel
+topic	phpbrain	de	Thema
 tutorial	phpbrain	de	Anleitung
 tutorials	phpbrain	de	Anleitungen
 unanswered questions	phpbrain	de	Offene Fragen
@@ -169,8 +198,12 @@ user preferences	phpbrain	de	Benutzer Einstellungen
 views	phpbrain	de	Besuche
 views %1	phpbrain	de	Besuche %1
 votes %1	phpbrain	de	Bewertungen %1
+with all the words	phpbrain	de	Beinhaltet alle Worte
+with at least one of the words	phpbrain	de	Beinhaltet mindestens eins der Worte
+without the words	phpbrain	de	Beinhaltet keines der Worte
 you are in %1	phpbrain	de	Sie befinden sich in %1
 you have already qualified this article	phpbrain	de	Sie haben schon eine Bewertung zu diesem Artikel abgegeben
 you have not the proper permissions to do that	phpbrain	de	Sie haben keine ausreichenden Rechte
 you must enter a title	phpbrain	de	Sie müssen einen Titel eingeben
+you must enter a topic	phpbrain	de	Sie müssen ein Thema eingeben
 your question will be published immediately	phpbrain	de	Ihre Frage wird schnellstens veröffentlicht
