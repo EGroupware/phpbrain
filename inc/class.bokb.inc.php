@@ -13,35 +13,169 @@
 *  option) any later version.                                              *
 \**************************************************************************/
 
+	/* $Id$ */
+
 	/**
-	* @class bokb
-	*
-	* @abstract		Business rules layer of the Knowledge Base
-	* @Last Editor	$ Author: alpeb $
+	* Business logic layer of the Knowledge Base
+	* 
+	* Last Editor:	$Author$
 	* @author		Alejandro Pedraza
-	* @version		$ Revision: 0.99 $
+	* @package		phpbrain
+	* @version		$Revision$
 	* @license		GPL
 	**/
 	class bokb
 	{
+		/**
+		* Data manipulation object
+		*
+		* @access	private
+		* @var		object so
+		*/
 		var $so;
+
+		/**
+		* Categories object
+		*
+		* @access	public
+		* @var		object categories
+		*/
 		var $categories_obj;
+
+		/**
+		* Array of all categories accesible by the current user
+		*
+		* @access	public
+		* @var		array
+		*/
 		var $all_categories;
+
+		/**
+		* Variable holding categories to show
+		*
+		* @access	public
+		* @var		array
+		*/
 		var $categories;
+
+		/**
+		* Array of current user's grants on other users or groups
+		*
+		* @access	public
+		* @var		array
+		*/
 		var $grants;
+
+		/**
+		* Preferences for this application
+		*
+		* @access	public
+		* @var		array
+		*/
 		var $preferences;
+
+		/**
+		* For pagination
+		*
+		* @access	public
+		* @var		int
+		*/
 		var $start;
+
+		/**
+		* Sorting order
+		*
+		* @access	public
+		* @var		string	ASC | DESC
+		*/
 		var $sort;
+
+		/**
+		* Sorting field
+		*
+		* @access	public
+		* @var		string
+		*/
 		var $order;
+
+		/**
+		* Administration options for this app
+		*
+		* @access	public
+		* @var		array
+		*/
 		var $admin_config;
+
+		/**
+		* Number of entries returned by a query
+		*
+		* @access	public
+		* @var		int
+		*/
 		var $num_rows;
+
+		/**
+		* Number of questions returned by a query
+		*
+		* @access	public
+		* @var		int
+		*/
 		var $num_questions;
+
+		/**
+		* Number of comments returned by a query
+		*
+		* @access	public
+		* @var		int
+		*/
 		var $num_comments;
+
+		/**
+		* Error messages produced by methods
+		*
+		* @access	public
+		* @var		string
+		*/
 		var $error_msg;
+
+		/**
+		* Filter by publication status
+		*
+		* @access	public
+		* @var		string
+		*/
 		var $publish_filter;
+
+		/**
+		* Search string
+		*
+		* @access	public
+		* @var		string
+		*/
 		var $query;
+
+		/**
+		* Current article owner's id
+		*
+		* @access	public
+		* @var		int
+		*/
 		var $article_owner;
+
+		/**
+		* Current article id
+		*
+		* @access	public
+		* @var		int
+		*/
 		var $article_id;
+
+		/**
+		* Success or error messages returned by methods
+		*
+		* @access	public
+		* @var		array
+		*/
 		var $messages_array = array(
 			'no_perm'				=> 'You have not the proper permissions to do that',
 			'add_ok_cont'			=> 'Article added to database, you can now attach files or links, or relate to other articles',
@@ -89,6 +223,12 @@
 		);
 
 
+		/**
+		* Class constructor
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		**/
 		function bokb()
 		{
 			// version check
@@ -144,28 +284,53 @@
 			$this->num_res		= get_var('num_res', 'any', '');
 		}
 
+		/**
+		* Returns a single category
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$cat_id	Category id
+		* @return	array			Category infoA
+		*/
 		function return_single_category($cat_id)
 		{
 			return $this->categories_obj->return_single($cat_id);
 		}
 
 		/**
-		* @function	load_categories 
+		* Loads in object $this->categories, an array of the descendant categories of $parent_cat_id
 		*
-		* @abstract	Loads in object $this->categories, an array of the descendant categories of $parent_cat_id
 		* @author	Alejandro Pedraza
-		* @params	$parent_cat_id	int	id of the parent category
-		**/
+		* @access	public
+		* @param	int	$parent_cat_id	id of the parent category
+		* @return	void
+		*/
 		function load_categories($parent_cat_id)
 		{
 			if (!$this->categories = $this->categories_obj->return_sorted_array('', False, '', '', '', True, $parent_cat_id)) $this->categories = array();
 		}
 
+		/**
+		* Return html code for drop-down select box with categories accessible by user
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$category_selected	id of category to show selected
+		* @return	string						Html code
+		*/
 		function select_category($category_selected = '')
 		{
 			return $this->categories_obj->formated_list('select', 'all', $category_selected , True);
 		}
 
+		/**
+		* Returns list of user ids to which the current user has permissions
+		*
+		* @author	Alejandro Pedraza
+		* @access	private
+		* @param	int		$permissions	Permissions bitmask. If not given, uses $this->read_right
+		* @return	array					User ids
+		*/
 		function accessible_owners($permissions = 0)
 		{
 			$owners = array($GLOBALS['phpgw_info']['user']['account_id']);
@@ -182,14 +347,14 @@
 		}
 
 		/**
-		* @function check_permission
+		* Checks for rights on article
 		*
-		* @abstract	Checks for rights on article
 		* @author	Alejandro Pedraza
-		* @params	$check_rights	bitmask ACL right (use $this->read_right or $this->edit_right)
-		* @params	$article_owner	if not set, checks rights against current article
-		* @returns	True if has rights, False if not
-		**/
+		* @access	public
+		* @param	int		$check_rights	bitmask ACL right (use $this->read_right or $this->edit_right)
+		* @param	int		$article_owner	if not set, checks rights against current article
+		* @return	bool					True if has rights, False if not
+		*/
 		function check_permission($check_rights, $article_owner = 0)
 		{
 			if (!$article_owner) $article_owner = $this->article_owner;
@@ -206,14 +371,15 @@
 		}
 
 		/**
-		* @function	search_articles
+		* Returns array of articles
 		*
-		* @abstract Returns array of articles
 		* @author	Alejandro Pedraza
-		* @params	$category_id	Category under which articles are to be retrieved
-		* @params	$publish_filter	Filter by published or unpublished
-		* @params	$permissions	Specific permissions on article owners
-		* @returns	Array with articles
+		* @access	public
+		* @param	int		$category_id	Category under which articles are to be retrieved
+		* @param	mixed	$publish_filter	To filter pusblished or unpublished entries
+		* @param	int		$permissions	Specific permissions on article owners
+		* @param	bool	$questions		Whether looking for questions or articles
+		* @return	array	Articles
 		**/
 		function search_articles($category_id, $publish_filter = False, $permissions=0, $questions=False)
 		{
@@ -251,6 +417,13 @@
 			return $articles;
 		}
 
+		/**
+		* Returns results of advanced search
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @return	array	Articles
+		*/
 		function adv_search_articles()
 		{
 			$owners = $this->accessible_owners();
@@ -271,11 +444,19 @@
 				$cats_ids[] = $this->cat;
 			}
 
-			$articles = $this->so->adv_search_articles($owners, $cats_ids, $this->ocurrences, $this->pub_date, $this->start, $this->num_res, $this->all_words, $this->phrase, $this->one_word, $this->without_words, $this->cat, $this->include_subs, $this->pub_date);
+			$articles = $this->so->adv_search_articles($owners, $cats_ids, $this->ocurrences, $this->pub_date, $this->start, $this->num_res, $this->all_words, $this->phrase, $this->one_word, $this->without_words, $this->cat, $this->include_subs);
 			$this->num_rows = $this->so->num_rows;
 			return $articles;
 		}
 
+		/**
+		* Returns unanswered questions
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$category_id	Category in which to look for
+		* @return	array					Questions
+		*/
 		function unanswered_questions($category_id)
 		{
 			$owners = $this->accessible_owners();
@@ -295,6 +476,13 @@
 			return $questions;
 		}
 
+		/**
+		* Returns article's history
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @return	array					Articles's history
+		*/
 		function return_history()
 		{
 			$history = $GLOBALS['phpgw']->historylog->return_array('', '', 'history_timestamp', 'DESC', $this->article_id);
@@ -340,14 +528,13 @@
 		}
 
 		/**
-		* @function	return_latest_mostviewed
+		* Returns latest or most viewed articles
 		*
-		* @abstract	Returns latest or most viewed articles
 		* @author	Alejandro Pedraza
-		* @params	$category_id	int	articles must belong to the descendancy of this category
-		* @params	$order	Field by which the query is ordered, determines whether latest or most viewed articles are returned
-		* @returns	array of articles
-		**/
+		* @param	int		$category_id	articles must belong to the descendancy of this category
+		* @param	string	$order			Field by which the query is ordered, determines whether latest or most viewed articles are returned
+		* @return	array					array of articles
+		*/
 		function return_latest_mostviewed($category_id = 0, $order = '')
 		{
 			$owners = $this->accessible_owners();
@@ -362,12 +549,12 @@
 		}
 
 		/**
-		* @function	save_article
+		* Saves a new or edited article
 		*
-		* @abstract	Saves new or edited article
 		* @author	Alejandro Pedraza
-		* @params	$content (optional)
-		* @returns	True on success, False on failure
+		* @access	public
+		* @param	array	$content	Article contents. Extracted from $_POST if empty
+		* @return	bool				True on success, False on failure
 		**/
 		function save_article($content = '')
 		{
@@ -407,6 +594,16 @@
 			return $art_id;
 		}
 
+		/**
+		* Deletes article
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	array	Article's files
+		* @param	int		$art_id		Article id. If not given, $this->article_id is used
+		* @param	int		$owner		Article's owner id
+		* @return	string				Success or failure message
+		*/
 		function delete_article($files, $art_id = 0, $owner = 0)
 		{
 			if (!$art_id) $art_id = $this->article_id;
@@ -448,6 +645,15 @@
 			return 'del_art_ok';
 		}
 
+		/**
+		* Deletes question
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$q_id		Question id
+		* @param	int		$owner		Article's owner id
+		* @return	string				Success or failure message
+		**/
 		function delete_question($q_id, $owner)
 		{
 			// check user has edit rights on owner
@@ -457,6 +663,14 @@
 			return 'del_q_ok';
 		}
 
+		/**
+		* Returns article
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$art_id		article id
+		* @return	array	Article
+		**/
 		function get_article($art_id)
 		{
 			if (!$article = $this->so->get_article($art_id)) return False;
@@ -503,6 +717,15 @@
 			return $article;
 		}
 
+		/**
+		* Previous checks before downloading a file
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$art_id		Article id
+		* @param	string	$filename	filename
+		* @return	void
+		*/
 		function download_file_checks($art_id, $filename)
 		{
 			if (!$article = $this->get_article($art_id)) $this->die_peacefully('Error downloading file');
@@ -515,6 +738,15 @@
 			if (!$found_file) $this->die_peacefully("Error: file doesn't exist in the database");
 		}
 
+		/**
+		* Returns article's comments
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$art_id		article id
+		* @param	int		$limit		Number of comments to return
+		* @return	array				Comments
+		*/
 		function get_comments($art_id, $limit = False)
 		{
 			if ($limit) $limit = $this->preferences['num_comments'];
@@ -523,26 +755,41 @@
 			return $comments;
 		}
 
+		/**
+		* Returns an article related comments
+		*
+		* @author	Alejandro Pedraza
+		* @acces	public
+		* @param	int		$art_id	Article id
+		* @return	array			IDs and titles of articles
+		*/
 		function get_related_articles($art_id)
 		{
 			$owners = $this->accessible_owners();
 			return $this->so->get_related_articles($art_id, $owners);
 		}
 
+		/**
+		* Tells if the current user has already rated the article
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @returns	bool				1 if he has, 0 if not
+		**/
 		function user_has_voted()
 		{
 			return $this->so->user_has_voted($this->article_id);
 		}
 
 		/**
-		* @function add_rating
+		* Registers user's vote. When accessing through egroupware users can only vote once. When accessign through sitemgr, they can vote as many times they wish, but only once per session on an individual article
 		*
-		* @abstract	Registers user's vote. When accessing through egroupware users can only vote once. When accessign through sitemgr, they can vote as many times they wish, but only once per session on an individual article
 		* @author	Alejandro Pedraza
-		* @param	$current_rating	int current number of votes in the level $rating (this saves me a trip to the db)
-		* @param	$sitemgr	Whether user is accessing through sitemgr
-		* @returns	1 on success, 0 on failure
-		**/
+		* @access	public
+		* @param	int		$current_rating	Current number of votes in the level $rating (this saves me a trip to the db)
+		* @param	bool	$sitemgr		Whether user is accessing through sitemgr
+		* @return	bool					1 on success, 0 on failure
+		*/
 		function add_rating($current_rating, $sitemgr=False)
 		{
 			if(!$this->so->add_vote($this->article_id, $_POST['Rate'], $current_rating)) return 0;
@@ -559,12 +806,12 @@
 		}
 
 		/**
-		* @function add_comment
+		* Stores new comment
 		*
-		* @abstract	Stores article's comments
 		* @author	Alejandro Pedraza
-		* @returns	Success message or 0 if failure
-		**/
+		* @access	public
+		* @return	mixed	Success message or 0 if failure
+		*/
 		function add_comment()
 		{
 			$comment = $_POST['comment_box'];
@@ -582,6 +829,13 @@
 			return $message;
 		}
 
+		/**
+		* Adds link to article
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @return	string	Success or failure message
+		*/
 		function add_link()
 		{
 			// first check permission
@@ -594,13 +848,13 @@
 		}
 
 		/**
-		* @function	publish_article
+		* Publishes article
 		*
-		* @abstract publishes article
 		* @author	Alejandro Pedraza
-		* @params	$art_id	Article ID. If not given uses current article
-		* @params	$owner	Article owner. If not given uses owner of current article
-		* @returns	Success or error message
+		* @access	public
+		* @params	int		$art_id	Article ID. If not given uses current article
+		* @params	int		$owner	Article's owner ID. If not given uses owner of current article
+		* @return	string			Success or error message
 		**/
 		function publish_article($art_id=0, $owner=0)
 		{
@@ -613,6 +867,13 @@
 			return 'publish_ok';
 		}
 
+		/**
+		* Publishes article comment
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @return	string	Success or error message
+		*/
 		function publish_comment()
 		{
 			$comment_id = (int)$_GET['pub_com'];
@@ -623,6 +884,13 @@
 			return 'publish_comm_ok';
 		}
 
+		/**
+		* Deletes article comment
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @return	string	Success or error message
+		*/
 		function delete_comment()
 		{
 			$comment_id = (int)$_GET['del_comm'];
@@ -634,6 +902,13 @@
 			return 'del_comm_ok';
 		}
 
+		/**
+		* Deletes article comment
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @return	string	Success or error message
+		*/
 		function delete_link()
 		{
 			// first check permission
@@ -651,7 +926,7 @@
 		* @abstract	Uploads file to system
 		* @author	Alejandro Pedraza
 		* @return	string: error or confirmation message
-		**/
+		*/
 		function process_upload()
 		{
 			// check permissions
@@ -718,6 +993,16 @@
 			return 'upload_ok';
 		}
 
+		/**
+		* Deletes file
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	string	$current_files	Forgot why this
+		* @param	string	$file			File name
+		* @return	string					Success or error message
+		* @todo		see what's the deal with $current_files
+		*/
 		function delete_file($current_files, $file = '')
 		{
 			if (!$file) $file = $_POST['delete_file'];
@@ -759,6 +1044,13 @@
 			return 'file_noserv_db_err';
 		}
 
+		/**
+		* Adds related article to article
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @return	string	Success or error message
+		*/
 		function add_related()
 		{
 			$parsed_list = array();
@@ -789,12 +1081,26 @@
 			return 'articles_added';
 		}
 
+		/**
+		* Deletes related article to article
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @return	void
+		*/
 		function delete_related()
 		{
 			$this->so->delete_related($this->article_id, $_POST['delete_related']);
 			$GLOBALS['phpgw']->historylog->add('DR', $this->article_id, $_POST['delete_related'], '');
 		}
 
+		/**
+		* Adds question to database
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @return	int				Numbers of lines affected (should be 1, if not there's an error)
+		*/
 		function add_question()
 		{
 			$data = $_POST;
@@ -802,6 +1108,14 @@
 			return $this->so->add_question($data, $publish);
 		}
 
+		/**
+		* Returns question
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$q_id	Question id
+		* @return	array			Question
+		*/
 		function get_question($q_id)
 		{
 			$question = $this->so->get_question($q_id);
@@ -811,6 +1125,14 @@
 			return $question;
 		}
 
+		/**
+		* Mails article
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	array	$article_contents
+		* @return	string	Success or error message
+		*/
 		function mail_article($article_contents)
 		{
 			// check address syntaxis
@@ -831,7 +1153,14 @@
 			return 'mail_ok';
 		}
 
-
+		/**
+		* Stop execution and show error message
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	string	$error_msg	Error message to translate and show
+		* @return	void
+		*/
 		function die_peacefully($error_msg)
 		{
 			if (!$this->navbar_shown)
@@ -844,5 +1173,4 @@
 			die();
 		}
 	}
-
 ?>
