@@ -1192,7 +1192,7 @@
 			if (!$theresults) return 'mail_err';
 
 			$GLOBALS['phpgw']->send = CreateObject('phpgwapi.send');
-			$rc = $GLOBALS['phpgw']->send->msg('email', get_var('recipient', 'POST'), get_var('subject', 'POST'), $article_contents, '', '', '', get_var('reply', 'POST'), get_var('reply', 'POST'), 'html');
+			$rc = $GLOBALS['phpgw']->send->msg('email', get_var('recipient', 'POST'), get_var('subject', 'POST'), $article_contents, '', '', '', get_var('reply', 'POST'), get_var('reply', 'POST'), 'text/html');
 			if (!$rc)
 			{
 				 $message = 'Your message could <B>not</B> be sent!<BR>'."\n"
