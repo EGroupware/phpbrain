@@ -5,7 +5,9 @@ $stat_name %1	phpbrain	es-es	$stat_name %1
 %1 matches found	phpbrain	es-es	Se encontraron %1 coincidencias
 %1 questions_activated	phpbrain	es-es	%1 preguntas activadas
 %1 questions_deleted	phpbrain	es-es	%1 preguntas borradas
+actions	phpbrain	es-es	Acciones
 active_when_checked	phpbrain	es-es	Activar al marcar
+add question	phpbrain	es-es	Añadir pregunta
 add_answer	phpbrain	es-es	Añadir respuesta
 add_comments	phpbrain	es-es	Añadir comentarios
 add_question	phpbrain	es-es	Añadir pregunta
@@ -14,6 +16,10 @@ allow html	admin	es-es	Permitir etiquetas HTML en los mensajes
 already_rated	phpbrain	es-es	Ya ha valorado este elemento. Gracias.
 anon user	admin	es-es	Usuario anónimo
 answer	phpbrain	es-es	Respuesta
+answer_added	phpbrain	es-es	Respuesta añadida a la base de datos
+answer_saved	phpbrain	es-es	Respuesta guardada. Se espera aprobación del administrador para que aparezca en la base de datos
+answered	phpbrain	es-es	Respondida
+avg. score	phpbrain	es-es	Puntuación media
 browse	common	es-es	Examinar
 cant_post_must_register	phpbrain	es-es	Tiene que registrarse para poder añadir información a la base de conocimientos
 check_before_submit	phpbrain	es-es	Por favor, compruebe que esta información no existe ya en la base de datos antes de enviarla.
@@ -43,7 +49,8 @@ know_contrib	phpbrain	es-es	¿Sabe la respuesta? En ese caso, responda.
 last_mod %1	phpbrain	es-es	Ultima modificación: %1
 maintain answers	phpbrain	es-es	Mantenimiento de respuestas
 maintain questions	phpbrain	es-es	Mantenimiento de preguntas
-maintain_answers	phpbrain	es-es	Mantener respuestas
+maintain_answers	common	es-es	Mantener respuestas
+modified	phpbrain	es-es	Modificado
 no comments	phpbrain	es-es	Sin comentarios
 none found - revise or browse	phpbrain	es-es	No se encontró nada. Por favor, revise su búsqueda o su navegador
 none_pending	phpbrain	es-es	Nada pendiente
@@ -53,12 +60,15 @@ num_faqs %1	phpbrain	es-es	Preguntas frecuentes (%1)
 num_open %1	phpbrain	es-es	Abiertas (%1)
 num_pages %1	phpbrain	es-es	Páginas (%1)
 num_tutes %1	phpbrain	es-es	Tutoriales (%1)
+open	phpbrain	es-es	Abierto
 phpbrain	common	es-es	Base de conocimiento
 phpbrain config	admin	es-es	Configuración de la base de conocimiento
 phpbrain_config	phpbrain	es-es	Configuración de la base de conocimiento
 poor	common	es-es	Pobre
 preview	phpbrain	es-es	vista previa
 question	phpbrain	es-es	Pregunta
+question_added	phpbrain	es-es	Pregunta añadida a la base de datos
+question_saved	phpbrain	es-es	Pregunta guardada. Aparecerá en la base de datos después de la revisión del administrador
 rating	phpbrain	es-es	Valoración
 rating %1	phpbrain	es-es	valoración %1
 register	common	es-es	Registrar
@@ -70,7 +80,7 @@ return_to_index	phpbrain	es-es	Volver al índice
 return_to_search %1	phpbrain	es-es	Volver a la búsqueda %1
 score %1	phpbrain	es-es	puntuación %1
 section_maint_faqs	phpbrain	es-es	Mantener PFs pendientes
-section_maintain_questions	phpbrain	es-es	Mantener preguntas
+section_maintain_questions	common	es-es	Mantener preguntas
 show	phpbrain	es-es	mostrar
 site configuration	phpbrain	es-es	Configuración del sitio
 submitted_by	phpbrain	es-es	Enviado por
