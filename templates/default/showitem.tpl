@@ -1,5 +1,5 @@
-		{msg}
-    <table border="0" width="600">
+		<p align="center" style="color:#FF0000;">{msg}</p>
+    <table width="700" align="center" cellspacing=0 cellpadding=3 style="{border:1px solid #000000;}">
       <tr bgcolor="{tbl_bg_color}">
         <td colspan="3" align="CENTER" class="navbg">
           <a href="{return_url}" class="contrlink">{return_msg}</a> 
@@ -39,6 +39,7 @@
       <tr class="navbg">
         <td colspan="3" align="CENTER" class="contrlink">{lang_rating}</td>
       </tr>
+      <!-- BEGIN b_rate -->
       <tr>
         <td colspan="3">{lang_rate_why_explain}</td>
       </tr>
@@ -52,8 +53,14 @@
 				({lang_excellent})
         </td>
       </tr>
-    </table>
-    <table border="0" width="600" cellspacing="0">
+      <!-- END b_rate -->
+      <!-- BEGIN b_no_rate -->
+      <tr>
+        <td colspan="3">
+          {lang_rate_msg}<br>
+        </td>
+      </tr>
+      <!-- END b_no_rate -->
       <tr>
 			<td colspan=2><b>{lang_comments}</b></td>
       </tr>
@@ -63,14 +70,17 @@
         <td>{comment_text}<br>&nbsp</td>
       </tr>
 		<!-- END cmnt -->
-    </table>
-		{comment_form}
-    <!-- BEGIN admin_option -->
-    <table border="0" width="600" cellspacing="0">
       <tr>
-	<td colspan=3 align="center">
-	  <a href="{admin_url}">{lang_admin_text}</a>
-	</td>
+  		  <td colspan=2>
+				{comment_form}
+  		  </td>
+      </tr>
+      <tr>
+    	<td colspan=3 align="center">&nbsp;
+    <!-- BEGIN admin_option -->
+    	  [<a href="{admin_url}">{lang_admin_text}</a>]&nbsp;&nbsp;
+    <!-- END admin_option -->
+    	</td>
       </tr>
     </table>
-    <!-- END admin_option -->
+

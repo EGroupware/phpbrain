@@ -1,7 +1,7 @@
     <form action="{add_answer_link}" method="POST">
       <input type="HIDDEN" name="faq_id" value="{faq_id}">
 		  <input type="HIDDEN" name="is_faq" value="{is_faq}">
-      <table border="0">
+      <table width="700" align="center" cellspacing=0 cellpadding=3 style="{border:1px solid #000000;}">
 			<tr class="navbg">
 				<td colspan=3 align="center"><h1>{lang_add_answer}</h1></td>
 			</tr>
@@ -62,19 +62,19 @@
             <b>{lang_text}</b>
           </td>
           <td colspan="2">
-            <textarea name="text" cols="60" rows="20" class="edit">{text}</textarea>
+            <textarea name="text" cols="55" rows="20" class="edit">{text}</textarea>
           </td>
         </tr>
         <tr class="navbg">
-          <td align="RIGHT" colspan="2">
-            <input type="SUBMIT" value="{lang_save}" class="search">
+          <td align="LEFT">
+            <input type="SUBMIT" name="save" value="{lang_save}" class="search">
           </td>
           <td align="RIGHT">
-            <input type="RESET" value="{lang_reset}" class="search">
+            <input type="RESET" value="{lang_clear}" class="search">
           </td>
         </tr>
       </table>
     </form>
 <!-- BEGIN admin_button -->
-	<!-- i will add functions here - edit + delete -->
+	<!-- i will add functions here delete -->
 <!-- END admin_button -->

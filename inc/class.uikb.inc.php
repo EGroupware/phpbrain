@@ -20,23 +20,24 @@
 		var $cats;
 		var $t;
 		var $theme;
-		var $public_functions = array('index'		=> True,
-						'add'		=> True,
-						'add_comment'	=> True,
-						'add_question'	=> True,
-						'browse'	=> True,
-						'css'		=> True,
-						'delete'	=> True,
-						'edit'		=> True,
-						'maint_answer'	=> True,
-						'maint_question'=> True,
-						'preview'	=> True,
-						'rate'		=> True,
-						'save'		=> True,
-						'search'	=> True,
-						'unanswered'	=> True,
-						'view'		=> True,
-						'help'		=> True
+		var $public_functions = array('index'			=> True,
+									'add'				=> True,
+									'add_comment'		=> True,
+									'add_question'		=> True,
+									'browse'			=> True,
+									'confirm_delete'	=> True,
+									'css'				=> True,
+									'delete_comment'	=> True,
+									'edit'				=> True,
+									'maint_answer'		=> True,
+									'maint_question'	=> True,
+									'preview'			=> True,
+									'rate'				=> True,
+									'save'				=> True,
+									'search'			=> True,
+									'unanswered'		=> True,
+									'view'				=> True,
+									'help'				=> True
 						);
 		
 		function uikb()
@@ -67,14 +68,23 @@
 
 		function add_comment()
 		{
+			$comment_id = (isset($_POST['comment_id']) ? trim($_POST['comment_id']) : 0);
+			$comment_data['faq_id'] = (isset($_POST['faq_id']) ? trim($_POST['faq_id']) : 0);
+			$comment_data['comment'] = (isset($_POST['comment']) ? trim($_POST['comment']) : '');
 			
-			$faq_id = (int) (isset($_POST['faq_id']) ? trim($_POST['faq_id']) : 0);
-			$comment = (isset($_POST['comment']) ? trim($_POST['comment']) : '');
-			$link['menuaction'] = 'phpbrain.uikb.view';
-			if($faq_id && $comment)
+			if($comment_id)
 			{
-				$this->bo->set_comment($faq_id, $comment);
-				$link['faq_id'] = $faq_id;
+				$link['menuaction'] = 'phpbrain.uikb.edit_comments';
+			}
+			else
+			{
+				$link['menuaction'] = 'phpbrain.uikb.view';
+			}
+			
+			if($comment_data['faq_id'] && $comment_data['comment'])
+			{
+				$this->bo->set_comment($comment_id, $comment_data);
+				$link['faq_id']		= $comment_data['faq_id'];
 				$link['msg'] = 'comment_added';
 			}
 			else
@@ -337,9 +347,11 @@
 					'lang_keywords'			=> lang('keywords'),
 					'lang_category'			=> lang('category'),
 					'lang_related_url'		=> lang('related_url'),
-					'lang_text'			=> lang('text'),
-					'lang_save'			=> lang('save'),
-					'lang_reset'			=> lang('reset')
+					'lang_text'				=> lang('text'),
+					'lang_reset'			=> lang('reset'),
+					'lang_save'				=> lang('save'),
+					'lang_back'				=> lang('back'),
+					'lang_delete'			=> lang('delete')
 					);
 			$this->t->set_var($lang);
 
@@ -351,7 +363,10 @@
 
 		function help()
 		{
-			header('Location: ' . $GLOBALS['phpgw']->link('/phpbrain/help.php'));
+ 			$GLOBALS['phpgw']->common->phpgw_header();
+ 			echo parse_navbar();
+			echo '<h2>Coming Soon!</h2>';
+			echo 'This will link to the manual for this app when completed';
 			$GLOBALS['phpgw']->common->phpgw_exit();
 		}//end help
 		
@@ -359,7 +374,10 @@
 		{
 			if(!$this->bo->is_admin())
 			{
-				header('Location: ' . $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.index'));
+  			$GLOBALS['phpgw']->common->phpgw_header();
+  			echo parse_navbar();
+				echo '<h2 align="center">Coming Soon!</h2>';
+				echo 'A proper manual will be added soon';
 				$GLOBALS['phpgw']->common->exit();
 			}
 			else//must be admin
@@ -762,18 +780,6 @@
 					'lang_rate_why_explain'	=> lang('improve_by_rate'),
 					'lang_comments'		=> lang('comments')
 					);
-				$this->t->set_block('showitem', 'click_rating', 'click_ratings');
-				$rate_url = $GLOBALS['phpgw']->link('/index.php',
-					array('menuaction'	=> 'phpbrain.uikb.rate',
-					'faq_id'		=> $faq_id
-						)
-					);
-				for($i=1; $i<=5; $i++)
-				{
-					$this->t->set_var('rate_link', "$rate_url&rating=$i");
-					$this->t->set_var('rate_val', $i);
-					$this->t->parse('click_ratings', 'click_rating',true); 
-				} 
 
 				if($search)//was the user seaching?
 				{
@@ -800,6 +806,8 @@
 					);
 					$lang['return_msg'] = lang('return_to_cats %1', $this->cats->id2name($item['cat_id'])); 
 				}//end if search
+				
+				$item['text'] = nl2br($item['text']);
 
 				if($item['url'])
 				{
@@ -808,6 +816,40 @@
 				else
 				{
 					$item['rel_link'] = lang('none');
+				}
+				
+				$this->t->set_block('showitem', 'click_rating', 'click_ratings');
+				$this->t->set_block('showitem', 'b_rate', 'b_rating');
+				$this->t->set_block('showitem', 'b_no_rate', 'b_no_rating');
+				if(!@$this->bo->rated[$faq_id])
+				{
+					$rate_url = $GLOBALS['phpgw']->link('/index.php',
+                                                array('menuaction'      => 'phpbrain.uikb.rate',
+                                                        'faq_id'                => $faq_id
+                                                        )
+                                                );
+
+					for($i=1; $i<=5; $i++)
+					{
+						$this->t->set_var('rate_link', "$rate_url&rating=$i");
+						$this->t->set_var('rate_val', $i);
+						$this->t->parse('click_ratings', 'click_rating',true);
+                                	}
+					
+					$this->t->parse('b_rating', 'b_rate', True);
+					$this->t->set_var('b_no_rating', '');
+				}
+				elseif(isset($_GET['rating']))
+				{
+					$this->t->set_var('lang_rate_msg', lang('thanks_4_rating'));
+					$this->t->set_var('b_rating', '');
+					$this->t->parse('b_no_rating', 'b_no_rate', True);
+				}
+				else
+				{
+					$this->t->set_var('lang_rate_msg', lang('already_rated'));
+					$this->t->set_var('b_rating', '');
+					$this->t->parse('b_no_rating', 'b_no_rate', True);
 				}
 				
 				$this->t->set_block('showitem', 'cmnt', 'cmnts');
@@ -824,6 +866,8 @@
 						{
 							$comment_vals['comment_bg'] = $this->theme['row_off'];
 						}//end if row == even
+						
+						$comment_vals['comment_text'] = nl2br($comment_vals['comment_text']);
 
 						$this->t->set_var($comment_vals);
 						$this->t->parse('cmnts', 'cmnt',true);
@@ -892,6 +936,7 @@
 				'a.contrlink:hover, a.stats:active { font-family: '.$this->theme['font'].'; color: '.$this->theme['navbar_text'] .'; text-decoration: underline;}' . "\n".
 				'.faq_info {  font-family: '.$this->theme['font'].'; color:' . $this->theme['navbar_bg'] . '; font-size: 8pt} ' . "\n" .
 				'hr {background-color: ' . $this->theme['navbar_bg'] . '; border-width: 0px; heght: 2px;} ' . "\n" .
-					'';
+				'input, textarea {color:' . $this->theme['bg_text']. '; background-color:' .  $this->theme['bg_color'] . '; font-family: '.$this->theme['font']. '; font-size: 9pt; border: 1px solid ' . $this->theme['bg_text'] . ';} '. "\n".
+				'';
 		}
 	}	

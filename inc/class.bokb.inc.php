@@ -15,14 +15,19 @@
 
 	class bokb
 	{
-  	var $so;
+		var $cats;
+		var $rated;
+		var $so;
+		var $viewed;
   	
-  	function bokb()
-  	{
-  		$this->so = createObject('phpbrain.sokb');
-			$this->cats = createObject('phpgwapi.categories');
-			$GLOBALS['phpgw_info']['apps']['phpkb']['config'] = $this->get_config();
-  	}
+  		function bokb()
+  		{
+  			$this->cats = createObject('phpgwapi.categories');
+				$this->rated = $GLOBALS['phpgw']->session->appsession('rated','phpbrain');
+				$this->so = createObject('phpbrain.sokb');
+				$this->viewed = $GLOBALS['phpgw']->session->appsession('viewed','phpbrain');
+				$GLOBALS['phpgw_info']['apps']['phpkb']['config'] = $this->get_config();
+  		}
 		
 		function get_cat_data($cat_id)
 		{
@@ -59,6 +64,16 @@
 			}//end if is_array(cats)
 
 		}//end get_cat_data
+		
+		function delete_comment($comment_id)
+		{
+			$faq_id = (int) $faq_id;
+			if(faq_id)
+			{
+				return $this->so->delete_comment($comment_id);
+			}
+			return false;
+		}
 
 		function get_comments($faq_id)
 		{
@@ -117,7 +132,7 @@
 
 		function get_item($faq_id, $show_type = True)
 		{
-			$item = $this->so->get_item($faq_id);
+			$item = $this->so->get_item($faq_id, !@$this->viewed[$faq_id]);
 			if(is_array($item))
 			{
   				$item['last_mod']	= date('d-M-Y', $item['modified']);
@@ -128,9 +143,11 @@
 				if($show_type)
 				{
 					$item['title'] = ($item['is_faq'] 
-								? lang('question') . ': '. $item['title']
+								? lang('faq') . ': '. $item['title']
 								: lang('tutorial') . ': '. $item['title']);
 				}
+				$this->viewed[$faq_id] = True;
+				$GLOBALS['phpgw']->session->appsession('viewed','phpbrain', $this->viewed);
 
 			}//end if is_array(item)
 
@@ -218,9 +235,12 @@
 			return $this->so->set_active_question($question_ids);
 		}//end set active question
 
-		function set_comment($faq_id, $comment)
+		function set_comment($comment_id, $comment_data)
 		{
-			$this->so->set_comment($faq_id, $comment, $GLOBALS['phpgw_info']['user']['account_id']);
+			$comment_id = (int) $comment_id;
+			$comment_data['faq_id']	= (int) $comment_data['faq_id'];
+			$comment_data['user_id'] = $GLOBALS['phpgw_info']['user']['account_id'];
+			$this->so->set_comment($comment_id, $comment_data);
 		}//end set comment
 
 		function set_question($question)
@@ -230,7 +250,16 @@
 		
 		function set_rating($faq_id, $rating)
 		{
-			$this->so->set_rating($faq_id, $rating);
+			if(!@$this->rated[$faq_id])//only rate if not already done so
+			{
+				//make sure values are within a valid range
+				$rating = ($rating < 1 ? 1 : $rating);
+				$rating = ($rating > 5 ? 5 : $rating);
+
+				$this->so->set_rating($faq_id, $rating);
+				$this->rated[$faq_id] = True;
+				$GLOBALS['phpgw']->session->appsession('rated','phpbrain', $this->rated);
+			}
 		}//end set_rating
 		
 	}//end class bokb

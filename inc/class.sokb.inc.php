@@ -40,6 +40,13 @@
 			}//end is_type
 			return $i;
 		}//end delete_answer
+		
+		function delete_comment($comment_id)
+		{
+			$this->db->query("DELETE FROM phpgw_kb_comment WHERE comment_id = $comment_id");
+			//this really should only return true if rows affected == 1 
+			return true;
+		}
 
 		function delete_question($question_ids)
 		{
@@ -113,7 +120,7 @@
 			return $faqs;
 		}
 		
-		function get_item($faq_id)
+		function get_item($faq_id, $count_view)
 		{
 			$this->db->query("SELECT * FROM phpgw_kb_faq WHERE faq_id = $faq_id", __LINE__, __FILE__);
 			if($this->db->next_record())
@@ -133,7 +140,10 @@
 						'total'			=> (int) $this->db->f('total')
 							);
 
-				$this->set_view($this->db->f('faq_id'));
+				if($count_view)
+				{
+					$this->set_view($this->db->f('faq_id'));
+				}
 			}
 			return $item;
 		}
@@ -278,11 +288,21 @@
 			return $i;
 		}//end set_active_question
 
-		function set_comment($faq_id, $comment, $user_id)
+		function set_comment($comment_id, $comment_data)
 		{
-			$sql  = 'INSERT INTO phpgw_kb_comment(user_id, comment, entered, faq_id) ';
-			$sql .= "VALUES($user_id, '" . $this->db->db_addslashes($comment) . "', ". time() .", $faq_id)";
-			$this->db->query($sql, __LINE__, __FILE__); 
+			if(!$comment_id)//must be new
+			{
+  			$sql  = 'INSERT INTO phpgw_kb_comment(user_id, comment, entered, faq_id) ';
+  			$sql .= 'VALUES(' . $comment_data['user_id'] . ', ';
+				$sql .=  '"'.$this->db->db_addslashes($comment_data['comment']) . '", '. time() .','.  $comment_data['faq_id'] . ')';
+			}
+			else//must be an edit
+			{
+				$sql  = 'UPDATE phpgw_kb_comment SET ';
+				$sql .= 'comment = "' . $this->db->db_addslashes($comment_data['comment']) . '" ';
+				$sql .= "WHERE comment_id = $comment_id";
+			} 
+				$this->db->query($sql, __LINE__, __FILE__);
 		}
 
 		

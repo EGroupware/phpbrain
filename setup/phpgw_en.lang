@@ -10,6 +10,7 @@ add_comments	phpbrain	en	Add Comments
 add_question	phpbrain	en	Add Question
 add_question (%1 open)	phpbrain	en	Add Question (%1 Open)
 allow html	admin	en	Allow HTML tags in posts
+already_rated	phpbrain	en	You have already rated this item.  Thank you.
 anon user	admin	en	Anonymous User
 answer	phpbrain	en	Answer
 browse	common	en	Browse
@@ -27,6 +28,7 @@ excellent	common	en	Excellent
 explain_faq_admin	phpbrain	en	Answers to FAQs must be enabled so users can few them.  Select the FAQs you wish to enable.  Alternatively you can select inappropriate responses which you wish to delete.
 explain_maintain_answers	phpbrain	en	Questions submitted by users must be activated by an admin user.  Select those answers that you wish to activate or alternatively delete
 explain_questions_admin	phpbrain	en	Answers submitted by users must be activated by an admin user.  Select those questions that you wish to activate or alternatively delete
+faq	phpbrain	en	FAQ
 faq_saved	phpbrain	en	FAQ Saved
 faqs	phpbrain	en	FAQs
 faqs_and_tutes	phpbrain	en	FAQs and Tutorials
@@ -67,6 +69,7 @@ section_maintain_questions	phpbrain	en	Maintain Questions
 show	phpbrain	en	show
 submitted_by	phpbrain	en	Submitted By
 text	common	en	Text
+thanks_4_rating	phpbrain	en	Thank you for rating this item.
 tutorial	phpbrain	en	Tutorial
 tutorials	phpbrain	en	Tutorials
 up	phpbrain	en	up

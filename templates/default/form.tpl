@@ -1,8 +1,8 @@
-    <form action="{form_url}" name="comment" method="POST">
-	<!-- BEGIN hidden_var -->
-	<input type="HIDDEN" name="{hidden_name}" value="{hidden_val}"> 
-	<!-- END hidden_var -->
-      <table border="0" width="600" cellspacing="0" class="navbg">
+    <form action="{form_url}" name="kb_form" method="POST">
+  	<!-- BEGIN hidden_var -->
+    	<input type="HIDDEN" name="{hidden_name}" value="{hidden_val}"> 
+  	<!-- END hidden_var -->
+      <table border="0" width="100%" cellspacing="0" class="navbg">
         <tr>
           <td>&nbsp;</td>
           <td>{lang_title}</td>
