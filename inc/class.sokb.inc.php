@@ -94,7 +94,7 @@
 			$topic = ($this->db->Type == 'mssql')? 'CAST(topic AS varchar)' : 'topic';
 			$files= ($this->db->Type == 'mssql')? 'CAST(files AS varchar)' : 'files';
 
-			$fields = array('DISTINCT phpgw_kb_articles.art_id', $title, $topic, 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5', 'files', 'score');
+			$fields = array('DISTINCT phpgw_kb_articles.art_id', $title, $topic, 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5', $files, 'score');
 			$fields_str = implode(', ', $fields);
 			$owners = implode(', ', $owners);
 
