@@ -124,11 +124,11 @@
 			{
 				if ($this->bo->is_admin())
 				{
-					$msg='Question added to database';
+					$msg='question_added';
 				}
 				else
 				{
-					$msg = 'Question added. It will appear on the database after revision of the administrator';
+					$msg = 'question_saved';
 				}
 			}
 			else
@@ -609,7 +609,7 @@
   			header ('Location: ' . $GLOBALS['phpgw']->link('/index.php', 
   									array('menuaction'	=> 'phpbrain.uikb.index',
   										'faq_id'		=>  $faq_id,
-  										'msg'			=> ($this->bo->is_admin() ? 'Answer added to database' : 'Answer saved. Wait for aproval from the administrator to appear on database' )
+  										'msg'			=> ($this->bo->is_admin() ? 'answer_added' : 'answer_saved' )
   										)
   									)
   					);
@@ -620,7 +620,7 @@
 		function unanswered($msg = '')
 		{
 			$GLOBALS['phpgw']->common->phpgw_header();
-			$GLOBALS['phpgw_info']['flags']['app_header'] = lang($GLOBALS['phpgw_info']['flags']['currentapp']) . ' - ' . lang('Add Question');
+			$GLOBALS['phpgw_info']['flags']['app_header'] = lang($GLOBALS['phpgw_info']['flags']['currentapp']) . ' - ' . lang('add_question');
 			echo parse_navbar();
 			$this->t->set_file('unanswered', 'unanswered.tpl');
 			$this->t->set_block('unanswered', 'open_list', 'open_ones');
