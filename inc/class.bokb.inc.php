@@ -196,10 +196,15 @@
 			return $this->so->set_active_answer($faq_ids);
 		}//end set active answer
 		
+		function set_active_question($question_ids)
+		{
+			return $this->so->set_active_question($question_ids);
+		}//end set active question
+
 		function set_question($question)
 		{
 			return $this->so->set_question($question, $this->is_admin());
-		}
+		}//end set question
 		
 		function set_rating($faq_id, $rating)
 		{

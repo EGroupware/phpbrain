@@ -345,7 +345,7 @@
   
   				foreach($faqs as $key => $vals)
   				{
-  					$this->t->set_var(array('faq_id'	=> $key,
+  					$this->t->set_var(array('id'		=> "faq_id[$key]",
   											'text'		=> $vals['text'],
 												'row_bg'	=> (($row%2) ? $this->theme['row_on'] : $this->theme['row_off']),
 												'extra'		=> '<a href="'.$GLOBALS['phpgw']->link('/index.php', 
@@ -374,6 +374,63 @@
 			}//end is admin
 		}//end maint answers
 		
+		function maint_question()
+		{
+			if(!$this->bo->is_admin())
+			{
+				header('Location: ' . $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.index'));
+				$GLOBALS['phpgw']->common->exit();
+			}
+			else//must be admin
+			{
+				$msg = '';
+				if($_POST['activate'] && (count($_POST['question_id']) != 0))
+				{
+					$msg = lang('%1 questions_activated', $this->bo->set_active_question($_POST['question_id']));
+				}
+				if($_POST['delete'] && (count($_POST['question_id']) != 0))
+				{
+					$msg = lang('%1 questions_deleted', $this->bo->delete_answer($_POST['question_id']));
+				}
+  			$GLOBALS['phpgw']->common->phpgw_header();
+  			echo parse_navbar();
+  			$this->t->set_file('admin_maint', 'admin_maint.tpl');
+  			$this->t->set_block('admin_maint', 'pending_list', 'pending_items');
+  			$this->t->set_block('admin_maint', 'pending_block', 'p_block');
+  			$this->t->set_var('admin_url', $GLOBALS['phpgw']->link('/admin/index.php'));
+  			$this->t->set_var('lang_return_to_admin', lang('return_to_admin'));
+				$this->t->set_var('msg', ((strlen($msg) !=0) ? $msg : '&nbsp;'));
+
+				$questions = $this->bo->get_questions(true);				
+  			if(is_array($questions))
+  			{
+  				foreach($questions as $key => $val)
+  				{
+  					$this->t->set_var(array('id'		=> "question_id[$key]",
+  											'text'		=> $val,
+												'row_bg'	=> (($row%2) ? $this->theme['row_on'] : $this->theme['row_off']),
+  											)
+  									);
+  					$this->t->parse('pending_items', 'pending_list', true);
+  					$row++;
+   				}//end foreach(pending)
+					$lang = array('lang_explain_function'	=> lang('explain_questions_admin'),
+								'lang_admin_section'		=> lang('section_maintain_questions'),
+								'lang_enable'				=> lang('enable'),
+								'lang_delete'				=> lang('delete'),
+								'form_action'				=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.maint_question')
+								);
+					$this->t->set_var($lang);
+  				$this->t->parse('p_block', 'pending_block');
+  			}
+  			else//no pending faqs
+  			{
+  				$this->t->set_var('p_block', lang('none_pending'));
+  			}//end if is_array(open)
+  			$this->t->pfp('out', 'admin_maint');
+			}//end is admin
+		}//end maint question
+
 		function preview()
 		{
 			$this->view(false);

@@ -14,7 +14,7 @@
 		<!-- BEGIN pending_list -->
       <tr bgcolor="{row_bg}">
         <td nowrap="nowrap" width="10%" align="center">
-          <input type="checkbox" name="faq_id[{faq_id}]"> 
+          <input type="checkbox" name="{id}"> 
         </td>
         <td>{text} {extra}</td>
       </tr>

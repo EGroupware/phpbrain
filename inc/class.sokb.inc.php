@@ -24,14 +24,22 @@
 
 		function delete_answer($faq_ids)
 		{
-			$i=0;
-			foreach($faq_ids as $key => $val)
+			if(is_array($faq_ids))
 			{
-				$this->db->query("DELETE FROM phpgw_kb_faq WHERE faq_id = $key");
-				$i++;
+				$i=0;
+  			foreach($faq_ids as $key => $val)
+  			{
+  				$this->db->query("DELETE FROM phpgw_kb_faq WHERE faq_id = $key");
+  				$i++;
+  			}//end foreach(q_id)
 			}
+			elseif(is_int($faq_ids))
+			{
+				$this->db->query("DELETE FROM phpgw_kb_faq WHERE faq_id = $faq_ids");
+				$i = 1;
+			}//end is_type
 			return $i;
-		}//end set_active_answer
+		}//end delete_answer
 
 		function delete_question($question_ids)
 		{
@@ -50,7 +58,7 @@
 				$i = 1;
 			}//end is_type
 			return $i;
-		}//end set_active_answer
+		}//end delete question
 
 		function get_stats()
 		{	
@@ -253,6 +261,18 @@
 			}
 			return $i;
 		}//end set_active_answer
+
+		function set_active_question($question_ids)
+		{
+			$i=0;
+			foreach($question_ids as $key => $val)
+			{
+				$this->db->query("UPDATE phpgw_kb_questions SET pending = 0 WHERE question_id = $key", __LINE__, __FILE__);
+				$i++;
+			}
+			return $i;
+		}//end set_active_question
+
 		
 		//generic 
 		function search_ansisql($search, $show)
