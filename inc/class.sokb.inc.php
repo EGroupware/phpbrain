@@ -247,13 +247,16 @@
 			$all_words = $this->db->db_addslashes($all_words);
 			$all_words = strlen($all_words)? explode(' ', $all_words) : False;
 			$each_field = array();
-			foreach ($all_words as $word)
+			if ($all_words)
 			{
-				$each_field[] = "(" . implode(" LIKE '%$word%' OR ", $target_fields) . " LIKE '%$word%')";
-			}
-			if ($each_field)
-			{
-				$sql .= " AND " . implode(" AND ", $each_field);
+				foreach ($all_words as $word)
+				{
+					$each_field[] = "(" . implode(" LIKE '%$word%' OR ", $target_fields) . " LIKE '%$word%')";
+				}
+				if ($each_field)
+				{
+					$sql .= " AND " . implode(" AND ", $each_field);
+				}
 			}
 
 			// "with the exact phrase" filtering
