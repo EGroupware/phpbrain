@@ -733,15 +733,10 @@
 				$data[] = $this->article_id;
 				$GLOBALS['phpgw']->session->appsession('feedback', 'phpbrain', $data);
 				$upgrade_key = $_POST['yes_easy']? True : False;
-				$fields = array('title', 'topic', 'text');
 				$words = explode(' ', $_POST['feedback_query']);
 				foreach ($words as $word)
 				{
-					$regexp = ereg_replace('[\.\*\?\+\(\)\{\}\^\$\|\\]','\\\\0' , $word);
-					foreach ($fields as $field)
-					{
-						if (ereg($regexp, $article[$field])) $this->so->update_keywords($this->article_id, $word, $upgrade_key);
-					}
+					$this->so->update_keywords($this->article_id, $word, $upgrade_key);
 				}
 			}
 
