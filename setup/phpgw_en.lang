@@ -40,6 +40,7 @@ invalid faq request - or something is nqr	phpbrain	en	ERROR: Invalid FAQ Request
 kb_contains	phpbrain	en	Knowledge Base Contains
 know_contrib	phpbrain	en	Do you know the answer? If so, answer it.
 last_mod %1	phpbrain	en	Last Modified: %1
+Modified	phpbrain	en	Modified
 maintain_answers	phpbrain	en	Maintain Answers
 no comments	phpbrain	en	No Comments
 none found - revise or browse	phpbrain	en	Nothing found - please revise your seach or browse
@@ -78,3 +79,11 @@ up	phpbrain	en	up
 views	phpbrain	en	Views
 views %1	phpbrain	en	views %1
 votes %1	phpbrain	en	votes %1
+Avg. score	phpbrain	en	Avg. score
+Actions	phpbrain	phpbrain	en	Actions
+Answered	phpbrain	en	Answered
+Open	phpbrain	en	Open
+answer_added	phpbrain	en	Answer added to database
+answer_saved	phpbrain	en	Answer saved. Wait for aproval from the administrator to appear on database
+question_added	phpbrain	en	Question added to database
+question_saved	phpbrain	en	Question saved. It will appear on the database after revision of the administrator
