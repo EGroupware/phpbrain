@@ -97,7 +97,7 @@
 
 		'phpgw_kb_search' => array(
 			'fd' => array(
-				'keyword'	=> array('type' => 'varchar', 'precision' => '10','nullable' => False),
+				'keyword'	=> array('type' => 'varchar', 'precision' => '30','nullable' => False),
 				'art_id'	=> array('type' => 'int','precision' => '4','nullable' => False),
 				'score'		=> array('type' => 'int','precision' => '8','nullable' => False)
 			),
