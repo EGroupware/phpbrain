@@ -1250,7 +1250,7 @@
 				else
 				{
 					$checking_spell =True;
-					$btn_save		= "<input type='submit' name='confirm_spell' value='". lang('Confirm') . ">&nbsp;";
+					$btn_save		= "<input type='submit' name='confirm_spell' value='". lang('Confirm') . "'>&nbsp;";
 					$btn_cancel		= '';
 					$this->message		= lang('Correct the errors and press confirm');
 				}
