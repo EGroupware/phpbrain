@@ -1,7 +1,7 @@
 <?php
 	/**************************************************************************\
-	* phpGroupWare - Addressbook                                               *
-	* http://www.phpgroupware.org                                              *
+	* eGroupWare - Addressbook                                                 *
+	* http://www.egroupware.org                                                *
 	* --------------------------------------------                             *
 	*  This program is free software; you can redistribute it and/or modify it *
 	*  under the terms of the GNU General Public License as published by the   *
@@ -23,8 +23,8 @@
 	$setup_info['phpbrain']['license']  = 'GPL';
 	$setup_info['phpbrain']['description'] =
 		'Searchable Knowledge Base.';
-	$setup_info['phpbrain']['maintainer'] = 'Dave Hall';
-	$setup_info['phpbrain']['maintainer_email'] = 'dave.hall@mbox.com.au';
+	$setup_info['phpbrain']['maintainer'] = 'Alejandro Pedraza';
+	$setup_info['phpbrain']['maintainer_email'] = 'alpeb@users.sourceforge.net';
 
 	/* The hooks this app includes, needed for hooks registration */
 	$setup_info['phpbrain']['hooks'][] = 'about';
