@@ -258,7 +258,7 @@
 				$this->path = '';
 				$this->t->set_var(array(
 					'line_num'		=> $i+1,
-					'art_href'		=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id=' . $art_preview['art_id']),
+					'art_href'		=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id=' . $most_viewed[$i]['art_id']),
 					'art_title'		=> $most_viewed[$i]['title'],
 					'unpublished'	=> $unpublished,
 					'art_category'	=> $this->category_path($most_viewed[$i]['cat_id']),
