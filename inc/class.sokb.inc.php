@@ -244,7 +244,7 @@
 					$sql .= "'" . $this->db->db_addslashes($faq['text']) . "', ";
 					$sql .= $faq['cat_id'] . ", ";
 					$sql .= ($admin ? 1 : 0) . ', ';//admin is auto publish
-					$sql .= $this->db->db_addslashes($faq['keywords']) . "',";
+					$sql .= "'" . $this->db->db_addslashes($faq['keywords']) . "',";
 					$sql .= $faq['user_id'] . ', ';
 					$sql .= '0, '; //views must be 0 for new entries
 					$sql .= time() . ',  '; 
