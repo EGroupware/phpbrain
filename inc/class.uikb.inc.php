@@ -1432,7 +1432,7 @@
 			$this->t->set_file('question_form', 'question.tpl');
 			$message = '';
 
-			if (!$this->bo->admin_config['post_questions'] || $this->bo->admin_config['post_questions'] == 'True')
+			if ($this->bo->admin_config['publish_questions'] == 'True')
 			{
 				$lang_posting_process = 'Your question will be published immediately';
 			}
@@ -1676,7 +1676,7 @@
 
 			// obtain articles to which one has any kind of permission
 			if ($this->sitemgr) $this->bo->publish_filter = 'published';
-			$questions_list = $this->bo->search_articles($actual_category, $this->bo->publish_filter, $this->bo->read_right | $this->bo->edit_right, $this->bo->publish_right, True);
+			$questions_list = $this->bo->search_articles($actual_category, $this->bo->publish_filter, $this->bo->read_right | $this->bo->edit_right | $this->bo->publish_right, True);
 			//echo "questions_list: <pre>";print_r($questions_list);echo "</pre>";
 
 			// Process question deletion
@@ -1708,6 +1708,40 @@
 				if (!$errors)
 				{
 					$message = $_GET['delete']? 'del_q_ok' : 'del_qs_ok';
+				}
+				$GLOBALS['phpgw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.maintain_questions&message=' . $message);
+				die();
+			}
+
+			// Process question publication
+			if ($_GET['publish'] || $_POST['publish_selected'])
+			{
+				if ($_GET['publish'])
+				{
+					$selected = array($_GET['publish'] => '');
+				}
+				else
+				{
+					$selected = $_POST['select'];
+				}
+				$errors = False;
+				foreach ($selected as $question_id => $trash)
+				{
+					$target_question = array();
+					foreach ($questions_list as $question)
+					{
+						if ($question['question_id'] == $question_id)
+						{
+							$target_question = $question;
+							break;
+						}
+					}
+					$message = $this->bo->publish_question($target_question['question_id'], $target_question['user_id']);
+					if ($message != 'publish_ok') $errors = $message;
+				}
+				if (!$errors)
+				{
+					$message = $_GET['publish']? 'publish_ok' : 'publishs_ok';
 				}
 				$GLOBALS['phpgw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.maintain_questions&message=' . $message);
 				die();
