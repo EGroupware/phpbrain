@@ -1269,7 +1269,7 @@
 			$GLOBALS['phpgw']->send->AddAddress($recipient);
 			$GLOBALS['phpgw']->send->Subject = get_var('subject', 'POST');
 			$GLOBALS['phpgw']->send->Body = get_var('txt_message', 'POST', lang('E-GroupWare Knowledge Base article attached'));
-			$GLOBALS['phpgw']->send->AddStringAttachment($article_contents, lang('article'), 'base64', 'text/html');
+			$GLOBALS['phpgw']->send->AddStringAttachment($article_contents, lang('article').'.html', 'base64', 'text/html');
 			$message = '';
 			if (!$GLOBALS['phpgw']->send->Send())
 			{
