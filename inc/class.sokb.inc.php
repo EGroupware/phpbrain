@@ -27,9 +27,28 @@
 			$i=0;
 			foreach($faq_ids as $key => $val)
 			{
-				$this->db->query("DELETE FROM phpgw_kb_faqs WHERE faq_id = $key");
+				$this->db->query("DELETE FROM phpgw_kb_faq WHERE faq_id = $key");
 				$i++;
 			}
+			return $i;
+		}//end set_active_answer
+
+		function delete_question($question_ids)
+		{
+			if(is_array($question_ids))
+			{
+				$i=0;
+  			foreach($question_ids as $key => $val)
+  			{
+  				$this->db->query("DELETE FROM phpgw_kb_questions WHERE question_id = $key");
+  				$i++;
+  			}//end foreach(q_id)
+			}
+			elseif(is_int($question_ids))
+			{
+				$this->db->query("DELETE FROM phpgw_kb_questions WHERE question_id = $question_ids");
+				$i = 1;
+			}//end is_type
 			return $i;
 		}//end set_active_answer
 
@@ -42,7 +61,7 @@
     	$stats['num_faqs'] = $this->db->f(0);
     
     	/* how many tutorials? */
-    	$this->db->query('SELECT COUNT(*) FROM phpgw_kb_faq WHERE is_faq = 1', __LINE__, __FILE__);
+    	$this->db->query('SELECT COUNT(*) FROM phpgw_kb_faq WHERE published = 1 AND is_faq = 1', __LINE__, __FILE__);
     	$this->db->next_record();
     	$stats['num_tutes'] = $this->db->f(0);
     
@@ -126,7 +145,7 @@
 
     function get_count($cat_id)
     {
-    	$this->db->query("SELECT COUNT(*) FROM phpgw_kb_faq WHERE cat_id = $cat_id", __LINE__, __FILE__);
+    	$this->db->query("SELECT COUNT(*) FROM phpgw_kb_faq WHERE cat_id = $cat_id AND published = 1", __LINE__, __FILE__);
 			if($this->db->next_record())
 			{
 				return $this->db->f(0); 
@@ -174,8 +193,8 @@
 
 		function get_questions($pending = false)
 		{
-			$where = ($pending ? 'pending = 0' : 'pending = 1');
-			$this->db->query('SELECT * FROM phpgw_kb_questions WHERE ' . $where, __LINE__, __FILE__);
+			$where = ($pending ? 'pending = 1' : 'pending = 0');
+			$this->db->query("SELECT * FROM phpgw_kb_questions WHERE $where", __LINE__, __FILE__);
 			while($this->db->next_record())
 			{
 				$open_q[$this->db->f('question_id')] = $this->db->f('question', true); 
@@ -196,7 +215,8 @@
 					$sql .= ' text = "' . $this->db->db_addslashes($faq['text']) . '",';
 					$sql .= ' modified = ' . time() .',';
 					$sql .= ' user_id = ' . $faq['user_id'] .',';
-					$sql .= ' published = ' . ($admin ? 1 : 0) . ' ';
+					$sql .= ' published = ' . ($admin ? 1 : 0) . ', ';
+					$sql .= ' is_faq = ' . $faq['is_faq'];
 					$sql .= " WHERE faq_id = $faq_id";
 					$this->db->query($sql);
 					if($this->db->affected_rows() == 1)

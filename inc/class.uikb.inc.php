@@ -54,9 +54,10 @@
 
 		function add()
 		{
-			if(isset($_GET['question']))
+			if(isset($_GET['question']) && isset($_GET['question_id']))
 			{
 				$this->edit_vals['title'] = urldecode(trim($_GET['question']));
+				$this->edit_vals['question_id'] = trim($_GET['question_id']);
 			}//end if question
 			$this->edit_answer();
 			$GLOBALS['phpgw']->common->phpgw_exit();
@@ -270,8 +271,18 @@
 		{
 			$GLOBALS['phpgw']->common->phpgw_header();
 			echo parse_navbar();
-			$cat_options = $this->cats->formatted_list('select','all',$this->edit_vals['cat_id']);
+
 			$this->t->set_file('edit_faq', 'edit_faq.tpl');
+
+			$this->t->set_var('add_answer_link', $GLOBALS['phpgw']->link('/index.php', 
+												array('menuaction'	=> 'phpbrain.uikb.save',
+													'question_id'	=> $this->edit_vals['question_id']
+													)
+												)
+							);
+
+			$this->t->set_var($this->edit_vals);
+
 			$lang = array('lang_add_answer'			=> lang('add_answer'),
 						'lang_check_before_submit'	=> lang('check_before_submit'),
 						'lang_not_submit_qs_warn'	=> lang('not_submit_qs_warn'),
@@ -283,10 +294,11 @@
 						'lang_save'					=> lang('save'),
 						'lang_reset'				=> lang('reset')
 						);
-
 			$this->t->set_var($lang);
+
+			$cat_options = $this->cats->formatted_list('select','all',$this->edit_vals['cat_id']);
 			$this->t->set_var('cats_options', $cat_options);
-			$this->t->set_var($this->edit_vals);
+
 			$this->t->pfp('out', 'edit_faq');
 		}//end edit question
 
@@ -300,7 +312,7 @@
 		{
 			if(!$this->bo->is_admin())
 			{
-				header('Location: ' . $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikn.index'));
+				header('Location: ' . $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.index'));
 				$GLOBALS['phpgw']->common->exit();
 			}
 			else//must be admin
@@ -327,7 +339,8 @@
   			if(is_array($faqs))
   			{
   				$this->t->set_var(array('lang_admin_section'	=> lang('maintain_answers'),
-  										'lang_explain_function'	=> lang('explain_maintain_answers')));
+  										'lang_explain_function'	=> lang('explain_maintain_answers'),
+											'form_action'			=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.maint_answer')));
   
   				foreach($faqs as $key => $vals)
   				{
@@ -369,12 +382,14 @@
 		
 		function save()
 		{
-			$faq_id = (int) (isset($_POST['faq_id']) ? trim($_POST['faq_id']) : 0);
-			$faq['cat_id'] = (int) (isset($_POST['cat_id']) ? trim($_POST['cat_id']) : 0);
-			$faq['title'] = (isset($_POST['title']) ? trim($_POST['title']) : '');
-			$faq['keywords'] = (isset($_POST['keywords']) ? trim($_POST['keywords']) : '');
-			$faq['text'] = (isset($_POST['text']) ? trim($_POST['text']) : '');
-			$faq_id = $this->bo->save($faq_id, $faq);
+			$faq_id 		= (int) (isset($_POST['faq_id']) ? trim($_POST['faq_id']) : 0);
+			$question_id 	= (int) (isset($_GET['question_id']) ? trim($_GET['question_id']) : 0);
+			$faq['cat_id'] 	= (int) (isset($_POST['cat_id']) ? trim($_POST['cat_id']) : 0);
+			$faq['title'] 	= (isset($_POST['title']) ? trim($_POST['title']) : '');
+			$faq['keywords']= (isset($_POST['keywords']) ? trim($_POST['keywords']) : '');
+			$faq['text'] 	= (isset($_POST['text']) ? trim($_POST['text']) : '');
+			$faq['is_faq'] 	= (int) (isset($_POST['is_faq']) ? trim($_POST['is_faq']) : 0);
+			$faq_id = $this->bo->save($faq_id, $faq, $question_id);
 			if($faq_id)
 			{
   			header ('Location: ' . $GLOBALS['phpgw']->link('/index.php', 
@@ -575,7 +590,7 @@
 					$this->t->set_var(array('question_id'	=> $id,
 											'question_text'	=> $question,
 											'lang_option'	=> $lang_opt,
-											'link_option'	=> "$link_opt&question=" . urlencode($question),
+											'link_option'	=> "$link_opt&question=" . urlencode($question) . '&question_id=' . $id,
 											'row_bg'		=> (($row%2) ? $this->theme['row_on'] : $this->theme['row_off'])
 											)
 									);
@@ -606,7 +621,7 @@
 			if(is_array($item) && $faq_id)
 			{
   			$this->t->set_file('showitem', 'showitem.tpl');
-				$lang = array('msg'					=> ($msg ? lang('msg') : ''),
+				$lang = array('msg'					=> ($msg ? lang($msg) : ''),
 							'lang_submitted_by'		=> lang('submitted_by'),
 							'lang_views'			=> lang('views'),
 							'lang_rating'			=> lang('rating'),

@@ -1,5 +1,6 @@
     <form action="{add_answer_link}" method="POST">
-      <input type= "HIDDEN" name="faq_id" value="{$faq_id}">
+      <input type="HIDDEN" name="faq_id" value="{faq_id}">
+		  <input type="HIDDEN" name="is_faq" value="{is_faq}">
       <table border="0">
 			<tr class="navbg">
 				<td colspan=3 align="center"><h1>{lang_add_answer}</h1></td>

@@ -90,12 +90,12 @@
 		
 		function get_faq_list($cat_id = '', $unpublished = false)
 		{
-			if(!$this->is_admin() && !$unpublished)
+			if(!$this->is_admin() && $unpublished)
 			{
 				$unpublished = false;
 			}
 
-			$faqs = $this->so->get_faq_list($cat_id);
+			$faqs = $this->so->get_faq_list($cat_id, $unpublished);
 			if(is_array($faqs))
 			{
   			foreach($faqs as $faq_id => $faq_vals)
@@ -132,8 +132,7 @@
 		
 		function get_questions($pending = false)
 		{
-			
-			if(!$this->is_admin() && $pending = true)
+			if(!$this->is_admin() && $pending)
 			{
 				return null;
 			}
@@ -166,7 +165,6 @@
 		function is_admin()
 		{
 			return isset($GLOBALS['phpgw_info']['user']['apps']['admin']);
-			//return $GLOBALS['phpgw']->acl->check('run', 1, 'admin');
 		}//end is_admin
 		
 		function is_anon()
@@ -175,7 +173,7 @@
 						== $GLOBALS['phpgw_info']['user']['account_id']);
 		}//end is_anon
 
-		function save($faq_id, $faq)
+		function save($faq_id, $faq, $question_id)
 		{
 			if(!$GLOBALS['phpgw_info']['apps']['phpkb']['config']['alow_tags'])
 			{
@@ -184,7 +182,13 @@
   			$faq['text'] = strip_tags($faq['text']);
 			}
 			$faq['user_id'] = $GLOBALS['phpgw_info']['user']['account_id'];
-			return $this->so->save($faq_id, $faq, $this->is_admin());
+			$new_faq_id = $this->so->save($faq_id, $faq, $this->is_admin());
+			if($new_faq_id && $question_id && !$faq_id)
+			{
+				$this->so->delete_question($question_id);
+			}
+			return $new_faq_id;
+			
 		}//end save
 		
 		function set_active_answer($faq_ids)

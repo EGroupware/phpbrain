@@ -1,4 +1,3 @@
-		en	
 %1 matches found	phpbrain	en	%1 Matches Found
 cant_post_must_register	phpbrain	en	You must be a registered user to be able to add information to the knowledge base
 current_questions	phpbrain	en	Current Questions
@@ -17,3 +16,4 @@ phpbrain	phpbrain	en	phpBrain
 question	phpbrain	en	Question
 show	phpbrain	en	Show
 tutorials	phpbrain	en	Tutorials
+up	common	en	up
