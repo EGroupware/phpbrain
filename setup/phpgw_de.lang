@@ -37,6 +37,7 @@ articles deleted successfully	phpbrain	de	Artikel erfolgreich gelöscht
 articles have been published	phpbrain	de	Artikel wurde veröffentlicht
 articles in %1	phpbrain	de	Artikel in %1
 articles in %1 and all its subcategories	phpbrain	de	Artikel in %1 und in allen Unterkategorien
+articles not classified under any category	phpbrain	de	Artikel welche keiner Kategorie zugeteilt wurden
 ascendent	phpbrain	de	Aufsteigend
 attach file	phpbrain	de	Datei hinzufügen
 attached files	phpbrain	de	Hinzugefügte Dateien
@@ -75,14 +76,17 @@ enter one or two words describing the issue, or type the article number if you k
 error deleting article from database	phpbrain	de	Es ist ein Fehler beim löschen des Artikel in der Datenbank aufgetreten
 error deleting link	phpbrain	de	Fehler beim löschen des Link
 error downloading file	phpbrain	de	Fehler beim runterladen der Datei
+error locating files directory	phpbrain	de	Der Datei Ordner konnte nicht gefunden werden
 error moving file to directory	phpbrain	de	Beim verschieben der Datein in den Ordner ist ein Fehler aufgetreten
 error publishing comment	phpbrain	de	Es ist ein Fehler beim veröffentlichen des Kommentars aufgetreten
 error trying to delete comment	phpbrain	de	Es ist ein Fehler beim löschen des Kommentars
 error trying to delete question	phpbrain	de	Es ist ein Fehler beim löschen der Frage
 error trying to edit article	phpbrain	de	Es ist ein Fehler beim versuch diesen Artikel zu bearbeiten
-error: file doesn\'t exist in the database	phpbrain	de	Fehler: Diese Datei existiert nicht
+error trying to publish article	phpbrain	de	Fehler beim veröffentlichen des Artikels
+error: file doesn\'t exist in the database	phpbrain	de	Fehler: Die Datein existiert nicht in der Datenbank
 example	phpbrain	de	Beispiel
 excellent	phpbrain	de	Sehr gut
+failure trying to delete the file	phpbrain	de	Es sit ein Fehler aufgetreten beim Versuch den Artikel zu löschen
 faq	phpbrain	de	FAQ
 faq_saved	phpbrain	de	FAQ gespeichert
 faqs	phpbrain	de	FAQs
@@ -90,9 +94,11 @@ faqs_and_tutes	phpbrain	de	FAQs und Anleitungen
 file could be deleted from server but not from database	phpbrain	de	Datei konnte auf dem Server gelöscht werden, jedoch nicht in der Datenbank
 file has been successfully uploaded	phpbrain	de	Datei wurde erfolgreich hochgeladen
 file was deleted successfully	phpbrain	de	Datein wurde erfolgreich gelöscht
+file wasn\'t in server and it couldn\'t be deleted from the database	phpbrain	de	Die Datei wurde nicht auf dem Server gefunden und konnte nicht in der Datenbank gelöscht werden
 find results	phpbrain	de	Finde Ergebnisse
 have to be approved first	common	de	Müss zuerst überprüft werden
 history	phpbrain	de	Historie
+if you can\'t find answers to your problem in the knowledge base, describe it below	phpbrain	de	Wenn Sie die Antwort auf Ihr Problem in der Datenbank nicht finden, beschreiben Sie es unten
 if you wish, you can comment this article here	phpbrain	de	Sie können diesen Artikel hier kommentieren
 improve_by_rate	phpbrain	de	Helfen Sie und die Qualität der Einträge zu verbesser indem Sie diese beurteilen
 in %1	phpbrain	de	in %1
@@ -120,10 +126,12 @@ links & files	phpbrain	de	Links und Dateien
 mail article	phpbrain	de	Artikel per Mail versenden
 main view	phpbrain	de	Gesamtübersicht
 maintain_answers	phpbrain	de	Antworten verwalten
+maximum number of comments to show:	phpbrain	de	Maximale Anzahl von Artikeln welche angezeigt werden soll
 modification date	phpbrain	de	Änderungs Datum
 most viewed	phpbrain	de	Meist gelesen
 new article	phpbrain	de	Neuer Artikel
 no comments	phpbrain	de	keine Kommentare
+nobody has rated this article so far	phpbrain	de	Dieser Artikel wurde noch nicht bewertet
 none	phpbrain	de	Keine
 none found - revise or browse	phpbrain	de	Nichts gefunden - please revise your seach or browse
 none_pending	phpbrain	de	Keine offenen vorhanden
@@ -137,6 +145,7 @@ number of results per page	phpbrain	de	Anzehl Treffer
 order results by	phpbrain	de	Ergebnisse sortieren nach
 past %1 months	phpbrain	de	letzte %1 Monate
 past year	phpbrain	de	letztes Jahr
+people have rated this article	phpbrain	de	Dieser Artikel wurde bewerted von folgenden Personen
 phpbrain	common	de	Wissensdatenbank
 phpbrain config	admin	de	Wissensdatenbank konfiguration
 phpbrain_config	phpbrain	de	Wissensdatenbank konfiguration
@@ -144,6 +153,7 @@ please try again	phpbrain	de	Bitte versuchen Sie es erneut
 poor	phpbrain	de	Schlecht
 preview	phpbrain	de	Vorschau
 printer view	phpbrain	de	Drucker freundliche Darstellung
+problem relating articles	phpbrain	de	Fehler beim bewerten des Artikels
 publication date	phpbrain	de	Erstellungs Datum
 publish	phpbrain	de	Veröffentlichen
 publish articles automatically?	common	de	Artikel automatisch veröffentlichen
@@ -178,6 +188,8 @@ select articles	phpbrain	de	Ausgewählte Artikel
 show	phpbrain	de	zeigen
 show all comments	phpbrain	de	Alle Kommentare anzeigen
 show messages in category	phpbrain	de	Zeige Nachrichten in Kategorie
+submit comment	phpbrain	de	Kommentar absenden
+submit comment and rating	phpbrain	de	Kommentar und Bewertung absenden
 submitted_by	phpbrain	de	Eingereicht von
 summary	phpbarin	de	Summe
 text	common	de	Text
@@ -185,8 +197,9 @@ thanks_4_rating	phpbrain	de	Vielen Dank für Ihre Bewertung
 that file already exists	phpbrain	de	Diese Datei existiert bereits
 the article is empty	phpbrain	de	Dieser Artikel ist leer
 the following errors occurred	phpbrain	de	Die follgenden Fehler sind aufgetreten
-this article hasn\'t yet been published in the knowledge base	phpbrain	de	Dieser Artikel wurde noch nicht veröffentlicht in der Wissendatenbank
+this article hasn\'t yet been published in the knowledge base	phpbrain	de	Dieser Artikel wurde in der Wissensdatenbank noch nicht veröffentlicht
 title	phpbrain	de	Titel
+to create categories, press \'edit categories\' in the preferences menu	phpbrain	de	Um Kategorien hinzuzufügen, Klicken Sie auf "Kategorien bearbeiten" in den Einstellungen
 topic	phpbrain	de	Thema
 tutorial	phpbrain	de	Anleitung
 tutorials	phpbrain	de	Anleitungen
@@ -200,6 +213,7 @@ views %1	phpbrain	de	Besuche %1
 votes %1	phpbrain	de	Bewertungen %1
 with all the words	phpbrain	de	Beinhaltet alle Worte
 with at least one of the words	phpbrain	de	Beinhaltet mindestens eins der Worte
+with the exact phrase	phpbrain	de	Mit der genauen Phrase
 without the words	phpbrain	de	Beinhaltet keines der Worte
 you are in %1	phpbrain	de	Sie befinden sich in %1
 you have already qualified this article	phpbrain	de	Sie haben schon eine Bewertung zu diesem Artikel abgegeben
