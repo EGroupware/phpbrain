@@ -6,6 +6,7 @@
 %1 questions_deleted	phpbrain	en	%1 Questions Deleted
 add_answer	phpbrain	en	Add Answer
 add_comments	phpbrain	en	Add Comments
+add_question	phpbrain	en	Add Question
 add_question (%1 open)	phpbrain	en	Add Question (%1 Open)
 allow_html	phpbrain	en	Allow HTML tags in posts
 anon_user	phpbrain	en	Anonymous User
@@ -17,6 +18,8 @@ comment	phpbrain	en	Comments
 comments	phpbrain	en	Comments
 cur_open_qs	phpbrain	en	Current Open Questions
 current_questions	phpbrain	en	Current Questions
+edit_answer	phpbrain	en	Edit Answer
+edit_faq	phpbrain	en	Edit FAQ
 enable	common	en	Enable
 example	phpbrain	en	Example
 excellent	common	en	Excellent
@@ -50,7 +53,7 @@ question	phpbrain	en	Question
 rating	phpbrain	en	Rating
 rating %1	phpbrain	en	rating %1
 register	common	en	Register
-related_url	phpbrain	en	Related Url
+related_url	phpbrain	en	Related URL
 reset	phpbrain	en	Reset
 return_to_admin	phpbrain	en	Return to Admin
 return_to_cats %1	phpbrain	en	Return to Category: %1

@@ -61,7 +61,7 @@
 				$this->edit_vals['title'] = urldecode(trim($_GET['question']));
 				$this->edit_vals['question_id'] = trim($_GET['question_id']);
 			}//end if question
-			$this->edit_answer();
+			$this->edit_answer(True);
 			$GLOBALS['phpgw']->common->phpgw_exit();
 		}//end add
 
@@ -291,12 +291,12 @@
 		function edit()
 		{
 			$faq_id = (int) (isset($_GET['faq_id']) ? trim($_GET['faq_id']) : 0);
-			$this->edit_vals = $this->bo->get_item($faq_id);
-			$this->edit_answer();
+			$this->edit_vals = $this->bo->get_item($faq_id, false);
+			$this->edit_answer(False);
 			$GLOBALS['phpgw']->common->phpgw_exit();
 		}//end edit
 		
-		function edit_answer()
+		function edit_answer($new)
 		{
 			$GLOBALS['phpgw']->common->phpgw_header();
 			echo parse_navbar();
@@ -312,7 +312,8 @@
 
 			$this->t->set_var($this->edit_vals);
 
-			$lang = array('lang_add_answer'			=> lang('add_answer'),
+			$add_answer = ($new ? 'add_answer' : 'edit_answer');
+			$lang = array('lang_add_answer'			=> lang($add_answer),
 					'lang_check_before_submit'	=> lang('check_before_submit'),
 					'lang_not_submit_qs_warn'	=> lang('not_submit_qs_warn'),
 					'lang_inspire_by_suggestions'	=> lang('inspire_by_suggestions'),
@@ -732,7 +733,7 @@
 			$item = $this->bo->get_item($faq_id);
 			if(is_array($item) && $faq_id)
 			{
-  			$this->t->set_file('showitem', 'showitem.tpl');
+  				$this->t->set_file('showitem', 'showitem.tpl');
 				$lang = array('msg'		=> ($msg ? lang($msg) : ''),
 					'lang_submitted_by'	=> lang('submitted_by'),
 					'lang_views'		=> lang('views'),
@@ -746,10 +747,11 @@
 					'lang_comments'		=> lang('comments')
 					);
 				$this->t->set_block('showitem', 'click_rating', 'click_ratings');
-				$rate_url = $GLOBALS['phpgw']->link('/index.php' , array('menuaction'	=> 'phpbrain.uikb.rate',
-																		'faq_id'		=> $faq_id
-																		)
-													);
+				$rate_url = $GLOBALS['phpgw']->link('/index.php',
+					array('menuaction'	=> 'phpbrain.uikb.rate',
+					'faq_id'		=> $faq_id
+						)
+					);
 				for($i=1; $i<=5; $i++)
 				{
 					$this->t->set_var('rate_link', "$rate_url&rating=$i");
@@ -825,6 +827,22 @@
 											 )
 										)
 							);
+				$this->t->set_block('showitem', 'admin_option', 'admin_options');
+				if($this->bo->is_admin())
+				{
+					$this->t->set_var('admin_url', $GLOBALS['phpgw']->link('/index.php',
+										array('menuaction'	=> 'phpbrain.uikb.edit',
+											'faq_id'	=> $item['faq_id']
+										)
+									)
+							);
+					$this->t->set_var('lang_admin_text', lang('edit_faq'));
+					$this->t->parse('admin_options', 'admin_option', true);
+				}
+				else
+				{
+					$this->t->set_var('admin_options', '');
+				}
 	
 				$this->t->set_var($lang);
 				$this->t->set_var($item);

@@ -65,3 +65,12 @@
 		<!-- END cmnt -->
     </table>
 		{comment_form}
+    <!-- BEGIN admin_option -->
+    <table border="0" width="600" cellspacing="0">
+      <tr>
+	<td colspan=3 align="center">
+	  <a href="{admin_url}">{lang_admin_text}</a>
+	</td>
+      </tr>
+    </table>
+    <!-- END admin_option -->

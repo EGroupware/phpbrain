@@ -115,19 +115,22 @@
 			return $faqs;
 		}//end get_faq_list
 
-		function get_item($faq_id)
+		function get_item($faq_id, $show_type = True)
 		{
 			$item = $this->so->get_item($faq_id);
 			if(is_array($item))
 			{
-  			$item['last_mod']	= date('d-M-Y', $item['modified']);
+  				$item['last_mod']	= date('d-M-Y', $item['modified']);
 				$item['username']	= $GLOBALS['phpgw']->common->grab_owner_name($item['user_id']);
-  			$item['rating']		= ($item['votes'] 
-									? round(($item['total']/$item['votes']),2) : 0);
+  				$item['rating']		= ($item['votes'] 
+								? round(($item['total']/$item['votes']),2) : 0);
 				$item['comments']	= $this->get_comments($faq_id); 
-				$item['title'] = ($item['is_faq'] 
+				if($show_type)
+				{
+					$item['title'] = ($item['is_faq'] 
 								? lang('question') . ': '. $item['title']
 								: lang('tutorial') . ': '. $item['title']);
+				}
 
 			}//end if is_array(item)
 
