@@ -1,0 +1,208 @@
+<?php
+	/**************************************************************************\
+	* phpGroupWare - KnowledgeBase                                             *
+	* http://www.phpgroupware.org                                              *
+	* Written by Dave Hall [skwashd AT phpgroupware DOT org]                   *
+	* ------------------------------------------------------------------------ *
+	* Started off as a port of phpBrain - http://vrotvrot.com/phpBrain/		 *
+	*  but quickly became a full rewrite										 *
+	* ------------------------------------------------------------------------ *
+	*  This program is free software; you can redistribute it and/or modify it *
+	*  under the terms of the GNU General Public License as published by the   *
+	*  Free Software Foundation; either version 2 of the License, or (at your  *
+	*  option) any later version.                                              *
+	\**************************************************************************/
+
+	class bokb
+	{
+  	var $so;
+  	
+  	function bokb()
+  	{
+  		$this->so = createObject('phpbrain.sokb');
+			$this->cats = createObject('phpgwapi.categories');
+			$GLOBALS['phpgw_info']['apps']['phpkb']['config'] = $this->get_config();
+  	}
+		
+		function get_cat_data($cat_id)
+		{
+			$cats = $this->cats->return_array('all', 0, False, '', '', '', False, $cat_id);
+			if(is_array($cats))
+			{
+  			foreach ($cats as $c_key => $c_vals)
+  			{
+  				$id = $c_vals['id'];
+  				$return_cats[$id] = array('name'		=> $c_vals['name'],
+  										'num_entries'	=> $this->so->get_count($id)
+  										);
+  
+  				$sub_cats = $this->cats->return_array('subs', 0, False, '', '', '', False, $id);
+  				if(is_array($sub_cats))
+  				{
+  					foreach($sub_cats as $sub_key => $sub_vals)
+  					{
+							$sub_id = $sub_vals['id'];
+  						$return_cats[$id]['subs'][$sub_id] = array('name'		=> $sub_vals['name'],
+  																'num_entries'	=> $this->so->get_count($sub_id)
+  															);
+  					}//end foreach(subcats)
+  					unset($sub_cats);
+  				}//end if is_array(sub_cats)
+  			}//end foreach(cats)
+				return $return_cats;
+			}
+			else //no cats
+			{
+				return false;
+			}//end if is_array(cats)
+
+		}//end get_cat_data
+
+		function get_comments($faq_id)
+		{
+			$comments = $this->so->get_comments($faq_id);
+			if(is_array($comments))
+			{
+				foreach($comments as $key => $vals)
+				{
+					$comments[$key]['comment_date'] = date('d-M-Y', $vals['entered']);
+					$comments[$key]['comment_user'] = $GLOBALS['phpgw']->common->grab_owner_name($vals['user_id']);
+				}//end foreach(comment)
+			}//end is_array(comments)
+			return $comments;
+		}//end get_comments
+
+		function get_config()
+		{
+			if(!is_object($GLOBALS['phpgw']->config))
+			{
+				$config = createObject('phpgwapi.config');
+			}
+			else
+			{
+				$config = $GLOBALS['phpgw']->config;
+			}
+			
+			$config_vals = $config->read_repository();
+
+			//soon i will add the values and add the info here - casting etc
+			return array('anon_user'	=> 11,
+						'allow_tags'=> False);
+		}//end get_config
+		
+		function get_faq_list($cat_id = '', $unpublished = false)
+		{
+			if(!$this->is_admin() && !$unpublished)
+			{
+				$unpublished = false;
+			}
+
+			$faqs = $this->so->get_faq_list($cat_id);
+			if(is_array($faqs))
+			{
+  			foreach($faqs as $faq_id => $faq_vals)
+  			{
+  				$faqs[$faq_id]['vote_avg'] = (($faq_vals['total'] && $faq_vals['votes'])
+												? round(($faq_vals['total'] / $faq_vals['votes']),2) : 0);
+  				$faqs[$faq_id]['last_mod'] = date('d-M-Y', $faqs[$faq_id]['modified']);
+					$faqs[$faq_id]['score'] = '1.00'; 
+  			}
+			}
+			return $faqs;
+		}//end get_faq_list
+
+		function get_item($faq_id)
+		{
+			$item = $this->so->get_item($faq_id);
+			if(is_array($item))
+			{
+  			$item['last_mod']	= date('d-M-Y', $item['modified']);
+				$item['username']	= $GLOBALS['phpgw']->common->grab_owner_name($item['user_id']);
+  			$item['rating']		= ($item['votes'] 
+									? round(($item['total']/$item['votes']),2) : 0);
+				$item['comments']	= $this->get_comments($faq_id); 
+			}//end if is_array(item)
+
+			return $item;
+
+		}//end get_item
+		
+		function get_latest()
+		{
+			return $this->so->get_latest();
+		}// end get_latest
+		
+		function get_questions($pending = false)
+		{
+			
+			if(!$this->is_admin() && $pending = true)
+			{
+				return null;
+			}
+			else
+			{
+				return $this->so->get_questions($pending);
+			}
+		}//end questions
+
+		function get_search_results($search, $show)
+		{
+			$results = $this->so->get_search_results($search, $show);
+			if(is_array($results))
+			{
+  			foreach($results as $id => $vals)
+  			{
+    				$results[$id]['vote_avg'] = (($vals['total'] && $vals['votes'])
+  												? round(($vals['total'] / $vals['votes']),2) : 0);
+    				$results[$id]['last_mod'] = date('d-M-Y', $vals['modified']); 
+  			}
+			}
+			return $results;
+		}//end get search results
+		
+		function get_stats()
+		{
+			return $this->so->get_stats();
+		}//end get_stats
+
+		function is_admin()
+		{
+			return $GLOBALS['phpgw']->acl->check('run', 1, 'admin');
+		}//end is_admin
+		
+		function is_anon()
+		{
+			return ($GLOBALS['phpgw_info']['apps']['phpkb']['config']['anon_user'] 
+						== $GLOBALS['phpgw_info']['user']['account_id']);
+		}//end is_anon
+
+		function save($faq_id, $faq)
+		{
+			if(!$GLOBALS['phpgw_info']['apps']['phpkb']['config']['alow_tags'])
+			{
+  			$faq['title'] = strip_tags($faq['title']);
+  			$faq['keywords'] = strip_tags($faq['keywords']);
+  			$faq['text'] = strip_tags($faq['text']);
+			}
+			$faq['user_id'] = $GLOBALS['phpgw_info']['user']['account_id'];
+			return $this->so->save($faq_id, $faq, $this->is_admin());
+		}//end save
+		
+		function set_active_answer($faq_ids)
+		{
+			return $this->so->set_active_answer($faq_ids);
+		}//end set active answer
+		
+		function set_question($question)
+		{
+			return $this->so->set_question($question, $this->is_admin());
+		}
+		
+		function set_rating($faq_id, $rating)
+		{
+			$this->so->set_rating($faq_id, $rating);
+		}//end set_rating
+		
+	}//end class bokb
+	
+	
