@@ -121,6 +121,10 @@
   			$item['rating']		= ($item['votes'] 
 									? round(($item['total']/$item['votes']),2) : 0);
 				$item['comments']	= $this->get_comments($faq_id); 
+				$item['title'] = ($item['is_faq'] 
+								? lang('question') . ': '. $item['title']
+								: lang('tutorial') . ': '. $item['title']);
+
 			}//end if is_array(item)
 
 			return $item;
@@ -153,7 +157,11 @@
   			{
     				$results[$id]['vote_avg'] = (($vals['total'] && $vals['votes'])
   												? round(($vals['total'] / $vals['votes']),2) : 0);
-    				$results[$id]['last_mod'] = date('d-M-Y', $vals['modified']); 
+    				$results[$id]['last_mod'] = date('d-M-Y', $vals['modified']);
+
+						$results[$id]['title'] = ($results[$id]['is_faq'] 
+												? lang('question') . ': '. $results[$id]['title']
+												: lang('tutorial') . ': '. $results[$id]['title']);
   			}
 			}
 			return $results;

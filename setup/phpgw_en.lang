@@ -12,12 +12,12 @@ anon_user	phpbrain	en	Anonymous User
 answer	phpbrain	en	Answer
 browse	common	en	Browse
 cant_post_must_register	phpbrain	en	You must be a registered user to be able to add information to the knowledge base
-check_before_submit	phpbrain	en	check_before_submit
+check_before_submit	phpbrain	en	Please check that this information is not already in the knowledge base before submitting.
 comment	phpbrain	en	Comments
 comments	phpbrain	en	Comments
 cur_open_qs	phpbrain	en	Current Open Questions
 current_questions	phpbrain	en	Current Questions
-enable	common	en	enable
+enable	common	en	Enable
 example	phpbrain	en	Example
 excellent	common	en	Excellent
 explain_faq_admin	phpbrain	en	Answers to FAQs must be enabled so users can few them.  Select the FAQs you wish to enable.  Alternatively you can select inappropriate responses which you wish to delete.
@@ -27,7 +27,7 @@ faq_saved	phpbrain	en	FAQ Saved
 faqs	phpbrain	en	FAQs
 faqs_and_tutes	phpbrain	en	FAQs and Tutorials
 improve_by_rate	phpbrain	en	Help us improve by rating posts
-inspire_by_suggestions	phpbrain	en	inspire_by_suggestions
+inspire_by_suggestions	phpbrain	en	If you need inspiration, take a look at the open questions.
 invalid faq request - or something is nqr	phpbrain	en	ERROR: Invalid FAQ Request
 kb_contains	phpbrain	en	Knowledge Base Contains
 know_contrib	phpbrain	en	know_contrib
@@ -37,7 +37,7 @@ no comments	phpbrain	en	No Comments
 none found - revise or browse	phpbrain	en	Nothing found - please revise your seach or browse
 none_pending	phpbrain	en	None Pending
 none_unanswered	phpbrain	en	No FAQs unanswered
-not_submit_qs_warn	phpbrain	en	not_submit_qs_warn
+not_submit_qs_warn	phpbrain	en	Please note that this is not the place to ask questions.  The should be posted on the questions page.  If you enter a question without an answer on this page it will be deleted. 
 num_faqs %1	phpbrain	en	FAQs(%1)
 num_open %1	phpbrain	en	Open(%1)
 num_pages %1	phpbrain	en	Pages(%1)
@@ -61,6 +61,7 @@ section_maintain_questions	phpbrain	en	section_maintain_questions
 show	phpbrain	en	show
 submitted_by	phpbrain	en	Submitted By
 text	common	en	Text
+tutorial	phpbrain	en	Tutorial
 tutorials	phpbrain	en	Tutorials
 up	phpbrain	en	up
 views	phpbrain	en	views

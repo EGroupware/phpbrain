@@ -231,7 +231,7 @@
 					{
 						return $faq_id;
 					}
-					else//some went wrong
+					else//something went wrong
 					{
 						return false;
 					} 
