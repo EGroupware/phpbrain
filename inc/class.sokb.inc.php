@@ -94,11 +94,20 @@
 			$topic = ($this->db->Type == 'mssql')? 'CAST(topic AS varchar) AS topic' : 'topic';
 			$files= ($this->db->Type == 'mssql')? 'CAST(files AS varchar) AS files' : 'files';
 
-			$fields = array('DISTINCT phpgw_kb_articles.art_id', $title, $topic, 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5', $files, 'score');
+			$fields = array('phpgw_kb_articles.art_id', $title, $topic, 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5', $files, 'score');
 			$fields_str = implode(', ', $fields);
 			$owners = implode(', ', $owners);
 
-			$sql = "SELECT $fields_str FROM phpgw_kb_articles, phpgw_kb_search WHERE user_id IN ($owners) AND phpgw_kb_articles.art_id=phpgw_kb_search.art_id";
+			// must use subqueries in pgsql because can't use DISTINCT on a column and ORDER BY another column, so have to do each operation in different steps
+			if ($this->db->Type == 'pgsql')
+			{
+				$sql = "SELECT * FROM (SELECT DISTINCT ON(phpgw_kb_articles.art_id) ";
+			}
+			else
+			{
+				$sql = "SELECT DISTINCT ";
+			}
+			$sql .= "$fields_str FROM phpgw_kb_articles, phpgw_kb_search WHERE user_id IN ($owners) AND phpgw_kb_articles.art_id=phpgw_kb_search.art_id";
 			if ($publish_filter && $publish_filter!='all') 
 			{
 				($publish_filter == 'published')? $publish_filter = 1 : $publish_filter = 0;
@@ -116,14 +125,10 @@
 			if ($query)
 			{
 				$words_init = explode(' ', $query);
-				// remove words with 3 or less letters if its not a number
 				$words = array();
 				foreach ($words_init as $word_init)
 				{
-					if (is_numeric($word_init) || strlen($word_init) > 3)
-					{
-						$words[] = $this->db->db_addslashes($word_init);
-					}
+					$words[] = $this->db->db_addslashes($word_init);
 				}
 				$likes = array();
 				foreach ($words as $word)
@@ -137,6 +142,16 @@
 				}
 				$likes = implode(' OR ', $likes);
 				if ($likes) $sql .= " AND (keyword='" . implode("' OR keyword='", $words) . "' OR $likes)";
+			}
+
+			if ($this->db->Type == 'pgsql')
+			{
+				$sql .= ") AS temp";
+			}
+			else
+			{
+				// must use GROUP BY when using DISTINCT
+				$sql .= " GROUP BY phpgw_kb_articles.art_id";
 			}
 			
 			if ($order)
@@ -467,7 +482,7 @@
 						." title='" . $this->db->db_addslashes($contents['title'])
 						."', topic='" . $this->db->db_addslashes($contents['topic'])
 						."', text='" . $this->db->db_addslashes($contents['text'])
-						."', cat_id='" . $this->db->db_addslashes($contents['cat_id'])
+						."', cat_id='" . (int)($contents['cat_id'])
 						."', keywords='" . $this->db->db_addslashes($contents['keywords'])
 						."', modified=" . $current_time
 						.", modified_user_id=" . $GLOBALS['phpgw_info']['user']['account_id']
