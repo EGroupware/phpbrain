@@ -665,14 +665,16 @@
 				$t->set_file('faq_sum', 'faq_sum.tpl');
 				$t->set_block('faq_sum', 'summary', 'summaries');
 				foreach($summaries as $faq_id => $faq_vals)
-            {
-					$t->set_var($faq_vals);
-					$t->set_var('faq_url', $GLOBALS['phpgw']->link('/index.php', array('menuaction' => 'phpbrain.uikb.view',
-              														'faq_id' => $faq_id
-              												)
-              			));
+				{
+					$t->set_var('title',$faq_vals['title']);
+					$t->set_var('text',strlen($faq_vals['text']) < 150 ? $faq_vals['text'] :
+						substr($faq_vals['text'],0,strpos($faq_vals['text'],' ',150)).'...');
+					$t->set_var('faq_url', $GLOBALS['phpgw']->link('/index.php', array(
+						'menuaction' => 'phpbrain.uikb.view',
+						'faq_id' => $faq_id
+					)));
 					$t->set_var('lang_score', lang('score %1', $faq_vals['score']));
-					$t->set_var('lang_last_mod', lang('last_mod %1', $faq_vals['last_mod'])); 
+					$t->set_var('lang_last_mod', lang('last_mod %1', $faq_vals['last_mod']));
 					$t->set_var('lang_views', lang('views %1', $faq_vals['views']));
 					$t->set_var('lang_rating', lang('rating %1', $faq_vals['vote_avg']));
 					$t->set_var('lang_votes', lang('votes %1', $faq_vals['votes']));
