@@ -1194,9 +1194,9 @@
 		*/
 		function edit_article()
 		{
-
 			$this->t->set_file('edit_article', 'edit_article.tpl');
 			$this->t->set_block('edit_article', 'answer_question_block', 'answer_question');
+			$this->t->set_block('edit_article', 'article_id_block', 'article_id');
 			$checking_spell = False;
 			
 			// show check spell button only if pspell functions and dictionnary in current language are available, and not comming from doing just that
@@ -1232,8 +1232,7 @@
 			$extra				= '';
 			$this->t->set_var(array(
 				'answer_question'	=> '',
-				'show_articleID'	=> "<input type=text name='articleID'>",
-				'show_autoID'		=> "&nbsp;&nbsp;&nbsp;&nbsp;" . lang('Leave empty to automatically generate an ID')
+				'article_id'		=> '',
 				));
 
 			// check spelling
@@ -1316,7 +1315,7 @@
 				}
 			}
 
-			// Edit existent article
+			// Edit existant article
 			if ((int)get_var('art_id', 'GET', 0))
 			{
 				// Process cancel button
@@ -1342,8 +1341,8 @@
 
 				$this->t->set_var(array(
 					'show_articleID'	=> $article_id . "<input type=hidden name='editing_article_id' value=" . $article_id . ">",
-					'show_autoID'		=> ''
 				));
+				$this->t->parse('article_id', 'article_id_block');
 			}
 
 			// answering a question
