@@ -571,7 +571,17 @@
 		**/
 		function save_article($content = '')
 		{
-			if (!$content) $content = $_POST;
+			if (!$content) {
+				$content = array();
+				$content['exec'] = get_var('exec', 'POST');
+				$content['editing_article_id'] = (int)get_var('editing_article_id', 'POST', 0);
+				$content['articleID'] = get_var('articleID', 'POST');
+				$content['answering_question'] = (int)get_var('answering_question', 'POST', 0);
+				$content['title'] = get_var('title', 'POST');
+				$content['topic'] = get_var('topic', 'POST');
+				$content['cat_id'] = (int)get_var('cat_id', 'POST', 0);
+				$content['keywords'] = get_var('keywords', 'POST');
+			}
 
 			$content['text'] = $content['exec']['text'];
 
@@ -835,7 +845,7 @@
 		*/
 		function add_comment()
 		{
-			$comment = $_POST['comment_box'];
+			$comment = get_var('comment_box', 'POST');
 			if ($this->admin_config['publish_comments'] == 'True')
 			{
 				$publish = True;
@@ -862,9 +872,9 @@
 			// first check permission
 			if (!$this->check_permission($this->edit_right)) return 'no_perm';
 
-			if(!$this->so->add_link($_POST['url'], $_POST['url_title'], $this->article_id)) return 'link_prob';
+			if(!$this->so->add_link(get_var('url', 'POST'), get_var('url_title', 'POST'), $this->article_id)) return 'link_prob';
 
-			$GLOBALS['phpgw']->historylog->add('AL', $this->article_id, $_POST['url'], '');
+			$GLOBALS['phpgw']->historylog->add('AL', $this->article_id, get_var('url', 'POST'), '');
 			return 'link_ok';
 		}
 
@@ -1142,7 +1152,10 @@
 		*/
 		function add_question()
 		{
-			$data = $_POST;
+			$data = array();
+			$data['summary'] = get_var('summary', 'POST');
+			$data['details'] = get_var('details', 'POST');
+			$data['cat_id'] = (int)get_var('cat_id', 'POST', 0);
 			$publish = ($this->admin_config['publish_questions'] == 'True')? True : False;
 			return $this->so->add_question($data, $publish);
 		}
@@ -1175,11 +1188,11 @@
 		function mail_article($article_contents)
 		{
 			// check address syntaxis
-			$theresults = ereg("^[^@ ]+@[^@ ]+\.[^@ \.]+$", $_POST['recipient'], $trashed);
+			$theresults = ereg("^[^@ ]+@[^@ ]+\.[^@ \.]+$", get_var('recipient', 'POST'), $trashed);
 			if (!$theresults) return 'mail_err';
 
 			$GLOBALS['phpgw']->send = CreateObject('phpgwapi.send');
-			$rc = $GLOBALS['phpgw']->send->msg('email', $_POST['recipient'], $_POST['subject'], $article_contents, '', '', '', $_POST['reply'], $_POST['reply'], 'html');
+			$rc = $GLOBALS['phpgw']->send->msg('email', get_var('recipient', 'POST'), get_var('subject', 'POST'), $article_contents, '', '', '', get_var('reply', 'POST'), get_var('reply', 'POST'), 'html');
 			if (!$rc)
 			{
 				 $message = 'Your message could <B>not</B> be sent!<BR>'."\n"

@@ -1241,7 +1241,8 @@
 			{
 				if (!$content = $this->check_spell())
 				{
-					$content = $_POST['exec']['text'];
+					$temp		= get_var('exec', 'POST', '');
+					$content	= $temp['text'];
 					$this->message = lang("The article doesn't have spell errors");
 				}
 				else
@@ -1257,10 +1258,10 @@
 			// correct spelling
 			if ($_POST['confirm_spell'])
 			{
-				$category_selected	= $_POST['cat_id'];
-				$title				= $_POST['title'];
-				$topic				= $_POST['topic'];
-				$keywords			= $_POST['keywords'];
+				$category_selected	= (int)get_var('cat_id', 'POST', 0);
+				$title				= get_var('title', 'POST', '');
+				$topic				= get_var('topic', 'POST', '');
+				$keywords			= get_var('keywords', 'POST', '');
 				$content			= $this->correct_spell();
 			}
 
@@ -1305,16 +1306,18 @@
 			// if an error ocurred fill fields with values
 			if ($this->message)
 			{
-				$category_selected	= $_POST['cat_id'];
-				$title				= $_POST['title'];
-				$topic				= $_POST['topic'];
-				$keywords			= $_POST['keywords'];
-				if (!$checking_spell)
-					$content = $_POST['exec']['text'];
+				$category_selected	= (int)get_var('cat_id', 'POST', 0);
+				$title				= get_var('title', 'POST', '');
+				$topic				= get_var('topic', 'POST', '');
+				$keywords			= get_var('keywords', 'POST', '');
+				if (!$checking_spell) {
+					$temp = get_var('exec', 'POST', '');
+					$content = $temp['text'];
+				}
 			}
 
 			// Edit existent article
-			if ($_GET['art_id'])
+			if ((int)get_var('art_id', 'GET', 0))
 			{
 				// Process cancel button
 				if ($_POST['cancel'])
@@ -1344,7 +1347,7 @@
 			}
 
 			// answering a question
-			if ($_GET['q_id'])
+			if ((int)get_var('q_id', 'GET', 0))
 			{
 				// Process cancel button
 				if ($_POST['cancel'])
@@ -1387,11 +1390,11 @@
 			$select_category = $this->bo->select_category($category_selected);
 			$this->t->set_var('select_category', $select_category);
 
-			if ($_GET['art_id'])
+			if ((int)get_var('art_id', 'GET', 0))
 			{
 				$extra .= '&art_id='. $_GET['art_id'];
 			}
-			elseif($_GET['q_id'])
+			elseif((int)get_var('q_id', 'GET', 0))
 			{
 				$extra .= '&q_id='. $_GET['q_id'];
 			}
@@ -2047,7 +2050,8 @@
 		*/
 		function check_spell()
 		{
-			$text_orig = $_POST['exec']['text'];
+			$temp		= get_var('exec', 'POST', '');
+			$text_orig	= $temp['text'];
 			//echo "<br><br><br>text_orig: <pre>";print_r($text_orig);echo "</pre>";
 			$text_noHTML = preg_replace('/<.*?>/', ' ', $text_orig);
 			$words = preg_split('/[\W]+?/', $text_noHTML);
@@ -2085,7 +2089,7 @@
 		*/
 		function correct_spell()
 		{
-			$corrections = $_POST['correction'];
+			$corrections = get_var('correction', 'post');
 			//echo "corrections: <pre>";print_r($corrections);echo "</pre>\n";
 			$tagged_text = $GLOBALS['phpgw']->session->appsession('tagged_text', 'phpbrain');
 			//echo "tagged_text in session: ";print_r($tagged_text);echo "</pre>\n";
