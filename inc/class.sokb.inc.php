@@ -281,12 +281,12 @@
 			{
 				foreach ($fields as $field)
 				{
-					$articles[$i][$field] = stripslashes($this->db->f($field));
+					$articles[$i][$field] = $this->db->f($field);
 				}
 				$articles[$i]['art_id'] = $this->db->f('art_id');
 				$username = $GLOBALS['phpgw']->accounts->get_account_name($articles[$i]['user_id'], $lid, $fname, $lname);
 				$articles[$i]['username'] = $fname . ' ' . $lname;
-				$articles[$i]['files'] = unserialize(stripslashes($articles[$i]['files']));
+				$articles[$i]['files'] = unserialize($articles[$i]['files']);
 				$articles[$i]['total_votes'] = $articles[$i]['votes_1'] + $articles[$i]['votes_2'] + $articles[$i]['votes_3'] + $articles[$i]['votes_4'] + $articles[$i]['votes_5'];
 				if ($articles[$i]['total_votes'])
 				{
@@ -389,7 +389,7 @@
 			{
 				foreach ($fields as $field)
 				{
-					$questions[$i][$field] = stripslashes($this->db->f($field));
+					$questions[$i][$field] = $this->db->f($field);
 				}
 				$username = $GLOBALS['phpgw']->accounts->get_account_name($questions[$i]['user_id'], $lid, $fname, $lname);
 				$questions[$i]['username'] = $fname . ' ' . $lname;
@@ -549,10 +549,10 @@
 			if (!$this->db->next_record()) return 0;
 			foreach ($fields as $field)
 			{
-				$article[$field] = stripslashes($this->db->f($field));
+				$article[$field] = $this->db->f($field);
 			}
-			$article['files'] = unserialize(stripslashes($article['files']));
-			$article['urls'] = unserialize(stripslashes($article['urls']));
+			$article['files'] = unserialize($article['files']);
+			$article['urls'] = unserialize($article['urls']);
 
 			// normalize vote frequence to the range 0 - 40
 			$votes = array();
@@ -720,7 +720,7 @@
 			$this->db->query($sql, __LINE__, __FILE__);
 
 			// insert news in database
-			$current_urls = unserialize(stripslashes($this->db->f('urls')));
+			$current_urls = unserialize($this->db->f('urls'));
 			$current_urls[] = array(
 				'link'	=> $url,
 				'title'	=> $title
@@ -808,7 +808,7 @@
 			// first retrieve current URLs
 			$sql = "SELECT urls FROM phpgw_kb_articles WHERE art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
-			$current_links = unserialize(stripslashes($this->db->f('urls')));
+			$current_links = unserialize($this->db->f('urls'));
 
 			// Proceed with deletion
 			$new_links = array();
@@ -877,7 +877,7 @@
 			$files = array();
 			if ($this->db->next_record())
 			{
-				$files = unserialize(stripslashes($this->db->f('files')));
+				$files = unserialize($this->db->f('files'));
 			}
 			$comment = $_POST['file_comment']? $_POST['file_comment'] : '';
 			$files[] = array(
@@ -910,7 +910,7 @@
 			$files = array();
 			if ($this->db->next_record())
 			{
-				$files = unserialize(stripslashes($this->db->f('files')));
+				$files = unserialize($this->db->f('files'));
 			}
 
 			// now remove the file
@@ -1031,7 +1031,7 @@
 					. $GLOBALS['phpgw_info']['user']['account_id'] . ", '"
 					. $this->db->db_addslashes($data['summary']) . "', '"
 					. $this->db->db_addslashes($data['details']) . "', "
-					. $this->db->db_addslashes($data['cat_id']) . ", "
+					. (int)$data['cat_id'] . ", "
 					. time() . ", "
 					. $publish . ")";
 			$this->db->query($sql, __LINE__, __FILE__);
@@ -1058,7 +1058,7 @@
 			{
 				foreach ($fields as $field)
 				{
-					$question[$field] = stripslashes($this->db->f($field));
+					$question[$field] = $this->db->f($field);
 				}
 			}
 			return $question;
