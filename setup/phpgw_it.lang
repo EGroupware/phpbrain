@@ -54,6 +54,7 @@ before submiting a question, please search in the knowledge base first	phpbrain	
 browse	common	it	Sfoglia
 by answering this question you will help to get the answer quicker the next time	phpbrain	it	Rispondendo a questa domanda, aiuterai ad ottenere una risposta più rapida la prossima volta.
 cant_post_must_register	phpbrain	it	Devi essere un utente registrato per poter aggiungere informazioni all'archiovio conoscenze
+check spelling	phpbrain	it	Controlla l'ortografia
 check_before_submit	phpbrain	it	Per favore controlla che questa informazione non sia già presente nell'Archivio Conoscenze prima di aggiungerla.
 close window	phpbrain	it	Chiudi la finestra
 comment	phpbrain	it	Commenti
@@ -64,14 +65,18 @@ comment has been published	phpbrain	it	I commenti sono stati pubblicati.
 comment has been submited for revision	phpbrain	it	I commenti sono stati sottoposti a revisione.
 comment has been submited for revision and rating will be published	phpbrain	it	I commenti sono stati sottoposti a revisione e la valutazione sarà pubblicata.
 comments	phpbrain	it	Commenti
+confirm	phpbrain	it	Conferma
+correct the errors and press confirm	phpbrain	it	Correggi gli errori e premi conferma
 create a new article to answer the question asked by %1 in %2	phpbrain	it	Crea un nuovo article per rispondere alla domanda posta da %1 in %2
 created by %1 on %2	phpbrain	it	Creato da %1 il %2
+creation	phpbrain	it	creazione
 creation date	phpbrain	it	Data creazione
 cur_open_qs	phpbrain	it	Domande attualmente aperte
 current_questions	phpbrain	it	Domande attuali
 date	phpbrain	it	Data
 delete article	phpbrain	it	Elimina articolo
 delete selected	phpbrain	it	Elimina selezione
+deleted relation to  article %1	phpbrain	it	Eliminata relazione all'articolo %1
 deleted relation to article %1	phpbrain	it	Elimina il riferimento all'articolo %1
 descendent	phpbrain	it	Discendente
 details	phpbrain	it	Dettagli
@@ -101,7 +106,7 @@ file has been successfully uploaded	phpbrain	it	Il File è stato caricato con suc
 file was already missing from server, and was deleted from the database	phpbrain	it	Il File era già mancante dal server ed è stato cancellato dal database
 file was deleted successfully	phpbrain	it	Il File è stato cancellato con successo
 file wasn't in server and it couldn't be deleted from the database	phpbrain	it	Il File non era sul server e non poteva essere cancellato dal database
-find results	phpbrain	it	Risultati Trova
+find results	phpbrain	it	Trova risultati
 have to be approved first	common	it	Deve prima essere approvato
 history	phpbrain	it	Cronologia
 if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	it	Se non trovi risposte al tuo problema nell'Archivio Conoscenza, descrivilo qui sotto
@@ -128,8 +133,8 @@ links	phpbrain	it	Link
 links & files	phpbrain	it	Link & File
 mail article	phpbrain	it	Invia articolo
 main view	phpbrain	it	Vista principale
-maintain articles	phpbrain	it	Aggiorna Articoli
-maintain questions	phpbrain	it	Aggiorna Domande
+maintain articles	phpbrain	it	Manutenzione Articoli
+maintain questions	phpbrain	it	Manutenzione Domande
 maintain_answers	common	it	Manutenzione Risposte
 maximum number of comments to show:	phpbrain	it	Numero massimo di commenti da visualizzare:
 maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	it	Numero massimo di articoli più visti, articoli recenti e domande senza risposta da mostrare nella Vista Principale:
@@ -154,6 +159,7 @@ ocurrences	phpbrain	it	Occorrenze
 open	phpbrain	it	Aperte
 or browse the categories	phpbrain	it	O sfoglia le categorie
 order results by	phpbrain	it	Ordina i risultati per
+outstanding published questions	phpbrain	it	Domande pubblicate Outstanding
 past %1 months	phpbrain	it	Negli ultimi %1 mesi
 past year	phpbrain	it	L'anno scorso
 people have rated this article	phpbrain	it	alcuni hanno valutato questo articolo
@@ -171,6 +177,7 @@ publish articles automatically?	common	it	Pubblica gli articoli automaticamente?
 publish comments automatically?	common	it	Pubblica i commenti automaticamente?
 publish questions automatically?	common	it	Pubblica le domande automaticamente?
 publish selected	phpbrain	it	Pubblica i selezionati
+published	phpbrain	it	Pubblicato
 question	phpbrain	it	Domanda
 question deleted successfully	phpbrain	it	Domanda eliminata con successo
 question_added	phpbrain	it	Domanda aggiunta all'archivio
@@ -193,6 +200,7 @@ score %1	phpbrain	it	punteggio %1
 search in all the knowledge base	phpbrain	it	Cerca in tutto l'Archivio Conoscenza
 search results	phpbrain	it	Risultati Ricerca
 see more questions	phpbrain	it	Vedi altre domande
+see more questions...	phpbrain	it	Vedi altre domande...
 select articles	phpbrain	it	Seleziona articolli
 show	phpbrain	it	Mostra
 show all comments	phpbrain	it	Mostra tutti i commenti
@@ -206,12 +214,15 @@ summary	phpbarin	it	Sommario
 text	common	it	Testo
 thanks_4_rating	phpbrain	it	Grazie per aver votato questo elemento
 that file already exists	phpbrain	it	Quel File esiste già
+the article doesn't have spell errors	phpbrain	it	L'articolo non ha errori di ortografia
+the article id must be a number	phpbrain	it	L'ID dell'articolo deve essere un numero
 the article is empty	phpbrain	it	L'articolo è vuoto
 the file was already missing in the server	phpbrain	it	Il File era già mancante dal server
 the following errors occurred	phpbrain	it	Sono avvenuti i seguenti errori
 the present category and all subcategories under it	phpbrain	it	La categoria attuale e tutte le sue sottocategorie
 the present category only	phpbrain	it	Solo la categoria attuale
 there are no articles	phpbrain	it	Non ci sono articoli
+there are no articles available	phpbrain	it	Non ci sono articoli disponibili
 this article hasn't yet been published in the knowledge base	phpbrain	it	Questo articolo non è ancora stato pubblicato nell'Archivio Conoscenza
 title	phpbrain	it	Titolo
 to create categories, press 'edit categories' in the preferences menu	phpbrain	it	Per creare categorie, premi 'Modifica Categorie' nel menù preferenze
@@ -229,6 +240,7 @@ views	phpbrain	it	Viste
 views %1	phpbrain	it	Viste %1
 votes %1	phpbrain	it	Voti %1
 was it easy to find this article using the above search string?	phpbrain	it	E' stato facile trovare questo articolo usando la soprastante stringa di ricerca?
+when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	it	Durante la navigazione attraverso le categorie, scegli se l'elenco di articoli mostrato corrisponde solo alla presente categoria, o alla presente categoria e tutte le sue sottocategorie.
 with all the words	phpbrain	it	Con tutte le parole
 with at least one of the words	phpbrain	it	Con almeno una delle parole
 with the exact phrase	phpbrain	it	Con la frase esatta
@@ -238,5 +250,6 @@ you have already qualified this article	phpbrain	it	Hai già valutato questo arti
 you have not the proper permissions to do that	phpbrain	it	Non hai i permessi necessari per farlo
 you must enter a title	phpbrain	it	Devi inserire un titolo
 you must enter a topic	phpbrain	it	Devi inserire un argomento
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	it	La tua domanda sarà inviata, ma verrà pubblicata dopo l'approvazione da parte di un utente con diritti di pubblicazione.
 your question will be posted, but only will be published after aproval of a system administrator	phpbrain	it	La tua domanda sarà inoltrata, ma sarà pubblicata solo dopo l'approvazione di un amministratore di sistema
 your question will be published immediately	phpbrain	it	La tua domanda sarà pubblicata immediatamente
