@@ -450,7 +450,7 @@
 						. $this->db->db_addslashes($contents['title']) . "', '"
 						. $this->db->db_addslashes($contents['topic']) . "', '"
 						. $this->db->db_addslashes($contents['text']) . "', '"
-						. $this->db->db_addslashes($contents['cat_id']) . "', "
+						. $contents['cat_id'] . "', "
 						. $publish . ", '"
 						. $this->db->db_addslashes($contents['keywords']) . "', "
 						. $GLOBALS['phpgw_info']['user']['account_id'] . ", "
