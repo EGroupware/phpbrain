@@ -1,0 +1,178 @@
+/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	sl	Mapa /kb ne obstaja in je ne morem ustvariti. Prosim administratorja, naj preveri nastavitve.
+action	phpbrain	sl	Akcija
+add articles	phpbrain	sl	Dodaj članke
+add link	phpbrain	sl	Dodaj povezavo
+add question	phpbrain	sl	Dodaj vprašanje
+added file %1	phpbrain	sl	Dodaj datoteko %1
+added link %1	phpbrain	sl	Dodaj povezavo %1
+added related articles %1	phpbrain	sl	Dodaj članke z vsebino, podobno %1
+advanced search	phpbrain	sl	Zahtevno iskanje
+all articles	phpbrain	sl	Vsi članki
+answer	phpbrain	sl	odgovor
+anytime	phpbrain	sl	kadarkoli
+anywhere in the article	phpbrain	sl	kjerkoli v članku
+article	phpbrain	sl	Članek
+article added to database, you can now attach files or links, or relate to other articles	phpbrain	sl	Članek je dodan v podatkovno bazo. Sedaj mu lahko pripnete datoteke ali ga povežete z drugimi članki.
+article created	phpbrain	sl	Članek je bil ustvarjen.
+article deleted	phpbrain	sl	Članek je bil izbrisan.
+article deleted successfully	phpbrain	sl	Članek je bil uspešno izbrisan.
+article edited	phpbrain	sl	Članek je bil urejen.
+article has been published	phpbrain	sl	Članek je bil objavljen.
+article id	phpbrain	sl	ID članka.
+articles added	phpbrain	sl	Članki so bili dodani.
+articles deleted successfully	phpbrain	sl	Članki so bili uspešno izbrisani.
+articles have been published	phpbrain	sl	Članki so bili objavljeni.
+articles in %1	phpbrain	sl	Članki v %1.
+articles in %1 and all its subcategories	phpbrain	sl	Članki v %1 in vseh podkategorijah.
+articles not classified under any category	phpbrain	sl	Članki, ki niso v nobeni kategoriji
+ascendent	phpbrain	sl	Naraščajoče
+attach file	phpbrain	sl	Pripni datoteko
+attached files	phpbrain	sl	Pripete datoteke
+average rating	phpbrain	sl	Povprečnna ocena
+base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	sl	Osnovna mapa ne obstaja. Prosim administratorja, da preveri globalne nastavitve.
+before submiting a question, please search in the knowledge base first	phpbrain	sl	Preden oddate vprašanje, preverite, če je morda že v bazi znanja.
+by answering this question you will help to get the answer quicker the next time	phpbrain	sl	Če odgovorite na vprašanje, boste pripomogli, da bo prihodnjič vaše vprašanje hitreje obravnavano.
+comment	phpbrain	sl	komentar
+comment and rating have been published	phpbrain	sl	Komentar in ocena sta bila objavljena.
+comment could not be inserted in the database	phpbrain	sl	Komentar ne more biti shranjen v podatkovni bazi.
+comment has been deleted	phpbrain	sl	Komentar je bil izbrisan.
+comment has been published	phpbrain	sl	Komentar je bil objavljen.
+comment has been submited for revision	phpbrain	sl	Komentar je bil shranjen za pregled.
+comment has been submited for revision and rating will be published	phpbrain	sl	Komentar je bil shranjen za pregled. Rating bo objavljen.
+comments	phpbrain	sl	Komentarji
+create a new article to answer the question asked by %1 in %2	phpbrain	sl	Ustvari nov članek na vprašanje, ki ga je v %2 zastavil %1.
+created by %1 on %2	phpbrain	sl	Ustvarjeno od %1 na %2
+creation date	phpbrain	sl	Datum stvaritve
+date	phpbrain	sl	Datum
+delete article	phpbrain	sl	Briši članek
+delete selected	phpbrain	sl	Briši označeno
+deleted relation to article %1	phpbrain	sl	Briši povezavo s člankom %1
+descendent	phpbrain	sl	Padajoče
+details	phpbrain	sl	Detajli
+e-mail has been sent	phpbrain	sl	epošta je bila poslana
+edit article	phpbrain	sl	Uredi sporočilo
+enter one or two words describing the issue, or type the article number if you know it	phpbrain	sl	Vnesite besedo ali dve o temi. Če poznate številčno oznako članka, lahko vnesete tudi to.
+error deleting article from database	phpbrain	sl	Napaka pri brisanju članka iz baze podatkov.
+error deleting link	phpbrain	sl	Napaka pri brisanju povezave.
+error downloading file	phpbrain	sl	Napaka pri prenosu datoteke.
+error locating files directory	phpbrain	sl	Napaka pri iskanju datotek v mapi.
+error moving file to directory	phpbrain	sl	Napaka pri prenosu datoteke v mapo.
+error publishing comment	phpbrain	sl	Napaka pri objavi komentarja.
+error retrieving article	phpbrain	sl	Napaka pri prenosu članka.
+error trying to delete comment	phpbrain	sl	Napaka pri brisanju komentarja.
+error trying to delete question	phpbrain	sl	Napaka pri brisanju vprašanja.
+error trying to edit article	phpbrain	sl	Napaka pri urejanju članka.
+error trying to publish article	phpbrain	sl	Napaka pri objavi članka.
+error: file doesn't exist in the database	phpbrain	sl	Napaka: datoteka ne obstaja v podatkovni bazi.
+excellent	phpbrain	sl	Odlično
+failure trying to delete the file	phpbrain	sl	Napaka pri poskusu brisanja datoteke.
+file could be deleted from server but not from database	phpbrain	sl	Datoteka je bila izbrisana na strežniku, ne pa v bazi podatku.
+file has been successfully uploaded	phpbrain	sl	Datoteka je bila uspešno naložena.
+file was already missing from server, and was deleted from the database	phpbrain	sl	Datoteka je že manjkala na strežniku, izbrisana je bila še iz baze podatkov.
+file was deleted successfully	phpbrain	sl	Datoteka je bila uspešno izbrisana.
+file wasn't in server and it couldn't be deleted from the database	phpbrain	sl	Datoteke ni bilo na strežniku niti je ni bilo mogoče izbrisati iz podatkovne baze.
+find results	phpbrain	sl	Rezultati iskanja
+have to be approved first	common	sl	Mora biti najprej pregledano
+history	phpbrain	sl	Zgodovina
+if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	sl	Če ne najdete odgovorov na problem v bazi znanj, ga opišite spodaj
+if you wish, you can comment this article here	phpbrain	sl	Če želite, lahko komentirate ta članek
+in %1	phpbrain	sl	v %1
+in the text	phpbrain	sl	v besedilu
+in the title	phpbrain	sl	v naslovu
+in the topic	phpbrain	sl	v temi
+include subcategories	phpbrain	sl	Vključi podkategorije
+keywords	phpbrain	sl	Ključne besede
+knowledge base article #%1	phpbrain	sl	Baza znanja članka %1
+knowledge base configuration	common	sl	Konfiguracija baze znanja
+last modification by %1 on %2	phpbrain	sl	Zadnja sprememba od %1 na %2
+latest	phpbrain	sl	Zadnje
+latest comments	phpbrain	sl	Zadnji komentarji
+leave empty to automatically generate an id	phpbrain	sl	Pusti prazno, da se avtomatično izdela ID
+link could not be added	phpbrain	sl	Povezave ni bilo mogoče dodati
+link deleted successfully	phpbrain	sl	Povezava je bila uspešno izbrisana
+link has been added	phpbrain	sl	Povezava je bila dodana
+links	phpbrain	sl	Povezave
+links & files	phpbrain	sl	Povezave in datoteke
+mail article	phpbrain	sl	Prispevek na pošti
+main view	phpbrain	sl	Glavni pogled
+maintain articles	phpbrain	sl	Vzdrževanje člankov
+maintain questions	phpbrain	sl	Vzdrževanje vprašanj
+maximum number of comments to show:	phpbrain	sl	Največje število pokazanih komentarjev:
+maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	sl	Največje število najbolj popularnih člankov, zadnjih člankov in neodgovorjenih vprašanj, ki se pokažejo v glavnem pogledu:
+modification date	phpbrain	sl	Datum spremembe
+most viewed	phpbrain	sl	Najbolj gledan
+new article	phpbrain	sl	Nov članek
+nobody has rated this article so far	phpbrain	sl	Tega članka še nihče ni ocenil
+none	phpbrain	sl	Noben
+nothing was uploaded!	phpbrain	sl	Nič ni bilo naloženo
+number of results per page	phpbrain	sl	Število rezultatov
+ocurrences	phpbrain	sl	Pojavki
+or browse the categories	phpbrain	sl	Ali preglejte kategorije
+order results by	phpbrain	sl	Uredi rezultate po
+past %1 months	phpbrain	sl	zadnjih %1 mesecev
+past year	phpbrain	sl	zadnje leto
+people have rated this article	phpbrain	sl	Obiskovalci so že ocenili ta članek
+phpbrain	common	sl	Baza znanja
+please rate the pertinence and quality of this article	phpbrain	sl	Prosim, ocenite primernost in kakovost članka
+please try again	phpbrain	sl	Prosim, poskusite znova
+poor	phpbrain	sl	pičla
+printer view	phpbrain	sl	Prikaz za tiskanju članka
+problem relating articles	phpbrain	sl	Problem pri ocenjevanju članka
+publication date	phpbrain	sl	Datum objave
+publish	phpbrain	sl	Objavi
+publish articles automatically?	common	sl	Avtomatično objavi članke?
+publish comments automatically?	common	sl	Avtomatično objavi komentarje?
+publish questions automatically?	common	sl	Avtomatično objavi vprašanja?
+publish selected	phpbrain	sl	Objavi označeno
+question deleted successfully	phpbrain	sl	Vprašanje je bilo avtomatično izbrisano
+questions deleted successfully	phpbrain	sl	Vprašanja so bila avtomatično izbrisana
+rating has been submited	phpbrain	sl	Ocena je bila oddana
+rating invalid	phpbrain	sl	Ocena ni veljavna
+recipient	phpbrain	sl	Prejemnik
+related articles in the knowledge base	phpbrain	sl	Podobni članki v Bazi znanja
+relation with article was removed successfully	phpbrain	sl	Povezava s člankom je bila uspešno odstranjena
+removed file %1	phpbrain	sl	Izbrisana datoteka %1
+removed link %1	phpbrain	sl	Izbrisana povezava %1
+reply-to	phpbrain	sl	Odgovori na
+search in all the knowledge base	phpbrain	sl	Išči v bazi znanj
+search results	phpbrain	sl	Išči rezultate
+see more questions	phpbrain	sl	Preglej več vprašanj
+select articles	phpbrain	sl	Poišči članke
+show all comments	phpbrain	sl	Pokaže vse komentarje
+show articles belonging to:	phpbrain	sl	Pokaži članke, ki pripadajo k
+show messages in category	phpbrain	sl	Prkaži sporočila v kategoriji
+submit comment	phpbrain	sl	Oddaj komentar
+submit comment and rating	phpbrain	sl	Oddaj komentar in oceno
+suggested category	phpbrain	sl	Predlagana kategorija
+summary	phpbarin	sl	Vsebina
+that file already exists	phpbrain	sl	Ta datoteka že obstaja
+the article is empty	phpbrain	sl	Članek je prazen
+the file was already missing in the server	phpbrain	sl	Datoteka je že manjkala na strežniku
+the following errors occurred	phpbrain	sl	Pojavile so se naslednje napake
+the present category and all subcategories under it	phpbrain	sl	Trenutna kategorija in vse podkategorije
+the present category only	phpbrain	sl	Le trenutna kategorija
+there are no articles	phpbrain	sl	Ni člankov
+this article hasn't yet been published in the knowledge base	phpbrain	sl	Ta članek še ni bil objavljen v Bazi znanja
+title	phpbrain	sl	Naslov
+to create categories, press 'edit categories' in the preferences menu	phpbrain	sl	Kategoriej ustvarite z ukazom "Urejanje kategorij" v izbiri Nastavitve
+topic	phpbrain	sl	Tema
+unable to add rating to database	phpbrain	sl	Ne morem shraniti ocene v bazo podatkov
+unanswered questions	phpbrain	sl	Neodgovorjena vprašanja
+unpublished	phpbrain	sl	neobjavljeno
+upload	phpbrain	sl	naloženo
+user	phpbrain	sl	Uporabnik
+user preferences	phpbrain	sl	Nastavitve uporabnika
+views	phpbrain	sl	pogledi
+was it easy to find this article using the above search string?	phpbrain	sl	Je bilo preprosto najti članek z gornjim iskalnim nizom?
+when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	sl	Izberite, ali se ob navigiranju skozi kategorije pokažejo le članki izbrane kategorije, ali tudi vseh njenih podkategorij.
+with all the words	phpbrain	sl	Vse besede
+with at least one of the words	phpbrain	sl	Vsaj ena beseda
+with the exact phrase	phpbrain	sl	Po natančni frazi
+without the words	phpbrain	sl	Brez besed
+you are in %1	phpbrain	sl	Ste v %1
+you have already qualified this article	phpbrain	sl	Ta članek ste že kvalificirali.
+you have not the proper permissions to do that	phpbrain	sl	Za to opravilo nimate dovoljenja.
+you must enter a title	phpbrain	sl	Vnesti morate naslov.
+you must enter a topic	phpbrain	sl	Vnesti morate temo.
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	sl	Pred objavo bo vaše vprašanje še pregledal moderator.
+your question will be published immediately	phpbrain	sl	Vaše vprašanje bo nemudoma objavljeno.
