@@ -12,18 +12,26 @@
 *  Free Software Foundation; either version 2 of the License, or (at your  *
 *  option) any later version.                                              *
 \**************************************************************************/
+
+	/* $Id$ */
 	
 	/**
-	* @class uikb
+	* Presentation layer of the Knowledge Base
 	*
-	* @abstract		Presentation layer of the Knowledge Base
-	* @Last Editor	$ Author: alpeb $
+	* Last Editor:	$Author$
 	* @author		Alejandro Pedraza
-	* @version		$ Revision: 0.99 $
+	* @package		phpbrain
+	* @version		$Revision$
 	* @license		GPL
-	**/
+	*/
 	class uikb
 	{
+		/**
+		* Array of public functions in this class
+		*
+		* @access	public
+		* @var		array
+		*/
 		var $public_functions = array(	'index'					=> True,
 										'advsearch'				=> True,
 										'edit_article'			=> True,
@@ -35,24 +43,96 @@
 										'maintain_articles'		=> True,
 										'maintain_questions'	=> True,
 						);
+
+		/**
+		* Success or error messages
+		*
+		* @access	private
+		* @var		string
+		*/
 		var $message;
+
+		/**
+		* To keep track if the nav bar has already been shown
+		*
+		* @access	private
+		* @var		bool
+		*/
 		var $navbar_shown = False;
+
+		/**
+		* Business Object
+		*
+		* @access	private
+		* @var		object	bo
+		*/
 		var $bo;
+
+		/**
+		* Template Object
+		*
+		* @access	private
+		* @var		object	template
+		*/
 		var $t;
+
+		/**
+		* Categories to show
+		*
+		* @access	private
+		* @var		array
+		*/
 		var $categories;
+
+		/**
+		* All categories accessible by user
+		*
+		* @access	private
+		* @var		array
+		*/
 		var $all_categories;
+
+		/**
+		* Categories path
+		*
+		* @access	private
+		* @var		string
+		*/
 		var $path = '';
-		var $vfs; 
+
+		/**
+		* Whether using sitemgr or not
+		*
+		* @access	private
+		* @var		bool
+		*/
 		var $sitemgr;
+
+		/**
+		* Link string
+		*
+		* @access	private
+		* @var		string
+		*/
 		var $link;
+
+		/**
+		* If using sitemgr, whether to allow question posting or not
+		*
+		* @access	private
+		* @var		bool
+		*/
 		var $allow_questions = False;
 
 		/**
-		* @function uikb
+		* Class constructor, instanciates bo class and auxiliary API classes, and reads confirmation messages
 		*
-		* @abstract	Class constructor, instanciates bo class, and auxiliary API classes, and reads confirmation messages
 		* @author	Alejandro Pedraza
-		**/
+		* @access	public
+		* @param	bool	$sitemgr	True if accessed through sitemgr
+		* @param	string	$link		link prefix to use if accessed through sitemgr
+		* @param	array	$arguments	Arguments passed by sitemgr
+		*/
 		function uikb($sitemgr=False, $link=False, $arguments=False)
 		{
 			$this->sitemgr					= $sitemgr;
@@ -102,11 +182,12 @@
 		}
 	
 		/**
-		* @function index
+		* Shows main screen
 		*
-		* @abstract	Shows main screen. Public function.
 		* @author	Alejandro Pedraza
-		**/
+		* @access	public
+		* @return	mixed	Returns output string if accessed through sitemgr
+		*/
 		function index()
 		{
 			$category_passed	= (int)get_var('cat', 'GET', 0);
@@ -367,11 +448,12 @@
 		}
 
 		/**
-		* @function advsearch
+		* Shows advanced search form, that is posted to function index to handle the search
 		*
-		* @abstract Shows advanced search form, that is posted to function index to handle the search. Public function
 		* @author	Alejandro Pedraza
-		**/
+		* @access	public
+		* @return	mixed	Returns output string if accessed through sitemgr
+		*/
 		function advsearch()
 		{
 			if (!$this->sitemgr)
@@ -429,11 +511,12 @@
 		}
 
 		/**
-		* @function view_article
+		* Shows article details
 		*
-		* @abstract	Shows article details. Public function.
 		* @author	Alejandro Pedraza
-		**/
+		* @access	public
+		* @return	mixed	Returns output string if accessed through sitemgr
+		*/
 		function view_article()
 		{
 			$article_id		= (int)get_var('art_id', 'GET', 0);
@@ -1004,6 +1087,13 @@
 			}
 		}
 
+		/**
+		* Mails article
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @return	mixed	When showing form, returns string output if acccess through sitemgr
+		*/
 		function mail_article()
 		{
 			$article_id = (int)get_var('art_id', 'GET', 0);
@@ -1046,6 +1136,13 @@
 			}
 		}
 
+		/**
+		* Shows popup windows with articles table
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @return	void
+		*/
 		function pop_search()
 		{
 			$actual_category			= (int)get_var('cat', 'GET', 0);
@@ -1089,11 +1186,12 @@
 		}
 
 		/**
-		* @function edit_article
+		* New articles (answering questions or just new) and edit existing articles
 		*
-		* @abstract	New articles (answering questions or just new) and edit existing articles. Public function.
 		* @author	Alejandro Pedraza
-		**/
+		* @access	public
+		* @return	void
+		*/
 		function edit_article()
 		{
 
@@ -1329,10 +1427,11 @@
 		}
 
 		/**
-		* @function	add_question. Public.
+		* Adds question to knowledge base.
 		*
-		* @abstract Adds question to knowledge base.
 		* @author	Alejandro Pedraza
+		* @access	public
+		* @return	mixed	When showing form, returns string output if acccess through sitemgr
 		**/
 		function add_question()
 		{
@@ -1397,6 +1496,13 @@
 			}
 		}
 
+		/**
+		* Article maintenance view
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @return	void
+		*/
 		function maintain_articles()
 		{
 			$actual_category = (int)get_var('cat', 'any', 0);
@@ -1560,6 +1666,13 @@
 			$this->t->pparse('output', 'maintain_articles');
 		}
 
+		/**
+		* Question maintenance view
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @return	mixed	When showing form, returns string output if acccess through sitemgr
+		*/
 		function maintain_questions()
 		{
 			$actual_category = (int)get_var('cat', 'any', 0);
@@ -1727,11 +1840,27 @@
 			}
 		}
 
+		/**
+		* Auxiliary function that reloads the article view showing a confirmation message on top
+		*
+		* @author	Alejandro Pedraza
+		* @access	private
+		* @param	int		$article_id	Id of article to show
+		* @param	string	$message	Message to show
+		* @return	void
+		*/
 		function reload_page($article_id, $message)
 		{
 			$GLOBALS['phpgw']->redirect($this->link("menuaction=phpbrain.uikb.view_article&art_id=$article_id&message=$message"));
 		}
 
+		/**
+		* Downloads file
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @return	void
+		*/
 		function download_file()
 		{
 			$article_id		= (int)get_var('art_id', 'GET');
@@ -1750,6 +1879,15 @@
 			$GLOBALS['phpgw']->common->phpgw_exit();
 		}
 
+		/**
+		* Returns HTML string of categories menu
+		*
+		* @author	Alejandro Pedraza
+		* @access	private
+		* @param	int		$parent_id				id of parent category
+		* @param	int		$num_main_categories	Number of main categories
+		* @return	string							HTML string of categories menu
+		*/
 		function build_categories($parent_id, $num_main_categories)
 		{
 			$categories_str = '';
@@ -1784,6 +1922,15 @@
 			return $categories_str;
 		}
 
+		/**
+		* Returns HTML string of categories from the topmost to the actual one
+		*
+		* @author	Alejandro Pedraza
+		* @access	private
+		* @param	int		$category_id	Id of current category
+		* @param	bool	$links			Whether to make categories clickable or not
+		* @return	string					HTML string
+		*/
 		function category_path($category_id, $links = False)
 		{
 			$cat_data = $this->cat_data($category_id);
@@ -1818,6 +1965,14 @@
 			return $this->path;
 		}
 
+		/**
+		* Auxiliary function to category_path function
+		*
+		* @author	Alejandro Pedraza
+		* @access	private
+		* @param	int		$category_id
+		* @return	mixed	Array or 0
+		*/
 		function cat_data($category_id)
 		{
 			$cat_data = array();
@@ -1833,6 +1988,13 @@
 			return 0;
 		}
 
+		/**
+		* Shows basic search form
+		*
+		* @author	Alejandro Pedraza
+		* @access	private
+		* @return	string	Form to place inside other templatesA
+		*/
 		function show_basic_search()
 		{
 			$this->t->set_file('basic_search', 'basic_search.tpl');
@@ -1850,6 +2012,13 @@
 
 		}
 
+		/**
+		* Places spelling suggestions in original text
+		*
+		* @author	Alejandro Pedraza
+		* @access	private
+		* @return	mixed	Corrected text or 0
+		*/
 		function check_spell()
 		{
 			$text_orig = $_POST['exec']['text'];
@@ -1881,6 +2050,13 @@
 			return $text_orig;
 		}
 
+		/**
+		* Corrects text spelling
+		*
+		* @author	Alejandro Pedraza
+		* @access	private
+		* @return	string	Corrected text
+		*/
 		function correct_spell()
 		{
 			$corrections = $_POST['correction'];
@@ -1897,6 +2073,14 @@
 			return $corrected_text;
 		}
 
+		/**
+		* Shows link string. Necessary because might be different depending if entered through sitemgr or not
+		*
+		* @author	Alejandro Pedraza
+		* @access	private
+		* @param	string	$args	GET arguments to be appended to link
+		* @return	string			Link string
+		*/
 		function link($args)
 		{
 			if ($this->sitemgr)
@@ -1909,6 +2093,13 @@
 			}
 		}
 
+		/**
+		* Javascript code to check all check boxes in a table
+		*
+		* @author	Alejandro Pedraza
+		* @access	private
+		* @return	string	Code
+		*/
 		function javascript_check_all()
 		{
 			$javascript = "<script>
@@ -1932,6 +2123,14 @@
 			return $javascript;
 		}
 
+		/**
+		* To stop execution showing error message
+		*
+		* @author	Alejandro Pedraza
+		* @access	private
+		* @param	string	$error_msg	Error message to be translated and shown
+		* @return	void
+		*/
 		function die_peacefully($error_msg)
 		{
 			if (!$this->navbar_shown && !$this->sitemgr)
