@@ -114,7 +114,7 @@
 				$words = array();
 				foreach ($words_init as $word_init)
 				{
-					if (is_int($word_init) || strlen($word_init) > 3)
+					if (is_numeric($word_init) || strlen($word_init) > 3)
 					{
 						$words[] = $this->db->db_addslashes($word_init);
 					}
@@ -122,7 +122,11 @@
 				$likes = array();
 				foreach ($words as $word)
 				{
-					if ((int)$word) $likes[] = "art_id='$word'";
+					if ((int)$word) 
+					{
+						$likes[] = "phpgw_kb_articles.art_id='$word'";
+						break;
+					}
 					$likes[] = "title LIKE '%$word%' OR topic LIKE '%$word%' OR text LIKE '%$word%'";
 				}
 				$likes = implode(' OR ', $likes);
