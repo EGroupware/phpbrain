@@ -23,12 +23,6 @@
      </select>
     </td>
    </tr>
-   <tr bgcolor="{row_off}">
-    <td>{lang_anon_user}:</td>
-    <td>
-		{hook_anon_user}
-    </td>
-   </tr>
 <!-- END body -->
 
 <!-- BEGIN footer -->

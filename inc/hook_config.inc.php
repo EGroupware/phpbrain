@@ -17,7 +17,7 @@
 
 	function anon_user($config)
 	{
-		$sbox = createObject('phpgwapi.sbox2');
-		return $sbox->getAccount('newsettings[anon_user]',$config['anon_user'], true);
+		//$sbox = createObject('phpgwapi.sbox2');
+		//return $sbox->getAccount('newsettings[anon_user]',$config['anon_user'], true);
 	}
 ?>
