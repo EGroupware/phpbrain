@@ -1,6 +1,6 @@
 <?php
     /**************************************************************************\
-    * eGroupWare - Knowledge Bas                                               *
+    * eGroupWare - Knowledge Base                                              *
     * http://www.egroupware.org                                                *
     * -----------------------------------------------                          *
     *  This program is free software; you can redistribute it and/or modify it *
@@ -26,7 +26,7 @@
 		$menu_title = lang('Preferences');
 		$file = Array(
 			'Preferences'		=> $GLOBALS['phpgw']->link('/preferences/preferences.php','appname=phpbrain'),
-			'Edit Categories'	=> $GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikbcategories.index&cats_app='.$appname.'&cats_level=True&global_cats=True&extra=icon')
+			'Edit Categories'	=> $GLOBALS['phpgw']->link('/index.php','menuaction=preferences.uicategories.index&cats_app='.$appname.'&cats_level=True&global_cats=True')
 		);
 		display_sidebox($appname,$menu_title,$file);
 	}	
