@@ -206,3 +206,30 @@
 		$GLOBALS['setup_info']['phpbrain']['currentver'] = '1.0.1';
 		return $GLOBALS['setup_info']['phpbrain']['currentver'];
 	}
+
+	$test[] = '1.0.1';
+	// this upgrade changes \n from older version's plain text to <br>
+	function phpbrain_upgrade1_0_1()
+	{
+		$db1 = $GLOBALS['phpgw_setup']->db;
+
+		$sql = "SELECT art_id, text FROM phpgw_kb_articles";
+		$GLOBALS['phpgw_setup']->oProc->query($sql, __LINE__, __FILE__);
+		while($GLOBALS['phpgw_setup']->oProc->next_record())
+		{
+			$art_id = $GLOBALS['phpgw_setup']->oProc->f('art_id');
+			$text = $GLOBALS['phpgw_setup']->oProc->f('text');
+			
+			if (!ereg("<[^<]+>.+<[^/]*/.+>", $text))
+			{
+				// text doesn't have html -> proceed to replace all \n by <br>
+				$new_text = ereg_replace("\n", "<br />", $text);
+
+				$sql ="UPDATE phpgw_kb_articles SET text='$new_text' WHERE art_id = $art_id";
+				$db1->query($sql, __LINE__, __FILE__);
+			}
+		}
+
+		$GLOBALS['setup_info']['phpbrain']['currentver'] = '1.0.2';
+		return $GLOBALS['setup_info']['phpbrain']['currentver'];
+	}
