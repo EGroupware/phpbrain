@@ -1737,7 +1737,7 @@
 			{
 				$actions = '';
 				// skip if question unpublished and user has no publish right on owner
-				if (!$quesion['published'] && !($this->bo->grants[$question['user_id']] & $this->bo->publish_right)) continue;
+				if (!$question['published'] && !($this->bo->grants[$question['user_id']] & $this->bo->publish_right)) continue;
 
 				// can only attempt to answer a question if it has been published
 				if ($question['published'])
