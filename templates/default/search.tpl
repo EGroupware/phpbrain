@@ -1,5 +1,5 @@
 <table width="100%" cellpadding=2 cellspacing=0 border=0>
-<tr bgcolor="{header_bgcolor}">
+<tr>
  <td nowrap class="navbg">
 	<b>{lang_kb_contains}</b> {lang_num_faqs} | {lang_num_tutes} | {lang_num_open} 
  </td>
@@ -13,7 +13,7 @@
  </td>
 </tr>
 <tr>
-	<td bgcolor="{header_bgcolor}" valign=top>
+	<td  valign=top>
 		<FORM ACTION="{search_url}" NAME="search_form" METHOD="POST">
 		<TABLE BORDER="0">
 		<TR>
@@ -54,7 +54,7 @@
 -->
 <!-- END admin -->
 	</td>
-	<td bgcolor="#FFCC66" VALIGN="BOTTOM" colspan=2>&nbsp;</td>
+	<td VALIGN="BOTTOM" colspan=2>&nbsp;</td>
 </tr>
 </table>
 <p>{message}</p>

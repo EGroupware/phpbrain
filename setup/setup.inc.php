@@ -39,6 +39,7 @@
 	//$setup_info['phpbrain']['hooks'][] = 'deleteaccount';
 	//$setup_info['phpbrain']['hooks'][] = 'notifywindow';
 	//$setup_info['phpbrain']['hooks'][] = 'preferences';
+	$setup_info['phpbrain']['hooks'][] = 'sidebox_menu';
 	
 	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_faq';
 	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_comment';

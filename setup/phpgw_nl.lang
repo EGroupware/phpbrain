@@ -1,0 +1,80 @@
+$stat_name %1	phpbrain	nl	$stat_name %1
+%1 contains %2 items	phpbrain	nl	%1 bevat %2 items
+%1 faqs_activated	phpbrain	nl	%1 FAQ's geactiveerd
+%1 faqs_deleted	phpbrain	nl	%1 FAQ's verwijderd
+%1 matches found	phpbrain	nl	%1 resultaten gevonden
+%1 questions_activated	phpbrain	nl	%1 vragen geactiveerd 
+%1 questions_deleted	phpbrain	nl	%1 vragen verwijderd
+active_when_checked	phpbrain	nl	Actief bij aangevinkt
+add_answer	phpbrain	nl	Antwoord toevoegen
+add_comments	phpbrain	nl	Opmerkingen toevoegen
+add_question	phpbrain	nl	Vraag toevoegen
+add_question (%1 open)	phpbrain	nl	Vraag toevoegen (%1 Open)
+allow html	admin	nl	Sta HTML-tags toe in kennisbank
+already_rated	phpbrain	nl	U heeft dit item al een beoordeling gegeven. dank u.
+anon user	admin	nl	Anonieme gebruiker
+answer	phpbrain	nl	Antwoord
+browse	common	nl	Browse
+cant_post_must_register	phpbrain	nl	U moet een geregistreerde gebruiker zijn om informatie aan de kennisbank te kunnen toevoegen
+check_before_submit	phpbrain	nl	Controleer a.u.b. of de informatie niet al in de kennisbank aanwezig voordat u deze toevoegt.
+close window	phpbrain	nl	sluit scherm	
+comment	phpbrain	nl	Opmerkingen
+comments	phpbrain	nl	Opmerkingen
+cur_open_qs	phpbrain	nl	Huidige open vragen
+current_questions	phpbrain	nl	Huidige Vragen
+edit_answer	phpbrain	nl	Wijzig antwoord
+edit_faq	phpbrain	nl	Wijzig FAQ
+enable	common	nl	Activeer
+example	phpbrain	nl	Voorbeeld
+excellent	common	nl	Uitstekend
+explain_faq_admin	phpbrain	nl	Antwoorden op vragen moeten geactiveerd zijn voordat gebruikers ze kunnen zien. Selecteer de antoorden die u wilt activeren. U kunt ook onjuiste antwoorden selecteren om te verwijderen.
+explain_maintain_answers	phpbrain	nl	Door gebruikers ingezonden vragen moeten geactiveerd worden door een Beheerder. Selecteer de vragen die u wilt activeren. U kunt ook vragen selecteren om te verwijderen.
+explain_questions_admin	phpbrain	nl	Door gebruikers ingezonden antwoorden moeten geactiveerd worden door een Beheerder. Selecteer de antwoorden die u wilt activeren. U kunt ook antwoorden selecteren om te verwijderen.
+faq	phpbrain	nl	FAQ
+faq_saved	phpbrain	nl	FAQ opgeslagen
+faqs	phpbrain	nl	FAQ's
+faqs_and_tutes	phpbrain	nl	FAQ's en Tutorials
+improve_by_rate	phpbrain	nl	Help ons met het verbeteren van de beoordelingen.
+inspire_by_suggestions	phpbrain	nl	Als u behoefte hebt aan inspiratie, bekijk dan eens de open vragen.
+invalid faq request - or something is nqr	phpbrain	nl	ERROR: Ongeldige FAQ Aanvraag
+kb_contains	phpbrain	nl	Kennisbank bevat
+know_contrib	phpbrain	nl	Weet u het antwoord? Zo ja, help ons dan door hem te beantwoorden.
+last_mod %1	phpbrain	nl	Laatst gewijzigd: %1
+maintain_answers	phpbrain	nl	Bewerk Antwoorden
+no comments	phpbrain	nl	Geen opmerkingen
+none found - revise or browse	phpbrain	nl	Niets gevonden - pas uw zoekterm aan of klik op bladeren.
+none_pending	phpbrain	nl	Geen wachtende	
+none_unanswered	phpbrain	nl	Geen onbeantwoorde vragen
+not_submit_qs_warn	phpbrain	nl	Denk er a.u.b. aan dat dit niet de plek is om vragen te stellen. De vragen horen gesteld te worden op de vragenpagina. Als u een vraag toevoegd zonder antwoord zal deze worden verwijderd.
+num_faqs %1	phpbrain	nl	Vragen(%1)
+num_open %1	phpbrain	nl	Open(%1)
+num_pages %1	phpbrain	nl	Pagina's(%1)
+num_tutes %1	phpbrain	nl	Tutorials(%1)
+phpbrain	common	nl	Kennisbank
+phpbrain config	admin	nl	Kennisbank Configuratie
+phpbrain_config	phpbrain	nl	Kennisbank Configuratie
+poor	common	nl	Zwak
+preview	phpbrain	nl	preview
+question	phpbrain	nl	Vraag
+rating	phpbrain	nl	Beoordeling
+rating %1	phpbrain	nl	beoordeling %1
+register	common	nl	Registreer
+related_url	phpbrain	nl	Gerelateerde URL
+reset	phpbrain	nl	Reset
+return_to_admin	phpbrain	nl	Terug naar Admin
+return_to_cats %1	phpbrain	nl	Terug naar Categorie: %1
+return_to_index	phpbrain	nl	Terug naar Index
+return_to_search %1	phpbrain	nl	Terug naar zoeken: %1
+score %1	phpbrain	nl	score %1
+section_maint_faqs	phpbrain	nl	Bewerk lopende vragen
+section_maintain_questions	phpbrain	nl	Bewerk vragen
+show	phpbrain	nl	weergeven
+submitted_by	phpbrain	nl	Ingezonden door
+text	common	nl	Tekst
+thanks_4_rating	phpbrain	nl	Bedankt voor de beoordeling van dit item.
+tutorial	phpbrain	nl	Tutorial
+tutorials	phpbrain	nl	Tutorials
+up	phpbrain	nl	naar boven	
+views	phpbrain	nl	Weergaven
+views %1	phpbrain	nl	weergaven %1
+votes %1	phpbrain	nl	stemmen %1

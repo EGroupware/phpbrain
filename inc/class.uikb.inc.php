@@ -758,9 +758,10 @@
 				echo "<title>\n\t";
 				echo $GLOBALS['phpgw_info']['server']['site_title'] .' ['. lang('phpbrain') . "]\n";
 				echo "</title>\n";
-				echo "<style type=\"text/css\">\n<!--";
-				echo $this->css();
-				echo "\n-->\n</style></head>\n<body>";
+				//echo "<style type=\"text/css\">\n<!--";
+				//echo $this->css();
+				//echo "\n-->\n</style>
+				echo "</head>\n<body>";
 			}
 			
 			$faq_id = (isset($_GET['faq_id']) ? trim($_GET['faq_id']) : 0);
@@ -920,7 +921,7 @@
 
 		function css()
 		{
-			return 'th   {  font-family: '.$this->theme['font'].'; font-size: 10pt; font-weight: bold; background-color: #D3DCE3;} '. "\n".
+/*			return 'th   {  font-family: '.$this->theme['font'].'; font-size: 10pt; font-weight: bold; background-color: #D3DCE3;} '. "\n".
 				'td   {  font-family: '.$this->theme['font'].'; font-size: 10pt;} '. "\n".
 				'p {  font-family: '.$this->theme['font'].'; font-size: 10pt} '. "\n".
 				'li {  font-family: '.$this->theme['font'].'; font-size: 10pt} '. "\n".
@@ -940,6 +941,6 @@
 				'.faq_info {  font-family: '.$this->theme['font'].'; color:' . $this->theme['navbar_bg'] . '; font-size: 8pt} ' . "\n" .
 				'hr {background-color: ' . $this->theme['navbar_bg'] . '; border-width: 0px; heght: 2px;} ' . "\n" .
 				'input, textarea {color:' . $this->theme['bg_text']. '; background-color:' .  $this->theme['bg_color'] . '; font-family: '.$this->theme['font']. '; font-size: 9pt; border: 1px solid ' . $this->theme['bg_text'] . ';} '. "\n".
-				'';
+				'';*/
 		}
 	}	

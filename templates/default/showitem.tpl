@@ -1,6 +1,6 @@
 		<p align="center" style="color:#FF0000;">{msg}</p>
     <table width="700" align="center" cellspacing=0 cellpadding=3 style="{border:1px solid #000000;}">
-      <tr bgcolor="{tbl_bg_color}">
+      <tr >
         <td colspan="3" align="CENTER" class="navbg">
           <a href="{return_url}" class="contrlink">{return_msg}</a> 
         </td>
@@ -65,7 +65,7 @@
 			<td colspan=2><b>{lang_comments}</b></td>
       </tr>
 		<!-- BEGIN cmnt -->
-      <tr bgcolor={comment_bg}>
+      <tr >
         <td width='20%' valign="top"><b>{comment_user}</b></td>
         <td>{comment_text}<br>&nbsp</td>
       </tr>
