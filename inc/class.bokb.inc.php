@@ -579,6 +579,13 @@
 				return $art_id;
 			}
 
+			// if given, articleID must be a number
+			if ($content['articleID']!='' && !is_numeric($content['articleID']))
+			{
+				$this->error_msg = lang('The article ID must be a number');
+				return False;
+			}
+
 			// if adding a new article, check that the  articleID doesn't already exist if it was given
 			if ($content['articleID'] && $this->so->exist_articleID($content['articleID']))
 			{
