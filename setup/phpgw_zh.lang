@@ -1,0 +1,80 @@
+$stat_name %1	phpbrain	zh	$stat_name %1
+%1 contains %2 items	phpbrain	zh	%1包含%2项
+%1 faqs_activated	phpbrain	zh	已激活%1个FAQ
+%1 faqs_deleted	phpbrain	zh	已删除%1个FAQ
+%1 matches found	phpbrain	zh	找到%1个符合条件的记录
+%1 questions_activated	phpbrain	zh	已激活%1个问题
+%1 questions_deleted	phpbrain	zh	已删除%1个问题
+active_when_checked	phpbrain	zh	选中后激活
+add_answer	phpbrain	zh	添加解答
+add_comments	phpbrain	zh	添加注释
+add_question	phpbrain	zh	添加问题
+add_question (%1 open)	phpbrain	zh	添加问题(%1个打开)
+allow html	admin	zh	允许在文章中使用HTML标记
+already_rated	phpbrain	zh	感谢您对该项的评价.
+anon user	admin	zh	匿名用户
+answer	phpbrain	zh	解答
+browse	common	zh	浏览
+cant_post_must_register	phpbrain	zh	只允许注册用户在知识库中添加信息
+check_before_submit	phpbrain	zh	请在提交前确认知识库中尚无此信息.
+close window	phpbrain	zh	关闭窗口
+comment	phpbrain	zh	注释
+comments	phpbrain	zh	注释
+current_questions	phpbrain	zh	当前问题
+cur_open_qs	phpbrain	zh	当前待决问题
+edit_answer	phpbrain	zh	编辑解答
+edit_faq	phpbrain	zh	编辑FAQ
+enable	common	zh	启用
+example	phpbrain	zh	范例
+excellent	common	zh	非常好
+explain_faq_admin	phpbrain	zh	FAQ的解答必须启用, 以便用户查阅. 请选择待启用的解答, 或者选择待删除的错误回答.
+explain_maintain_answers	phpbrain	zh	用户提交的问题必须由管理员来激活. 请选择需要激活或删除的问题
+explain_questions_admin	phpbrain	zh	用户提交的解答必须由管理员来激活. 请选择需要激活或删除的问题
+faq	phpbrain	zh	FAQ
+faqs	phpbrain	zh	FAQ
+faqs_and_tutes	phpbrain	zh	FAQ和指南
+faq_saved	phpbrain	zh	FAQ已保存
+improve_by_rate	phpbrain	zh	请对文章作出评价, 以帮助我们改进知识库
+inspire_by_suggestions	phpbrain	zh	请查阅待决问题以获得启示.
+invalid faq request - or something is nqr	phpbrain	zh	错误: FAQ请求无效
+kb_contains	phpbrain	zh	知识库包括
+know_contrib	phpbrain	zh	如果您知道问题的答案, 请写上您的解答.
+last_mod %1	phpbrain	zh	最近修改者: %1
+maintain_answers	phpbrain	zh	管理解答
+no comments	phpbrain	zh	无注释
+none found - revise or browse	phpbrain	zh	未找到任何符合条件的结果, 请检查查找(或浏览)的条件.
+none_pending	phpbrain	zh	无待决问题
+none_unanswered	phpbrain	zh	FAQ已全部解答
+not_submit_qs_warn	phpbrain	zh	本页面不保留未解答的问题, 要提问请移步提问页面.
+num_faqs %1	phpbrain	zh	FAQ(%1)
+num_open %1	phpbrain	zh	待决(%1)
+num_pages %1	phpbrain	zh	页面(%1)
+num_tutes %1	phpbrain	zh	指南(%1)
+phpbrain	common	zh	知识库
+phpbrain config	admin	zh	知识库配置
+phpbrain_config	phpbrain	zh	知识库配置
+poor	common	zh	很差
+preview	phpbrain	zh	预览
+question	phpbrain	zh	问题
+rating	phpbrain	zh	评价
+rating %1	phpbrain	zh	评价: %1
+register	common	zh	注册
+related_url	phpbrain	zh	相关链接
+reset	phpbrain	zh	复位
+return_to_admin	phpbrain	zh	返回知识库管理
+return_to_cats %1	phpbrain	zh	返回类别:%1
+return_to_index	phpbrain	zh	返回索引
+return_to_search %1	phpbrain	zh	返回查找:%1
+score %1	phpbrain	zh	得分:%1
+section_maintain_questions	phpbrain	zh	管理问题
+section_maint_faqs	phpbrain	zh	管理待决的FAQ
+show	phpbrain	zh	显示
+submitted_by	phpbrain	zh	提交者:
+text	common	zh	文字
+thanks_4_rating	phpbrain	zh	感谢您对该项的评价.
+tutorial	phpbrain	zh	指南
+tutorials	phpbrain	zh	指南
+up	phpbrain	zh	向上
+views	phpbrain	zh	查看
+views %1	phpbrain	zh	查看%1
+votes %1	phpbrain	zh	投票%1
