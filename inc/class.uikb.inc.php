@@ -784,7 +784,7 @@
 			// show related articles list
 			if (!$related_articles = $this->bo->get_related_articles($article_id))
 			{
-				$this->t->set_var('related_article', '');
+				$this->t->set_var($print_view? 'related' : 'related_article', '');
 			}
 			else
 			{
