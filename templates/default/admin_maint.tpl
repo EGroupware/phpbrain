@@ -1,10 +1,3 @@
-    <table border="0" width="600" cellspacing="0">
-        <tr class="navbg">
-          <td colspan="2" align="center">
-			  	<a href="{admin_url}" class="contrlink">{lang_return_to_admin}</a>
-			  </td>
-        </tr>
-    </table>
 		<p>{msg}</p>
 		<!-- BEGIN pending_block -->
     <h1>{lang_admin_section}</h1>

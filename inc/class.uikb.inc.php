@@ -28,6 +28,7 @@
 									'confirm_delete'	=> True,
 									'css'				=> True,
 									'delete_comment'	=> True,
+									'delete_faq' => True,
 									'edit'				=> True,
 									'maint_answer'		=> True,
 									'maint_question'	=> True,
@@ -68,6 +69,12 @@
 
 		function add_comment()
 		{
+			if (isset($_POST['cancel']))
+			{
+				header('Location: ' . $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.index'));
+				$GLOBALS['phpgw']->common->exit();
+			}
+			
 			$comment_id = (isset($_POST['comment_id']) ? trim($_POST['comment_id']) : 0);
 			$comment_data['faq_id'] = (isset($_POST['faq_id']) ? trim($_POST['faq_id']) : 0);
 			$comment_data['comment'] = (isset($_POST['comment']) ? trim($_POST['comment']) : '');
@@ -85,11 +92,11 @@
 			{
 				$this->bo->set_comment($comment_id, $comment_data);
 				$link['faq_id']		= $comment_data['faq_id'];
-				$link['msg'] = 'comment_added';
+				$link['msg'] = 'comment added';
 			}
 			else
 			{
-				$link['msg'] = 'comment_invalid';
+				$link['msg'] = 'comment invalid';
 			}
 			
 			header('Location: ' . $GLOBALS['phpgw']->link('/index.php',$link)); 
@@ -100,6 +107,13 @@
 		function add_question()
 		{
 			$question = (isset($_POST['comment']) ? trim($_POST['comment']) : '');
+			
+			if (isset($_POST['cancel']))
+			{
+				header('Location: ' . $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.index'));
+				$GLOBALS['phpgw']->common->exit();
+			}
+			
 			$ok = false;
 			if(strlen($question) && !$this->bo->is_anon())
 			{
@@ -108,7 +122,14 @@
 			
 			if($ok)
 			{
-				$msg = 'save ok';
+				if ($this->bo->is_admin())
+				{
+					$msg='Question added to database';
+				}
+				else
+				{
+					$msg = 'Question added. It will appear on the database after revision of the administrator';
+				}
 			}
 			else
 			{
@@ -121,135 +142,168 @@
 
 		function browse()
 		{
-			$this->search_banner();
+			$cat_id = ( (isset($_POST['cat_id']) && $_POST['cat_id'] != 0) ? trim($_POST['cat_id']) : '');
+			$msg = ( isset($_GET['msg'])  ? lang(trim($_GET['msg'])) : '');
+			$search = (isset($_GET['query']) ? trim($_GET['query'])
+						: (isset($_POST['query']) ? trim($_POST['query']) : ''));
+			$this->start = ( isset($_POST['start'])  ? trim($_POST['start']) : 0);
+			$_POST['filter'] = ( isset($_POST['filter']) ? trim($_POST['filter']) : 'Answered');
+			$filter = $_POST['filter'];
+			
+			$GLOBALS['phpgw']->common->phpgw_header();
+			echo parse_navbar();
+			
 			$this->t->set_file('browse', 'browse.tpl');
-			$cat_id = (int) ( (isset($_GET['cat_id']) && $_GET['cat_id'] != 0) ? trim($_GET['cat_id']) : 0);
-			$cat_name = (isset($_GET['cat_name']) ? trim($_GET['cat_name']) : '');
-			if($cat_name)
-			{
-				$cat_id = $this->cats->name2id($cat_name);
-			}
-
-			$this->t->set_block('browse', 'cur_cat_name', 'ccname');
-			$this->t->set_block('browse', 'cat_row', 'rows');
-			$this->t->set_block('browse', 'table', 'tbl');
-
-			if($cat_id)
-			{
-				$cat_name = $this->cats->id2name($cat_id);
-				$this->t->set_var('cur_category_name', $cat_name);
-				$this->t->set_var('up_category_url', $GLOBALS['phpgw']->link('/index.php',
-											array('menuaction' => 'phpbrain.uikb.browse',
-												'cat_id'	=> $this->cats->id2name($cat_id,'parent')
-												)
-											)
-						);
-				$this->t->set_var('lang_up', lang('up'));
-				$this->t->parse('ccname', 'cur_cat_name');
-			}
-			else
-			{
-				$this->t->set_var('ccname', '');
-			}
-
-			$cat_data = $this->bo->get_cat_data($cat_id);
-			$cells = 0;//used for cell numbers to see if row is needed
-			if(is_array($cat_data))	
-			{
-				$this->t->set_file('cat_list', 'cat_list.tpl');
-				$this->t->set_block('cat_list', 'sub_cat', 'subcats');
-				$this->t->set_block('cat_list', 'cell', 'cells');
-
-				foreach( $cat_data as $cat_key => $cat_fields)
+			
+			$this->t->set_block('browse','phpbrain_header');
+			$this->t->set_block('browse','column');
+			$this->t->set_block('browse','row');
+			$this->t->set_block('browse','phpbrain_footer');
+			
+			$this->t->set_var('th_bg',$GLOBALS['phpgw_info']['theme']['th_bg']);
+			
+			$not_empty=TRUE;
+			if($search)
+			{	
+				$faqs = $this->bo->get_search_results($search);
+				if(is_array($faqs))
 				{
-					if(is_array($cat_fields['subs']))
-					{
-						foreach($cat_fields['subs'] as $sub_id => $sub_vals)
-						{
-							$this->t->set_var('sub_cat_link',$GLOBALS['phpgw']->link('/index.php',
-																array('menuaction' => 'phpbrain.uikb.browse',
-																		'cat_id'	=> $sub_id)
-																	)
-											);
-							$this->t->set_var('sub_cat_name', $sub_vals['name']);
-							if($sub_vals['num_entries'])//count(entries)
-							{
-								$this->t->set_var('sub_cat_count', ' (' . $sub_vals['num_entries'] . ')' );
-							}
-							else//count == 0
-							{
-								$this->t->set_var('sub_cat_count', '');
-							}//count(entries)
-							
-							$this->t->parse('subcats','sub_cat',true);
-						}//end foreach(subcats)	
-
-					}
-					else //!is_array(subcats)
-					{
-						$this->t->set_var('subcats', '');
-					}//end is_array(subcats)
-					
-					$this->t->set_var('cat_link',$GLOBALS['phpgw']->link('/index.php',
-											array('menuaction' => 'phpbrain.uikb.browse',
-												'cat_id'	=> $cat_key)
-															)
-									);
-					$this->t->set_var('cat_name', $cat_fields['name']);
-					if($cat_fields['num_entries'])//count(entries)
-					{
-						$this->t->set_var('cat_count', ' (' . $cat_fields['num_entries'] . ')' );
-					}
-					else//count == 0
-					{
-						$this->t->set_var('cat_count', '');
-					}//count(entries)
-
-					$cells++;//increment cells - to track if row needed
-					if(!($cells % 2))//if even then new row required
-					{
-						$this->t->parse('cells', 'cell', true);
-						$this->t->parse('row', 'cells');//, true);
-						$this->t->parse('rows', 'cat_row', true);
-					}
-					else
-					{
-						$this->t->parse('cells', 'cell');
-					}//end if is_even(cells)
-					
-				}//end foreach cats
-
-  			if($cells % 2)//do we need to create a blank cell and close the row
-  			{
-  				$this->t->set_var('cell', '<td>&nbsp;</td>');
-					$this->t->parse('cells', 'cell', true);
-					$this->t->parse('row', 'cells');//, true);
-					$this->t->parse('rows', 'cat_row', true);
-				}//end if is_even(cells)
-
-				$this->t->parse('tbl','table');
+					$msg=lang('%1 matches found', count($faqs));
+				}
+				else//nothing found
+				{
+					$msg=lang('none found - revise or browse');
+					$not_empty=FALSE;
+				}
 			}
-			else //!is_array(cats)
+			elseif ($filter == 'Answered')
 			{
-				$this->t->set_block('browse', 'table', 'tbl');
-				$this->t->set_var('tbl','');
-			}// end is_array(cats)
+				$faqs = $this->bo->get_faq_list($cat_id,$this->start);
+				$total_records = $this->bo->get_count($cat_id);
+				$cols='<td height="21"><font size="-1" face="Arial, Helvetica, sans-serif">'.lang('Question').'</font></td>';
+				$cols.='<td height="21"><font size="-1" face="Arial, Helvetica, sans-serif">'.lang('Answer').'</font></td>';
+				$cols.='<td height="21"><font size="-1" face="Arial, Helvetica, sans-serif">'.lang('Modified').'</font></td>';
+				$cols.='<td height="21"><font size="-1" face="Arial, Helvetica, sans-serif">'.lang('Avg. score').'</font></td>';
+				$cols.='<td height="21"><font size="-1" face="Arial, Helvetica, sans-serif">'.lang('Actions').'</font></td>';
+				$this->t->set_var('cols',$cols);
+			}
+			elseif ($filter == 'Open')
+			{
+				$q_unanswered = $this->bo->get_questions(FALSE,$this->start);
+				$total_records = $this->bo->get_count_unanswered();
+				$cols='<td height="21"><font size="-1" face="Arial, Helvetica, sans-serif">'.lang('Question').'</font></td>';
+				$this->t->set_var('cols',$cols);
+			}
 			
-			$faqs = $this->bo->get_faq_list($cat_id);
-			$this->t->set_block('browse', 'cat_count', 'count');
-			if(is_array($faqs))
+			$this->t->set_var('message',$msg);
+			
+			$GLOBALS['phpgw']->nextmatchs = CreateObject('phpgwapi.nextmatchs');
+			
+			$GLOBALS['phpgw']->template->set_var('searchreturn','');
+			
+			$this->sort=1;
+						
+			$search_filter = $GLOBALS['phpgw']->nextmatchs->show_tpl(
+				'/index.php',																												// $sn
+				$this->start, 																												// $localstart
+				$total_records,																											// $total
+				'&menuaction=phpbrain.uikb.index&cat_id=' . $cat_id,													// $extra
+				'97%',																														// $twidth
+				$GLOBALS['phpgw_info']['theme']['th_bg'],																	// $bgtheme
+				1,																																// $search_obj
+				array(array('Answered',lang('Answered')),array('Open',lang('Open'))),							// $filter_obj
+				1,																																// $showsearch
+				0,																																// $yours
+				$cat_id,																													// $cat_id
+				'cat_id'																														// $cat_field
+			);
+			$this->t->set_var('search_filter',$search_filter);
+			
+			if ($not_empty)
 			{
-				$this->t->set_var('lang_cat_contains' , lang('%1 contains %2 items', $cat_name, count($faqs)));
-				$this->t->parse('count', 'cat_count');
-				$this->t->set_var('faqs', $this->summary($faqs));
+				$lang_showing = $GLOBALS['phpgw']->nextmatchs->show_hits($total_records,$this->start);
 			}
 			else
 			{
-				$this->t->set_var('count', '');
-				$this->t->set_var('faqs', '');
+				$lang_showing="";
 			}
 			
-			$this->t->pfp('out', 'browse');
+			$this->t->set_var('lang_showing', $lang_showing);
+			$this->t->pparse('out','phpbrain_header');
+			
+			/* Show the entries */
+			if ($filter=='Answered' && $not_empty && isset($faqs))
+			{
+				foreach ($faqs as $faq_id => $faq)
+				{
+					$actions = '<a href="'
+						. $GLOBALS['phpgw']->link('/index.php',array(
+						'menuaction' => 'phpbrain.uikb.view',
+						'faq_id'      => $faq_id
+					))
+					. '"><img src="'
+					. $GLOBALS['phpgw']->common->image('addressbook','view')
+					. '" border="0" title="'.lang('View').'"></a> ';
+					
+					if ($this->bo->is_admin())
+					{
+						$actions .= '<a href="'
+							. $GLOBALS['phpgw']->link('/index.php',array(
+							'menuaction' => 'phpbrain.uikb.edit',
+							'faq_id'      => $faq_id
+						))
+						. '"><img src="'
+						. $GLOBALS['phpgw']->common->image('addressbook','edit')
+						. '" border="0" title="'.lang('Edit').'"></a> '
+						
+						.'<a href="'
+							. $GLOBALS['phpgw']->link('/index.php',array(
+							'menuaction' => 'phpbrain.uikb.delete_faq',
+							'faq_id'      => $faq_id
+						))
+						. '"><img src="'
+						. $GLOBALS['phpgw']->common->image('addressbook','delete')
+						. '" border="0" title="'.lang('Delete').'"></a> ';
+					}
+					
+					$this->t->set_var('columns','');
+					$tr_color = $GLOBALS['phpgw']->nextmatchs->alternate_row_color($tr_color);
+					$this->t->set_var('row_tr_color',$tr_color);
+					
+					$this->t->set_var('col_data',$faq['title']);
+					$this->t->parse('columns','column',True);
+					$this->t->set_var('col_data',$faq['text']);
+					$this->t->parse('columns','column',True);
+					$this->t->set_var('col_data',date('d-M-Y', $faq["modified"]));
+					$this->t->parse('columns','column',True);
+					$this->t->set_var('col_data', '<center>' . $faq['vote_avg'] . '</center>');
+					$this->t->parse('columns','column',True);
+					$this->t->set_var('col_data', '<center>' . $actions . '</center>');
+					$this->t->parse('columns','column',True);
+					$this->t->parse('rows','row',True);
+					$this->t->pparse('out','row');
+				}
+			}
+			elseif ($filter=='Open' && $not_empty && isset($q_unanswered))
+			{
+				foreach ($q_unanswered as $qu_id => $q_content)
+				{
+					$this->t->set_var('columns','');
+					$tr_color = $GLOBALS['phpgw']->nextmatchs->alternate_row_color($tr_color);
+					$this->t->set_var('row_tr_color',$tr_color);
+					
+					$faq_url='<a href=';
+					$faq_url.=$GLOBALS['phpgw']->link('/index.php',array('menuaction' => 'phpbrain.uikb.add', 'question' => $q_content, 'question_id' => $qu_id));
+					$faq_url.='>';
+					
+					$this->t->set_var('col_data',$faq_url.$q_content.'</a>');
+					$this->t->parse('columns','column',True);
+					$this->t->parse('rows','row',True);
+					$this->t->pparse('out','row');
+				}
+			}
+			
+			$this->t->pparse('out','phpbrain_footer');			
 		}//end browse
 
 		function build_form($form_target, $title, $input_descr, $input_hidden=false, $allow_anon=false)
@@ -258,13 +312,15 @@
 			$tpl = $this->t;
 			$tpl->set_file('form', 'form.tpl');
 			
+			
   		if(!$this->bo->is_anon())
   		{
   			$tpl->set_var(array('form_url'		=> $GLOBALS['phpgw']->link('/index.php', 
   											array('menuaction' => "phpbrain.uikb.$form_target")),
   					'lang_title'		=> lang($title),
   					'lang_input_descr'	=> lang($input_descr),
-  					'lang_submit_val'	=> lang('add')
+  					'lang_submit_val'	=> lang('add'),
+  					'lang_submit_cancel' => lang('cancel')
  					)
  				);
 
@@ -298,6 +354,13 @@
   		}//end is_anon
 		}//end build_form
 		
+		function delete_faq()
+		{
+			$faq_id = (isset($_GET['faq_id']) ? trim($_GET['faq_id']) : '');
+			$this->bo->delete_answer($faq_id);
+			header('Location: ' . $GLOBALS['phpgw']->link('/index.php', array('menuaction' => 'phpbrain.uikb.index','msg' => 'FAQ removed successfully')));
+		}
+		
 		function edit()
 		{
 			$faq_id = (int) (isset($_GET['faq_id']) ? trim($_GET['faq_id']) : 0);
@@ -309,8 +372,10 @@
 		function edit_answer($new)
 		{
 			$GLOBALS['phpgw']->common->phpgw_header();
+			$add_answer = ($new ? 'add_answer' : 'edit_answer');
+			$GLOBALS['phpgw_info']['flags']['app_header'] = lang($GLOBALS['phpgw_info']['flags']['currentapp']) . ' - ' . lang($add_answer);
 			echo parse_navbar();
-
+									
 			$this->t->set_file('edit_faq', 'edit_faq.tpl');
 
 			$this->t->set_var('add_answer_link', $GLOBALS['phpgw']->link('/index.php', 
@@ -338,17 +403,22 @@
 				$this->t->set_var('status', '');
 			}
 
-			$add_answer = ($new ? 'add_answer' : 'edit_answer');
-			$lang = array('lang_add_answer'			=> lang($add_answer),
+			$this->t->set_var(array(
+				'tr_on' => $GLOBALS['phpgw_info']['theme']['row_on'],
+				'tr_off' =>$GLOBALS['phpgw_info']['theme']['row_off']
+				)
+			);
+			
+			$lang = array(
 					'lang_check_before_submit'	=> lang('check_before_submit'),
 					'lang_not_submit_qs_warn'	=> lang('not_submit_qs_warn'),
 					'lang_inspire_by_suggestions'	=> lang('inspire_by_suggestions'),
-					'lang_title'			=> lang('title'),
+					'lang_title'			=> lang('Question'),
 					'lang_keywords'			=> lang('keywords'),
 					'lang_category'			=> lang('category'),
 					'lang_related_url'		=> lang('related_url'),
 					'lang_text'				=> lang('text'),
-					'lang_reset'			=> lang('reset'),
+					'lang_submit_cancel'			=> lang('Cancel'),
 					'lang_save'				=> lang('save'),
 					'lang_back'				=> lang('back'),
 					'lang_delete'			=> lang('delete')
@@ -392,15 +462,17 @@
 					$msg = lang('%1 faqs_deleted', $this->bo->delete_answer($_POST['faq_id']));
 				}
   			$GLOBALS['phpgw']->common->phpgw_header();
+  			$GLOBALS['phpgw_info']['flags']['app_header'] = lang($GLOBALS['phpgw_info']['flags']['currentapp']) . ' - ' . lang('Maintain Answers');
   			echo parse_navbar();
+  			
   			$this->t->set_file('admin_maint', 'admin_maint.tpl');
   			$this->t->set_block('admin_maint', 'pending_list', 'pending_items');
   			$this->t->set_block('admin_maint', 'pending_block', 'p_block');
   			$this->t->set_var('admin_url', $GLOBALS['phpgw']->link('/admin/index.php'));
   			$this->t->set_var('lang_return_to_admin', lang('return_to_admin'));
-				$this->t->set_var('msg', ((strlen($msg) !=0) ? $msg : '&nbsp;'));
+			$this->t->set_var('msg', ((strlen($msg) !=0) ? $msg : '&nbsp;'));
 
-				$faqs = $this->bo->get_faq_list('', true);				
+			$faqs = $this->bo->get_faq_list('', 0, true);				
   			if(is_array($faqs))
   			{
   				$this->t->set_var(array('lang_admin_section'	=> lang('maintain_answers'),
@@ -457,6 +529,7 @@
 					$msg = lang('%1 questions_deleted', $this->bo->delete_answer($_POST['question_id']));
 				}
   			$GLOBALS['phpgw']->common->phpgw_header();
+  			$GLOBALS['phpgw_info']['flags']['app_header'] = lang($GLOBALS['phpgw_info']['flags']['currentapp']) . ' - ' . lang('Maintain Questions');
   			echo parse_navbar();
   			$this->t->set_file('admin_maint', 'admin_maint.tpl');
   			$this->t->set_block('admin_maint', 'pending_list', 'pending_items');
@@ -515,6 +588,12 @@
 		
 		function save()
 		{
+			if (isset($_POST['cancel']))
+			{
+				header('Location: ' . $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.index'));
+				$GLOBALS['phpgw']->common->exit();
+			}
+			
 			$faq_id 	= (int) (isset($_POST['faq_id']) ? trim($_POST['faq_id']) : 0);
 			$question_id 	= (int) (isset($_GET['question_id']) ? trim($_GET['question_id']) : 0);
 			$faq['cat_id'] 	= (int) (isset($_POST['cat_id']) ? trim($_POST['cat_id']) : 0);
@@ -528,178 +607,25 @@
 			if($faq_id)
 			{
   			header ('Location: ' . $GLOBALS['phpgw']->link('/index.php', 
-  									array('menuaction'	=> 'phpbrain.uikb.view',
+  									array('menuaction'	=> 'phpbrain.uikb.index',
   										'faq_id'		=>  $faq_id,
-  										'msg'			=> 'faq_saved'
+  										'msg'			=> ($this->bo->is_admin() ? 'Answer added to database' : 'Answer saved. Wait for aproval from the administrator to appear on database' )
   										)
   									)
   					);
   			$GLOBALS['phpgw']->common->phpgw_exit();
 			}
-			else
-			{
-				echo 'whoops!';
-			}
 		}
 		
-		function search()
-		{
-			$search = (isset($_GET['search']) ? trim($_GET['search'])
-						: (isset($_POST['search']) ? trim($_POST['search']) : ''));
-
-			if((isset($_POST['show']) && strlen(trim($_POST['show'])) > 0)
-				|| (isset($_GET['show']) && strlen(trim($_GET['show'])) > 0))
-			{
-				$show = (int) (isset($_POST['show']) ? trim($_POST['show']) : trim($_GET['show']));
-			}
-			else
-			{
-				$show = null;
-			}
-			
-			if($search)
-			{
-				$results = $this->bo->get_search_results($search, $show);
-				if(is_array($results))
-				{
-					$this->search_banner($search, lang('%1 matches found', count($results)));
-					echo $this->summary($results);
-					
-				}
-				else//nothing found
-				{
-					$this->search_banner($search, lang('none found - revise or browse'));
-				}
-			}
-			else
-			{
-				$this->browse();
-				$GLOBALS['phpgw']->common->phpgw_exit();
-			}
-		}//end search
-
-		function search_banner($search='', $msg='')
-		{
-			$GLOBALS['phpgw']->common->phpgw_header();
-			echo parse_navbar();
-
-			$this->t->set_file('search', 'search.tpl');
-
-			$msg = (isset($_GET['msg']) ? trim($_GET['msg']) : $msg);
-			$search = (isset($_GET['search']) ? trim($_GET['search']) : $search);
-			$this->t->set_var('curent_search', $search);
-			$this->t->set_var('message', $msg);
-						
-			$this->t->set_var('header_bgcolor', $this->theme['navbar_bg']);
-			$this->t->set_var('lang_kb_contains', lang('kb_contains'));		
-			$stats = $this->bo->get_stats();
-			$open = $stats['num_open'];
-			foreach($stats as $stat_name => $stat_val)
-			{
-				$this->t->set_var('lang_' . $stat_name, lang("$stat_name %1", $stat_val));
-			}
-			unset($stats);
-
-			$this->t->set_block('search', 'current_questions', 'cqs');
-			foreach($this->bo->get_latest() as $cq_key => $descr)
-			{
-			
-  			$this->t->set_var('cq_url', $GLOBALS['phpgw']->link('/index.php', array('menuaction' 	=> 'phpbrain.uikb.unanswered',
-  																					'question_id'	=> $cq_key
-																						)
-  																)
-  							);
-								
-  			$this->t->set_var('cq_descr', $descr);
-				$this->t->parse('cqs', 'current_questions',true);
-			}
-			$lang = array('lang_question'		=> lang('question'),
-						'lang_current_questions'=> lang('current_questions'),
-						'lang_search'			=> lang('search'),
-						'lang_example'			=> lang('example'),
-						'lang_show'				=> lang('show'),
-						'lang_faqs_and_tutes'	=> lang('faqs_and_tutes'),
-						'lang_faqs'				=> lang('faqs'),
-						'lang_tutorials'		=> lang('tutorials'),
-						'lang_add_answer'		=> lang('add_answer'),
-						'lang_add_q'			=> lang('add_question (%1 open)', $open),
-						'lang_browse'			=> lang('browse'),
-						'lang_help'				=> lang('help')
-						);
-						
-			$this->t->set_var($lang);
-
-			$this->t->set_var('search_url', $GLOBALS['phpgw']->link('/index.php', 
-														array('menuaction' => 'phpbrain.uikb.search')));
-
-			$this->t->set_var('link_add_answer', $GLOBALS['phpgw']->link('/index.php', 
-														array('menuaction' => 'phpbrain.uikb.add')));
-
-			$this->t->set_var('link_browse', $GLOBALS['phpgw']->link('/index.php', 
-														array('menuaction' => 'phpbrain.uikb.browse')));
-
-			$this->t->set_var('link_open_qs', $GLOBALS['phpgw']->link('/index.php', 
-														array('menuaction' => 'phpbrain.uikb.unanswered')));
-
-			$this->t->set_var('link_help', $GLOBALS['phpgw']->link('/index.php', 
-														array('menuaction' => 'phpbrain.uikb.help')));
-			
-			$this->t->set_block('search','admin', 'admins');
-			if($this->bo->is_admin())
-			{
-				$this->t->parse('admins','admin');				
-			}
-			else
-			{
-				$this->t->set_var('admins', '');
-			}
-			
-			$this->t->pfp('out', 'search');
-		}
-
-		function summary($summaries)
-		{
-			if(is_array($summaries))
-			{
-				$t = $this->t;
-				$t->set_file('faq_sum', 'faq_sum.tpl');
-				$t->set_block('faq_sum', 'summary', 'summaries');
-				foreach($summaries as $faq_id => $faq_vals)
-				{
-					$t->set_var('title',$faq_vals['title']);
-					$t->set_var('text',strlen($faq_vals['text']) < 150 ? $faq_vals['text'] :
-						substr($faq_vals['text'],0,strpos($faq_vals['text'],' ',150)).'...');
-					$t->set_var('faq_url', $GLOBALS['phpgw']->link('/index.php', array(
-						'menuaction' => 'phpbrain.uikb.view',
-						'faq_id' => $faq_id
-					)));
-					$t->set_var('lang_score', lang('score %1', $faq_vals['score']));
-					$t->set_var('lang_last_mod', lang('last_mod %1', $faq_vals['last_mod']));
-					$t->set_var('lang_views', lang('views %1', $faq_vals['views']));
-					$t->set_var('lang_rating', lang('rating %1', $faq_vals['vote_avg']));
-					$t->set_var('lang_votes', lang('votes %1', $faq_vals['votes']));
-					$t->parse('summaries', 'summary', true);
-				}//end foreach summary
-				return $t->subst('faq_sum');
-			}
-			else
-			{
-				return '';
-			}
-		}//end summaries
-
-
 		function unanswered($msg = '')
 		{
 			$GLOBALS['phpgw']->common->phpgw_header();
+			$GLOBALS['phpgw_info']['flags']['app_header'] = lang($GLOBALS['phpgw_info']['flags']['currentapp']) . ' - ' . lang('Add Question');
 			echo parse_navbar();
 			$this->t->set_file('unanswered', 'unanswered.tpl');
 			$this->t->set_block('unanswered', 'open_list', 'open_ones');
 			$this->t->set_block('unanswered', 'open_block', 'o_block');
-			$this->t->set_var('index_url', $GLOBALS['phpgw']->link('/index.php', 
-											array('menuaction' => 'phpbrain.uikb.index')
-											)
-								);
+			$this->t->set_var('th_bg', $GLOBALS['phpgw_info']['theme']['th_bg']);
 			$this->t->set_var('lang_return_to_index', lang('return_to_index'));
 			$this->t->set_var('msg', ((strlen($msg) !=0) ? lang($msg) : '&nbsp;'));
 
@@ -772,6 +698,12 @@
 			if(is_array($item) && $faq_id)
 			{
   				$this->t->set_file('showitem', 'showitem.tpl');
+  				$this->t->set_var(array(
+  					'tr_on' => $GLOBALS['phpgw_info']['theme']['row_on'],
+					'tr_off' => $GLOBALS['phpgw_info']['theme']['row_off']
+					)
+				);
+  				
 				$lang = array('msg'		=> ($msg ? lang($msg) : ''),
 					'lang_submitted_by'	=> lang('submitted_by'),
 					'lang_views'		=> lang('views'),
@@ -891,16 +823,13 @@
 											 )
 										)
 							);
-				$this->t->set_block('showitem', 'admin_option', 'admin_options');
+				$this->t->set_block('comment_form', 'admin_option', 'admin_options');
 				if($this->bo->is_admin())
 				{
-					$this->t->set_var('admin_url', $GLOBALS['phpgw']->link('/index.php',
-										array('menuaction'	=> 'phpbrain.uikb.edit',
-											'faq_id'	=> $item['faq_id']
-										)
-									)
-							);
-					$this->t->set_var('lang_admin_text', lang('edit_faq'));
+					$temp_link=$GLOBALS['phpgw']->link('/index.php', array('menuaction'	=> 'phpbrain.uikb.edit', 'faq_id'	=> $item['faq_id']));
+					$this->t->set_var('edit_button', '<input type=button value="'
+									. lang('edit_faq')
+									.'" onclick=window.location.href="' . $temp_link . '">');
 					$this->t->parse('admin_options', 'admin_option', true);
 				}
 				else

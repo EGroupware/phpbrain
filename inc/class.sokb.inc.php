@@ -35,7 +35,7 @@
 			}
 			else
 			{
-				$this->db->query('DELETE FROM phpgw_kb_faq WHERE faq_id=' . intval($key), __LINE__, __FILE__);
+				$this->db->query('DELETE FROM phpgw_kb_faq WHERE faq_id=' . intval($faq_ids), __LINE__, __FILE__);
 				$i = 1;
 			}//end is_type
 			return $i;
@@ -101,16 +101,16 @@
 			return $questions;
   	}//end get latest
 		
-		function get_faq_list($cat_id = '', $unpublished = false)
+		function get_faq_list($cat_id = '', $start, $num_rows, $unpublished = false)
 		{
  			$where  = ((strlen($cat_id) != 0) ? 'cat_id=' . intval($cat_id) . ' ' : '');
 			$where .= ((strlen($where) > 0) ? 'AND ' : '');
 			$where .= ($unpublished ? 'published = 0' : 'published = 1'); 
-			$this->db->query("SELECT * FROM phpgw_kb_faq WHERE $where", __LINE__, __FILE__);
+			$this->db->limit_query("SELECT * FROM phpgw_kb_faq WHERE $where", $start, __LINE__, __FILE__, $num_rows);
 			while($this->db->next_record())
 			{
 				$faqs[$this->db->f('faq_id')] = array('title' 	=> $this->db->f('title', true),
-            							'text'		=> substr($this->db->f('text', true),0,50) . ' ...',
+            							'text'		=> substr($this->db->f('text', true),0,100) . (strlen($this->db->f('text', true))>100 ? '... ':''),
             							'modified'	=> $this->db->f('modified'),
             							'views'		=> $this->db->f('views'),
             							'votes'		=> $this->db->f('votes'),
@@ -161,9 +161,15 @@
 			return $comment;
 		}
 
-    function get_count($cat_id)
+    function get_count($cat_id=FALSE)
     {
-    	$this->db->query("SELECT COUNT(*) FROM phpgw_kb_faq WHERE cat_id = $cat_id AND published = 1", __LINE__, __FILE__);
+	    $filter_id="";
+	    if ($cat_id)
+	    {
+		    $filter_id="cat_id = $cat_id AND ";
+	    }
+    	$this->db->query("SELECT COUNT(*) FROM phpgw_kb_faq WHERE $filter_id published = 1", __LINE__, __FILE__);
+    	unset($filter_id);
 			if($this->db->next_record())
 			{
 				return $this->db->f(0); 
@@ -172,9 +178,22 @@
 			{
 				return 0;
 			}
-    }//end get count
+    }
+    
+    function get_count_unanswered()
+    {
+	    $this->db->query("SELECT COUNT(*) FROM phpgw_kb_questions",__LINE__,__FILE__);
+	    if ($this->db->next_record())
+	    {
+		    return $this->db->f(0);
+	    }
+	    else
+	    {
+		    return 0;
+	    }
+    }
 		
-		function get_pending()
+	function get_pending()
 		{
 			$this->db->query('SELECT faq_id, text FROM phpgw_kb_faq WHERE published = 0', __LINE__, __FILE__);
 			while($this->db->next_record())
@@ -211,10 +230,10 @@
 				
 		}
 
-		function get_questions($pending = false)
+		function get_questions($pending = false, $start, $num_rows)
 		{
 			$where = ($pending ? 'pending = 1' : 'pending = 0');
-			$this->db->query("SELECT * FROM phpgw_kb_questions WHERE $where", __LINE__, __FILE__);
+			$this->db->limit_query("SELECT * FROM phpgw_kb_questions WHERE $where ORDER BY question_id DESC", $start, __LINE__, __FILE__, $num_rows);
 			while($this->db->next_record())
 			{
 				$open_q[$this->db->f('question_id')] = $this->db->f('question', true); 

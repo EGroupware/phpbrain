@@ -1,14 +1,24 @@
-<!-- BEGIN cur_cat_name -->
-<H2>{cur_category_name}(<A HREF="{up_category_url}">{lang_up}</a>)</H2>
-<!-- END cur_cat_name -->
-	<!-- BEGIN table -->
-	<TABLE WIDTH="100%" CELLPADDING=0 CELLSPACING=0 BORDER=0>
-		<!-- BEGIN cat_row -->
-		<TR VALIGN=TOP>{row}</TR>
-		<!-- END cat_row -->
-	</TABLE>
-	<!-- END table -->
-<!-- BEGIN cat_count -->
-<br><b>{lang_cat_contains}</b><BR>
-<!-- END cat_count -->
-{faqs}
+<!-- BEGIN phpbrain_header -->
+<div align="center">
+<p>{message}</p>
+{lang_showing}
+<br>
+{search_filter}
+<table width="95%" border="0" cellspacing="1" cellpadding="3">
+<tr bgcolor="{th_bg}">{cols}
+</tr>
+<!-- END phpbrain_header -->
+
+<!-- BEGIN column -->
+   <td valign="top"><font face="Arial, Helvetica, san-serif" size="2">{col_data}&nbsp;</font></td>
+<!-- END column -->
+
+<!-- BEGIN row -->
+  <tr bgcolor="{row_tr_color}">{columns}
+  </tr>
+<!-- END row -->
+
+<!-- BEGIN phpbrain_footer -->
+  </table>
+ </div>
+<!-- END phpbrain_footer -->

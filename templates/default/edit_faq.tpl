@@ -2,10 +2,7 @@
       <input type="HIDDEN" name="faq_id" value="{faq_id}">
 		  <input type="HIDDEN" name="is_faq" value="{is_faq}">
       <table width="700" align="center" cellspacing=0 cellpadding=3 style="{border:1px solid #000000;}">
-			<tr class="navbg">
-				<td colspan=3 align="center"><h1>{lang_add_answer}</h1></td>
-			</tr>
-			<tr>
+			<tr bgcolor="{tr_off}">
 				<td colspan=3>
 					<p>{lang_check_before_submit}</p>
 				    <p>{lang_not_submit_qs_warn}</p>
@@ -13,7 +10,7 @@
 					<br>
 				</td>
 			</tr>
-        <tr>
+        <tr bgcolor="{tr_on}">
           <td valign="TOP">
             <b>{lang_title}</b>
           </td>
@@ -21,7 +18,7 @@
             <input type="TEXT" name="title" size="60" maxlength="120" value="{title}" class="edit">
           </td>
         </tr>
-        <tr>
+        <tr bgcolor="{tr_off}">
           <td valign="TOP">
             <b>{lang_keywords}</b>
           </td>
@@ -29,7 +26,7 @@
             <input type="TEXT" name="keywords" size="60" maxlength="120" value="{keywords}" class="edit">
           </td>
         </tr>
-        <tr>
+        <tr bgcolor="{tr_on}">
           <td valign="TOP">
             <b>{lang_category}</b>
           </td>
@@ -39,7 +36,7 @@
             </select> 
           </td>
         </tr>
-        <tr>
+        <tr bgcolor="{tr_off}">
           <td valign="TOP">
             <b>{lang_related_url}</b>
           </td>
@@ -57,7 +54,7 @@
           </td>
         </tr>
 	<!-- END b_status -->
-        <tr>
+        <tr bgcolor="{tr_on}">
           <td valign="TOP">
             <b>{lang_text}</b>
           </td>
@@ -68,9 +65,7 @@
         <tr class="navbg">
           <td align="LEFT">
             <input type="SUBMIT" name="save" value="{lang_save}" class="search">
-          </td>
-          <td align="RIGHT">
-            <input type="RESET" value="{lang_clear}" class="search">
+          	<input type="submit" name="cancel" value="{lang_submit_cancel}" class="search">
           </td>
         </tr>
       </table>

@@ -23,12 +23,22 @@
   		function bokb()
   		{
   			$this->cats = createObject('phpgwapi.categories');
-				$this->rated = $GLOBALS['phpgw']->session->appsession('rated','phpbrain');
-				$this->so = createObject('phpbrain.sokb');
-				$this->viewed = $GLOBALS['phpgw']->session->appsession('viewed','phpbrain');
-				$GLOBALS['phpgw_info']['apps']['phpkb']['config'] = $this->get_config();
+			$this->rated = $GLOBALS['phpgw']->session->appsession('rated','phpbrain');
+			$this->so = createObject('phpbrain.sokb');
+			$this->viewed = $GLOBALS['phpgw']->session->appsession('viewed','phpbrain');
+			$GLOBALS['phpgw_info']['apps']['phpkb']['config'] = $this->get_config();
   		}
-		
+
+  		function get_count($cat_id)
+  		{
+	  		return $this->so->get_count($cat_id);
+  		}
+  		
+  		function get_count_unanswered()
+  		{
+	  		return $this->so->get_count_unanswered();
+  		}
+  				
 		function get_cat_data($cat_id)
 		{
 			$cat_id = (int) $cat_id;
@@ -111,14 +121,15 @@
 			
 		}//end get_config
 		
-		function get_faq_list($cat_id = '', $unpublished = false)
+		function get_faq_list($cat_id = '', $start, $unpublished = false)
 		{
 			if(!$this->is_admin() && $unpublished)
 			{
 				$unpublished = false;
 			}
 
-			$faqs = $this->so->get_faq_list($cat_id, $unpublished);
+			$num_rows = $GLOBALS['phpgw_info']['user']['preferences']['common']['maxmatchs'];
+			$faqs = $this->so->get_faq_list($cat_id, $start, $num_rows, $unpublished);
 			if(is_array($faqs))
 			{
   			foreach($faqs as $faq_id => $faq_vals)
@@ -127,10 +138,7 @@
 												? round(($faq_vals['total'] / $faq_vals['votes']),2) : 0);
   				$faqs[$faq_id]['last_mod'] = date('d-M-Y', $faqs[$faq_id]['modified']);
 					$faqs[$faq_id]['score'] = '1.00'; 
-					$faqs[$faq_id]['title'] = ($item['is_faq'] 
-											? lang('question') . ': '. $faqs[$faq_id]['title']
-											: lang('tutorial') . ': '. $faqs[$faq_id]['title']);
-
+					$faqs[$faq_id]['title'] = $faqs[$faq_id]['title'];
   			}
 			}
 			return $faqs;
@@ -146,12 +154,6 @@
   				$item['rating']		= ($item['votes'] 
 								? round(($item['total']/$item['votes']),2) : 0);
 				$item['comments']	= $this->get_comments($faq_id); 
-				if($show_type)
-				{
-					$item['title'] = ($item['is_faq'] 
-								? lang('faq') . ': '. $item['title']
-								: lang('tutorial') . ': '. $item['title']);
-				}
 				$this->viewed[$faq_id] = True;
 				$GLOBALS['phpgw']->session->appsession('viewed','phpbrain', $this->viewed);
 
@@ -166,21 +168,22 @@
 			return $this->so->get_latest();
 		}// end get_latest
 		
-		function get_questions($pending = false)
+		function get_questions($pending = false, $start=0)
 		{
+			$num_rows = $GLOBALS['phpgw_info']['user']['preferences']['common']['maxmatchs'];
 			if(!$this->is_admin() && $pending)
 			{
 				return null;
 			}
 			else
 			{
-				return $this->so->get_questions($pending);
+				return $this->so->get_questions($pending, $start, $num_rows);
 			}
 		}//end questions
 
-		function get_search_results($search, $show)
+		function get_search_results($search,$start=0)
 		{
-			$results = $this->so->get_search_results($search, $show);
+			$results = $this->so->get_search_results($search);
 			if(is_array($results))
 			{
   			foreach($results as $id => $vals)
@@ -188,10 +191,6 @@
     				$results[$id]['vote_avg'] = (($vals['total'] && $vals['votes'])
   												? round(($vals['total'] / $vals['votes']),2) : 0);
     				$results[$id]['last_mod'] = date('d-M-Y', $vals['modified']);
-
-						$results[$id]['title'] = ($results[$id]['is_faq'] 
-												? lang('question') . ': '. $results[$id]['title']
-												: lang('tutorial') . ': '. $results[$id]['title']);
   			}
 			}
 			return $results;

@@ -15,7 +15,13 @@
         </tr>
         <tr>
           <td>&nbsp;</td>
-          <td><input type="submit" value="{lang_submit_val}" class="search"></td>
+          <td>
+          	<input type="submit" value="{lang_submit_val}" class="search">
+    <!-- BEGIN admin_option -->
+    	  {edit_button}
+    <!-- END admin_option -->
+          <input type="submit" name="cancel" value="{lang_submit_cancel}" class="search">
+         </td>
         </tr>
         <tr>
           <td colspan="2">&nbsp;</td>
