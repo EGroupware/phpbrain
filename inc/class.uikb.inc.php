@@ -526,7 +526,7 @@
 				}
 				if($_POST['delete'] && (count($_POST['question_id']) != 0))
 				{
-					$msg = lang('%1 questions_deleted', $this->bo->delete_answer($_POST['question_id']));
+					$msg = lang('%1 questions_deleted', $this->bo->delete_question($_POST['question_id']));
 				}
   			$GLOBALS['phpgw']->common->phpgw_header();
   			$GLOBALS['phpgw_info']['flags']['app_header'] = lang($GLOBALS['phpgw_info']['flags']['currentapp']) . ' - ' . lang('Maintain Questions');
