@@ -1,12 +1,12 @@
 $stat_name %1	phpbrain	zh	$stat_name %1
 %1 contains %2 items	phpbrain	zh	%1包含%2项
-%1 faqs_activated	phpbrain	zh	已确认%1个FAQ
-%1 faqs_deleted	phpbrain	zh	已删除%1个FAQ
+%1 faqs_activated	phpbrain	zh	已确认%1个解答
+%1 faqs_deleted	phpbrain	zh	已删除%1个解答
 %1 matches found	phpbrain	zh	找到%1个符合条件的记录
 %1 questions_activated	phpbrain	zh	已确认%1个问题
 %1 questions_deleted	phpbrain	zh	已删除%1个问题
 actions	phpbrain	zh	操作
-active_when_checked	phpbrain	zh	选中此处以
+active_when_checked	phpbrain	zh	选中此处以确认该解答
 add_answer	phpbrain	zh	添加解答
 add_comments	phpbrain	zh	添加注释
 add_question	phpbrain	zh	添加问题
@@ -19,7 +19,7 @@ anon user	admin	zh	匿名用户
 anon_user	phpbrain	zh	匿名用户
 answer	phpbrain	zh	解答
 answered	phpbrain	zh	已解答问题(FAQ)
-answer added to database	phpbrain	zh	已将该解答存入数据库
+answer_added	phpbrain	zh	已将解答存入数据库
 avg. score	phpbrain	zh	评价
 browse	common	zh	浏览知识库
 cant_post_must_register	phpbrain	zh	只允许注册用户在知识库中添加信息
@@ -27,7 +27,7 @@ check_before_submit	phpbrain	zh	请在提交前确认知识库中尚无此FAQ.
 close window	phpbrain	zh	关闭窗口
 comment	phpbrain	zh	注释
 comments	phpbrain	zh	注释
-comment added	phpbrain	zh	已将该注释加入FAQ
+comment added	phpbrain	zh	已将注释加入FAQ
 cur_open_qs	phpbrain	zh	未解答问题
 current_questions	phpbrain	zh	当前问题
 edit_answer	phpbrain	zh	编辑解答
@@ -70,7 +70,7 @@ poor	common	zh	很差
 preview	phpbrain	zh	预览
 question	phpbrain	zh	问题
 questions	phpbrain	zh	问题
-question added to database	phpbrain	zh	已将该问题存入数据库
+question added to database	phpbrain	zh	已将问题存入数据库
 rating	phpbrain	zh	评价
 rating %1	phpbrain	zh	评价: %1
 register	common	zh	注册
@@ -87,7 +87,7 @@ show	phpbrain	zh	显示
 site configuration	phpbrain	zh	全局配置
 submitted_by	phpbrain	zh	提交者:
 text	common	zh	解答
-thanks_4_rating	phpbrain	zh	感谢您对该项的评价.
+thanks_4_rating	phpbrain	zh	感谢您的评价.
 tutorial	phpbrain	zh	指南
 tutorials	phpbrain	zh	指南
 up	phpbrain	zh	向上
