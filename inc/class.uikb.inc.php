@@ -1083,7 +1083,6 @@
 			else
 			{
 				$this->t->pparse('output', 'view_article');
-				die();
 			}
 		}
 
