@@ -22,6 +22,6 @@
 			'Maintain Questions'		=> $GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikb.maint_question'),
 			'Reports - Not implemented'	=> $GLOBALS['phpgw']->link() //$GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikb.index')
 		);
-		$GLOBALS['phpgw']->common->display_mainscreen($appname,$file);
+		display_section($appname,$file);
 	}
 ?>
