@@ -106,6 +106,10 @@
 												? round(($faq_vals['total'] / $faq_vals['votes']),2) : 0);
   				$faqs[$faq_id]['last_mod'] = date('d-M-Y', $faqs[$faq_id]['modified']);
 					$faqs[$faq_id]['score'] = '1.00'; 
+					$faqs[$faq_id]['title'] = ($item['is_faq'] 
+											? lang('question') . ': '. $faqs[$faq_id]['title']
+											: lang('tutorial') . ': '. $faqs[$faq_id]['title']);
+
   			}
 			}
 			return $faqs;
