@@ -356,7 +356,6 @@
 						</table>
 					</td>
 				</tr>
-				</table>
 			</table>
 		</div>
 
