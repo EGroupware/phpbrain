@@ -14,14 +14,14 @@
 		<!-- BEGIN pending_list -->
       <tr bgcolor="{row_bg}">
         <td nowrap="nowrap" width="10%" align="center">
-          <input type="checkbox" name="faq_id[{key}]"> 
+          <input type="checkbox" name="faq_id[{faq_id}]"> 
         </td>
-        <td>{text}{extra}</td>
+        <td>{text} {extra}</td>
       </tr>
 		<!-- END pending_list -->
       <tr class="navbg">
         <td width="10%">
-          <input type="submit" name="active" value="{lang_enable}" class="search"> 
+          <input type="submit" name="activate" value="{lang_enable}" class="search"> 
         </td>
         <td align="right">
           <input type="submit" name="delete" value="{lang_delete}" class="search"> 

@@ -29,6 +29,7 @@
 									'edit'			=> True,
 									'maint_answer'	=> True,
 									'maint_question'=> True,
+									'preview'		=> True,
 									'rate'			=> True,
 									'save'			=> True,
 									'search'		=> True,
@@ -333,7 +334,7 @@
   			$this->t->set_block('admin_maint', 'pending_block', 'p_block');
   			$this->t->set_var('admin_url', $GLOBALS['phpgw']->link('/admin/index.php'));
   			$this->t->set_var('lang_return_to_admin', lang('return_to_admin'));
-				$this->t->set_var('msg', ((strlen($msg) !=0) ? lang($msg) : '&nbsp;'));
+				$this->t->set_var('msg', ((strlen($msg) !=0) ? $msg : '&nbsp;'));
 
 				$faqs = $this->bo->get_faq_list('', true);				
   			if(is_array($faqs))
@@ -344,9 +345,14 @@
   
   				foreach($faqs as $key => $vals)
   				{
-  					$this->t->set_var(array('faq_id'	=> $id,
+  					$this->t->set_var(array('faq_id'	=> $key,
   											'text'		=> $vals['text'],
-												'row_bg'		=> (($row%2) ? $this->theme['row_on'] : $this->theme['row_off'])
+												'row_bg'	=> (($row%2) ? $this->theme['row_on'] : $this->theme['row_off']),
+												'extra'		=> '<a href="'.$GLOBALS['phpgw']->link('/index.php', 
+																	array('menuaction' 	=> 'phpbrain.uikb.preview',
+																			'faq_id'	=> $key
+																			)
+																		). '" target="_blank">'.lang('preview').'</a>'
   											)
   									);
   					$this->t->parse('pending_items', 'pending_list', true);
@@ -367,6 +373,12 @@
   			$this->t->pfp('out', 'admin_maint');
 			}//end is admin
 		}//end maint answers
+		
+		function preview()
+		{
+			$this->view(false);
+			$GLOBALS['phpgw']->common->phpgw_exit();
+		}
 
 		function rate()
 		{
@@ -608,10 +620,13 @@
 			$this->t->pfp('out', 'unanswered');
 		}//end show unanswered
 
-		function view()
+		function view($header = true)
 		{
-			$GLOBALS['phpgw']->common->phpgw_header();
-			echo parse_navbar();
+			if($header)
+			{
+  			$GLOBALS['phpgw']->common->phpgw_header();
+  			echo parse_navbar();
+			}
 			
 			$faq_id = (isset($_GET['faq_id']) ? trim($_GET['faq_id']) : 0);
 			$search = (isset($_GET['search']) ? trim($_GET['search']) : '');

@@ -17,3 +17,8 @@ question	phpbrain	en	Question
 show	phpbrain	en	Show
 tutorials	phpbrain	en	Tutorials
 up	common	en	up
+return_to_admin	phpbrain	en	Return to Admin
+section_maint_faqs	phpbrain	en	Maintain Pending FAQs
+explain_faq_admin	phpbrain	en	Answers to FAQs must be enabled so users can few them.  Select the FAQs you wish to enable.  Alternatively you can select inappropriate responses which you wish to delete.
+none_pending phpbrain	en	No Items Pending
+%1 faqs_activated phpbrain	en	%1 FAQs activated
