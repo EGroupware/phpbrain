@@ -1,3 +1,4 @@
+$stat_name %1	phpbrain	en	$stat_name %1
 %1 contains %2 items	phpbrain	en	%1 contains %2 items
 %1 faqs_activated	phpbrain	en	%1 FAQs Activated
 %1 faqs_deleted	phpbrain	en	%1 FAQs Deleted
@@ -16,10 +17,11 @@ answer	phpbrain	en	Answer
 browse	common	en	Browse
 cant_post_must_register	phpbrain	en	You must be a registered user to be able to add information to the knowledge base
 check_before_submit	phpbrain	en	Please check that this information is not already in the knowledge base before submitting.
+close window	phpbrain	en	close window
 comment	phpbrain	en	Comments
 comments	phpbrain	en	Comments
-cur_open_qs	phpbrain	en	Current Open Questions
 current_questions	phpbrain	en	Current Questions
+cur_open_qs	phpbrain	en	Current Open Questions
 edit_answer	phpbrain	en	Edit Answer
 edit_faq	phpbrain	en	Edit FAQ
 enable	common	en	Enable
@@ -29,9 +31,9 @@ explain_faq_admin	phpbrain	en	Answers to FAQs must be enabled so users can few t
 explain_maintain_answers	phpbrain	en	Questions submitted by users must be activated by an admin user.  Select those answers that you wish to activate or alternatively delete
 explain_questions_admin	phpbrain	en	Answers submitted by users must be activated by an admin user.  Select those questions that you wish to activate or alternatively delete
 faq	phpbrain	en	FAQ
-faq_saved	phpbrain	en	FAQ Saved
 faqs	phpbrain	en	FAQs
 faqs_and_tutes	phpbrain	en	FAQs and Tutorials
+faq_saved	phpbrain	en	FAQ Saved
 improve_by_rate	phpbrain	en	Help us improve by rating posts
 inspire_by_suggestions	phpbrain	en	If you need inspiration, take a look at the open questions.
 invalid faq request - or something is nqr	phpbrain	en	ERROR: Invalid FAQ Request
@@ -64,8 +66,8 @@ return_to_cats %1	phpbrain	en	Return to Category: %1
 return_to_index	phpbrain	en	Return to Index
 return_to_search %1	phpbrain	en	Return to Search: %1
 score %1	phpbrain	en	score %1
-section_maint_faqs	phpbrain	en	Maintain Pending FAQs
 section_maintain_questions	phpbrain	en	Maintain Questions
+section_maint_faqs	phpbrain	en	Maintain Pending FAQs
 show	phpbrain	en	show
 submitted_by	phpbrain	en	Submitted By
 text	common	en	Text
