@@ -4,8 +4,8 @@
 	* http://www.phpgroupware.org                                              *
 	* Written by Dave Hall [skwashd AT phpgroupware DOT org]                   *
 	* ------------------------------------------------------------------------ *
-	* Started off as a port of phpBrain - http://vrotvrot.com/phpBrain/		 *
-	*  but quickly became a full rewrite										 *
+	* Started off as a port of phpBrain - http://vrotvrot.com/phpBrain/	 *
+	*  but quickly became a full rewrite					 *
 	* ------------------------------------------------------------------------ *
 	*  This program is free software; you can redistribute it and/or modify it *
 	*  under the terms of the GNU General Public License as published by the   *
@@ -70,52 +70,52 @@
 		function get_stats()
 		{	
 			$stats = array();
-    	/* how many faqs*/
-    	$this->db->query('SELECT COUNT(*) FROM phpgw_kb_faq WHERE published = 1 AND is_faq = 0', __LINE__, __FILE__);
-    	$this->db->next_record();
-    	$stats['num_faqs'] = $this->db->f(0);
+			/* how many faqs*/
+    			$this->db->query('SELECT COUNT(*) FROM phpgw_kb_faq WHERE published = 1 AND is_faq = 0', __LINE__, __FILE__);
+    			$this->db->next_record();
+    			$stats['num_faqs'] = $this->db->f(0);
     
-    	/* how many tutorials? */
-    	$this->db->query('SELECT COUNT(*) FROM phpgw_kb_faq WHERE published = 1 AND is_faq = 1', __LINE__, __FILE__);
-    	$this->db->next_record();
-    	$stats['num_tutes'] = $this->db->f(0);
+    			/* how many tutorials? */
+    			$this->db->query('SELECT COUNT(*) FROM phpgw_kb_faq WHERE published = 1 AND is_faq = 1', __LINE__, __FILE__);
+    			$this->db->next_record();
+    			$stats['num_tutes'] = $this->db->f(0);
     
-    	/* how many open questions? */
-    	$this->db->query('SELECT COUNT(*) FROM phpgw_kb_questions WHERE pending = 0', __LINE__, __FILE__);
+    			/* how many open questions? */
+    			$this->db->query('SELECT COUNT(*) FROM phpgw_kb_questions WHERE pending = 0', __LINE__, __FILE__);
 			$this->db->next_record();
-    	$stats['num_open'] = $this->db->f(0);
+    			$stats['num_open'] = $this->db->f(0);
 			
 			return $stats;
 		}
 		
 		function get_latest()
 		{
-    	/* latest questions */
-    	$this->db->limit_query('SELECT * FROM phpgw_kb_questions WHERE pending = 0 ORDER BY question_id DESC', 0, __LINE__, __FILE__, 3);
+		    	/* latest questions */
+    			$this->db->limit_query('SELECT * FROM phpgw_kb_questions WHERE pending = 0 ORDER BY question_id DESC', 0, __LINE__, __FILE__, 3);
 
 			$questions = array();
-    	while($this->db->next_record())
+    			while($this->db->next_record())
 			{
-    		$questions[$this->db->f('question_id')] = $this->db->f('question', true);
-    	}
+    				$questions[$this->db->f('question_id')] = $this->db->f('question', true);
+    			}
 			return $questions;
   	}//end get latest
 		
 		function get_faq_list($cat_id = '', $unpublished = false)
 		{
-    	$where  = ((strlen($cat_id) != 0) ? "cat_id = $cat_id " : '');
+    			$where  = ((strlen($cat_id) != 0) ? "cat_id = $cat_id " : '');
 			$where .= ((strlen($where) > 0) ? 'AND ' : '');
 			$where .= ($unpublished ? 'published = 0' : 'published = 1'); 
 			$this->db->query("SELECT * FROM phpgw_kb_faq WHERE $where", __LINE__, __FILE__);
 			while($this->db->next_record())
 			{
 				$faqs[$this->db->f('faq_id')] = array('title' 	=> $this->db->f('title', true),
-            								'text'		=> substr($this->db->f('text', true),0,50) . ' ...',
-            								'modified'	=> $this->db->f('modified'),
-            								'views'		=> $this->db->f('views'),
-            								'votes'		=> $this->db->f('votes'),
-            								'total'		=> $this->db->f('total')
-												);
+            							'text'		=> substr($this->db->f('text', true),0,50) . ' ...',
+            							'modified'	=> $this->db->f('modified'),
+            							'views'		=> $this->db->f('views'),
+            							'votes'		=> $this->db->f('votes'),
+            							'total'		=> $this->db->f('total')
+								);
 			}
 			return $faqs;
 		}
@@ -126,19 +126,19 @@
 			if($this->db->next_record())
 			{
 				$item = array('faq_id'		=> $this->db->f('faq_id'),
-						'title'			=> $this->db->f('title', true),
-						'text'			=> $this->db->f('text', true),
-						'cat_id'		=> (int) $this->db->f('cat_id', true),
-						'published'		=> $this->db->f('published'),
-						'keywords'		=> $this->db->f('keywords', true),
-						'user_id'		=> (int) $this->db->f('user_id'),
-						'views'			=> (int) $this->db->f('views'),
-						'modified'		=> (int) $this->db->f('modified'),
-						'type'			=> (int) $this->db->f('type'),
-						'url'			=> $this->db->f('url', true),
-						'votes'			=> (int) $this->db->f('votes'),
-						'total'			=> (int) $this->db->f('total')
-							);
+					'title'			=> $this->db->f('title', true),
+					'text'			=> $this->db->f('text', true),
+					'cat_id'		=> (int) $this->db->f('cat_id', true),
+					'published'		=> $this->db->f('published'),
+					'keywords'		=> $this->db->f('keywords', true),
+					'user_id'		=> (int) $this->db->f('user_id'),
+					'views'			=> (int) $this->db->f('views'),
+					'modified'		=> (int) $this->db->f('modified'),
+					'type'			=> (int) $this->db->f('type'),
+					'url'			=> $this->db->f('url', true),
+					'votes'			=> (int) $this->db->f('votes'),
+					'total'			=> (int) $this->db->f('total')
+					);
 
 				if($count_view)
 				{
@@ -154,9 +154,9 @@
 			while($this->db->next_record())
 			{
 				$comment[$this->db->f('comment_id')] = array('user_id'	=> $this->db->f('user_id'),
-                  								'comment_text'			=> $this->db->f('comment', true),
-                  								'entered'			=> $this->db->f('entered')
-													);
+                  							'comment_text'	=> $this->db->f('comment', true),
+                  							'entered'	=> $this->db->f('entered')
+									);
  			}
 			return $comment;
 		}
@@ -189,6 +189,7 @@
 		{
 			switch (trim($GLOBALS['phpgw_info']['server']['db_type']))
 			{
+				/* This is not working - not sure why
 				case 'mysql':
 					$ver = explode('-', mysql_get_server_info());
 					$ver = $ver[0];
@@ -201,6 +202,7 @@
 						return $this->search_ansisql($search, $show);
 					}
 					break;
+				*/
 				//case 'pgsql': - //future use
 				//case 'mssql': - //future use
 				default:
@@ -315,7 +317,7 @@
 			{
 				$select .= "AND is_faq = $show ";
 			}
-			$search_words = expode(' ', $search);
+			$search_words = explode(' ', $search);
 			$cycle = 0;
 			foreach($search_words as $id => $word)
 			{
@@ -346,17 +348,17 @@
 			return $rows;
 		}//end search ansisql
 
-		function search_mysql($search)
+		function search_mysql($search, $show)
 		{
 			$sql  = 'SELECT *, ';
-			$sql .= "MATCH text,keywords,title AGAINST('" . addslashes($search) ."') AS score ";
+			$sql .= "MATCH text,keywords,title AGAINST('" . $this->db->db_addslashes($search) ."') AS score ";
 			$sql .= 'FROM phpgw_kb_faq ';
 			$sql .= 'WHERE published = 1 ';
 			if(is_int($show))
 			{
 				$sql .= "AND is_faq = $show ";
 			}
-			//$sql .= 'HAVING (score > 0) '; //- this isn't working properly afaik
+			//$sql .= 'HAVING (score > 0.25) '; //- this isn't working properly afaik
 			$sql .= 'ORDER BY score DESC';
 			$this->db->query($sql, __LINE__, __FILE__);
 			while($this->db->next_record())
