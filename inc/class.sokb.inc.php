@@ -225,6 +225,7 @@
 					$sql .= ' user_id = ' . $faq['user_id'] .',';
 					$sql .= ' published = ' . ($admin ? 1 : 0) . ', ';
 					$sql .= ' is_faq = ' . $faq['is_faq'];
+					$sql .= ' url = "' . $this->db->db_addslashes(urldecode($faq['ur'])) .'"';
 					$sql .= " WHERE faq_id = $faq_id";
 					$this->db->query($sql);
 					if($this->db->affected_rows() == 1)
@@ -242,9 +243,13 @@
 					$sql .= "VALUES('" . $this->db->db_addslashes($faq['title']) . "', ";
 					$sql .= "'" . $this->db->db_addslashes($faq['text']) . "', ";
 					$sql .= $faq['cat_id'] . ", ";
-					$sql .= "1, '" . $this->db->db_addslashes($faq['keywords']) . "',";
+					$sql .= ($admin ? 1 : 0) . ', ';//admin is auto publish
+					$sql .= $this->db->db_addslashes($faq['keywords']) . "',";
 					$sql .= $faq['user_id'] . ', ';
-					$sql .= '0, ' . time() . ',  ' . $faq['is_faq'] . ", '')";//url is empty for now
+					$sql .= '0, '; //views must be 0 for new entries
+					$sql .= time() . ',  '; 
+					$sql .= $faq['is_faq'] . ', ';
+					$sql .= '"' . $this->db->db_addslashes(urldecode($faq['url'])) .'")';//url is decoded to make sure it is not encoded already
 					$this->db->query($sql);
 					return $this->db->get_last_insert_id('phpgw_kb_faq', 'faq_id');
 				}//end is new

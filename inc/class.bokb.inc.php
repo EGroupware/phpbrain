@@ -191,9 +191,9 @@
 		{
 			if(!$GLOBALS['phpgw_info']['apps']['phpkb']['config']['alow_tags'])
 			{
-  			$faq['title'] = strip_tags($faq['title']);
-  			$faq['keywords'] = strip_tags($faq['keywords']);
-  			$faq['text'] = strip_tags($faq['text']);
+  				$faq['title'] = strip_tags($faq['title']);
+  				$faq['keywords'] = strip_tags($faq['keywords']);
+  				$faq['text'] = strip_tags($faq['text']);
 			}
 			$faq['user_id'] = $GLOBALS['phpgw_info']['user']['account_id'];
 			$new_faq_id = $this->so->save($faq_id, $faq, $this->is_admin());

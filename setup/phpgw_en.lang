@@ -37,7 +37,7 @@ no comments	phpbrain	en	No Comments
 none found - revise or browse	phpbrain	en	Nothing found - please revise your seach or browse
 none_pending	phpbrain	en	None Pending
 none_unanswered	phpbrain	en	No FAQs unanswered
-not_submit_qs_warn	phpbrain	en	Please note that this is not the place to ask questions.  The should be posted on the questions page.  If you enter a question without an answer on this page it will be deleted. 
+not_submit_qs_warn	phpbrain	en	Please note that this is not the place to ask questions.  The should be posted on the questions page.  If you enter a question without an answer on this page it will be deleted.
 num_faqs %1	phpbrain	en	FAQs(%1)
 num_open %1	phpbrain	en	Open(%1)
 num_pages %1	phpbrain	en	Pages(%1)
@@ -47,9 +47,10 @@ phpbrain_config	phpbrain	en	Knowledge Base Configuration
 poor	common	en	Poor
 preview	phpbrain	en	preview
 question	phpbrain	en	Question
-rating	phpbrain	en	rating
+rating	phpbrain	en	Rating
 rating %1	phpbrain	en	rating %1
 register	common	en	Register
+related_url	phpbrain	en	Related Url
 reset	phpbrain	en	Reset
 return_to_admin	phpbrain	en	Return to Admin
 return_to_cats %1	phpbrain	en	Return to Category: %1
@@ -64,6 +65,6 @@ text	common	en	Text
 tutorial	phpbrain	en	Tutorial
 tutorials	phpbrain	en	Tutorials
 up	phpbrain	en	up
-views	phpbrain	en	views
+views	phpbrain	en	Views
 views %1	phpbrain	en	views %1
 votes %1	phpbrain	en	votes %1

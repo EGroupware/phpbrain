@@ -315,13 +315,14 @@
 			$lang = array('lang_add_answer'			=> lang('add_answer'),
 					'lang_check_before_submit'	=> lang('check_before_submit'),
 					'lang_not_submit_qs_warn'	=> lang('not_submit_qs_warn'),
-					'lang_inspire_by_suggestions'=> lang('inspire_by_suggestions'),
-					'lang_title'				=> lang('title'),
-					'lang_keywords'				=> lang('keywords'),
-					'lang_category'				=> lang('category'),
-					'lang_text'					=> lang('text'),
-					'lang_save'					=> lang('save'),
-					'lang_reset'				=> lang('reset')
+					'lang_inspire_by_suggestions'	=> lang('inspire_by_suggestions'),
+					'lang_title'			=> lang('title'),
+					'lang_keywords'			=> lang('keywords'),
+					'lang_category'			=> lang('category'),
+					'lang_related_url'		=> lang('related_url'),
+					'lang_text'			=> lang('text'),
+					'lang_save'			=> lang('save'),
+					'lang_reset'			=> lang('reset')
 					);
 			$this->t->set_var($lang);
 
@@ -486,6 +487,7 @@
 			$faq['keywords']= (isset($_POST['keywords']) ? trim($_POST['keywords']) : '');
 			$faq['text'] 	= (isset($_POST['text']) ? trim($_POST['text']) : '');
 			$faq['is_faq'] 	= (int) (isset($_POST['is_faq']) ? trim($_POST['is_faq']) : 0);
+			$faq['url']	= (isset($_POST['url']) ? trim($_POST['url']) : '');
 			$faq_id = $this->bo->save($faq_id, $faq, $question_id);
 			if($faq_id)
 			{
@@ -736,6 +738,7 @@
 					'lang_views'		=> lang('views'),
 					'lang_rating'		=> lang('rating'),
 					'lang_title'		=> lang('title'),
+					'lang_related_url'	=> lang('related_url'),
 					'lang_text'		=> lang('text'),
 					'lang_poor'		=> lang('poor'),
 					'lang_excellent'	=> lang('excellent'),
@@ -779,6 +782,15 @@
 					);
 					$lang['return_msg'] = lang('return_to_cats %1', $this->cats->id2name($item['cat_id'])); 
 				}//end if search
+
+				if($item['url'])
+				{
+					$item['rel_link'] = '<a href="' . urlencode($item['url']) .'" target="_blank">' . $item['url'] . '</a>';
+				}
+				else
+				{
+					$item['rel_link'] = lang('none');
+				}
 				
 				$this->t->set_block('showitem', 'cmnt', 'cmnts');
 				if(is_array($item['comments']))

@@ -41,6 +41,14 @@
         </tr>
         <tr>
           <td valign="TOP">
+            <b>{lang_related_url}</b>
+          </td>
+          <td colspan="2">
+            <input type="TEXT" name="url" size="60" maxlength="120" value="{keywords}" class="edit">
+          </td>
+        </tr>
+        <tr>
+          <td valign="TOP">
             <b>{lang_text}</b>
           </td>
           <td colspan="2">
@@ -58,5 +66,5 @@
       </table>
     </form>
 <!-- BEGIN admin_button -->
-	<!-- i will add functions here delete -->
+	<!-- i will add functions here - edit + delete -->
 <!-- END admin_button -->

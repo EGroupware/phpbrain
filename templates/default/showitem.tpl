@@ -30,6 +30,12 @@
           {text}<br>
         </td>
       </tr>
+      <tr>
+        <td valign="TOP"><b>{lang_related_url}</b></td>
+        <td colspan="2">
+          {rel_link}<br>
+        </td>
+      </tr>
       <tr class="navbg">
         <td colspan="3" align="CENTER" class="contrlink">{lang_rating}</td>
       </tr>
