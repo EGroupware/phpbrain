@@ -24,10 +24,10 @@
 	</tr>
 	<!-- END article_id_block -->
 	<tr class="row_on">
-		<td width=1% align=right>
+		<td width="10%" align="right">
 			<span style='font:normal 12px sans-serif'>{lang_category}:</span>
 		</td>
-		<td>
+		<td width="90%">
 			<select name="cat_id">
 				<option value="0">{lang_none}</option>
 				{select_category}
