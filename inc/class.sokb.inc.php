@@ -121,16 +121,16 @@
 				$item = array('faq_id'		=> $this->db->f('faq_id'),
 						'title'			=> $this->db->f('title', true),
 						'text'			=> $this->db->f('text', true),
-						'cat_id'		=> $this->db->f('cat_id', true),
+						'cat_id'		=> (int) $this->db->f('cat_id', true),
 						'published'		=> $this->db->f('published'),
 						'keywords'		=> $this->db->f('keywords', true),
-						'user_id'		=> $this->db->f('user_id'),
-						'views'			=> $this->db->f('views'),
-						'modified'		=> $this->db->f('modified'),
-						'type'			=> $this->db->f('type'),
+						'user_id'		=> (int) $this->db->f('user_id'),
+						'views'			=> (int) $this->db->f('views'),
+						'modified'		=> (int) $this->db->f('modified'),
+						'type'			=> (int) $this->db->f('type'),
 						'url'			=> $this->db->f('url', true),
-						'votes'			=> $this->db->f('votes'),
-						'total'			=> $this->db->f('total')
+						'votes'			=> (int) $this->db->f('votes'),
+						'total'			=> (int) $this->db->f('total')
 							);
 
 				$this->set_view($this->db->f('faq_id'));
@@ -219,13 +219,13 @@
 					$sql  =  'UPDATE phpgw_kb_faq';
 					$sql .= ' SET cat_id = ' . $faq['cat_id'] . ',';
 					$sql .= ' title = "' . $this->db->db_addslashes($faq['title']) . '",';
-					$sql .= ' keyword = "' . $this->db->db_addslashes($faq['keyword']) . '",';
+					$sql .= ' keywords = "' . $this->db->db_addslashes($faq['keywords']) . '",';
 					$sql .= ' text = "' . $this->db->db_addslashes($faq['text']) . '",';
 					$sql .= ' modified = ' . time() .',';
 					$sql .= ' user_id = ' . $faq['user_id'] .',';
 					$sql .= ' published = ' . ($admin ? 1 : 0) . ', ';
-					$sql .= ' is_faq = ' . $faq['is_faq'];
-					$sql .= ' url = "' . $this->db->db_addslashes(urldecode($faq['ur'])) .'"';
+					$sql .= ' is_faq = ' . $faq['is_faq'] . ', ';
+					$sql .= ' url = "' . $this->db->db_addslashes(urldecode($faq['url'])) .'"';
 					$sql .= " WHERE faq_id = $faq_id";
 					$this->db->query($sql, __LINE__, __FILE__);
 					if($this->db->affected_rows() == 1)

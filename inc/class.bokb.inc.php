@@ -198,7 +198,7 @@
   				$faq['keywords'] = strip_tags($faq['keywords']);
   				$faq['text'] = strip_tags($faq['text']);
 			}
-			$faq['user_id'] = $GLOBALS['phpgw_info']['user']['account_id'];
+			$faq['user_id'] = (isset($faq['user_id']) ? $faq['user_id'] : $GLOBALS['phpgw_info']['user']['account_id']);
 			$new_faq_id = $this->so->save($faq_id, $faq, $this->is_admin());
 			if($new_faq_id && $question_id && !$faq_id)
 			{

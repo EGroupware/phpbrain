@@ -1,17 +1,17 @@
 <?php
-	/**************************************************************************\
-	* phpGroupWare - KnowledgeBase                                             *
-	* http://www.phpgroupware.org                                              *
-	* Written by Dave Hall [skwashd AT phpgroupware.org]		                 *
-	* ------------------------------------------------------------------------ *
-	* Started off as a port of phpBrain - http://vrotvrot.com/phpBrain/		 *
-	*  but quickly became a full rewrite										 *
-	* ------------------------------------------------------------------------ *
-	*  This program is free software; you can redistribute it and/or modify it *
-	*  under the terms of the GNU General Public License as published by the   *
-	*  Free Software Foundation; either version 2 of the License, or (at your  *
-	*  option) any later version.                                              *
-	\**************************************************************************/
+/**************************************************************************\
+* phpGroupWare - KnowledgeBase                                             *
+* http://www.phpgroupware.org                                              *
+* Written by Dave Hall [skwashd AT phpgroupware.org]		           *
+* ------------------------------------------------------------------------ *
+* Started off as a port of phpBrain - http://vrotvrot.com/phpBrain/	   *
+*  but quickly became a full rewrite					   *
+* ------------------------------------------------------------------------ *
+*  This program is free software; you can redistribute it and/or modify it *
+*  under the terms of the GNU General Public License as published by the   *
+*  Free Software Foundation; either version 2 of the License, or (at your  *
+*  option) any later version.                                              *
+\**************************************************************************/
 	
 	class uikb
 	{
@@ -281,7 +281,7 @@
   		else//must be anon user
   		{
   			$not_reg  = '<a href="';
-  			$not_reg .= $GLOBALS['phpgw']->link('index.php', array('menuaction' => 'phpbrain.uikb.redirect_anon_info'));
+  			$not_reg .= $GLOBALS['phpgw']->link('/index.php', array('menuaction' => 'phpbrain.uikb.redirect_anon_info'));
   			$not_reg .='">' . lang('cant_post_must_register') . '</a>';
 				return $not_reg;
 
@@ -311,6 +311,22 @@
 							);
 
 			$this->t->set_var($this->edit_vals);
+
+			$this->t->set_block('edit_faq', 'b_status', 'status');
+			if($this->bo->is_admin() && isset($this->edit_vals['faq_id']))
+			{
+				$this->t->set_var(
+					array('lang_status'	=> lang('status'),
+						'check'		=> ($this->edit_vals['published'] ? 'checked' : ''),
+						'lang_active_when_checked' => lang('active_when_checked')
+						)
+					);
+				$this->t->parse('status', 'b_status');
+			}
+			else
+			{
+				$this->t->set_var('status', '');
+			}
 
 			$add_answer = ($new ? 'add_answer' : 'edit_answer');
 			$lang = array('lang_add_answer'			=> lang($add_answer),
@@ -481,7 +497,7 @@
 		
 		function save()
 		{
-			$faq_id 		= (int) (isset($_POST['faq_id']) ? trim($_POST['faq_id']) : 0);
+			$faq_id 	= (int) (isset($_POST['faq_id']) ? trim($_POST['faq_id']) : 0);
 			$question_id 	= (int) (isset($_GET['question_id']) ? trim($_GET['question_id']) : 0);
 			$faq['cat_id'] 	= (int) (isset($_POST['cat_id']) ? trim($_POST['cat_id']) : 0);
 			$faq['title'] 	= (isset($_POST['title']) ? trim($_POST['title']) : '');
@@ -495,7 +511,7 @@
   			header ('Location: ' . $GLOBALS['phpgw']->link('/index.php', 
   									array('menuaction'	=> 'phpbrain.uikb.view',
   										'faq_id'		=>  $faq_id,
-  										'msg'			=> lang('faq_saved')
+  										'msg'			=> 'faq_saved'
   										)
   									)
   					);
@@ -675,7 +691,7 @@
 				if($this->bo->is_anon())
 				{
 					$lang_opt = lang('register');
-					$link_opt = $GLOBALS['phpgw']->link('index.php', 
+					$link_opt = $GLOBALS['phpgw']->link('/index.php', 
 						array('menuaction' => 'phpbrain.uikb.redirect_anon_info'));
 				}
 				else//must be registered
@@ -787,7 +803,7 @@
 
 				if($item['url'])
 				{
-					$item['rel_link'] = '<a href="' . urlencode($item['url']) .'" target="_blank">' . $item['url'] . '</a>';
+					$item['rel_link'] = '<a href="' . $item['url'] .'" target="_blank">' . $item['url'] . '</a>';
 				}
 				else
 				{

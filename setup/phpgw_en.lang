@@ -4,12 +4,13 @@
 %1 matches found	phpbrain	en	%1 Matches Found
 %1 questions_activated	phpbrain	en	%1 Questions Activated
 %1 questions_deleted	phpbrain	en	%1 Questions Deleted
+active_when_checked	phpbrain	en	Active when checked
 add_answer	phpbrain	en	Add Answer
 add_comments	phpbrain	en	Add Comments
 add_question	phpbrain	en	Add Question
 add_question (%1 open)	phpbrain	en	Add Question (%1 Open)
-allow_html	phpbrain	en	Allow HTML tags in posts
-anon_user	phpbrain	en	Anonymous User
+allow html	admin	en	Allow HTML tags in posts
+anon user	admin	en	Anonymous User
 answer	phpbrain	en	Answer
 browse	common	en	Browse
 cant_post_must_register	phpbrain	en	You must be a registered user to be able to add information to the knowledge base
@@ -46,6 +47,7 @@ num_open %1	phpbrain	en	Open(%1)
 num_pages %1	phpbrain	en	Pages(%1)
 num_tutes %1	phpbrain	en	Tutorials(%1)
 phpbrain	common	en	Knowledge Base
+phpbrain config	admin	en	KnowledgeBase Configuration
 phpbrain_config	phpbrain	en	Knowledge Base Configuration
 poor	common	en	Poor
 preview	phpbrain	en	preview

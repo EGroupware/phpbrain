@@ -35,7 +35,7 @@
           </td>
           <td colspan="2">
             <select name="cat_id">
-					{cats_options}
+		{cats_options}
             </select> 
           </td>
         </tr>
@@ -44,9 +44,19 @@
             <b>{lang_related_url}</b>
           </td>
           <td colspan="2">
-            <input type="TEXT" name="url" size="60" maxlength="120" value="{keywords}" class="edit">
+            <input type="TEXT" name="url" size="60" maxlength="120" value="{url}" class="edit">
           </td>
         </tr>
+	<!-- BEGIN b_status -->
+	<tr>
+          <td valign="TOP">
+            <b>{lang_status}</b>
+          </td>
+          <td colspan="2">
+            <input type="checkbox" name="published" value=1 {check}>  {lang_active_when_checked}
+          </td>
+        </tr>
+	<!-- END b_status -->
         <tr>
           <td valign="TOP">
             <b>{lang_text}</b>
