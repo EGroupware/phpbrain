@@ -25,5 +25,5 @@
 	$obj = CreateObject('phpbrain.uikb');
 	$obj->index();
 
-	$GLOBALS['phpgw']->common->phpgw_exit();
+	$GLOBALS['phpgw']->common->phpgw_exit(true);
 ?>
