@@ -215,7 +215,7 @@
 			}
 			elseif($this->allow_questions)
 			{
-				$this->t->set_var('links_nav', "<a href='". $this->link('menuaction=phpbrain.uikb.index') ."'>". lang('Main View', 'phpbrain') ."</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='". $this->link('menuaction=phpbrain.uikb.add_question') ."'>". lang('Add Question') ."</a>&nbsp;&nbsp;|<br><br>");
+				$this->t->set_var('links_nav', "<a href='". $this->link('menuaction=phpbrain.uikb.index') ."'>". lang('Main View', 'phpbrain') ."</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='". $this->link('menuaction=phpbrain.uikb.add_question') ."'>". lang('Add Question') ."</a>&nbsp;&nbsp;|<br>");
 			}
 			else
 			{
@@ -693,7 +693,7 @@
 				}
 				else
 				{
-					$this->t->set_var('link_main_view', "<a href='". $this->link('menuaction=phpbrain.uikb.index') ."'>". lang('Main View', 'phpbrain') ."</a>&nbsp;&nbsp;|<br><br>");
+					$this->t->set_var('link_main_view', "<a href='". $this->link('menuaction=phpbrain.uikb.index') ."'>". lang('Main View', 'phpbrain') ."</a>&nbsp;&nbsp;|<br>");
 				}
 			}
 
@@ -1807,11 +1807,11 @@
 				));
 				if ($this->allow_questions)
 				{
-					$this->t->set_var('links_nav', "<a href='". $this->link('menuaction=phpbrain.uikb.index') ."'>". lang('Main View', 'phpbrain') ."</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='". $this->link('menuaction=phpbrain.uikb.add_question') ."'>". lang('Add Question') ."</a>&nbsp;&nbsp;|<br><br>");
+					$this->t->set_var('links_nav', "<a href='". $this->link('menuaction=phpbrain.uikb.index') ."'>". lang('Main View', 'phpbrain') ."</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='". $this->link('menuaction=phpbrain.uikb.add_question') ."'>". lang('Add Question') ."</a>&nbsp;&nbsp;|<br>");
 				}
 				else
 				{
-				$this->t->set_var('links_nav', "<a href='". $this->link('menuaction=phpbrain.uikb.index') ."'>". lang('Main View', 'phpbrain') ."</a>&nbsp;&nbsp;|<br><br>");
+				$this->t->set_var('links_nav', "<a href='". $this->link('menuaction=phpbrain.uikb.index') ."'>". lang('Main View', 'phpbrain') ."</a>&nbsp;&nbsp;|<br>");
 				}
 			}
 			else
