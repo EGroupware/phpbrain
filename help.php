@@ -1,8 +1,4 @@
 <body bgcolor="eeeeff">
-<?
-	/* help.php */
-	include "stylesheet.htmlf";
-?>
 
 <H1>BlenderBase Help Page</H1>
 <P><font size=-2>04/04/01 <a href="mailto:bart@vrotvrot.com"><font size=-2>Bart Veldhuizen</font></a></font>

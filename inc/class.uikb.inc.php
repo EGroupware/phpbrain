@@ -34,6 +34,7 @@
 									'search'		=> True,
 									'unanswered'	=> True,
 									'view'			=> True,
+									'help'			=> True
 									);
 		
 		function uikb()
