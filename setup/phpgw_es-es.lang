@@ -64,69 +64,200 @@ comment has been published	phpbrain	es-es	El comentario ha sido publicado
 comment has been submited for revision	phpbrain	es-es	El comentario se ha enviado para una revisión
 comment has been submited for revision and rating will be published	phpbrain	es-es	El comentario se ha enviado para una revisión y se publicará la puntuación
 comments	phpbrain	es-es	Comentarios
+create a new article to answer the question asked by %1 in %2	phpbrain	es-es	Crear un nuevo artículo para responder la pregunta realizada por %1 en %2
+created by %1 on %2	phpbrain	es-es	Creado por %1 en %2
+creation date	phpbrain	es-es	Fecha de creación
 cur_open_qs	phpbrain	es-es	Preguntas abiertas actualmente
 current_questions	phpbrain	es-es	Preguntas actuales
+date	phpbrain	es-es	Fecha
+delete article	phpbrain	es-es	Borrar articulo
+delete selected	phpbrain	es-es	Borrar la selección
+deleted relation to article %1	phpbrain	es-es	Se ha borrado la relacion con el artículo %1
+descendent	phpbrain	es-es	Descendente
+details	phpbrain	es-es	Detalles
+e-mail has been sent	phpbrain	es-es	se ha enviado el correo
+edit article	phpbrain	es-es	Editar artículo
 edit_answer	phpbrain	es-es	Editar respuesta
 edit_faq	phpbrain	es-es	Editar PF
 enable	common	es-es	Activar
+enter one or two words describing the issue, or type the article number if you know it	phpbrain	es-es	Introduzca una o dos palabras que describan el problema, o escriba el número del artículo si lo sabe
+error deleting article from database	phpbrain	es-es	Error al borrar el artículo de la base de datos
+error deleting link	phpbrain	es-es	Error al borrar el enlace
+error downloading file	phpbrain	es-es	Error al descargar el fichero
+error locating files directory	phpbrain	es-es	Error al buscar el directorio de los ficheros
+error moving file to directory	phpbrain	es-es	Error al mover el fichero al directorio
+error publishing comment	phpbrain	es-es	Error el publicar el comentario
+error retrieving article	phpbrain	es-es	Error al recuperar el articulo
+error trying to delete comment	phpbrain	es-es	Error al intentar borrar el comentario
+error trying to delete question	phpbrain	es-es	Error al intentar borrar la pregunta
+error trying to edit article	phpbrain	es-es	Error al intentar editar el artículo
+error trying to publish article	phpbrain	es-es	Error al intentar publicar el artículo
+error: file doesn't exist in the database	phpbrain	es-es	Error: el fichero no existe en la base de datos
 example	phpbrain	es-es	Ejemplo
 excellent	phpbrain	es-es	Excelente
 explain_faq_admin	phpbrain	es-es	Las respuestas a las PFs tienen que estar activadas para que los usuarios puedan verlas. Seleccione las PF que desee habilitar. También puede seleccionar respuestas que encuentra inapropiadas y quiera borrar.
 explain_maintain_answers	phpbrain	es-es	Las preguntas enviadas por los usuarios debe activarlas un administrador. Seleccione aquellas respuestas que desee activar o borrar
 explain_questions_admin	phpbrain	es-es	Las preguntas enviadas por los usuarios debe activarlas un administrador. Seleccione aquellas respuestas que desee activar o borrar
+failure trying to delete the file	phpbrain	es-es	Fallo al intentar borrar el fichero
 faq	phpbrain	es-es	PF (Prefuntas frecuentes)
 faq_saved	phpbrain	es-es	PF guardadas
 faqs	phpbrain	es-es	PFs
 faqs_and_tutes	phpbrain	es-es	PF y tutoriales
+file could be deleted from server but not from database	phpbrain	es-es	Se pudo borrar el fichero del servidor pero no de la base de datos
+file has been successfully uploaded	phpbrain	es-es	El fichero se ha subido al servidor correctamente
+file was already missing from server, and was deleted from the database	phpbrain	es-es	El fichero ya no estaba en el servidor, y se borró de la base de datos.
+file was deleted successfully	phpbrain	es-es	El fichero se borró correctamente
+file wasn't in server and it couldn't be deleted from the database	phpbrain	es-es	El fichero no estaba en el servidor y no se pudo borrar de la base de datos.
+find results	phpbrain	es-es	Encontrar resultados
 global categories	phpbrain	es-es	Categorías globales
+have to be approved first	common	es-es	Tiene que ser aprobado antes
+history	phpbrain	es-es	Historial
+if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	es-es	Si no puede encontrar respuestas a su problema en la base de conocimiento, descríbalo debajo
+if you wish, you can comment this article here	phpbrain	es-es	Si lo desea, puede comentar aqui este artículo
 improve_by_rate	phpbrain	es-es	Ayúdenos a mejorar valorando los mensajes
+in %1	phpbrain	es-es	en %1
+in the text	phpbrain	es-es	en el texto
+in the title	phpbrain	es-es	en el título
+in the topic	phpbrain	es-es	en el asunto
+include subcategories	phpbrain	es-es	Incluir subcategorías
 inspire_by_suggestions	phpbrain	es-es	Si necesita inspiración, eche un vistazo a las preguntas abiertas.
 invalid faq request - or something is nqr	phpbrain	es-es	ERROR: la PF solicitada no es válida
 kb_contains	phpbrain	es-es	La base de conocimientos contiene
+keywords	phpbrain	es-es	Palabras clave
 know_contrib	phpbrain	es-es	¿Sabe la respuesta? En ese caso, responda.
+knowledge base article #%1	phpbrain	es-es	Articulo de la base de conocimiento #%1
+knowledge base configuration	common	es-es	Configuracion de la base de conocimiento
+last modification by %1 on %2	phpbrain	es-es	Ultima modificacion por %1 en %2
 last_mod %1	phpbrain	es-es	Ultima modificación: %1
+latest	phpbrain	es-es	La última
+latest comments	phpbrain	es-es	Últimos comentarios
+leave empty to automatically generate an id	phpbrain	es-es	Dejar en blanco para generar un ID automáticamente
+link could not be added	phpbrain	es-es	No se pudo añadir el enlace
+link deleted successfully	phpbrain	es-es	El enlace se borró correctamente
+link has been added	phpbrain	es-es	Se ha añadido el enlace
+links	phpbrain	es-es	Enlaces
+links & files	phpbrain	es-es	Enlaces y ficheros
+mail article	phpbrain	es-es	Enviar articulo por correo
+main view	phpbrain	es-es	Vista principal
 maintain answers	phpbrain	es-es	Mantenimiento de respuestas
-maintain questions	phpbrain	es-es	Mantenimiento de preguntas
+maintain articles	phpbrain	es-es	Mantener artículos
+maintain questions	phpbrain	es-es	Mantener preguntas
 maintain_answers	common	es-es	Mantener respuestas
+maximum number of comments to show:	phpbrain	es-es	Número máximo de comentarios a mostrar:
+maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	es-es	Número máximo de artículos más populares, últimos artículos y preguntas sin responder a mostrar en la vista principal:
+modification date	phpbrain	es-es	Fecha de modificación
 modified	phpbrain	es-es	Modificado
+most viewed	phpbrain	es-es	Los más vistos
+new article	phpbrain	es-es	Nuevo artículo
 no comments	phpbrain	es-es	Sin comentarios
+nobody has rated this article so far	phpbrain	es-es	Nadie ha valorado este artículo aún
+none	phpbrain	es-es	Ninguno
 none found - revise or browse	phpbrain	es-es	No se encontró nada. Por favor, revise su búsqueda o su navegador
 none_pending	phpbrain	es-es	Nada pendiente
 none_unanswered	phpbrain	es-es	No hay PFs sin responder
 not_submit_qs_warn	phpbrain	es-es	Por favor, dése cuenta de que éste no es el lugar para hacer preguntas. Para eso, está la página de preguntas. Si introduce una pregunta sin una respuesta en esta página, se borrará.
+nothing was uploaded!	phpbrain	es-es	¡No se ha subido nada al servidor!
 num_faqs %1	phpbrain	es-es	Preguntas frecuentes (%1)
 num_open %1	phpbrain	es-es	Abiertas (%1)
 num_pages %1	phpbrain	es-es	Páginas (%1)
 num_tutes %1	phpbrain	es-es	Tutoriales (%1)
+number of results per page	phpbrain	es-es	Número de resultados
+ocurrences	phpbrain	es-es	Ocurrencias
 open	phpbrain	es-es	Abierto
+or browse the categories	phpbrain	es-es	O examinar las categorias
+order results by	phpbrain	es-es	Ordenar resultados por
+past %1 months	phpbrain	es-es	%1 meses anteriores
+past year	phpbrain	es-es	año pasado
+people have rated this article	phpbrain	es-es	personas han valorado este artículo
 phpbrain	common	es-es	Base de conocimiento
 phpbrain config	admin	es-es	Configuración de la base de conocimiento
 phpbrain_config	phpbrain	es-es	Configuración de la base de conocimiento
+please rate the pertinence and quality of this article	phpbrain	es-es	Por favor, valore la utilidad y calidad de este artículo
+please try again	phpbrain	es-es	Por favor, vuelva a intentarlo
 poor	phpbrain	es-es	Pobre
 preview	phpbrain	es-es	vista previa
+printer view	phpbrain	es-es	Vista de impresora
+problem relating articles	phpbrain	es-es	Problema relacionando articulos
+publication date	phpbrain	es-es	Fecha de publicación
+publish	phpbrain	es-es	Publicar
+publish articles automatically?	common	es-es	¿Publicar artículos automáticamente?
+publish comments automatically?	common	es-es	¿Publicar comentarios automáticamente?
+publish questions automatically?	common	es-es	¿Publicar preguntas automáticamente?
+publish selected	phpbrain	es-es	Publicar lo seleccionado
 question	phpbrain	es-es	Pregunta
+question deleted successfully	phpbrain	es-es	Pregunta borrada correctamente
 question_added	phpbrain	es-es	Pregunta añadida a la base de datos
 question_saved	phpbrain	es-es	Pregunta guardada. Aparecerá en la base de datos después de la revisión del administrador
+questions deleted successfully	phpbrain	es-es	Preguntas borradas correctamente
 rating	phpbrain	es-es	Valoración
 rating %1	phpbrain	es-es	valoración %1
+rating has been submited	phpbrain	es-es	Se ha enviado la valoración
+rating invalid	phpbrain	es-es	La valoración no es válida
+recipient	phpbrain	es-es	Destinatario
 register	common	es-es	Registrar
+related articles in the knowledge base	phpbrain	es-es	Articulos relacionados en la base de conocimiento
 related_url	phpbrain	es-es	URL relacionada
+relation with article was removed successfully	phpbrain	es-es	La relacion con el artículo se borró correctamente
+removed file %1	phpbrain	es-es	Se ha borrado el fichero %1
+removed link %1	phpbrain	es-es	Se ha borrado el enlace %1
+reply-to	phpbrain	es-es	Responder a
 reset	phpbrain	es-es	Restablecer
 return_to_admin	phpbrain	es-es	Volver a Administración
 return_to_cats %1	phpbrain	es-es	Volver a la categoría %1
 return_to_index	phpbrain	es-es	Volver al índice
 return_to_search %1	phpbrain	es-es	Volver a la búsqueda %1
 score %1	phpbrain	es-es	puntuación %1
+search in all the knowledge base	phpbrain	es-es	Buscar en toda la base de conocimiento
+search results	phpbrain	es-es	Resultados de la búsqueda
 section_maint_faqs	phpbrain	es-es	Mantener PFs pendientes
 section_maintain_questions	common	es-es	Mantener preguntas
+see more questions	phpbrain	es-es	Ver más preguntas
+select articles	phpbrain	es-es	Seleccionar artículos
 show	phpbrain	es-es	mostrar
+show all comments	phpbrain	es-es	Mostrar todos los comentarios
+show articles belonging to:	phpbrain	es-es	Mostrar artículos pertenecientes a:
+show messages in category	phpbrain	es-es	Mostrar mensajes en la categoría
 site configuration	phpbrain	es-es	Configuración del sitio
+submit comment	phpbrain	es-es	Enviar comentario
+submit comment and rating	phpbrain	es-es	Enviar comentario y valoración
 submitted_by	phpbrain	es-es	Enviado por
+suggested category	phpbrain	es-es	Categoría sugerida
+summary	phpbarin	es-es	Resumen
 text	common	es-es	Texto
 thanks_4_rating	phpbrain	es-es	Gracias por valorar este elemento
+that file already exists	phpbrain	es-es	El fichero ya existe
+the article is empty	phpbrain	es-es	El artículo está vacío
+the file was already missing in the server	phpbrain	es-es	El fichero ya faltaba en el servidor
+the following errors occurred	phpbrain	es-es	Ocurrieron los siguientes errores
+the present category and all subcategories under it	phpbrain	es-es	La categoría actual y todas las categorías de debajo
+the present category only	phpbrain	es-es	Sólo la categoría actual
+there are no articles	phpbrain	es-es	No hay artículos
+this article hasn't yet been published in the knowledge base	phpbrain	es-es	Este artículo todavía no ha sido publicado en la base de conocimiento
+title	phpbrain	es-es	Título
+to create categories, press 'edit categories' in the preferences menu	phpbrain	es-es	Para crear categorías, pulsar 'Editar categorías' en el menú Preferencias
+topic	phpbrain	es-es	Asunto
 tutorial	phpbrain	es-es	Tutorial
 tutorials	phpbrain	es-es	Tutoriales
+unable to add rating to database	phpbrain	es-es	No se pudo añadir la valoración a la base de datos
+unanswered questions	phpbrain	es-es	Preguntas sin responder
+unpublished	phpbrain	es-es	sin publicar
 up	phpbrain	es-es	arriba
+upload	phpbrain	es-es	subir al servidor
+user	phpbrain	es-es	Usuario
+user preferences	phpbrain	es-es	Preferencias de usuario
 views	phpbrain	es-es	Vistas
 views %1	phpbrain	es-es	Vistas %1
 votes %1	phpbrain	es-es	votos %1
+was it easy to find this article using the above search string?	phpbrain	es-es	¿Fue fácil encontrar este artículo usando la cadena de búsqueda de arriba?
+when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	es-es	Cuando navegue por las categorías, elija si la lista de artículos mostrada corresponde sólo a la categoría actual, o a la categoría actual y todas las categorías de debajo.
+with all the words	phpbrain	es-es	Con todas las palabras
+with at least one of the words	phpbrain	es-es	Con al menos una de las palabras
+with the exact phrase	phpbrain	es-es	Con la frase exacta
+without the words	phpbrain	es-es	Sin las palabras
+you are in %1	phpbrain	es-es	Está en %1
+you have already qualified this article	phpbrain	es-es	Ya ha calificado este artículo
+you have not the proper permissions to do that	phpbrain	es-es	No tiene los permisos adecuados para hacer eso
+you must enter a title	phpbrain	es-es	Debe introducir un título
+you must enter a topic	phpbrain	es-es	Debe introducir un asunto
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	es-es	La pregunta se enviará, pero sólo se publicará después de que la apruebe un usuario con derechos de publicación.
+your question will be published immediately	phpbrain	es-es	La pregunta se publicará inmediatamente.
