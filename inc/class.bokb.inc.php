@@ -83,11 +83,9 @@
 				$config = $GLOBALS['phpgw']->config;
 			}
 			
-			$config_vals = $config->read_repository();
-
-			//soon i will add the values and add the info here - casting etc
-			return array('anon_user'	=> 11,
-						'allow_tags'=> False);
+			$config->read_repository();
+			return $config->config_data;
+			
 		}//end get_config
 		
 		function get_faq_list($cat_id = '', $unpublished = false)
@@ -167,7 +165,8 @@
 
 		function is_admin()
 		{
-			return $GLOBALS['phpgw']->acl->check('run', 1, 'admin');
+			return isset($GLOBALS['phpgw_info']['user']['apps']['admin']);
+			//return $GLOBALS['phpgw']->acl->check('run', 1, 'admin');
 		}//end is_admin
 		
 		function is_anon()
