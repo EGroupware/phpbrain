@@ -17,8 +17,8 @@
 	<td>{lang_Publish_articles_automatically?}</td>
 	<td>
 		<select name="newsettings[publish_articles]">
-			<option value="True"{selected_publish_articles_True}">{lang_Yes}</option>
-			<option value="False"{selected_publish_articles_False}">{lang_Have_to_be_approved_first}</option>
+			<option value="True"{selected_publish_articles_True}>{lang_Yes}</option>
+			<option value="False"{selected_publish_articles_False}>{lang_Have_to_be_approved_first}</option>
 		</select>
 	</td>
 </tr>
@@ -26,8 +26,8 @@
 	<td>{lang_Publish_comments_automatically?}</td>
 	<td>
 		<select name="newsettings[publish_comments]">
-			<option value="True"{selected_publish_comments_True}">{lang_Yes}</option>
-			<option value="False"{selected_publish_comments_False}">{lang_Have_to_be_approved_first}</option>
+			<option value="True"{selected_publish_comments_True}>{lang_Yes}</option>
+			<option value="False"{selected_publish_comments_False}>{lang_Have_to_be_approved_first}</option>
 		</select>
 	</td>
 </tr>
@@ -35,8 +35,8 @@
 	<td>{lang_Publish_questions_automatically?}</td>
 	<td>
 		<select name="newsettings[publish_questions]">
-			<option value="True"{selected_publish_questions_True}">{lang_Yes}</option>
-			<option value="False"{selected_publish_questions_False}">{lang_Have_to_be_approved_first}</option>
+			<option value="True"{selected_publish_questions_True}>{lang_Yes}</option>
+			<option value="False"{selected_publish_questions_False}>{lang_Have_to_be_approved_first}</option>
 		</select>
 	</td>
 </tr>
