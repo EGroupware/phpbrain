@@ -994,8 +994,21 @@
 		**/
 		function edit_article()
 		{
+
 			$this->t->set_file('edit_article', 'edit_article.tpl');
 			$this->t->set_block('edit_article', 'answer_question_block', 'answer_question');
+			$checking_spell = False;
+			
+			// show check spell button only if pspell functions and dictionnary in current language are available, and not comming from doing just that
+			if (function_exists(pspell_new) && @$pspell_link = pspell_new($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']) && !$_POST['check_spell'])
+			{
+				$btn_spell = "<input type='submit' name='check_spell' value='". lang('Check spelling') ."'>&nbsp;";
+			}
+			else
+			{
+				$btn_spell = '';
+			}
+
 			$this->t->set_var(array(
 				'lang_articleID'		=> lang('Article ID'),
 				'lang_category'			=> lang('Category'),
@@ -1003,8 +1016,7 @@
 				'lang_title'			=> lang('Title'),
 				'lang_topic'			=> lang('Topic'),
 				'lang_keywords'			=> lang('Keywords'),
-				'lang_save'				=> lang('Save'),
-				'lang_cancel'			=> lang('Cancel')
+				'btn_spell'				=> $btn_spell
 			));
 
 			// These are the default values, that apply for entering a new article
@@ -1012,14 +1024,45 @@
 			$title				= '';
 			$topic				= '';
 			$keywords			= '';
-			$content			= '';
+			$content			= "<textarea name='exec[text]' id='exec_text' style='width:100%; min-width:500px; height:300px;'></textarea>";
 			$category_selected	= '';
 			$hidden_fields		= '';
+			$btn_save			= "<input type='submit' value='". lang('Save') . "' name='save'>&nbsp;";
+			$btn_cancel			= "<input type='submit' value='". lang('Cancel') . "' name='cancel'>";
+			$extra				= '';
 			$this->t->set_var(array(
 				'answer_question'	=> '',
 				'show_articleID'	=> "<input type=text name='articleID'>",
 				'show_autoID'		=> "&nbsp;&nbsp;&nbsp;&nbsp;" . lang('Leave empty to automatically generate an ID')
 				));
+
+			// check spelling
+			if ($_POST['check_spell'])
+			{
+				if (!$content = $this->check_spell())
+				{
+					$content = $_POST['exec']['text'];
+					$this->message = lang("The article doesn't have spell errors");
+				}
+				else
+				{
+					$checking_spell =True;
+					$btn_save		= "<input type='submit' name='confirm_spell' value='". lang('Confirm') . ">&nbsp;";
+					$btn_cancel		= '';
+					$this->message		= lang('Correct the errors and press confirm');
+				}
+				$GLOBALS['phpgw']->session->appsession('tagged_text', 'phpbrain', $content);
+			}
+
+			// correct spelling
+			if ($_POST['confirm_spell'])
+			{
+				$category_selected	= $_POST['cat_id'];
+				$title				= $_POST['title'];
+				$topic				= $_POST['topic'];
+				$keywords			= $_POST['keywords'];
+				$content			= "<textarea name='exec[text]' id='exec_text' style='width:100%; min-width:500px; height:300px;'>". $this->correct_spell() ."</textarea>";
+			}
 
 			// saving either an edited or a new article (answering a question or just a new article)
 			if ($_POST['save'])
@@ -1059,20 +1102,28 @@
 				}
 			}
 
-			// if error ocurred fill fields with values
+			// if an error ocurred fill fields with values
 			if ($this->message)
 			{
 				$category_selected	= $_POST['cat_id'];
 				$title				= $_POST['title'];
 				$topic				= $_POST['topic'];
 				$keywords			= $_POST['keywords'];
-				$content			= $_POST['exec']['text'];
+				if (!$checking_spell)
+					$content = "<textarea name='exec[text]' id='exec_text' style='width:100%; min-width:500px; height:300px;'>". $_POST['exec']['text'] ."</textarea>";
 			}
 
 			// Edit existent article
 			if ($_GET['art_id'])
 			{
-				if (!$this->message)
+				// Process cancel button
+				if ($_POST['cancel'])
+				{
+					$GLOBALS['phpgw']->redirect_link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id=' .  $_GET['art_id']);
+					die();
+				}
+
+				if (!$this->message && !$_POST['confirm_spell'])
 				{
 					$article	= $this->bo->get_article($article_id);
 
@@ -1082,7 +1133,7 @@
 					$title		= $article['title'];
 					$topic		= $article['topic'];
 					$keywords	= $article['keywords'];
-					$content	= $article['text'];
+					$content	= "<textarea name='exec[text]' id='exec_text' style='width:100%; min-width:500px; height:300px;'>". $article['text']. "</textarea>";
 					$category_selected = $article['cat_id'];
 				}
 
@@ -1095,9 +1146,15 @@
 			// answering a question
 			if ($_GET['q_id'])
 			{
+				// Process cancel button
+				if ($_POST['cancel'])
+				{
+					$GLOBALS['phpgw']->redirect_link('/index.php', 'menuaction=phpbrain.uikb.index');
+					die();
+				}
 				$q_id = (int)get_var('q_id', 'GET', 0);
 				$question = $this->bo->get_question($q_id);
-				$hidden_fields = "<input type=hidden name='answering_question' value='" . $q_id . "'>";
+				$hidden_fields .= "<input type=hidden name='answering_question' value='" . $q_id . "'>";
 				$this->t->set_var(array(
 					'lang_summary'			=> lang('Summary'),
 					'lang_details'			=> lang('Details'),
@@ -1112,24 +1169,28 @@
 				$category_selected = $question['cat_id'];
 			}
 			
-			// determine if user language is supported by htmlarea; if not default to English
-			$htmlarea_lang= 'en';
-			$language = substr($GLOBALS['phpgw_info']['user']['preferences']['common']['lang'], 0, 2);
-			if (is_file(PHPGW_INCLUDE_ROOT. '/phpgwapi/js/htmlarea/lang/' . $language  . '.js')) $htmlarea_lang = $language;
+			// don't use htmlarea if checking spelling
+			if (!$checking_spell)
+			{
+				// determine if user language is supported by htmlarea; if not default to English
+				$htmlarea_lang= 'en';
+				$language = substr($GLOBALS['phpgw_info']['user']['preferences']['common']['lang'], 0, 2);
+				if (is_file(PHPGW_INCLUDE_ROOT. '/phpgwapi/js/htmlarea/lang/' . $language  . '.js')) $htmlarea_lang = $language;
 
-			// Prepare javascript tabs
-			$GLOBALS['phpgw']->js = CreateObject('phpgwapi.javascript');
-			$GLOBALS['phpgw']->js->validate_file('htmlarea','htmlarea');
-			$GLOBALS['phpgw']->js->set_onload("HTMLArea.replace('exec_text', htmlareaConfig)");
-			$GLOBALS['phpgw_info']['flags']['css'] = "@import url(".$GLOBALS['phpgw']->link('/phpgwapi/js/htmlarea/htmlarea.css').");";
-			$GLOBALS['phpgw_info']['flags']['java_script_thirst']="
-				<script>
-					_editor_url = '".$GLOBALS['phpgw']->link('/phpgwapi/js/htmlarea/')."';
-					_editor_lang = '" . $htmlarea_lang  . "';
-					var htmlareaConfig = new HTMLArea.Config();
-					htmlareaConfig.editorURL = '".$GLOBALS['phpgw']->link('/phpgwapi/js/htmlarea/')."';
-				</script>";
-
+				// Prepare javascript tabs
+				$GLOBALS['phpgw']->js = CreateObject('phpgwapi.javascript');
+				$GLOBALS['phpgw']->js->validate_file('htmlarea','htmlarea');
+				$GLOBALS['phpgw']->js->set_onload("HTMLArea.replace('exec_text', htmlareaConfig)");
+				$GLOBALS['phpgw_info']['flags']['css'] = "@import url(".$GLOBALS['phpgw']->link('/phpgwapi/js/htmlarea/htmlarea.css').");";
+				$GLOBALS['phpgw_info']['flags']['java_script_thirst']="
+					<script>
+						_editor_url = '".$GLOBALS['phpgw']->link('/phpgwapi/js/htmlarea/')."';
+						_editor_lang = '" . $htmlarea_lang  . "';
+						var htmlareaConfig = new HTMLArea.Config();
+						htmlareaConfig.editorURL = '".$GLOBALS['phpgw']->link('/phpgwapi/js/htmlarea/')."';
+					</script>";
+			}
+	
 			// Finally, fill the input fields
 			$GLOBALS['phpgw']->common->phpgw_header();
 			echo parse_navbar();
@@ -1140,15 +1201,11 @@
 
 			if ($_GET['art_id'])
 			{
-				$extra = '&art_id='. $_GET['art_id'];
+				$extra .= '&art_id='. $_GET['art_id'];
 			}
 			elseif($_GET['q_id'])
 			{
-				$extra = '&q_id='. $_GET['q_id'];
-			}
-			else
-			{
-				$extra = '';
+				$extra .= '&q_id='. $_GET['q_id'];
 			}
 
 			$this->t->set_var(array(
@@ -1158,11 +1215,12 @@
 				'value_title'		=> $title,
 				'value_topic'		=> $topic,
 				'value_keywords'	=> $keywords,
-				'value_text'		=> $content
+				'value_text'		=> $content,
+				'btn_save'			=> $btn_save,
+				'btn_cancel'		=> $btn_cancel
 			));
 
 			$this->t->pparse('output', 'edit_article');
-
 		}
 
 		/**
@@ -1636,6 +1694,53 @@
 			));
 			return $this->t->parse('output', 'basic_search');
 
+		}
+
+		function check_spell()
+		{
+			$text_orig = $_POST['exec']['text'];
+			//echo "<br><br><br>text_orig: <pre>";print_r($text_orig);echo "</pre>";
+			$text_noHTML = preg_replace('/<.*?>/', ' ', $text_orig);
+			$words = preg_split('/[\W]+?/', $text_noHTML);
+			//echo "words: <pre>";print_r($words);echo "</pre>";
+			$pspell_link = pspell_new($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
+			$i = 0;
+			foreach ($words as $word)
+			{
+				if (!pspell_check($pspell_link, $word))
+				{
+					$i++;
+					$suggestions = array($word);
+					$suggestions = array_merge($suggestions, pspell_suggest($pspell_link, $word));
+					//echo "<br><br><br>word: $word -- suggestions: <pre>";print_r($suggestions);echo "</pre>";
+					$replacement = "<span name='nn' style='color:red; font-weight: bold'>$word&nbsp;</span><select name='correction[$i]'>";
+					foreach ($suggestions as $suggestion)
+					{
+						$replacement .= "<option value='$suggestion'>". $suggestion ."</option>";
+					}
+					$replacement .= "</select>";
+					$text_orig = preg_replace('/\b'.$word.'\b/', $replacement, $text_orig);
+					//echo "<br><br><br>original changed to: $text_orig <br><br>";
+				}
+			}
+			if (!$i) return 0;
+			return $text_orig;
+		}
+
+		function correct_spell()
+		{
+			$corrections = $_POST['correction'];
+			//echo "corrections: <pre>";print_r($corrections);echo "</pre>\n";
+			$tagged_text = $GLOBALS['phpgw']->session->appsession('tagged_text', 'phpbrain');
+			//echo "tagged_text in session: ";print_r($tagged_text);echo "</pre>\n";
+			$corrected_text = preg_replace("/<span name='nn' style='color:red; font-weight: bold'>[\w]+?&nbsp;<\/span>/", '', $tagged_text);
+			//echo "tagged_text sin span rojos: ";print_r($corrected_text);echo "</pre>\n";
+			foreach ($corrections as $index=>$correction)
+			{
+				$corrected_text = preg_replace("/<select name='correction.".$index."]'.*?<\/select>/", $correction, $corrected_text);
+			}
+			//echo "corrected_text: ";print_r($corrected_text);die();
+			return $corrected_text;
 		}
 
 		function tabs_css()

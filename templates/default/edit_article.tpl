@@ -58,9 +58,7 @@
 	</tr>
 	<tr>
 		<td colspan=2>
-			<textarea name="exec[text]" id="exec_text" style="width:100%; min-width:500px; height:300px;">
-				{value_text}
-			</textarea>
+			{value_text}
 		</td>
 	</tr>
 	<tr class="th">
@@ -71,7 +69,7 @@
 
 	<tr>
 		<td colspan=2>
-			<input type="submit" value="{lang_save}" name="save">&nbsp;<input type="submit" value="{lang_cancel}" name="cancel">
+			{btn_spell}{btn_save}{btn_cancel}
 		</td>
 	</tr>
 </table>
