@@ -1043,7 +1043,7 @@
 				
 				if ($this->message)
 				{
-					$this->message .= lang('The following errors occured') . ': <br><br>'.$error_message.'<br>' . lang('Please try again');
+					$this->message .= '<br>' . lang('Please try again');
 				}
 				elseif ($edited_art = $this->bo->save_article())
 				{
@@ -1064,7 +1064,7 @@
 			{
 				$category_selected	= $_POST['cat_id'];
 				$title				= $_POST['title'];
-				$topic				= $_POST['title'];
+				$topic				= $_POST['topic'];
 				$keywords			= $_POST['keywords'];
 				$content			= $_POST['exec']['text'];
 			}
@@ -1072,16 +1072,19 @@
 			// Edit existent article
 			if ($_GET['art_id'])
 			{
-				$article	= $this->bo->get_article($article_id);
+				if (!$this->message)
+				{
+					$article	= $this->bo->get_article($article_id);
 
-				// Check edit rights
-				if (!$this->bo->check_permission($this->bo->edit_right)) $this->die_peacefully('You have not the proper permissions to do that');
+					// Check edit rights
+					if (!$this->bo->check_permission($this->bo->edit_right)) $this->die_peacefully('You have not the proper permissions to do that');
 
-				$title		= $article['title'];
-				$topic		= $article['topic'];
-				$keywords	= $article['keywords'];
-				$content	= $article['text'];
-				$category_selected = $article['cat_id'];
+					$title		= $article['title'];
+					$topic		= $article['topic'];
+					$keywords	= $article['keywords'];
+					$content	= $article['text'];
+					$category_selected = $article['cat_id'];
+				}
 
 				$this->t->set_var(array(
 					'show_articleID'	=> $article_id . "<input type=hidden name='editing_article_id' value=" . $article_id . ">",
@@ -1135,10 +1138,23 @@
 			$select_category = $this->bo->select_category($category_selected);
 			$this->t->set_var('select_category', $select_category);
 
+			if ($_GET['art_id'])
+			{
+				$extra = '&art_id='. $_GET['art_id'];
+			}
+			elseif($_GET['q_id'])
+			{
+				$extra = '&q_id='. $_GET['q_id'];
+			}
+			else
+			{
+				$extra = '';
+			}
+
 			$this->t->set_var(array(
 				'message'			=> "<tr><td colspan=2 align=center style='color:red'>" . $this->message . "</td></tr>",
 				'hidden_fields'		=> $hidden_fields,
-				'form_action'		=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.edit_article'),
+				'form_action'		=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.edit_article'. $extra),
 				'value_title'		=> $title,
 				'value_topic'		=> $topic,
 				'value_keywords'	=> $keywords,
