@@ -106,6 +106,8 @@
 			$GLOBALS['phpgw']->historylog	= CreateObject('phpgwapi.historylog','phpbrain');
 
 			$this->grants				= $GLOBALS['phpgw']->acl->get_grants('phpbrain');
+			// full grants for admin on user 0 (anonymous questions on previous phpbrain version)
+			if ($GLOBALS['phpgw']->acl->check('run',1,'admin')) $this->grants[0] = -1;
 			$this->preferences			= $GLOBALS['phpgw']->preferences->data['phpbrain'];
 			
 			$this->read_right			= PHPGW_ACL_READ;
@@ -219,6 +221,8 @@
 			if (!$permissions) $permissions = $this->read_right;
 
 			$owners = $this->accessible_owners($permissions);
+			// admins can also see questions asked by user_id=0 (questions that were passed from previous phpbrain version were the user_id wasn't recorded)
+			if ($questions && $GLOBALS['phpgw']->acl->check('run',1,'admin')) $owners[0] = 0;
 			
 			if ($this->preferences['show_tree'] == 'all')
 			{
@@ -275,6 +279,9 @@
 		function unanswered_questions($category_id)
 		{
 			$owners = $this->accessible_owners();
+
+			// admins can also see questions asked by user_id=0 (questions that were passed from previous phpbrain version were the user_id wasn't recorded)
+			if ($GLOBALS['phpgw']->acl->check('run',1,'admin')) $owners[0] = 0;
 			
 			$cats_ids = array();
 			foreach ($this->categories as $cat)
