@@ -1,33 +1,67 @@
+%1 contains %2 items	phpbrain	en	%1 contains %2 items
+%1 faqs_activated	phpbrain	en	%1 FAQs Activated
+%1 faqs_deleted	phpbrain	en	%1 FAQs Deleted
 %1 matches found	phpbrain	en	%1 Matches Found
+%1 questions_activated	phpbrain	en	%1 Questions Activated
+%1 questions_deleted	phpbrain	en	%1 Questions Deleted
+add_answer	phpbrain	en	Add Answer
 add_comments	phpbrain	en	Add Comments
+add_question (%1 open)	phpbrain	en	Add Question (%1 open)
 allow_html	phpbrain	en	Allow HTML tags in posts
 anon_user	phpbrain	en	Anonymous User
-browse	phpbrain	en	Browse
+answer	phpbrain	en	Answer
+browse	common	en	Browse
 cant_post_must_register	phpbrain	en	You must be a registered user to be able to add information to the knowledge base
+check_before_submit	phpbrain	en	check_before_submit
 comment	phpbrain	en	Comments
 comments	phpbrain	en	Comments
+cur_open_qs	phpbrain	en	Current Open Questions
 current_questions	phpbrain	en	Current Questions
+enable	common	en	enable
 example	phpbrain	en	Example
 excellent	common	en	Excellent
 explain_faq_admin	phpbrain	en	Answers to FAQs must be enabled so users can few them.  Select the FAQs you wish to enable.  Alternatively you can select inappropriate responses which you wish to delete.
+explain_maintain_answers	phpbrain	en	explain_maintain_answers
+explain_questions_admin	phpbrain	en	explain_questions_admin
 faq_saved	phpbrain	en	FAQ Saved
 faqs	phpbrain	en	FAQs
 faqs_and_tutes	phpbrain	en	FAQs and Tutorials
+improve_by_rate	phpbrain	en	Help us improve by rating posts
+inspire_by_suggestions	phpbrain	en	inspire_by_suggestions
+invalid faq request - or something is nqr	phpbrain	en	ERROR: Invalid FAQ Request
 kb_contains	phpbrain	en	Knowledge Base Contains
+know_contrib	phpbrain	en	know_contrib
 last_mod %1	phpbrain	en	Last Modified: %1
+maintain_answers	phpbrain	en	Maintain Answers
 no comments	phpbrain	en	No Comments
 none found - revise or browse	phpbrain	en	Nothing found - please revise your seach or browse
+none_pending	phpbrain	en	None Pending
 none_unanswered	phpbrain	en	No FAQs unanswered
+not_submit_qs_warn	phpbrain	en	not_submit_qs_warn
 num_faqs %1	phpbrain	en	FAQs(%1)
 num_open %1	phpbrain	en	Open(%1)
 num_pages %1	phpbrain	en	Pages(%1)
 phpbrain	common	en	Knowledge Base
-phpbrain_config	phpbrain	en	Knowledge Base Configuration	
+phpbrain_config	phpbrain	en	Knowledge Base Configuration
 poor	common	en	Poor
+preview	phpbrain	en	preview
 question	phpbrain	en	Question
+rating	phpbrain	en	rating
+rating %1	phpbrain	en	rating %1
 register	common	en	Register
 reset	phpbrain	en	Reset
 return_to_admin	phpbrain	en	Return to Admin
+return_to_cats %1	phpbrain	en	Return to Category: %1
+return_to_index	phpbrain	en	Return to Index
+return_to_search %1	phpbrain	en	Return to Search: %1
+score %1	phpbrain	en	score %1
 section_maint_faqs	phpbrain	en	Maintain Pending FAQs
+section_maintain_questions	phpbrain	en	section_maintain_questions
+show	phpbrain	en	show
+submitted_by	phpbrain	en	Submitted By
 text	common	en	Text
 tutorials	phpbrain	en	Tutorials
+up	phpbrain	en	up
+views	phpbrain	en	views
+views %1	phpbrain	en	views %1
+votes %1	phpbrain	en	votes %1
