@@ -1,0 +1,89 @@
+$stat_name %1	phpbrain	hu	
+%1 contains %2 items	phpbrain	hu	%1 %2 bejegyzést tartalmaz
+%1 faqs_activated	phpbrain	hu	%1 GYIK Arhiválva
+%1 faqs_deleted	phpbrain	hu	%1 GYIK Törölve
+%1 matches found	phpbrain	hu	%1 egyezést találtam
+%1 questions_activated	phpbrain	hu	%1 kérdés aktíválva
+%1 questions_deleted	phpbrain	hu	%1 kérdés törölve
+actions	phpbrain	hu	Cselekedetek
+active_when_checked	phpbrain	hu	Aktív amikor ellenörzött
+add_answer	phpbrain	hu	Válasz hozzáadása
+add_comments	phpbrain	hu	Megjegyzés hozzáadása
+add_question	phpbrain	hu	Kérdés hozzáadása
+add_question (%1 open)	phpbrain	hu	Kérdés hozzáadása (%1 Megnyitása)
+allow html	admin	hu	Engedélyezi HTML kódok elküldését
+already_rated	phpbrain	hu	Már értékelted ezt a bejegyzést. Köszönöm Neked.
+anon user	admin	hu	Névtelen felhasználó
+answer	phpbrain	hu	Válasz
+answer_added	phpbrain	hu	A válasz hozzáadva az adatbázishoz
+answer_saved	phpbrain	hu	Válasz elmentve. A rendszergazda jóváhagyása után jelenik meg az adatbázisban
+answered	phpbrain	hu	Megválaszolt
+avg. score	phpbrain	hu	Átlagos pont
+browse	common	hu	Böbgészés
+cant_post_must_register	phpbrain	hu	Regisztrált felhasználónak kell lenned hogy információt adhass a tudásbázishoz
+check_before_submit	phpbrain	hu	Kérlek ellenörizd hogy ez az információ nincs e már benne a tudásbázisban mielött továbbítod.
+close window	phpbrain	hu	ablak bezárása
+comment	phpbrain	hu	Megjegyzések
+comments	phpbrain	hu	Megjegyzések
+cur_open_qs	phpbrain	hu	Aktuális nyitott kérdések
+current_questions	phpbrain	hu	Aktuális kérdések
+edit_answer	phpbrain	hu	Válasz szerkesztése
+edit_faq	phpbrain	hu	GYIK szerkesztése
+enable	common	hu	Engedélyez
+example	phpbrain	hu	Példa
+excellent	common	hu	Kiváló
+explain_faq_admin	phpbrain	hu	A felhasználóknak engedélyezni kell hogy válaszolhassanak a GYIKokra. Jelöld ki a GYIKokat amiket engedélyezni szeretnél. Alternatívaként ki tudod választani a helytelen válaszokat amiket törölni szeretnél.
+explain_maintain_answers	phpbrain	hu	A felhasználó által beküldött kérdést aktíválnia kell egy rendszergazdának. Jelöld ki azokat a válaszokat amiket aktíválni vagy vagylagosan törölni szeretnél.
+explain_questions_admin	phpbrain	hu	A felhasználó által beküldött választ aktíválnia kell egy rendszergazdának. Jelöld ki azokat a kérdéseket amiket aktíválni vagy vagylagosan törölni szeretnél.
+faq	phpbrain	hu	GYIK, Gyakran Ismételt Kérdések
+faq_saved	phpbrain	hu	GYIK elmentve
+faqs	phpbrain	hu	GYIK
+faqs_and_tutes	phpbrain	hu	GYIK és konzultációk
+improve_by_rate	phpbrain	hu	Segíts nekünk tökéletesíteni az értékelésed elküldésével
+inspire_by_suggestions	phpbrain	hu	Ha Te akarsz inspirálni, nézz szét a nyitott kérdések között.
+invalid faq request - or something is nqr	phpbrain	hu	HIBA: Helytelen GYIK kérés
+kb_contains	phpbrain	hu	Tudás bázis tartalmazza
+know_contrib	phpbrain	hu	Ismered a választ? Ha igen válaszold meg.
+last_mod %1	phpbrain	hu	Utoljára módosítva: %1
+maintain_answers	common	hu	Válaszok fenntartása
+modified	phpbrain	hu	Módosítva
+no comments	phpbrain	hu	Nincsenek megjegyzések
+none found - revise or browse	phpbrain	hu	Semmit sem találtam - kérlek javítsd ki a keresésedet vagy böngéssz
+none_pending	phpbrain	hu	Eldöntetlen
+none_unanswered	phpbrain	hu	Nincsenek megválaszolatlan GYIKok
+not_submit_qs_warn	phpbrain	hu	Kérlek figyelj oda, ez nem az a hely ahol kérdést feltehetsz. Azt a kérdések lapján teheted meg. Ha válasz nélkül írsz be egy kérdést ezen a lapon, akkor az törölve lesz.
+num_faqs %1	phpbrain	hu	GYIKok(%1)
+num_open %1	phpbrain	hu	Megnyit(%1)
+num_pages %1	phpbrain	hu	Lapok(%1)
+num_tutes %1	phpbrain	hu	konzultációk(%1)
+open	phpbrain	hu	Megnyit
+phpbrain	common	hu	Tudás bázis
+phpbrain config	admin	hu	Tudásbázis konfiguráció
+phpbrain_config	phpbrain	hu	Tudás bázis konfiguráció
+poor	common	hu	Szegényes
+preview	phpbrain	hu	megtekint
+question	phpbrain	hu	Kérdés
+question_added	phpbrain	hu	Kérdés hozzáadva az adatbázishoz
+question_saved	phpbrain	hu	Kérdés elmentve. A rendszergazda ellenörzése után fog megjelenni az adatbázisban
+rating	phpbrain	hu	Értékelés
+rating %1	phpbrain	hu	%1 értékelése
+register	common	hu	Nyílvántartás
+related_url	phpbrain	hu	Kapcsolódó URL
+reset	phpbrain	hu	Alaphelyzetbe állít
+return_to_admin	phpbrain	hu	Visszatérés az adminisztrációhoz
+return_to_cats %1	phpbrain	hu	Visszatérés a %1 kategóriához
+return_to_index	phpbrain	hu	Visszatérés az indexhez
+return_to_search %1	phpbrain	hu	Visszatérés a %1 kereséshez
+score %1	phpbrain	hu	%1 értékelése
+section_maint_faqs	phpbrain	hu	GYIK válaszok eldöntése
+section_maintain_questions	common	hu	Kérdések fenntartása
+show	phpbrain	hu	mutat
+submitted_by	phpbrain	hu	Beküldte
+text	common	hu	Szöveg
+thanks_4_rating	phpbrain	hu	Köszönöm hogy értékelted ezt a bejegyzést
+tutorial	phpbrain	hu	Konzultáció
+tutorials	phpbrain	hu	Konzultációk
+up	phpbrain	hu	fel
+views	phpbrain	hu	Nézetek
+views %1	phpbrain	hu	megnézte %1
+votes %1	phpbrain	hu	írta %1
