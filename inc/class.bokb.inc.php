@@ -32,7 +32,7 @@
 		function get_cat_data($cat_id)
 		{
 			$cat_id = (int) $cat_id;
-			$cats = $this->cats->return_array('all', 0, False, '', '', '', False, $cat_id);
+			$cats = $this->cats->return_array('mains', 0, False, '', '', '', False, $cat_id);
 			if(is_array($cats))
 			{
   			foreach ($cats as $c_key => $c_vals)
