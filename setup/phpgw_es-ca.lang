@@ -1,0 +1,84 @@
+$stat_name %1	phpbrain	es-ca	$stat_name %1
+%1 contains %2 items	phpbrain	es-ca	%1 conté %2 elements
+%1 faqs_activated	phpbrain	es-ca	%1 PF estàn activades
+%1 faqs_deleted	phpbrain	es-ca	%1 PF estàn esborrades
+%1 matches found	phpbrain	es-ca	Trobades %1 coincidències
+%1 questions_activated	phpbrain	es-ca	%1 preguntes activades
+%1 questions_deleted	phpbrain	es-ca	%1 preguntes esborrades
+active_when_checked	phpbrain	es-ca	Activar al marcar
+add_answer	phpbrain	es-ca	Afegir resposta
+add_comments	phpbrain	es-ca	Afegir comentaris
+add_question	phpbrain	es-ca	Afegir pregunta
+add_question (%1 open)	phpbrain	es-ca	Afegir pregunta (%1 obertes)
+allow html	admin	es-ca	Permetre etiquetes HTML als missatges
+already_rated	phpbrain	es-ca	Ja heu valorat aquest element. Gràcies.
+anon user	admin	es-ca	Usuari anònim
+answer	phpbrain	es-ca	Resposta
+browse	common	es-ca	Examinar
+cant_post_must_register	phpbrain	es-ca	Heu de ser un usuari registrat per poder afegir informació a la base de coneixments
+check_before_submit	phpbrain	es-ca	Comproveu que aquesta informació no existeixi ja a la base de datos abans d'enviar-la.
+close window	phpbrain	es-ca	tancar finestra
+comment	phpbrain	es-ca	Comentaris
+comments	phpbrain	es-ca	Comentaris
+cur_open_qs	phpbrain	es-ca	Preguntes obertes actualment
+current_questions	phpbrain	es-ca	Preguntes actuals
+edit_answer	phpbrain	es-ca	Editar resposta
+edit_faq	phpbrain	es-ca	Editar PF
+enable	common	es-ca	Activar
+example	phpbrain	es-ca	Exemple
+excellent	common	es-ca	Excel.lent
+explain_faq_admin	phpbrain	es-ca	Les respostes a les PFs han d'estar activades per que els usuaris les puguin veure. Seleccioneu les PF que volgueu activar. També podeu seleccionar respostes inapropiades i que volgueu esborrar.
+explain_maintain_answers	phpbrain	es-ca	Les preguntes enviades pels usuaris ha d'activar-les un administrador. Seleccioneu les respostes que volgueu activar o esborrar
+explain_questions_admin	phpbrain	es-ca	Les respostes enviades pels usuaris ha d'activar-les un administrador. Seleccioneu les respostes que volgueu activar o esborrar
+faq	phpbrain	es-ca	PF (Preguntes Frequents)
+faq_saved	phpbrain	es-ca	PF desades
+faqs	phpbrain	es-ca	PFs
+faqs_and_tutes	phpbrain	es-ca	PF i tutorials
+global categories	phpbrain	es-ca	Categorías globales
+improve_by_rate	phpbrain	es-ca	Ajudeu-nos a millorar valorant els missatges
+inspire_by_suggestions	phpbrain	es-ca	Si necessiteu inspiració, feu una ullada a les preguntes obertes.
+invalid faq request - or something is nqr	phpbrain	es-ca	ERROR: la PF solicitada no es vàlida
+kb_contains	phpbrain	es-ca	La Base de Coneixements conté
+know_contrib	phpbrain	es-ca	Sabeu la resposta? En aquest cas, responeu.
+last_mod %1	phpbrain	es-ca	Darrera modificació: %1
+maintain answers	phpbrain	es-ca	Mantenimiento de respuestas
+maintain questions	phpbrain	es-ca	Mantenimiento de preguntas
+maintain_answers	phpbrain	es-ca	Mantenir respostes
+no comments	phpbrain	es-ca	Sense comentaris
+none found - revise or browse	phpbrain	es-ca	No s'ha trobat res - si us plau, reviseu la vostra recerca o navegació
+none_pending	phpbrain	es-ca	Res pendent
+none_unanswered	phpbrain	es-ca	No hi han PFs sense respondre
+not_submit_qs_warn	phpbrain	es-ca	Si us plau, fixeu-vos que aquest no és el lloc per a fer preguntes. Per aixó, hi és la plana de preguntes. Si entreu una pregunta sense una resposta en aquesta plana, s'esborrarà.
+num_faqs %1	phpbrain	es-ca	Preguntes Frequents (%1)
+num_open %1	phpbrain	es-ca	Obertes (%1)
+num_pages %1	phpbrain	es-ca	Planes (%1)
+num_tutes %1	phpbrain	es-ca	Tutorials (%1)
+phpbrain	common	es-ca	Base de Coneixement
+phpbrain config	admin	es-ca	Configuració de la Base de Coneixement
+phpbrain_config	phpbrain	es-ca	Configuració de la Base de Coneixement
+poor	common	es-ca	Pobre
+preview	phpbrain	es-ca	vista prèvia
+question	phpbrain	es-ca	Pregunta
+rating	phpbrain	es-ca	Valoració
+rating %1	phpbrain	es-ca	valoració %1
+register	common	es-ca	Registrar
+related_url	phpbrain	es-ca	URL relacionada
+reset	phpbrain	es-ca	Restablir
+return_to_admin	phpbrain	es-ca	Tornar a Administració
+return_to_cats %1	phpbrain	es-ca	Tornar a la Categoria %1
+return_to_index	phpbrain	es-ca	Tornar a l'index
+return_to_search %1	phpbrain	es-ca	Tornar a la búsqueda %1
+score %1	phpbrain	es-ca	puntuació %1
+section_maint_faqs	phpbrain	es-ca	Mantenir PFs pendents
+section_maintain_questions	phpbrain	es-ca	Mantenir preguntes
+show	phpbrain	es-ca	mostrar
+site configuration	phpbrain	es-ca	Configuración del sitio
+submitted_by	phpbrain	es-ca	Enviat per
+text	common	es-ca	Text
+thanks_4_rating	phpbrain	es-ca	Gràcias per valorar aquest element
+tutorial	phpbrain	es-ca	Tutorial
+tutorials	phpbrain	es-ca	Tutorials
+up	phpbrain	es-ca	amunt
+views	phpbrain	es-ca	Vistes
+views %1	phpbrain	es-ca	Vistes %1
+votes %1	phpbrain	es-ca	vots %1
