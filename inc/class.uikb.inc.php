@@ -929,7 +929,7 @@
 						$this->t->set_var('img_delete', '');
 					}
 					$this->t->set_var(array(
-						'file_name'		=> stripslashes($new_filename[1]),
+						'file_name'		=> $new_filename[1],
 						'file_comment'	=> $file['comment'],
 						'href_file'		=>	$this->link('menuaction=phpbrain.uikb.download_file&art_id=' . $article_id . '&file=' . urlencode($file['file']))
 					));
@@ -1900,7 +1900,7 @@
 			ereg('^kb[0-9]*-(.*)', $filename, $new_filename);
 
 			$download_browser = CreateObject('phpgwapi.browser');
-			$download_browser->content_header(stripslashes($new_filename[1]));
+			$download_browser->content_header($new_filename[1]);
 			$cd_args = array('string'	=> '/kb', 'relative' => False, 'relatives' => RELATIVE_NONE);
 			if (!$GLOBALS['phpgw']->vfs->cd($cd_args)) die('could not cd');
 			echo $GLOBALS['phpgw']->vfs->read(array('string' => $filename));
