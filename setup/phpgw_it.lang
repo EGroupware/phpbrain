@@ -9,7 +9,7 @@ $stat_name %1	phpbrain	it	$stat_name %1
 action	phpbrain	it	Azione
 actions	phpbrain	it	Azioni
 active_when_checked	phpbrain	it	Attivo quando selezionato
-add articles	phpbrain	it	Aggiungi articolo
+add articles	phpbrain	it	Aggiungi articoli
 add link	phpbrain	it	Aggiungi link
 add question	phpbrain	it	Aggiungi domanda
 add_answer	phpbrain	it	Aggiungi Risposta
@@ -67,7 +67,7 @@ comment has been submited for revision and rating will be published	phpbrain	it	
 comments	phpbrain	it	Commenti
 confirm	phpbrain	it	Conferma
 correct the errors and press confirm	phpbrain	it	Correggi gli errori e premi conferma
-create a new article to answer the question asked by %1 in %2	phpbrain	it	Crea un nuovo article per rispondere alla domanda posta da %1 in %2
+create a new article to answer the question asked by %1 in %2	phpbrain	it	Crea un nuovo articolo per rispondere alla domanda posta da %1 in %2
 created by %1 on %2	phpbrain	it	Creato da %1 il %2
 creation	phpbrain	it	creazione
 creation date	phpbrain	it	Data creazione
