@@ -1,0 +1,72 @@
+$stat_name %1	phpbrain	it	$stat_name %1
+%1 contains %2 items	phpbrain	it	%1 contiene %2 elementi
+%1 faqs_activated	phpbrain	it	Domande Frequenti %1 Attivate
+%1 faqs_deleted	phpbrain	it	Domande Frequenti %1 Eliminate
+%1 matches found	phpbrain	it	%1 Occorrenze Trovate
+%1 questions_activated	phpbrain	it	Domande %1 Attivate
+%1 questions_deleted	phpbrain	it	Domande %1 Eliminate
+actions	phpbrain	it	Azioni
+active_when_checked	phpbrain	it	Attivo quando selezionato
+add_answer	phpbrain	it	Aggiungi Risposta
+add_comments	phpbrain	it	Aggiungi Commenti
+add_question	phpbrain	it	Aggiungi Domanda
+add_question (%1 open)	phpbrain	it	Aggiungi Domanda (%1 Aperta/e)
+allow html	admin	it	Permetti tag HTML nei Post
+already_rated	phpbrain	it	Hai già dato un voto a questo elemento. Grazie.
+anon user	admin	it	Utente Anonimo
+answer	phpbrain	it	Risposta
+answer_added	phpbrain	it	Risposta aggiunta al database
+answer_saved	phpbrain	it	Risposta salvata. Attendi l'approvazione dell'amministratore perché appaia sul database
+answered	phpbrain	it	Risposta
+avg. score	phpbrain	it	Punteggio medio
+browse	common	it	Sfoglia
+cant_post_must_register	phpbrain	it	Devi essere un utente registrato per poter aggiungere informazioni all'archiovio conoscenze
+check_before_submit	phpbrain	it	Per favore controlla che questa informazione non sia già presente nell'Archivio Conoscenze prima di aggiungerla.
+close window	phpbrain	it	Chiudi la finestra
+comment	phpbrain	it	Commenti
+comments	phpbrain	it	Commenti
+cur_open_qs	phpbrain	it	Domande attualmente aperte
+current_questions	phpbrain	it	Domande attuali
+edit_answer	phpbrain	it	Modifica risposta
+edit_faq	phpbrain	it	Modifica Domande Frequenti
+enable	common	it	Abilita
+example	phpbrain	it	Esempio
+excellent	common	it	Eccellente
+kb_contains	phpbrain	it	L'Archivio Conoscenza contiene
+know_contrib	phpbrain	it	Conosci la risposta? Se è così, rispondi.
+last_mod %1	phpbrain	it	Ultima modifica: %1
+maintain_answers	common	it	Manutenzione Risposte
+modified	phpbrain	it	Modificato
+no comments	phpbrain	it	Nessun commento
+none found - revise or browse	phpbrain	it	Nessun elemento trovato. Rivedi la tua ricerca oppure sfoglia.
+none_pending	phpbrain	it	Nulla in attesa di lavorazione
+none_unanswered	phpbrain	it	Nessuna Domanda Frequente senza risposta
+not_submit_qs_warn	phpbrain	it	Per favore, nota che nonè questo il luogo dove porre domande. Dovrebbero essere poste nella pagina delle domande. Se inserisci una domanda senza risposta in questa pagina, essa sarà cancellata.
+num_faqs %1	phpbrain	it	Domande Frequenti (%1)
+num_open %1	phpbrain	it	Aperte (%1)
+num_pages %1	phpbrain	it	Pagine (%1)
+num_tutes %1	phpbrain	it	Tutorial (%1)
+open	phpbrain	it	Aperte
+phpbrain	common	it	Archivio Conoscenza
+phpbrain config	admin	it	Configurazione Archivio Conoscenza
+poor	common	it	Scarso
+preview	phpbrain	it	Anteprima
+question	phpbrain	it	Domanda
+question_added	phpbrain	it	Domanda aggiunta all'archivio
+question_saved	phpbrain	it	Domanda salvata. Apparirà nell'archivio dopo la revisione dell'amministratore.
+rating	phpbrain	it	Voto
+rating %1	phpbrain	it	voto %1
+register	common	it	Registrazione
+related_url	phpbrain	it	URL relativo
+reset	phpbrain	it	Reset
+score %1	phpbrain	it	punteggio %1
+show	phpbrain	it	Mostra
+submitted_by	phpbrain	it	Aggiunto da
+text	common	it	Testo
+thanks_4_rating	phpbrain	it	Grazie per aver votato questo elemento
+tutorial	phpbrain	it	Tutorial
+tutorials	phpbrain	it	Tutorial
+up	phpbrain	it	su
+views	phpbrain	it	Viste
+views %1	phpbrain	it	Viste %1
+votes %1	phpbrain	it	Voti %1
