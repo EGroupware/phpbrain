@@ -29,13 +29,13 @@
 				$i=0;
   			foreach($faq_ids as $key => $val)
   			{
-  				$this->db->query("DELETE FROM phpgw_kb_faq WHERE faq_id = $key");
+  				$this->db->query("DELETE FROM phpgw_kb_faq WHERE faq_id = $key", __LINE__, __FILE__);
   				$i++;
   			}//end foreach(q_id)
 			}
 			elseif(is_int($faq_ids))
 			{
-				$this->db->query("DELETE FROM phpgw_kb_faq WHERE faq_id = $faq_ids");
+				$this->db->query("DELETE FROM phpgw_kb_faq WHERE faq_id = $faq_ids", __LINE__, __FILE__);
 				$i = 1;
 			}//end is_type
 			return $i;
@@ -48,13 +48,13 @@
 				$i=0;
   			foreach($question_ids as $key => $val)
   			{
-  				$this->db->query("DELETE FROM phpgw_kb_questions WHERE question_id = $key");
+  				$this->db->query("DELETE FROM phpgw_kb_questions WHERE question_id = $key", __LINE__, __FILE__);
   				$i++;
   			}//end foreach(q_id)
 			}
 			elseif(is_int($question_ids))
 			{
-				$this->db->query("DELETE FROM phpgw_kb_questions WHERE question_id = $question_ids");
+				$this->db->query("DELETE FROM phpgw_kb_questions WHERE question_id = $question_ids", __LINE__, __FILE__);
 				$i = 1;
 			}//end is_type
 			return $i;
@@ -166,7 +166,7 @@
 		
 		function get_pending()
 		{
-			$this->db->query('SELECT faq_id, text FROM phpgw_kb_faq WHERE published = 0');
+			$this->db->query('SELECT faq_id, text FROM phpgw_kb_faq WHERE published = 0', __LINE__, __FILE__);
 			while($this->db->next_record())
 			{
 				$faq[$this->db->f('faq_id')] = $this->db->f('text', true); 
@@ -227,7 +227,7 @@
 					$sql .= ' is_faq = ' . $faq['is_faq'];
 					$sql .= ' url = "' . $this->db->db_addslashes(urldecode($faq['ur'])) .'"';
 					$sql .= " WHERE faq_id = $faq_id";
-					$this->db->query($sql);
+					$this->db->query($sql, __LINE__, __FILE__);
 					if($this->db->affected_rows() == 1)
 					{
 						return $faq_id;
@@ -250,7 +250,7 @@
 					$sql .= time() . ',  '; 
 					$sql .= $faq['is_faq'] . ', ';
 					$sql .= '"' . $this->db->db_addslashes(urldecode($faq['url'])) .'")';//url is decoded to make sure it is not encoded already
-					$this->db->query($sql);
+					$this->db->query($sql, __LINE__, __FILE__);
 					return $this->db->get_last_insert_id('phpgw_kb_faq', 'faq_id');
 				}//end is new
 			}//end if is valid
@@ -282,7 +282,7 @@
 		{
 			$sql  = 'INSERT INTO phpgw_kb_comment(user_id, comment, entered, faq_id) ';
 			$sql .= "VALUES($user_id, '" . $this->db->db_addslashes($comment) . "', ". time() .", $faq_id)";
-			$this->db->query($sql); 
+			$this->db->query($sql, __LINE__, __FILE__); 
 		}
 
 		
@@ -317,7 +317,7 @@
 			$text .= ") ";
 			
 			$sql = $select . 'AND' . $title . 'OR' . $keywords . 'OR' . $text;
-			$this->db->query($sql);
+			$this->db->query($sql, __LINE__, __FILE__);
 			while($this->db->next_record())
 			{
 				$rows[$this->db->f('faq_id')] = $this->db->Record;
@@ -338,7 +338,7 @@
 			}
 			//$sql .= 'HAVING (score > 0) '; //- this isn't working properly afaik
 			$sql .= 'ORDER BY score DESC';
-			$this->db->query($sql);
+			$this->db->query($sql, __LINE__, __FILE__);
 			while($this->db->next_record())
 			{
 				$rows[$this->db->f('faq_id')] = $this->db->Record;
