@@ -1224,7 +1224,7 @@
 			$title				= '';
 			$topic				= '';
 			$keywords			= '';
-			$content			= "<textarea name='exec[text]' id='exec_text' style='width:100%; min-width:500px; height:300px;'></textarea>";
+			$content			= '';
 			$category_selected	= '';
 			$hidden_fields		= '';
 			$btn_save			= "<input type='submit' value='". lang('Save') . "' name='save'>&nbsp;";
@@ -1261,7 +1261,7 @@
 				$title				= $_POST['title'];
 				$topic				= $_POST['topic'];
 				$keywords			= $_POST['keywords'];
-				$content			= "<textarea name='exec[text]' id='exec_text' style='width:100%; min-width:500px; height:300px;'>". $this->correct_spell() ."</textarea>";
+				$content			= $this->correct_spell();
 			}
 
 			// saving either an edited or a new article (answering a question or just a new article)
@@ -1310,7 +1310,7 @@
 				$topic				= $_POST['topic'];
 				$keywords			= $_POST['keywords'];
 				if (!$checking_spell)
-					$content = "<textarea name='exec[text]' id='exec_text' style='width:100%; min-width:500px; height:300px;'>". $_POST['exec']['text'] ."</textarea>";
+					$content = $_POST['exec']['text'];
 			}
 
 			// Edit existent article
@@ -1333,7 +1333,7 @@
 					$title		= $article['title'];
 					$topic		= $article['topic'];
 					$keywords	= $article['keywords'];
-					$content	= "<textarea name='exec[text]' id='exec_text' style='width:100%; min-width:500px; height:300px;'>". $article['text']. "</textarea>";
+					$content	= $article['text'];
 					$category_selected = $article['cat_id'];
 				}
 
@@ -1372,15 +1372,8 @@
 			// don't use htmlarea if checking spelling
 			if (!$checking_spell)
 			{
-				$GLOBALS['phpgw']->js = CreateObject('phpgwapi.javascript');
-				$GLOBALS['phpgw']->js->set_onload("HTMLArea.replace('exec_text')");
-				$GLOBALS['phpgw_info']['flags']['css'] = "@import url(".$GLOBALS['phpgw']->link('/phpgwapi/js/htmlarea/htmlarea.css').");";
-				$GLOBALS['phpgw_info']['flags']['java_script_thirst']="
-					<script>
-						_editor_url = '".$GLOBALS['phpgw']->link('/phpgwapi/js/htmlarea/')."';
-					</script>
-					<script type='text/javascript' src='". $GLOBALS['phpgw']->link('/phpgwapi/js/htmlarea/htmlarea.js')."'></script>\n
-					<script type='text/javascript' src='". $GLOBALS['phpgw']->link('/phpgwapi/inc/htmlarea-lang.php', 'lang='.$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'])."'></script>";
+				$html = CreateObject('phpgwapi.html');
+				$content = $html->htmlarea('exec[text]', $content);
 			}
 	
 			// Finally, fill the input fields
