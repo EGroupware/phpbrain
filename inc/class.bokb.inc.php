@@ -357,6 +357,7 @@
 		*/
 		function check_permission($check_rights, $article_owner = 0)
 		{
+			if (!$article_owner) $article_owner = $this->article_owner;
 			if ($this->grants[$article_owner])
 			{
 				$rights_on_owner = $this->grants[$article_owner];
@@ -663,6 +664,7 @@
 		function delete_question($q_id, $owner)
 		{
 			// check user has edit rights on owner
+			$this->article_owner = $owner;
 			if (!$this->check_permission($this->edit_right, $owner)) return 'no_perm';
 
 			if (!$this->so->delete_question($q_id)) return 'err_del_q';
