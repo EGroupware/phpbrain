@@ -273,7 +273,7 @@
 			$i=0;
 			foreach($faq_ids as $key => $val)
 			{
-				$this->db->query('UPDATE phpgw_kb_faq SET published = 1 WHERE faq_id=' intval($key), __LINE__, __FILE__);
+				$this->db->query('UPDATE phpgw_kb_faq SET published = 1 WHERE faq_id=' . intval($key), __LINE__, __FILE__);
 				$i++;
 			}
 			return $i;
