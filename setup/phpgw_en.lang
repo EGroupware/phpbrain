@@ -42,6 +42,7 @@ know_contrib	phpbrain	en	Do you know the answer? If so, answer it.
 last_mod %1	phpbrain	en	Last Modified: %1
 Modified	phpbrain	en	Modified
 maintain_answers	phpbrain	en	Maintain Answers
+maintain_answers	common	en	Maintain Answers
 no comments	phpbrain	en	No Comments
 none found - revise or browse	phpbrain	en	Nothing found - please revise your seach or browse
 none_pending	phpbrain	en	None Pending
@@ -68,6 +69,7 @@ return_to_index	phpbrain	en	Return to Index
 return_to_search %1	phpbrain	en	Return to Search: %1
 score %1	phpbrain	en	score %1
 section_maintain_questions	phpbrain	en	Maintain Questions
+section_maintain_questions	common	en	Maintain Questions
 section_maint_faqs	phpbrain	en	Maintain Pending FAQs
 show	phpbrain	en	show
 submitted_by	phpbrain	en	Submitted By
