@@ -312,7 +312,7 @@
 		*/
 		function update_keywords($art_id, $word, $upgrade_key)
 		{
-			$word = $this->db->db_addslashes($word);
+			$word = $this->db->db_addslashes(substr($word, 0, 30));
 
 			// retrieve current score
 			$sql = "SELECT score FROM phpgw_kb_search WHERE keyword='$word' AND art_id=$art_id";
