@@ -631,14 +631,14 @@
 		* @access	public
 		* @param	array	Article's files
 		* @param	int		$art_id		Article id. If not given, $this->article_id is used
-		* @param	int		$owner		Article's owner id
+		* @param	int		$owner		Article's owner id. -1 to avoid checking permissions (when admin is deleting all user's articles)
 		* @return	string				Success or failure message
 		*/
 		function delete_article($files, $art_id = 0, $owner = 0)
 		{
 			if (!$art_id) $art_id = $this->article_id;
 			// check user has edit rights
-			if (!$this->check_permission($this->edit_right, $owner)) return 'no_perm';
+			if ($owner != -1 && !$this->check_permission($this->edit_right, $owner)) return 'no_perm';
 			// delete files
 			if ($files)
 			{
@@ -673,6 +673,78 @@
 			if (!$this->so->delete_article($art_id)) return 'err_del_art';
 			if ($art_id) $GLOBALS['phpgw']->historylog->add('AD', $art_id, 'article deleted', '');
 			return 'del_art_ok';
+		}
+
+		/**
+		* Deletes owners articles (called by hook_deleteaccount)
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$owner		Article's owner id
+		* @return	void
+		*/
+		function delete_owner_articles($owner)
+		{
+			// check if user calling deletion is an admin with user deletion privileges
+			if ($GLOBALS['phpgw']->acl->check('account_access',32,'admin'))
+			{
+				$this->list_users();
+				die('invalid rights');
+			}
+
+			// fetch articles from user
+			$GLOBALS['phpgw']->vfs->override_acl = 1;
+			$owner = (int)$owner;
+			$articles_ids = $this->so->get_articles_ids($owner);
+			foreach ($articles_ids as $article_id)
+			{
+				$article = $this->so->get_article($article_id);
+				$this->delete_article($article['files'], $article_id, -1);
+			}
+		}
+
+		/**
+		* changes articles owner (called by hook_deleteaccount)
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$owner		Article's owner id
+		* @param	int		$owner		Article's new owner id
+		* @return	void
+		*/
+		function change_articles_owner($owner, $new_owner)
+		{
+			// check if user calling deletion is an admin with user deletion privileges
+			if ($GLOBALS['phpgw']->acl->check('account_access',32,'admin'))
+			{
+				$this->list_users();
+				die('invalid rights');
+			}
+
+			$owner = (int)$owner;
+			$new_owner = (int)$new_owner;
+
+			// first change file owners in vfs
+			$articles_ids = $this->so->get_articles_ids($owner);
+			foreach ($articles_ids as $article_id)
+			{
+				$article = $this->so->get_article($article_id);
+				$GLOBALS['phpgw']->vfs->override_acl = 1;
+				if (is_array($article['files']))
+				{
+					foreach ($article['files'] as $file)
+					{
+						$GLOBALS['phpgw']->vfs->set_attributes(array(
+							'string'		=> '/kb/' . $file['file'],
+							'relatives'		=> array(RELATIVE_NONE),
+							'attributes'	=> array('owner_id' => $new_owner),
+						));
+					}
+				}
+			}
+
+			// now change articles owners
+			$this->so->change_articles_owner($owner, $new_owner);
 		}
 
 		/**

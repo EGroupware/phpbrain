@@ -1,8 +1,8 @@
 <?php
 /**************************************************************************\
-* eGroupWare - KnowledgeBase                                              *
+* eGroupWare - KnowledgeBase                                               *
 * http://www.egroupware.org                                                *
-* Written by Alejandro Pedraza [alejandro.pedraza AT dataenlace DOT com]   *
+* Written by Alejandro Pedraza [alpeb AT users.sourceforge DOT net]        *
 * ------------------------------------------------------------------------ *
 *  Started off as a port of phpBrain - http://vrotvrot.com/phpBrain/	   *
 *  but quickly became a full rewrite					                   *
@@ -500,6 +500,21 @@
 		}
 
 		/**
+		* Changes article owner when user is deleted
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int	$owner		actual owner
+		* @param	int	$new_owner	new owner
+		* @return	void
+		**/
+		function change_articles_owner($owner, $new_owner)
+		{
+			$sql = "UPDATE phpgw_kb_articles SET user_id='$new_owner' WHERE user_id='$owner'";
+			$this->db->query($sql, __LINE__, __FILE__);
+		}
+
+		/**
 		* Deletes article
 		*
 		* @author	Alejandro Pedraza
@@ -596,6 +611,26 @@
 			}
 
 			return $article;
+		}
+
+		/**
+		* Returns all articles ids from a given owner
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$owner		owner id
+		* @return	array	Articles ids
+		**/
+		function get_articles_ids($owner)
+		{
+			$sql = "SELECT art_id FROM phpgw_kb_articles WHERE user_id=$owner";
+			$this->db->query($sql, __LINE__, __FILE__);
+			$articles_ids = array();
+			while ($this->db->next_record())
+			{
+				$articles_ids[] = $this->db->f('art_id');
+			}
+			return $articles_ids;
 		}
 
 		/**
