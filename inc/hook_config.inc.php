@@ -1,7 +1,7 @@
 <?php
 	/**************************************************************************\
-	* phpGroupWare - KnowledgeBase                                             *
-	* http://www.phpgroupware.org                                              *
+	* eGroupWare - KnowledgeBase                                             *
+	* http://www.egroupware.org                                              *
 	* Written by Dave Hall [skwashd AT phpgroupware.org]		           *
 	* ------------------------------------------------------------------------ *
 	* Started off as a port of phpBrain - http://vrotvrot.com/phpBrain/	   *
