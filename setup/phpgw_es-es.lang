@@ -34,12 +34,15 @@ faq	phpbrain	es-es	PF (Prefuntas frecuentes)
 faq_saved	phpbrain	es-es	PF guardadas
 faqs	phpbrain	es-es	PFs
 faqs_and_tutes	phpbrain	es-es	PF y tutoriales
+global categories	phpbrain	es-es	Categorías globales
 improve_by_rate	phpbrain	es-es	Ayúdenos a mejorar valorando los mensajes
 inspire_by_suggestions	phpbrain	es-es	Si necesita inspiración, eche un vistazo a las preguntas abiertas.
 invalid faq request - or something is nqr	phpbrain	es-es	ERROR: la PF solicitada no es válida
 kb_contains	phpbrain	es-es	La base de conocimientos contiene
 know_contrib	phpbrain	es-es	¿Sabe la respuesta? En ese caso, responda.
 last_mod %1	phpbrain	es-es	Ultima modificación: %1
+maintain answers	phpbrain	es-es	Mantenimiento de respuestas
+maintain questions	phpbrain	es-es	Mantenimiento de preguntas
 maintain_answers	phpbrain	es-es	Mantener respuestas
 no comments	phpbrain	es-es	Sin comentarios
 none found - revise or browse	phpbrain	es-es	No se encontró nada. Por favor, revise su búsqueda o su navegador
@@ -69,6 +72,7 @@ score %1	phpbrain	es-es	puntuación %1
 section_maint_faqs	phpbrain	es-es	Mantener PFs pendientes
 section_maintain_questions	phpbrain	es-es	Mantener preguntas
 show	phpbrain	es-es	mostrar
+site configuration	phpbrain	es-es	Configuración del sitio
 submitted_by	phpbrain	es-es	Enviado por
 text	common	es-es	Texto
 thanks_4_rating	phpbrain	es-es	Gracias por valorar este elemento
