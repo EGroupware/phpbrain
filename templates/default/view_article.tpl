@@ -363,5 +363,5 @@
 </div>
 
 <!-- BEGIN img_delete_block -->
-<input type="image" src="{img_src_del}" name="delete_{name_del}" value="{val_del}" alt="{lang_delete}" title="{lang_delete}">
+<a href="{href_del}"><img src="{img_src_del}" alt="{lang_delete}" title="{lang_delete}"></a>
 <!-- END img_delete_block -->

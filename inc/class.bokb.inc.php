@@ -955,12 +955,13 @@
 		*/
 		function delete_link()
 		{
+			$link = urldecode($_GET['delete_link']);
 			// first check permission
 			if (!$this->check_permission($this->edit_right)) return 'no_perm';
 
-			if (!$this->so->delete_link($this->article_id, $_POST['delete_link'])) return 'link_del_err';
+			if (!$this->so->delete_link($this->article_id, $link)) return 'link_del_err';
 
-			$GLOBALS['phpgw']->historylog->add('RL', $this->article_id, $_POST['delete_link'], '');
+			$GLOBALS['phpgw']->historylog->add('RL', $this->article_id, $delete_link, '');
 			return 'link_del_ok';
 		}
 
@@ -1049,7 +1050,7 @@
 		*/
 		function delete_file($current_files, $file = '')
 		{
-			if (!$file) $file = $_POST['delete_file'];
+			if (!$file) $file = urldecode($_GET['delete_file']);
 
 			// check permissions
 			if (!$this->check_permission($this->edit_right)) return 'no_perm';
@@ -1134,8 +1135,9 @@
 		*/
 		function delete_related()
 		{
-			$this->so->delete_related($this->article_id, $_POST['delete_related']);
-			$GLOBALS['phpgw']->historylog->add('DR', $this->article_id, $_POST['delete_related'], '');
+			$related_article = urldecode($_GET['delete_related']);
+			$this->so->delete_related($this->article_id, $related_article);
+			$GLOBALS['phpgw']->historylog->add('DR', $this->article_id, $related_article, '');
 		}
 
 		/**

@@ -607,7 +607,7 @@
 				die();
 			}
 			// Process file deletion
-			if ($_POST['delete_file'])
+			if ($_GET['delete_file'])
 			{
 				$message = $this->bo->delete_file($article['files']);
 				$this->reload_page($article_id, $message);
@@ -622,7 +622,7 @@
 				die();
 			}
 			// Process related articles deletion
-			if ($_POST['delete_related'])
+			if ($_GET['delete_related'])
 			{
 				$this->bo->delete_related();
 				$this->reload_page($article_id, 'del_rel_ok');	// I think there's no way of telling a deletion went wrong... (affected rows=0 always)
@@ -637,7 +637,7 @@
 				die();
 			}
 			// Process links deletion
-			if ($_POST['delete_link'])
+			if ($_GET['delete_link'])
 			{
 				$message = $this->bo->delete_link();
 				$this->reload_page($article_id, $message);
@@ -920,8 +920,7 @@
 					if (!$this->sitemgr && !$print_view && $can_edit)
 					{
 						$this->t->set_var(array(
-							'name_del'	=> 'file',
-							'val_del'	=> $file['file']
+							'href_del'	=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $article_id . '&delete_file=' . urlencode($file['file'])),
 						));
 						$this->t->parse('img_delete', 'img_delete_block');
 					}
@@ -966,8 +965,7 @@
 					if (!$this->sitemgr && !$print_view && $can_edit)
 					{
 						$this->t->set_var(array(
-							'name_del'	=> 'related',
-							'val_del'	=> $related['art_id']
+							'href_del'	=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $article_id . '&delete_related=' . urlencode($related['art_id'])),
 						));
 						$this->t->parse('img_delete', 'img_delete_block');
 					}
@@ -1014,8 +1012,7 @@
 					if (!$this->sitemgr && !$print_view && $can_edit)
 					{
 						$this->t->set_var(array(
-							'name_del'	=> 'link',
-							'val_del'	=> $link['link']
+							'href_del'	=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $article_id . '&delete_link=' . urlencode($link['link'])),
 						));
 						$this->t->parse('img_delete', 'img_delete_block');
 					}
