@@ -79,11 +79,12 @@ error downloading file	phpbrain	de	Fehler beim runterladen der Datei
 error locating files directory	phpbrain	de	Der Datei Ordner konnte nicht gefunden werden
 error moving file to directory	phpbrain	de	Beim verschieben der Datein in den Ordner ist ein Fehler aufgetreten
 error publishing comment	phpbrain	de	Es ist ein Fehler beim veröffentlichen des Kommentars aufgetreten
+error retrieving article	phpbrain	de	Fehler beim empfangen des Artikel
 error trying to delete comment	phpbrain	de	Es ist ein Fehler beim löschen des Kommentars
 error trying to delete question	phpbrain	de	Es ist ein Fehler beim löschen der Frage
 error trying to edit article	phpbrain	de	Es ist ein Fehler beim versuch diesen Artikel zu bearbeiten
 error trying to publish article	phpbrain	de	Fehler beim veröffentlichen des Artikels
-error: file doesn\'t exist in the database	phpbrain	de	Fehler: Die Datein existiert nicht in der Datenbank
+error: file doesn\'t exist in the database	phpbrain	de	Fehler: Die Datein ist in der Datenbank nicht vorhanden
 example	phpbrain	de	Beispiel
 excellent	phpbrain	de	Sehr gut
 failure trying to delete the file	phpbrain	de	Es sit ein Fehler aufgetreten beim Versuch den Artikel zu löschen
@@ -93,12 +94,13 @@ faqs	phpbrain	de	FAQs
 faqs_and_tutes	phpbrain	de	FAQs und Anleitungen
 file could be deleted from server but not from database	phpbrain	de	Datei konnte auf dem Server gelöscht werden, jedoch nicht in der Datenbank
 file has been successfully uploaded	phpbrain	de	Datei wurde erfolgreich hochgeladen
+file was already missing from server, and was deleted from the database	phpbrain	de	Die Datei ist auf dem Server nicht mehr vorhanden und wurde in der Datenbank gelöscht
 file was deleted successfully	phpbrain	de	Datein wurde erfolgreich gelöscht
 file wasn\'t in server and it couldn\'t be deleted from the database	phpbrain	de	Die Datei wurde nicht auf dem Server gefunden und konnte nicht in der Datenbank gelöscht werden
 find results	phpbrain	de	Finde Ergebnisse
 have to be approved first	common	de	Müss zuerst überprüft werden
 history	phpbrain	de	Historie
-if you can\'t find answers to your problem in the knowledge base, describe it below	phpbrain	de	Wenn Sie die Antwort auf Ihr Problem in der Datenbank nicht finden, beschreiben Sie es unten
+if you can\'t find answers to your problem in the knowledge base, describe it below	phpbrain	de	Falls Sie keine Antwort auf Ihre Fragen in der Wissensdatenbank finden , beschreiben Sie ihr Frage unten
 if you wish, you can comment this article here	phpbrain	de	Sie können diesen Artikel hier kommentieren
 improve_by_rate	phpbrain	de	Helfen Sie und die Qualität der Einträge zu verbesser indem Sie diese beurteilen
 in %1	phpbrain	de	in %1
@@ -125,8 +127,11 @@ links	phpbrain	de	Links
 links & files	phpbrain	de	Links und Dateien
 mail article	phpbrain	de	Artikel per Mail versenden
 main view	phpbrain	de	Gesamtübersicht
+maintain articles	phpbrain	de	Artikel verwalten
+maintain questions	phpbrain	de	Fragen verwalten
 maintain_answers	phpbrain	de	Antworten verwalten
 maximum number of comments to show:	phpbrain	de	Maximale Anzahl von Artikeln welche angezeigt werden soll
+maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	de	Maximale Anzahl der meist gelesenen Artikel, der letzten Artikel und der offenen Fragen welche in der Übersicht angezeigt werden sollen
 modification date	phpbrain	de	Änderungs Datum
 most viewed	phpbrain	de	Meist gelesen
 new article	phpbrain	de	Neuer Artikel
@@ -137,11 +142,13 @@ none found - revise or browse	phpbrain	de	Nichts gefunden - please revise your s
 none_pending	phpbrain	de	Keine offenen vorhanden
 none_unanswered	phpbrain	de	keine FAQ unbeantwortet
 not_submit_qs_warn	phpbrain	de	Bitte beachten Sie das Sie hier keine Fragen plazieren. Fragen sollten in der Sektion Fragen eingetragen werden. <br> Wenn Sie eine Frage eintragen ohne eine Antwort wird diese Frage gelöscht.
+nothing was uploaded!	phpbrain	de	Es wurde nichts hochgeladen!
 num_faqs %1	phpbrain	de	FAQs(%1)
 num_open %1	phpbrain	de	offen(%1)
 num_pages %1	phpbrain	de	Seiten(%1)
 num_tutes %1	phpbrain	de	Anleitungen(%1)
 number of results per page	phpbrain	de	Anzehl Treffer
+or browse the categories	phpbrain	de	Oder die Kategorien durchsuchen
 order results by	phpbrain	de	Ergebnisse sortieren nach
 past %1 months	phpbrain	de	letzte %1 Monate
 past year	phpbrain	de	letztes Jahr
@@ -149,6 +156,7 @@ people have rated this article	phpbrain	de	Dieser Artikel wurde bewerted von fol
 phpbrain	common	de	Wissensdatenbank
 phpbrain config	admin	de	Wissensdatenbank konfiguration
 phpbrain_config	phpbrain	de	Wissensdatenbank konfiguration
+please rate the pertinence and quality of this article	phpbrain	de	Bewerten Sie bitte die Angemessenheit und die Qualität dieses Artikels
 please try again	phpbrain	de	Bitte versuchen Sie es erneut
 poor	phpbrain	de	Schlecht
 preview	phpbrain	de	Vorschau
@@ -191,26 +199,34 @@ show messages in category	phpbrain	de	Zeige Nachrichten in Kategorie
 submit comment	phpbrain	de	Kommentar absenden
 submit comment and rating	phpbrain	de	Kommentar und Bewertung absenden
 submitted_by	phpbrain	de	Eingereicht von
+suggested category	phpbrain	de	Vorgeschlagene Kategorie
 summary	phpbarin	de	Summe
 text	common	de	Text
 thanks_4_rating	phpbrain	de	Vielen Dank für Ihre Bewertung
 that file already exists	phpbrain	de	Diese Datei existiert bereits
 the article is empty	phpbrain	de	Dieser Artikel ist leer
+the file was already missing in the server	phpbrain	de	Die Datei war auf dem Server nicht vorhanden
 the following errors occurred	phpbrain	de	Die follgenden Fehler sind aufgetreten
+the present category and all subcategories under it	phpbrain	de	Die momentane Kategorie und alle Unterkategorien
+the present category only	phpbrain	de	Nur in der momentanen Kategorie
+there are no articles	phpbrain	de	Es wurden keine Artikel gefunden
 this article hasn\'t yet been published in the knowledge base	phpbrain	de	Dieser Artikel wurde in der Wissensdatenbank noch nicht veröffentlicht
 title	phpbrain	de	Titel
-to create categories, press \'edit categories\' in the preferences menu	phpbrain	de	Um Kategorien hinzuzufügen, Klicken Sie auf "Kategorien bearbeiten" in den Einstellungen
+to create categories, press \'edit categories\' in the preferences menu	phpbrain	de	Um Kategorien zu erstellen, klicken Sie bitte auf "Kategorien bearbeiten" in den Einstellungen
 topic	phpbrain	de	Thema
 tutorial	phpbrain	de	Anleitung
 tutorials	phpbrain	de	Anleitungen
+unable to add rating to database	phpbrain	de	Es konnte keine Bewertung in die Datenbank zugefügt werden
 unanswered questions	phpbrain	de	Offene Fragen
 unpublished	phpbrain	de	Nicht veröffentlicht
 up	phpbrain	de	hoch
+upload	phpbrain	de	hochladen
 user	phpbrain	de	Benutzer
 user preferences	phpbrain	de	Benutzer Einstellungen
 views	phpbrain	de	Besuche
 views %1	phpbrain	de	Besuche %1
 votes %1	phpbrain	de	Bewertungen %1
+was it easy to find this article using the above search string?	phpbrain	de	War es einfach, diesen Artikel mit der oben genannten Suchzeichenkette zu finden?
 with all the words	phpbrain	de	Beinhaltet alle Worte
 with at least one of the words	phpbrain	de	Beinhaltet mindestens eins der Worte
 with the exact phrase	phpbrain	de	Mit der genauen Phrase
@@ -220,4 +236,5 @@ you have already qualified this article	phpbrain	de	Sie haben schon eine Bewertu
 you have not the proper permissions to do that	phpbrain	de	Sie haben keine ausreichenden Rechte
 you must enter a title	phpbrain	de	Sie müssen einen Titel eingeben
 you must enter a topic	phpbrain	de	Sie müssen ein Thema eingeben
+your question will be posted, but only will be published after aproval of a system administrator	phpbrain	de	Ihre Frage wird gesendet, jedoch zuerst veröffentlicht nach einer Überprüfung durch den System Administrator
 your question will be published immediately	phpbrain	de	Ihre Frage wird schnellstens veröffentlicht
