@@ -31,7 +31,13 @@
 			),
 			'pk' => array('faq_id'),
 			'fk' => array(),
-			'ix' => array('title','text','cat_id','published','keywords','is_faq'),
+			'ix' => array(
+				array('title','options'=>array('mysql'=>255)),
+				array('text','options'=>array('mysql'=>'FULLTEXT')),
+				'cat_id',
+				'published',
+				array('keywords','options'=>array('mysql'=>255)),
+				'is_faq'),
 			'uc' => array()
 		),
 		'phpgw_kb_comment' => array(
