@@ -1197,18 +1197,7 @@
 			$this->t->set_file('edit_article', 'edit_article.tpl');
 			$this->t->set_block('edit_article', 'answer_question_block', 'answer_question');
 			$this->t->set_block('edit_article', 'article_id_block', 'article_id');
-			$checking_spell = False;
 			
-			// show check spell button only if pspell functions and dictionnary in current language are available, and not comming from doing just that
-			if (function_exists(pspell_new) && @$pspell_link = pspell_new($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']) && !$_POST['check_spell'])
-			{
-				$btn_spell = "<input type='submit' name='check_spell' value='". lang('Check spelling') ."'>&nbsp;";
-			}
-			else
-			{
-				$btn_spell = '';
-			}
-
 			$this->t->set_var(array(
 				'lang_articleID'		=> lang('Article ID'),
 				'lang_category'			=> lang('Category'),
@@ -1216,7 +1205,6 @@
 				'lang_title'			=> lang('Title'),
 				'lang_topic'			=> lang('Topic'),
 				'lang_keywords'			=> lang('Keywords'),
-				'btn_spell'				=> $btn_spell
 			));
 
 			// These are the default values, that apply for entering a new article
@@ -1235,40 +1223,11 @@
 				'article_id'		=> '',
 				));
 
-			// check spelling
-			if ($_POST['check_spell'])
-			{
-				if (!$content = $this->check_spell())
-				{
-					$temp		= get_var('exec', 'POST', '');
-					$content	= $temp['text'];
-					$this->message = lang("The article doesn't have spell errors");
-				}
-				else
-				{
-					$checking_spell =True;
-					$btn_save		= "<input type='submit' name='confirm_spell' value='". lang('Confirm') . "'>&nbsp;";
-					$btn_cancel		= '';
-					$this->message		= lang('Correct the errors and press confirm');
-				}
-				$GLOBALS['phpgw']->session->appsession('tagged_text', 'phpbrain', $content);
-			}
-
-			// correct spelling
-			if ($_POST['confirm_spell'])
-			{
-				$category_selected	= (int)get_var('cat_id', 'POST', 0);
-				$title				= get_var('title', 'POST', '');
-				$topic				= get_var('topic', 'POST', '');
-				$keywords			= get_var('keywords', 'POST', '');
-				$content			= $this->correct_spell();
-			}
-
 			// saving either an edited or a new article (answering a question or just a new article)
 			if ($_POST['save'])
 			{
 				$article_id = (int)get_var('editing_article_id', 'POST', 0);
-				$article	= $this->bo->get_article($article_id);
+				$article	= ($article_id)? $this->bo->get_article($article_id) : false;
 
 				//data validation
 				if (!$_POST['title'])
@@ -1309,10 +1268,8 @@
 				$title				= get_var('title', 'POST', '');
 				$topic				= get_var('topic', 'POST', '');
 				$keywords			= get_var('keywords', 'POST', '');
-				if (!$checking_spell) {
-					$temp = get_var('exec', 'POST', '');
-					$content = $temp['text'];
-				}
+				$temp = get_var('exec', 'POST', '');
+				$content = $temp['text'];
 			}
 
 			// Edit existant article
@@ -1325,7 +1282,7 @@
 					die();
 				}
 
-				if (!$this->message && !$_POST['confirm_spell'])
+				if (!$this->message)
 				{
 					$article	= $this->bo->get_article($article_id);
 
@@ -1371,12 +1328,8 @@
 				$category_selected = $question['cat_id'];
 			}
 			
-			// don't use htmlarea if checking spelling
-			if (!$checking_spell)
-			{
-				$html = CreateObject('phpgwapi.html');
-				$content = $html->htmlarea('exec[text]', $content);
-			}
+			$html = CreateObject('phpgwapi.html');
+			$content = $html->htmlarea('exec[text]', $content);
 	
 			// Finally, fill the input fields
 			if (!$this->sitemgr)
@@ -2038,68 +1991,6 @@
 			));
 			return $this->t->parse('output', 'basic_search');
 
-		}
-
-		/**
-		* Places spelling suggestions in original text
-		*
-		* @author	Alejandro Pedraza
-		* @access	private
-		* @return	mixed	Corrected text or 0
-		*/
-		function check_spell()
-		{
-			$temp		= get_var('exec', 'POST', '');
-			$text_orig	= $temp['text'];
-			//echo "<br><br><br>text_orig: <pre>";print_r($text_orig);echo "</pre>";
-			$text_noHTML = preg_replace('/<.*?>/', ' ', $text_orig);
-			$words = preg_split('/[\W]+?/', $text_noHTML);
-			//echo "words: <pre>";print_r($words);echo "</pre>";
-			$pspell_link = pspell_new($GLOBALS['phpgw_info']['user']['preferences']['common']['lang']);
-			$i = 0;
-			foreach ($words as $word)
-			{
-				if (!pspell_check($pspell_link, $word))
-				{
-					$i++;
-					$suggestions = array($word);
-					$suggestions = array_merge($suggestions, pspell_suggest($pspell_link, $word));
-					//echo "<br><br><br>word: $word -- suggestions: <pre>";print_r($suggestions);echo "</pre>";
-					$replacement = "<span name='nn' style='color:red; font-weight: bold'>$word&nbsp;</span><select name='correction[$i]'>";
-					foreach ($suggestions as $suggestion)
-					{
-						$replacement .= "<option value='$suggestion'>". $suggestion ."</option>";
-					}
-					$replacement .= "</select>";
-					$text_orig = preg_replace('/\b'.$word.'\b/', $replacement, $text_orig);
-					//echo "<br><br><br>original changed to: $text_orig <br><br>";
-				}
-			}
-			if (!$i) return 0;
-			return $text_orig;
-		}
-
-		/**
-		* Corrects text spelling
-		*
-		* @author	Alejandro Pedraza
-		* @access	private
-		* @return	string	Corrected text
-		*/
-		function correct_spell()
-		{
-			$corrections = get_var('correction', 'post');
-			//echo "corrections: <pre>";print_r($corrections);echo "</pre>\n";
-			$tagged_text = $GLOBALS['phpgw']->session->appsession('tagged_text', 'phpbrain');
-			//echo "tagged_text in session: ";print_r($tagged_text);echo "</pre>\n";
-			$corrected_text = preg_replace("/<span name='nn' style='color:red; font-weight: bold'>[\w]+?&nbsp;<\/span>/", '', $tagged_text);
-			//echo "tagged_text sin span rojos: ";print_r($corrected_text);echo "</pre>\n";
-			foreach ($corrections as $index=>$correction)
-			{
-				$corrected_text = preg_replace("/<select name='correction.".$index."]'.*?<\/select>/", $correction, $corrected_text);
-			}
-			//echo "corrected_text: ";print_r($corrected_text);die();
-			return $corrected_text;
 		}
 
 		/**

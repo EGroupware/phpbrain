@@ -232,7 +232,7 @@
 		function bokb()
 		{
 			// version check
-			if ($GLOBALS['phpgw_info']['apps']['phpbrain']['version'] == '0.9.14.001')
+			if ($GLOBALS['phpgw_info']['apps']['phpbrain']['version'] != '1.0.5')
 			{
 				$GLOBALS['phpgw']->common->phpgw_header();
 				echo parse_navbar();
@@ -669,6 +669,10 @@
 			$this->so->delete_related($art_id, $art_id, True);
 			// delete search index
 			$this->so->delete_search($art_id);
+			// delete files entries in phpgw_kb_files
+			$this->so->delete_files($art_id);
+			// delete urls
+			$this->so->delete_urls($art_id);
 			// delete article
 			if (!$this->so->delete_article($art_id)) return 'err_del_art';
 			if ($art_id) $GLOBALS['phpgw']->historylog->add('AD', $art_id, 'article deleted', '');
@@ -1153,7 +1157,7 @@
 
 			// now delete it from the database
 			ereg('^kb[0-9]*-(.*)', $file, $new_filename);
-			if ($success = $this->so->delete_file($this->article_id, $file))
+			if ($success = $this->so->delete_files($this->article_id, $file))
 				$GLOBALS['phpgw']->historylog->add('RF', $this->article_id, $new_filename[1], '');
 			if ($in_server && $success) return 'file_del_ok';
 			if ($in_server && !$success) return 'file_db_del_err';

@@ -89,25 +89,16 @@
 			$order = $this->db->db_addslashes($order);
 			if ($sort != 'DESC') $sort = 'ASC';
 
-			// need to cast text-type fields for mssql because they can't be used with DISTINCT
-			$title = ($this->db->Type == 'mssql')? 'CAST(title AS varchar) AS title' : 'title';
-			$topic = ($this->db->Type == 'mssql')? 'CAST(topic AS varchar) AS topic' : 'topic';
-			$files= ($this->db->Type == 'mssql')? 'CAST(files AS varchar) AS files' : 'files';
+			// We use COALESCE (VALUE in case of maxdb) to turn NULLs into zeros, to avoid some databases (postgres and maxdb, don't know about mssql)
+			// to sort records with score NULL before records with a score > 0.
+			$score = (($this->db->Type == 'maxdb')? 'VALUE(SUM(phpgw_kb_search.score), 0)' : 'SUM(COALESCE(phpgw_kb_search.score))') . ' AS pertinence';
 
-			$fields = array('phpgw_kb_articles.art_id', $title, $topic, 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5', $files, 'score');
+			$fields = array('phpgw_kb_articles.art_id', 'title', 'topic', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5', $score);
 			$fields_str = implode(', ', $fields);
 			$owners = implode(', ', $owners);
 
-			// must use subqueries in pgsql because can't use DISTINCT on a column and ORDER BY another column, so have to do each operation in different steps
-			if ($this->db->Type == 'pgsql')
-			{
-				$sql = "SELECT * FROM (SELECT DISTINCT ON(phpgw_kb_articles.art_id) ";
-			}
-			else
-			{
-				$sql = "SELECT DISTINCT ";
-			}
-			$sql .= "$fields_str FROM phpgw_kb_articles, phpgw_kb_search WHERE user_id IN ($owners) AND phpgw_kb_articles.art_id=phpgw_kb_search.art_id";
+			$sql = "SELECT $fields_str FROM phpgw_kb_articles LEFT JOIN phpgw_kb_search ON phpgw_kb_articles.art_id=phpgw_kb_search.art_id ";
+			$sql .= "WHERE user_id IN ($owners)";
 			if ($publish_filter && $publish_filter!='all') 
 			{
 				($publish_filter == 'published')? $publish_filter = 1 : $publish_filter = 0;
@@ -122,6 +113,7 @@
 				$categories = implode(",", $categories);
 				$sql .= " AND cat_id IN(" . $categories . ")";
 			}
+
 			if ($query)
 			{
 				$words_init = explode(' ', $query);
@@ -141,42 +133,58 @@
 					$likes[] = "title LIKE '%$word%' OR topic LIKE '%$word%' OR text LIKE '%$word%'";
 				}
 				$likes = implode(' OR ', $likes);
-				if ($likes) $sql .= " AND (keyword='" . implode("' OR keyword='", $words) . "' OR $likes)";
+			
+				if ($likes)
+				{
+					// build query for results matching keywords (these are the most relevant results, and so appear first)
+					$sql_keywords = $sql . " AND (keyword='" . implode("' OR keyword='", $words) . "')";
+
+					// build query for the rest of results (looking in title, topic and text only). These appear after the previous ones are shown.
+					// I must use the negation of the previous conditions to avoid shown repeated records
+					$sql_rest = $sql . " AND (keywords!='" . implode("' AND keywords!='", $words) . "' AND $likes)";
+				}
 			}
 
-			if ($this->db->Type == 'pgsql')
-			{
-				$sql .= ") AS temp";
-			}
-			else
-			{
-				// must use GROUP BY when using DISTINCT
-				$sql .= " GROUP BY phpgw_kb_articles.art_id";
-			}
-			
+			// Group by on all fields to return unique records and calculate pertinence scores
+			$groupby = " GROUP BY phpgw_kb_articles.art_id, title, topic, views, cat_id, published, user_id, created, modified, votes_1, votes_2, votes_3, votes_4, votes_5";
+			$order_sql = array();
 			if ($order)
 			{
-				$sql .= " ORDER BY $order $sort, score DESC";
+				$order_sql[] = "$order $sort";
+			}
+			if ($query)
+			{
+				$order_sql[] = "pertinence DESC";
+			}
+			if (!$order && !$query)
+			{
+				$order_sql[] = "modified DESC";
+			}
+			$order_sql = ' ORDER BY ' . implode(',', $order_sql);	// only PHP lets me write crap like this
+
+			if ($query)
+			{
+				$sqls[0] = $sql_keywords.$groupby.$order_sql;
+				$sqls[1] = $sql_rest.$groupby.$order_sql;
 			}
 			else
 			{
-				$sql .= " ORDER BY score DESC";
+				$sqls[0] = $sql.$groupby.$order_sql;
 			}
-			//echo "sql: $sql <br><br>";
-			$this->db->query($sql, __LINE__, __FILE__);
-			$this->num_rows = $this->db->num_rows();
-			$this->db->limit_query($sql, $start, __LINE__, __FILE__, $upper_limit);
+
+			//echo "sqls: "._debug_array($sqls);
 			$articles = array();
-
-			// undo the mssql thing
-			if ($this->db->Type == 'mssql')
+			$this->num_rows = 0;
+			foreach ($sqls as $sql)
 			{
-				$fields[1] = 'title';
-				$fields[2] = 'topic';
-				$fields[14] = 'files';
+				$this->db->query($sql, __LINE__, __FILE__);
+				$this->db->limit_query($sql, $start, __LINE__, __FILE__, $upper_limit);
+				$start = $this->db->num_rows();
+				$this->num_rows += $this->db->num_rows();
+				$articles = array_merge($articles, $this->results_to_array($fields));
 			}
 
-			return $this->results_to_array($fields);
+			return $articles;
 		}
 
 		/**
@@ -340,7 +348,7 @@
 		* @access	public
 		* @param	int		$art_id	Article ID
 		* @param	string	$word			Keyword
-		* @param	bool	$upgrade_key	Whether to give more or less score to $word
+		* @param	mixed	$upgrade_key	Whether to give more or less score to $word
 		* @return	void
 		*/
 		function update_keywords($art_id, $word, $upgrade_key)
@@ -350,7 +358,8 @@
 			// retrieve current score
 			$sql = "SELECT score FROM phpgw_kb_search WHERE keyword='$word' AND art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
-			if ($this->db->next_record())
+			$keyword_exists = $this->db->next_record();
+			if ($keyword_exists && upgrade_key != 'same')
 			{
 				// upgrade score
 				$old_score = $this->db->f('score');
@@ -358,11 +367,10 @@
 				$sql = "UPDATE phpgw_kb_search SET score=$new_score WHERE keyword='$word' AND art_id=$art_id";
 				$this->db->query($sql, __LINE__, __FILE__);
 			}
-			else
+			elseif (!$keyword_exists || $upgrade_key != 'same')
 			{
 				// create new entry for word
-				$score = $upgrade_key? 1: -1;
-				$sql = "INSERT INTO phpgw_kb_search (keyword, art_id, score) VALUES('$word', $art_id, $score)";
+				$sql = "INSERT INTO phpgw_kb_search (keyword, art_id, score) VALUES('$word', $art_id, 1)";
 				$this->db->query($sql, __LINE__, __FILE__);
 			}
 		}
@@ -445,21 +453,19 @@
 			$current_time = time();
 			if ($is_new)
 			{
-				$art_id = $contents['articleID']? $contents['articleID'] : 0;
 				($publish)? $publish = 1 : $publish = 0;
 				$q_id = $contents['answering_question']? $contents['answering_question'] : 0;
-				$sql = "INSERT INTO phpgw_kb_articles (q_id, title, topic, text, cat_id, published, keywords, user_id, created, modified, modified_user_id, files, urls, votes_1, votes_2, votes_3, votes_4, votes_5) VALUES ("
+				$sql = "INSERT INTO phpgw_kb_articles (q_id, title, topic, text, cat_id, published, user_id, created, modified, modified_user_id, votes_1, votes_2, votes_3, votes_4, votes_5) VALUES ("
 						. "$q_id, '"
 						. $this->db->db_addslashes($contents['title']) . "', '"
 						. $this->db->db_addslashes($contents['topic']) . "', '"
 						. $this->db->db_addslashes($contents['text']) . "', "
 						. (int) $contents['cat_id'] . ", "
-						. $publish . ", '"
-						. $this->db->db_addslashes($contents['keywords']) . "', "
+						. $publish . ", "
 						. $GLOBALS['phpgw_info']['user']['account_id'] . ", "
 						. $current_time . ", " . $current_time . ", "
 						. $GLOBALS['phpgw_info']['user']['account_id'] . ", "
-						. "'', '', 0, 0, 0, 0, 0)";
+						. " 0, 0, 0, 0, 0)";
 				$this->db->query($sql, __LINE__, __FILE__);
 				$article_id = $this->db->get_last_insert_id('phpgw_kb_articles', 'art_id');
 
@@ -467,7 +473,7 @@
 				$keywords = explode (' ', $contents['keywords']);
 				foreach ($keywords as $keyword)
 				{
-					$this->update_keywords($article_id, $keyword, True);
+					$this->update_keywords($article_id, $keyword, 'same');
 				}
 
 				// if publication is automatic and the article answers a question, delete the question
@@ -486,12 +492,21 @@
 						."', topic='" . $this->db->db_addslashes($contents['topic'])
 						."', text='" . $this->db->db_addslashes($contents['text'])
 						."', cat_id='" . (int)($contents['cat_id'])
-						."', keywords='" . $this->db->db_addslashes($contents['keywords'])
 						."', modified=" . $current_time
 						.", modified_user_id=" . $GLOBALS['phpgw_info']['user']['account_id']
 						." WHERE art_id=" . $contents['editing_article_id'];
 				$this->db->query($sql, __LINE__, __FILE__);
-				if ($this->db->affected_rows())
+				$queries_ok = false;
+				if ($this->db->affected_rows()) $queries_ok = true;
+
+				// update keywords
+				$keywords = explode (' ', $contents['keywords']);
+				foreach ($keywords as $keyword)
+				{
+					$this->update_keywords($contents['editing_article_id'], $keyword, True, False);
+				}
+
+				if ($queries_ok)
 				{
 					return $contents['editing_article_id'];
 				}
@@ -586,7 +601,7 @@
 		**/
 		function get_article($art_id)
 		{
-			$fields = array('art_id', 'title', 'topic', 'text', 'views', 'cat_id', 'published', 'keywords', 'user_id', 'created', 'modified', 'modified_user_id', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5', 'files', 'urls');
+			$fields = array('art_id', 'title', 'topic', 'text', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'modified_user_id', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5');
 			$fields_str = implode(", ", $fields);
 
 			$sql =	"SELECT $fields_str FROM phpgw_kb_articles WHERE art_id=$art_id";
@@ -598,8 +613,37 @@
 			{
 				$article[$field] = $this->db->f($field);
 			}
-			$article['files'] = unserialize($article['files']);
-			$article['urls'] = unserialize($article['urls']);
+
+			// get article's attached files names
+			$this->db->query("SELECT art_file, art_file_comments FROM phpgw_kb_files WHERE art_id=$art_id", __LINE__, __FILE__);
+			$article['files'] = array();
+			$i = 0;
+			while ($this->db->next_record())
+			{
+				$article['files'][$i]['file'] = $this->db->f('art_file');
+				$article['files'][$i]['comment'] = $this->db->f('art_file_comments');
+				$i++;
+			}
+
+			// get article's attached urls
+			$this->db->query("SELECT art_url, art_url_title FROM phpgw_kb_urls WHERE art_id=$art_id", __LINE__, __FILE__);
+			$article['urls'] = array();
+			$i = 0;
+			while ($this->db->next_record())
+			{
+				$article['urls'][$i]['link'] = $this->db->f('art_url');
+				$article['urls'][$i]['title'] = $this->db->f('art_url_title');
+				$i++;
+			}
+
+			// get article's keywords
+			$this->db->query("SELECT keyword FROM phpgw_kb_search WHERE art_id=$art_id", __LINE__, __FILE__);
+			$article['keywords'] = array();
+			while ($this->db->next_record())
+			{
+				$article['keywords'][] = $this->db->f('keyword');
+			}
+			$article['keywords'] = implode(' ', $article['keywords']);
 
 			// normalize vote frequence to the range 0 - 40
 			$votes = array();
@@ -712,6 +756,43 @@
 		}
 
 		/**
+		* Delete article's file entries in phpgw_kb_files
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$art_id		article id
+		* @param	string	$file_to_erase	File name
+		* @return	bool					1 on success, 0 on failure
+		*/
+		function delete_files($art_id, $file_to_erase = false)
+		{
+			$files = '';
+			if ($file_to_erase)
+			{
+				$file_to_erase = $this->db->db_addslashes($file_to_erase);
+				$files = " AND art_file='$file_to_erase'";
+			}
+			$sql = "DELETE FROM phpgw_kb_files WHERE art_id=$art_id$files";
+			$this->db->query($sql, __LINE__, __FILE__);
+			if ($this->db->affected_rows()) return True;
+			return False;
+		}
+
+		/**
+		* Delete article's urls
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$art_id		article id
+		* @return	void
+		*/
+		function delete_urls($art_id)
+		{
+			$sql = "DELETE FROM phpgw_kb_urls WHERE art_id=$art_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+		}
+
+		/**
 		* Returns an article related comments
 		*
 		* @author	Alejandro Pedraza
@@ -782,18 +863,7 @@
 		*/
 		function add_link($url, $title, $art_id)
 		{
-			// first retrieve current URLs
-			$sql = "SELECT urls FROM phpgw_kb_articles WHERE art_id=$art_id";
-			$this->db->query($sql, __LINE__, __FILE__);
-
-			// insert news in database
-			$current_urls = unserialize($this->db->f('urls'));
-			$current_urls[] = array(
-				'link'	=> $url,
-				'title'	=> $title
-			);
-			$new_urls = $this->db->db_addslashes(serialize($current_urls));
-			$sql = "UPDATE phpgw_kb_articles SET urls='" . $new_urls . "' WHERE art_id=$art_id";
+			$sql = "INSERT INTO phpgw_kb_urls (art_id, art_url, art_url_title) VALUES ($art_id, '$url', '$title')";
 			$this->db->query($sql, __LINE__, __FILE__);
 			if (!$this->db->affected_rows()) return 0;
 			return 1;
@@ -882,21 +952,8 @@
 		*/
 		function delete_link($art_id, $delete_link)
 		{
-			// first retrieve current URLs
-			$sql = "SELECT urls FROM phpgw_kb_articles WHERE art_id=$art_id";
-			$this->db->query($sql, __LINE__, __FILE__);
-			$current_links = unserialize($this->db->f('urls'));
-
-			// Proceed with deletion
-			$new_links = array();
-			foreach ($current_links as $current_link)
-			{
-				if ($current_link['link'] != $delete_link) $new_links[] = $current_link;
-			}
-			$new_links = $this->db->db_addslashes(serialize($new_links));
-
-			// Update database
-			$sql = "UPDATE phpgw_kb_articles SET urls='$new_links' WHERE art_id=$art_id";
+			$delete_link = $this->db->db_addslashes($delete_link);
+			$sql = "DELETE FROM phpgw_kb_urls WHERE art_id=$art_id AND art_url='$delete_link'";
 			$this->db->query($sql, __LINE__, __FILE__);
 			if (!$this->db->affected_rows()) return 0;
 			return 1;
@@ -948,61 +1005,14 @@
 		*/
 		function add_file($article_id, $file_name)
 		{
-			// first retrieve current_articles
-			$sql = "SELECT files FROM phpgw_kb_articles WHERE art_id=$article_id";
-			$this->db->query($sql, __LINE__, __FILE__);
-			$files = array();
-			if ($this->db->next_record())
-			{
-				$files = unserialize($this->db->f('files'));
-			}
+			$file_name = $this->db->db_addslashes($file_name);
 			$comment = $_POST['file_comment']? $_POST['file_comment'] : '';
-			$files[] = array(
-				'file'		=> $file_name,
-				'comment'	=> $comment
-			);
-			$new_files = $this->db->db_addslashes(serialize($files));
+			$comment = $this->db->db_addslashes($comment);
 
-			// now update database
-			$sql = "UPDATE phpgw_kb_articles SET files='$new_files' WHERE art_id=$article_id";
+			$sql = "INSERT INTO phpgw_kb_files (art_id, art_file, art_file_comments) VALUES($article_id, '$file_name', '$comment')";
 			$this->db->query($sql, __LINE__, __FILE__);
 			if (!$this->db->next_record()) return 0;
 			return 1;
-		}
-
-		/**
-		* Delete file from article database record
-		*
-		* @author	Alejandro Pedraza
-		* @access	public
-		* @param	int		$article_id		Article id
-		* @param	string	$file_to_erase	File name
-		* @return	bool					1 on success, 0 on failure
-		*/
-		function delete_file($art_id, $file_to_erase)
-		{
-			// first retrieve current_articles
-			$sql = "SELECT files FROM phpgw_kb_articles WHERE art_id=$art_id";
-			$this->db->query($sql, __LINE__, __FILE__);
-			$files = array();
-			if ($this->db->next_record())
-			{
-				$files = unserialize($this->db->f('files'));
-			}
-
-			// now remove the file
-			$new_files = array();
-			foreach ($files as $file)
-			{
-				if ($file['file'] != $file_to_erase) $new_files[] = $file;
-			}
-			$new_files = $this->db->db_addslashes(serialize($new_files));
-
-			// and reinsert in database
-			$sql = "UPDATE phpgw_kb_articles SET files='$new_files' WHERE art_id=$art_id";
-			$this->db->query($sql, __LINE__, __FILE__);
-			if ($this->db->affected_rows()) return True;
-			return False;
 		}
 
 		/**

@@ -14,7 +14,7 @@
 	/* Basic information about this app */
 	$setup_info['phpbrain']['name']      = 'phpbrain';
 	$setup_info['phpbrain']['title']     = 'Knowledge Base';
-	$setup_info['phpbrain']['version']   = '1.0.2';
+	$setup_info['phpbrain']['version']   = '1.0.5';
 	$setup_info['phpbrain']['app_order'] = 25;
 	$setup_info['phpbrain']['enable']    = 1;
 
@@ -41,10 +41,14 @@
 	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_ratings';
 	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_related_art';
 	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_search';
+	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_files';
+	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_urls';
 
 	/* Dependencies for this app to work */
 	$setup_info['phpbrain']['depends'][] = array(
 		'appname' => 'phpgwapi',
 		'versions' => Array('0.9.14','0.9.15','1.0.0','1.0.1')
 	);
-?>
+
+
+

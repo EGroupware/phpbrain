@@ -71,7 +71,7 @@
 
 	<tr>
 		<td colspan=2>
-			{btn_spell}{btn_save}{btn_cancel}
+			{btn_save}{btn_cancel}
 		</td>
 	</tr>
 </table>

@@ -228,3 +228,179 @@
 		$GLOBALS['setup_info']['phpbrain']['currentver'] = '1.0.2';
 		return $GLOBALS['setup_info']['phpbrain']['currentver'];
 	}
+
+	$test[] = '1.0.2';
+	function phpbrain_upgrade1_0_2()
+	{
+		$GLOBALS['phpgw_setup']->oProc->CreateTable('phpgw_kb_files',array(
+			'fd' => array(
+				'art_id' => array('type' => 'int','precision' => '4'),
+				'art_file' => array('type' => 'varchar','precision' => '255'),
+				'art_file_comment' => array('type' => 'varchar','precision' => '255'),
+			),
+			'pk' => array('art_id','art_file'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		));
+
+		$db2 = $GLOBALS['phpgw_setup']->db;
+		$db2->set_app('phpbrain');
+		$GLOBALS['phpgw_setup']->oProc->query("SELECT art_id,files FROM phpgw_kb_articles WHERE files != ''",__LINE__,__FILE__);
+		while ($GLOBALS['phpgw_setup']->oProc->next_record())
+		{
+			$art_id = $GLOBALS['phpgw_setup']->oProc->f('art_id');
+			$files = unserialize($GLOBALS['phpgw_setup']->oProc->f('files'));
+			if (is_array($files))
+			{
+				foreach($files as $file)
+				{
+					$db2->insert('phpgw_kb_files',array(
+						'art_id' => $art_id,
+						'art_file'   => $file['file'],
+						'art_file_comment'	=> $file['comment'],
+					),false,__LINE__,__FILE__);
+				}
+			}
+		}
+		
+		$GLOBALS['setup_info']['phpbrain']['currentver'] = '1.0.3';
+		return $GLOBALS['setup_info']['phpbrain']['currentver'];
+	}
+
+
+	$test[] = '1.0.3';
+	function phpbrain_upgrade1_0_3()
+	{
+		$GLOBALS['phpgw_setup']->oProc->CreateTable('phpgw_kb_urls',array(
+			'fd' => array(
+				'art_id' => array('type' => 'int','precision' => '4'),
+				'art_url' => array('type' => 'varchar','precision' => '255'),
+				'art_url_title' => array('type' => 'varchar','precision' => '255')
+			),
+			'pk' => array('art_id','art_url'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		));
+
+		$db2 = $GLOBALS['phpgw_setup']->db;
+		$db2->set_app('phpbrain');
+		$GLOBALS['phpgw_setup']->oProc->query("SELECT art_id,urls FROM phpgw_kb_articles WHERE urls != ''",__LINE__,__FILE__);
+		while ($GLOBALS['phpgw_setup']->oProc->next_record())
+		{
+			$art_id = $GLOBALS['phpgw_setup']->oProc->f('art_id');
+			$urls = unserialize($GLOBALS['phpgw_setup']->oProc->f('urls'));
+			if (is_array($files))
+			{
+				foreach($urls as $url)
+				{
+					$db2->insert('phpgw_kb_files',array(
+						'art_id' => $art_id,
+						'art_url'    => $url['link'],
+						'art_url_title'	=> $url['title'],
+					),false,__LINE__,__FILE__);
+				}
+			}
+		}
+		
+		$GLOBALS['setup_info']['phpbrain']['currentver'] = '1.0.4';
+		return $GLOBALS['setup_info']['phpbrain']['currentver'];
+	}
+	
+	$test[] = '1.0.4';
+	function phpbrain_upgrade1_0_4()
+	{
+		$GLOBALS['phpgw_setup']->oProc->DropColumn('phpgw_kb_articles',array(
+			'fd' => array(
+				'art_id' => array('type' => 'auto','nullable' => False),
+				'q_id' => array('type' => 'int','precision' => '8','nullable' => False),
+				'title' => array('type' => 'text','nullable' => False),
+				'topic' => array('type' => 'text','nullable' => False),
+				'text' => array('type' => 'text','nullable' => False),
+				'cat_id' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+				'published' => array('type' => 'int','precision' => '2','nullable' => False,'default' => '0'),
+				'user_id' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+				'views' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+				'created' => array('type' => 'int','precision' => '4','nullable' => True),
+				'modified' => array('type' => 'int','precision' => '4','nullable' => True),
+				'modified_user_id' => array('type' => 'int','precision' => '4','nullable' => False),
+				'files' => array('type' => 'text','nullable' => False),
+				'urls' => array('type' => 'text','nullable' => False),
+				'votes_1' => array('type' => 'int','precision' => '4','nullable' => False),
+				'votes_2' => array('type' => 'int','precision' => '4','nullable' => False),
+				'votes_3' => array('type' => 'int','precision' => '4','nullable' => False),
+				'votes_4' => array('type' => 'int','precision' => '4','nullable' => False),
+				'votes_5' => array('type' => 'int','precision' => '4','nullable' => False)
+			),
+			'pk' => array('art_id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		),'keywords');
+		$GLOBALS['phpgw_setup']->oProc->DropColumn('phpgw_kb_articles',array(
+			'fd' => array(
+				'art_id' => array('type' => 'auto','nullable' => False),
+				'q_id' => array('type' => 'int','precision' => '8','nullable' => False),
+				'title' => array('type' => 'text','nullable' => False),
+				'topic' => array('type' => 'text','nullable' => False),
+				'text' => array('type' => 'text','nullable' => False),
+				'cat_id' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+				'published' => array('type' => 'int','precision' => '2','nullable' => False,'default' => '0'),
+				'user_id' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+				'views' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+				'created' => array('type' => 'int','precision' => '4','nullable' => True),
+				'modified' => array('type' => 'int','precision' => '4','nullable' => True),
+				'modified_user_id' => array('type' => 'int','precision' => '4','nullable' => False),
+				'urls' => array('type' => 'text','nullable' => False),
+				'votes_1' => array('type' => 'int','precision' => '4','nullable' => False),
+				'votes_2' => array('type' => 'int','precision' => '4','nullable' => False),
+				'votes_3' => array('type' => 'int','precision' => '4','nullable' => False),
+				'votes_4' => array('type' => 'int','precision' => '4','nullable' => False),
+				'votes_5' => array('type' => 'int','precision' => '4','nullable' => False)
+			),
+			'pk' => array('art_id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		),'files');
+		$GLOBALS['phpgw_setup']->oProc->DropColumn('phpgw_kb_articles',array(
+			'fd' => array(
+				'art_id' => array('type' => 'auto','nullable' => False),
+				'q_id' => array('type' => 'int','precision' => '8','nullable' => False),
+				'title' => array('type' => 'text','nullable' => False),
+				'topic' => array('type' => 'text','nullable' => False),
+				'text' => array('type' => 'text','nullable' => False),
+				'cat_id' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+				'published' => array('type' => 'int','precision' => '2','nullable' => False,'default' => '0'),
+				'user_id' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+				'views' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+				'created' => array('type' => 'int','precision' => '4','nullable' => True),
+				'modified' => array('type' => 'int','precision' => '4','nullable' => True),
+				'modified_user_id' => array('type' => 'int','precision' => '4','nullable' => False),
+				'votes_1' => array('type' => 'int','precision' => '4','nullable' => False),
+				'votes_2' => array('type' => 'int','precision' => '4','nullable' => False),
+				'votes_3' => array('type' => 'int','precision' => '4','nullable' => False),
+				'votes_4' => array('type' => 'int','precision' => '4','nullable' => False),
+				'votes_5' => array('type' => 'int','precision' => '4','nullable' => False)
+			),
+			'pk' => array('art_id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		),'urls');
+		$GLOBALS['phpgw_setup']->oProc->AlterColumn('phpgw_kb_articles','title',array(
+			'type' => 'varchar',
+			'precision' => '255',
+			'nullable' => False
+		));
+		$GLOBALS['phpgw_setup']->oProc->AlterColumn('phpgw_kb_articles','topic',array(
+			'type' => 'varchar',
+			'precision' => '255',
+			'nullable' => False
+		));
+
+		$GLOBALS['setup_info']['phpbrain']['currentver'] = '1.0.5';
+		return $GLOBALS['setup_info']['phpbrain']['currentver'];
+	}
+?>
