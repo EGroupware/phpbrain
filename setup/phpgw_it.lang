@@ -104,6 +104,7 @@ file wasn't in server and it couldn't be deleted from the database	phpbrain	it	I
 find results	phpbrain	it	Risultati Trova
 have to be approved first	common	it	Deve prima essere approvato
 history	phpbrain	it	Cronologia
+if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	it	Se non trovi risposte al tuo problema nell'Archivio Conoscenza, descrivilo qui sotto
 if you wish, you can comment this article here	phpbrain	it	Se vuoi, puoi commentare questo articolo qui
 in %1	phpbrain	it	in %1
 in the text	phpbrain	it	nel testo
@@ -120,6 +121,9 @@ last_mod %1	phpbrain	it	Ultima modifica: %1
 latest	phpbrain	it	Più recente
 latest comments	phpbrain	it	Commenti più recenti
 leave empty to automatically generate an id	phpbrain	it	Lascia vuoto per generare automaticamente un ID
+link could not be added	phpbrain	it	Il Link non è stato aggiunto
+link deleted successfully	phpbrain	it	Link eliminato con successo
+link has been added	phpbrain	it	Il Link è stato aggiunto
 links	phpbrain	it	Link
 links & files	phpbrain	it	Link & File
 mail article	phpbrain	it	Invia articolo
@@ -128,6 +132,7 @@ maintain articles	phpbrain	it	Aggiorna Articoli
 maintain questions	phpbrain	it	Aggiorna Domande
 maintain_answers	common	it	Manutenzione Risposte
 maximum number of comments to show:	phpbrain	it	Numero massimo di commenti da visualizzare:
+maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	it	Numero massimo di articoli più visti, articoli recenti e domande senza risposta da mostrare nella Vista Principale:
 modification date	phpbrain	it	Data modifica
 modified	phpbrain	it	Modificato
 most viewed	phpbrain	it	Più visti
@@ -207,7 +212,9 @@ the following errors occurred	phpbrain	it	Sono avvenuti i seguenti errori
 the present category and all subcategories under it	phpbrain	it	La categoria attuale e tutte le sue sottocategorie
 the present category only	phpbrain	it	Solo la categoria attuale
 there are no articles	phpbrain	it	Non ci sono articoli
+this article hasn't yet been published in the knowledge base	phpbrain	it	Questo articolo non è ancora stato pubblicato nell'Archivio Conoscenza
 title	phpbrain	it	Titolo
+to create categories, press 'edit categories' in the preferences menu	phpbrain	it	Per creare categorie, premi 'Modifica Categorie' nel menù preferenze
 topic	phpbrain	it	Argomento
 tutorial	phpbrain	it	Tutorial
 tutorials	phpbrain	it	Tutorial
@@ -221,6 +228,7 @@ user preferences	phpbrain	it	Preferenze utente
 views	phpbrain	it	Viste
 views %1	phpbrain	it	Viste %1
 votes %1	phpbrain	it	Voti %1
+was it easy to find this article using the above search string?	phpbrain	it	E' stato facile trovare questo articolo usando la soprastante stringa di ricerca?
 with all the words	phpbrain	it	Con tutte le parole
 with at least one of the words	phpbrain	it	Con almeno una delle parole
 with the exact phrase	phpbrain	it	Con la frase esatta
