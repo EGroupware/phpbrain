@@ -1790,7 +1790,7 @@
 					'tr_color'			=> $this->nextmatchs->alternate_row_color($tr_color),
 					'summary'			=> $question['summary'],
 					'details'			=> $question['details'],
-					'date'				=> $GLOBALS['phpgw']->common->show_date($questions['creation'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']),
+					'date'				=> $GLOBALS['phpgw']->common->show_date($question['creation'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']),
 					'author'			=> $question['username'],
 					'actions'			=> $actions,
 					'name_checkbox'		=> 'select[' . $question['question_id']  . ']'
