@@ -725,7 +725,7 @@
 		{
 			$comment = $this->db->db_addslashes($comment);
 			($publish)? $publish = 1 : $publish = 0;
-			$sql = "INSERT INTO phpgw_kb_comment (comment_id, user_id, comment, entered, art_id, published) VALUES(NULL, "
+			$sql = "INSERT INTO phpgw_kb_comment (user_id, comment, entered, art_id, published) VALUES("
 					. $GLOBALS['phpgw_info']['user']['account_id'] . ", '$comment', " . time() . ", $art_id, $publish)";
 			$this->db->query($sql, __LINE__, __FILE__);
 			if (!$this->db->affected_rows()) return 0;
