@@ -1185,18 +1185,23 @@
 		function mail_article($article_contents)
 		{
 			// check address syntaxis
-			$theresults = ereg("^[^@ ]+@[^@ ]+\.[^@ \.]+$", get_var('recipient', 'POST'), $trashed);
+			$recipient = get_var('recipient', 'POST');
+			$reply_to = get_var('reply', 'POST', 0);
+			$theresults = ereg("^[^@ ]+@[^@ ]+\.[^@ \.]+$", $recipient, $trashed);
 			if (!$theresults) return 'mail_err';
 
 			$GLOBALS['phpgw']->send = CreateObject('phpgwapi.send');
-			$rc = $GLOBALS['phpgw']->send->msg('email', get_var('recipient', 'POST'), get_var('subject', 'POST'), $article_contents, '', '', '', get_var('reply', 'POST'), get_var('reply', 'POST'), 'text/html');
-			if (!$rc)
+			$GLOBALS['phpgw']->send->From = $GLOBALS['phpgw_info']['user']['email'];
+			$GLOBALS['phpgw']->send->FromName = $GLOBALS['phpgw_info']['user']['fullname'];
+			if ($reply_to) $GLOBALS['phpgw']->send->AddReplyTo($reply_to);
+			$GLOBALS['phpgw']->send->AddAddress($recipient);
+			$GLOBALS['phpgw']->send->Subject = get_var('subject', 'POST');
+			$GLOBALS['phpgw']->send->Body = get_var('txt_message', 'POST', lang('E-GroupWare Knowledge Base article attached'));
+			$GLOBALS['phpgw']->send->AddStringAttachment($article_contents, lang('article'), 'base64', 'text/html');
+			$message = '';
+			if (!$GLOBALS['phpgw']->send->Send())
 			{
-				 $message = 'Your message could <B>not</B> be sent!<BR>'."\n"
-					. 'The mail server returned:<BR>'
-					. "err_code: '".$GLOBALS['phpgw']->send->err['code']."';<BR>"
-					. "err_msg: '".htmlspecialchars($GLOBALS['phpgw']->send->err['msg'])."';<BR>\n"
-					. "err_desc: '".$GLOBALS['phpgw']->err['desc']."'.<P>\n";
+				 $message = lang('Your message could not be sent!') . '<br>' . lang('The mail server returned:') . htmlspecialchars($GLOBALS['phpgw']->send->ErrorInfo);
 			}
 			if ($message) return $message;
 			return 'mail_ok';
