@@ -1,24 +1,33 @@
 %1 matches found	phpbrain	en	%1 Matches Found
+add_comments	phpbrain	en	Add Comments
+allow_html	phpbrain	en	Allow HTML tags in posts
+anon_user	phpbrain	en	Anonymous User
+browse	phpbrain	en	Browse
 cant_post_must_register	phpbrain	en	You must be a registered user to be able to add information to the knowledge base
+comment	phpbrain	en	Comments
+comments	phpbrain	en	Comments
 current_questions	phpbrain	en	Current Questions
+example	phpbrain	en	Example
+excellent	common	en	Excellent
+explain_faq_admin	phpbrain	en	Answers to FAQs must be enabled so users can few them.  Select the FAQs you wish to enable.  Alternatively you can select inappropriate responses which you wish to delete.
 faq_saved	phpbrain	en	FAQ Saved
 faqs	phpbrain	en	FAQs
 faqs_and_tutes	phpbrain	en	FAQs and Tutorials
-invalid faq request - or something is nqr	phpbrain	en	
 kb_contains	phpbrain	en	Knowledge Base Contains
+last_mod %1	phpbrain	en	Last Modified: %1
 no comments	phpbrain	en	No Comments
 none found - revise or browse	phpbrain	en	Nothing found - please revise your seach or browse
 none_unanswered	phpbrain	en	No FAQs unanswered
 num_faqs %1	phpbrain	en	FAQs(%1)
 num_open %1	phpbrain	en	Open(%1)
 num_pages %1	phpbrain	en	Pages(%1)
-phpbrain	phpbrain	en	phpBrain
+phpbrain	common	en	Knowledge Base
+phpbrain_config	phpbrain	en	Knowledge Base Configuration	
+poor	common	en	Poor
 question	phpbrain	en	Question
-show	phpbrain	en	Show
-tutorials	phpbrain	en	Tutorials
-up	common	en	up
+register	common	en	Register
+reset	phpbrain	en	Reset
 return_to_admin	phpbrain	en	Return to Admin
 section_maint_faqs	phpbrain	en	Maintain Pending FAQs
-explain_faq_admin	phpbrain	en	Answers to FAQs must be enabled so users can few them.  Select the FAQs you wish to enable.  Alternatively you can select inappropriate responses which you wish to delete.
-none_pending phpbrain	en	No Items Pending
-%1 faqs_activated phpbrain	en	%1 FAQs activated
+text	common	en	Text
+tutorials	phpbrain	en	Tutorials
