@@ -408,10 +408,12 @@
 			$current_time = time();
 			if ($is_new)
 			{
-				$art_id = $contents['articleID']? $contents['articleID'] : 'NULL';
+				$art_id = $contents['articleID']? $contents['articleID'] : 0;
 				($publish)? $publish = 1 : $publish = 0;
 				$q_id = $contents['answering_question']? $contents['answering_question'] : 0;
-				$sql = "INSERT INTO phpgw_kb_articles (art_id, q_id, title, topic, text, cat_id, published, keywords, user_id, created, modified, modified_user_id) VALUES ($art_id, $q_id, '"
+				$sql = "INSERT INTO phpgw_kb_articles (". (($art_id)? 'art_id, ' : '') ."q_id, title, topic, text, cat_id, published, keywords, user_id, created, modified, modified_user_id, files, urls, votes_1, votes_2, votes_3, votes_4, votes_5) VALUES ("
+						. (($art_id)? "$art_id, " : '')
+						. "$q_id, '"
 						. $this->db->db_addslashes($contents['title']) . "', '"
 						. $this->db->db_addslashes($contents['topic']) . "', '"
 						. $this->db->db_addslashes($contents['text']) . "', '"
@@ -420,7 +422,8 @@
 						. $this->db->db_addslashes($contents['keywords']) . "', "
 						. $GLOBALS['phpgw_info']['user']['account_id'] . ", "
 						. $current_time . ", " . $current_time . ", "
-						. $GLOBALS['phpgw_info']['user']['account_id'] . ")";
+						. $GLOBALS['phpgw_info']['user']['account_id'] . ", "
+						. "'', '', 0, 0, 0, 0, 0)";
 				$this->db->query($sql, __LINE__, __FILE__);
 				$article_id = $this->db->get_last_insert_id('phpgw_kb_articles', 'art_id');
 
@@ -1005,7 +1008,7 @@
 		function add_question($data, $publish)
 		{
 			($publish)? $publish = 1 : $publish = 0;
-			$sql = "INSERT INTO phpgw_kb_questions (question_id, user_id, summary, details, cat_id, creation, published) VALUES (NULL, "
+			$sql = "INSERT INTO phpgw_kb_questions (user_id, summary, details, cat_id, creation, published) VALUES ("
 					. $GLOBALS['phpgw_info']['user']['account_id'] . ", '"
 					. $this->db->db_addslashes($data['summary']) . "', '"
 					. $this->db->db_addslashes($data['details']) . "', "
