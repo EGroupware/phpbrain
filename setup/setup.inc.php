@@ -24,7 +24,7 @@
 	$setup_info['phpbrain']['description'] =
 		'Searchable Knowledge Base.';
 	$setup_info['phpbrain']['maintainer'] = 'Dave Hall';
-	$setup_info['phpbrain']['maintainer_email'] = 'dave.hall at mbox.com.au';
+	$setup_info['phpbrain']['maintainer_email'] = 'dave.hall@mbox.com.au';
 
 	/* The hooks this app includes, needed for hooks registration */
 	$setup_info['phpbrain']['hooks'][] = 'about';
@@ -39,6 +39,10 @@
 	//$setup_info['phpbrain']['hooks'][] = 'deleteaccount';
 	//$setup_info['phpbrain']['hooks'][] = 'notifywindow';
 	//$setup_info['phpbrain']['hooks'][] = 'preferences';
+	
+	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_faq';
+	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_comment';
+	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_questions';
 
 	/* Dependencies for this app to work */
 	$setup_info['phpbrain']['depends'][] = array(
