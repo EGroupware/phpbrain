@@ -14,7 +14,7 @@
 	/* Basic information about this app */
 	$setup_info['phpbrain']['name']      = 'phpbrain';
 	$setup_info['phpbrain']['title']     = 'Knowledge Base';
-	$setup_info['phpbrain']['version']   = '1.0RC5';
+	$setup_info['phpbrain']['version']   = '1.0.0';
 	$setup_info['phpbrain']['app_order'] = 25;
 	$setup_info['phpbrain']['enable']    = 1;
 
@@ -30,7 +30,6 @@
 	$setup_info['phpbrain']['hooks'][] = 'admin';
 	$setup_info['phpbrain']['hooks'][] = 'add_def_pref';
 	$setup_info['phpbrain']['hooks'][] = 'config';
-	$setup_info['phpbrain']['hooks'][] = 'manual';
 	$setup_info['phpbrain']['hooks'][] = 'preferences';
 	$setup_info['phpbrain']['hooks'][] = 'settings';
 	$setup_info['phpbrain']['hooks'][] = 'sidebox_menu';
@@ -45,6 +44,6 @@
 	/* Dependencies for this app to work */
 	$setup_info['phpbrain']['depends'][] = array(
 		'appname' => 'phpgwapi',
-		'versions' => Array('0.9.13', '0.9.14', '0.9.15')
+		'versions' => Array('0.9.14','0.9.15','1.0.0')
 	);
 ?>

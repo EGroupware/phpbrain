@@ -185,3 +185,10 @@
 		$GLOBALS['setup_info']['phpbrain']['currentver'] = '1.0RC5';
 		return $GLOBALS['setup_info']['phpbrain']['currentver'];
 	}
+	
+	$test[] = '1.0RC5';
+	function phpbrain_upgrade1_0RC5()
+	{
+		$GLOBALS['setup_info']['phpbrain']['currentver'] = '1.0.0';
+		return $GLOBALS['setup_info']['phpbrain']['currentver'];
+	}
