@@ -992,7 +992,7 @@
 						'relatives'	=> array(RELATIVE_NONE|VFS_REAL, RELATIVE_ALL)
 					);
 			$GLOBALS['phpgw']->vfs->override_acl = 1; // should I implement ACL on this folder? Don't think so :>
-			if (!$GLOBALS['phpgw']->vfs->mv($cp_args)) return 'error_cp';
+			if (!$GLOBALS['phpgw']->vfs->cp($cp_args)) return 'error_cp';
 			$GLOBALS['phpgw']->vfs->override_acl = 0;
 
 			$this->so->add_file($this->article_id, $filename);
