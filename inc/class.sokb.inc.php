@@ -415,8 +415,7 @@
 				$art_id = $contents['articleID']? $contents['articleID'] : 0;
 				($publish)? $publish = 1 : $publish = 0;
 				$q_id = $contents['answering_question']? $contents['answering_question'] : 0;
-				$sql = "INSERT INTO phpgw_kb_articles (". (($art_id)? 'art_id, ' : '') ."q_id, title, topic, text, cat_id, published, keywords, user_id, created, modified, modified_user_id, files, urls, votes_1, votes_2, votes_3, votes_4, votes_5) VALUES ("
-						. (($art_id)? "$art_id, " : '')
+				$sql = "INSERT INTO phpgw_kb_articles (q_id, title, topic, text, cat_id, published, keywords, user_id, created, modified, modified_user_id, files, urls, votes_1, votes_2, votes_3, votes_4, votes_5) VALUES ("
 						. "$q_id, '"
 						. $this->db->db_addslashes($contents['title']) . "', '"
 						. $this->db->db_addslashes($contents['topic']) . "', '"
