@@ -1589,38 +1589,45 @@
 			$this->t->set_block('maintain_articles', 'table_row_block', 'table_row');
 			$this->t->set_var('table_row', '');
 
-			foreach ($articles_list as $article)
+			if ($articles_list)
 			{
-				$actions = '';
-
-				// skip if article unpublished and user has no publish right on owner
-				if (!$article['published'] && !($this->bo->grants[$article['user_id']] & $this->bo->publish_right)) continue;
-
-				$actions = "<a href='". $this->link('menuaction=phpbrain.uikb.view_article&art_id='. $article['art_id']) ."'>
-							<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'view') . "' title='". lang('view')  ."'>
-							</a>";
-				if (!$article['published'] && ($this->bo->grants[$article['user_id']] & $this->bo->publish_right))
+				foreach ($articles_list as $article)
 				{
-					$actions .= "<a href='". $this->link($this->link, 'menuaction=phpbrain.uikb.maintain_articles&publish='. $article['art_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query) ."'>
-										<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'new') . "' title='". lang('publish')  ."'>
-										</a>";
+					$actions = '';
+
+					// skip if article unpublished and user has no publish right on owner
+					if (!$article['published'] && !($this->bo->grants[$article['user_id']] & $this->bo->publish_right)) continue;
+
+					$actions = "<a href='". $this->link('menuaction=phpbrain.uikb.view_article&art_id='. $article['art_id']) ."'>
+								<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'view') . "' title='". lang('view')  ."'>
+								</a>";
+					if (!$article['published'] && ($this->bo->grants[$article['user_id']] & $this->bo->publish_right))
+					{
+						$actions .= "<a href='". $this->link($this->link, 'menuaction=phpbrain.uikb.maintain_articles&publish='. $article['art_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query) ."'>
+											<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'new') . "' title='". lang('publish')  ."'>
+											</a>";
+					}
+					if ($this->bo->grants[$article['user_id']] & $this->bo->edit_right)
+					{
+						$actions .= "<a href='". $this->link('menuaction=phpbrain.uikb.maintain_articles&delete='. $article['art_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query). "'>
+											<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'delete') . "' title='" . lang('delete') . "'>
+											</a>";
+					}
+					$this->t->set_var(array(
+						'tr_color'			=> $this->nextmatchs->alternate_row_color($tr_color),
+						'title'				=> $article['title'],
+						'topic'				=> $article['topic'],
+						'author'			=> $article['username'],
+						'date'				=> $GLOBALS['phpgw']->common->show_date($article['modified'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']),
+						'actions'			=> $actions,
+						'name_checkbox'		=> 'select[' . $article['art_id']  . ']'
+					));
+					$this->t->parse('table_row', 'table_row_block', True);
 				}
-				if ($this->bo->grants[$article['user_id']] & $this->bo->edit_right)
-				{
-					$actions .= "<a href='". $this->link('menuaction=phpbrain.uikb.maintain_articles&delete='. $article['art_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query). "'>
-										<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'delete') . "' title='" . lang('delete') . "'>
-										</a>";
-				}
-				$this->t->set_var(array(
-					'tr_color'			=> $this->nextmatchs->alternate_row_color($tr_color),
-					'title'				=> $article['title'],
-					'topic'				=> $article['topic'],
-					'author'			=> $article['username'],
-					'date'				=> $GLOBALS['phpgw']->common->show_date($article['modified'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']),
-					'actions'			=> $actions,
-					'name_checkbox'		=> 'select[' . $article['art_id']  . ']'
-				));
-				$this->t->parse('table_row', 'table_row_block', True);
+			}
+			else
+			{
+				$this->t->set_var('table_row', '<tr bgcolor="'. $this->nextmatchs->alternate_row_color($tr_color) .'"><td colspan="5" align="center">'. lang('There are no articles available') .'</td></tr>');
 			}
 
 			$select_publish = "<option value='all'";
