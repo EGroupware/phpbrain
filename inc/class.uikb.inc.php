@@ -1440,7 +1440,7 @@
 			}
 			else
 			{
-				$lang_posting_process = 'Your question will be posted, but will only be published after aproval of a system administrator';
+				$lang_posting_process = 'Your question will be posted, but will only be published after approval by a user with publishing rights';
 			}
 
 			$this->t->set_var(array(
