@@ -19,7 +19,7 @@
 			'Site Configuration'		=> $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname),
 			'Global Categories'			=> $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uicategories.index&appname=' . $appname),
 			'Maintain Answers'			=> $GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikb.maint_answer'),
-			'Maintain Questions'		=> $GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikb.maint_question'),
+			'Maintain Questions'		=> $GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikb.maint_question')//,
 			//'Reports - Not implemented'	=> $GLOBALS['phpgw']->link() //$GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikb.index')
 		);
 		display_section($appname,$file);
