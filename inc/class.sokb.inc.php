@@ -235,7 +235,7 @@
 					$sql .= " text = '" . $this->db->db_addslashes($faq['text']) . "',";
 					$sql .= ' modified = ' . time() .',';
 					$sql .= ' user_id = ' . intval($faq['user_id']) .',';
-					$sql .= ' published = ' . ($admin ? 1 : 0) . ', ';
+					$sql .= ' published = ' . ($faq['published'] ? 1 : 0) . ', ';
 					$sql .= ' is_faq = ' . intval($faq['is_faq']) . ', ';
 					$sql .= " url = '" . $this->db->db_addslashes(urldecode($faq['url'])) ."'";
 					$sql .= " WHERE faq_id = $faq_id";
@@ -255,7 +255,7 @@
 					$sql .= "VALUES('" . $this->db->db_addslashes($faq['title']) . "', ";
 					$sql .= "'" . $this->db->db_addslashes($faq['text']) . "', ";
 					$sql .= intval($faq['cat_id']) . ", ";
-					$sql .= ($admin ? 1 : 0) . ', ';//admin is auto publish
+					$sql .= ($faq['published'] ? 1 : 0) . ', ';
 					$sql .= "'" . $this->db->db_addslashes($faq['keywords']) . "',";
 					$sql .= intval($faq['user_id']) . ', ';
 					$sql .= '0, '; //views must be 0 for new entries

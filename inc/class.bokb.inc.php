@@ -221,6 +221,16 @@
   				$faq['keywords'] = strip_tags($faq['keywords']);
   				$faq['text'] = strip_tags($faq['text']);
 			}
+			
+			if($faq['published'] && !$this->is_admin())
+			{
+				$faq['published'] = False;
+			}
+			elseif($this->is_admin() && !$faq_id)
+			{
+				$faq['published'] = True;
+			}
+
 			$faq['user_id'] = (isset($faq['user_id']) ? $faq['user_id'] : $GLOBALS['phpgw_info']['user']['account_id']);
 			$new_faq_id = $this->so->save($faq_id, $faq, $this->is_admin());
 			if($new_faq_id && $question_id && !$faq_id)

@@ -523,6 +523,7 @@
 			$faq['text'] 	= (isset($_POST['text']) ? trim($_POST['text']) : '');
 			$faq['is_faq'] 	= (int) (isset($_POST['is_faq']) ? trim($_POST['is_faq']) : 0);
 			$faq['url']	= (isset($_POST['url']) ? trim($_POST['url']) : '');
+			$faq['published'] = (isset($_POST['published']) ? True : False);
 			$faq_id = $this->bo->save($faq_id, $faq, $question_id);
 			if($faq_id)
 			{
