@@ -682,7 +682,7 @@
 						$GLOBALS['phpgw']->js = CreateObject('phpgwapi.javascript');
 					}
 					$GLOBALS['phpgw']->js->validate_file('tabs','tabs');
-					$GLOBALS['phpgw']->js->set_onload('javascript:initAll();');
+					$GLOBALS['phpgw']->js->set_onload('tab.init();');
 					$GLOBALS['phpgw_info']['flags']['java_script_thirst'] = "<script>function openpopup() {window1=window.open('" . $this->link('menuaction=phpbrain.uikb.pop_search') . "', 'Search', 'width=800,height=600,toolbar=no,scrollbars=yes,resizable=yes');}</script>";
 
 					$this->t->set_var('link_main_view', '');
