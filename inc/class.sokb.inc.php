@@ -748,6 +748,21 @@
 		}
 
 		/**
+		* Publishes question
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$q_id		Question id
+		* @return	int					Numbers of lines affected (should be 1, if not there's an error)
+		**/
+		function publish_question($q_id)
+		{
+			$sql = "UPDATE phpgw_kb_questions SET published=1 WHERE question_id=$q_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+			return ($this->db->affected_rows());
+		}
+
+		/**
 		* Publishes article comment
 		*
 		* @author	Alejandro Pedraza

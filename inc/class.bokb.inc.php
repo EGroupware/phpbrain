@@ -889,6 +889,24 @@
 		}
 
 		/**
+		* Publishes question
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @params	int		$q_id	Question ID.
+		* @params	int		$owner	Article's owner ID
+		* @return	string			Success or error message
+		**/
+		function publish_question($q_id, $owner)
+		{
+			// first check permission
+			if (!$this->check_permission($this->publish_right, $owner)) return 'no_perm';
+
+			if (!$this->so->publish_question($q_id)) return 'publish_err';
+			return 'publish_ok';
+		}
+
+		/**
 		* Publishes article comment
 		*
 		* @author	Alejandro Pedraza
