@@ -21,29 +21,29 @@
 		var $t;
 		var $theme;
 		var $public_functions = array('index'		=> True,
-									'add'			=> True,
-									'add_question'	=> True,
-									'browse'		=> True,
-									'css'			=> True,
-									'delete'		=> True,
-									'edit'			=> True,
-									'maint_answer'	=> True,
-									'maint_question'=> True,
-									'preview'		=> True,
-									'rate'			=> True,
-									'save'			=> True,
-									'search'		=> True,
-									'unanswered'	=> True,
-									'view'			=> True,
-									'help'			=> True
-									);
+						'add'		=> True,
+						'add_question'	=> True,
+						'browse'	=> True,
+						'css'		=> True,
+						'delete'	=> True,
+						'edit'		=> True,
+						'maint_answer'	=> True,
+						'maint_question'=> True,
+						'preview'	=> True,
+						'rate'		=> True,
+						'save'		=> True,
+						'search'	=> True,
+						'unanswered'	=> True,
+						'view'		=> True,
+						'help'		=> True
+						);
 		
 		function uikb()
 		{
-			$this->bo		= createObject('phpbrain.bokb');
-			$this->cats		= CreateObject('phpgwapi.categories');
+			$this->bo	= createObject('phpbrain.bokb');
+			$this->cats	= CreateObject('phpgwapi.categories');
 			$this->theme	= $GLOBALS['phpgw_info']['theme'];
-			$this->t		= $GLOBALS['phpgw']->template;
+			$this->t	= $GLOBALS['phpgw']->template;
 			$this->t->unknowns = 'remove';
 		}
 		
@@ -90,7 +90,12 @@
 		{
 			$this->search_banner();
 			$this->t->set_file('browse', 'browse.tpl');
-			$cat_id = ( (isset($_GET['cat_id']) && $_GET['cat_id'] != 0) ? trim($_GET['cat_id']) : 0);
+			$cat_id = (int) ( (isset($_GET['cat_id']) && $_GET['cat_id'] != 0) ? trim($_GET['cat_id']) : 0);
+			$cat_name = (isset($_GET['cat_name']) ? trim($_GET['cat_name']) : '');
+			if($cat_name)
+			{
+				$cat_id = $this->cats->name2id($cat_name);
+			}
 
 			$this->t->set_block('browse', 'cur_cat_name', 'ccname');
 			$this->t->set_block('browse', 'cat_row', 'rows');
@@ -101,11 +106,11 @@
 				$cat_name = $this->cats->id2name($cat_id);
 				$this->t->set_var('cur_category_name', $cat_name);
 				$this->t->set_var('up_category_url', $GLOBALS['phpgw']->link('/index.php',
-													array('menuaction' => 'phpbrain.uikb.browse',
-														'cat_id'	=> $this->cats->id2name($cat_id,'parent')
-													)
+											array('menuaction' => 'phpbrain.uikb.browse',
+												'cat_id'	=> $this->cats->id2name($cat_id,'parent')
 												)
-								);
+											)
+						);
 				$this->t->set_var('lang_up', lang('up'));
 				$this->t->parse('ccname', 'cur_cat_name');
 			}
