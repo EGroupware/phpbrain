@@ -1,80 +1,80 @@
-$stat_name %1	phpbrain	es	$stat_name %1
-%1 contains %2 items	phpbrain	es	%1 contiene %2 elementos
-%1 faqs_activated	phpbrain	es	Las PF están activadas
-%1 faqs_deleted	phpbrain	es	Las PF están borradas
-%1 matches found	phpbrain	es	Se encontraron %1 coincidencias
-%1 questions_activated	phpbrain	es	%1 preguntas activadas
-%1 questions_deleted	phpbrain	es	%1 preguntas borradas
-active_when_checked	phpbrain	es	Activar al marcar
-add_answer	phpbrain	es	Añadir respuesta
-add_comments	phpbrain	es	Añadir comentarios
-add_question	phpbrain	es	Añadir pregunta
-add_question (%1 open)	phpbrain	es	Añadir pregunta (%1 abiertas)
-allow html	admin	es	Permitir etiquetas HTML en los mensajes
-already_rated	phpbrain	es	Ya ha valorado este elemento. Gracias.
-anon user	admin	es	Usuario anónimo
-answer	phpbrain	es	Respuesta
-browse	common	es	Examinar
-cant_post_must_register	phpbrain	es	Tiene que registrarse para poder añadir información a la base de conocimientos
-check_before_submit	phpbrain	es	Por favor, compruebe que esta información no existe ya en la base de datos antes de enviarla.
-close window	phpbrain	es	Cerrar ventana
-comment	phpbrain	es	Comentarios
-comments	phpbrain	es	Comentarios
-cur_open_qs	phpbrain	es	Preguntas abiertas actualmente
-current_questions	phpbrain	es	Preguntas actuales
-edit_answer	phpbrain	es	Editar respuesta
-edit_faq	phpbrain	es	Editar PF
-enable	common	es	Activar
-example	phpbrain	es	Ejemplo
-excellent	common	es	Excelente
-explain_faq_admin	phpbrain	es	Las respuestas a las PFs tienen que estar activadas para que los usuarios puedan verlas. Seleccione las PF que desee habilitar. También puede seleccionar respuestas que encuentra inapropiadas y quiera borrar.
-explain_maintain_answers	phpbrain	es	Las preguntas enviadas por los usuarios debe activarlas un administrador. Seleccione aquellas respuestas que desee activar o borrar
-explain_questions_admin	phpbrain	es	Las preguntas enviadas por los usuarios debe activarlas un administrador. Seleccione aquellas respuestas que desee activar o borrar
-faq	phpbrain	es	PF (Prefuntas frecuentes)
-faq_saved	phpbrain	es	PF guardadas
-faqs	phpbrain	es	PFs
-faqs_and_tutes	phpbrain	es	PF y tutoriales
-improve_by_rate	phpbrain	es	Ayúdenos a mejorar valorando los mensajes
-inspire_by_suggestions	phpbrain	es	Si necesita inspiración, eche un vistazo a las preguntas abiertas.
-invalid faq request - or something is nqr	phpbrain	es	ERROR: la PF solicitada no es válida
-kb_contains	phpbrain	es	La base de conocimientos contiene
-know_contrib	phpbrain	es	¿Sabe la respuesta? En ese caso, responda.
-last_mod %1	phpbrain	es	Ultima modificación: %1
-maintain_answers	phpbrain	es	Mantener respuestas
-no comments	phpbrain	es	Sin comentarios
-none found - revise or browse	phpbrain	es	No se encontró nada. Por favor, revise su búsqueda o su navegador
-none_pending	phpbrain	es	Nada pendiente
-none_unanswered	phpbrain	es	No hay PFs sin responder
-not_submit_qs_warn	phpbrain	es	Por favor, dése cuenta de que éste no es el lugar para hacer preguntas. Para eso, está la página de preguntas. Si introduce una pregunta sin una respuesta en esta página, se borrará.
-num_faqs %1	phpbrain	es	Preguntas frecuentes (%1)
-num_open %1	phpbrain	es	Abiertas (%1)
-num_pages %1	phpbrain	es	Páginas (%1)
-num_tutes %1	phpbrain	es	Tutoriales (%1)
-phpbrain	common	es	Base de conocimiento
-phpbrain config	admin	es	Configuración de la base de conocimiento
-phpbrain_config	phpbrain	es	Configuración de la base de conocimiento
-poor	common	es	Pobre
-preview	phpbrain	es	vista previa
-question	phpbrain	es	Pregunta
-rating	phpbrain	es	Valoración
-rating %1	phpbrain	es	valoración %1
-register	common	es	Registrar
-related_url	phpbrain	es	URL relacionada
-reset	phpbrain	es	Restablecer
-return_to_admin	phpbrain	es	Volver a Administración
-return_to_cats %1	phpbrain	es	Volver a la categoría %1
-return_to_index	phpbrain	es	Volver al índice
-return_to_search %1	phpbrain	es	Volver a la búsqueda %1
-score %1	phpbrain	es	puntuación %1
-section_maint_faqs	phpbrain	es	Mantener PFs pendientes
-section_maintain_questions	phpbrain	es	Mantener preguntas
-show	phpbrain	es	mostrar
-submitted_by	phpbrain	es	Enviado por
-text	common	es	Texto
-thanks_4_rating	phpbrain	es	Gracias por valorar este elemento
-tutorial	phpbrain	es	Tutorial
-tutorials	phpbrain	es	Tutoriales
-up	phpbrain	es	arriba
-views	phpbrain	es	Vistas
-views %1	phpbrain	es	Vistas %1
-votes %1	phpbrain	es	votos %1
+$stat_name %1	phpbrain	es-es	$stat_name %1
+%1 contains %2 items	phpbrain	es-es	%1 contiene %2 elementos
+%1 faqs_activated	phpbrain	es-es	Las PF están activadas
+%1 faqs_deleted	phpbrain	es-es	Las PF están borradas
+%1 matches found	phpbrain	es-es	Se encontraron %1 coincidencias
+%1 questions_activated	phpbrain	es-es	%1 preguntas activadas
+%1 questions_deleted	phpbrain	es-es	%1 preguntas borradas
+active_when_checked	phpbrain	es-es	Activar al marcar
+add_answer	phpbrain	es-es	Añadir respuesta
+add_comments	phpbrain	es-es	Añadir comentarios
+add_question	phpbrain	es-es	Añadir pregunta
+add_question (%1 open)	phpbrain	es-es	Añadir pregunta (%1 abiertas)
+allow html	admin	es-es	Permitir etiquetas HTML en los mensajes
+already_rated	phpbrain	es-es	Ya ha valorado este elemento. Gracias.
+anon user	admin	es-es	Usuario anónimo
+answer	phpbrain	es-es	Respuesta
+browse	common	es-es	Examinar
+cant_post_must_register	phpbrain	es-es	Tiene que registrarse para poder añadir información a la base de conocimientos
+check_before_submit	phpbrain	es-es	Por favor, compruebe que esta información no existe ya en la base de datos antes de enviarla.
+close window	phpbrain	es-es	Cerrar ventana
+comment	phpbrain	es-es	Comentarios
+comments	phpbrain	es-es	Comentarios
+cur_open_qs	phpbrain	es-es	Preguntas abiertas actualmente
+current_questions	phpbrain	es-es	Preguntas actuales
+edit_answer	phpbrain	es-es	Editar respuesta
+edit_faq	phpbrain	es-es	Editar PF
+enable	common	es-es	Activar
+example	phpbrain	es-es	Ejemplo
+excellent	common	es-es	Excelente
+explain_faq_admin	phpbrain	es-es	Las respuestas a las PFs tienen que estar activadas para que los usuarios puedan verlas. Seleccione las PF que desee habilitar. También puede seleccionar respuestas que encuentra inapropiadas y quiera borrar.
+explain_maintain_answers	phpbrain	es-es	Las preguntas enviadas por los usuarios debe activarlas un administrador. Seleccione aquellas respuestas que desee activar o borrar
+explain_questions_admin	phpbrain	es-es	Las preguntas enviadas por los usuarios debe activarlas un administrador. Seleccione aquellas respuestas que desee activar o borrar
+faq	phpbrain	es-es	PF (Prefuntas frecuentes)
+faq_saved	phpbrain	es-es	PF guardadas
+faqs	phpbrain	es-es	PFs
+faqs_and_tutes	phpbrain	es-es	PF y tutoriales
+improve_by_rate	phpbrain	es-es	Ayúdenos a mejorar valorando los mensajes
+inspire_by_suggestions	phpbrain	es-es	Si necesita inspiración, eche un vistazo a las preguntas abiertas.
+invalid faq request - or something is nqr	phpbrain	es-es	ERROR: la PF solicitada no es válida
+kb_contains	phpbrain	es-es	La base de conocimientos contiene
+know_contrib	phpbrain	es-es	¿Sabe la respuesta? En ese caso, responda.
+last_mod %1	phpbrain	es-es	Ultima modificación: %1
+maintain_answers	phpbrain	es-es	Mantener respuestas
+no comments	phpbrain	es-es	Sin comentarios
+none found - revise or browse	phpbrain	es-es	No se encontró nada. Por favor, revise su búsqueda o su navegador
+none_pending	phpbrain	es-es	Nada pendiente
+none_unanswered	phpbrain	es-es	No hay PFs sin responder
+not_submit_qs_warn	phpbrain	es-es	Por favor, dése cuenta de que éste no es el lugar para hacer preguntas. Para eso, está la página de preguntas. Si introduce una pregunta sin una respuesta en esta página, se borrará.
+num_faqs %1	phpbrain	es-es	Preguntas frecuentes (%1)
+num_open %1	phpbrain	es-es	Abiertas (%1)
+num_pages %1	phpbrain	es-es	Páginas (%1)
+num_tutes %1	phpbrain	es-es	Tutoriales (%1)
+phpbrain	common	es-es	Base de conocimiento
+phpbrain config	admin	es-es	Configuración de la base de conocimiento
+phpbrain_config	phpbrain	es-es	Configuración de la base de conocimiento
+poor	common	es-es	Pobre
+preview	phpbrain	es-es	vista previa
+question	phpbrain	es-es	Pregunta
+rating	phpbrain	es-es	Valoración
+rating %1	phpbrain	es-es	valoración %1
+register	common	es-es	Registrar
+related_url	phpbrain	es-es	URL relacionada
+reset	phpbrain	es-es	Restablecer
+return_to_admin	phpbrain	es-es	Volver a Administración
+return_to_cats %1	phpbrain	es-es	Volver a la categoría %1
+return_to_index	phpbrain	es-es	Volver al índice
+return_to_search %1	phpbrain	es-es	Volver a la búsqueda %1
+score %1	phpbrain	es-es	puntuación %1
+section_maint_faqs	phpbrain	es-es	Mantener PFs pendientes
+section_maintain_questions	phpbrain	es-es	Mantener preguntas
+show	phpbrain	es-es	mostrar
+submitted_by	phpbrain	es-es	Enviado por
+text	common	es-es	Texto
+thanks_4_rating	phpbrain	es-es	Gracias por valorar este elemento
+tutorial	phpbrain	es-es	Tutorial
+tutorials	phpbrain	es-es	Tutoriales
+up	phpbrain	es-es	arriba
+views	phpbrain	es-es	Vistas
+views %1	phpbrain	es-es	Vistas %1
+votes %1	phpbrain	es-es	votos %1
