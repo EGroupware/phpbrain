@@ -1,4 +1,3 @@
-		pt-br	
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	pt-br	/kb diretório não existe e não pode ser criado, solicite ao administrador que verifique as configurações globais
 action	phpbrain	pt-br	Ação
 actions	phpbrain	pt-br	Ações
@@ -182,6 +181,7 @@ upload	phpbrain	pt-br	Enviado
 user	phpbrain	pt-br	Usuário
 user preferences	phpbrain	pt-br	Preferências do usuário
 views	phpbrain	pt-br	consultas
+was it easy to find this article using the above search string?	phpbrain	pt-br	Foi fácil descobrir este artigo usando o string de busca acima?
 was it easy to find this article?	phpbrain	pt-br	Foi fácil encontrar este artigo?
 when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	pt-br	Quando navegando nas categorias, escolha se a lista dos artigos mostrados corresponde apenas à categoria atual, ou a categoria atual e todas as subcategorias
 with all the words	phpbrain	pt-br	Com todas as palavras
