@@ -228,14 +228,14 @@
 				{
 					$sql  =  'UPDATE phpgw_kb_faq';
 					$sql .= ' SET cat_id = ' . $faq['cat_id'] . ',';
-					$sql .= ' title = "' . $this->db->db_addslashes($faq['title']) . '",';
-					$sql .= ' keywords = "' . $this->db->db_addslashes($faq['keywords']) . '",';
-					$sql .= ' text = "' . $this->db->db_addslashes($faq['text']) . '",';
+					$sql .= " title = '" . $this->db->db_addslashes($faq['title']) . "',";
+					$sql .= " keywords = '" . $this->db->db_addslashes($faq['keywords']) . "',";
+					$sql .= " text = '" . $this->db->db_addslashes($faq['text']) . "',";
 					$sql .= ' modified = ' . time() .',';
 					$sql .= ' user_id = ' . $faq['user_id'] .',';
 					$sql .= ' published = ' . ($admin ? 1 : 0) . ', ';
 					$sql .= ' is_faq = ' . $faq['is_faq'] . ', ';
-					$sql .= ' url = "' . $this->db->db_addslashes(urldecode($faq['url'])) .'"';
+					$sql .= " url = '" . $this->db->db_addslashes(urldecode($faq['url'])) ."'";
 					$sql .= " WHERE faq_id = $faq_id";
 					$this->db->query($sql, __LINE__, __FILE__);
 					if($this->db->affected_rows() == 1)
@@ -259,7 +259,7 @@
 					$sql .= '0, '; //views must be 0 for new entries
 					$sql .= time() . ',  '; 
 					$sql .= $faq['is_faq'] . ', ';
-					$sql .= '"' . $this->db->db_addslashes(urldecode($faq['url'])) .'")';//url is decoded to make sure it is not encoded already
+					$sql .= "'" . $this->db->db_addslashes(urldecode($faq['url'])) ."')";//url is decoded to make sure it is not encoded already
 					$this->db->query($sql, __LINE__, __FILE__);
 					return $this->db->get_last_insert_id('phpgw_kb_faq', 'faq_id');
 				}//end is new
@@ -294,12 +294,12 @@
 			{
   			$sql  = 'INSERT INTO phpgw_kb_comment(user_id, comment, entered, faq_id) ';
   			$sql .= 'VALUES(' . $comment_data['user_id'] . ', ';
-				$sql .=  '"'.$this->db->db_addslashes($comment_data['comment']) . '", '. time() .','.  $comment_data['faq_id'] . ')';
+				$sql .=  "'".$this->db->db_addslashes($comment_data['comment']) . "'," . time() .','.  $comment_data['faq_id'] . ')';
 			}
 			else//must be an edit
 			{
 				$sql  = 'UPDATE phpgw_kb_comment SET ';
-				$sql .= 'comment = "' . $this->db->db_addslashes($comment_data['comment']) . '" ';
+				$sql .= "comment = '" . $this->db->db_addslashes($comment_data['comment']) . "' ";
 				$sql .= "WHERE comment_id = $comment_id";
 			} 
 				$this->db->query($sql, __LINE__, __FILE__);
@@ -377,7 +377,7 @@
 		function set_question($question, $admin)
 		{
 			$sql  = 'INSERT INTO phpgw_kb_questions(question, pending) ';
-			$sql .= 'VALUES("' . $this->db->db_addslashes($question) .'", ';
+			$sql .= "VALUES('" . $this->db->db_addslashes($question) ."', ";
 			$sql .= ($admin ? 0 : 1) .')';
 			$this->db->query($sql, __LINE__, __FILE__);
 			if($this->db->get_last_insert_id('phpgw_kb_questions', ' question_id'))//worked
