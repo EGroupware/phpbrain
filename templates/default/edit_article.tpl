@@ -13,14 +13,16 @@
 		<td align=right>{lang_details}:</td><td>{question_details}</td>
 	</tr>
 	<!-- END answer_question_block -->
+	<!-- BEGIN article_id_block -->
 	<tr class="th">
 		<td align=right>
 			{lang_articleID}:
 		</td>
 		<td>
-			{show_articleID}{show_autoID}
+			{show_articleID}
 		</td>
 	</tr>
+	<!-- END article_id_block -->
 	<tr class="row_on">
 		<td width=1% align=right>
 			<span style='font:normal 12px sans-serif'>{lang_category}:</span>
