@@ -1,11 +1,11 @@
 <?php
 /**************************************************************************\
-* phpGroupWare - KnowledgeBase                                             *
-* http://www.phpgroupware.org                                              *
-* Written by Dave Hall [skwashd AT phpgroupware.org]		           *
+* eGroupWare - KnowledgeBase                                               *
+* http://www.egroupware.org                                                *
+* Written by Alejandro Pedraza [alejandro.pedraza AT dataenlace DOT com]   *
 * ------------------------------------------------------------------------ *
-* Started off as a port of phpBrain - http://vrotvrot.com/phpBrain/	   *
-*  but quickly became a full rewrite					   *
+*  Started off as a port of phpBrain - http://vrotvrot.com/phpBrain/	   *
+*  but quickly became a full rewrite					                   *
 * ------------------------------------------------------------------------ *
 *  This program is free software; you can redistribute it and/or modify it *
 *  under the terms of the GNU General Public License as published by the   *
@@ -13,863 +13,1707 @@
 *  option) any later version.                                              *
 \**************************************************************************/
 	
+	/**
+	* @class uikb
+	*
+	* @abstract		Presentation layer of the Knowledge Base
+	* @Last Editor	$ Author: alpeb $
+	* @author		Alejandro Pedraza
+	* @version		$ Revision: 0.99 $
+	* @license		GPL
+	**/
 	class uikb
 	{
-		var $bo;
-		var $edit_vals;
-		var $cats;
-		var $t;
-		var $theme;
-		var $public_functions = array('index'			=> True,
-									'add'				=> True,
-									'add_comment'		=> True,
-									'add_question'		=> True,
-									'browse'			=> True,
-									'confirm_delete'	=> True,
-									'css'				=> True,
-									'delete_comment'	=> True,
-									'delete_faq' => True,
-									'edit'				=> True,
-									'maint_answer'		=> True,
-									'maint_question'	=> True,
-									'preview'			=> True,
-									'rate'				=> True,
-									'save'				=> True,
-									'search'			=> True,
-									'unanswered'		=> True,
-									'view'				=> True,
-									'help'				=> True
+		var $public_functions = array(	'index'					=> True,
+										'advsearch'				=> True,
+										'edit_article'			=> True,
+										'view_article'			=> True,
+										'mail_article'			=> True,
+										'pop_search'			=> True,
+										'download_file'			=> True,
+										'add_question'			=> True,
+										'maintain_articles'		=> True,
+										'maintain_questions'	=> True,
 						);
-		
+		var $message;
+		var $navbar_shown = False;
+		var $bo;
+		var $t;
+		var $categories;
+		var $all_categories;
+		var $path = '';
+		var $vfs; 
+
+		/**
+		* @function uikb
+		*
+		* @abstract	Class constructor, instanciates bo class, and auxiliary API classes, and reads confirmation messages
+		* @author	Alejandro Pedraza
+		**/
 		function uikb()
 		{
-			$this->bo	= createObject('phpbrain.bokb');
-			$this->cats	= CreateObject('phpgwapi.categories');
-			$this->theme	= $GLOBALS['phpgw_info']['theme'];
-			$this->t	= $GLOBALS['phpgw']->template;
-			$this->t->unknowns = 'remove';
+			$this->bo						= CreateObject('phpbrain.bokb');
+			$GLOBALS['phpgw']->nextmatchs	= CreateObject('phpgwapi.nextmatchs');
+			$this->t						= $GLOBALS['phpgw']->template;
+
+			$this->message					= get_var('message', 'any', '');
+			if ($this->bo->messages_array[$this->message])
+			{
+				$this->message = "<tr><td align=center style='color:red'>" . lang($this->bo->messages_array[$this->message]) . "</td></tr>";
+			}
 		}
-		
+	
+		/**
+		* @function index
+		*
+		* @abstract	Shows main screen. Public function.
+		* @author	Alejandro Pedraza
+		**/
 		function index()
 		{
-			$this->browse();
-			$GLOBALS['phpgw']->common->phpgw_exit();
-		}
+			$category_passed	= (int)get_var('cat', 'GET', 0);
 
-		function add()
-		{
-			if(isset($_GET['question']) && isset($_GET['question_id']))
-			{
-				$this->edit_vals['title'] = urldecode(trim($_GET['question']));
-				$this->edit_vals['question_id'] = trim($_GET['question_id']);
-			}//end if question
-			$this->edit_answer(True);
-			$GLOBALS['phpgw']->common->phpgw_exit();
-		}//end add
+			$GLOBALS['phpgw']->common->phpgw_header();
+			echo parse_navbar();
+			$this->navbar_shown = True;
 
-		function add_comment()
-		{
-			if (isset($_POST['cancel']))
+			$this->t->set_file('main', 'main.tpl');
+			$this->t->set_block('main', 'articles_block', 'articles');
+			$this->t->set_block('main', 'articles_navigation_block', 'articles_navigation');
+			$this->t->set_block('main', 'articles_latest_block', 'articles_latest');
+			$this->t->set_block('main', 'articles_mostviewed_block', 'articles_mostviewed');
+			$this->t->set_block('main', 'unanswered_questions_block', 'unanswered_questions');
+			$this->t->set_var(array(
+				'message'				=> $this->message,
+				'search_tpl'			=> $this->show_basic_search(),
+				'tr_class'				=> 'th',
+				'bg_lists'				=> $GLOBALS['phpgw_info']['theme']['row_off']
+			));
+
+			// *** SHOW CATEGORIES (not if searching) *** 
+			if (!$this->bo->query && !$_POST['adv_search'])
 			{
-				header('Location: ' . $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.index'));
-				$GLOBALS['phpgw']->common->exit();
-			}
-			
-			$comment_id = (isset($_POST['comment_id']) ? trim($_POST['comment_id']) : 0);
-			$comment_data['faq_id'] = (isset($_POST['faq_id']) ? trim($_POST['faq_id']) : 0);
-			$comment_data['comment'] = (isset($_POST['comment']) ? trim($_POST['comment']) : '');
-			
-			if($comment_id)
-			{
-				$link['menuaction'] = 'phpbrain.uikb.edit_comments';
-			}
-			else
-			{
-				$link['menuaction'] = 'phpbrain.uikb.view';
-			}
-			
-			if($comment_data['faq_id'] && $comment_data['comment'])
-			{
-				$this->bo->set_comment($comment_id, $comment_data);
-				$link['faq_id']		= $comment_data['faq_id'];
-				$link['msg'] = 'comment added';
-			}
-			else
-			{
-				$link['msg'] = 'comment invalid';
-			}
-			
-			header('Location: ' . $GLOBALS['phpgw']->link('/index.php',$link)); 
-			$GLOBALS['phpgw']->common->phpgw_exit();
-		
-		}//end add comment	
-		
-		function add_question()
-		{
-			$question = (isset($_POST['comment']) ? trim($_POST['comment']) : '');
-			
-			if (isset($_POST['cancel']))
-			{
-				header('Location: ' . $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.index'));
-				$GLOBALS['phpgw']->common->exit();
-			}
-			
-			$ok = false;
-			if(strlen($question) && !$this->bo->is_anon())
-			{
-				$ok = $this->bo->set_question($question);
-			}//if valid question and user
-			
-			if($ok)
-			{
-				if ($this->bo->is_admin())
+				$parent_id = 0;
+				$show_path = '';
+				if ($category_passed)
 				{
-					$msg='question_added';
+					$parent_cat = $this->bo->return_single_category($category_passed);
+					list(,$parent_cat) = each($parent_cat);
+					$parent_id = $parent_cat['id'];
+					$this->path= '';
+					$show_path = lang ('You are in %1', $this->category_path($category_passed, True));
+				}
+
+				$this->bo->load_categories($category_passed);
+				$num_main_categories = 0;
+				foreach ($this->bo->categories as $cat)
+				{
+					if ($cat['parent'] == $parent_id) $num_main_categories ++;
+				}
+				$show_categories = $this->build_categories($parent_id, $num_main_categories);
+				$browse_cats = "<tr class='th'><td align=left><b>" . lang('Or browse the categories') . "</b></td></tr>";
+				if (!$show_categories)
+				{
+					if ($category_passed)
+					{
+						$browse_cats = '';
+						$show_categories = '';
+					}
+					else
+					{
+						$show_categories = "<span style='text-align:center'>" . lang("To create categories, press 'Edit Categories' in the preferences menu")  . "</span>";
+					}
+				}
+
+				if (!$category_passed && ($this->bo->preferences['show_tree'] == 'only_cat'))
+				{
+					$lang_articles = lang('Articles not classified under any category');
+				}
+				elseif (!$category_passed && ($this->bo->preferences['show_tree'] == 'all'))
+				{
+					$lang_articles = lang('All articles');
+				}
+				elseif (($category_passed && ($this->bo->preferences['show_tree'] == 'only_cat')) || !$this->bo->categories)
+				{
+					$lang_articles = lang('Articles in %1', $parent_cat['name']);
 				}
 				else
 				{
-					$msg = 'question_saved';
+					$lang_articles = lang('Articles in %1 and all its subcategories', $parent_cat['name']);
 				}
 			}
 			else
 			{
-				$msg = 'not added - error';
-			}// if ok
-			$this->unanswered($msg);
-			$GLOBALS['phpgw']->common->phpgw_exit();
-			 
-		}//end add question
+				$browse_cats = '';
+				$show_categories = '';
+				$show_path = '';
+				$lang_articles = lang('Search results');
+				$this->bo->load_categories($this->bo->cat);
+			}
+	
+			$this->t->set_var(array(
+				'browse_cats'	=> $browse_cats,
+				'categories'	=> $show_categories,
+				'path'			=> $show_path
+			));
 
-		function browse()
-		{
-			$cat_id = ( (isset($_POST['cat_id']) && $_POST['cat_id'] != 0) ? trim($_POST['cat_id']) : '');
-			$msg = ( isset($_GET['msg'])  ? lang(trim($_GET['msg'])) : '');
-			$search = (isset($_GET['query']) ? trim($_GET['query'])
-						: (isset($_POST['query']) ? trim($_POST['query']) : ''));
-			$this->start = ( isset($_POST['start'])  ? trim($_POST['start']) : 0);
-			$_POST['filter'] = ( isset($_POST['filter']) ? trim($_POST['filter']) : 'Answered');
-			$filter = $_POST['filter'];
-			
-			$GLOBALS['phpgw']->common->phpgw_header();
-			echo parse_navbar();
-			
-			$this->t->set_file('browse', 'browse.tpl');
-			
-			$this->t->set_block('browse','phpbrain_header');
-			$this->t->set_block('browse','column');
-			$this->t->set_block('browse','row');
-			$this->t->set_block('browse','phpbrain_footer');
-			
-			$this->t->set_var('th_bg',$GLOBALS['phpgw_info']['theme']['th_bg']);
-			
-			$not_empty=TRUE;
-			if($search)
-			{	
-				$faqs = $this->bo->get_search_results($search);
-				if(is_array($faqs))
-				{
-					$msg=lang('%1 matches found', count($faqs));
-				}
-				else//nothing found
-				{
-					$msg=lang('none found - revise or browse');
-					$not_empty=FALSE;
-				}
-			}
-			elseif ($filter == 'Answered')
+			// *** SHOW ARTICLES LIST ***
+			// results from advanced search
+			if ($_POST['adv_search'])
 			{
-				$faqs = $this->bo->get_faq_list($cat_id,$this->start);
-				$total_records = $this->bo->get_count($cat_id);
-				$cols='<td height="21"><font size="-1" face="Arial, Helvetica, sans-serif">'.lang('Question').'</font></td>';
-				$cols.='<td height="21"><font size="-1" face="Arial, Helvetica, sans-serif">'.lang('Answer').'</font></td>';
-				$cols.='<td height="21"><font size="-1" face="Arial, Helvetica, sans-serif">'.lang('Modified').'</font></td>';
-				$cols.='<td height="21"><font size="-1" face="Arial, Helvetica, sans-serif">'.lang('Avg. score').'</font></td>';
-				$cols.='<td height="21"><font size="-1" face="Arial, Helvetica, sans-serif">'.lang('Actions').'</font></td>';
-				$this->t->set_var('cols',$cols);
+				$articles_list = $this->bo->adv_search_articles();
 			}
-			elseif ($filter == 'Open')
+			// normal browsing or basic search
+			else
 			{
-				$q_unanswered = $this->bo->get_questions(FALSE,$this->start);
-				$total_records = $this->bo->get_count_unanswered();
-				$cols='<td height="21"><font size="-1" face="Arial, Helvetica, sans-serif">'.lang('Question').'</font></td>';
-				$this->t->set_var('cols',$cols);
+				$articles_list = $this->bo->search_articles($category_passed, 'published');
 			}
-			
-			$this->t->set_var('message',$msg);
-			
-			$GLOBALS['phpgw']->nextmatchs = CreateObject('phpgwapi.nextmatchs');
-			
-			$GLOBALS['phpgw']->template->set_var('searchreturn','');
-			
-			$this->sort=1;
-						
-			$search_filter = $GLOBALS['phpgw']->nextmatchs->show_tpl(
-				'/index.php',																												// $sn
-				$this->start, 																												// $localstart
-				$total_records,																											// $total
-				'&menuaction=phpbrain.uikb.index&cat_id=' . $cat_id,													// $extra
-				'97%',																														// $twidth
-				$GLOBALS['phpgw_info']['theme']['th_bg'],																	// $bgtheme
-				1,																																// $search_obj
-				array(array('Answered',lang('Answered')),array('Open',lang('Open'))),							// $filter_obj
-				1,																																// $showsearch
-				0,																																// $yours
-				$cat_id,																													// $cat_id
-				'cat_id'																														// $cat_field
-			);
-			$this->t->set_var('search_filter',$search_filter);
-			
-			if ($not_empty)
+			// echo "articles list: <pre>";print_r($articles_list);echo "</pre>";
+			if (!$articles_list)
 			{
-				$lang_showing = $GLOBALS['phpgw']->nextmatchs->show_hits($total_records,$this->start);
+				$this->t->set_var(array(
+					'articles_navigation'	=> "<br>----- " . lang('There are no articles') . "-----",
+					'articles'				=> ''
+				));
 			}
 			else
 			{
-				$lang_showing="";
-			}
-			
-			$this->t->set_var('lang_showing', $lang_showing);
-			$this->t->pparse('out','phpbrain_header');
-			
-			/* Show the entries */
-			if ($filter=='Answered' && $not_empty && isset($faqs))
-			{
-				foreach ($faqs as $faq_id => $faq)
+				$this->t->set_var(array(
+					'left'		=> $GLOBALS['phpgw']->nextmatchs->left('/index.php', $this->bo->start, $this->bo->num_rows, 'menuaction=phpbrain.uikb.index'),
+					'right'		=> $GLOBALS['phpgw']->nextmatchs->right('/index.php', $this->bo->start, $this->bo->num_rows, 'menuaction=phpbrain.uikb.index'),
+					'num_regs'	=> $GLOBALS['phpgw']->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start),
+					'form_articles_nav_action' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.index')
+				));
+				$this->t->parse('articles_navigation', 'articles_navigation_block');
+
+				foreach ($articles_list as $article_preview)
 				{
-					$actions = '<a href="'
-						. $GLOBALS['phpgw']->link('/index.php',array(
-						'menuaction' => 'phpbrain.uikb.view',
-						'faq_id'      => $faq_id
-					))
-					. '"><img src="'
-					. $GLOBALS['phpgw']->common->image('addressbook','view')
-					. '" border="0" title="'.lang('View').'"></a> ';
-					
-					if ($this->bo->is_admin())
+					if ($article_preview['total_votes'])	// only show stars if article has been rated
 					{
-						$actions .= '<a href="'
-							. $GLOBALS['phpgw']->link('/index.php',array(
-							'menuaction' => 'phpbrain.uikb.edit',
-							'faq_id'      => $faq_id
-						))
-						. '"><img src="'
-						. $GLOBALS['phpgw']->common->image('addressbook','edit')
-						. '" border="0" title="'.lang('Edit').'"></a> '
-						
-						.'<a href="'
-							. $GLOBALS['phpgw']->link('/index.php',array(
-							'menuaction' => 'phpbrain.uikb.delete_faq',
-							'faq_id'      => $faq_id
-						))
-						. '"><img src="'
-						. $GLOBALS['phpgw']->common->image('addressbook','delete')
-						. '" border="0" title="'.lang('Delete').'"></a> ';
+						$img_stars = "<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', round($article_preview['average_votes']) . 'stars') . "' width=50 height=10>";
 					}
-					
-					$this->t->set_var('columns','');
-					$tr_color = $GLOBALS['phpgw']->nextmatchs->alternate_row_color($tr_color);
-					$this->t->set_var('row_tr_color',$tr_color);
-					
-					$this->t->set_var('col_data',$faq['title']);
-					$this->t->parse('columns','column',True);
-					$this->t->set_var('col_data',$faq['text']);
-					$this->t->parse('columns','column',True);
-					$this->t->set_var('col_data',date('d-M-Y', $faq["modified"]));
-					$this->t->parse('columns','column',True);
-					$this->t->set_var('col_data', '<center>' . $faq['vote_avg'] . '</center>');
-					$this->t->parse('columns','column',True);
-					$this->t->set_var('col_data', '<center>' . $actions . '</center>');
-					$this->t->parse('columns','column',True);
-					$this->t->parse('rows','row',True);
-					$this->t->pparse('out','row');
-				}
-			}
-			elseif ($filter=='Open' && $not_empty && isset($q_unanswered))
-			{
-				foreach ($q_unanswered as $qu_id => $q_content)
-				{
-					$this->t->set_var('columns','');
-					$tr_color = $GLOBALS['phpgw']->nextmatchs->alternate_row_color($tr_color);
-					$this->t->set_var('row_tr_color',$tr_color);
-					
-					$faq_url='<a href=';
-					$faq_url.=$GLOBALS['phpgw']->link('/index.php',array('menuaction' => 'phpbrain.uikb.add', 'question' => $q_content, 'question_id' => $qu_id));
-					$faq_url.='>';
-					
-					$this->t->set_var('col_data',$faq_url.$q_content.'</a>');
-					$this->t->parse('columns','column',True);
-					$this->t->parse('rows','row',True);
-					$this->t->pparse('out','row');
-				}
-			}
-			
-			$this->t->pparse('out','phpbrain_footer');			
-		}//end browse
-
-		function build_form($form_target, $title, $input_descr, $input_hidden=false, $allow_anon=false)
-		{
-
-			$tpl = $this->t;
-			$tpl->set_file('form', 'form.tpl');
-			
-			
-  		if(!$this->bo->is_anon())
-  		{
-  			$tpl->set_var(array('form_url'		=> $GLOBALS['phpgw']->link('/index.php', 
-  											array('menuaction' => "phpbrain.uikb.$form_target")),
-  					'lang_title'		=> lang($title),
-  					'lang_input_descr'	=> lang($input_descr),
-  					'lang_submit_val'	=> lang('add'),
-  					'lang_submit_cancel' => lang('cancel')
- 					)
- 				);
-
-				$tpl->set_block('form', 'hidden_var', 'hidden_vars');
-				if(is_array($input_hidden[1]))//multiple dimension array??
-				{
-					foreach($input_hidden as $ih_key => $ih_vals)
+					else
 					{
-						$tpl->set_var($ih_vals);
-						$tpl->parse('hidden_vars', 'hidden_var',true);
+						$img_stars = '';
 					}
+					if ($article_preview['files'])
+					{
+						$attachment = "<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'attach') . "'>";
+					}
+					else
+					{
+						$attachment = '';
+					}
+	
+					$query = $this->bo->query? '&query=' . urlencode($this->bo->query) : '';
+					$this->path = ''; // have always to reset this before calling category_path()
+					$category_path = $this->category_path($article_preview['cat_id']);
+					$this->t->set_var(array(
+						'art_num'		=> $article_preview['art_id'],
+						'art_href'		=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id=' . $article_preview['art_id'] . $query),
+						'art_title'		=> $article_preview['title'],
+						'art_date'		=> date('F j, Y, g:i a', $article_preview['modified']),
+						'img_stars'		=> $img_stars,
+						'attachment'	=> $attachment,
+						'art_category'	=> $category_path? lang('in %1', $category_path) : '',
+						'art_topic'		=> $article_preview['topic']
+					));
+					$this->t->parse('articles', 'articles_block', True);
 				}
-				elseif(is_array($input_hidden))
-				{
-						$tpl->set_var($input_hidden);
-						$tpl->parse('hidden_vars', 'hidden_var');
-				}
-				else//must be false
-				{
-					$tpl->set_var('hidden_vars', '');
-				}//end if input_hidden
-  			return $tpl->subst('form');
-  		}
-  		else//must be anon user
-  		{
-  			$not_reg  = '<a href="';
-  			$not_reg .= $GLOBALS['phpgw']->link('/index.php', array('menuaction' => 'phpbrain.uikb.redirect_anon_info'));
-  			$not_reg .='">' . lang('cant_post_must_register') . '</a>';
-				return $not_reg;
+			}
+			$this->t->set_var('lang_articles', $lang_articles);
 
-  		}//end is_anon
-		}//end build_form
-		
-		function delete_faq()
-		{
-			$faq_id = (isset($_GET['faq_id']) ? trim($_GET['faq_id']) : '');
-			$this->bo->delete_answer($faq_id);
-			header('Location: ' . $GLOBALS['phpgw']->link('/index.php', array('menuaction' => 'phpbrain.uikb.index','msg' => 'FAQ removed successfully')));
+			// *** SHOW LATEST ARTICLES LIST *** 
+			if (!$articles_latest = $this->bo->return_latest_mostviewed($category_passed, 'created'))
+			{
+				$this->t->set_var('articles_latest', "<tr><td colspan=2 align=center><br>----- " . lang('None') . " -----</td></tr>");
+			}
+
+			for ($i=0; $i<sizeof($articles_latest); $i++)
+			{
+				$unpublished = $articles_latest[$i]['published']? '' : '(' . lang('unpublished') . ')';
+				$this->path = '';
+				$category_path = $this->category_path($articles_latest[$i]['cat_id']);
+				$this->t->set_var(array(
+					'line_num'		=> $i+1,
+					'art_href'		=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id=' . $articles_latest[$i]['art_id']),
+					'art_title'		=> $articles_latest[$i]['title'],
+					'unpublished'	=> $unpublished,
+					'art_date'		=> $GLOBALS['phpgw']->common->show_date($articles_latests[$i]['modified'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']),
+					'art_category'	=> $category_path? lang('in %1', $category_path) : ''
+				));
+				$this->t->parse('articles_latest', 'articles_latest_block', True);
+			}
+			$this->t->set_var('lang_latest', lang('Latest'));
+
+			// *** SHOW MOST POPULAR ARTICLES LIST *** 
+			if (!$most_viewed= $this->bo->return_latest_mostviewed($category_passed, 'views'))
+			{
+				$this->t->set_var('articles_mostviewed', "<tr><td colspan=2 align=center><br>----- " . lang('None') . " -----</td></tr>");
+			}
+
+			for ($i=0; $i<sizeof($most_viewed); $i++)
+			{
+				$unpublished = $most_viewed[$i]['published']? '' : '(' . lang('unpublished') . ')';
+				$this->path = '';
+				$this->t->set_var(array(
+					'line_num'		=> $i+1,
+					'art_href'		=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id=' . $art_preview['art_id']),
+					'art_title'		=> $most_viewed[$i]['title'],
+					'unpublished'	=> $unpublished,
+					'art_category'	=> $this->category_path($most_viewed[$i]['cat_id']),
+					'art_views'		=> $most_viewed[$i]['views']
+				));
+				$this->t->parse('articles_mostviewed', 'articles_mostviewed_block', True);
+			}
+			$this->t->set_var(array(
+				'lang_most_viewed'	=> lang('Most viewed'),
+				'lang_views'		=> lang('views')
+			));
+
+			// *** SHOW UNANSWERED QUESTIONS *** 
+			if (!$unanswered_questions = $this->bo->unanswered_questions($category_passed))
+			{
+				$this->t->set_var('unanswered_questions', "<tr><td colspan=2 align=center><br>----- " . lang('None') . " -----</td></tr>");
+			}
+
+			foreach ($unanswered_questions as $unanswered)
+			{
+				$this->path = '';
+				$category_path = $this->category_path($unanswered['cat_id']);
+				$this->t->set_var(array(
+					'art_href'				=> $GLOBALS['phpgw']->link('/index.php', array('menuaction' => 'phpbrain.uikb.edit_article', 'q_id' => $unanswered['question_id'])),
+					'art_title'				=> $unanswered['summary'],
+					'who'					=> $unanswered['username'],
+					'unanswered_category'	=> $category_path? lang('in %1', $category_path) : ''
+				));
+				$this->t->parse('unanswered_questions', 'unanswered_questions_block', True);
+			}
+
+			$more_questions = '';
+			if ($this->bo->num_questions > $this->bo->preferences['num_lines'])
+			{
+				$more_questions = "<div style='text-align:right; padding-top:10px'><a href='" . $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.maintain_questions') . "'>" . lang('See more questions...') . "</a></div>";
+			}
+			$this->t->set_var(array(
+				'lang_unanswered'	=> lang('Unanswered questions'),
+				'more_questions'	=> $more_questions
+			));
+			
+			$this->t->pparse('output', 'main');
 		}
-		
-		function edit()
-		{
-			$faq_id = (int) (isset($_GET['faq_id']) ? trim($_GET['faq_id']) : 0);
-			$this->edit_vals = $this->bo->get_item($faq_id, false);
-			$this->edit_answer(False);
-			$GLOBALS['phpgw']->common->phpgw_exit();
-		}//end edit
-		
-		function edit_answer($new)
+
+		/**
+		* @function advsearch
+		*
+		* @abstract Shows advanced search form, that is posted to function index to handle the search. Public function
+		* @author	Alejandro Pedraza
+		**/
+		function advsearch()
 		{
 			$GLOBALS['phpgw']->common->phpgw_header();
-			$add_answer = ($new ? 'add_answer' : 'edit_answer');
-			$GLOBALS['phpgw_info']['flags']['app_header'] = lang($GLOBALS['phpgw_info']['flags']['currentapp']) . ' - ' . lang($add_answer);
 			echo parse_navbar();
-									
-			$this->t->set_file('edit_faq', 'edit_faq.tpl');
+			$this->navbar_shown = True;
+			$this->t->set_file('search_form', 'adv_search.tpl');
+			
+			$this->t->set_var(array(
+				'row_on'			=> $GLOBALS['phpgw_info']['theme']['row_on'],
+				'row_off'			=> $GLOBALS['phpgw_info']['theme']['row_off'],
+				'lang_advanced_search' => lang('Advanced Search'),
+				'lang_find'			=> lang('Find results'),
+				'lang_all_words'	=> lang('With all the words'),
+				'lang_phrase'		=> lang('With the exact phrase'),
+				'lang_one_word'		=> lang('With at least one of the words'),
+				'lang_without_word'	=> lang('Without the words'),
+				'lang_show_cats'	=> lang('Show messages in category'),
+				'lang_all'			=> lang('all'),
+				'lang_include_subs'	=> lang('Include subcategories'),
+				'lang_pub_date'		=> lang('Publication date'),
+				'lang_anytime'		=> lang('anytime'),
+				'lang_3_months'		=> lang('past %1 months', 3),
+				'lang_6_months'		=> lang('past %1 months', 6),
+				'lang_past_year'	=> lang('past year'),
+				'lang_ocurrences'	=> lang('Ocurrences'),
+				'lang_anywhere'		=> lang('Anywhere in the article'),
+				'lang_in_title'		=> lang('in the title'),
+				'lang_in_topic'		=> lang('in the topic'),
+				'lang_in_text'		=> lang('in the text'),
+				'lang_num_res'		=> lang('Number of results per page'),
+				'lang_user_prefs'	=> lang('User preferences'),
+				'lang_order'		=> lang('Order results by'),
+				'lang_created'		=> lang('Creation date'),
+				'lang_artid'		=> lang('Article ID'),
+				'lang_title'		=> lang('title'),
+				'lang_user'			=> lang('user'),
+				'lang_modified'		=> lang('Modification date'),
+				'lang_desc'			=> lang('Descendent'),
+				'lang_asc'			=> lang('Ascendent'),
+				'lang_search'		=> lang('search'),
+				'form_action'		=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.index'),
+				'select_categories'	=> $this->bo->categories_obj->formated_list('select', 'all', '', True)
+			));
+			$this->t->pparse('output', 'search_form');
+		}
 
-			$this->t->set_var('add_answer_link', $GLOBALS['phpgw']->link('/index.php', 
-												array('menuaction'	=> 'phpbrain.uikb.save',
-													'question_id'	=> $this->edit_vals['question_id']
-													)
-												)
-							);
-
-			$this->t->set_var($this->edit_vals);
-
-			$this->t->set_block('edit_faq', 'b_status', 'status');
-			if($this->bo->is_admin() && isset($this->edit_vals['faq_id']))
+		/**
+		* @function view_article
+		*
+		* @abstract	Shows article details. Public function.
+		* @author	Alejandro Pedraza
+		**/
+		function view_article()
+		{
+			$article_id		= (int)get_var('art_id', 'GET', 0);
+			$more_comments	= (int)get_var('more_comments', 'GET', 0);
+			if ($_GET['printer'] || $_GET['mail'])
 			{
-				$this->t->set_var(
-					array('lang_status'	=> lang('status'),
-						'check'		=> ($this->edit_vals['published'] ? 'checked' : ''),
-						'lang_active_when_checked' => lang('active_when_checked')
-						)
-					);
-				$this->t->parse('status', 'b_status');
+				$print_view = True;
 			}
 			else
 			{
-				$this->t->set_var('status', '');
+				$print_view = False;
+			}
+			$article		= $this->bo->get_article($article_id);
+			//echo "article: <pre>";print_r($article);echo  "</pre>";
+
+			if (!$article_id || !$article) $this->die_peacefully("Error retrieving article");
+			$can_edit = $this->bo->check_permission($this->bo->edit_right)? True : False;
+
+			// Process article deletion
+			if ($_POST['delete_article'])
+			{
+				$message = $this->bo->delete_article($article['files']);
+				$GLOBALS['phpgw']->redirect_link('/index.php', 'menuaction=phpbrain.uikb.index&message=' . $message);
+				die();
+			}
+
+			// Process article publication
+			if ($_POST['publish_article'])
+			{
+				$message = $this->bo->publish_article();
+				$this->reload_page($article_id, $message);
+				die();
+			}
+
+			// Process comment publication
+			if ($_GET['pub_com'])
+			{
+				$message = $this->bo->publish_comment();
+				$this->reload_page($article_id, $message);
+				die();
+			}
+
+			// Process comment deletion
+			if ($_GET['del_comm'])
+			{
+				$message = $this->bo->delete_comment();
+				$this->reload_page($article_id, $message);
+				die();
+			}
+
+			// Process comment and rating
+			if ($_POST['comment_box'] || $_POST['Rate'])
+			{
+				$message = '';
+				if ($_POST['comment_box'])
+				{
+					if (!$message = $this->bo->add_comment()) $this->die_peacefully('Comment could not be inserted in the database');
+				}
+				if ($_POST['Rate'])
+				{
+					$valid_rates = array(1,2,3,4,5);
+					if ($this->bo->user_has_voted() || !in_array($_POST['Rate'], $valid_rates)) $this->die_peacefully('Rating invalid');
+					if (!$this->bo->add_rating($article['votes_' . $_POST['Rate']])) $this->die_peacefully('Unable to add rating to database');
+					switch($message)
+					{
+						case 'comm_ok':
+							$message = 'comm_rate_ok';
+							break;
+						case 'comm_submited':
+							$message = 'comm_rate_submited';
+							break;
+						default:
+							$message = 'rate_ok';
+							break;
+					}
+				}
+				$this->reload_page($article_id, $message);
+				die();
+			}
+
+			// Process file upload
+			if ($_FILES)
+			{
+				$message = $this->bo->process_upload();
+				$this->reload_page($article_id, $message);
+				die();
+			}
+			// Process file deletion
+			if ($_POST['delete_file'])
+			{
+				$message = $this->bo->delete_file($article['files']);
+				$this->reload_page($article_id, $message);
+				die();
+			}
+
+			// Process related articles added
+			if ($_POST['update_related'])
+			{
+				$message = $this->bo->add_related();
+				$this->reload_page($article_id, $message);
+				die();
+			}
+			// Process related articles deletion
+			if ($_POST['delete_related'])
+			{
+				$this->bo->delete_related();
+				$this->reload_page($article_id, 'del_rel_ok');	// I think there's no way of telling a deletion went wrong... (affected rows=0 always)
+				die();
+			}
+
+			// Process links added
+			if ($_POST['submit_link'])
+			{
+				$message = $this->bo->add_link();
+				$this->reload_page($article_id, $message);
+				die();
+			}
+			// Process links deletion
+			if ($_POST['delete_link'])
+			{
+				$message = $this->bo->delete_link();
+				$this->reload_page($article_id, $message);
+				die();
+			}
+
+			// *** SHOW ARTICLE ***
+			if ($print_view)
+			{
+				$this->t->set_file('view_article', 'print_article.tpl');
+				$this->t->set_block('view_article', 'file_item_block', 'file_item');
+				$this->t->set_block('view_article', 'file_block', 'file');
+				$this->t->set_block('view_article', 'related_article_block', 'related_article');
+				$this->t->set_block('view_article', 'related_block', 'related');
+				$this->t->set_block('view_article', 'links_block', 'links');
+				$this->t->set_block('view_article', 'show_links_block', 'show_links');
+			}
+			else
+			{
+				$GLOBALS['phpgw_info']['flags']['css'] = $this->tabs_css();
+				if(!@is_object($GLOBALS['phpgw']->js))
+				{
+					$GLOBALS['phpgw']->js = CreateObject('phpgwapi.javascript');
+				}
+				$GLOBALS['phpgw']->js->validate_file('tabs','tabs');
+				$GLOBALS['phpgw']->js->set_onload('javascript:initAll();');
+				$GLOBALS['phpgw_info']['flags']['java_script_thirst'] = "<script>function openpopup() {window1=window.open('" . $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.pop_search') . "', 'Search', 'width=800,height=600,toolbar=no,scrollbars=yes,resizable=yes');}</script>";
+				$GLOBALS['phpgw']->common->phpgw_header();
+				echo parse_navbar();
+				$this->navbar_shown = True;
+	
+				$this->t->set_file('view_article', 'view_article.tpl');
+				$this->t->set_block('view_article', 'easy_question_block', 'easy_question');
+				$this->t->set_block('view_article', 'comment_block', 'comment');
+				$this->t->set_block('view_article', 'comment_form_block', 'comment_form');
+				$this->t->set_block('view_article', 'rating_graph_block', 'rating_graph');
+				$this->t->set_block('view_article', 'rating_form_block', 'rating_form');
+				$this->t->set_block('view_article', 'file_item_block', 'file_item');
+				$this->t->set_block('view_article', 'file_upload_block', 'file_upload');
+				$this->t->set_block('view_article', 'related_article_block', 'related_article');
+				$this->t->set_block('view_article', 'related_article_add_block', 'related_article_add');
+				$this->t->set_block('view_article', 'links_block', 'links');
+				$this->t->set_block('view_article', 'links_add_block', 'links_add');
+				$this->t->set_block('view_article', 'img_delete_block', 'img_delete');
+				$this->t->set_block('view_article', 'edit_del_block', 'edit_del');
+				$this->t->set_block('view_article', 'publish_btn_block', 'publish_btn');
+				$this->t->set_block('view_article', 'history_line_block', 'history_line');
 			}
 
 			$this->t->set_var(array(
-				'tr_on' => $GLOBALS['phpgw_info']['theme']['row_on'],
-				'tr_off' =>$GLOBALS['phpgw_info']['theme']['row_off']
-				)
-			);
-			
-			$lang = array(
-					'lang_check_before_submit'	=> lang('check_before_submit'),
-					'lang_not_submit_qs_warn'	=> lang('not_submit_qs_warn'),
-					'lang_inspire_by_suggestions'	=> lang('inspire_by_suggestions'),
-					'lang_title'			=> lang('Question'),
-					'lang_keywords'			=> lang('keywords'),
-					'lang_category'			=> lang('category'),
-					'lang_related_url'		=> lang('related_url'),
-					'lang_text'				=> lang('text'),
-					'lang_submit_cancel'			=> lang('Cancel'),
-					'lang_save'				=> lang('save'),
-					'lang_back'				=> lang('back'),
-					'lang_delete'			=> lang('delete')
-					);
-			$this->t->set_var($lang);
+				'message'				=> $this->message,
+				'mail_message'			=> '',
+				'search_tpl'			=> $this->show_basic_search(),
+				'lang_article'			=> lang('Article'),
+				'lang_linksfiles'		=> lang('Links & Files'),
+				'lang_history'			=> lang('History'),
+				'lang_category'			=> lang('Category'),
+				'lang_title'			=> lang('Title'),
+				'lang_topic'			=> lang('Topic'),
+				'lang_keywords'			=> lang('Keywords'),
+				'lang_add_comments'		=> lang('If you wish, you can comment this article here'),
+				'lang_please_rate'		=> lang('Please rate the pertinence and quality of this article'),
+				'lang_poor'				=> lang('Poor'),
+				'lang_excellent'		=> lang('Excellent'),
+				'lang_attached_files'	=> lang('Attached Files'),
+				'lang_related_articles'	=> lang('Related Articles in the Knowledge Base'),
+				'lang_links'			=> lang('Links'),
+				'lang_date'				=> lang('Date'),
+				'lang_user'				=> lang('User'),
+				'lang_action'			=> lang('Action'),
+				'lang_upload'			=> lang('upload'),
+				'lang_attach_file'		=> lang('Attach file'),
+				'lang_delete'			=> lang('delete'),
+				'img_printer'			=> $GLOBALS['phpgw']->common->image('phpbrain', 'articleprint'),
+				'href_printer'			=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id='. $article_id .'&printer=1'),
+				'img_mail'				=> $GLOBALS['phpgw']->common->image('phpbrain', 'mail'),
+				'img_src_del'			=> $GLOBALS['phpgw']->common->image('phpbrain', 'delete'),
+				'alt_printer'			=> lang('Printer view'),
+				'alt_mail'				=> lang('Mail article'),
+				'href_mail'				=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.mail_article&art_id='. $article_id),
+				'form_article_action'	=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id=' . $article_id),
+				'form_del_action'		=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id=' . $article_id)
+			));
 
-			$cat_options = $this->cats->formatted_list('select','all',$this->edit_vals['cat_id']);
-			$this->t->set_var('cats_options', $cat_options);
-
-			$this->t->pfp('out', 'edit_faq');
-		}//end edit question
-
-		function help()
-		{
- 			$GLOBALS['phpgw']->common->phpgw_header();
- 			echo parse_navbar();
-			echo '<h2>Coming Soon!</h2>';
-			echo 'This will link to the manual for this app when completed';
-			$GLOBALS['phpgw']->common->phpgw_exit();
-		}//end help
-		
-		function maint_answer()
-		{
-			if(!$this->bo->is_admin())
+			$published = $article['published']? '' : lang("This article hasn't yet been published in the Knowledge Base");
+			$lastmodif = '';
+			$img_stars = '';
+			if ($article['modified_username'])
 			{
-  			$GLOBALS['phpgw']->common->phpgw_header();
-  			echo parse_navbar();
-				echo '<h2 align="center">Coming Soon!</h2>';
-				echo 'A proper manual will be added soon';
-				$GLOBALS['phpgw']->common->exit();
+				$lastmodif = lang('Last modification by %1 on %2', $article['modified_username'], $GLOBALS['phpgw']->common->show_date($article['modified'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']));
 			}
-			else//must be admin
+			// only show stars if article has been rated
+			if ($article['total_votes'])
 			{
-				$msg = '';
-				if($_POST['activate'] && (count($_POST['faq_id']) != 0))
-				{
-					$msg = lang('%1 faqs_activated', $this->bo->set_active_answer($_POST['faq_id']));
-				}
-				if($_POST['delete'] && (count($_POST['faq_id']) != 0))
-				{
-					$msg = lang('%1 faqs_deleted', $this->bo->delete_answer($_POST['faq_id']));
-				}
-  			$GLOBALS['phpgw']->common->phpgw_header();
-  			$GLOBALS['phpgw_info']['flags']['app_header'] = lang($GLOBALS['phpgw_info']['flags']['currentapp']) . ' - ' . lang('Maintain Answers');
-  			echo parse_navbar();
-  			
-  			$this->t->set_file('admin_maint', 'admin_maint.tpl');
-  			$this->t->set_block('admin_maint', 'pending_list', 'pending_items');
-  			$this->t->set_block('admin_maint', 'pending_block', 'p_block');
-  			$this->t->set_var('admin_url', $GLOBALS['phpgw']->link('/admin/index.php'));
-  			$this->t->set_var('lang_return_to_admin', lang('return_to_admin'));
-			$this->t->set_var('msg', ((strlen($msg) !=0) ? $msg : '&nbsp;'));
-
-			$faqs = $this->bo->get_faq_list('', 0, true);				
-  			if(is_array($faqs))
-  			{
-  				$this->t->set_var(array('lang_admin_section'	=> lang('maintain_answers'),
-  										'lang_explain_function'	=> lang('explain_maintain_answers'),
-											'form_action'			=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.maint_answer')));
-  
-  				foreach($faqs as $key => $vals)
-  				{
-  					$this->t->set_var(array('id'		=> "faq_id[$key]",
-  											'text'		=> $vals['text'],
-												'row_bg'	=> (($row%2) ? $this->theme['row_on'] : $this->theme['row_off']),
-												'extra'		=> '<a href="'.$GLOBALS['phpgw']->link('/index.php', 
-																	array('menuaction' 	=> 'phpbrain.uikb.preview',
-																			'faq_id'	=> $key
-																			)
-																		). '" target="_blank">'.lang('preview').'</a>'
-  											)
-  									);
-  					$this->t->parse('pending_items', 'pending_list', true);
-  					$row++;
-   				}//end foreach(pending)
-					$lang = array('lang_explain_function'	=> lang('explain_faq_admin'),
-								'lang_admin_section'		=> lang('section_maint_faqs'),
-								'lang_enable'				=> lang('enable'),
-								'lang_delete'				=> lang('delete')
-								);
-					$this->t->set_var($lang);
-  				$this->t->parse('p_block', 'pending_block');
-  			}
-  			else//no pending faqs
-  			{
-  				$this->t->set_var('p_block', lang('none_pending'));
-  			}//end if is_array(open)
-  			$this->t->pfp('out', 'admin_maint');
-			}//end is admin
-		}//end maint answers
-		
-		function maint_question()
-		{
-			if(!$this->bo->is_admin())
-			{
-				header('Location: ' . $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.index'));
-				$GLOBALS['phpgw']->common->exit();
+				$img_stars = "<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', round($article['average_votes']) . 'stars') . "' width=50 height=10>";
 			}
-			else//must be admin
-			{
-				$msg = '';
-				if($_POST['activate'] && (count($_POST['question_id']) != 0))
-				{
-					$msg = lang('%1 questions_activated', $this->bo->set_active_question($_POST['question_id']));
-				}
-				if($_POST['delete'] && (count($_POST['question_id']) != 0))
-				{
-					$msg = lang('%1 questions_deleted', $this->bo->delete_question($_POST['question_id']));
-				}
-  			$GLOBALS['phpgw']->common->phpgw_header();
-  			$GLOBALS['phpgw_info']['flags']['app_header'] = lang($GLOBALS['phpgw_info']['flags']['currentapp']) . ' - ' . lang('Maintain Questions');
-  			echo parse_navbar();
-  			$this->t->set_file('admin_maint', 'admin_maint.tpl');
-  			$this->t->set_block('admin_maint', 'pending_list', 'pending_items');
-  			$this->t->set_block('admin_maint', 'pending_block', 'p_block');
-  			$this->t->set_var('admin_url', $GLOBALS['phpgw']->link('/admin/index.php'));
-  			$this->t->set_var('lang_return_to_admin', lang('return_to_admin'));
-				$this->t->set_var('msg', ((strlen($msg) !=0) ? $msg : '&nbsp;'));
 
-				$questions = $this->bo->get_questions(true);				
-  			if(is_array($questions))
-  			{
-  				foreach($questions as $key => $val)
-  				{
-  					$this->t->set_var(array('id'		=> "question_id[$key]",
-  											'text'		=> $val,
-												'row_bg'	=> (($row%2) ? $this->theme['row_on'] : $this->theme['row_off']),
-  											)
-  									);
-  					$this->t->parse('pending_items', 'pending_list', true);
-  					$row++;
-   				}//end foreach(pending)
-					$lang = array('lang_explain_function'	=> lang('explain_questions_admin'),
-								'lang_admin_section'		=> lang('section_maintain_questions'),
-								'lang_enable'				=> lang('enable'),
-								'lang_delete'				=> lang('delete'),
-								'form_action'				=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.maint_question')
-								);
-					$this->t->set_var($lang);
-  				$this->t->parse('p_block', 'pending_block');
-  			}
-  			else//no pending faqs
-  			{
-  				$this->t->set_var('p_block', lang('none_pending'));
-  			}//end if is_array(open)
-  			$this->t->pfp('out', 'admin_maint');
-			}//end is admin
-		}//end maint question
-
-		function preview()
-		{
-			$this->view(false);
-			$GLOBALS['phpgw']->common->phpgw_exit();
-		}
-
-		function rate()
-		{
-			$faq_id = (int) (isset($_GET['faq_id']) ? trim($_GET['faq_id']) : 0);
-			$rating = (int) (isset($_GET['rating']) ? trim($_GET['rating']) : 0); 
-			if( ($faq_id > 0) && ($rating > 0))
+			// show edit and delete button if user has edit rights
+			if (!$print_view && $can_edit)
 			{
-				$this->bo->set_rating($faq_id, $rating);
-			}
-			$this->view();
-			$GLOBALS['phpgw']->common->phpgw_exit();
-		}//end rate
-		
-		function save()
-		{
-			if (isset($_POST['cancel']))
-			{
-				header('Location: ' . $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.index'));
-				$GLOBALS['phpgw']->common->exit();
-			}
-			
-			$faq_id 	= (int) (isset($_POST['faq_id']) ? trim($_POST['faq_id']) : 0);
-			$question_id 	= (int) (isset($_GET['question_id']) ? trim($_GET['question_id']) : 0);
-			$faq['cat_id'] 	= (int) (isset($_POST['cat_id']) ? trim($_POST['cat_id']) : 0);
-			$faq['title'] 	= (isset($_POST['title']) ? trim($_POST['title']) : '');
-			$faq['keywords']= (isset($_POST['keywords']) ? trim($_POST['keywords']) : '');
-			$faq['text'] 	= (isset($_POST['text']) ? trim($_POST['text']) : '');
-			$faq['is_faq'] 	= (int) (isset($_POST['is_faq']) ? trim($_POST['is_faq']) : 0);
-			$faq['url']	= (isset($_POST['url']) ? trim($_POST['url']) : '');
-			$faq['published'] = (isset($_POST['published']) ? True : False);
-			$faq_id = $this->bo->save($faq_id, $faq, $question_id);
-			if($faq_id)
-			{
-  			header ('Location: ' . $GLOBALS['phpgw']->link('/index.php', 
-  									array('menuaction'	=> 'phpbrain.uikb.index',
-  										'faq_id'		=>  $faq_id,
-  										'msg'			=> ($this->bo->is_admin() ? 'answer_added' : 'answer_saved' )
-  										)
-  									)
-  					);
-  			$GLOBALS['phpgw']->common->phpgw_exit();
-			}
-		}
-		
-		function unanswered($msg = '')
-		{
-			$GLOBALS['phpgw']->common->phpgw_header();
-			$GLOBALS['phpgw_info']['flags']['app_header'] = lang($GLOBALS['phpgw_info']['flags']['currentapp']) . ' - ' . lang('add_question');
-			echo parse_navbar();
-			$this->t->set_file('unanswered', 'unanswered.tpl');
-			$this->t->set_block('unanswered', 'open_list', 'open_ones');
-			$this->t->set_block('unanswered', 'open_block', 'o_block');
-			$this->t->set_var('th_bg', $GLOBALS['phpgw_info']['theme']['th_bg']);
-			$this->t->set_var('lang_return_to_index', lang('return_to_index'));
-			$this->t->set_var('msg', ((strlen($msg) !=0) ? lang($msg) : '&nbsp;'));
-
-			$open_qs = $this->bo->get_questions(false);
-			if(is_array($open_qs))
-			{
-				$this->t->set_var(array('lang_cur_open_qs'	=> lang('cur_open_qs'),
-										'lang_know_contrib'	=> lang('know_contrib')));
-
-				if($this->bo->is_anon())
-				{
-					$lang_opt = lang('register');
-					$link_opt = $GLOBALS['phpgw']->link('/index.php', 
-						array('menuaction' => 'phpbrain.uikb.redirect_anon_info'));
-				}
-				else//must be registered
-				{
-					$lang_opt = lang('answer');
-					$link_opt = $GLOBALS['phpgw']->link('/index.php', 
-						array('menuaction' => 'phpbrain.uikb.add'));
-				}//end is anon
-				
-				foreach($open_qs as $id => $question)
-				{
-					$this->t->set_var(array('question_id'	=> $id,
-											'question_text'	=> $question,
-											'lang_option'	=> $lang_opt,
-											'link_option'	=> "$link_opt&question=" . urlencode($question) . '&question_id=' . $id,
-											'row_bg'		=> (($row%2) ? $this->theme['row_on'] : $this->theme['row_off'])
-											)
-									);
-					$this->t->parse('open_ones', 'open_list', true);
-					$row++;
- 				}//end foreach(question)
-				$this->t->parse('o_block', 'open_block');
-			}
-			else//no open questions
-			{
-				$this->t->set_var('o_block', lang('none_unanswered'));
-			}//end if is_array(open)
-  		$this->t->set_var('question_form', $this->build_form('add_question', 'add_question', 'question'));
-
-			$this->t->pfp('out', 'unanswered');
-		}//end show unanswered
-
-		function view($header = true)
-		{
-			if($header)
-			{
-  				$GLOBALS['phpgw']->common->phpgw_header();
-  				echo parse_navbar();
+				$this->t->set_var(array(
+					'form_edit_art'		=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.edit_article&art_id=' . $article_id),
+					'form_del_art'		=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id=' . $article_id),
+					'lang_edit_art'			=> lang('Edit article'),
+					'lang_delete_article'	=> lang('Delete article')
+				));
+				$this->t->parse('edit_del', 'edit_del_block');
 			}
 			else
 			{
-				echo "<html>\n<head>\n";
-				echo "<title>\n\t";
-				echo $GLOBALS['phpgw_info']['server']['site_title'] .' ['. lang('phpbrain') . "]\n";
-				echo "</title>\n";
-				//echo "<style type=\"text/css\">\n<!--";
-				//echo $this->css();
-				//echo "\n-->\n</style>
-				echo "</head>\n<body>";
+				$this->t->set_var('edit_del', '');
 			}
-			
-			$faq_id = (isset($_GET['faq_id']) ? trim($_GET['faq_id']) : 0);
-			$search = (isset($_GET['search']) ? trim($_GET['search']) : '');
-			$msg = (isset($_GET['msg']) ? trim($_GET['msg']) : '');
-			
-			$item = $this->bo->get_item($faq_id);
-			if(is_array($item) && $faq_id)
+
+			// show publish button if article is unpublish and user has publish rights on owner
+			if (!$print_view && !$article['published'] && ($this->bo->grants[$article['user_id']] & $this->bo->publish_right))
 			{
-  				$this->t->set_file('showitem', 'showitem.tpl');
-  				$this->t->set_var(array(
-  					'tr_on' => $GLOBALS['phpgw_info']['theme']['row_on'],
-					'tr_off' => $GLOBALS['phpgw_info']['theme']['row_off']
-					)
-				);
-  				
-				$lang = array('msg'		=> ($msg ? lang($msg) : ''),
-					'lang_submitted_by'	=> lang('submitted_by'),
-					'lang_views'		=> lang('views'),
-					'lang_rating'		=> lang('rating'),
+				$this->t->set_var(array(
+					'form_publish_art'		=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id='. $article_id),
+					'lang_publish_article'	=> lang('publish')
+				));
+				$this->t->parse('publish_btn', 'publish_btn_block');
+			}
+			else
+			{
+				$this->t->set_var('publish_btn', '');
+			}
+
+			$this->path = '';
+			$this->t->set_var(array(
+				'art_id'			=> $article['art_id'],
+				'lang_unpublished'	=> $published,
+				'img_stars'			=> $img_stars,
+				'links_cats'		=> $this->category_path($article['cat_id'], !$print_view),
+				'title'				=> $article['title'],
+				'topic'				=> $article['topic'],
+				'keywords'			=> $article['keywords'],
+				'createdby'			=> lang('Created by %1 on %2', $article['username'], $GLOBALS['phpgw']->common->show_date($article['created'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat'])),
+				'last_modif'		=> $lastmodif,
+				'content'			=> $article['text']
+			));
+			
+			$this->t->set_var(array(
+				'easy_question'			=> '',
+				'lang_comments'			=> '',
+				'link_more_comments'	=> '',
+				'comment'				=> '',
+				'comment_form'			=> '',
+				'rating_form'			=> '',
+				'rating_graph'			=> '',
+				'submit_comment'		=> '',
+				'form_article_action'	=> ''
+			));
+
+			if (!$print_view && $article['published'])
+			{
+				// show feedback question if article has been published, a basic search was done and this article hasn't been given any feedback on this session
+				if (!$data = $GLOBALS['phpgw']->session->appsession('feedback', 'phpbrain')) $data = array();
+				if ($this->bo->query && !in_array($article['art_id'], $data))
+				{
+					$this->t->set_var(array(
+						'tr_bgcolor'			=> $GLOBALS['phpgw_info']['theme']['row_off'],
+						'query'					=> $this->bo->query,
+						'form_easy_q_action'	=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id=' . $article_id),
+						'lang_question_easy'	=> lang('Was it easy to find this article using the above search string?'),
+						'lang_yes'				=> lang('yes'),
+						'lang_no'				=> lang('no'),
+						'lang_please'			=> lang('By answering this question you will help to get the answer quicker the next time')
+					));
+					$this->t->parse('easy_question', 'easy_question_block');
+				}
+
+				// show comments if article has been published
+				$comments = $this->bo->get_comments($article_id, !$more_comments);
+				foreach ($comments as $comment)
+				{
+					// only show unpublished comments is user has edition rights on article owner
+					if (!$comment['published'] && !($this->bo->grants[$article['user_id']] & $this->bo->edit_right)) continue;
+					if ($comment['published'])
+					{
+						$link_publish = '';
+					}
+					else
+					{
+						$link_publish = "<a href='". $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id='. $article_id .'&pub_com='. $comment['comment_id']) ."'>" . lang('publish') . "</a>";
+					}
+
+					// user can delete comment if he has edition rights
+					if ($this->bo->grants[$article['user_id']] & $this->bo->edit_right)
+					{
+						$link_delete = "<a href='". $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id='. $article_id . '&del_comm='. $comment['comment_id']) ."'>". lang('delete') ."</a>";
+					}
+					else
+					{
+						$Link_delete = '';
+					}
+
+					$this->t->set_var(array(
+						'comment_date'		=> $GLOBALS['phpgw']->common->show_date($comment['entered'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']),
+						'comment_user'		=> $comment['username'],
+						'link_publish'		=> $link_publish,
+						'link_delete'		=> $link_delete,
+						'comment_content'	=> $comment['comment']
+					));
+					$this->t->parse('comment', 'comment_block', True);
+				}
+				$lang_comments = lang('Comments');
+				if (!$more_comments && $this->preferences['num_comments'] != 'All' && $this->bo->num_comments > $this->bo->preferences['num_comments'])
+				{
+					$link_more_comments = "<a href='" . $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id=' . $article_id . '&more_comments=1') . "'>" . lang('Show all comments') . "</a>";
+					$lang_comments = lang('Latest comments');
+				}
+				$this->t->parse('comment_form', 'comment_form_block');
+				$this->t->set_var(array(
+					'link_more_comments'	=> $link_more_comments,
+					'lang_comments'			=> $lang_comments
+				));
+
+				// setup voting form if article has been published and user has not voted already
+				if ($this->bo->user_has_voted($article_id))
+				{
+					$this->t->set_var(array(
+						'rating_form'			=> lang('You have already qualified this article'),
+						'submit_comment'		=> "<tr><td colspan=7 align=left><br><input type=submit name='comment' value='". lang('Submit comment') . "'></td></tr>",
+					));
+				}
+				else
+				{
+					$this->t->set_var('submit_comment', "<tr><td colspan=7 align=left><br><input type=submit name='comment' value='". lang('Submit comment and rating') . "'></td></tr>");
+					$this->t->parse('rating_form', 'rating_form_block');
+				}
+
+				// setup voting graph if article has been published
+				if ($article['votes_1'] != 0 || $article['votes_2'] != 0 || $article['votes_3'] != 0 || $article['votes_4'] != 0 || $article['votes_5'] != 0)
+				{
+					// normalize vote frequency to range 0 - 40
+					$max_vote = max($article['votes_1'], $article['votes_2'], $article['votes_3'], $article['votes_4'], $article['votes_5']);
+					for ($i=1; $i<=5; $i++)
+					{
+						$this->t->set_var('bar_' . $i, $article['votes_' . $i] / $max_vote *40);
+					}
+					$this->t->set_var(array(
+						'lang_average'	=> lang('Average rating'),
+						'average_rating'=> sprintf("%01.1f", $article['average_votes']),
+						'numpeople'		=> $article['total_votes'],
+						'lang_people'	=> lang('people have rated this article')
+					));
+					$this->t->parse('rating_graph', 'rating_graph_block', True);
+				}
+				else
+				{
+					$this->t->set_var('rating', lang('Nobody has rated this article so far'));
+				}
+			}
+
+			// show file list
+			if (!$article['files'])
+			{
+				$this->t->set_var($print_view? 'file' : 'file_item', '');
+			}
+			else
+			{	
+				foreach ($article['files'] as $file)
+				{
+					ereg('^kb[0-9]*-(.*)', $file['file'], $new_filename);
+					if (!$print_view && $can_edit)
+					{
+						$this->t->set_var(array(
+							'name_del'	=> 'file',
+							'val_del'	=> $file['file']
+						));
+						$this->t->parse('img_delete', 'img_delete_block');
+					}
+					else
+					{
+						$this->t->set_var('img_delete', '');
+					}
+					$this->t->set_var(array(
+						'file_name'		=> $new_filename[1],
+						'file_comment'	=> $file['comment'],
+						'href_file'		=>	$GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.download_file&art_id=' . $article_id . '&file=' . urlencode($file['file']))
+					));
+					$this->t->parse('file_item', 'file_item_block', True);
+				}
+				if ($print_view) $this->t->parse('file', 'file_block');
+			}
+			// show upload form if user has edition rights
+			if (!$print_view && $can_edit)
+			{
+				$this->t->set_var(array(
+					'form_file_action'		=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id=' . $article_id),
+					'lang_attach_file'		=> lang('Attach File'),
+					'lang_comment'			=> lang('comment'),
+					'lang_upload'			=> lang('Upload')
+				));
+				$this->t->parse('file_upload', 'file_upload_block');
+			}
+			else
+			{
+				$this->t->set_var('file_upload', '');
+			}
+
+			// show related articles list
+			if (!$related_articles = $this->bo->get_related_articles($article_id))
+			{
+				$this->t->set_var('related_article', '');
+			}
+			else
+			{
+				foreach ($related_articles as $related)
+				{
+					if (!$print_view && $can_edit)
+					{
+						$this->t->set_var(array(
+							'name_del'	=> 'related',
+							'val_del'	=> $related['art_id']
+						));
+						$this->t->parse('img_delete', 'img_delete_block');
+					}
+					else
+					{
+						$this->t->set_var('img_delete', '');
+					}
+					$this->t->set_var(array(
+						'related_id'		=> $related['art_id'],
+						'href_related'		=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id=' . $related['art_id']),
+						'title_related'		=> $related['title']
+					));
+					$this->t->parse('related_article', 'related_article_block', True);
+				}
+				if ($print_view) $this->t->parse('related', 'related_block');
+			}
+			// show add new article if user has edition rights
+			if (!$print_view && $can_edit)
+			{
+				$this->t->set_var(array(
+					'lang_add_related'		=> lang('Add articles'),
+					'lang_select_articles'	=> lang('Select articles'),
+					'lang_clear'			=> lang('clear'),
+					'lang_update'			=> lang('update'),
+					'form_add_article_action' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id=' . $article_id)
+				));
+				$this->t->parse('related_article_add', 'related_article_add_block');
+			}
+			else
+			{
+				$this->t->set_var('related_article_add', '');
+			}
+
+			// show links
+			if (!$links = $article['urls'])
+			{
+				$this->t->set_var('links', '');
+				$this->t->set_var('show_links', '');
+			}
+			else
+			{
+				foreach ($article['urls'] as $link)
+				{
+					if (!$print_view && $can_edit)
+					{
+						$this->t->set_var(array(
+							'name_del'	=> 'link',
+							'val_del'	=> $link['link']
+						));
+						$this->t->parse('img_delete', 'img_delete_block');
+					}
+					else
+					{
+						$this->t->set_var('img_delete', '');
+					}
+					// if protocol not set, add it
+					if (!ereg('://', $link['link'])) $link['link'] = 'http://' . $link['link'];
+
+					if (!$link['title']) $link['title'] = $link['link'];
+					$this->t->set_var(array(
+						'href_link'		=> $link['link'],
+						'title_link'	=> $link['title']
+					));
+					$this->t->parse('links', 'links_block', True);
+				}
+				if ($print_view) $this->t->parse('show_links', 'show_links_block');
+			}
+			// show add new link if user has edition rights
+			if (!$print_view && $this->bo->check_permission($can_edit))
+			{
+				$this->t->set_var(array(
+					'lang_add_link'		=> lang('Add link'),
 					'lang_title'		=> lang('title'),
-					'lang_related_url'	=> lang('related_url'),
-					'lang_text'		=> lang('text'),
-					'lang_poor'		=> lang('poor'),
-					'lang_excellent'	=> lang('excellent'),
-					'lang_rate_why_explain'	=> lang('improve_by_rate'),
-					'lang_comments'		=> lang('comments')
-					);
-
-				if($search)//was the user seaching?
-				{
-					$this->t->set_var('return_url', $GLOBALS['phpgw']->link('/index.php', 
-						array('menuaction'	=> 'phpbrain.uikb.search',
-							'search'		=> $search
-							)
-						)
-					);
-					$lang['return_msg'] = lang('return_to_search %1', $search); 
-				}
-				elseif(!$header)
-				{
-					$this->t->set_var('return_url', 'javascript:window.close();');
-					$lang['return_msg'] = lang('close window');
-				}
-				else//no - they used the cat navigation to get here
-				{
-					$this->t->set_var('return_url', $GLOBALS['phpgw']->link('/index.php', 
-						array('menuaction'	=> 'phpbrain.uikb.browse',
-							'cat_id'		=> $item['cat_id']
-							)
-						)
-					);
-					$lang['return_msg'] = lang('return_to_cats %1', $this->cats->id2name($item['cat_id'])); 
-				}//end if search
-				
-				$item['text'] = nl2br($item['text']);
-
-				if($item['url'])
-				{
-					$item['rel_link'] = '<a href="' . $item['url'] .'" target="_blank">' . $item['url'] . '</a>';
-				}
-				else
-				{
-					$item['rel_link'] = lang('none');
-				}
-				
-				$this->t->set_block('showitem', 'click_rating', 'click_ratings');
-				$this->t->set_block('showitem', 'b_rate', 'b_rating');
-				$this->t->set_block('showitem', 'b_no_rate', 'b_no_rating');
-				if(!@$this->bo->rated[$faq_id])
-				{
-					$rate_url = $GLOBALS['phpgw']->link('/index.php',
-                                                array('menuaction'      => 'phpbrain.uikb.rate',
-                                                        'faq_id'                => $faq_id
-                                                        )
-                                                );
-
-					for($i=1; $i<=5; $i++)
-					{
-						$this->t->set_var('rate_link', "$rate_url&rating=$i");
-						$this->t->set_var('rate_val', $i);
-						$this->t->parse('click_ratings', 'click_rating',true);
-                                	}
-					
-					$this->t->parse('b_rating', 'b_rate', True);
-					$this->t->set_var('b_no_rating', '');
-				}
-				elseif(isset($_GET['rating']))
-				{
-					$this->t->set_var('lang_rate_msg', lang('thanks_4_rating'));
-					$this->t->set_var('b_rating', '');
-					$this->t->parse('b_no_rating', 'b_no_rate', True);
-				}
-				else
-				{
-					$this->t->set_var('lang_rate_msg', lang('already_rated'));
-					$this->t->set_var('b_rating', '');
-					$this->t->parse('b_no_rating', 'b_no_rate', True);
-				}
-				
-				$this->t->set_block('showitem', 'cmnt', 'cmnts');
-				if(is_array($item['comments']))
-				{
-					$row = 0;//row counter
-					foreach($item['comments'] as $comment_key => $comment_vals)
-					{
-						if($row % 2)//is even?
-						{
-							$comment_vals['comment_bg'] = $this->theme['row_on'];
-						}
-						else//must be odd
-						{
-							$comment_vals['comment_bg'] = $this->theme['row_off'];
-						}//end if row == even
-						
-						$comment_vals['comment_text'] = nl2br($comment_vals['comment_text']);
-
-						$this->t->set_var($comment_vals);
-						$this->t->parse('cmnts', 'cmnt',true);
-						$row++; //increment row counter
-						
-					}//end foreach(comments)
-				}
-				else//no comments
-				{
-					$this->t->set_var('comment_bg', $this->theme['row_on']);
-					$this->t->set_var('comments', '<tr align="center"><td>' . lang('no comments') . '</td></tr>');
-				}//end if is_array(comments)
-				
-				$this->t->set_var('comment_form', $this->build_form('add_comment', 'add_comments', 'comment', 
-										array('hidden_name' =>'faq_id',
-											 'hidden_val' => $faq_id
-											 )
-										)
-							);
-				$this->t->set_block('comment_form', 'admin_option', 'admin_options');
-				if($this->bo->is_admin())
-				{
-					$temp_link=$GLOBALS['phpgw']->link('/index.php', array('menuaction'	=> 'phpbrain.uikb.edit', 'faq_id'	=> $item['faq_id']));
-					$this->t->set_var('edit_button', '<input type=button value="'
-									. lang('edit_faq')
-									.'" onclick=window.location.href="' . $temp_link . '">');
-					$this->t->parse('admin_options', 'admin_option', true);
-				}
-				else
-				{
-					$this->t->set_var('admin_options', '');
-				}
-	
-				$this->t->set_var($lang);
-				$this->t->set_var($item);
-				
-				$this->t->pfp('out', 'showitem');
+					'lang_update'		=> lang('Update'),
+					'form_add_link_action' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id=' . $article_id)
+				));
+				$this->t->parse('links_add', 'links_add_block');
 			}
-			else//invalid faq_id
+			else
 			{
-				echo lang('invalid faq request - or something is NQR');
-			}//end is_array(item)
-		}//end get_item
+				$this->t->set_var('links_add', '');
+			}
 
-		function css()
+			// Show history
+			if ($print_view || !$history = $this->bo->return_history())
+			{
+				$this->t->set_var('history_line', '');
+			}
+			else
+			{
+				foreach ($history as $event)
+				{
+					$this->t->set_var(array(
+						'tr_color'			=> $GLOBALS['phpgw']->nextmatchs->alternate_row_color($tr_color),
+						'history_date'		=> $event['datetime'],
+						'history_user'		=> $event['owner'],
+						'history_action'	=> $event['action']
+					));
+					$this->t->parse('history_line', 'history_line_block', True);
+				}
+			}
+
+			$this->t->set_var('img_delete', '');
+			if ($_GET['mail'])
+			{
+				$this->t->set_var('mail_message', $_POST['val_message']);
+				$this->t->parse('plain_html', 'view_article');
+				$message = $this->bo->mail_article($this->t->get_var('plain_html'));
+				$this->reload_page($article_id, $message);
+				die();
+			}
+			else
+			{
+				$this->t->pparse('output', 'view_article');
+			}
+		}
+
+		function mail_article()
 		{
-/*			return 'th   {  font-family: '.$this->theme['font'].'; font-size: 10pt; font-weight: bold; background-color: #D3DCE3;} '. "\n".
-				'td   {  font-family: '.$this->theme['font'].'; font-size: 10pt;} '. "\n".
-				'p {  font-family: '.$this->theme['font'].'; font-size: 10pt} '. "\n".
-				'li {  font-family: '.$this->theme['font'].'; font-size: 10pt} '. "\n".
-				'h1   {  font-family: '.$this->theme['font'].'; font-size: 16pt; font-weight: bold} '. "\n".
-				'h2   {  font-family: '.$this->theme['font'].'; font-size: 13pt; font-weight: bold} '. "\n".
-				'A:link    {  font-family: '.$this->theme['font'].'; text-decoration: none; '.$this->theme['link'].'} '. "\n".
-				'A:visited {  font-family: '.$this->theme['font'].'; text-decoration: none; color: '.$this->theme['link'].' } '. "\n".
-				'A:hover   {  font-family: '.$this->theme['font'].'; text-decoration: underline; color: '.$this->theme['alink'].'} '. "\n".
-				'A.small:link    {  font-family: '.$this->theme['font'].'; font-size: 8pt; text-decoration: none; color: '.$this->theme['link'].'} '. "\n".
-				'A.small:visited {  font-family: '.$this->theme['font'].'; font-size: 8pt; text-decoration: none; color: '.$this->theme['vlink'].'} '. "\n".
-				'A.small:hover   {  font-family: '.$this->theme['font'].'; font-size: 8pt; text-decoration: underline; color: '.$this->theme['alink'].'} '. "\n".
-				'.nav {  font-family: '.$this->theme['font'].'; background-color: ' . $this->theme['bg10'] . ';} ' . "\n".
-				'.search   {  font-family: '.$this->theme['font']. '; color: ' . $this->theme['navbar_text'] . '; background-color: '.$this->theme['navbar_bg'] . '; font-size: 9pt; border: 1px solid ' . $this->theme['bg_color'] . ';} '. "\n".
-				'.navbg { font-family: '.$this->theme['font'].'; color: '.$this->theme['navbar_text'] .'; background-color: '.$this->theme['navbar_bg'] . ';} '. "\n".
-				'a.contrlink { font-family: '.$this->theme['font'].'; color: '.$this->theme['navbar_text'] .'; text-decoration: none;} '. "\n".
-				'a.contrlink:hover, a.stats:active { font-family: '.$this->theme['font'].'; color: '.$this->theme['navbar_text'] .'; text-decoration: underline;}' . "\n".
-				'.faq_info {  font-family: '.$this->theme['font'].'; color:' . $this->theme['navbar_bg'] . '; font-size: 8pt} ' . "\n" .
-				'hr {background-color: ' . $this->theme['navbar_bg'] . '; border-width: 0px; heght: 2px;} ' . "\n" .
-				'input, textarea {color:' . $this->theme['bg_text']. '; background-color:' .  $this->theme['bg_color'] . '; font-family: '.$this->theme['font']. '; font-size: 9pt; border: 1px solid ' . $this->theme['bg_text'] . ';} '. "\n".
-				'';*/
+			$article_id = (int)get_var('art_id', 'GET', 0);
+
+			$recipient = '';
+			$subject = lang('Knowledge Base article #%1', $article_id);
+			$reply = '';
+			$message = '';
+
+			$this->t->set_file('mail_form', 'mail_article.tpl');
+			$this->t->set_var(array(
+				'form_action'		=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&mail=1&art_id='. $article_id),
+				'row_on'			=> $GLOBALS['phpgw_info']['theme']['row_on'],
+				'row_off'			=> $GLOBALS['phpgw_info']['theme']['row_off'],
+				'lang_recipient'	=> lang('Recipient'),
+				'val_recipient'		=> $recipient,
+				'lang_subject'		=> lang('Subject'),
+				'val_subject'		=> $subject,
+				'lang_reply'		=> lang('Reply-to'),
+				'val_reply'			=> $reply,
+				'lang_message'		=> lang('Message'),
+				'val_message'		=> $message,
+				'lang_send'			=> lang('send')
+			));
+
+			$GLOBALS['phpgw']->common->phpgw_header();
+			echo parse_navbar();
+			$this->navbar_shown = True;
+
+			$this->t->pparse('out', 'mail_form');
+		}
+
+		function pop_search()
+		{
+			$actual_category			= (int)get_var('cat', 'GET', 0);
+			$this->bo->sort				= get_var('sort', 'any', 'ASC');
+			$this->bo->order			= get_var('order', 'any', 'title');
+			$this->bo->query			= get_var('query', 'any', '');
+			$this->bo->load_categories(0);
+			$articles_list = $this->bo->search_articles($actual_category);
+			$this->t->set_file('popup', 'popup_search.tpl');
+			$this->t->set_block('popup', 'table_row_block', 'table_row');
+			$this->t->set_var(array(
+				'lang_category'		=> lang('Category'),
+				'lang_all'			=> lang('All'),
+				'lang_search'		=> lang('Search'),
+				'lang_select'		=> lang('Select'),
+				'th_color'			=> $GLOBALS['phpgw_info']['theme']['th_bg'],
+				'value_query'		=> $this->bo->query,
+				'form_select_articles_action' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.pop_search'),
+				'form_filters_action' => $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.pop_search&start=' . $this->bo->start . '&sort=' . $this->bo->sort),
+				'head_number'		=> $GLOBALS['phpgw']->nextmatchs->show_sort_order($this->bo->sort, 'art_id', $this->bo->order, '', lang('Article ID')),
+				'head_title'		=> $GLOBALS['phpgw']->nextmatchs->show_sort_order($this->bo->sort, 'title', $this->bo->order, '', lang('Title')),
+				'left'				=> $GLOBALS['phpgw']->nextmatchs->left('/index.php', $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.pop_search&query=' . $this->bo->query),
+				'right'				=> $GLOBALS['phpgw']->nextmatchs->right('/index.php', $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.pop_search&query=' . $this->bo->query),
+				'num_regs'			=> $GLOBALS['phpgw']->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start),
+				'select_categories'	=> $this->bo->categories_obj->formated_list('select', 'all', '', True)
+			));
+
+			foreach ($articles_list as $article)
+			{
+				$tr_color = $GLOBALS['phpgw']->nextmatchs->alternate_row_color($tr_color);
+				$this->t->set_var(array(
+					'tr_color'		=> $tr_color,
+					'number'		=> $article['art_id'],
+					'title'			=> $article['title'],
+
+				));
+				$this->t->parse('table_row', 'table_row_block', True);
+			}
+
+			$this->t->pparse('output', 'popup');
+		}
+
+		/**
+		* @function edit_article
+		*
+		* @abstract	New articles (answering questions or just new) and edit existing articles. Public function.
+		* @author	Alejandro Pedraza
+		**/
+		function edit_article()
+		{
+			$this->t->set_file('edit_article', 'edit_article.tpl');
+			$this->t->set_block('edit_article', 'answer_question_block', 'answer_question');
+			$this->t->set_var(array(
+				'lang_articleID'		=> lang('Article ID'),
+				'lang_category'			=> lang('Category'),
+				'lang_none'				=> lang('None'),
+				'lang_title'			=> lang('Title'),
+				'lang_topic'			=> lang('Topic'),
+				'lang_keywords'			=> lang('Keywords'),
+				'lang_save'				=> lang('Save'),
+				'lang_cancel'			=> lang('Cancel')
+			));
+
+			// These are the default values, that apply for entering a new article
+			$article_id			= (int)get_var('art_id', 'any', 0);
+			$title				= '';
+			$topic				= '';
+			$keywords			= '';
+			$content			= '';
+			$category_selected	= '';
+			$hidden_fields		= '';
+			$this->t->set_var(array(
+				'answer_question'	=> '',
+				'show_articleID'	=> "<input type=text name='articleID'>",
+				'show_autoID'		=> "&nbsp;&nbsp;&nbsp;&nbsp;" . lang('Leave empty to automatically generate an ID')
+				));
+
+			// saving either an edited or a new article (answering a question or just a new article)
+			if ($_POST['save'])
+			{
+				$article_id = (int)get_var('editing_article_id', 'POST', 0);
+				$article	= $this->bo->get_article($article_id);
+
+				//data validation
+				if (!$_POST['title'])
+				{
+					$this->message .= lang('You must enter a title') . '<br>';
+				}
+				if (!$_POST['topic'])
+				{
+					$this->message .= lang('You must enter a topic') . '<br>';
+				}
+				if (!$_POST['exec']['text'])
+				{
+					$this->message .= lang('The article is empty') . '<br>';
+				}
+				
+				if ($this->message)
+				{
+					$this->message .= lang('The following errors occured') . ': <br><br>'.$error_message.'<br>' . lang('Please try again');
+				}
+				elseif ($edited_art = $this->bo->save_article())
+				{
+					// if article is new tell to insert files and stuff
+					$message = '';
+					if (!$article) $message = '&message=add_ok_cont&tabpage=2';
+					$GLOBALS['phpgw']->redirect_link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id=' .  $edited_art . $message);
+					die();
+				}
+				else
+				{
+					$this->message = $this->bo->error_msg;
+				}
+			}
+
+			// if error ocurred fill fields with values
+			if ($this->message)
+			{
+				$category_selected	= $_POST['cat_id'];
+				$title				= $_POST['title'];
+				$topic				= $_POST['title'];
+				$keywords			= $_POST['keywords'];
+				$content			= $_POST['exec']['text'];
+			}
+
+			// Edit existent article
+			if ($_GET['art_id'])
+			{
+				$article	= $this->bo->get_article($article_id);
+
+				// Check edit rights
+				if (!$this->bo->check_permission($this->bo->edit_right)) $this->die_peacefully('You have not the proper permissions to do that');
+
+				$title		= $article['title'];
+				$topic		= $article['topic'];
+				$keywords	= $article['keywords'];
+				$content	= $article['text'];
+				$category_selected = $article['cat_id'];
+
+				$this->t->set_var(array(
+					'show_articleID'	=> $article_id . "<input type=hidden name='editing_article_id' value=" . $article_id . ">",
+					'show_autoID'		=> ''
+				));
+			}
+
+			// answering a question
+			if ($_GET['q_id'])
+			{
+				$q_id = (int)get_var('q_id', 'GET', 0);
+				$question = $this->bo->get_question($q_id);
+				$hidden_fields = "<input type=hidden name='answering_question' value='" . $q_id . "'>";
+				$this->t->set_var(array(
+					'lang_summary'			=> lang('Summary'),
+					'lang_details'			=> lang('Details'),
+					'lang_category'			=> lang('Suggested category'),
+					'lang_head_question'	=> lang('Create a new article to answer the question asked by %1 in %2', $question['username'], $question['creation']),
+					'question_summary'		=> $question['summary'],
+					'question_details'		=> $question['details']
+				));
+				$this->t->parse('answer_question', 'answer_question_block');
+
+				$title = $question['summary'];
+				$category_selected = $question['cat_id'];
+			}
+			
+			// determine if user language is supported by htmlarea; if not default to English
+			$htmlarea_lang= 'en';
+			$language = substr($GLOBALS['phpgw_info']['user']['preferences']['common']['lang'], 0, 2);
+			if (is_file(PHPGW_INCLUDE_ROOT. '/phpgwapi/js/htmlarea/lang/' . $language  . '.js')) $htmlarea_lang = $language;
+
+			// Prepare javascript tabs
+			$GLOBALS['phpgw']->js = CreateObject('phpgwapi.javascript');
+			$GLOBALS['phpgw']->js->validate_file('htmlarea','htmlarea');
+			$GLOBALS['phpgw']->js->set_onload("HTMLArea.replace('exec_text', htmlareaConfig)");
+			$GLOBALS['phpgw_info']['flags']['css'] = "@import url(".$GLOBALS['phpgw']->link('/phpgwapi/js/htmlarea/htmlarea.css').");";
+			$GLOBALS['phpgw_info']['flags']['java_script_thirst']="
+				<script>
+					_editor_url = '".$GLOBALS['phpgw']->link('/phpgwapi/js/htmlarea/')."';
+					_editor_lang = '" . $htmlarea_lang  . "';
+					var htmlareaConfig = new HTMLArea.Config();
+					htmlareaConfig.editorURL = '".$GLOBALS['phpgw']->link('/phpgwapi/js/htmlarea/')."';
+				</script>";
+
+			// Finally, fill the input fields
+			$GLOBALS['phpgw']->common->phpgw_header();
+			echo parse_navbar();
+			$this->navbar_shown = True;
+
+			$select_category = $this->bo->select_category($category_selected);
+			$this->t->set_var('select_category', $select_category);
+
+			$this->t->set_var(array(
+				'message'			=> "<tr><td colspan=2 align=center style='color:red'>" . $this->message . "</td></tr>",
+				'hidden_fields'		=> $hidden_fields,
+				'form_action'		=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.edit_article'),
+				'value_title'		=> $title,
+				'value_topic'		=> $topic,
+				'value_keywords'	=> $keywords,
+				'value_text'		=> $content
+			));
+
+			$this->t->pparse('output', 'edit_article');
+
+		}
+
+		/**
+		* @function	add_question. Public.
+		*
+		* @abstract Adds question to knowledge base.
+		* @author	Alejandro Pedraza
+		**/
+		function add_question()
+		{
+			if ($_POST['submit'])
+			{
+				$this->bo->add_question();
+				$GLOBALS['phpgw']->redirect_link('/index.php', 'menuaction=phpbrain.uikb.index');
+				end;
+			}
+
+			$this->t->set_file('question_form', 'question.tpl');
+			$message = '';
+
+			if (!$this->bo->admin_config['post_questions'] || $this->bo->admin_config['post_questions'] == 'True')
+			{
+				$lang_posting_process = 'Your question will be published immediately';
+			}
+			else
+			{
+				$lang_posting_process = 'Your question will be posted, but will only be published after aproval of a system administrator';
+			}
+
+			$this->t->set_var(array(
+				'null'					=> '',
+				'message'				=> $message,
+				'lang_search_kb'		=> lang('Before submiting a question, please search in the knowledge base first'),
+				'lang_enter_words'		=> lang('Enter one or two words describing the issue, or type the article number if you know it'),
+				'lang_advanced_search'	=> lang('Advanced Search'),
+				'lang_post_question'	=> lang("If you can't find answers to your problem in the knowledge base, describe it below"),
+				'lang_summary'			=> lang('Summary'),
+				'lang_details'			=> lang('Details'),
+				'lang_select_cat'		=> lang('category'),
+				'lang_submit'			=> lang('Submit'),
+				'lang_cancel'			=> lang('Cancel'),
+				'lang_none'				=> lang('none'),
+				'posting_process'		=> lang($lang_posting_process),
+				'form_question_action'	=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.add_question')
+				));
+
+			$GLOBALS['phpgw']->common->phpgw_header();
+			echo parse_navbar();
+			$this->navbar_shown = True;
+
+			$select_category = $this->bo->select_category();
+			$this->t->set_var('select_category', $select_category);
+
+			$this->t->pparse('output', 'question_form');
+		}
+
+		function maintain_articles()
+		{
+			$actual_category = (int)get_var('cat', 'any', 0);
+
+			if (!$this->bo->order) $this->bo->order = 'created';
+			if (!$this->bo->sort) $this->bo->sort = 'DESC';
+			
+			$this->bo->load_categories($actual_category);
+
+			// obtain articles to which one has any kind of permission
+			$articles_list = $this->bo->search_articles($actual_category, $this->bo->publish_filter, $this->bo->read_right | $this->bo->edit_right | $this->bo->publish_right);
+			//echo "articles_list: <pre>";print_r($articles_list);echo "</pre>";
+
+			// Process article deletion
+			if ($_GET['delete'] || $_POST['delete_selected'])
+			{
+				if ($_GET['delete'])
+				{
+					$selected = array($_GET['delete'] => '');
+				}
+				else
+				{
+					$selected = $_POST['select'];
+				}
+				$errors = False;
+				foreach ($selected as $art_id => $trash)
+				{
+					$target_art = array();
+					foreach($articles_list as $article)
+					{
+						if ($article['art_id'] == $art_id)
+						{
+							$target_art = $article;
+							break;
+						}
+					}
+					$message = $this->bo->delete_article($target_art['files'], $target_art['art_id'], $target_art['user_id']);
+					if ($message != 'del_art_ok') $errors = $message;
+				}
+				if (!$errors)
+				{
+					$message = $_GET['delete']? 'del_art_ok' : 'del_arts_ok';
+				}
+				$GLOBALS['phpgw']->redirect_link('/index.php', 'menuaction=phpbrain.uikb.maintain_articles&message=' . $message);
+				die();
+			}
+
+			// Process article publication
+			if ($_GET['publish'] || $_POST['publish_selected'])
+			{
+				if ($_GET['publish'])
+				{
+					$selected = array($_GET['publish'] => '');
+				}
+				else
+				{
+					$selected = $_POST['select'];
+				}
+				$errors = False;
+				foreach ($selected as $art_id => $trash)
+				{
+					$target_art = array();
+					foreach ($articles_list as $article)
+					{
+						if ($article['art_id'] == $art_id)
+						{
+							$target_art = $article;
+							break;
+						}
+					}
+					$message = $this->bo->publish_article($target_art['art_id'], $target_art['user_id']);
+					if ($message != 'publish_ok') $errors = $message;
+				}
+				if (!$errors)
+				{
+					$message = $_GET['publish']? 'publish_ok' : 'publishs_ok';
+				}
+				$GLOBALS['phpgw']->redirect_link('/index.php', 'menuaction=phpbrain.uikb.maintain_articles&message=' . $message);
+				die();
+			}
+
+			// Show table
+			$this->t->set_file('maintain_articles', 'maintain_articles.tpl');
+			$this->t->set_block('maintain_articles', 'table_row_block', 'table_row');
+			$this->t->set_var('table_row', '');
+
+			foreach ($articles_list as $article)
+			{
+				$actions = '';
+
+				// skip if article unpublished and user has no publish right on owner
+				if (!$article['published'] && !($this->bo->grants[$article['user_id']] & $this->bo->publish_right)) continue;
+
+				$actions = "<a href='". $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.view_article&art_id='. $article['art_id']) ."'>
+							<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'view') . "' title='". lang('view')  ."'>
+							</a>";
+				if (!$article['published'] && ($this->bo->grants[$article['user_id']] & $this->bo->publish_right))
+				{
+					$actions .= "<a href='". $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.maintain_articles&publish='. $article['art_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query) ."'>
+										<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'new') . "' title='". lang('publish')  ."'>
+										</a>";
+				}
+				if ($this->bo->grants[$article['user_id']] & $this->bo->edit_right)
+				{
+					$actions .= "<a href='". $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.maintain_articles&delete='. $article['art_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query). "'>
+										<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'delete') . "' title='" . lang('delete') . "'>
+										</a>";
+				}
+				$this->t->set_var(array(
+					'tr_color'			=> $GLOBALS['phpgw']->nextmatchs->alternate_row_color($tr_color),
+					'title'				=> $article['title'],
+					'topic'				=> $article['topic'],
+					'author'			=> $article['username'],
+					'date'				=> $GLOBALS['phpgw']->common->show_date($article['modified'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']),
+					'actions'			=> $actions,
+					'name_checkbox'		=> 'select[' . $article['art_id']  . ']'
+				));
+				$this->t->parse('table_row', 'table_row_block', True);
+			}
+
+			$select_publish = "<option value='all'";
+			if ($this->bo->publish_filter == 'all') $select_publish .= ' selected';
+			$select_publish .= ">" . lang('All') . "</option><option value='unpublished'";
+			if ($this->bo->publish_filter == 'unpublished') $select_publish .= ' selected';
+			$select_publish .= ">" . lang('unpublished') . "</option><option value='published'";
+			if ($this->bo->publish_filter == 'published') $select_publish .= ' selected';
+			$select_publish .= '>' . lang('Published') . '</option>';
+
+			$GLOBALS['phpgw_info']['flags']['java_script_thirst'] = $this->javascript_check_all();
+
+			$this->t->set_var(array(
+				'message'				=> $this->message,
+				'lang_actions'			=> lang('Actions'),
+				'lang_search'			=> lang('Search'),
+				'value_query'			=> $this->bo->query,
+				'form_maintain_articles_action'=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.maintain_articles'),
+				'form_filters_action'	=> $GLOBALS['phpgw']->link('/index.php', array('menuaction' => 'phpbrain.uikb.maintain_articles', 'start' => $this->bo->start, 'sort' => $this->bo->sort)),
+				'img_src_checkall'		=> $GLOBALS['phpgw']->common->image('phpbrain', 'check'),
+				'order'					=> $this->bo->order, 
+				'publish_filter'		=> $this->bo->publish_filter,
+				'head_title'			=> $GLOBALS['phpgw']->nextmatchs->show_sort_order($this->bo->sort, 'title', $this->bo->order, '', lang('Title')),
+				'head_topic'			=> $GLOBALS['phpgw']->nextmatchs->show_sort_order($this->bo->sort, 'topic', $this->bo->order, '', lang('Topic')),
+				'head_author'			=> $GLOBALS['phpgw']->nextmatchs->show_sort_order($this->bo->sort, 'user_id', $this->bo->order, '', lang('Author')),
+				'head_date'				=> $GLOBALS['phpgw']->nextmatchs->show_sort_order($this->bo->sort, 'created', $this->bo->order, '', lang('Date')),
+				'left'					=> $GLOBALS['phpgw']->nextmatchs->left('/index.php', $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_articles&cat='. $actual_category . '&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
+				'right'					=> $GLOBALS['phpgw']->nextmatchs->right('/index.php', $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_articles&cat='. $actual_category .'&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
+				'num_regs'				=> $GLOBALS['phpgw']->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start),
+				'select_categories'		=> $this->bo->categories_obj->formated_list('select', 'all', $actual_category, True),
+				'select_publish'		=> $select_publish,
+				'lang_publish_selected'	=> lang('Publish selected'),
+				'lang_delete_selected'	=> lang('Delete selected')
+			));
+
+			$GLOBALS['phpgw']->common->phpgw_header();
+			echo parse_navbar();
+			$this->navbar_shown = True;
+
+			$this->t->pparse('output', 'maintain_articles');
+		}
+
+		function maintain_questions()
+		{
+			$actual_category = (int)get_var('cat', 'any', 0);
+
+			if (!$this->bo->order) $this->bo->order = 'creation';
+			if (!$this->bo->sort) $this->bo->sort = 'DESC';
+
+			$this->bo->load_categories($actual_category);
+
+			// obtain articles to which one has any kind of permission
+			$questions_list = $this->bo->search_articles($actual_category, $this->bo->publish_filter, $this->bo->read_right | $this->bo->edit_right, $this->bo->publish_right, True);
+			//echo "questions_list: <pre>";print_r($questions_list);echo "</pre>";
+
+			// Process question deletion
+			if ($_GET['delete'] || $_POST['delete_selected'])
+			{
+				if ($_GET['delete'])
+				{
+					$selected = array($_GET['delete'] => '');
+				}
+				else
+				{
+					$selected = $_POST['select'];
+				}
+				$errors = False;
+				foreach ($selected as $q_id => $trash)
+				{
+					$target_q = array();
+					foreach($questions_list as $question)
+					{
+						if ($question['question_id'] == $q_id)
+						{
+							$target_q = $question;
+							break;
+						}
+					}
+					$message = $this->bo->delete_question($target_q['question_id'], $target_q['user_id']);
+					if ($message != 'del_q_ok') $errors = $message;
+				}
+				if (!$errors)
+				{
+					$message = $_GET['delete']? 'del_q_ok' : 'del_qs_ok';
+				}
+				$GLOBALS['phpgw']->redirect_link('/index.php', 'menuaction=phpbrain.uikb.maintain_questions&message=' . $message);
+				die();
+			}
+
+			// Show table
+			$this->t->set_file('maintain_questions', 'maintain_questions.tpl');
+			$this->t->set_block('maintain_questions', 'table_row_block', 'table_row');
+			$this->t->set_var('table_row', '');
+
+			foreach ($questions_list as $question)
+			{
+				$actions = '';
+				// skip if question unpublished and user has no publish right on owner
+				if (!$quesion['published'] && !($this->bo->grants[$question['user_id']] & $this->bo->publish_right)) continue;
+
+				// can only attempt to answer a question if it has been published
+				if ($question['published'])
+				{
+					$actions = "<a href='". $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.edit_article&q_id='. $question['question_id']) ."'>
+							<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'answer') . "' title='". lang('answer')  ."'>
+							</a>";
+				}
+
+				// can only attempt to publish a question if it is unpblished and user has publish rights on owner
+				if (!$question['published'] && ($this->bo->grants[$question['user_id']] & $this->bo->publish_right))
+				{
+					$actions .= "<a href='". $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.maintain_questions&publish='. $question['question_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query) ."'>
+										<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'new') . "' title='". lang('publish')  ."'>
+										</a>";
+				}
+
+				// can only delete question if user has edit rights on owner
+				if ($this->bo->grants[$question['user_id']] & $this->bo->edit_right)
+				{
+					$actions .= "<a href='". $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.maintain_questions&delete='. $question['question_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query). "'>
+										<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'delete') . "' title='" . lang('delete') . "'>
+										</a>";
+				}
+				$this->t->set_var(array(
+					'tr_color'			=> $GLOBALS['phpgw']->nextmatchs->alternate_row_color($tr_color),
+					'summary'			=> $question['summary'],
+					'details'			=> $question['details'],
+					'date'				=> $GLOBALS['phpgw']->common->show_date($questions['creation'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']),
+					'author'			=> $question['username'],
+					'actions'			=> $actions,
+					'name_checkbox'		=> 'select[' . $question['question_id']  . ']'
+				));
+				$this->t->parse('table_row', 'table_row_block', True);
+			}
+
+			$select_publish = "<option value='all'";
+			if ($this->bo->publish_filter == 'all') $select_publish .= ' selected';
+			$select_publish .= ">" . lang('All') . "</option><option value='unpublished'";
+			if ($this->bo->publish_filter == 'unpublished') $select_publish .= ' selected';
+			$select_publish .= ">" . lang('unpublished') . "</option><option value='published'";
+			if ($this->bo->publish_filter == 'published') $select_publish .= ' selected';
+			$select_publish .= '>' . lang('Published') . '</option>';
+			$GLOBALS['phpgw_info']['flags']['java_script_thirst'] = $this->javascript_check_all();
+
+			$this->t->set_var(array(
+				'message'				=> $this->message,
+				'lang_actions'			=> lang('Actions'),
+				'lang_search'			=> lang('Search'),
+				'value_query'			=> $this->bo->query,
+				'form_maintain_questions_action'=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.maintain_questions'),
+				'form_filters_action'	=> $GLOBALS['phpgw']->link('/index.php', array('menuaction' => 'phpbrain.uikb.maintain_questions', 'start' => $this->bo->start, 'sort' => $this->bo->sort)),
+				'img_src_checkall'		=> $GLOBALS['phpgw']->common->image('phpbrain', 'check'),
+				'order'					=> $this->bo->order, 
+				'publish_filter'		=> $this->bo->publish_filter,
+				'head_summary'			=> $GLOBALS['phpgw']->nextmatchs->show_sort_order($this->bo->sort, 'summary', $this->bo->order, '', lang('Summary')),
+				'head_details'			=> $GLOBALS['phpgw']->nextmatchs->show_sort_order($this->bo->sort, 'details', $this->bo->order, '', lang('Details')),
+				'head_date'				=> $GLOBALS['phpgw']->nextmatchs->show_sort_order($this->bo->sort, 'creation', $this->bo->order, '', lang('creation')),
+				'head_author'			=> $GLOBALS['phpgw']->nextmatchs->show_sort_order($this->bo->sort, 'user_id', $this->bo->order, '', lang('Author')),
+				'left'					=> $GLOBALS['phpgw']->nextmatchs->left('/index.php', $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category . '&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
+				'right'					=> $GLOBALS['phpgw']->nextmatchs->right('/index.php', $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category .'&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
+				'num_regs'				=> $GLOBALS['phpgw']->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start),
+				'select_categories'		=> $this->bo->categories_obj->formated_list('select', 'all', $actual_category, True),
+				'select_publish'		=> $select_publish,
+				'lang_publish_selected'	=> lang('Publish selected'),
+				'lang_delete_selected'	=> lang('Delete selected')
+			));
+
+			$GLOBALS['phpgw']->common->phpgw_header();
+			echo parse_navbar();
+			$this->navbar_shown = True;
+
+			$this->t->pparse('output', 'maintain_questions');
+		}
+
+		function reload_page($article_id, $message)
+		{
+			$GLOBALS['phpgw']->redirect_link('/index.php',array(
+																'menuaction'	=> 'phpbrain.uikb.view_article',
+																'art_id'		=> $article_id,
+																'message'		=> $message
+													));
+		}
+
+		function download_file()
+		{
+			$article_id		= (int)get_var('art_id', 'GET');
+			$filename		= urldecode(get_var('file', 'GET'));
+			
+			$this->bo->download_file_checks($article_id, $filename);
+
+			// remove kb-# prefix
+			ereg('^kb[0-9]*-(.*)', $filename, $new_filename);
+
+			$download_browser = CreateObject('phpgwapi.browser');
+			$download_browser->content_header($new_filename[1]);
+			$cd_args = array('string'	=> '/kb', 'relative' => False, 'relatives' => RELATIVE_NONE);
+			if (!$GLOBALS['phpgw']->vfs->cd($cd_args)) die('could not cd');
+			echo $GLOBALS['phpgw']->vfs->read(array('string' => $filename));
+			$GLOBALS['phpgw']->common->phpgw_exit();
+		}
+
+		function build_categories($parent_id, $num_main_categories)
+		{
+			$categories_str = '';
+			$num_main_cat = 0;
+			foreach ($this->bo->categories as $cat)
+			{
+				$data = unserialize($cat['data']);
+				if ($data) $cat['icon'] = $data['icon'];
+				if ($cat['parent'] != $parent_id) continue;
+				$num_main_cat ++;
+				$categories_str .= "<tr><td valign=top>";
+				if ($cat['icon'])
+						$categories_str .= "<img src='" . $GLOBALS['phpgw_info']['server']['webserver_url'] . SEP . 'phpgwapi' . SEP . 'images' . SEP . $cat['icon'] . "'>";
+				$categories_str .= "</td><td><a href='".$GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.index&cat='.$cat['id'])
+										."'><b>".$cat['name']."</b></a><br><div style='padding-left:10px'>";
+				$has_subcats = False;
+				foreach ($this->bo->categories as $subcat)
+				{
+					if ($subcat['parent'] != $cat['id']) continue;
+					$has_subcats = True;
+					$categories_str .= "<a href='".$GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.index&cat='.$subcat['id'])
+										."'>".$subcat['name']."</a>, ";
+				}
+				if ($has_subcats)
+				{
+					$categories_str = substr($categories_str, 0, strlen($categories_str)-2); // remove the last comma
+				}
+				$categories_str .= "</div></td></tr>\n";
+				if ($num_main_cat == ceil($num_main_categories/2)) $categories_str .= "</table></td>\n<td width=50% valign=top style='padding:10px 5px 10px 10px'><table>";
+			}
+			if ($categories_str) $categories_str = "<tr><td width=50% valign=top style='padding:10px 5px 10px 10px'><table>" . $categories_str . "</table></td></tr>";
+			return $categories_str;
+		}
+
+		function category_path($category_id, $links = False)
+		{
+			$cat_data = $this->cat_data($category_id);
+			if ($cat_data)
+			{
+				if (!$this->path)
+				{
+					if ($links)
+					{
+						$this->path = "<a href='" . $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.index&cat=' . $category_id) . "'>"
+										. $cat_data['name'] . "</a>";
+					}
+					else
+					{
+						$this->path = $cat_data['name'];
+					}
+				}
+				else
+				{
+					if ($links)
+					{
+						$this->path = "<a href='" . $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.index&cat=' . $category_id) . "'>"
+										. $cat_data['name'] . " >> " . $this->path;
+					}
+					else
+					{
+						$this->path = $cat_data['name'] . ' >> ' . $this->path;
+					}
+				}
+				return $this->category_path($cat_data['parent_id'], $links);
+			}
+			return $this->path;
+		}
+
+		function cat_data($category_id)
+		{
+			$cat_data = array();
+			foreach ($this->bo->all_categories as $cat)
+			{
+				if ($cat['id'] == $category_id)
+				{
+					$cat_data['name'] 		= $cat['name'];
+					$cat_data['parent_id']	= $cat['parent'];
+					return $cat_data;
+				}
+			}
+			return 0;
+		}
+
+		function show_basic_search()
+		{
+			$this->t->set_file('basic_search', 'basic_search.tpl');
+			$this->t->set_var(array(
+				'lang_search_kb'		=> lang('Search in all the Knowledge Base'),
+				'lang_enter_words'		=> lang('Enter one or two words describing the issue, or type the article number if you know it'),
+				'lang_search'			=> lang('Search'),
+				'lang_advanced_search'	=> lang('Advanced Search'),
+				'class_tr'				=> 'th',
+				'query_value'			=> $this->bo->query? $this->bo->query : '',
+				'link_adv_search'		=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.advsearch'),
+				'form_search_action'	=> $GLOBALS['phpgw']->link('/index.php', 'menuaction=phpbrain.uikb.index')
+			));
+			return $this->t->parse('output', 'basic_search');
+
+		}
+
+		function tabs_css()
+		{
+			$css = "
+	th.activetab
+  {
+	color:#000000;
+	background-color:#D3DCE3;
+	border-top-width : 2px;
+	border-top-style : solid;
+	border-top-color : Black;
+	border-left-width : 2px;
+	border-left-style : solid;
+	border-left-color : Black;
+	border-right-width : 2px;
+	border-right-style : solid;
+	border-right-color : Black;
+  }
+
+  th.inactivetab
+  {
+	color:#000000;
+	background-color:#E8F0F0;
+	border-width : 1px;
+	border-style : solid;
+	border-color : Black;
+	border-bottom-width : 2px;
+	border-bottom-style : solid;
+	border-bottom-color : Black;
+  }
+
+  table.tabcontent
+  {
+	border-bottom-width : 2px;
+	border-bottom-style : solid;
+	border-bottom-color : Black;
+	border-left-width : 2px;
+	border-left-style : solid;
+	border-left-color : Black;
+	border-right-width : 2px;
+	border-right-style : solid;
+	border-right-color : Black;
+  }
+
+  .td_left { border-left : 1px solid Gray; border-top : 1px solid Gray; }
+  .td_right { border-right : 1px solid Gray; border-top : 1px solid Gray; }
+
+  div.activetab{ display:inline; }
+  div.inactivetab{ display:none; }
+  
+  .column {
+		background-image: url(" . $GLOBALS['phpgw']->common->image('phpbrain', 'bluedot')  . ");
+		border-left:1px solid black;
+		border-top:1px solid black;	
+		border-right:1px solid black;
+	}";
+
+			return $css;
+		}
+
+		function javascript_check_all()
+		{
+			$javascript = "<script>
+			function check_all(which)
+			{
+			  for (i=0; i<document.admin_articles.elements.length; i++)
+			  {
+			    if (document.admin_articles.elements[i].type == 'checkbox' && document.admin_articles.elements[i].name.substring(0,which.length) == which)
+			    {
+			      if (document.admin_articles.elements[i].checked)
+			      {
+			        document.admin_articles.elements[i].checked = false;
+			      }
+			      else
+			      {
+			        document.admin_articles.elements[i].checked = true;
+			      }
+			    } 
+			  }
+			}</script>";
+			return $javascript;
+		}
+
+		function die_peacefully($error_msg)
+		{
+			if (!$this->navbar_shown)
+			{
+				$GLOBALS['phpgw']->common->phpgw_header();
+				echo parse_navbar();
+			}
+			echo "<div style='text-align:center; font-weight:bold'>" . lang($error_msg) . "</div>";
+			$GLOBALS['phpgw']->common->phpgw_footer();
+			die();
 		}
 	}	
+?>

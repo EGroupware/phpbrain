@@ -1,45 +1,43 @@
 <?php
-  /**************************************************************************\
-  * phpGroupWare - Calendar's Sidebox-Menu for idots-template                *
-  * http://www.phpgroupware.org                                              *
-  * Written by Pim Snel <pim@lingewoud.nl>                                   *
-  * --------------------------------------------                             *
-  *  This program is free software; you can redistribute it and/or modify it *
-  *  under the terms of the GNU General Public License as published by the   *
-  *  Free Software Foundation; either version 2 of the License, or (at your  *
-  *  option) any later version.                                              *
-  \**************************************************************************/
+    /**************************************************************************\
+    * eGroupWare - Knowledge Bas                                               *
+    * http://www.egroupware.org                                                *
+    * -----------------------------------------------                          *
+    *  This program is free software; you can redistribute it and/or modify it *
+    *  under the terms of the GNU General Public License as published by the   *
+    *  Free Software Foundation; either version 2 of the License, or (at your  *
+    *  option) any later version.                                              *
+    \**************************************************************************/
 
-  /* $Id$ */
+	/* $Id$ */
 {
-
- /*
-	This hookfile is for generating an app-specific side menu used in the idots
-	template set.
-
-	$menu_title speaks for itself
-	$file is the array with link to app functions
-
-	display_sidebox can be called as much as you like
- */
-
 	$menu_title = $GLOBALS['phpgw_info']['apps'][$appname]['title'] . ' '. lang('Menu');
-	$file = Array(
-	array('','text'=>'Browse','link'=>$GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikb.browse')),
-	array('','text'=>'add_answer','link'=>$GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikb.add')),
-	array('','text'=>'add_question','link'=>$GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikb.unanswered')),
+	$file=Array(
+		'Main View'					=> $GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikb.index'),
+		'New Article'				=> $GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikb.edit_article'),
+		'Add Question'				=> $GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikb.add_question'),
+		'Maintain Articles'			=> $GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikb.maintain_articles'),
+		'Maintain Questions'		=> $GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikb.maintain_questions')
 	);
 	display_sidebox($appname,$menu_title,$file);
 
+	if($GLOBALS['phpgw_info']['user']['apps']['preferences'])
+	{
+		$menu_title = lang('Preferences');
+		$file = Array(
+			'Preferences'		=> $GLOBALS['phpgw']->link('/preferences/preferences.php','appname=phpbrain'),
+			'Edit Categories'	=> $GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikbcategories.index&cats_app='.$appname.'&cats_level=True&global_cats=True&extra=icon')
+		);
+		display_sidebox($appname,$menu_title,$file);
+	}	
+
 	if ($GLOBALS['phpgw_info']['user']['apps']['admin'])
 	{
-		$menu_title = lang('Administration');
-		$file = Array(
-			'Site Configuration'=>$GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&appname=phpbrain'),
-			'Global Categories' =>$GLOBALS['phpgw']->link('/index.php','menuaction=admin.uicategories.index&appname=phpbrain'),
-			'Maintain Answers'=>$GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikb.maint_answer'),
-			'Maintain Questions'=>$GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikb.maint_question'),
-		);
+        $menu_title = 'Administration';
+        $file = Array(
+			'Configuration'				=> $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&appname=phpbrain'),
+			'Global Categories'			=> $GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikbglobcats.index&appname=phpbrain&extra=icon')
+        );
 		display_sidebox($appname,$menu_title,$file);
 	}
 }

@@ -1,410 +1,807 @@
 <?php
-	/**************************************************************************\
-	* phpGroupWare - KnowledgeBase                                             *
-	* http://www.phpgroupware.org                                              *
-	* Written by Dave Hall [skwashd AT phpgroupware DOT org]                   *
-	* ------------------------------------------------------------------------ *
-	* Started off as a port of phpBrain - http://vrotvrot.com/phpBrain/	 *
-	*  but quickly became a full rewrite					 *
-	* ------------------------------------------------------------------------ *
-	*  This program is free software; you can redistribute it and/or modify it *
-	*  under the terms of the GNU General Public License as published by the   *
-	*  Free Software Foundation; either version 2 of the License, or (at your  *
-	*  option) any later version.                                              *
-	\**************************************************************************/
-	
+/**************************************************************************\
+* eGroupWare - KnowledgeBase                                              *
+* http://www.egroupware.org                                                *
+* Written by Alejandro Pedraza [alejandro.pedraza AT dataenlace DOT com]   *
+* ------------------------------------------------------------------------ *
+*  Started off as a port of phpBrain - http://vrotvrot.com/phpBrain/	   *
+*  but quickly became a full rewrite					                   *
+* ------------------------------------------------------------------------ *
+*  This program is free software; you can redistribute it and/or modify it *
+*  under the terms of the GNU General Public License as published by the   *
+*  Free Software Foundation; either version 2 of the License, or (at your  *
+*  option) any later version.                                              *
+\**************************************************************************/
+
+	/**
+	* @class sokb
+	*
+	* @abstract		Data manipulation layer of the Knowledge Base. All functions are abstract, only accessible by methods in the bo class.
+	* @Last Editor	$ Author: alpeb $
+	* @author		Alejandro Pedraza
+	* @version		$ Revision: 0.99 $
+	* @license		GPL
+	**/
 	class sokb
 	{
 		var $db;
-		
+
+		var $num_rows;
+
+		var $num_questions;
+
+		var $num_comments;
+
 		function sokb()
 		{
-			$this->db = $GLOBALS['phpgw']->db;
+			$this->db	= $GLOBALS['phpgw']->db;
 		}
 
-		function delete_answer($faq_ids)
+		function search_articles($owners, $categories, $start, $upper_limit = '', $sort, $order, $publish_filter = False, $query)
 		{
-			if(is_array($faq_ids))
+			$order = $this->db->db_addslashes($order);
+			if ($sort != 'DESC') $sort = 'ASC';
+			$fields = array('DISTINCT phpgw_kb_articles.art_id', 'title', 'topic', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5', 'files');
+			$fields_str = implode(', ', $fields);
+			$owners = implode(', ', $owners);
+
+			$sql = "SELECT $fields_str FROM phpgw_kb_articles, phpgw_kb_search WHERE user_id IN ($owners) AND phpgw_kb_articles.art_id=phpgw_kb_search.art_id";
+			if ($publish_filter && $publish_filter!='all') 
 			{
-				$i=0;
-  			foreach($faq_ids as $key => $val)
-  			{
-  				$this->db->query('DELETE FROM phpgw_kb_faq WHERE faq_id=' . intval($key), __LINE__, __FILE__);
-  				$i++;
-  			}//end foreach(q_id)
+				($publish_filter == 'published')? $publish_filter = 1 : $publish_filter = 0;
+				$sql .= " AND published=$publish_filter";
+			}
+			if (!$categories)
+			{
+				$sql .= " AND cat_id = 0";
 			}
 			else
 			{
-				$this->db->query('DELETE FROM phpgw_kb_faq WHERE faq_id=' . intval($faq_ids), __LINE__, __FILE__);
-				$i = 1;
-			}//end is_type
-			return $i;
-		}//end delete_answer
-		
-		function delete_comment($comment_id)
-		{
-			$this->db->query('DELETE FROM phpgw_kb_comment WHERE comment_id=' . intval($comment_id));
-			//this really should only return true if rows affected == 1 
-			return true;
-		}
-
-		function delete_question($question_ids)
-		{
-			if(is_array($question_ids))
-			{
-				$i=0;
-  			foreach($question_ids as $key => $val)
-  			{
-  				$this->db->query('DELETE FROM phpgw_kb_questions WHERE question_id=' . intval($key), __LINE__, __FILE__);
-  				$i++;
-  			}//end foreach(q_id)
+				$categories = implode(",", $categories);
+				$sql .= " AND cat_id IN(" . $categories . ")";
 			}
-			elseif(is_int($question_ids))
+			if ($query)
 			{
-				$this->db->query('DELETE FROM phpgw_kb_questions WHERE question_id =' . intval($question_ids), __LINE__, __FILE__);
-				$i = 1;
-			}//end is_type
-			return $i;
-		}//end delete question
-
-		function get_stats()
-		{	
-			$stats = array();
-			/* how many faqs*/
-    			$this->db->query('SELECT COUNT(*) FROM phpgw_kb_faq WHERE published = 1 AND is_faq = 0', __LINE__, __FILE__);
-    			$this->db->next_record();
-    			$stats['num_faqs'] = $this->db->f(0);
-    
-    			/* how many tutorials? */
-    			$this->db->query('SELECT COUNT(*) FROM phpgw_kb_faq WHERE published = 1 AND is_faq = 1', __LINE__, __FILE__);
-    			$this->db->next_record();
-    			$stats['num_tutes'] = $this->db->f(0);
-    
-    			/* how many open questions? */
-    			$this->db->query('SELECT COUNT(*) FROM phpgw_kb_questions WHERE pending = 0', __LINE__, __FILE__);
-			$this->db->next_record();
-    			$stats['num_open'] = $this->db->f(0);
+				$words_init = explode(' ', $query);
+				// remove words with 3 or less letters if its not a number
+				$words = array();
+				foreach ($words_init as $word_init)
+				{
+					if (is_int($word_init) || strlen($word_init) > 3)
+					{
+						$words[] = $this->db->db_addslashes($word_init);
+					}
+				}
+				$likes = array();
+				foreach ($words as $word)
+				{
+					if ((int)$word) $likes[] = "art_id='$word'";
+					$likes[] = "title LIKE '%$word%' OR topic LIKE '%$word%' OR text LIKE '%$word%'";
+				}
+				$likes = implode(' OR ', $likes);
+				if ($likes) $sql .= " AND (keyword='" . implode("' OR keyword='", $words) . "' OR $likes)";
+			}
 			
-			return $stats;
-		}
-		
-		function get_latest()
-		{
-		    	/* latest questions */
-    			$this->db->limit_query('SELECT * FROM phpgw_kb_questions WHERE pending = 0 ORDER BY question_id DESC', 0, __LINE__, __FILE__, 3);
-
-			$questions = array();
-    			while($this->db->next_record())
+			if ($order)
 			{
-    				$questions[$this->db->f('question_id')] = $this->db->f('question', true);
-    			}
-			return $questions;
-  	}//end get latest
-		
-		function get_faq_list($cat_id = '', $start, $num_rows, $unpublished = false)
-		{
- 			$where  = ((strlen($cat_id) != 0) ? 'cat_id=' . intval($cat_id) . ' ' : '');
-			$where .= ((strlen($where) > 0) ? 'AND ' : '');
-			$where .= ($unpublished ? 'published = 0' : 'published = 1'); 
-			$this->db->limit_query("SELECT * FROM phpgw_kb_faq WHERE $where", $start, __LINE__, __FILE__, $num_rows);
-			while($this->db->next_record())
-			{
-				$faqs[$this->db->f('faq_id')] = array('title' 	=> $this->db->f('title', true),
-            							'text'		=> substr($this->db->f('text', true),0,100) . (strlen($this->db->f('text', true))>100 ? '... ':''),
-            							'modified'	=> $this->db->f('modified'),
-            							'views'		=> $this->db->f('views'),
-            							'votes'		=> $this->db->f('votes'),
-            							'total'		=> $this->db->f('total')
-								);
-			}
-			return $faqs;
-		}
-		
-		function get_item($faq_id, $count_view)
-		{
-			$this->db->query('SELECT * FROM phpgw_kb_faq WHERE faq_id=' . intval($faq_id), __LINE__, __FILE__);
-			if($this->db->next_record())
-			{
-				$item = array('faq_id'		=> $this->db->f('faq_id'),
-					'title'			=> $this->db->f('title', true),
-					'text'			=> $this->db->f('text', true),
-					'cat_id'		=> (int) $this->db->f('cat_id', true),
-					'published'		=> $this->db->f('published'),
-					'keywords'		=> $this->db->f('keywords', true),
-					'user_id'		=> (int) $this->db->f('user_id'),
-					'views'			=> (int) $this->db->f('views'),
-					'modified'		=> (int) $this->db->f('modified'),
-					'type'			=> (int) $this->db->f('type'),
-					'url'			=> $this->db->f('url', true),
-					'votes'			=> (int) $this->db->f('votes'),
-					'total'			=> (int) $this->db->f('total')
-					);
-
-				if($count_view)
-				{
-					$this->set_view($this->db->f('faq_id'));
-				}
-			}
-			return $item;
-		}
-		
-		function get_comments($faq_id)
-		{
-			$this->db->query('SELECT * FROM phpgw_kb_comment WHERE faq_id=' . intval($faq_id), __LINE__, __FILE__);
-			while($this->db->next_record())
-			{
-				$comment[$this->db->f('comment_id')] = array('user_id'	=> $this->db->f('user_id'),
-                  							'comment_text'	=> $this->db->f('comment', true),
-                  							'entered'	=> $this->db->f('entered')
-									);
- 			}
-			return $comment;
-		}
-
-    function get_count($cat_id=FALSE)
-    {
-	    $filter_id="";
-	    if ($cat_id)
-	    {
-		    $filter_id="cat_id = $cat_id AND ";
-	    }
-    	$this->db->query("SELECT COUNT(*) FROM phpgw_kb_faq WHERE $filter_id published = 1", __LINE__, __FILE__);
-    	unset($filter_id);
-			if($this->db->next_record())
-			{
-				return $this->db->f(0); 
+				$sql .= " ORDER BY $order $sort, score DESC";
 			}
 			else
 			{
-				return 0;
+				$sql .= " ORDER BY score DESC";
 			}
-    }
-    
-    function get_count_unanswered()
-    {
-	    $this->db->query("SELECT COUNT(*) FROM phpgw_kb_questions",__LINE__,__FILE__);
-	    if ($this->db->next_record())
-	    {
-		    return $this->db->f(0);
-	    }
-	    else
-	    {
-		    return 0;
-	    }
-    }
-		
-	function get_pending()
-		{
-			$this->db->query('SELECT faq_id, text FROM phpgw_kb_faq WHERE published = 0', __LINE__, __FILE__);
-			while($this->db->next_record())
-			{
-				$faq[$this->db->f('faq_id')] = $this->db->f('text', true); 
-			}
-			return $faq;
-		}//end get pending
+			//echo "sql: $sql <br><br>";
+			$this->db->query($sql, __LINE__, __FILE__);
+			$this->num_rows = $this->db->num_rows();
+			$this->db->limit_query($sql, $start, __LINE__, __FILE__, $upper_limit);
+			$articles = array();
+			return $this->results_to_array($fields);
+		}
 
-		
-		function get_search_results($search, $show = null)
+		function adv_search_articles($owners, $cats_ids, $ocurrences, $pub_date, $start, $num_res, $all_words, $phrase, $one_word, $without_words, $cat, $include_subs, $pub_date)
 		{
-			switch (trim($GLOBALS['phpgw_info']['server']['db_type']))
+			$fields= array('art_id', 'title', 'topic', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2',  'votes_3', 'votes_4', 'votes_5', 'files');
+			$fields_str	= implode(' , ', $fields);
+
+			// permissions filtering
+			$owners	= implode(', ', $owners);
+			$sql = "SELECT $fields_str FROM phpgw_kb_articles WHERE user_id IN ($owners)";
+
+			// categories filtering
+			$cats_ids	= implode (', ', $cats_ids);
+			if ($cats_ids) $sql .= " AND cat_id IN ($cats_ids)";
+
+			// date filtering
+			switch ($pub_date)
 			{
-				/* This is not working - not sure why
-				case 'mysql':
-					$ver = explode('-', mysql_get_server_info());
-					$ver = $ver[0];
-					if($GLOBALS['phpgw']->common->cmp_version_long($ver, '3.23.23') <= 1)
-					{
-						return $this->search_mysql($search, $show);
-					}
-					else
-					{
-						return $this->search_ansisql($search, $show);
-					}
+				case '3':
+					$sql .= " AND created>" . mktime(0, 0, 0, date('n')-3);
 					break;
-				*/
-				//case 'pgsql': - //future use
-				//case 'mssql': - //future use
+				case '6':
+					$sql .= " AND created>" . mktime(0, 0, 0, date('n')-6);
+					break;
+				case 'year':
+					$sql .= " AND created>" . mktime(0, 0, 0, date('n')-12);
+					break;
+			}
+
+			// ocurrences filtering
+			switch ($ocurrences)
+			{
+				case 'title':
+					$target_fields = array('title');
+					break;
+				case 'topic':
+					$target_fields = array('topic');
+					break;
+				case 'text':
+					$target_fields = array('text');
+					break;
 				default:
-					return $this->search_ansisql($search, $show);
-			}//end case db
-				
-		}
-
-		function get_questions($pending = false, $start, $num_rows)
-		{
-			$where = ($pending ? 'pending = 1' : 'pending = 0');
-			$this->db->limit_query("SELECT * FROM phpgw_kb_questions WHERE $where ORDER BY question_id DESC", $start, __LINE__, __FILE__, $num_rows);
-			while($this->db->next_record())
-			{
-				$open_q[$this->db->f('question_id')] = $this->db->f('question', true); 
+					$target_fields = array('title', 'topic', 'keywords', 'text');
+					break;
 			}
-			return $open_q;
-		}
-		
-		function save($faq_id, $faq, $admin)
-		{
-			if(is_int($faq_id) && is_array($faq))
+
+			// "with all the words" filtering
+			$all_words = $this->db->db_addslashes($all_words);
+			$all_words = strlen($all_words)? explode(' ', $all_words) : False;
+			$each_field = array();
+			foreach ($all_words as $word)
 			{
-				if($faq_id)//is new?
+				$each_field[] = "(" . implode(" LIKE '%$word%' OR ", $target_fields) . " LIKE '%$word%')";
+			}
+			if ($each_field)
+			{
+				$sql .= " AND " . implode(" AND ", $each_field);
+			}
+
+			// "with the exact phrase" filtering
+			$phrase = $this->db->db_addslashes($phrase);
+			if ($phrase)
+			{
+				$sql .= " AND (" . implode (" LIKE '%$phrase%' OR ", $target_fields) . " LIKE '%$phrase%')";
+			}
+
+			// "With at least one of the words" filtering
+			$one_word = $this->db->db_addslashes($one_word);
+			$one_word = strlen($one_word)? explode(' ', $one_word) : False;
+			if ($one_word)
+			{
+				$each_field = array();
+				foreach ($one_word as $word)
 				{
-					$sql  =  'UPDATE phpgw_kb_faq';
-					$sql .= ' SET cat_id = ' . intval($faq['cat_id']) . ',';
-					$sql .= " title = '" . $this->db->db_addslashes($faq['title']) . "',";
-					$sql .= " keywords = '" . $this->db->db_addslashes($faq['keywords']) . "',";
-					$sql .= " text = '" . $this->db->db_addslashes($faq['text']) . "',";
-					$sql .= ' modified = ' . time() .',';
-					$sql .= ' user_id = ' . intval($faq['user_id']) .',';
-					$sql .= ' published = ' . ($faq['published'] ? 1 : 0) . ', ';
-					$sql .= ' is_faq = ' . intval($faq['is_faq']) . ', ';
-					$sql .= " url = '" . $this->db->db_addslashes(urldecode($faq['url'])) ."'";
-					$sql .= " WHERE faq_id = $faq_id";
-					$this->db->query($sql, __LINE__, __FILE__);
-					if($this->db->affected_rows() == 1)
-					{
-						return $faq_id;
-					}
-					else//something went wrong
-					{
-						return false;
-					} 
+					$each_field[] = "(" . implode(" LIKE '%$word' OR ", $target_fields) . " LIKE '%$word%')";
 				}
-				else//must be new
+				$sql .= " AND (". implode (" OR ", $each_field) . ")";
+			}
+
+			// "Without the words" filtering
+			$without_words = $this->db->db_addslashes($without_words);
+			$without_words = strlen($without_words)? explode(' ', $without_words) : False;
+			$each_field = array();
+			if ($without_words)
+			{
+				foreach ($without_words as $word)
 				{
-					$sql  = 'INSERT INTO phpgw_kb_faq (title, text, cat_id, published, keywords, user_id, views, modified, is_faq, url) ';
-					$sql .= "VALUES('" . $this->db->db_addslashes($faq['title']) . "', ";
-					$sql .= "'" . $this->db->db_addslashes($faq['text']) . "', ";
-					$sql .= intval($faq['cat_id']) . ", ";
-					$sql .= ($faq['published'] ? 1 : 0) . ', ';
-					$sql .= "'" . $this->db->db_addslashes($faq['keywords']) . "',";
-					$sql .= intval($faq['user_id']) . ', ';
-					$sql .= '0, '; //views must be 0 for new entries
-					$sql .= time() . ',  '; 
-					$sql .= $faq['is_faq'] . ', ';
-					$sql .= "'" . $this->db->db_addslashes(urldecode($faq['url'])) ."')";//url is decoded to make sure it is not encoded already
-					$this->db->query($sql, __LINE__, __FILE__);
-					return $this->db->get_last_insert_id('phpgw_kb_faq', 'faq_id');
-				}//end is new
-			}//end if is valid
-		}//end save
-		
-		function set_active_answer($faq_ids)
-		{
-			$i=0;
-			foreach($faq_ids as $key => $val)
-			{
-				$this->db->query('UPDATE phpgw_kb_faq SET published = 1 WHERE faq_id=' . intval($key), __LINE__, __FILE__);
-				$i++;
+					$each_field[] = "(" . implode(" NOT LIKE '%word' AND ", $target_fields) . " NOT LIKE '%$word%')";
+				}
+				$sql .= " AND " . implode(" AND ", $each_field);
 			}
-			return $i;
-		}//end set_active_answer
 
-		function set_active_question($question_ids)
-		{
-			$i=0;
-			foreach($question_ids as $key => $val)
-			{
-				$this->db->query('UPDATE phpgw_kb_questions SET pending = 0 WHERE question_id=' .intval($key), __LINE__, __FILE__);
-				$i++;
-			}
-			return $i;
-		}//end set_active_question
+			// do the query
+			//echo "query: $sql <br>";
+			$this->db->query($sql, __LINE__, __FILE__);
+			$this->num_rows = $this->db->num_rows();
+			$this->db->limit_query($sql, $start, __LINE__, __FILE__, $num_res);
+			return $this->results_to_array($fields);
+		}
 
-		function set_comment($comment_id, $comment_data)
+		function results_to_array($fields)
 		{
-			if(!$comment_id)//must be new
+			for ($i=0; $this->db->next_record(); $i++)
 			{
-  			$sql  = 'INSERT INTO phpgw_kb_comment(user_id, comment, entered, faq_id) ';
-  			$sql .= 'VALUES(' . intval($comment_data['user_id']) . ', ';
-				$sql .=  "'".$this->db->db_addslashes($comment_data['comment']) . "'," . time() .','.  intval($comment_data['faq_id']) . ')';
+				foreach ($fields as $field)
+				{
+					$articles[$i][$field] = stripslashes($this->db->f($field));
+				}
+				$articles[$i]['art_id'] = $this->db->f('art_id');
+				$username = $GLOBALS['phpgw']->accounts->get_account_name($articles[$i]['user_id'], $lid, $fname, $lname);
+				$articles[$i]['username'] = $fname . ' ' . $lname;
+				$articles[$i]['files'] = unserialize(stripslashes($articles[$i]['files']));
+				$articles[$i]['total_votes'] = $articles[$i]['votes_1'] + $articles[$i]['votes_2'] + $articles[$i]['votes_3'] + $articles[$i]['votes_4'] + $articles[$i]['votes_5'];
+				if ($articles[$i]['total_votes'])
+				{
+					$articles[$i]['average_votes'] = (1*$articles[$i]['votes_1'] + 2*$articles[$i]['votes_2'] + 3*$articles[$i]['votes_3'] + 4*$articles[$i]['votes_4'] + 5*$articles[$i]['votes_5']) / ($articles[$i]['total_votes']);
+				}
+				else
+				{
+					$articles[$i]['average_votes'] = 0;	// avoid division by zero
+				}
 			}
-			else//must be an edit
+			return $articles;
+		}
+
+		function update_keywords($art_id, $word, $upgrade_key)
+		{
+			$word = $this->db->db_addslashes($word);
+
+			// retrieve current score
+			$sql = "SELECT score FROM phpgw_kb_search WHERE keyword='$word' AND art_id=$art_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+			if ($this->db->next_record())
 			{
-				$sql  = 'UPDATE phpgw_kb_comment SET ';
-				$sql .= "comment = '" . $this->db->db_addslashes($comment_data['comment']) . "' ";
-				$sql .= 'WHERE comment_id='.  intval($comment_id);
-			} 
+				// upgrade score
+				$old_score = $this->db->f('score');
+				$new_score = $upgrade_key? $old_score + 1 : $old_score - 1;
+				$sql = "UPDATE phpgw_kb_search SET score=$new_score WHERE keyword='$word' AND art_id=$art_id";
 				$this->db->query($sql, __LINE__, __FILE__);
+			}
+			else
+			{
+				// create new entry for word
+				$score = $upgrade_key? 1: -1;
+				$sql = "INSERT INTO phpgw_kb_search (keyword, art_id, score) VALUES('$word', $art_id, $score)";
+				$this->db->query($sql, __LINE__, __FILE__);
+			}
 		}
 
-		
-		//generic 
-		function search_ansisql($search, $show)
+		function unanswered_questions($owners, $categories, $start, $upper_limit='', $sort, $order, $publish_filter=False, $query)
 		{
-			$select  = 'SELECT * FROM phpgw_kb_faq ';
-			$select .= 'WHERE published = 1 ';
-			if(is_int($show))
+			$fields = array('question_id', 'user_id', 'summary', 'details', 'cat_id', 'creation', 'published');
+			$fields_str = implode(', ', $fields);
+			$owners = implode(', ', $owners);
+			$sql = "SELECT $fields_str FROM phpgw_kb_questions WHERE user_id IN ($owners)";
+			if ($publish_filter && $publish_filter!='all') 
 			{
-				$select .= "AND is_faq = $show ";
+				($publish_filter == 'published')? $publish_filter = 1 : $publish_filter = 0;
+				$sql .= " AND published=$publish_filter";
 			}
-			$query = array();
-			foreach(explode(' ', $search) as $word)
+			if (!$categories)
 			{
-				$word = $this->db->db_addslashes($word);
-				$query[] = "title LIKE '%$word%' ";
-				$query[] = "keywords LIKE '%$word%' ";
-				$query[] = "text LIKE '%$word%' ";
+				$sql .= " AND cat_id = 0";
 			}
-			$sql = $select . 'AND (' . implode('OR ',$query). ')';
+			else
+			{
+				$categories = implode(",", $categories);
+				$sql .= " AND cat_id IN(" . $categories . ")";
+			}
+			if ($query)
+			{
+				$query = $this->db->db_addslashes($query);
+				$words = explode(' ', $query);
+				$sql .= " AND (summary LIKE '%" . implode("%' OR summary LIKE '%", $words) . "%' OR details LIKE '%" . implode("%' OR details LIKE '%", $words) . "%')";
+			}
+			if ($order)
+			{
+				$sql .= " ORDER BY $order $sort";
+			}
+			//echo "sql: $sql <br><br>";
 			$this->db->query($sql, __LINE__, __FILE__);
-			while($this->db->next_record())
+			$this->num_rows = $this->db->num_rows();
+			$this->num_questions = $this->num_rows;
+			$this->db->limit_query($sql, $start, __LINE__, __FILE__, $upper_limit);
+			$questions = array();
+			for ($i=0; $this->db->next_record(); $i++)
 			{
-				$rows[$this->db->f('faq_id')] = $this->db->Record;
-				$rows[$this->db->f('faq_id')]['score'] = 0.00;
+				foreach ($fields as $field)
+				{
+					$questions[$i][$field] = stripslashes($this->db->f($field));
+				}
+				$username = $GLOBALS['phpgw']->accounts->get_account_name($questions[$i]['user_id'], $lid, $fname, $lname);
+				$questions[$i]['username'] = $fname . ' ' . $lname;
 			}
-			return $rows;
-		}//end search ansisql
-
-		function search_mysql($search, $show)
-		{
-			$sql  = 'SELECT *, ';
-			$sql .= "MATCH text,keywords,title AGAINST('" . $this->db->db_addslashes($search) ."') AS score ";
-			$sql .= 'FROM phpgw_kb_faq ';
-			$sql .= 'WHERE published = 1 ';
-			if(is_int($show))
-			{
-				$sql .= "AND is_faq = $show ";
-			}
-			//$sql .= 'HAVING (score > 0.25) '; //- this isn't working properly afaik
-			$sql .= 'ORDER BY score DESC';
-			$this->db->query($sql, __LINE__, __FILE__);
-			while($this->db->next_record())
-			{
-				$rows[$this->db->f('faq_id')] = $this->db->Record;
-			}
-			return $rows;
-		}//end search mysql
-		
-		function set_rating($faq_id, $rating)
-		{
-			$this->db->query("UPDATE phpgw_kb_faq "
-							.'SET votes=votes+1, total=total+' . intval($rating) . ' '
-							.'WHERE faq_id=' . intval($faq_id),__LINE__, __FILE__
-							);
-		}//end set rating
-		
-		function set_question($question, $admin)
-		{
-			$sql  = 'INSERT INTO phpgw_kb_questions(question, pending) ';
-			$sql .= "VALUES('" . $this->db->db_addslashes($question) ."', ";
-			$sql .= ($admin ? 0 : 1) .')';
-			$this->db->query($sql, __LINE__, __FILE__);
-			if($this->db->get_last_insert_id('phpgw_kb_questions', ' question_id'))//worked
-			{
-				return true;
-			}
-			else//must have failed
-			{
-				return false;
-			}//end if worked
-		}//end set question
-
-		function set_view($faq_id)
-		{
-			$this->db->query("UPDATE phpgw_kb_faq "
-							."SET views=views+1 "
-							.'WHERE faq_id=' . intval($faq_id),__LINE__, __FILE__
-							);
+			return $questions;
 		}
-		
+
+		function article_owner($article_id)
+		{
+			$sql = "SELECT user_id FROM phpgw_kb_articles WHERE art_id=" . $article_id;
+			$this->db->query($sql, __LINE__, __FILE__);
+			if ($this->db->next_record())
+			{
+				return $this->db->f('user_id');
+			}
+			return 0;
+		}
+
+		/**
+		* @function save_article 
+		*
+		* @abstract	Saves a new or edited article
+		* @author	Alejandro Pedraza
+		* @param	$contents	article contents
+		* @param	$is_new		True if it's a new article, False if its an edition
+		* @param	$publish	True if the article is to be published without revision
+		* @returns	article id or False if failure
+		**/
+		function save_article($contents, $is_new, $publish = False)
+		{
+			$current_time = time();
+			if ($is_new)
+			{
+				$art_id = $contents['articleID']? $contents['articleID'] : 'NULL';
+				($publish)? $publish = 1 : $publish = 0;
+				$q_id = $contents['answering_question']? $contents['answering_question'] : 0;
+				$sql = "INSERT INTO phpgw_kb_articles (art_id, q_id, title, topic, text, cat_id, published, keywords, user_id, created, modified, modified_user_id) VALUES ($art_id, $q_id, '"
+						. $this->db->db_addslashes($contents['title']) . "', '"
+						. $this->db->db_addslashes($contents['topic']) . "', '"
+						. $this->db->db_addslashes($contents['text']) . "', '"
+						. $this->db->db_addslashes($contents['cat_id']) . "', "
+						. $publish . ", '"
+						. $this->db->db_addslashes($contents['keywords']) . "', "
+						. $GLOBALS['phpgw_info']['user']['account_id'] . ", "
+						. $current_time . ", " . $current_time . ", "
+						. $GLOBALS['phpgw_info']['user']['account_id'] . ")";
+				$this->db->query($sql, __LINE__, __FILE__);
+				$article_id = $this->db->get_last_insert_id('phpgw_kb_articles', 'art_id');
+
+				// update table phpgw_kb_search with keywords. Even if no keywords were introduced, generate an entry
+				$keywords = explode (' ', $contents['keywords']);
+				foreach ($keywords as $keyword)
+				{
+					$this->update_keywords($article_id, $keyword, True);
+				}
+
+				// if publication is automatic and the article answers a question, delete the question
+				if ($publish && $contents['answering_question'])
+				{
+					$sql = "DELETE FROM phpgw_kb_questions WHERE question_id=$q_id";
+					$this->db->query($sql, __LINE__, __FILE__);
+				}
+
+				return $article_id;
+			}
+			else
+			{
+				$sql = "UPDATE phpgw_kb_articles SET "
+						." title='" . $this->db->db_addslashes($contents['title'])
+						."', topic='" . $this->db->db_addslashes($contents['topic'])
+						."', text='" . $this->db->db_addslashes($contents['text'])
+						."', cat_id='" . $this->db->db_addslashes($contents['cat_id'])
+						."', keywords='" . $this->db->db_addslashes($contents['keywords'])
+						."', modified=" . $current_time
+						.", modified_user_id=" . $GLOBALS['phpgw_info']['user']['account_id']
+						." WHERE art_id=" . $contents['editing_article_id'];
+				$this->db->query($sql, __LINE__, __FILE__);
+				if ($this->db->affected_rows())
+				{
+					return $contents['editing_article_id'];
+				}
+				else
+				{
+					return False;
+				}
+			}
+		}
+
+		/**
+		* @function delete_article 
+		*
+		* @abstract	deletes article from table phpgw_kb_art
+		* @author	Alejandro Pedraza
+		* @param	$art_id		article id
+		* @returns	1 on success, 0 on failure
+		**/
+		function delete_article($art_id)
+		{
+			$sql = "DELETE FROM phpgw_kb_articles WHERE art_id=$art_id";
+			if (!$this->db->query($sql, __LINE__, __FILE__)) return 0;
+			return 1;
+		}
+
+		function delete_question($q_id)
+		{
+			$sql = "DELETE FROM phpgw_kb_questions WHERE question_id=$q_id";
+			if (!$this->db->query($sql, __LINE__, __FILE__)) return 0;
+			return 1;
+		}
+
+		function get_latest_articles($parent_cat)
+		{
+			$sql = "SELECT art_id, title, topic, text, modified, votes_1, votes_2, votes_3, votes_4, votes_5 FROM phpgw_kb_articles";
+			$this->db->query($sql, __LINE__, __FILE__);
+
+			$articles = array();
+			while ($this->db->next_record())
+			{
+				$rating = 1*$this->db->f('votes_1') + 2*$this->db->f('votes_2') + 3*$this->db->f('votes_3') + 4*$this->db->f('votes_4') + 5*$this->db->f('votes_5');
+				$articles[$this->db->f('art_id')] = array(
+					'title'		=> $this->db->f('title'),
+					'topic'		=> $this->db->f('topic'),
+					'text'		=> $this->db->f('text'),
+					'modified'	=> $this->db->f('modified'),
+					'rating'	=> $rating
+				);
+			}
+
+			return $articles;
+		}
+
+		function get_article($art_id)
+		{
+			$fields = array('art_id', 'title', 'topic', 'text', 'views', 'cat_id', 'published', 'keywords', 'user_id', 'created', 'modified', 'modified_user_id', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5', 'files', 'urls');
+			$fields_str = implode(", ", $fields);
+
+			// unpublished articles are only viewable by its creator
+			$sql =	"SELECT $fields_str FROM phpgw_kb_articles WHERE art_id=$art_id AND (published=1 OR user_id=" . $GLOBALS['phpgw_info']['user']['account_id'] . ")";
+			$this->db->query($sql, __LINE__, __FILE__);
+			$article = array();
+			if (!$this->db->next_record()) return 0;
+			foreach ($fields as $field)
+			{
+				$article[$field] = stripslashes($this->db->f($field));
+			}
+			$article['files'] = unserialize(stripslashes($article['files']));
+			$article['urls'] = unserialize(stripslashes($article['urls']));
+
+			// normalize vote frequence to the range 0 - 40
+			$votes = array();
+			$article['total_votes'] = $article['votes_1'] + $article['votes_2'] + $article['votes_3'] + $article['votes_4'] + $article['votes_5'];
+			if ($article['total_votes'])
+			{
+				$article['average_votes'] = ($article['votes_1'] + 2*$article['votes_2'] + 3*$article['votes_3'] + 4*$article['votes_4'] + 5*$article['votes_5']) / $article['total_votes'];
+			}
+			else
+			{
+				$article['average_votes'] = 0;
+			}
+
+			return $article;
+		}
+
+		/**
+		* @function	register_view
+		*
+		* @abstract increments the view count of a published article
+		* @author	Alejandro Pedraza
+		* @param	$art_id		article id
+		* @param	$current_count	current view count
+		**/
+		function register_view($art_id, $current_count)
+		{
+			$current_count ++;
+			$sql = "UPDATE phpgw_kb_articles SET views=$current_count WHERE art_id=$art_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+		}
+
+		function get_comments($art_id, $limit)
+		{
+			$fields = array('comment_id', 'user_id', 'comment', 'entered', 'art_id', 'published');
+			$fields_str = implode(", ", $fields);
+			$sql = "SELECT " . $fields_str . " FROM phpgw_kb_comment WHERE art_id=$art_id ORDER BY entered DESC";
+			$this->db->query($sql, __LINE__, __FILE__);
+			$this->num_comments = $this->db->num_rows();
+			if ($limit)
+			{
+				$this->db->limit_query($sql, 0, __LINE__, __FILE__, $limit);
+			}
+			$comments = array();
+			for ($i=0; $this->db->next_record(); $i++)
+			{
+				foreach ($fields as $field)
+				{
+					$comments[$i][$field] = $this->db->f($field);
+				}
+				$GLOBALS['phpgw']->accounts->get_account_name($comments[$i]['user_id'], $lid, $fname, $lname);
+				$comments[$i]['username'] = $fname . ' ' . $lname;
+			}
+			return $comments;
+		}
+
+		function delete_comments($art_id)
+		{
+			$sql = "DELETE FROM phpgw_kb_comment WHERE art_id=$art_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+		}
+
+		function delete_ratings($art_id)
+		{
+			$sql = "DELETE FROM phpgw_kb_ratings WHERE art_id=$art_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+		}
+
+		function get_related_articles($art_id, $owners)
+		{
+			$owners = implode(', ', $owners);
+			$sql = "SELECT phpgw_kb_articles.art_id, phpgw_kb_articles.title FROM phpgw_kb_related_art, phpgw_kb_articles WHERE phpgw_kb_related_art.related_art_id=phpgw_kb_articles.art_id AND phpgw_kb_related_art.art_id=$art_id AND phpgw_kb_articles.user_id IN ($owners)";
+			$this->db->query($sql, __LINE__, __FILE__);
+			$related = array();
+			while ($this->db->next_record())
+			{
+				$related[] = array('art_id' => $this->db->f('art_id'), 'title' => $this->db->f('title'));
+			}
+			return $related;
+		}
+
+		/**
+		* @function user_has_voted
+		*
+		* @abstract	Tells if the current user has already rated the article
+		* @author	Alejandro Pedraza
+		* @param	$art_id		article id
+		* @returns	1 if he has, 0 if not
+		**/
+		function user_has_voted($art_id)
+		{
+			$sql = "SELECT * FROM phpgw_kb_ratings WHERE user_id=" . $GLOBALS['phpgw_info']['user']['account_id'] . " AND art_id=$art_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+			if ($this->db->next_record()) return 1;
+			return 0;
+		}
+
+		/**
+		* @function add_comment
+		*
+		* @abstract	Stores new comment
+		* @author	Alejandro Pedraza
+		* @param	$comment	comment text
+		* @param	$art_id		article id
+		* @param	$publish	True if comment is to be published, False if not
+		* @returns	1 on success, 0 on failure
+		**/
+		function add_comment($comment, $art_id, $publish)
+		{
+			$comment = $this->db->db_addslashes($comment);
+			($publish)? $publish = 1 : $publish = 0;
+			$sql = "INSERT INTO phpgw_kb_comment (comment_id, user_id, comment, entered, art_id, published) VALUES(NULL, "
+					. $GLOBALS['phpgw_info']['user']['account_id'] . ", '$comment', " . time() . ", $art_id, $publish)";
+			$this->db->query($sql, __LINE__, __FILE__);
+			if (!$this->db->affected_rows()) return 0;
+			return 1;
+		}
+
+		function add_link($url, $title, $art_id)
+		{
+			// first retrieve current URLs
+			$sql = "SELECT urls FROM phpgw_kb_articles WHERE art_id=$art_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+
+			// insert news in database
+			$current_urls = unserialize(stripslashes($this->db->f('urls')));
+			$current_urls[] = array(
+				'link'	=> $url,
+				'title'	=> $title
+			);
+			$new_urls = $this->db->db_addslashes(serialize($current_urls));
+			$sql = "UPDATE phpgw_kb_articles SET urls='" . $new_urls . "' WHERE art_id=$art_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+			if (!$this->db->affected_rows()) return 0;
+			return 1;
+		}
+
+		/**
+		* @function	publish_article
+		*
+		* @abstract Publishes article, and resets creation and modification date
+		* @author	Alejandro Pedraza
+		* @param	$art_id		article id
+		* @returns	Numbers of lines affected (should be 1, if not there's an error)
+		**/
+		function publish_article($art_id)
+		{
+			$sql = "UPDATE phpgw_kb_articles SET published=1, created=". time() . " AND modified=" . time() . " WHERE art_id=$art_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+			return ($this->db->affected_rows());
+		}
+
+		function publish_comment($art_id, $comment_id)
+		{
+			$sql = "UPDATE phpgw_kb_comment SET published=1 WHERE art_id=$art_id AND comment_id=$comment_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+			return ($this->db->affected_rows());
+		}
+
+		function delete_comment($art_id, $comment_id)
+		{
+			$sql = "DELETE FROM phpgw_kb_comment WHERE art_id=$art_id AND comment_id=$comment_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+			return ($this->db->affected_rows());
+		}
+
+		function delete_link($art_id, $delete_link)
+		{
+			// first retrieve current URLs
+			$sql = "SELECT urls FROM phpgw_kb_articles WHERE art_id=$art_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+			$current_links = unserialize(stripslashes($this->db->f('urls')));
+
+			// Proceed with deletion
+			$new_links = array();
+			foreach ($current_links as $current_link)
+			{
+				if ($current_link['link'] != $delete_link) $new_links[] = $current_link;
+			}
+			$new_links = $this->db->db_addslashes(serialize($new_links));
+
+			// Update database
+			$sql = "UPDATE phpgw_kb_articles SET urls='$new_links' WHERE art_id=$art_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+			if (!$this->db->affected_rows()) return 0;
+			return 1;
+		}
+
+		/**
+		* @function add_vote
+		*
+		* @abstract	increments vote_x in table
+		* @author	Alejandro Pedraza
+		* @param	$art_id			article id
+		* @param 	$rating			int	rating between 1 and 5
+		* @param	$current_rating	int number of current votes in that rating
+		* @returns	1 on success, 0 on failure
+		**/
+		function add_vote($art_id, $rating, $current_rating)
+		{
+			$new_rating = $current_rating + 1;
+			$sql = "UPDATE phpgw_kb_articles SET votes_" . $rating . "=$new_rating WHERE art_id=$art_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+			if (!$this->db->affected_rows()) return 0;
+			return 1;
+		}
+
+		/**
+		* @function add_rating
+		*
+		* @abstract	Registers that actual user has voted this article
+		* @author	Alejandro Pedraza
+		* @param	$art_id		article id
+		* @returns	1 on success, 0 on failure
+		**/
+		function add_rating_user($art_id)
+		{
+			$sql = "INSERT INTO phpgw_kb_ratings (user_id, art_id) VALUES(" . $GLOBALS['phpgw_info']['user']['account_id'] . ", $art_id)";
+			$this->db->query($sql, __LINE__, __FILE__);
+			if (!$this->db->affected_rows()) return 0;
+			return 1;
+		}
+
+		function add_file($article_id, $file_name)
+		{
+			// first retrieve current_articles
+			$sql = "SELECT files FROM phpgw_kb_articles WHERE art_id=$article_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+			$files = array();
+			if ($this->db->next_record())
+			{
+				$files = unserialize(stripslashes($this->db->f('files')));
+			}
+			$comment = $_POST['file_comment']? $_POST['file_comment'] : '';
+			$files[] = array(
+				'file'		=> $file_name,
+				'comment'	=> $comment
+			);
+			$new_files = $this->db->db_addslashes(serialize($files));
+
+			// now update database
+			$sql = "UPDATE phpgw_kb_articles SET files='$new_files' WHERE art_id=$article_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+			if (!$this->db->next_record()) return 0;
+			return 1;
+		}
+
+		function delete_file($art_id, $file_to_erase)
+		{
+			// first retrieve current_articles
+			$sql = "SELECT files FROM phpgw_kb_articles WHERE art_id=$art_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+			$files = array();
+			if ($this->db->next_record())
+			{
+				$files = unserialize(stripslashes($this->db->f('files')));
+			}
+
+			// now remove the file
+			$new_files = array();
+			foreach ($files as $file)
+			{
+				if ($file['file'] != $file_to_erase) $new_files[] = $file;
+			}
+			$new_files = $this->db->db_addslashes(serialize($new_files));
+
+			// and reinsert in database
+			$sql = "UPDATE phpgw_kb_articles SET files='$new_files' WHERE art_id=$art_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+			if ($this->db->affected_rows()) return True;
+			return False;
+		}
+
+		/**
+		* @function exist_articleID
+		*
+		* @abstract	Checks if there is already an article in the db with the given ID
+		* @author	Alejandro Pedraza
+		* @param	$art_id		article id
+		* @returns	1 if there is one, 0 if not
+		**/
+		function exist_articleID($article_id)
+		{
+			$sql = "SELECT art_id FROM phpgw_kb_articles WHERE art_id=" . $article_id;
+			$this->db->query($sql, __LINE__, __FILE__);
+			return $this->db->next_record();
+		}
+
+		function owners_list($articles)
+		{
+			$articles = implode(', ', $articles);
+			$sql = "SELECT art_id, user_id FROM phpgw_kb_articles WHERE art_id IN($articles)";
+			$this->db->query($sql, __LINE__, __FILE__);
+			$owners = array();
+			while ($this->db->next_record())
+			{
+				$owners[] = array('art_id' => $this->db->f('art_id'), 'user_id' => $this->db->f('user_id'));
+			}
+			return $owners;
+		}
+
+		function add_related($art_id, $articles)
+		{
+			$added = False;
+			foreach ($articles as $article)
+			{
+				$sql = "INSERT INTO phpgw_kb_related_art (art_id, related_art_id) VALUES($art_id, $article)";
+				$this->db->query($sql, __LINE__, __FILE__);
+				if ($this->db->affected_rows()) $added = True;
+			}
+			return $added;
+		}
+
+		function delete_related($art_id, $related_id, $all = False)
+		{
+			$sql_operator = $all? 'OR' : 'AND';
+			$sql = "DELETE FROM phpgw_kb_related_art WHERE art_id=$art_id $sql_operator related_art_id=$related_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+		}
+
+		function delete_search($art_id)
+		{
+			$sql = "DELETE FROM phpgw_kb_search WHERE art_id=$art_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+		}
+
+		function add_question($data, $publish)
+		{
+			($publish)? $publish = 1 : $publish = 0;
+			$sql = "INSERT INTO phpgw_kb_questions (question_id, user_id, summary, details, cat_id, creation, published) VALUES (NULL, "
+					. $GLOBALS['phpgw_info']['user']['account_id'] . ", '"
+					. $this->db->db_addslashes($data['summary']) . "', '"
+					. $this->db->db_addslashes($data['details']) . "', "
+					. $this->db->db_addslashes($data['cat_id']) . ", "
+					. time() . ", "
+					. $publish . ")";
+			$this->db->query($sql, __LINE__, __FILE__);
+			return $this->db->affected_rows();
+		}
+
+		function get_question($q_id)
+		{
+			$fields = array('user_id', 'summary', 'details', 'cat_id', 'creation');
+			$fields_str = implode(", ", $fields);
+
+			$sql = "SELECT $fields_str FROM phpgw_kb_questions WHERE question_id=$q_id AND published=1";
+			$this->db->query($sql, __LINE__, __FILE__);
+			$question = array();
+			while ($this->db->next_record())
+			{
+				foreach ($fields as $field)
+				{
+					$question[$field] = stripslashes($this->db->f($field));
+				}
+			}
+			return $question;
+		}
+
+		function categories_icons(&$categories)
+		{
+			$cats_with_icons = array();
+			foreach ($categories as $category)
+			{
+				$new_cat = array('icon' => '');
+				$sql = "SELECT icon FROM phpgw_kb_categories WHERE cat_id=" . $category['id'];
+				$this->db->query($sql, __LINE__, __FILE__);
+				if ($this->db->next_record()) $new_cat = array('icon' => $this->db->f('icon'));
+				$cat_with_icons[] = array_merge($category, $new_cat);
+			}
+			$categories = $cat_with_icons;
+		}
 	}
 ?>
