@@ -24,8 +24,8 @@ enable	common	en	Enable
 example	phpbrain	en	Example
 excellent	common	en	Excellent
 explain_faq_admin	phpbrain	en	Answers to FAQs must be enabled so users can few them.  Select the FAQs you wish to enable.  Alternatively you can select inappropriate responses which you wish to delete.
-explain_maintain_answers	phpbrain	en	explain_maintain_answers
-explain_questions_admin	phpbrain	en	explain_questions_admin
+explain_maintain_answers	phpbrain	en	Questions submitted by users must be activated by an admin user.  Select those answers that you wish to activate or alternatively delete
+explain_questions_admin	phpbrain	en	Answers submitted by users must be activated by an admin user.  Select those questions that you wish to activate or alternatively delete
 faq_saved	phpbrain	en	FAQ Saved
 faqs	phpbrain	en	FAQs
 faqs_and_tutes	phpbrain	en	FAQs and Tutorials
@@ -33,7 +33,7 @@ improve_by_rate	phpbrain	en	Help us improve by rating posts
 inspire_by_suggestions	phpbrain	en	If you need inspiration, take a look at the open questions.
 invalid faq request - or something is nqr	phpbrain	en	ERROR: Invalid FAQ Request
 kb_contains	phpbrain	en	Knowledge Base Contains
-know_contrib	phpbrain	en	know_contrib
+know_contrib	phpbrain	en	Do you know the answer? If so, answer it.
 last_mod %1	phpbrain	en	Last Modified: %1
 maintain_answers	phpbrain	en	Maintain Answers
 no comments	phpbrain	en	No Comments
@@ -61,7 +61,7 @@ return_to_index	phpbrain	en	Return to Index
 return_to_search %1	phpbrain	en	Return to Search: %1
 score %1	phpbrain	en	score %1
 section_maint_faqs	phpbrain	en	Maintain Pending FAQs
-section_maintain_questions	phpbrain	en	section_maintain_questions
+section_maintain_questions	phpbrain	en	Maintain Questions
 show	phpbrain	en	show
 submitted_by	phpbrain	en	Submitted By
 text	common	en	Text
