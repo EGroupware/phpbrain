@@ -758,7 +758,17 @@
 		{
 			$sql = "UPDATE phpgw_kb_articles SET published=1, created=". time() . " AND modified=" . time() . " WHERE art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
-			return ($this->db->affected_rows());
+
+			// check if the article answers a question, and if so, delete it
+			$sql = "SELECT q_id FROM phpgw_kb_articles WHERE art_id=$art_id";
+			$this->db->query($sql, __LINE__, __FILE__);
+			if ($this->db->next_record())
+			{
+				$sql = "DELETE FROM phpgw_kb_questions WHERE question_id=".$this->db->f('q_id');
+				$this->db->query($sql, __LINE__, __FILE__);
+			}
+
+			return True;
 		}
 
 		/**
