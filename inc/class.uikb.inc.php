@@ -1595,15 +1595,15 @@
 				{
 					$actions = '';
 
-					// skip if article unpublished and user has no publish right on owner
-					if (!$article['published'] && !($this->bo->grants[$article['user_id']] & $this->bo->publish_right)) continue;
+					// skip if article unpublished, user has no publish right on owner and user!=owner
+					if (!$article['published'] && !($this->bo->grants[$article['user_id']] & $this->bo->publish_right) && $article['user_id']!=$GLOBALS['phpgw_info']['user']['account_id']) continue;
 
 					$actions = "<a href='". $this->link('menuaction=phpbrain.uikb.view_article&art_id='. $article['art_id']) ."'>
 								<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'view') . "' title='". lang('view')  ."'>
 								</a>";
 					if (!$article['published'] && ($this->bo->grants[$article['user_id']] & $this->bo->publish_right))
 					{
-						$actions .= "<a href='". $this->link($this->link, 'menuaction=phpbrain.uikb.maintain_articles&publish='. $article['art_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query) ."'>
+						$actions .= "<a href='". $this->link('menuaction=phpbrain.uikb.maintain_articles&publish='. $article['art_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query) ."'>
 											<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'new') . "' title='". lang('publish')  ."'>
 											</a>";
 					}

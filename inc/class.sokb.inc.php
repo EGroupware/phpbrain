@@ -542,8 +542,8 @@
 			$fields = array('art_id', 'title', 'topic', 'text', 'views', 'cat_id', 'published', 'keywords', 'user_id', 'created', 'modified', 'modified_user_id', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5', 'files', 'urls');
 			$fields_str = implode(", ", $fields);
 
-			// unpublished articles are only viewable by its creator
-			$sql =	"SELECT $fields_str FROM phpgw_kb_articles WHERE art_id=$art_id AND (published=1 OR user_id=" . $GLOBALS['phpgw_info']['user']['account_id'] . ")";
+			$sql =	"SELECT $fields_str FROM phpgw_kb_articles WHERE art_id=$art_id";
+			//echo "sql: $sql <br>";
 			$this->db->query($sql, __LINE__, __FILE__);
 			$article = array();
 			if (!$this->db->next_record()) return 0;

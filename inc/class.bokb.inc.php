@@ -246,6 +246,7 @@
 			$GLOBALS['phpgw']->historylog	= CreateObject('phpgwapi.historylog','phpbrain');
 
 			$this->grants				= $GLOBALS['phpgw']->acl->get_grants('phpbrain');
+			//echo "grants: <pre>";print_r($this->grants);echo "</pre>";
 			// full grants for admin on user 0 (anonymous questions on previous phpbrain version)
 			if ($GLOBALS['phpgw']->acl->check('run',1,'admin')) $this->grants[0] = -1;
 			$this->preferences			= $GLOBALS['phpgw']->preferences->data['phpbrain'];
@@ -253,6 +254,18 @@
 			$this->read_right			= PHPGW_ACL_READ;
 			$this->edit_right			= PHPGW_ACL_EDIT;
 			$this->publish_right		= PHPGW_ACL_CUSTOM_1;
+
+			// acl grants puts all rights (-1) on current the user itself. That has to be modified here since the user doesn't have necessarily publish rights
+			// Here I have to accumulate the rights the user has on every group it belongs to
+			$grants_user = $this->read_right | $this->edit_right;	// The user can always read and edit his own articles
+			$user_groups = $GLOBALS['phpgw']->accounts->membership($GLOBALS['phpgw_info']['user']['account_id']);
+			foreach ($user_groups as $group)
+			{
+				$grants_user |= $this->grants[$group['account_id']];
+				//echo "for the group: ";echo $group['account_id'];echo " the right: ";echo $this->grants[$group['account_id']];echo "<br>";
+			}
+			//echo "grants_user: $grants_user<br>";
+			$this->grants[$GLOBALS['phpgw_info']['user']['account_id']] = $grants_user;
 
 			$this->admin_config		= $GLOBALS['phpgw']->config->read_repository();
 
@@ -686,7 +699,7 @@
 
 			// check permissions
 			$this->article_owner = $article['user_id'];
-			if (!$this->check_permission($this->read_right)) $this->die_peacefully('You have not the proper permissions to do that');
+			if (!$this->check_permission($this->read_right | $this->publish_right)) $this->die_peacefully('You have not the proper permissions to do that');
 
 			$GLOBALS['phpgw']->accounts->get_account_name($article['user_id'], $lid, $fname, $lname);
 			$article['username'] = $fname . ' ' . $lname;
