@@ -30,13 +30,11 @@
 							<tr>
 								<td style='padding: 0 10px 0 10px' align=center>
 									<!-- BEGIN articles_navigation_block -->
-										<form name="articles_nav" method ="POST" action="{form_articles_nav_action}">
-											<table border=0 cellpadding=0 cellspacing=0 style="padding-top:5px">
-												<tr>
-													{left}<td align=center>{num_regs}</td>{right}
-												</tr>
-											</table>
-										</form>
+									<table border=0 cellpadding=0 cellspacing=0 style="padding-top:5px">
+										<tr>
+											{left}<td align=center>{num_regs}</td>{right}
+										</tr>
+									</table>
 									<!-- END articles_navigation_block -->
 								</td>
 							</tr>

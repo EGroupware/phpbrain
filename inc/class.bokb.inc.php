@@ -84,7 +84,8 @@
 			'publish_ok'			=> 'Article has been published',
 			'publish_comm_ok'		=> 'Comment has been pusblished',
 			'publishs_ok'			=> 'Articles have been published',
-			'mail_ok'				=> 'e-mail has been sent'
+			'mail_ok'				=> 'e-mail has been sent',
+			'mail_err'				=> 'Error in e-mail address'
 		);
 
 
@@ -529,15 +530,24 @@
 		/**
 		* @function add_rating
 		*
-		* @abstract	Registers user's vote
+		* @abstract	Registers user's vote. When accessing through egroupware users can only vote once. When accessign through sitemgr, they can vote as many times they wish, but only once per session on an individual article
 		* @author	Alejandro Pedraza
 		* @param	$current_rating	int current number of votes in the level $rating (this saves me a trip to the db)
+		* @param	$sitemgr	Whether user is accessing through sitemgr
 		* @returns	1 on success, 0 on failure
 		**/
-		function add_rating($current_rating)
+		function add_rating($current_rating, $sitemgr=False)
 		{
 			if(!$this->so->add_vote($this->article_id, $_POST['Rate'], $current_rating)) return 0;
-			if (!$this->so->add_rating_user($this->article_id)) return 0;
+			if (!$sitemgr)
+			{
+				if (!$this->so->add_rating_user($this->article_id)) return 0;
+			}
+			// register vote in session
+			if (!$data = $GLOBALS['phpgw']->session->appsession('ratings', 'phpbrain')) $data = array();
+			$data[] = $this->article_id;
+			$GLOBALS['phpgw']->session->appsession('ratings', 'phpbrain', $data);
+
 			return 1;
 		}
 
@@ -796,6 +806,10 @@
 
 		function mail_article($article_contents)
 		{
+			// check address syntaxis
+			$theresults = ereg("^[^@ ]+@[^@ ]+\.[^@ \.]+$", $_POST['recipient'], $trashed);
+			if (!$theresults) return 'mail_err';
+
 			$GLOBALS['phpgw']->send = CreateObject('phpgwapi.send');
 			$rc = $GLOBALS['phpgw']->send->msg('email', $_POST['recipient'], $_POST['subject'], $article_contents, '', '', '', $_POST['reply'], $_POST['reply'], 'html');
 			if (!$rc)

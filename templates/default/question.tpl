@@ -1,20 +1,24 @@
-<table width=100% style='border:1px solid black;'>
-	<tr>
-		<td align=center style='color: red'>{message}</td>
-	</tr>
-	<tr class=th>
-		<td colspan=2><b>{lang_search_kb}:</b></td>
-	</tr>
-	<tr>
-		<td colspan=2 style='padding:10px 0 10px 0'>
-			{lang_enter_words}:<br>
-			<form name="search" method=POST action={search_target}>
-				<input type="text" name="query" size=90%>&nbsp;<input type="submit" name="Search" value="Search">
-				&nbsp;&nbsp;<a href="{link_adv_search}">{lang_advanced_search}</a>
-			</form>
-		</td>
-	</tr>
-</table>
+<form name="search" method=POST action={form_search_action}>
+	<table width=100% style='border:1px solid black; margin-bottom:5px'>
+		<tr>
+			<td colspan=3 class="th" style='text-align:left'><b>{lang_search_kb}:</b></td>
+		</tr>
+		<tr>
+			<td colspan=3 style='padding:10px 0 10px 0'>{lang_enter_words}:</td>
+		</tr>
+		<tr>
+			<td style='width:75%; text-align:center'>
+				<input type="text" name="query" style='width:99%'>
+			</td>
+			<td style='width:5%; text-align:center'>
+				<input type="submit" name="Search" value="{lang_search}">
+			</td>
+			<td valign=bottom style='width:20%; text-align:left; padding-left:10px'>
+				<a href="{link_adv_search}">{lang_advanced_search}</a>
+			</td>
+		</tr>
+	</table>
+</form>
 <br>
 <div align="center" style='border:1px solid black;'>
 <form method=POST action="{form_question_action}">

@@ -1,3 +1,57 @@
+<style>
+	th.activetab
+  {
+	color:#000000;
+	background-color:#D3DCE3;
+	border-top-width : 2px;
+	border-top-style : solid;
+	border-top-color : Black;
+	border-left-width : 2px;
+	border-left-style : solid;
+	border-left-color : Black;
+	border-right-width : 2px;
+	border-right-style : solid;
+	border-right-color : Black;
+  }
+
+  th.inactivetab
+  {
+	color:#000000;
+	background-color:#E8F0F0;
+	border-width : 1px;
+	border-style : solid;
+	border-color : Black;
+	border-bottom-width : 2px;
+	border-bottom-style : solid;
+	border-bottom-color : Black;
+  }
+
+  table.tabcontent
+  {
+	border-bottom-width : 2px;
+	border-bottom-style : solid;
+	border-bottom-color : Black;
+	border-left-width : 2px;
+	border-left-style : solid;
+	border-left-color : Black;
+	border-right-width : 2px;
+	border-right-style : solid;
+	border-right-color : Black;
+  }
+
+  .td_left { border-left : 1px solid Gray; border-top : 1px solid Gray; }
+  .td_right { border-right : 1px solid Gray; border-top : 1px solid Gray; }
+
+  div.activetab{ display:inline; }
+  div.inactivetab{ display:none; }
+
+  .column {
+		background-image: url({url_bluedot});
+		border-left:1px solid black;
+		border-top:1px solid black;	
+		border-right:1px solid black;
+	}
+</style>
 {message}
 {search_tpl}
 <div align="center">
