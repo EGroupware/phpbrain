@@ -29,13 +29,13 @@
 				$i=0;
   			foreach($faq_ids as $key => $val)
   			{
-  				$this->db->query("DELETE FROM phpgw_kb_faq WHERE faq_id = $key", __LINE__, __FILE__);
+  				$this->db->query('DELETE FROM phpgw_kb_faq WHERE faq_id=' . intval($key), __LINE__, __FILE__);
   				$i++;
   			}//end foreach(q_id)
 			}
-			elseif(is_int($faq_ids))
+			else
 			{
-				$this->db->query("DELETE FROM phpgw_kb_faq WHERE faq_id = $faq_ids", __LINE__, __FILE__);
+				$this->db->query('DELETE FROM phpgw_kb_faq WHERE faq_id=' . intval($key), __LINE__, __FILE__);
 				$i = 1;
 			}//end is_type
 			return $i;
@@ -43,7 +43,7 @@
 		
 		function delete_comment($comment_id)
 		{
-			$this->db->query("DELETE FROM phpgw_kb_comment WHERE comment_id = $comment_id");
+			$this->db->query('DELETE FROM phpgw_kb_comment WHERE comment_id=' . intval($comment_id));
 			//this really should only return true if rows affected == 1 
 			return true;
 		}
@@ -55,13 +55,13 @@
 				$i=0;
   			foreach($question_ids as $key => $val)
   			{
-  				$this->db->query("DELETE FROM phpgw_kb_questions WHERE question_id = $key", __LINE__, __FILE__);
+  				$this->db->query('DELETE FROM phpgw_kb_questions WHERE question_id=' . intval($key), __LINE__, __FILE__);
   				$i++;
   			}//end foreach(q_id)
 			}
 			elseif(is_int($question_ids))
 			{
-				$this->db->query("DELETE FROM phpgw_kb_questions WHERE question_id = $question_ids", __LINE__, __FILE__);
+				$this->db->query('DELETE FROM phpgw_kb_questions WHERE question_id =' . intval($question_ids), __LINE__, __FILE__);
 				$i = 1;
 			}//end is_type
 			return $i;
@@ -103,7 +103,7 @@
 		
 		function get_faq_list($cat_id = '', $unpublished = false)
 		{
-    			$where  = ((strlen($cat_id) != 0) ? "cat_id = $cat_id " : '');
+ 			$where  = ((strlen($cat_id) != 0) ? 'cat_id=' . intval($cat_id) . ' ' : '');
 			$where .= ((strlen($where) > 0) ? 'AND ' : '');
 			$where .= ($unpublished ? 'published = 0' : 'published = 1'); 
 			$this->db->query("SELECT * FROM phpgw_kb_faq WHERE $where", __LINE__, __FILE__);
@@ -122,7 +122,7 @@
 		
 		function get_item($faq_id, $count_view)
 		{
-			$this->db->query("SELECT * FROM phpgw_kb_faq WHERE faq_id = $faq_id", __LINE__, __FILE__);
+			$this->db->query('SELECT * FROM phpgw_kb_faq WHERE faq_id=' . intval($faq_id), __LINE__, __FILE__);
 			if($this->db->next_record())
 			{
 				$item = array('faq_id'		=> $this->db->f('faq_id'),
@@ -150,7 +150,7 @@
 		
 		function get_comments($faq_id)
 		{
-			$this->db->query("SELECT * FROM phpgw_kb_comment WHERE faq_id = $faq_id", __LINE__, __FILE__);
+			$this->db->query('SELECT * FROM phpgw_kb_comment WHERE faq_id=' . intval($faq_id), __LINE__, __FILE__);
 			while($this->db->next_record())
 			{
 				$comment[$this->db->f('comment_id')] = array('user_id'	=> $this->db->f('user_id'),
@@ -229,14 +229,14 @@
 				if($faq_id)//is new?
 				{
 					$sql  =  'UPDATE phpgw_kb_faq';
-					$sql .= ' SET cat_id = ' . $faq['cat_id'] . ',';
+					$sql .= ' SET cat_id = ' . intval($faq['cat_id']) . ',';
 					$sql .= " title = '" . $this->db->db_addslashes($faq['title']) . "',";
 					$sql .= " keywords = '" . $this->db->db_addslashes($faq['keywords']) . "',";
 					$sql .= " text = '" . $this->db->db_addslashes($faq['text']) . "',";
 					$sql .= ' modified = ' . time() .',';
-					$sql .= ' user_id = ' . $faq['user_id'] .',';
+					$sql .= ' user_id = ' . intval($faq['user_id']) .',';
 					$sql .= ' published = ' . ($admin ? 1 : 0) . ', ';
-					$sql .= ' is_faq = ' . $faq['is_faq'] . ', ';
+					$sql .= ' is_faq = ' . intval($faq['is_faq']) . ', ';
 					$sql .= " url = '" . $this->db->db_addslashes(urldecode($faq['url'])) ."'";
 					$sql .= " WHERE faq_id = $faq_id";
 					$this->db->query($sql, __LINE__, __FILE__);
@@ -254,10 +254,10 @@
 					$sql  = 'INSERT INTO phpgw_kb_faq (title, text, cat_id, published, keywords, user_id, views, modified, is_faq, url) ';
 					$sql .= "VALUES('" . $this->db->db_addslashes($faq['title']) . "', ";
 					$sql .= "'" . $this->db->db_addslashes($faq['text']) . "', ";
-					$sql .= $faq['cat_id'] . ", ";
+					$sql .= intval($faq['cat_id']) . ", ";
 					$sql .= ($admin ? 1 : 0) . ', ';//admin is auto publish
 					$sql .= "'" . $this->db->db_addslashes($faq['keywords']) . "',";
-					$sql .= $faq['user_id'] . ', ';
+					$sql .= intval($faq['user_id']) . ', ';
 					$sql .= '0, '; //views must be 0 for new entries
 					$sql .= time() . ',  '; 
 					$sql .= $faq['is_faq'] . ', ';
@@ -273,7 +273,7 @@
 			$i=0;
 			foreach($faq_ids as $key => $val)
 			{
-				$this->db->query("UPDATE phpgw_kb_faq SET published = 1 WHERE faq_id = $key", __LINE__, __FILE__);
+				$this->db->query('UPDATE phpgw_kb_faq SET published = 1 WHERE faq_id=' intval($key), __LINE__, __FILE__);
 				$i++;
 			}
 			return $i;
@@ -284,7 +284,7 @@
 			$i=0;
 			foreach($question_ids as $key => $val)
 			{
-				$this->db->query("UPDATE phpgw_kb_questions SET pending = 0 WHERE question_id = $key", __LINE__, __FILE__);
+				$this->db->query('UPDATE phpgw_kb_questions SET pending = 0 WHERE question_id=' .intval($key), __LINE__, __FILE__);
 				$i++;
 			}
 			return $i;
@@ -295,14 +295,14 @@
 			if(!$comment_id)//must be new
 			{
   			$sql  = 'INSERT INTO phpgw_kb_comment(user_id, comment, entered, faq_id) ';
-  			$sql .= 'VALUES(' . $comment_data['user_id'] . ', ';
-				$sql .=  "'".$this->db->db_addslashes($comment_data['comment']) . "'," . time() .','.  $comment_data['faq_id'] . ')';
+  			$sql .= 'VALUES(' . intval($comment_data['user_id']) . ', ';
+				$sql .=  "'".$this->db->db_addslashes($comment_data['comment']) . "'," . time() .','.  intval($comment_data['faq_id']) . ')';
 			}
 			else//must be an edit
 			{
 				$sql  = 'UPDATE phpgw_kb_comment SET ';
 				$sql .= "comment = '" . $this->db->db_addslashes($comment_data['comment']) . "' ";
-				$sql .= "WHERE comment_id = $comment_id";
+				$sql .= 'WHERE comment_id='.  intval($comment_id);
 			} 
 				$this->db->query($sql, __LINE__, __FILE__);
 		}
@@ -371,8 +371,8 @@
 		function set_rating($faq_id, $rating)
 		{
 			$this->db->query("UPDATE phpgw_kb_faq "
-							."SET votes=votes+1, total=total+$rating "
-							."WHERE faq_id=$faq_id",__LINE__, __FILE__
+							.'SET votes=votes+1, total=total+' . intval($rating) . ' '
+							.'WHERE faq_id=' . intval($faq_id),__LINE__, __FILE__
 							);
 		}//end set rating
 		
@@ -396,7 +396,7 @@
 		{
 			$this->db->query("UPDATE phpgw_kb_faq "
 							."SET views=views+1 "
-							."WHERE faq_id=$faq_id",__LINE__, __FILE__
+							.'WHERE faq_id=' . intval($faq_id),__LINE__, __FILE__
 							);
 		}
 		

@@ -67,14 +67,20 @@
 		
 		function delete_comment($comment_id)
 		{
-			$faq_id = (int) $faq_id;
-			if(faq_id)
+			$comment_id = (int) $comment_id;
+			if($comment_id)
 			{
 				return $this->so->delete_comment($comment_id);
 			}
 			return false;
 		}
 
+		function delete_answer($answers)
+		{
+			return $this->so->delete_answer($answers);
+		}
+
+		
 		function get_comments($faq_id)
 		{
 			$comments = $this->so->get_comments($faq_id);
