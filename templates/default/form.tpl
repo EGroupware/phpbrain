@@ -1,12 +1,11 @@
     <form action="{form_url}" name="comment" method="POST">
-		<!-- BEGIN hidden_var -->
-      <input type="HIDDEN" name="{hidden_name}" value="{hidden_val}"> 
-		<!-- END hidden_var -->
+	<!-- BEGIN hidden_var -->
+	<input type="HIDDEN" name="{hidden_name}" value="{hidden_val}"> 
+	<!-- END hidden_var -->
       <table border="0" width="600" cellspacing="0" class="navbg">
         <tr>
           <td>&nbsp;</td>
           <td>{lang_title}</td>
-        </tr>
         </tr>
         <tr>
           <td><b>{lang_input_descr}</b></td>

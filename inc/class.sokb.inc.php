@@ -119,18 +119,18 @@
 			if($this->db->next_record())
 			{
 				$item = array('faq_id'		=> $this->db->f('faq_id'),
-							'title'			=> $this->db->f('title', true),
-							'text'			=> $this->db->f('text', true),
-							'cat_id'		=> $this->db->f('cat_id', true),
-							'published'		=> $this->db->f('published'),
-							'keywords'		=> $this->db->f('keywords', true),
-							'user_id'		=> $this->db->f('user_id'),
-							'views'			=> $this->db->f('views'),
-							'modified'		=> $this->db->f('modified'),
-							'type'			=> $this->db->f('type'),
-							'url'			=> $this->db->f('url', true),
-							'votes'			=> $this->db->f('votes'),
-							'total'			=> $this->db->f('total')
+						'title'			=> $this->db->f('title', true),
+						'text'			=> $this->db->f('text', true),
+						'cat_id'		=> $this->db->f('cat_id', true),
+						'published'		=> $this->db->f('published'),
+						'keywords'		=> $this->db->f('keywords', true),
+						'user_id'		=> $this->db->f('user_id'),
+						'views'			=> $this->db->f('views'),
+						'modified'		=> $this->db->f('modified'),
+						'type'			=> $this->db->f('type'),
+						'url'			=> $this->db->f('url', true),
+						'votes'			=> $this->db->f('votes'),
+						'total'			=> $this->db->f('total')
 							);
 
 				$this->set_view($this->db->f('faq_id'));
@@ -272,6 +272,13 @@
 			}
 			return $i;
 		}//end set_active_question
+
+		function set_comment($faq_id, $comment, $user_id)
+		{
+			$sql  = 'INSERT INTO phpgw_kb_comment(user_id, comment, entered, faq_id) ';
+			$sql .= "VALUES($user_id, '" . $this->db->db_addslashes($comment) . "', ". time() .", $faq_id)";
+			$this->db->query($sql); 
+		}
 
 		
 		//generic 

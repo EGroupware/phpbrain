@@ -4,8 +4,8 @@
 	* http://www.phpgroupware.org                                              *
 	* Written by Dave Hall [skwashd AT phpgroupware DOT org]                   *
 	* ------------------------------------------------------------------------ *
-	* Started off as a port of phpBrain - http://vrotvrot.com/phpBrain/		 *
-	*  but quickly became a full rewrite										 *
+	* Started off as a port of phpBrain - http://vrotvrot.com/phpBrain/        *
+	*  but quickly became a full rewrite                                       *
 	* ------------------------------------------------------------------------ *
 	*  This program is free software; you can redistribute it and/or modify it *
 	*  under the terms of the GNU General Public License as published by the   *
@@ -26,6 +26,7 @@
 		
 		function get_cat_data($cat_id)
 		{
+			$cat_id = (int) $cat_id;
 			$cats = $this->cats->return_array('all', 0, False, '', '', '', False, $cat_id);
 			if(is_array($cats))
 			{
@@ -41,10 +42,11 @@
   				{
   					foreach($sub_cats as $sub_key => $sub_vals)
   					{
-							$sub_id = $sub_vals['id'];
-  						$return_cats[$id]['subs'][$sub_id] = array('name'		=> $sub_vals['name'],
-  																'num_entries'	=> $this->so->get_count($sub_id)
-  															);
+						$sub_id = $sub_vals['id'];
+  						$return_cats[$id]['subs'][$sub_id] 
+							= array('name'	=> $sub_vals['name'],
+  								'num_entries'	=> $this->so->get_count($sub_id)
+  								);
   					}//end foreach(subcats)
   					unset($sub_cats);
   				}//end if is_array(sub_cats)
@@ -200,6 +202,11 @@
 		{
 			return $this->so->set_active_question($question_ids);
 		}//end set active question
+
+		function set_comment($faq_id, $comment)
+		{
+			$this->so->set_comment($faq_id, $comment, $GLOBALS['phpgw_info']['user']['account_id']);
+		}//end set comment
 
 		function set_question($question)
 		{

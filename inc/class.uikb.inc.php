@@ -22,6 +22,7 @@
 		var $theme;
 		var $public_functions = array('index'		=> True,
 						'add'		=> True,
+						'add_comment'	=> True,
 						'add_question'	=> True,
 						'browse'	=> True,
 						'css'		=> True,
@@ -63,6 +64,28 @@
 			$this->edit_answer();
 			$GLOBALS['phpgw']->common->phpgw_exit();
 		}//end add
+
+		function add_comment()
+		{
+			
+			$faq_id = (int) (isset($_POST['faq_id']) ? trim($_POST['faq_id']) : 0);
+			$comment = (isset($_POST['comment']) ? trim($_POST['comment']) : '');
+			$link['menuaction'] = 'phpbrain.uikb.view';
+			if($faq_id && $comment)
+			{
+				$this->bo->set_comment($faq_id, $comment);
+				$link['faq_id'] = $faq_id;
+				$link['msg'] = 'comment_added';
+			}
+			else
+			{
+				$link['msg'] = 'comment_invalid';
+			}
+			
+			header('Location: ' . $GLOBALS['phpgw']->link('/index.php',$link)); 
+			$GLOBALS['phpgw']->common->phpgw_exit();
+		
+		}//end add comment	
 		
 		function add_question()
 		{
@@ -158,8 +181,8 @@
 					}//end is_array(subcats)
 					
 					$this->t->set_var('cat_link',$GLOBALS['phpgw']->link('/index.php',
-														array('menuaction' => 'phpbrain.uikb.browse',
-																'cat_id'	=> $cat_key)
+											array('menuaction' => 'phpbrain.uikb.browse',
+												'cat_id'	=> $cat_key)
 															)
 									);
 					$this->t->set_var('cat_name', $cat_fields['name']);
@@ -219,7 +242,7 @@
 			$this->t->pfp('out', 'browse');
 		}//end browse
 
-		function build_form($form_target, $title, $input_descr, $hidden_input=false, $allow_anon=false)
+		function build_form($form_target, $title, $input_descr, $input_hidden=false, $allow_anon=false)
 		{
 
 			$tpl = $this->t;
@@ -227,13 +250,13 @@
 			
   		if(!$this->bo->is_anon())
   		{
-  			$tpl->set_var(array('form_url'			=> $GLOBALS['phpgw']->link('/index.php', 
-  														array('menuaction' => "phpbrain.uikb.$form_target")),
-  							'lang_title'			=> lang($title),
-  							'lang_input_descr'		=> lang($input_descr),
-  							'lang_submit_val'		=> lang('add')
- 								)
- 							);
+  			$tpl->set_var(array('form_url'		=> $GLOBALS['phpgw']->link('/index.php', 
+  											array('menuaction' => "phpbrain.uikb.$form_target")),
+  					'lang_title'		=> lang($title),
+  					'lang_input_descr'	=> lang($input_descr),
+  					'lang_submit_val'	=> lang('add')
+ 					)
+ 				);
 
 				$tpl->set_block('form', 'hidden_var', 'hidden_vars');
 				if(is_array($input_hidden[1]))//multiple dimension array??
@@ -290,16 +313,16 @@
 			$this->t->set_var($this->edit_vals);
 
 			$lang = array('lang_add_answer'			=> lang('add_answer'),
-						'lang_check_before_submit'	=> lang('check_before_submit'),
-						'lang_not_submit_qs_warn'	=> lang('not_submit_qs_warn'),
-						'lang_inspire_by_suggestions'=> lang('inspire_by_suggestions'),
-						'lang_title'				=> lang('title'),
-						'lang_keywords'				=> lang('keywords'),
-						'lang_category'				=> lang('category'),
-						'lang_text'					=> lang('text'),
-						'lang_save'					=> lang('save'),
-						'lang_reset'				=> lang('reset')
-						);
+					'lang_check_before_submit'	=> lang('check_before_submit'),
+					'lang_not_submit_qs_warn'	=> lang('not_submit_qs_warn'),
+					'lang_inspire_by_suggestions'=> lang('inspire_by_suggestions'),
+					'lang_title'				=> lang('title'),
+					'lang_keywords'				=> lang('keywords'),
+					'lang_category'				=> lang('category'),
+					'lang_text'					=> lang('text'),
+					'lang_save'					=> lang('save'),
+					'lang_reset'				=> lang('reset')
+					);
 			$this->t->set_var($lang);
 
 			$cat_options = $this->cats->formatted_list('select','all',$this->edit_vals['cat_id']);
@@ -698,17 +721,17 @@
 			if(is_array($item) && $faq_id)
 			{
   			$this->t->set_file('showitem', 'showitem.tpl');
-				$lang = array('msg'					=> ($msg ? lang($msg) : ''),
-							'lang_submitted_by'		=> lang('submitted_by'),
-							'lang_views'			=> lang('views'),
-							'lang_rating'			=> lang('rating'),
-							'lang_title'			=> lang('title'),
-							'lang_text'				=> lang('text'),
-							'lang_poor'				=> lang('poor'),
-							'lang_excellent'		=> lang('excellent'),
-							'lang_rate_why_explain'	=> lang('improve_by_rate'),
-							'lang_comments'			=> lang('comments')
-							);
+				$lang = array('msg'		=> ($msg ? lang($msg) : ''),
+					'lang_submitted_by'	=> lang('submitted_by'),
+					'lang_views'		=> lang('views'),
+					'lang_rating'		=> lang('rating'),
+					'lang_title'		=> lang('title'),
+					'lang_text'		=> lang('text'),
+					'lang_poor'		=> lang('poor'),
+					'lang_excellent'	=> lang('excellent'),
+					'lang_rate_why_explain'	=> lang('improve_by_rate'),
+					'lang_comments'		=> lang('comments')
+					);
 				$this->t->set_block('showitem', 'click_rating', 'click_ratings');
 				$rate_url = $GLOBALS['phpgw']->link('/index.php' , array('menuaction'	=> 'phpbrain.uikb.rate',
 																		'faq_id'		=> $faq_id
@@ -770,12 +793,12 @@
 				}//end if is_array(comments)
 				
 				$this->t->set_var('comment_form', $this->build_form('add_comment', 'add_comments', 'comment', 
-													array('hidden_var' =>'faq_id',
-														 'hidden_name' =>$faq_id
-														 )
-													)
-									);
-				
+										array('hidden_name' =>'faq_id',
+											 'hidden_val' => $faq_id
+											 )
+										)
+							);
+	
 				$this->t->set_var($lang);
 				$this->t->set_var($item);
 				
@@ -790,24 +813,24 @@
 		function css()
 		{
 			return 'th   {  font-family: '.$this->theme['font'].'; font-size: 10pt; font-weight: bold; background-color: #D3DCE3;} '. "\n".
-					'td   {  font-family: '.$this->theme['font'].'; font-size: 10pt;} '. "\n".
-					'p {  font-family: '.$this->theme['font'].'; font-size: 10pt} '. "\n".
-					'li {  font-family: '.$this->theme['font'].'; font-size: 10pt} '. "\n".
-					'h1   {  font-family: '.$this->theme['font'].'; font-size: 16pt; font-weight: bold} '. "\n".
-					'h2   {  font-family: '.$this->theme['font'].'; font-size: 13pt; font-weight: bold} '. "\n".
-					'A:link    {  font-family: '.$this->theme['font'].'; text-decoration: none; '.$this->theme['link'].'} '. "\n".
-					'A:visited {  font-family: '.$this->theme['font'].'; text-decoration: none; color: '.$this->theme['link'].' } '. "\n".
-					'A:hover   {  font-family: '.$this->theme['font'].'; text-decoration: underline; color: '.$this->theme['alink'].'} '. "\n".
-					'A.small:link    {  font-family: '.$this->theme['font'].'; font-size: 8pt; text-decoration: none; color: '.$this->theme['link'].'} '. "\n".
-					'A.small:visited {  font-family: '.$this->theme['font'].'; font-size: 8pt; text-decoration: none; color: '.$this->theme['vlink'].'} '. "\n".
-					'A.small:hover   {  font-family: '.$this->theme['font'].'; font-size: 8pt; text-decoration: underline; color: '.$this->theme['alink'].'} '. "\n".
-					'.nav {  font-family: '.$this->theme['font'].'; background-color: ' . $this->theme['bg10'] . ';} ' . "\n".
-					'.search   {  font-family: '.$this->theme['font']. '; color: ' . $this->theme['navbar_text'] . '; background-color: '.$this->theme['navbar_bg'] . '; font-size: 9pt; border: 1px solid ' . $this->theme['bg_color'] . ';} '. "\n".
-					'.navbg { font-family: '.$this->theme['font'].'; color: '.$this->theme['navbar_text'] .'; background-color: '.$this->theme['navbar_bg'] . ';} '. "\n".
-					'a.contrlink { font-family: '.$this->theme['font'].'; color: '.$this->theme['navbar_text'] .'; text-decoration: none;} '. "\n".
-					'a.contrlink:hover, a.stats:active { font-family: '.$this->theme['font'].'; color: '.$this->theme['navbar_text'] .'; text-decoration: underline;}' . "\n".
-					'.faq_info {  font-family: '.$this->theme['font'].'; color:' . $this->theme['navbar_bg'] . '; font-size: 8pt} ' . "\n" .
-					'hr {background-color: ' . $this->theme['navbar_bg'] . '; border-width: 0px; heght: 2px;} ' . "\n" .
+				'td   {  font-family: '.$this->theme['font'].'; font-size: 10pt;} '. "\n".
+				'p {  font-family: '.$this->theme['font'].'; font-size: 10pt} '. "\n".
+				'li {  font-family: '.$this->theme['font'].'; font-size: 10pt} '. "\n".
+				'h1   {  font-family: '.$this->theme['font'].'; font-size: 16pt; font-weight: bold} '. "\n".
+				'h2   {  font-family: '.$this->theme['font'].'; font-size: 13pt; font-weight: bold} '. "\n".
+				'A:link    {  font-family: '.$this->theme['font'].'; text-decoration: none; '.$this->theme['link'].'} '. "\n".
+				'A:visited {  font-family: '.$this->theme['font'].'; text-decoration: none; color: '.$this->theme['link'].' } '. "\n".
+				'A:hover   {  font-family: '.$this->theme['font'].'; text-decoration: underline; color: '.$this->theme['alink'].'} '. "\n".
+				'A.small:link    {  font-family: '.$this->theme['font'].'; font-size: 8pt; text-decoration: none; color: '.$this->theme['link'].'} '. "\n".
+				'A.small:visited {  font-family: '.$this->theme['font'].'; font-size: 8pt; text-decoration: none; color: '.$this->theme['vlink'].'} '. "\n".
+				'A.small:hover   {  font-family: '.$this->theme['font'].'; font-size: 8pt; text-decoration: underline; color: '.$this->theme['alink'].'} '. "\n".
+				'.nav {  font-family: '.$this->theme['font'].'; background-color: ' . $this->theme['bg10'] . ';} ' . "\n".
+				'.search   {  font-family: '.$this->theme['font']. '; color: ' . $this->theme['navbar_text'] . '; background-color: '.$this->theme['navbar_bg'] . '; font-size: 9pt; border: 1px solid ' . $this->theme['bg_color'] . ';} '. "\n".
+				'.navbg { font-family: '.$this->theme['font'].'; color: '.$this->theme['navbar_text'] .'; background-color: '.$this->theme['navbar_bg'] . ';} '. "\n".
+				'a.contrlink { font-family: '.$this->theme['font'].'; color: '.$this->theme['navbar_text'] .'; text-decoration: none;} '. "\n".
+				'a.contrlink:hover, a.stats:active { font-family: '.$this->theme['font'].'; color: '.$this->theme['navbar_text'] .'; text-decoration: underline;}' . "\n".
+				'.faq_info {  font-family: '.$this->theme['font'].'; color:' . $this->theme['navbar_bg'] . '; font-size: 8pt} ' . "\n" .
+				'hr {background-color: ' . $this->theme['navbar_bg'] . '; border-width: 0px; heght: 2px;} ' . "\n" .
 					'';
 		}
 	}	
