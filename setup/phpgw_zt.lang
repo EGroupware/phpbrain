@@ -1,0 +1,82 @@
+$stat_name %1	phpbrain	zt	狀態名稱 %1
+%1 contains %2 items	phpbrain	zt	%1 包含 %2 個項目
+%1 faqs_activated	phpbrain	zt	%1 個常見問答啟用中
+%1 faqs_deleted	phpbrain	zt	%1 個常見問答刪除了
+%1 matches found	phpbrain	zt	找到%1 個符合的項目
+%1 questions_activated	phpbrain	zt	%1 個問題啟用中
+%1 questions_deleted	phpbrain	zt	%1 個問題刪除了
+active_when_checked	phpbrain	zt	圈選時啟用
+add_answer	phpbrain	zt	新增答案
+add_comments	phpbrain	zt	新增備註
+add_question	phpbrain	zt	新增問題
+add_question (%1 open)	phpbrain	zt	新增問題 (%1 個開啟中)
+allow html	admin	zt	允許使用HTML標籤
+already_rated	phpbrain	zt	您已經為這個項目評分了，謝謝您。
+anon user	admin	zt	匿名使用者
+answer	phpbrain	zt	答案項目
+browse	common	zt	瀏覽
+cant_post_must_register	phpbrain	zt	新增資訊到知識庫必須具備會員身分
+check_before_submit	phpbrain	zt	在您送出之前請先確認知識庫中沒有類似的問題存在
+close window	phpbrain	zt	關閉視窗
+comment	phpbrain	zt	備註
+comments	phpbrain	zt	備註
+cur_open_qs	phpbrain	zt	未回覆問題
+current_questions	phpbrain	zt	現有問題
+edit_answer	phpbrain	zt	編輯答案
+edit_faq	phpbrain	zt	編輯常見問答
+enable	common	zt	啟用
+example	phpbrain	zt	範例
+excellent	common	zt	棒極了
+explain_faq_admin	phpbrain	zt	FAQ的答案必須啟用來讓使用者淘汰，選擇您想要啟用的FAQ，接著您可以刪除不適當的答案。
+explain_maintain_answers	phpbrain	zt	使用者提出的問題必須經過管理者啟用，選擇您希望啟用或刪除的答案。
+explain_questions_admin	phpbrain	zt	使用者提出的答案必須經過管理者啟用，選擇您希望啟用或刪除的題目。
+faq	phpbrain	zt	常見問答
+faq_saved	phpbrain	zt	常見問答儲存了
+faqs	phpbrain	zt	常見問答
+faqs_and_tutes	phpbrain	zt	常見問答與教學
+improve_by_rate	phpbrain	zt	為發表的文章評分將有助於協助我們改善
+inspire_by_suggestions	phpbrain	zt	您如果需要靈感，不妨看看還沒有回應的題目。
+invalid faq request - or something is nqr	phpbrain	zt	錯誤：錯誤的常見問答要求
+kb_contains	phpbrain	zt	知識庫包含
+know_contrib	phpbrain	zt	如果您知道答案就可以直接回答
+last_mod %1	phpbrain	zt	最後異動： %1
+maintain answers	admin	zt	維護答案
+maintain questions	admin	zt	維護議題
+maintain_answers	phpbrain	zt	維護答案
+no comments	phpbrain	zt	沒有備註
+none found - revise or browse	phpbrain	zt	找不到任何文章，請檢查您的搜尋或瀏覽器
+none_pending	phpbrain	zt	沒有答案
+none_unanswered	phpbrain	zt	沒有未回答的問題
+not_submit_qs_warn	phpbrain	zt	請注意，這兒不是發問的地方，您必須要在問題頁面發表；如果您在這兒輸入一個沒有答案的問題，它將會自動被刪除。
+num_faqs %1	phpbrain	zt	常見問答(%1)
+num_open %1	phpbrain	zt	開啟(%1)
+num_pages %1	phpbrain	zt	頁數(%1)
+num_tutes %1	phpbrain	zt	教學(%1)
+phpbrain	common	zt	知識庫
+phpbrain config	admin	zt	知識庫設定
+phpbrain_config	phpbrain	zt	知識庫設定
+poor	common	zt	貧乏的
+preview	phpbrain	zt	預覽
+question	phpbrain	zt	問題
+rating	phpbrain	zt	評分
+rating %1	phpbrain	zt	評分 %1
+register	common	zt	註冊
+related_url	phpbrain	zt	相關網址
+reset	phpbrain	zt	重設
+return_to_admin	phpbrain	zt	回到管理選單
+return_to_cats %1	phpbrain	zt	回到分類：%1
+return_to_index	phpbrain	zt	回到索引
+return_to_search %1	phpbrain	zt	回到搜尋：%1
+score %1	phpbrain	zt	分數%1
+section_maint_faqs	phpbrain	zt	維護未回答的題目
+section_maintain_questions	phpbrain	zt	維護問題
+show	phpbrain	zt	顯示
+submitted_by	phpbrain	zt	發表人
+text	common	zt	文字
+thanks_4_rating	phpbrain	zt	感謝您的評分！
+tutorial	phpbrain	zt	教學
+tutorials	phpbrain	zt	教學
+up	phpbrain	zt	上一層
+views	phpbrain	zt	瀏覽
+views %1	phpbrain	zt	瀏覽數 %1
+votes %1	phpbrain	zt	評分數 %1
