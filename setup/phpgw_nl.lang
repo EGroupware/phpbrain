@@ -17,7 +17,7 @@ answer	phpbrain	nl	Antwoord
 browse	common	nl	Browse
 cant_post_must_register	phpbrain	nl	U moet een geregistreerde gebruiker zijn om informatie aan de kennisbank te kunnen toevoegen
 check_before_submit	phpbrain	nl	Controleer a.u.b. of de informatie niet al in de kennisbank aanwezig voordat u deze toevoegt.
-close window	phpbrain	nl	sluit scherm	
+close window	phpbrain	nl	sluit scherm
 comment	phpbrain	nl	Opmerkingen
 comments	phpbrain	nl	Opmerkingen
 cur_open_qs	phpbrain	nl	Huidige open vragen
@@ -43,7 +43,7 @@ last_mod %1	phpbrain	nl	Laatst gewijzigd: %1
 maintain_answers	phpbrain	nl	Bewerk Antwoorden
 no comments	phpbrain	nl	Geen opmerkingen
 none found - revise or browse	phpbrain	nl	Niets gevonden - pas uw zoekterm aan of klik op bladeren.
-none_pending	phpbrain	nl	Geen wachtende	
+none_pending	phpbrain	nl	Geen wachtende
 none_unanswered	phpbrain	nl	Geen onbeantwoorde vragen
 not_submit_qs_warn	phpbrain	nl	Denk er a.u.b. aan dat dit niet de plek is om vragen te stellen. De vragen horen gesteld te worden op de vragenpagina. Als u een vraag toevoegd zonder antwoord zal deze worden verwijderd.
 num_faqs %1	phpbrain	nl	Vragen(%1)
@@ -74,7 +74,7 @@ text	common	nl	Tekst
 thanks_4_rating	phpbrain	nl	Bedankt voor de beoordeling van dit item.
 tutorial	phpbrain	nl	Tutorial
 tutorials	phpbrain	nl	Tutorials
-up	phpbrain	nl	naar boven	
+up	phpbrain	nl	naar boven
 views	phpbrain	nl	Weergaven
 views %1	phpbrain	nl	weergaven %1
 votes %1	phpbrain	nl	stemmen %1
