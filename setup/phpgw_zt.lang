@@ -1,91 +1,91 @@
-$stat_name %1	phpbrain	zt	ª¬ºA¦WºÙ %1
-%1 contains %2 items	phpbrain	zt	%1 ¥]§t %2 ­Ó¶µ¥Ø
-%1 faqs_activated	phpbrain	zt	%1 ­Ó±`¨£°İµª±Ò¥Î¤¤
-%1 faqs_deleted	phpbrain	zt	%1 ­Ó±`¨£°İµª§R°£¤F
-%1 matches found	phpbrain	zt	§ä¨ì%1 ­Ó²Å¦Xªº¶µ¥Ø
-%1 questions_activated	phpbrain	zt	%1 ­Ó°İÃD±Ò¥Î¤¤
-%1 questions_deleted	phpbrain	zt	%1 ­Ó°İÃD§R°£¤F
-actions	phpbrain	zt	°Ê§@
-active_when_checked	phpbrain	zt	°é¿ï®É±Ò¥Î
-add_answer	phpbrain	zt	·s¼Wµª®×
-add_comments	phpbrain	zt	·s¼W³Æµù
-add_question	phpbrain	zt	·s¼W°İÃD
-add_question (%1 open)	phpbrain	zt	·s¼W°İÃD (%1 ­Ó¶}±Ò¤¤)
-allow html	admin	zt	¤¹³\¨Ï¥ÎHTML¼ĞÅÒ
-already_rated	phpbrain	zt	±z¤w¸g¬°³o­Ó¶µ¥Øµû¤À¤F¡AÁÂÁÂ±z¡C
-anon user	admin	zt	°Î¦W¨Ï¥ÎªÌ
-answer	phpbrain	zt	µª®×¶µ¥Ø
-answer_added	phpbrain	zt	µª®×¤w¸g·s¼W¨ì¸ê®Æ®w
-answer_saved	phpbrain	zt	±zªºµª®×Àx¦s¦b¨t²Î¤F¡A½Ğµ¥­ÔºŞ²zªÌ¼f®Ö¡C
-answered	phpbrain	zt	¤w¸g¦^À³
-avg. score	phpbrain	zt	¥­§¡¤À¼Æ
-browse	common	zt	ÂsÄı
-cant_post_must_register	phpbrain	zt	·s¼W¸ê°T¨ìª¾ÃÑ®w¥²¶·¨ã³Æ·|­û¨­¤À
-check_before_submit	phpbrain	zt	¦b±z°e¥X¤§«e½Ğ¥ı½T»{ª¾ÃÑ®w¤¤¨S¦³Ãş¦üªº°İÃD¦s¦b
-close window	phpbrain	zt	Ãö³¬µøµ¡
-comment	phpbrain	zt	³Æµù
-comments	phpbrain	zt	³Æµù
-cur_open_qs	phpbrain	zt	¥¼¦^ÂĞ°İÃD
-current_questions	phpbrain	zt	²{¦³°İÃD
-edit_answer	phpbrain	zt	½s¿èµª®×
-edit_faq	phpbrain	zt	½s¿è±`¨£°İµª
-enable	common	zt	±Ò¥Î
-example	phpbrain	zt	½d¨Ò
-excellent	common	zt	´Î·¥¤F
-explain_faq_admin	phpbrain	zt	FAQªºµª®×¥²¶·±Ò¥Î¨ÓÅı¨Ï¥ÎªÌ²^¨O¡A¿ï¾Ü±z·Q­n±Ò¥ÎªºFAQ¡A±µµÛ±z¥i¥H§R°£¤£¾A·íªºµª®×¡C
-explain_maintain_answers	phpbrain	zt	¨Ï¥ÎªÌ´£¥Xªº°İÃD¥²¶·¸g¹LºŞ²zªÌ±Ò¥Î¡A¿ï¾Ü±z§Æ±æ±Ò¥Î©Î§R°£ªºµª®×¡C
-explain_questions_admin	phpbrain	zt	¨Ï¥ÎªÌ´£¥Xªºµª®×¥²¶·¸g¹LºŞ²zªÌ±Ò¥Î¡A¿ï¾Ü±z§Æ±æ±Ò¥Î©Î§R°£ªºÃD¥Ø¡C
-faq	phpbrain	zt	±`¨£°İµª
-faq_saved	phpbrain	zt	±`¨£°İµªÀx¦s¤F
-faqs	phpbrain	zt	±`¨£°İµª
-faqs_and_tutes	phpbrain	zt	±`¨£°İµª»P±Ğ¾Ç
-improve_by_rate	phpbrain	zt	¬°µoªíªº¤å³¹µû¤À±N¦³§U©ó¨ó§U§Ú­Ì§ïµ½
-inspire_by_suggestions	phpbrain	zt	±z¦pªG»İ­nÆF·P¡A¤£§«¬İ¬İÁÙ¨S¦³¦^À³ªºÃD¥Ø¡C
-invalid faq request - or something is nqr	phpbrain	zt	¿ù»~¡G¿ù»~ªº±`¨£°İµª­n¨D
-kb_contains	phpbrain	zt	ª¾ÃÑ®w¥]§t
-know_contrib	phpbrain	zt	¦pªG±zª¾¹Dµª®×´N¥i¥Hª½±µ¦^µª
-last_mod %1	phpbrain	zt	³Ì«á²§°Ê¡G %1
-maintain answers	admin	zt	ºûÅ@µª®×
-maintain questions	admin	zt	ºûÅ@Ä³ÃD
-maintain_answers	common	zt	ºûÅ@µª®×
-modified	phpbrain	zt	²§°Ê¤é´Á
-no comments	phpbrain	zt	¨S¦³³Æµù
-none found - revise or browse	phpbrain	zt	§ä¤£¨ì¥ô¦ó¤å³¹¡A½ĞÀË¬d±zªº·j´M©ÎÂsÄı¾¹
-none_pending	phpbrain	zt	¨S¦³µª®×
-none_unanswered	phpbrain	zt	¨S¦³¥¼¦^µªªº°İÃD
-not_submit_qs_warn	phpbrain	zt	½Ğª`·N¡A³o¨à¤£¬Oµo°İªº¦a¤è¡A±z¥²¶·­n¦b°İÃD­¶­±µoªí¡F¦pªG±z¦b³o¨à¿é¤J¤@­Ó¨S¦³µª®×ªº°İÃD¡A¥¦±N·|¦Û°Ê³Q§R°£¡C
-num_faqs %1	phpbrain	zt	±`¨£°İµª(%1)
-num_open %1	phpbrain	zt	¶}±Ò(%1)
-num_pages %1	phpbrain	zt	­¶¼Æ(%1)
-num_tutes %1	phpbrain	zt	±Ğ¾Ç(%1)
-open	phpbrain	zt	¶}±Ò
-phpbrain	common	zt	ª¾ÃÑ®w
-phpbrain config	admin	zt	ª¾ÃÑ®w³]©w
-phpbrain_config	phpbrain	zt	ª¾ÃÑ®w³]©w
-poor	common	zt	³h¥Fªº
-preview	phpbrain	zt	¹wÄı
-question	phpbrain	zt	°İÃD
-question_added	phpbrain	zt	°İÃD¤w¸g·s¼W¨ì¸ê®Æ®w
-question_saved	phpbrain	zt	±zªº°İÃD¤w¸g°e¥X¡A½Ğµ¥­ÔºŞ²z­û¼f®Ö
-rating	phpbrain	zt	µû¤À
-rating %1	phpbrain	zt	µû¤À %1
-register	common	zt	µù¥U
-related_url	phpbrain	zt	¬ÛÃöºô§}
-reset	phpbrain	zt	­«³]
-return_to_admin	phpbrain	zt	¦^¨ìºŞ²z¿ï³æ
-return_to_cats %1	phpbrain	zt	¦^¨ì¤ÀÃş¡G%1
-return_to_index	phpbrain	zt	¦^¨ì¯Á¤Ş
-return_to_search %1	phpbrain	zt	¦^¨ì·j´M¡G%1
-score %1	phpbrain	zt	¤À¼Æ%1
-section_maint_faqs	phpbrain	zt	ºûÅ@¥¼¦^µªªºÃD¥Ø
-section_maintain_questions	common	zt	ºûÅ@°İÃD
-show	phpbrain	zt	Åã¥Ü
-submitted_by	phpbrain	zt	µoªí¤H
-text	common	zt	¤å¦r
-thanks_4_rating	phpbrain	zt	·PÁÂ±zªºµû¤À¡I
-tutorial	phpbrain	zt	±Ğ¾Ç
-tutorials	phpbrain	zt	±Ğ¾Ç
-up	phpbrain	zt	¤W¤@¼h
-views	phpbrain	zt	ÂsÄı
-views %1	phpbrain	zt	ÂsÄı¼Æ %1
-votes %1	phpbrain	zt	µû¤À¼Æ %1
+$stat_name %1	phpbrain	zt	ç‹€æ…‹åç¨± %1
+%1 contains %2 items	phpbrain	zt	%1 åŒ…å« %2 å€‹é …ç›®
+%1 faqs_activated	phpbrain	zt	%1 å€‹å¸¸è¦‹å•ç­”å•Ÿç”¨ä¸­
+%1 faqs_deleted	phpbrain	zt	%1 å€‹å¸¸è¦‹å•ç­”åˆªé™¤äº†
+%1 matches found	phpbrain	zt	æ‰¾åˆ°%1 å€‹ç¬¦åˆçš„é …ç›®
+%1 questions_activated	phpbrain	zt	%1 å€‹å•é¡Œå•Ÿç”¨ä¸­
+%1 questions_deleted	phpbrain	zt	%1 å€‹å•é¡Œåˆªé™¤äº†
+actions	phpbrain	zt	å‹•ä½œ
+active_when_checked	phpbrain	zt	åœˆé¸æ™‚å•Ÿç”¨
+add_answer	phpbrain	zt	æ–°å¢ç­”æ¡ˆ
+add_comments	phpbrain	zt	æ–°å¢å‚™è¨»
+add_question	phpbrain	zt	æ–°å¢å•é¡Œ
+add_question (%1 open)	phpbrain	zt	æ–°å¢å•é¡Œ (%1 å€‹é–‹å•Ÿä¸­)
+allow html	admin	zt	å…è¨±ä½¿ç”¨HTMLæ¨™ç±¤
+already_rated	phpbrain	zt	æ‚¨å·²ç¶“ç‚ºé€™å€‹é …ç›®è©•åˆ†äº†ï¼Œè¬è¬æ‚¨ã€‚
+anon user	admin	zt	åŒ¿åä½¿ç”¨è€…
+answer	phpbrain	zt	ç­”æ¡ˆé …ç›®
+answer_added	phpbrain	zt	ç­”æ¡ˆå·²ç¶“æ–°å¢åˆ°è³‡æ–™åº«
+answer_saved	phpbrain	zt	æ‚¨çš„ç­”æ¡ˆå„²å­˜åœ¨ç³»çµ±äº†ï¼Œè«‹ç­‰å€™ç®¡ç†è€…å¯©æ ¸ã€‚
+answered	phpbrain	zt	å·²ç¶“å›æ‡‰
+avg. score	phpbrain	zt	å¹³å‡åˆ†æ•¸
+browse	common	zt	ç€è¦½
+cant_post_must_register	phpbrain	zt	æ–°å¢è³‡è¨Šåˆ°çŸ¥è­˜åº«å¿…é ˆå…·å‚™æœƒå“¡èº«åˆ†
+check_before_submit	phpbrain	zt	åœ¨æ‚¨é€å‡ºä¹‹å‰è«‹å…ˆç¢ºèªçŸ¥è­˜åº«ä¸­æ²’æœ‰é¡ä¼¼çš„å•é¡Œå­˜åœ¨
+close window	phpbrain	zt	é—œé–‰è¦–çª—
+comment	phpbrain	zt	å‚™è¨»
+comments	phpbrain	zt	å‚™è¨»
+cur_open_qs	phpbrain	zt	æœªå›è¦†å•é¡Œ
+current_questions	phpbrain	zt	ç¾æœ‰å•é¡Œ
+edit_answer	phpbrain	zt	ç·¨è¼¯ç­”æ¡ˆ
+edit_faq	phpbrain	zt	ç·¨è¼¯å¸¸è¦‹å•ç­”
+enable	common	zt	å•Ÿç”¨
+example	phpbrain	zt	ç¯„ä¾‹
+excellent	common	zt	æ£’æ¥µäº†
+explain_faq_admin	phpbrain	zt	FAQçš„ç­”æ¡ˆå¿…é ˆå•Ÿç”¨ä¾†è®“ä½¿ç”¨è€…æ·˜æ±°ï¼Œé¸æ“‡æ‚¨æƒ³è¦å•Ÿç”¨çš„FAQï¼Œæ¥è‘—æ‚¨å¯ä»¥åˆªé™¤ä¸é©ç•¶çš„ç­”æ¡ˆã€‚
+explain_maintain_answers	phpbrain	zt	ä½¿ç”¨è€…æå‡ºçš„å•é¡Œå¿…é ˆç¶“éç®¡ç†è€…å•Ÿç”¨ï¼Œé¸æ“‡æ‚¨å¸Œæœ›å•Ÿç”¨æˆ–åˆªé™¤çš„ç­”æ¡ˆã€‚
+explain_questions_admin	phpbrain	zt	ä½¿ç”¨è€…æå‡ºçš„ç­”æ¡ˆå¿…é ˆç¶“éç®¡ç†è€…å•Ÿç”¨ï¼Œé¸æ“‡æ‚¨å¸Œæœ›å•Ÿç”¨æˆ–åˆªé™¤çš„é¡Œç›®ã€‚
+faq	phpbrain	zt	å¸¸è¦‹å•ç­”
+faq_saved	phpbrain	zt	å¸¸è¦‹å•ç­”å„²å­˜äº†
+faqs	phpbrain	zt	å¸¸è¦‹å•ç­”
+faqs_and_tutes	phpbrain	zt	å¸¸è¦‹å•ç­”èˆ‡æ•™å­¸
+improve_by_rate	phpbrain	zt	ç‚ºç™¼è¡¨çš„æ–‡ç« è©•åˆ†å°‡æœ‰åŠ©æ–¼å”åŠ©æˆ‘å€‘æ”¹å–„
+inspire_by_suggestions	phpbrain	zt	æ‚¨å¦‚æœéœ€è¦éˆæ„Ÿï¼Œä¸å¦¨çœ‹çœ‹é‚„æ²’æœ‰å›æ‡‰çš„é¡Œç›®ã€‚
+invalid faq request - or something is nqr	phpbrain	zt	éŒ¯èª¤ï¼šéŒ¯èª¤çš„å¸¸è¦‹å•ç­”è¦æ±‚
+kb_contains	phpbrain	zt	çŸ¥è­˜åº«åŒ…å«
+know_contrib	phpbrain	zt	å¦‚æœæ‚¨çŸ¥é“ç­”æ¡ˆå°±å¯ä»¥ç›´æ¥å›ç­”
+last_mod %1	phpbrain	zt	æœ€å¾Œç•°å‹•ï¼š %1
+maintain answers	admin	zt	ç¶­è­·ç­”æ¡ˆ
+maintain questions	admin	zt	ç¶­è­·è­°é¡Œ
+maintain_answers	common	zt	ç¶­è­·ç­”æ¡ˆ
+modified	phpbrain	zt	ç•°å‹•æ—¥æœŸ
+no comments	phpbrain	zt	æ²’æœ‰å‚™è¨»
+none found - revise or browse	phpbrain	zt	æ‰¾ä¸åˆ°ä»»ä½•æ–‡ç« ï¼Œè«‹æª¢æŸ¥æ‚¨çš„æœå°‹æˆ–ç€è¦½å™¨
+none_pending	phpbrain	zt	æ²’æœ‰ç­”æ¡ˆ
+none_unanswered	phpbrain	zt	æ²’æœ‰æœªå›ç­”çš„å•é¡Œ
+not_submit_qs_warn	phpbrain	zt	è«‹æ³¨æ„ï¼Œé€™å…’ä¸æ˜¯ç™¼å•çš„åœ°æ–¹ï¼Œæ‚¨å¿…é ˆè¦åœ¨å•é¡Œé é¢ç™¼è¡¨ï¼›å¦‚æœæ‚¨åœ¨é€™å…’è¼¸å…¥ä¸€å€‹æ²’æœ‰ç­”æ¡ˆçš„å•é¡Œï¼Œå®ƒå°‡æœƒè‡ªå‹•è¢«åˆªé™¤ã€‚
+num_faqs %1	phpbrain	zt	å¸¸è¦‹å•ç­”(%1)
+num_open %1	phpbrain	zt	é–‹å•Ÿ(%1)
+num_pages %1	phpbrain	zt	é æ•¸(%1)
+num_tutes %1	phpbrain	zt	æ•™å­¸(%1)
+open	phpbrain	zt	é–‹å•Ÿ
+phpbrain	common	zt	çŸ¥è­˜åº«
+phpbrain config	admin	zt	çŸ¥è­˜åº«è¨­å®š
+phpbrain_config	phpbrain	zt	çŸ¥è­˜åº«è¨­å®š
+poor	common	zt	è²§ä¹çš„
+preview	phpbrain	zt	é è¦½
+question	phpbrain	zt	å•é¡Œ
+question_added	phpbrain	zt	å•é¡Œå·²ç¶“æ–°å¢åˆ°è³‡æ–™åº«
+question_saved	phpbrain	zt	æ‚¨çš„å•é¡Œå·²ç¶“é€å‡ºï¼Œè«‹ç­‰å€™ç®¡ç†å“¡å¯©æ ¸
+rating	phpbrain	zt	è©•åˆ†
+rating %1	phpbrain	zt	è©•åˆ† %1
+register	common	zt	è¨»å†Š
+related_url	phpbrain	zt	ç›¸é—œç¶²å€
+reset	phpbrain	zt	é‡è¨­
+return_to_admin	phpbrain	zt	å›åˆ°ç®¡ç†é¸å–®
+return_to_cats %1	phpbrain	zt	å›åˆ°åˆ†é¡ï¼š%1
+return_to_index	phpbrain	zt	å›åˆ°ç´¢å¼•
+return_to_search %1	phpbrain	zt	å›åˆ°æœå°‹ï¼š%1
+score %1	phpbrain	zt	åˆ†æ•¸%1
+section_maint_faqs	phpbrain	zt	ç¶­è­·æœªå›ç­”çš„é¡Œç›®
+section_maintain_questions	common	zt	ç¶­è­·å•é¡Œ
+show	phpbrain	zt	é¡¯ç¤º
+submitted_by	phpbrain	zt	ç™¼è¡¨äºº
+text	common	zt	æ–‡å­—
+thanks_4_rating	phpbrain	zt	æ„Ÿè¬æ‚¨çš„è©•åˆ†ï¼
+tutorial	phpbrain	zt	æ•™å­¸
+tutorials	phpbrain	zt	æ•™å­¸
+up	phpbrain	zt	ä¸Šä¸€å±¤
+views	phpbrain	zt	ç€è¦½
+views %1	phpbrain	zt	ç€è¦½æ•¸ %1
+votes %1	phpbrain	zt	è©•åˆ†æ•¸ %1
