@@ -1,7 +1,18 @@
 <style>
+	td
+	{
+		text-align: left;
+	}
+
+	.rate_scale td
+	{
+		text-align: center;
+	}
+
 	th.activetab
   {
 	color:#000000;
+	text-align: center;
 	background-color:#D3DCE3;
 	border-top-width : 2px;
 	border-top-style : solid;
@@ -17,6 +28,7 @@
   th.inactivetab
   {
 	color:#000000;
+	text-align: center;
 	background-color:#E8F0F0;
 	border-width : 1px;
 	border-style : solid;
@@ -45,12 +57,24 @@
   div.activetab{ display:inline; }
   div.inactivetab{ display:none; }
 
-  .column {
-		background-image: url({url_bluedot});
+	.graph_table td, .graph_table tr
+	{
+		padding: 0;
+		margin: 0;
+		vertical-align: bottom;
+	}
+
+  .graph_table div
+  {
+	  	padding: 0;
+		margin: 0;
+		font-size: 1px;	/* hack so that poor IE can show small divs */
+		background-color: blue;
 		border-left:1px solid black;
 		border-top:1px solid black;	
 		border-right:1px solid black;
 	}
+
 </style>
 {message}
 {search_tpl}
@@ -70,21 +94,21 @@
 				</td>
 			</tr>
 			<tr>
-				<td align=right><span style='font:normal 12px sans-serif'>{lang_title}:</span></td>
+				<td style="text-align:right"><span style='font:normal 12px sans-serif'>{lang_title}:</span></td>
 				<td style='font:bold 13px sans-serif'>{title}</td>
-				<td width=200>{createdby}</td>
+				<td width=30%>{createdby}</td>
 			</tr>
 			<tr>
-				<td align=right><span style='font:normal 12px sans-serif'>{lang_topic}:</span></td>
+				<td style="text-align:right"><span style='font:normal 12px sans-serif'>{lang_topic}:</span></td>
 				<td colspan=2 style='font:normal 12px sans-serif'>{topic}</td>
 			</tr>
 			<tr>
-				<td width=1% align=right><span style='font:normal 12px sans-serif'>{lang_category}:</span></td>
+				<td width=1% style="text-align:right"><span style='font:normal 12px sans-serif'>{lang_category}:</span></td>
 				<td><span>{links_cats}</span></td>
 				<td>{last_modif}</td>
 			</tr>
 			<tr>
-				<td align=right><span style='font:normal 12px sans-serif'>{lang_keywords}:</span></td>
+				<td style="text-align:right"><span style='font:normal 12px sans-serif'>{lang_keywords}:</span></td>
 				<td colspan=2 style='font:normal 12px sans-serif'>{keywords}</td>
 			</tr>
 			<!-- BEGIN easy_question_block -->
@@ -121,7 +145,7 @@
 					<td colspan=3>{content}</td>
 				</tr>
 				<tr>
-					<td colspan=3 align=left>
+					<td colspan=3>
 						<table border=0>
 							<tr>
 								<td>
@@ -170,15 +194,15 @@
 						</td>
 						<!-- END comment_form_block -->
 						<td>
-							<table border=0><tr><td align=center valign=bottom>
+							<table border=0><tr><td style="text-align:center" valign=bottom>
 								<tr>
 									<td>
 										<table>
 											<!-- BEGIN rating_form_block -->
 											<tr>
 												<td colspan=7>{lang_please_rate}:</td> 
-											<tr>
-												<td align=center></td><td align=center>1</td><td align=center>2</td><td align=center>3</td><td align=center>4</td><td align=center>5</td><td></td>
+											<tr class="rate_scale">
+												<td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td></td>
 											</tr>
 											<tr>
 												<td>{lang_poor}</td>
@@ -196,22 +220,24 @@
 								</tr>
 							</table>
 						</td>
-						<td align=center>
+						<td style="text-align:center">
 						<!-- BEGIN rating_graph_block -->
 						{lang_average}: <b>{average_rating}</b><br>
 						<b>{numpeople}</b> {lang_people}
-						<table border=0 width=100 cellpadding=0 cellspacing=0>
+						<center>
+						<table class="graph_table" border=0 width=100 cellpadding=0 cellspacing=0>
 							<tr>
-								<td valign=bottom><div class=column style='height:{bar_1}px'>&nbsp;</div></td>
-								<td valign=bottom><div class=column style='height:{bar_2}px'>&nbsp;</div></td>
-								<td valign=bottom><div class=column style='height:{bar_3}px'>&nbsp;</div></td>
-								<td valign=bottom><div class=column style='height:{bar_4}px'>&nbsp;</div></td>
-								<td valign=bottom><div class=column style='height:{bar_5}px'>&nbsp;</div></td>
+								<td><div style='height:{bar_1}px'></div></td>
+								<td><div style='height:{bar_2}px'></div></td>
+								<td><div style='height:{bar_3}px'></div></td>
+								<td><div style='height:{bar_4}px'></div></td>
+								<td><div style='height:{bar_5}px'></div></td>
 							</tr>
-							<tr>
-								<td align=center>1</td><td align=center>2</td><td align=center>3</td><td align=center>4</td><td align=center>5</td>
+							<tr class="rate_scale">
+								<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
 							</tr>
 						</table>
+						</center>
 						<!-- END rating_graph_block -->
 						</td>
 					</form>
