@@ -693,6 +693,9 @@
 				}
 				else
 				{
+					// Since cannot use js object with sitemanager, I have to manually insert the javascript include:
+					$this->t->set_var('tabs_script', $GLOBALS['phpgw']->link('/phpgwapi/js/tabs/tabs.js'));
+
 					$this->t->set_var('link_main_view', "<a href='". $this->link('menuaction=phpbrain.uikb.index') ."'>". lang('Main View', 'phpbrain') ."</a>&nbsp;&nbsp;|<br>");
 				}
 			}
