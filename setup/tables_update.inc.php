@@ -110,6 +110,8 @@
 				'modified_user_id'	=> array('type' => 'int','precision' => '4','nullable' => False),
 				'files'				=> array('type' => 'text', 'nullable' => False),
 				'urls'				=> array('type' => 'text', 'nullable' => False),
+				'votes'				=> array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+				'total'				=> array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
 				'votes_1'			=> array('type' => 'int','precision' => '4','nullable' => False),
 				'votes_2'			=> array('type' => 'int','precision' => '4','nullable' => False),
 				'votes_3'			=> array('type' => 'int','precision' => '4','nullable' => False),
@@ -122,7 +124,9 @@
 			'uc' => array()
 		);
 		$GLOBALS['phpgw_setup']->oProc->DropColumn('phpgw_kb_articles', $new_table_def, 'is_faq');
+		unset($newdef['fd']['votes']);
 		$GLOBALS['phpgw_setup']->oProc->DropColumn('phpgw_kb_articles', $new_table_def, 'votes');
+		unset($newdef['fd']['total']);
 		$GLOBALS['phpgw_setup']->oProc->DropColumn('phpgw_kb_articles', $new_table_def, 'total');
 
 		$GLOBALS['phpgw_setup']->oProc->RenameColumn('phpgw_kb_comment', 'faq_id', 'art_id');
