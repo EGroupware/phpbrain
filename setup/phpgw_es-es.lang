@@ -64,17 +64,21 @@ comment has been published	phpbrain	es-es	El comentario ha sido publicado
 comment has been submited for revision	phpbrain	es-es	El comentario se ha enviado para una revisión
 comment has been submited for revision and rating will be published	phpbrain	es-es	El comentario se ha enviado para una revisión y se publicará la puntuación
 comments	phpbrain	es-es	Comentarios
+configuration	phpbrain	es-es	Configuración
 create a new article to answer the question asked by %1 in %2	phpbrain	es-es	Crear un nuevo artículo para responder la pregunta realizada por %1 en %2
 created by %1 on %2	phpbrain	es-es	Creado por %1 en %2
+creation	phpbrain	es-es	creación
 creation date	phpbrain	es-es	Fecha de creación
 cur_open_qs	phpbrain	es-es	Preguntas abiertas actualmente
 current_questions	phpbrain	es-es	Preguntas actuales
 date	phpbrain	es-es	Fecha
 delete article	phpbrain	es-es	Borrar articulo
 delete selected	phpbrain	es-es	Borrar la selección
+deleted relation to  article %1	phpbrain	es-es	Borrada la relación con el artículo %1
 deleted relation to article %1	phpbrain	es-es	Se ha borrado la relacion con el artículo %1
 descendent	phpbrain	es-es	Descendente
 details	phpbrain	es-es	Detalles
+e-groupware knowledge base article attached	phpbrain	es-es	Adjunto artículo de la base de conocimiento de eGroupware
 e-mail has been sent	phpbrain	es-es	se ha enviado el correo
 edit article	phpbrain	es-es	Editar artículo
 edit_answer	phpbrain	es-es	Editar respuesta
@@ -166,6 +170,7 @@ ocurrences	phpbrain	es-es	Ocurrencias
 open	phpbrain	es-es	Abierto
 or browse the categories	phpbrain	es-es	O examinar las categorias
 order results by	phpbrain	es-es	Ordenar resultados por
+outstanding published questions	phpbrain	es-es	Preguntas publicadas más destacadas
 past %1 months	phpbrain	es-es	%1 meses anteriores
 past year	phpbrain	es-es	año pasado
 people have rated this article	phpbrain	es-es	personas han valorado este artículo
@@ -184,6 +189,7 @@ publish articles automatically?	common	es-es	¿Publicar artículos automáticamente
 publish comments automatically?	common	es-es	¿Publicar comentarios automáticamente?
 publish questions automatically?	common	es-es	¿Publicar preguntas automáticamente?
 publish selected	phpbrain	es-es	Publicar lo seleccionado
+published	phpbrain	es-es	Publicado
 question	phpbrain	es-es	Pregunta
 question deleted successfully	phpbrain	es-es	Pregunta borrada correctamente
 question_added	phpbrain	es-es	Pregunta añadida a la base de datos
@@ -212,6 +218,7 @@ search results	phpbrain	es-es	Resultados de la búsqueda
 section_maint_faqs	phpbrain	es-es	Mantener PFs pendientes
 section_maintain_questions	common	es-es	Mantener preguntas
 see more questions	phpbrain	es-es	Ver más preguntas
+see more questions...	phpbrain	es-es	Ver más preguntas...
 select articles	phpbrain	es-es	Seleccionar artículos
 show	phpbrain	es-es	mostrar
 show all comments	phpbrain	es-es	Mostrar todos los comentarios
@@ -226,12 +233,15 @@ summary	phpbarin	es-es	Resumen
 text	common	es-es	Texto
 thanks_4_rating	phpbrain	es-es	Gracias por valorar este elemento
 that file already exists	phpbrain	es-es	El fichero ya existe
+the article id must be a number	phpbrain	es-es	El ID del artículo debe ser un número
 the article is empty	phpbrain	es-es	El artículo está vacío
 the file was already missing in the server	phpbrain	es-es	El fichero ya faltaba en el servidor
 the following errors occurred	phpbrain	es-es	Ocurrieron los siguientes errores
+the mail server returned:	phpbrain	es-es	El servidor de correo devolvió
 the present category and all subcategories under it	phpbrain	es-es	La categoría actual y todas las categorías de debajo
 the present category only	phpbrain	es-es	Sólo la categoría actual
 there are no articles	phpbrain	es-es	No hay artículos
+there are no articles available	phpbrain	es-es	No hay artículos disponibles
 this article hasn't yet been published in the knowledge base	phpbrain	es-es	Este artículo todavía no ha sido publicado en la base de conocimiento
 title	phpbrain	es-es	Título
 to create categories, press 'edit categories' in the preferences menu	phpbrain	es-es	Para crear categorías, pulsar 'Editar categorías' en el menú Preferencias
@@ -259,5 +269,6 @@ you have already qualified this article	phpbrain	es-es	Ya ha calificado este art
 you have not the proper permissions to do that	phpbrain	es-es	No tiene los permisos adecuados para hacer eso
 you must enter a title	phpbrain	es-es	Debe introducir un título
 you must enter a topic	phpbrain	es-es	Debe introducir un asunto
+your message could not be sent!	phpbrain	es-es	¡No se pudo enviar su mensaje!
 your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	es-es	La pregunta se enviará, pero sólo se publicará después de que la apruebe un usuario con derechos de publicación.
 your question will be published immediately	phpbrain	es-es	La pregunta se publicará inmediatamente.

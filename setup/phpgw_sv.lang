@@ -1,5 +1,6 @@
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	sv	/kb katalogen existerar inte och kunde inte skapas, vänligen be administratören att kontrollera den globala konfigurationen
 action	phpbrain	sv	Åtgärd
+actions	phpbrain	sv	Åtgärder
 add articles	phpbrain	sv	Lägg till artikel
 add link	phpbrain	sv	Lägg till länk
 add question	phpbrain	sv	Lägg till fråga
@@ -42,16 +43,19 @@ comment has been submited for revision and rating will be published	phpbrain	sv	
 comments	phpbrain	sv	Kommentarer
 create a new article to answer the question asked by %1 in %2	phpbrain	sv	Skapa ny artikel för att besvara fråga ställd av %1 i %2
 created by %1 on %2	phpbrain	sv	Skapad av %1 i %2
+creation	phpbrain	sv	skapande
 creation date	phpbrain	sv	Skapad den
 date	phpbrain	sv	Datum
 delete article	phpbrain	sv	Radera artikel
 delete selected	phpbrain	sv	Radera valt
+deleted relation to  article %1	phpbrain	sv	Relation till %1 borttagen
 deleted relation to article %1	phpbrain	sv	Radera relation till artikel i %1
 descendent	phpbrain	sv	Underordnad
 details	phpbrain	sv	Detaljer
+e-groupware knowledge base article attached	phpbrain	sv	E-GroupWare Kunskapsdatabas-artikel bifogad
 e-mail has been sent	phpbrain	sv	mail har skickats
 edit article	phpbrain	sv	Redigera artikel
-enter one or two words describing the issue, or type the article number if you know it	phpbrain	sv	Ange ett eller två ord som kan beskriva problemet, eller ange artikelnummer okm du kan det
+enter one or two words describing the issue, or type the article number if you know it	phpbrain	sv	Ange ett eller två ord som kan beskriva problemet, eller ange artikelnummer om du känner till det
 error deleting article from database	phpbrain	sv	Artikelradering misslyckades
 error deleting link	phpbrain	sv	Länkradering misslyckades
 error downloading file	phpbrain	sv	Nedladdning misslyckades
@@ -109,6 +113,7 @@ number of results per page	phpbrain	sv	Antal i resultatet
 ocurrences	phpbrain	sv	Förekomster
 or browse the categories	phpbrain	sv	Eller leta bland kategorierna
 order results by	phpbrain	sv	Sortera resultat efter
+outstanding published questions	phpbrain	sv	Olösta publicerade frågor
 past %1 months	phpbrain	sv	Senaste %1 månaderna
 past year	phpbrain	sv	Senaste året
 people have rated this article	phpbrain	sv	användare har betygsatt denna artikel
@@ -124,6 +129,7 @@ publish articles automatically?	common	sv	Publicera artiklar automatiskt?
 publish comments automatically?	common	sv	Publicera kommentarer automatiskt?
 publish questions automatically?	common	sv	Publicera frågor automatiskt?
 publish selected	phpbrain	sv	Publicera valda
+published	phpbrain	sv	Publicerad
 question deleted successfully	phpbrain	sv	Frågeradering lyckades
 questions deleted successfully	phpbrain	sv	Frågeradering lyckades
 rating has been submited	phpbrain	sv	Betyg har skickats
@@ -137,6 +143,7 @@ reply-to	phpbrain	sv	Svara-till
 search in all the knowledge base	phpbrain	sv	Sök i hela kunskapdatabasen
 search results	phpbrain	sv	sökresultat
 see more questions	phpbrain	sv	Se fler frågor
+see more questions...	phpbrain	sv	Se fler frågor...
 select articles	phpbrain	sv	Välj artiklar
 show all comments	phpbrain	sv	Visa alla kommentarer
 show articles belonging to:	phpbrain	sv	Visa artiklar som tillhöt:
@@ -146,12 +153,15 @@ submit comment and rating	phpbrain	sv	Skicka kommentar och betyg
 suggested category	phpbrain	sv	Föreslagen kategori
 summary	phpbarin	sv	Summering
 that file already exists	phpbrain	sv	Den filen existerar redan
+the article id must be a number	phpbrain	sv	ArtikelID måste vara ett nummer
 the article is empty	phpbrain	sv	Artikeln är tom
 the file was already missing in the server	phpbrain	sv	Filen saknades redan på servern
 the following errors occurred	phpbrain	sv	Följande fel uppstod
+the mail server returned:	phpbrain	sv	Mailserver svarade:
 the present category and all subcategories under it	phpbrain	sv	Aktuell kategori och samtliga underkategorier
 the present category only	phpbrain	sv	Atuell kategori enbart
 there are no articles	phpbrain	sv	Det finns inga artiklar
+there are no articles available	phpbrain	sv	Det finns inga artiklar tillgängliga
 this article hasn't yet been published in the knowledge base	phpbrain	sv	Denna artikel har inte publicerats i kunskapsdatabasen ännu
 title	phpbrain	sv	Titel
 to create categories, press 'edit categories' in the preferences menu	phpbrain	sv	För att skapa kategorier, klicka på 'Redigera kategorier' i prefereser-menyn
@@ -174,5 +184,6 @@ you have already qualified this article	phpbrain	sv	Du har redan godkänt denna a
 you have not the proper permissions to do that	phpbrain	sv	Du har inte behörighet att göra det
 you must enter a title	phpbrain	sv	Du måste ange en titel
 you must enter a topic	phpbrain	sv	Du måste ange ett ämne
+your message could not be sent!	phpbrain	sv	Meddelandet kunde inte skickas
 your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	sv	Din fråga kommer att skickas, men kommer bara att publiceras när någon med behörighet att publicera väljer att göra det.
 your question will be published immediately	phpbrain	sv	Din fråga kommer att publiceras omedelbart
