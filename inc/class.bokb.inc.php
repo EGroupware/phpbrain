@@ -357,7 +357,6 @@
 		*/
 		function check_permission($check_rights, $article_owner = 0)
 		{
-			if (!$article_owner) $article_owner = $this->article_owner;
 			if ($this->grants[$article_owner])
 			{
 				$rights_on_owner = $this->grants[$article_owner];
