@@ -1,0 +1,83 @@
+$stat_name %1	phpbrain	de	
+%1 contains %2 items	phpbrain	de	%1 beinhaltet %2 Punkte
+%1 faqs_activated	phpbrain	de	%1 FAQs aktiviert
+%1 faqs_deleted	phpbrain	de	%1 FAQs gelöscht
+%1 matches found	phpbrain	de	%1 Übereinstimmungen gefunden
+%1 questions_activated	phpbrain	de	%1 Fragen aktiviert
+%1 questions_deleted	phpbrain	de	%1 Fragen gelöscht
+active_when_checked	phpbrain	de	
+add_answer	phpbrain	de	Antwort hinzufügen
+add_comments	phpbrain	de	Kommentar hinzufügen
+add_question	phpbrain	de	Frage hinzufügen
+add_question (%1 open)	phpbrain	de	Frage hinzufügen (%1 offen)
+allow html	admin	de	HTML Befehle erlauben beim posting
+allow_html	phpbrain	de	HTML tags in Beiträgen erlauben
+already_rated	phpbrain	de	
+anon user	admin	de	Anunymer Benutzer
+anon_user	phpbrain	de	Anonymer Benutzer
+answer	phpbrain	de	Antwort
+browse	common	de	Ansehen
+cant_post_must_register	phpbrain	de	Sie müssen ein registrierter Benutzer sein um Informationen zur Wissensdatenbank hinzuzufügen
+check_before_submit	phpbrain	de	Bitte überprüfen Sie das diese Information nicht schon in der Wissensdatenbank vorhanden ist, bevor Sie etwas neues eintragen
+close window	phpbrain	de	Fenster schliessen
+comment	phpbrain	de	Kommentare
+comments	phpbrain	de	Kommentare
+cur_open_qs	phpbrain	de	Zur Zeit offene Fragen
+current_questions	phpbrain	de	momentane Fragen
+edit_answer	phpbrain	de	Antworten bearbeiten
+edit_faq	phpbrain	de	FAQ bearbeiten
+enable	common	de	Aktivieren
+example	phpbrain	de	Beispiel
+excellent	common	de	Sehr gut
+explain_faq_admin	phpbrain	de	
+explain_maintain_answers	phpbrain	de	
+explain_questions_admin	phpbrain	de	
+faq	phpbrain	de	FAQ
+faq_saved	phpbrain	de	FAQ gespeichert
+faqs	phpbrain	de	FAQs
+faqs_and_tutes	phpbrain	de	FAQs und Anleitungen
+improve_by_rate	phpbrain	de	Helfen Sie und die Qualität der Einträge zu verbesser indem Sie diese beurteilen
+inspire_by_suggestions	phpbrain	de	Wenn Sie ein Beispiel suchen, sehen Sie sich doch bitte die offenen Fragen an.
+invalid faq request - or something is nqr	phpbrain	de	Fehler: Nicht gültige FAQ Eingabe
+kb_contains	phpbrain	de	In der Wissensdatenbank befinden sich
+know_contrib	phpbrain	de	Haben Sie eine Lösung für eine offene Frage? Wenn ja tragen Sie die Antwort bitte hier ein.
+last_mod %1	phpbrain	de	Zuletzt bearbeitet: %1
+maintain_answers	phpbrain	de	Antworten verwalten
+no comments	phpbrain	de	keine Kommentare
+none found - revise or browse	phpbrain	de	Nichts gefunden - please revise your seach or browse
+none_pending	phpbrain	de	Keine offenen vorhanden
+none_unanswered	phpbrain	de	keine FAQ unbeantwortet
+not_submit_qs_warn	phpbrain	de	Bitte beachten Sie das Sie hier keine Fragen plazieren. Fragen sollten in der Sektion Fragen eingetragen werden. <br> Wenn Sie eine Frage eintragen ohne eine Antwort wird diese Frage gelöscht.
+num_faqs %1	phpbrain	de	FAQs(%1)
+num_open %1	phpbrain	de	offen(%1)
+num_pages %1	phpbrain	de	Seiten(%1)
+num_tutes %1	phpbrain	de	Anleitungen(%1)
+phpbrain	common	de	Wissensdatenbank
+phpbrain config	admin	de	Wissensdatenbank konfiguration
+phpbrain_config	phpbrain	de	Wissensdatenbank konfiguration
+poor	common	de	Schlecht
+preview	phpbrain	de	Vorschau
+question	phpbrain	de	Frage
+rating	phpbrain	de	Beurteilung
+rating %1	phpbrain	de	Beurteilung %1
+register	common	de	Registrieren
+related_url	phpbrain	de	Zugehörige URL
+reset	phpbrain	de	zurücksetzen
+return_to_admin	phpbrain	de	Zurück zur Administration
+return_to_cats %1	phpbrain	de	Zurück zur Kategorie: %1
+return_to_index	phpbrain	de	Zurück zum Index
+return_to_search %1	phpbrain	de	Zurück zur Suche: %1
+score %1	phpbrain	de	Bewertung %1
+section_maint_faqs	phpbrain	de	Nicht freigegebene FAQs bearbeiten
+section_maintain_questions	phpbrain	de	Fragen Verwalten
+show	phpbrain	de	zeigen
+submitted_by	phpbrain	de	Eingereicht von
+text	common	de	Text
+thanks_4_rating	phpbrain	de	Vielen Dank für Ihre Bewertung
+tutorial	phpbrain	de	Anleitung
+tutorials	phpbrain	de	Anleitungen
+up	phpbrain	de	hoch
+views	phpbrain	de	Besuche
+views %1	phpbrain	de	Besuche %1
+votes %1	phpbrain	de	Bewertungen %1
+

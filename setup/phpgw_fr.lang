@@ -1,0 +1,80 @@
+$stat_name %1	phpbrain	fr	$stat_name %1
+%1 contains %2 items	phpbrain	fr	%1 contient %2 objets
+%1 faqs_activated	phpbrain	fr	%1 FAQs Activées
+%1 faqs_deleted	phpbrain	fr	%1 FAQs Effacées
+%1 matches found	phpbrain	fr	%1 Occurrences Trouvées
+%1 questions_activated	phpbrain	fr	%1 Questions Activées
+%1 questions_deleted	phpbrain	fr	%1 Questions Effacées
+active_when_checked	phpbrain	fr	Actif quand vérifié
+add_answer	phpbrain	fr	Ajouter Une Réponse
+add_comments	phpbrain	fr	Ajouter Des Commentaires
+add_question	phpbrain	fr	Ajouter Une Question
+add_question (%1 open)	phpbrain	fr	Ajouter Une Question (%1 Ouvert(s))
+allow html	admin	fr	Autoriser les tags HTML dans les messages
+already_rated	phpbrain	fr	Vous avez déjà mis une note à ce sujet. Merci.
+anon user	admin	fr	Utilisateur anonyme
+answer	phpbrain	fr	Réponse
+browse	common	fr	Naviguer
+cant_post_must_register	phpbrain	fr	Vous devez être un utilisateur enregistré pour pouvoir ajouter des informations dans la base de connaissances
+check_before_submit	phpbrain	fr	SVP vérifiez que cette information n'est pas déjà dans la base de connaissances avant de la soumettre.
+close window	phpbrain	fr	Fermer la fenêtre
+comment	phpbrain	fr	Commentaire
+comments	phpbrain	fr	Commentaires
+current_questions	phpbrain	fr	Questions actuelles
+cur_open_qs	phpbrain	fr	Questions actuellement ouvertes
+edit_answer	phpbrain	fr	Modifier la réponse
+edit_faq	phpbrain	fr	Modifier la FAQ
+enable	common	fr	Activer
+example	phpbrain	fr	Exemple
+excellent	common	fr	Excellent
+explain_faq_admin	phpbrain	fr	Les réponses aux FAQs doivent être activées pour que les utilisateurs puissent les voir.  Choisissez les FAQs que vous voulez activer.  Sinon, vous pouvez choisir les réponses inappropriées que vous voudriez effacer.
+explain_maintain_answers	phpbrain	fr	Les questions soumises par les utilisateurs doivent être activées par un utilisateur avec les droits d'administrateur.  Choisissez les réponses que vous voulez activer ou éventuellement effacer.
+explain_questions_admin	phpbrain	fr	Les réponses soumises pares utilisateurs doivent être activées par un utilisateur avec les droits d'administrateur.  Choisissez les questions que vous voulez activer ou éventuellement effacer.
+faq	phpbrain	fr	FAQ
+faqs	phpbrain	fr	FAQs
+faqs_and_tutes	phpbrain	fr	FAQs et Tutoriels
+faq_saved	phpbrain	fr	FAQ Enregistrée
+improve_by_rate	phpbrain	fr	Aidez-nous à améliorer en mettant des notes aux posts
+inspire_by_suggestions	phpbrain	fr	Si vous avez besoin d'inspiration, allez jetter un oeil aux questions ouvertes.
+invalid faq request - or something is nqr	phpbrain	fr	ERREUR: requête FAQ invalide
+kb_contains	phpbrain	fr	La base de connaissances contient
+know_contrib	phpbrain	fr	Connaissez-vous la réponse? Si oui, répondez.
+last_mod %1	phpbrain	fr	Dernière modification: %1
+maintain_answers	phpbrain	fr	Maintenir les réponses
+no comments	phpbrain	fr	Pas de commentaires
+none found - revise or browse	phpbrain	fr	Aucune occurrence trouvée - SVP vérifiez votre recherche ou naviguez
+none_pending	phpbrain	fr	Aucune en attente
+none_unanswered	phpbrain	fr	Aucune FAQ non répondue
+not_submit_qs_warn	phpbrain	fr	SVP notez que ceci n'est pas l'endroit pour poser des questions.  Ceci devrait être posté dans la page des questions.  Si vous entrez une question sans une réponse dans cette page elle sera effacée.
+num_faqs %1	phpbrain	fr	FAQs(%1)
+num_open %1	phpbrain	fr	Ouverte(s)(%1)
+num_pages %1	phpbrain	fr	Pages(%1)
+num_tutes %1	phpbrain	fr	Tutoriels(%1)
+phpbrain	common	fr	Base de connaissances
+phpbrain config	admin	fr	Configuration de la base de connaissances
+phpbrain_config	phpbrain	fr	Configuration de base de la base de connaissances
+poor	common	fr	Pauvre
+preview	phpbrain	fr	prévisualisation
+question	phpbrain	fr	Question
+rating	phpbrain	fr	Notation
+rating %1	phpbrain	fr	Notation %1
+register	common	fr	Enregistrer
+related_url	phpbrain	fr	URL liée
+reset	phpbrain	fr	Réinitialiser
+return_to_admin	phpbrain	fr	Retourner à l'administration
+return_to_cats %1	phpbrain	fr	Retourner à la catégorie: %1
+return_to_index	phpbrain	fr	Retourner à l'index
+return_to_search %1	phpbrain	fr	Retourner à la recherche: %1
+score %1	phpbrain	fr	score %1
+section_maintain_questions	phpbrain	fr	Maintenir les questions
+section_maint_faqs	phpbrain	fr	Maintenir les FAQs en attente
+show	phpbrain	fr	Montrer
+submitted_by	phpbrain	fr	Soumis par
+text	common	fr	Texte
+thanks_4_rating	phpbrain	fr	Merci d'avoir mis une note à cet objet.
+tutorial	phpbrain	fr	Tutoriel
+tutorials	phpbrain	fr	Tutoriels
+up	phpbrain	fr	Haut
+views	phpbrain	fr	Vues
+views %1	phpbrain	fr	Vues %1
+votes %1	phpbrain	fr	Votes %1
