@@ -1,3 +1,9 @@
+<style>
+	td
+	{
+		text-align: left;
+	}
+</style>
 <center>
 <form name="adv_search_form" method="POST" action="{form_action}">
 	<table style="border:1px solid black">
