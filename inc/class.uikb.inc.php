@@ -1372,23 +1372,15 @@
 			// don't use htmlarea if checking spelling
 			if (!$checking_spell)
 			{
-				// determine if user language is supported by htmlarea; if not default to English
-				$htmlarea_lang= 'en';
-				$language = substr($GLOBALS['phpgw_info']['user']['preferences']['common']['lang'], 0, 2);
-				if (is_file(PHPGW_INCLUDE_ROOT. '/phpgwapi/js/htmlarea/lang/' . $language  . '.js')) $htmlarea_lang = $language;
-
-				// Prepare javascript tabs
 				$GLOBALS['phpgw']->js = CreateObject('phpgwapi.javascript');
-				$GLOBALS['phpgw']->js->validate_file('htmlarea','htmlarea');
-				$GLOBALS['phpgw']->js->set_onload("HTMLArea.replace('exec_text', htmlareaConfig)");
-				$GLOBALS['phpgw_info']['flags']['css'] = "@import url(".$this->link('/phpgwapi/js/htmlarea/htmlarea.css').");";
+				$GLOBALS['phpgw']->js->set_onload("HTMLArea.replace('exec_text')");
+				$GLOBALS['phpgw_info']['flags']['css'] = "@import url(".$GLOBALS['phpgw']->link('/phpgwapi/js/htmlarea/htmlarea.css').");";
 				$GLOBALS['phpgw_info']['flags']['java_script_thirst']="
 					<script>
 						_editor_url = '".$GLOBALS['phpgw']->link('/phpgwapi/js/htmlarea/')."';
-						_editor_lang = '" . $htmlarea_lang  . "';
-						var htmlareaConfig = new HTMLArea.Config();
-						htmlareaConfig.editorURL = '".$GLOBALS['phpgw']->link('/phpgwapi/js/htmlarea/')."';
-					</script>";
+					</script>
+					<script type='text/javascript' src='". $GLOBALS['phpgw']->link('/phpgwapi/js/htmlarea/htmlarea.js')."'></script>\n
+					<script type='text/javascript' src='". $GLOBALS['phpgw']->link('/phpgwapi/inc/htmlarea-lang.php', 'lang='.$GLOBALS['phpgw_info']['user']['preferences']['common']['lang'])."'></script>";
 			}
 	
 			// Finally, fill the input fields
