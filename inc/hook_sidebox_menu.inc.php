@@ -36,7 +36,7 @@
         $menu_title = 'Administration';
         $file = Array(
 			'Configuration'				=> $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&appname=phpbrain'),
-			'Global Categories'			=> $GLOBALS['phpgw']->link('/index.php','menuaction=phpbrain.uikbglobcats.index&appname=phpbrain&extra=icon')
+			'Global Categories'			=> $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uicategories.index&appname=phpbrain')
         );
 		display_sidebox($appname,$menu_title,$file);
 	}
