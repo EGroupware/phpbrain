@@ -6,6 +6,7 @@ $stat_name %1	phpbrain	fr	$stat_name %1
 %1 questions_activated	phpbrain	fr	%1 Questions Activées
 %1 questions_deleted	phpbrain	fr	%1 Questions Effacées
 /kb directory does not exist and could not be created, please ask the administrator to check the global configuration	phpbrain	fr	Le repertoire /kb  n'existe pas et ne peut être créé. Demandez à votre administrateur de vérifier la configuration globale.
+/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	fr	le répertoire /kb n'existe pas et n'a pas pu être créé, veuillez demander à votre administrateur qu'il vérifie la configuration globale
 action	phpbrain	fr	Action
 actions	phpbrain	fr	Actions
 active_when_checked	phpbrain	fr	Actif quand vérifié
@@ -73,6 +74,7 @@ current_questions	phpbrain	fr	Questions actuelles
 date	phpbrain	fr	Date
 delete article	phpbrain	fr	Supprimer l'article
 delete selected	phpbrain	fr	Supprimer la sélection
+deleted relation to  article %1	phpbrain	fr	Relation avec article %1 supprimée
 deleted relation to article %1	phpbrain	fr	Relation avec article %1 supprimée
 descendent	phpbrain	fr	Descendant
 details	phpbrain	fr	Détails
@@ -105,6 +107,7 @@ faq_saved	phpbrain	fr	FAQ Enregistrée
 faqs	phpbrain	fr	FAQs
 faqs_and_tutes	phpbrain	fr	FAQs et Tutoriels
 file coud be deleted from server but not from database	phpbrain	fr	Le fichier peut-être supprimé du serveur mais pas de la base de données
+file could be deleted from server but not from database	phpbrain	fr	Le fichier a pu être effacé du serveur mais pas de la base de données
 file has been successfully uploaded	phpbrain	fr	Le fichier a été enregistré sur le serveur avec succès
 file was already missing from server, and was deleted from the database	phpbrain	fr	Le fichier n'était plus sur le serveur et a été supprimé de la base de données
 file was deleted successfully	phpbrain	fr	Le fichier a été supprimé avec succès
@@ -197,6 +200,7 @@ recipient	phpbrain	fr	Destinataire
 register	common	fr	Enregistrer
 related articles in the knowledge base	phpbrain	fr	Articles liés dans la base de connaissances
 related_url	phpbrain	fr	URL liée
+relation with article was removed successfully	phpbrain	fr	La relation avec l'article a été supprimée avec succès
 relation with article was removes successfully	phpbrain	fr	La relation avec l'article a été supprimé avec succès
 removed file %1	phpbrain	fr	Fichier supprimé %1
 removed link %1	phpbrain	fr	Lien supprimé %1
