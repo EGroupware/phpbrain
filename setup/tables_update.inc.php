@@ -186,16 +186,11 @@
 		return $GLOBALS['setup_info']['phpbrain']['currentver'];
 	}
 
-	// A little hack I had to do in order to correct the stupidity of having put an incompatible version format like 1.ORC5
-	$previous_versions = array('0.9.14.001', '1.0RC5');
-	if (in_array($setup_info[$key]['currentver'], $previous_versions))
+	$test[] = '1.0RC5';
+	function phpbrain_upgrade1_0RC5()
 	{
-		$test[] = '1.0RC5';
-		function phpbrain_upgrade1_0RC5()
-		{
-			$GLOBALS['setup_info']['phpbrain']['currentver'] = '1.0.0';
-			return $GLOBALS['setup_info']['phpbrain']['currentver'];
-		}
+		$GLOBALS['setup_info']['phpbrain']['currentver'] = '1.0.0';
+		return $GLOBALS['setup_info']['phpbrain']['currentver'];
 	}
 
 	$test[] = '1.0.0';
