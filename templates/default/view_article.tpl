@@ -140,7 +140,7 @@
 		</table>
 
 		<div id="tabcontent1" class="inactivetab">
-			<table class="tabcontent" width="100%" border="0" cellspacing="1" cellpadding="3">
+			<table class="tabcontent" width="100%" style="padding: 10px"border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td colspan=3>{content}</td>
 				</tr>
