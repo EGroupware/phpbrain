@@ -13,7 +13,7 @@ add_question (%1 open)	phpbrain	de	Frage hinzufügen (%1 offen)
 allow html	admin	de	HTML Befehle erlauben beim posting
 allow_html	phpbrain	de	HTML tags in Beiträgen erlauben
 already_rated	phpbrain	de	
-anon user	admin	de	Anunymer Benutzer
+anon user	admin	de	Anonymer Benutzer
 anon_user	phpbrain	de	Anonymer Benutzer
 answer	phpbrain	de	Antwort
 browse	common	de	Ansehen
