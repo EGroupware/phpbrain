@@ -89,6 +89,11 @@
 		{
 			return $this->so->delete_answer($answers);
 		}
+		
+		function delete_question($questions)
+		{
+			return $this->so->delete_question($questions);
+		}
 
 		
 		function get_comments($faq_id)
@@ -208,8 +213,7 @@
 		
 		function is_anon()
 		{
-			return ($GLOBALS['phpgw_info']['apps']['phpkb']['config']['anon_user'] 
-						== $GLOBALS['phpgw_info']['user']['account_id']);
+			return FALSE;
 		}//end is_anon
 
 		function save($faq_id, $faq, $question_id)
