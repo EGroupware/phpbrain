@@ -102,7 +102,7 @@
 			'fd' => array(
 				'art_id' => array('type' => 'int','precision' => '4'),
 				'art_file' => array('type' => 'varchar','precision' => '255'),
-				'art_file_comment' => array('type' => 'varchar','precision' => '255'),
+				'art_file_comments' => array('type' => 'varchar','precision' => '255'),
 			),
 			'pk' => array('art_id','art_file'),
 			'fk' => array(),
