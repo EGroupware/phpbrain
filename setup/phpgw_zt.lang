@@ -5,6 +5,7 @@ $stat_name %1	phpbrain	zt	狀態名稱 %1
 %1 matches found	phpbrain	zt	找到%1 個符合的項目
 %1 questions_activated	phpbrain	zt	%1 個問題啟用中
 %1 questions_deleted	phpbrain	zt	%1 個問題刪除了
+actions	phpbrain	zt	動作
 active_when_checked	phpbrain	zt	圈選時啟用
 add_answer	phpbrain	zt	新增答案
 add_comments	phpbrain	zt	新增備註
@@ -14,6 +15,10 @@ allow html	admin	zt	允許使用HTML標籤
 already_rated	phpbrain	zt	您已經為這個項目評分了，謝謝您。
 anon user	admin	zt	匿名使用者
 answer	phpbrain	zt	答案項目
+answer_added	phpbrain	zt	答案已經新增到資料庫
+answer_saved	phpbrain	zt	您的答案儲存在系統了，請等候管理者審核。
+answered	phpbrain	zt	已經回應
+avg. score	phpbrain	zt	平均分數
 browse	common	zt	瀏覽
 cant_post_must_register	phpbrain	zt	新增資訊到知識庫必須具備會員身分
 check_before_submit	phpbrain	zt	在您送出之前請先確認知識庫中沒有類似的問題存在
@@ -42,7 +47,8 @@ know_contrib	phpbrain	zt	如果您知道答案就可以直接回答
 last_mod %1	phpbrain	zt	最後異動： %1
 maintain answers	admin	zt	維護答案
 maintain questions	admin	zt	維護議題
-maintain_answers	phpbrain	zt	維護答案
+maintain_answers	common	zt	維護答案
+modified	phpbrain	zt	異動日期
 no comments	phpbrain	zt	沒有備註
 none found - revise or browse	phpbrain	zt	找不到任何文章，請檢查您的搜尋或瀏覽器
 none_pending	phpbrain	zt	沒有答案
@@ -52,12 +58,15 @@ num_faqs %1	phpbrain	zt	常見問答(%1)
 num_open %1	phpbrain	zt	開啟(%1)
 num_pages %1	phpbrain	zt	頁數(%1)
 num_tutes %1	phpbrain	zt	教學(%1)
+open	phpbrain	zt	開啟
 phpbrain	common	zt	知識庫
 phpbrain config	admin	zt	知識庫設定
 phpbrain_config	phpbrain	zt	知識庫設定
 poor	common	zt	貧乏的
 preview	phpbrain	zt	預覽
 question	phpbrain	zt	問題
+question_added	phpbrain	zt	問題已經新增到資料庫
+question_saved	phpbrain	zt	您的問題已經送出，請等候管理員審核
 rating	phpbrain	zt	評分
 rating %1	phpbrain	zt	評分 %1
 register	common	zt	註冊
@@ -69,7 +78,7 @@ return_to_index	phpbrain	zt	回到索引
 return_to_search %1	phpbrain	zt	回到搜尋：%1
 score %1	phpbrain	zt	分數%1
 section_maint_faqs	phpbrain	zt	維護未回答的題目
-section_maintain_questions	phpbrain	zt	維護問題
+section_maintain_questions	common	zt	維護問題
 show	phpbrain	zt	顯示
 submitted_by	phpbrain	zt	發表人
 text	common	zt	文字
