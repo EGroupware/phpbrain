@@ -2,7 +2,7 @@
 /**************************************************************************\
 * eGroupWare - KnowledgeBase                                               *
 * http://www.egroupware.org                                                *
-* Written by Alejandro Pedraza [alejandro.pedraza AT dataenlace DOT com]   *
+* Written by Alejandro Pedraza [alpeb AT users.sourceforge DOT net]        *
 * ------------------------------------------------------------------------ *
 *  Started off as a port of phpBrain - http://vrotvrot.com/phpBrain/	   *
 *  but quickly became a full rewrite					                   *
@@ -1008,7 +1008,7 @@
 				}
 			}
 			// prefix with article number
-			$filename = 'kb' . $this->article_id . '-' . $_FILES['new_file']['name'];
+			$filename = stripslashes('kb' . $this->article_id . '-' . $_FILES['new_file']['name']);	// strip slashes eventually generated if magic_quotes_gpc is set on
 			
 			// check the file doesn't already exist (happens when double POSTing)
 			$test = $GLOBALS['phpgw']->vfs->ls(array(
@@ -1019,7 +1019,7 @@
 			));
 			if ($test[0]['name']) return 'overwrite';
 
-			// at least, copy the file from /tmp to /kb
+			// at last, copy the file from /tmp to /kb
 			$cd_args = array('string'	=> '/kb', 'relative' => False, 'relatives' => RELATIVE_NONE);
 			if (!$GLOBALS['phpgw']->vfs->cd($cd_args)) return 'error_cd';
 
