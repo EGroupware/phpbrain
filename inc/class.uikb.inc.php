@@ -376,7 +376,7 @@
 					'art_href'		=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $articles_latest[$i]['art_id']),
 					'art_title'		=> $articles_latest[$i]['title'],
 					'unpublished'	=> $unpublished,
-					'art_date'		=> $GLOBALS['phpgw']->common->show_date($articles_latests[$i]['modified'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']),
+					'art_date'		=> $GLOBALS['phpgw']->common->show_date($articles_latest[$i]['created'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']),
 					'art_category'	=> $category_path? lang('in %1', $category_path) : ''
 				));
 				$this->t->parse('articles_latest', 'articles_latest_block', True);
