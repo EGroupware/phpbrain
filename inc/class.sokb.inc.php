@@ -317,28 +317,15 @@
 			{
 				$select .= "AND is_faq = $show ";
 			}
-			$search_words = explode(' ', $search);
-			$cycle = 0;
-			foreach($search_words as $id => $word)
+			$query = array();
+			foreach(explode(' ', $search) as $word)
 			{
-				if($cycle)
-				{
-					$title .= "OR title LIKE '%" . $this->db->db_addslashes($word) . "%' ";
-					$keywords .= "OR keywords LIKE '%" . $this->db->db_addslashes($word) . "%' ";
-					$text .= "OR text LIKE '%" . $this->db->db_addslashes($word) . "%' ";
-				}
-				else
-				{
-					$title .= "(title LIKE '%" . $this->db->db_addslashes($word) . "%' ";
-					$keywords .= "(keywords LIKE '%" . $this->db->db_addslashes($word) . "%' ";
-					$text .= "(text LIKE '%" . $this->db->db_addslashes($word) . "%' ";
-				}
+				$word = $this->db->db_addslashes($word);
+				$query[] = "title LIKE '%$word%' ";
+				$query[] = "keywords LIKE '%$word%' ";
+				$query[] = "text LIKE '%$word%' ";
 			}
-			$title .= ") ";
-			$keywords .= ") ";
-			$text .= ") ";
-			
-			$sql = $select . 'AND' . $title . 'OR' . $keywords . 'OR' . $text;
+			$sql = $select . 'AND (' . implode('OR ',$query). ')';
 			$this->db->query($sql, __LINE__, __FILE__);
 			while($this->db->next_record())
 			{
