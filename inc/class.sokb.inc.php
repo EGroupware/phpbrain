@@ -13,30 +13,77 @@
 *  option) any later version.                                              *
 \**************************************************************************/
 
+	/* $Id$ */
+
 	/**
-	* @class sokb
+	* Data manipulation layer of the Knowledge Base. Methods to be used only  by methods in the bo class.
 	*
-	* @abstract		Data manipulation layer of the Knowledge Base. All functions are abstract, only accessible by methods in the bo class.
-	* @Last Editor	$ Author: alpeb $
+	* Last Editor:	$Author$
 	* @author		Alejandro Pedraza
-	* @version		$ Revision: 0.99 $
+	* @package		phpbrain
+	* @version		$Revision$
 	* @license		GPL
 	**/
 	class sokb
 	{
+		/**
+		* Database object
+		*
+		* @access	private
+		* @var		object db
+		*/
 		var $db;
 
+		/**
+		* Number of rows in result set
+		*
+		* @access	public
+		* @var		int
+		*/
 		var $num_rows;
 
+		/**
+		* Number of unanswered questions in result set
+		*
+		* @access	public
+		* @var		int
+		*/
 		var $num_questions;
 
+		/**
+		* Number of comments in result set
+		*
+		* @access	public
+		* @var		int
+		*/
 		var $num_comments;
 
+		/**
+		* Class constructor
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		**/
 		function sokb()
 		{
 			$this->db	= $GLOBALS['phpgw']->db;
 		}
 
+		/**
+		* Returns array of articles
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	array	$owners			Users ids accessible by current user
+		* @param	array	$categories		Categories ids
+		* @param	int		$start			For pagination
+		* @param	int		$upper_limit	For pagination
+		* @param	srting	$sort			Sorting direction: ASC | DESC
+		* @param	string	$order			Sorting field name
+		* @param	mixed	$publish_filter	To filter pusblished or unpublished entries
+		* @param	string	$query			Search string
+		* @return	array					Articles
+		*/
 		function search_articles($owners, $categories, $start, $upper_limit = '', $sort, $order, $publish_filter = False, $query)
 		{
 			$order = $this->db->db_addslashes($order);
@@ -98,7 +145,27 @@
 			return $this->results_to_array($fields);
 		}
 
-		function adv_search_articles($owners, $cats_ids, $ocurrences, $pub_date, $start, $num_res, $all_words, $phrase, $one_word, $without_words, $cat, $include_subs, $pub_date)
+		/**
+		* Returns results of advanced search
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	array	$owners			User ids accessible by current user
+		* @param	array	$cats_ids		Categories filtering
+		* @param	string	$ocurrences		Field name where to search
+		* @param	string	$pub_date		Articles from last 3 or 6 months, or last year
+		* @param	int		$start			For pagination
+		* @param	int		$num_res		For pagination
+		* @param	string	$all_words		'with all the words' filtering
+		* @param	string	$phrase			'exact phrase' filtering
+		* @param	string	$one_word		'with at least one of the words' filtering
+		* @param	string	$without_words	'without the words' filtering
+		* @param	int		$cat			Don't know
+		* @param	bool	$include_subs	Include subcategories when filtering by categories. Seems to not being working
+		* @return	array					Articles
+		* @todo		use params $cat and $include_subs
+		*/
+		function adv_search_articles($owners, $cats_ids, $ocurrences, $pub_date, $start, $num_res, $all_words, $phrase, $one_word, $without_words, $cat, $include_subs)
 		{
 			$fields= array('art_id', 'title', 'topic', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2',  'votes_3', 'votes_4', 'votes_5', 'files');
 			$fields_str	= implode(' , ', $fields);
@@ -196,6 +263,14 @@
 			return $this->results_to_array($fields);
 		}
 
+		/**
+		* Fetches results from database and returns array of articles
+		*
+		* @author	Alejandro Pedraza
+		* @access 	private
+		* @param	array	$fields	Which fields to fetch
+		* @return	array	Articles
+		*/
 		function results_to_array($fields)
 		{
 			for ($i=0; $this->db->next_record(); $i++)
@@ -221,6 +296,16 @@
 			return $articles;
 		}
 
+		/**
+		* Upgrades phpgw_kb_search table given user input
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$art_id	Article ID
+		* @param	string	$word			Keyword
+		* @param	bool	$upgrade_key	Whether to give more or less score to $word
+		* @return	void
+		*/
 		function update_keywords($art_id, $word, $upgrade_key)
 		{
 			$word = $this->db->db_addslashes($word);
@@ -245,6 +330,21 @@
 			}
 		}
 
+		/**
+		* Returns unanswered questions
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	array	$owners			User ids accessible by current user
+		* @param	array	$categories		Categories ids
+		* @param	int		$start			For pagination
+		* @param	int		$upper_limit	For pagination
+		* @param	srting	$sort			Sorting direction: ASC | DESC
+		* @param	string	$order			Sorting field name
+		* @param	mixed	$publish_filter	To filter pusblished or unpublished entries
+		* @param	string	$query			Search string
+		* @return	array					Questions
+		*/
 		function unanswered_questions($owners, $categories, $start, $upper_limit='', $sort, $order, $publish_filter=False, $query)
 		{
 			$fields = array('question_id', 'user_id', 'summary', 'details', 'cat_id', 'creation', 'published');
@@ -293,26 +393,15 @@
 			return $questions;
 		}
 
-		function article_owner($article_id)
-		{
-			$sql = "SELECT user_id FROM phpgw_kb_articles WHERE art_id=" . $article_id;
-			$this->db->query($sql, __LINE__, __FILE__);
-			if ($this->db->next_record())
-			{
-				return $this->db->f('user_id');
-			}
-			return 0;
-		}
-
 		/**
-		* @function save_article 
+		* Saves a new or edited article
 		*
-		* @abstract	Saves a new or edited article
 		* @author	Alejandro Pedraza
-		* @param	$contents	article contents
-		* @param	$is_new		True if it's a new article, False if its an edition
-		* @param	$publish	True if the article is to be published without revision
-		* @returns	article id or False if failure
+		* @access	public
+		* @param	array	$contents	article contents
+		* @param	bool	$is_new		True if it's a new article, False if its an edition
+		* @param	bool	$publish	True if the article is to be published without revision
+		* @return	mixed				article id or False if failure
 		**/
 		function save_article($contents, $is_new, $publish = False)
 		{
@@ -375,12 +464,12 @@
 		}
 
 		/**
-		* @function delete_article 
+		* Deletes article
 		*
-		* @abstract	deletes article from table phpgw_kb_art
 		* @author	Alejandro Pedraza
-		* @param	$art_id		article id
-		* @returns	1 on success, 0 on failure
+		* @access	public
+		* @param	int		$art_id		article id
+		* @return	bool	1 on success, 0 on failure
 		**/
 		function delete_article($art_id)
 		{
@@ -389,6 +478,14 @@
 			return 1;
 		}
 
+		/**
+		* Deletes question
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$q_id		Question id
+		* @return	bool	1 on success, 0 on failure
+		**/
 		function delete_question($q_id)
 		{
 			$sql = "DELETE FROM phpgw_kb_questions WHERE question_id=$q_id";
@@ -396,6 +493,14 @@
 			return 1;
 		}
 
+		/**
+		* Returns latest articles entered
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int	$parent_cat	Category id
+		* @return	array	Articles
+		*/
 		function get_latest_articles($parent_cat)
 		{
 			$sql = "SELECT art_id, title, topic, text, modified, votes_1, votes_2, votes_3, votes_4, votes_5 FROM phpgw_kb_articles";
@@ -417,6 +522,14 @@
 			return $articles;
 		}
 
+		/**
+		* Returns article
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$art_id		article id
+		* @return	array	Article
+		**/
 		function get_article($art_id)
 		{
 			$fields = array('art_id', 'title', 'topic', 'text', 'views', 'cat_id', 'published', 'keywords', 'user_id', 'created', 'modified', 'modified_user_id', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5', 'files', 'urls');
@@ -450,12 +563,12 @@
 		}
 
 		/**
-		* @function	register_view
+		* Increments the view count of a published article
 		*
-		* @abstract increments the view count of a published article
 		* @author	Alejandro Pedraza
-		* @param	$art_id		article id
-		* @param	$current_count	current view count
+		* @param	int	$art_id			article id
+		* @param	int	$current_count	current view count
+		* @return	void
 		**/
 		function register_view($art_id, $current_count)
 		{
@@ -464,6 +577,14 @@
 			$this->db->query($sql, __LINE__, __FILE__);
 		}
 
+		/**
+		* Returns article's comments
+		*
+		* @author	Alejandro Pedraza
+		* @param	int		$art_id		article id
+		* @param	int		$limit		Number of comments to return
+		* @return	array				Comments
+		*/
 		function get_comments($art_id, $limit)
 		{
 			$fields = array('comment_id', 'user_id', 'comment', 'entered', 'art_id', 'published');
@@ -488,18 +609,43 @@
 			return $comments;
 		}
 
+		/**
+		* Delete article's comments
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$art_id		article id
+		* @return	void
+		*/
 		function delete_comments($art_id)
 		{
 			$sql = "DELETE FROM phpgw_kb_comment WHERE art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 		}
 
+		/**
+		* Delete article's ratings
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$art_id		article id
+		* @return	void
+		*/
 		function delete_ratings($art_id)
 		{
 			$sql = "DELETE FROM phpgw_kb_ratings WHERE art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 		}
 
+		/**
+		* Returns an article related comments
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$art_id	Article id
+		* @param	array	$owners	Accessible owners to current user
+		* @return	array	IDs and titles of articles
+		*/
 		function get_related_articles($art_id, $owners)
 		{
 			$owners = implode(', ', $owners);
@@ -514,12 +660,12 @@
 		}
 
 		/**
-		* @function user_has_voted
+		* Tells if the current user has already rated the article
 		*
-		* @abstract	Tells if the current user has already rated the article
 		* @author	Alejandro Pedraza
-		* @param	$art_id		article id
-		* @returns	1 if he has, 0 if not
+		* @access	public
+		* @param	int		$art_id		article id
+		* @return	bool				1 if he has, 0 if not
 		**/
 		function user_has_voted($art_id)
 		{
@@ -530,14 +676,14 @@
 		}
 
 		/**
-		* @function add_comment
+		* Stores new comment
 		*
-		* @abstract	Stores new comment
 		* @author	Alejandro Pedraza
-		* @param	$comment	comment text
-		* @param	$art_id		article id
-		* @param	$publish	True if comment is to be published, False if not
-		* @returns	1 on success, 0 on failure
+		* @access	public
+		* @param	string	$comment	comment text
+		* @param	int		$art_id		article id
+		* @param	bool	$publish	True if comment is to be published, False if not
+		* @return	bool				1 on success, 0 on failure
 		**/
 		function add_comment($comment, $art_id, $publish)
 		{
@@ -550,6 +696,16 @@
 			return 1;
 		}
 
+		/**
+		* Adds link to article
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	string	$url		Url
+		* @param	string	$title		Url title
+		* @param	int		$art_id		article id
+		* @return	bool				1 on success, 0 on failure
+		*/
 		function add_link($url, $title, $art_id)
 		{
 			// first retrieve current URLs
@@ -570,12 +726,12 @@
 		}
 
 		/**
-		* @function	publish_article
+		* Publishes article, and resets creation and modification date
 		*
-		* @abstract Publishes article, and resets creation and modification date
 		* @author	Alejandro Pedraza
-		* @param	$art_id		article id
-		* @returns	Numbers of lines affected (should be 1, if not there's an error)
+		* @access	public
+		* @param	int		$art_id		article id
+		* @return	int					Numbers of lines affected (should be 1, if not there's an error)
 		**/
 		function publish_article($art_id)
 		{
@@ -584,6 +740,15 @@
 			return ($this->db->affected_rows());
 		}
 
+		/**
+		* Publishes article comment
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int	$art_id		Article ID
+		* @param	int $comment_id	Comment ID
+		* @return	int				Numbers of lines affected (should be 1, if not there's an error)
+		*/
 		function publish_comment($art_id, $comment_id)
 		{
 			$sql = "UPDATE phpgw_kb_comment SET published=1 WHERE art_id=$art_id AND comment_id=$comment_id";
@@ -591,6 +756,15 @@
 			return ($this->db->affected_rows());
 		}
 
+		/**
+		* Deletes article comment
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int	$art_id		Article ID
+		* @param	int $comment_id	Comment ID
+		* @return	int				Numbers of lines affected (should be 1, if not there's an error)
+		*/
 		function delete_comment($art_id, $comment_id)
 		{
 			$sql = "DELETE FROM phpgw_kb_comment WHERE art_id=$art_id AND comment_id=$comment_id";
@@ -598,6 +772,15 @@
 			return ($this->db->affected_rows());
 		}
 
+		/**
+		* Deletes article comment
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int	$art_id			Article ID
+		* @param	int $delete_link	Link ID
+		* @return	bool				1 on success, 0 on failure
+		*/
 		function delete_link($art_id, $delete_link)
 		{
 			// first retrieve current URLs
@@ -621,14 +804,14 @@
 		}
 
 		/**
-		* @function add_vote
+		* Increments vote_x in table
 		*
-		* @abstract	increments vote_x in table
 		* @author	Alejandro Pedraza
-		* @param	$art_id			article id
-		* @param 	$rating			int	rating between 1 and 5
-		* @param	$current_rating	int number of current votes in that rating
-		* @returns	1 on success, 0 on failure
+		* @access	public
+		* @param	int	$art_id			Article id
+		* @param 	int	$rating			Rating between 1 and 5
+		* @param	int	$current_rating	Number of current votes in that rating
+		* @return	bool				1 on success, 0 on failure
 		**/
 		function add_vote($art_id, $rating, $current_rating)
 		{
@@ -640,12 +823,12 @@
 		}
 
 		/**
-		* @function add_rating
+		* Registers that actual user has voted this article
 		*
-		* @abstract	Registers that actual user has voted this article
 		* @author	Alejandro Pedraza
-		* @param	$art_id		article id
-		* @returns	1 on success, 0 on failure
+		* @access	public
+		* @param	int	$art_id		article id
+		* @return	bool			1 on success, 0 on failure
 		**/
 		function add_rating_user($art_id)
 		{
@@ -655,6 +838,15 @@
 			return 1;
 		}
 
+		/**
+		* Register file upload in the article's database record
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$article_id	Article id
+		* @param	string	$file_name	File name
+		* @return	bool			1 on success, 0 on failure
+		*/
 		function add_file($article_id, $file_name)
 		{
 			// first retrieve current_articles
@@ -679,6 +871,15 @@
 			return 1;
 		}
 
+		/**
+		* Delete file from article database record
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$article_id		Article id
+		* @param	string	$file_to_erase	File name
+		* @return	bool					1 on success, 0 on failure
+		*/
 		function delete_file($art_id, $file_to_erase)
 		{
 			// first retrieve current_articles
@@ -706,12 +907,12 @@
 		}
 
 		/**
-		* @function exist_articleID
+		* Checks if there is already an article in the db with the given ID
 		*
-		* @abstract	Checks if there is already an article in the db with the given ID
 		* @author	Alejandro Pedraza
-		* @param	$art_id		article id
-		* @returns	1 if there is one, 0 if not
+		* @access	public
+		* @param	int		$art_id		article id
+		* @return	bool				1 if there is one, 0 if not
 		**/
 		function exist_articleID($article_id)
 		{
@@ -720,6 +921,14 @@
 			return $this->db->next_record();
 		}
 
+		/**
+		* Returns ids of owners of articles
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	array	$articles	Ids of articles
+		* @return	array				Article ids and owners ids
+		*/
 		function owners_list($articles)
 		{
 			$articles = implode(', ', $articles);
@@ -733,6 +942,15 @@
 			return $owners;
 		}
 
+		/**
+		* Adds related article to article
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$art_id		Article id
+		* @param	array	$articles	Articles id to relate to $art_id
+		* @return	bool				1 on success, 0 on failure
+		*/
 		function add_related($art_id, $articles)
 		{
 			$added = False;
@@ -745,6 +963,15 @@
 			return $added;
 		}
 
+		/**
+		* Deletes related article to article
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$art_id		Article id
+		* @param	int		$related_id	Article id to delete
+		* @return	void
+		*/
 		function delete_related($art_id, $related_id, $all = False)
 		{
 			$sql_operator = $all? 'OR' : 'AND';
@@ -752,12 +979,29 @@
 			$this->db->query($sql, __LINE__, __FILE__);
 		}
 
+		/**
+		* Deletes entry in keywords table
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$art_id		Article id
+		* @return	void
+		*/
 		function delete_search($art_id)
 		{
 			$sql = "DELETE FROM phpgw_kb_search WHERE art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 		}
 
+		/**
+		* Adds question to database
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	array	$data		Question data
+		* @param	bool	$publish	Whether to publish the question or not
+		* @return	int				Numbers of lines affected (should be 1, if not there's an error)
+		*/
 		function add_question($data, $publish)
 		{
 			($publish)? $publish = 1 : $publish = 0;
@@ -772,6 +1016,14 @@
 			return $this->db->affected_rows();
 		}
 
+		/**
+		* Returns question
+		*
+		* @author	Alejandro Pedraza
+		* @access	public
+		* @param	int		$q_id	Question id
+		* @return	array			Question
+		*/
 		function get_question($q_id)
 		{
 			$fields = array('user_id', 'summary', 'details', 'cat_id', 'creation');
@@ -788,20 +1040,6 @@
 				}
 			}
 			return $question;
-		}
-
-		function categories_icons(&$categories)
-		{
-			$cats_with_icons = array();
-			foreach ($categories as $category)
-			{
-				$new_cat = array('icon' => '');
-				$sql = "SELECT icon FROM phpgw_kb_categories WHERE cat_id=" . $category['id'];
-				$this->db->query($sql, __LINE__, __FILE__);
-				if ($this->db->next_record()) $new_cat = array('icon' => $this->db->f('icon'));
-				$cat_with_icons[] = array_merge($category, $new_cat);
-			}
-			$categories = $cat_with_icons;
 		}
 	}
 ?>
