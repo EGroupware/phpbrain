@@ -88,7 +88,13 @@
 		{
 			$order = $this->db->db_addslashes($order);
 			if ($sort != 'DESC') $sort = 'ASC';
-			$fields = array('DISTINCT phpgw_kb_articles.art_id', 'title', 'topic', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5', 'files', 'score');
+
+			// need to cast text-type fields for mssql because they can't be used with DISTINCT
+			$title = ($this->db->Type == 'mssql')? 'CAST(title AS varchar) AS title' : 'title';
+			$topic = ($this->db->Type == 'mssql')? 'CAST(topic AS varchar) AS topic' : 'topic';
+			$files= ($this->db->Type == 'mssql')? 'CAST(files AS varchar) AS files' : 'files';
+
+			$fields = array('DISTINCT phpgw_kb_articles.art_id', $title, $topic, 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5', $files, 'score');
 			$fields_str = implode(', ', $fields);
 			$owners = implode(', ', $owners);
 
@@ -146,6 +152,15 @@
 			$this->num_rows = $this->db->num_rows();
 			$this->db->limit_query($sql, $start, __LINE__, __FILE__, $upper_limit);
 			$articles = array();
+
+			// undo the mssql thing
+			if ($this->db->Type == 'mssql')
+			{
+				$fields[1] = 'title';
+				$fields[2] = 'topic';
+				$fields[14] = 'files';
+			}
+
 			return $this->results_to_array($fields);
 		}
 
