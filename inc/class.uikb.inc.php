@@ -709,8 +709,18 @@
 		{
 			if($header)
 			{
-  			$GLOBALS['phpgw']->common->phpgw_header();
-  			echo parse_navbar();
+  				$GLOBALS['phpgw']->common->phpgw_header();
+  				echo parse_navbar();
+			}
+			else
+			{
+				echo "<html>\n<head>\n";
+				echo "<title>\n\t";
+				echo $GLOBALS['phpgw_info']['server']['site_title'] .' ['. lang('phpbrain') . "]\n";
+				echo "</title>\n";
+				echo "<style type=\"text/css\">\n<!--";
+				echo $this->css();
+				echo "\n-->\n</style></head>\n<body>";
 			}
 			
 			$faq_id = (isset($_GET['faq_id']) ? trim($_GET['faq_id']) : 0);
@@ -753,6 +763,11 @@
 						)
 					);
 					$lang['return_msg'] = lang('return_to_search %1', $search); 
+				}
+				elseif(!$header)
+				{
+					$this->t->set_var('return_url', 'javascript:window.close();');
+					$lang['return_msg'] = lang('close window');
 				}
 				else//no - they used the cat navigation to get here
 				{
