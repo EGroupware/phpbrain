@@ -771,7 +771,7 @@
 		**/
 		function publish_article($art_id)
 		{
-			$sql = "UPDATE phpgw_kb_articles SET published=1, created=". time() . " AND modified=" . time() . " WHERE art_id=$art_id";
+			$sql = "UPDATE phpgw_kb_articles SET published=1, created=". time() . ", modified=" . time() . " WHERE art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 
 			// check if the article answers a question, and if so, delete it
