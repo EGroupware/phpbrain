@@ -14,12 +14,12 @@
 	/* Basic information about this app */
 	$setup_info['phpbrain']['name']      = 'phpbrain';
 	$setup_info['phpbrain']['title']     = 'Knowledge Base';
-	$setup_info['phpbrain']['version']   = '0.9.14.001';
-	$setup_info['phpbrain']['app_order'] = 9;
+	$setup_info['phpbrain']['version']   = '1.0RC5';
+	$setup_info['phpbrain']['app_order'] = 25;
 	$setup_info['phpbrain']['enable']    = 1;
 
-	$setup_info['phpbrain']['author'] = 'Dave Hall';
-	$setup_info['phpbrain']['note']   = 'A knowledge base for storing and searching for FAQs and Tutorials';
+	$setup_info['phpbrain']['author'] = 'Alejandro Pedraza';
+	$setup_info['phpbrain']['note']   = 'Knowledge Base repository';
 	$setup_info['phpbrain']['license']  = 'GPL';
 	$setup_info['phpbrain']['description'] = 'Searchable Knowledge Base.';
 	$setup_info['phpbrain']['maintainer'] = 'Alejandro Pedraza';
@@ -28,25 +28,23 @@
 	/* The hooks this app includes, needed for hooks registration */
 	$setup_info['phpbrain']['hooks'][] = 'about';
 	$setup_info['phpbrain']['hooks'][] = 'admin';
-	//$setup_info['phpbrain']['hooks'][] = 'add_def_pref';
+	$setup_info['phpbrain']['hooks'][] = 'add_def_pref';
 	$setup_info['phpbrain']['hooks'][] = 'config';
-	//$setup_info['phpbrain']['hooks'][] = 'config_validate';
-	//$setup_info['phpbrain']['hooks'][] = 'home';
 	$setup_info['phpbrain']['hooks'][] = 'manual';
-	//$setup_info['phpbrain']['hooks'][] = 'addaccount';
-	//$setup_info['phpbrain']['hooks'][] = 'editaccount';
-	//$setup_info['phpbrain']['hooks'][] = 'deleteaccount';
-	//$setup_info['phpbrain']['hooks'][] = 'notifywindow';
-	//$setup_info['phpbrain']['hooks'][] = 'preferences';
+	$setup_info['phpbrain']['hooks'][] = 'preferences';
+	$setup_info['phpbrain']['hooks'][] = 'settings';
 	$setup_info['phpbrain']['hooks'][] = 'sidebox_menu';
 
-	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_faq';
+	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_articles';
 	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_comment';
 	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_questions';
+	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_ratings';
+	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_related_art';
+	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_search';
 
 	/* Dependencies for this app to work */
 	$setup_info['phpbrain']['depends'][] = array(
 		'appname' => 'phpgwapi',
-		'versions' => Array('0.9.14', '0.9.15', '1.0.0')
+		'versions' => Array('0.9.13', '0.9.14', '0.9.15')
 	);
 ?>

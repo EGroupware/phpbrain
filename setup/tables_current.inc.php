@@ -13,55 +13,97 @@
 
 
 	$phpgw_baseline = array(
-		'phpgw_kb_faq' => array(
+		'phpgw_kb_articles' => array(
 			'fd' => array(
-				'faq_id' => array('type' => 'auto','nullable' => False),
-				'title' => array('type' => 'text','nullable' => False),
-				'text' => array('type' => 'text','nullable' => False),
-				'cat_id' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
-				'published' => array('type' => 'int','precision' => '2','nullable' => False,'default' => '0'),
-				'keywords' => array('type' => 'text','nullable' => False),
-				'user_id' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
-				'views' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
-				'modified' => array('type' => 'int','precision' => '4','nullable' => True),
-				'is_faq' => array('type' => 'int','precision' => '2','nullable' => False,'default' => '1'),
-				'url' => array('type' => 'varchar','precision' => '128','nullable' => False),
-				'votes' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
-				'total' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0')
+				'art_id'			=> array('type' => 'auto','nullable' => False),
+				'q_id'				=> array('type' => 'int', 'precision' => 8, 'nullable' => False),
+				'title'				=> array('type' => 'text','nullable' => False),
+				'topic'				=> array('type' => 'text', 'nullable' => False),
+				'text'				=> array('type' => 'text','nullable' => False),
+				'cat_id'			=> array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+				'published' 		=> array('type' => 'int','precision' => '2','nullable' => False,'default' => '0'),
+				'keywords'			=> array('type' => 'text','nullable' => False),
+				'user_id'			=> array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+				'views'				=> array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+				'created'			=> array('type' => 'int','precision' => '4','nullable' => True),
+				'modified'			=> array('type' => 'int','precision' => '4','nullable' => True),
+				'modified_user_id'	=> array('type' => 'int','precision' => '4','nullable' => False),
+				'files'				=> array('type' => 'text', 'nullable' => False),
+				'urls'				=> array('type' => 'text', 'nullable' => False),
+				'votes_1'			=> array('type' => 'int','precision' => '4','nullable' => False),
+				'votes_2'			=> array('type' => 'int','precision' => '4','nullable' => False),
+				'votes_3'			=> array('type' => 'int','precision' => '4','nullable' => False),
+				'votes_4'			=> array('type' => 'int','precision' => '4','nullable' => False),
+				'votes_5'			=> array('type' => 'int','precision' => '4','nullable' => False)
 			),
-			'pk' => array('faq_id'),
+			'pk' => array('art_id'),
 			'fk' => array(),
-			'ix' => array(
-				array('title','options'=>array('mysql'=>255)),
-				array('text','options'=>array('mysql'=>'FULLTEXT')),
-				'cat_id',
-				'published',
-				array('keywords','options'=>array('mysql'=>255)),
-				'is_faq'),
+			'ix' => array(),
 			'uc' => array()
 		),
+
 		'phpgw_kb_comment' => array(
 			'fd' => array(
-				'comment_id' => array('type' => 'auto','nullable' => False),
-				'user_id' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
-				'comment' => array('type' => 'text','nullable' => False),
-				'entered' => array('type' => 'int','precision' => '4','nullable' => True,'default' => '0'),
-				'faq_id' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0')
+				'comment_id'	=> array('type' => 'auto','nullable' => False),
+				'user_id'		=> array('type' => 'int','precision' => '4','nullable' => False),
+				'comment'		=> array('type' => 'text','nullable' => False),
+				'entered'		=> array('type' => 'int','precision' => '4','nullable' => True),
+				'art_id'		=> array('type' => 'int','precision' => '4','nullable' => False),
+				'published'		=> array('type' => 'int','precision' => '2','nullable' => False)
 			),
 			'pk' => array('comment_id'),
 			'fk' => array(),
-			'ix' => array('faq_id'),
+			'ix' => array('art_id'),
 			'uc' => array()
 		),
+
 		'phpgw_kb_questions' => array(
 			'fd' => array(
-				'question_id' => array('type' => 'auto','nullable' => False),
-				'question' => array('type' => 'text','nullable' => False),
-				'pending' => array('type' => 'int','precision' => '2','nullable' => False,'default' => '1')
+				'question_id'	=> array('type' => 'auto','nullable' => False),
+				'user_id'		=> array('type' => 'int','precision' => '4', 'nullable' => False),
+				'summary'		=> array('type' => 'text','nullable' => False),
+				'details'		=> array('type' => 'text','nullable' => False),
+				'cat_id'		=> array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+				'creation'		=> array('type' => 'int','precision' => '4','nullable' => True),
+				'published'		=> array('type' => 'int','precision' => '2','nullable' => False)
 			),
 			'pk' => array('question_id'),
 			'fk' => array(),
-			'ix' => array('pending'),
+			'ix' => array(),
+			'uc' => array()
+		),
+
+		'phpgw_kb_ratings' => array(
+			'fd' => array(
+				'user_id'	=> array('type' => 'int','precision' => '4', 'nullable' => False),
+				'art_id'	=> array('type' => 'int','precision' => '4','nullable' => False)
+			),
+			'pk' => array('user_id', 'art_id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		),
+
+		'phpgw_kb_related_art' => array(
+			'fd' => array(
+				'art_id'			=> array('type' => 'int','precision' => '4','nullable' => False),
+				'related_art_id'	=> array('type' => 'int','precision' => '4','nullable' => False)
+			),
+			'pk' => array('art_id', 'related_art_id'),
+			'fk' => array(),
+			'ix' => array(),
+			'uc' => array()
+		),
+
+		'phpgw_kb_search' => array(
+			'fd' => array(
+				'keyword'	=> array('type' => 'varchar', 'precision' => '10','nullable' => False),
+				'art_id'	=> array('type' => 'int','precision' => '4','nullable' => False),
+				'score'		=> array('type' => 'int','precision' => '8','nullable' => False)
+			),
+			'pk' => array('keyword', 'art_id'),
+			'fk' => array(),
+			'ix' => array(),
 			'uc' => array()
 		)
 	);
