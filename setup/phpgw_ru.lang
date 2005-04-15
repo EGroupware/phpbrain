@@ -59,8 +59,11 @@ in the text	phpbrain	ru	в тексте
 in the title	phpbrain	ru	в заголовке
 include subcategories	phpbrain	ru	включая подкатегории
 keywords	phpbrain	ru	Ключевые слова
+knowledge base article #%1	phpbrain	ru	Статья Базы Знаний &#8470;%1
+knowledge base configuration	common	ru	Конфигурация Базы Знаний
 last modification by %1 on %2	phpbrain	ru	Последние изменения внесены %1 (дата правки %2)
 latest	phpbrain	ru	Последние
+latest comments	phpbrain	ru	Последние комментарии
 leave empty to automatically generate an id	phpbrain	ru	Оставьте пустой для автоматической генерации ID
 link could not be added	phpbrain	ru	Ссылка не может быть добавлена
 link deleted successfully	phpbrain	ru	Ссылка успешно удалена
@@ -77,6 +80,7 @@ most viewed	phpbrain	ru	Наиболее просматриваемые
 new article	phpbrain	ru	Добавить Статью
 number of results per page	phpbrain	ru	Количество результатов выводимых на страницу
 order results by	phpbrain	ru	Сортировать результаты по
+phpbrain	common	ru	База Знаний
 please try again	phpbrain	ru	Попробуйте еще раз
 poor	phpbrain	ru	Плохо
 printer view	phpbrain	ru	Версия для печати
