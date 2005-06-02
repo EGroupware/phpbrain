@@ -5,7 +5,7 @@ $stat_name %1	phpbrain	es-es	$stat_name %1
 %1 matches found	phpbrain	es-es	Se encontraron %1 coincidencias
 %1 questions_activated	phpbrain	es-es	%1 preguntas activadas
 %1 questions_deleted	phpbrain	es-es	%1 preguntas borradas
-/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	es-es	/kb directorio no existe y no se pudo crear. Por favor, consulte al administrador para comprobar la configuración global.
+/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	es-es	El directorio /kb no existe y no se pudo crear. Por favor, consulte al administrador para comprobar la configuración global.
 action	phpbrain	es-es	Acción
 actions	phpbrain	es-es	Acciones
 active_when_checked	phpbrain	es-es	Activar al marcar
