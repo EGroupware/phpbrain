@@ -35,7 +35,7 @@ function TransferID(articleID)
 		<tr bgcolor="{th_color}">
 			<th>{head_number}</th><th>{head_title}</th><th></th>
 			<!-- BEGIN table_row_block -->
-			<tr bgcolor="{tr_color}"><td width=1%>{number}</td><td>{title}</td><td align=center><input type="button" name="button" value="{lang_select}" onClick="TransferID({number});">
+			<tr bgcolor="{tr_color}"><td style="width: 6em">{number}</td><td>{title}</td><td align=center><input type="button" name="button" value="{lang_select}" onClick="TransferID({number});">
 			<!-- END table_row_block -->
 		</tr>
 	</form>

@@ -27,7 +27,7 @@
 			<td align=left colspan=2><b>{lang_post_question}:</b></td>
 		</tr>
 		<tr>
-			<td width=1%>{lang_summary}:</td><td><input type=text name="summary" style="width:90%"></td>
+			<td style="width: 6em">{lang_summary}:</td><td><input type=text name="summary" style="width:90%"></td>
 		</tr>
 		<tr>
 			<td valign=top>{lang_details}:</td><td><textarea name="details" style="width:90%; height:100px"></textarea></td>

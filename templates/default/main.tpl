@@ -57,7 +57,7 @@
 							</tr>
 							<!-- BEGIN articles_latest_block -->
 							<tr style="background-color:{bg_lists}">
-								<td valign=top width=1%>{line_num}.&nbsp;&nbsp;</td>
+								<td valign=top style="width: 6em">{line_num}.&nbsp;&nbsp;</td>
 								<td>
 									<a href="{art_href}">{art_title} </a><span style='font-size: 80%'>({art_date})</span><br>
 									<span style='font-size:80%;color:green'>{art_category}</span>
@@ -71,7 +71,7 @@
 							<tr>
 							<!-- BEGIN articles_mostviewed_block -->
 							<tr style="background-color:{bg_lists}">
-								<td valign=top width=1%>{line_num}.&nbsp;&nbsp;</td>
+								<td valign=top style="width: 6em">{line_num}.&nbsp;&nbsp;</td>
 								<td>
 									<a href="{art_href}">{art_title} </a><span style='font-size: 80%'>({art_views} {lang_views})</span><br>
 									<span style='font-size:80%;color:green'>{art_category}</span>
@@ -86,7 +86,7 @@
 							<tr>
 							<!-- BEGIN unanswered_questions_block -->
 							<tr style="background-color:{bg_lists}">
-								<td valign=top width=1%>&bull;&nbsp;&nbsp;</td>
+								<td valign=top style="width: 6em">&bull;&nbsp;&nbsp;</td>
 								<td>
 									<a href="{art_href}">{art_title}</a> ({who})<br>
 									<span style='font-size:80%;color:green'>{unanswered_category}</span>

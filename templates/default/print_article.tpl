@@ -18,7 +18,7 @@
 			<td width=200 align=right>{createdby}</td>
 		</tr>
 		<tr>
-			<td width=1% align=left><h4>{lang_category}:</h4></td>
+			<td style="width: 6em" align=left><h4>{lang_category}:</h4></td>
 			<td>{links_cats}</td>
 			<td align=right>{last_modif}</td>
 		</tr>
