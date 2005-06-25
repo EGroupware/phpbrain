@@ -103,7 +103,7 @@
 				<td colspan=2 style='font:normal 12px sans-serif'>{topic}</td>
 			</tr>
 			<tr>
-				<td style="width: 6em; text-align:right"><span style='font:normal 12px sans-serif'>{lang_category}:</span></td>
+				<td width=1% style="text-align:right"><span style='font:normal 12px sans-serif'>{lang_category}:</span></td>
 				<td><span>{links_cats}</span></td>
 				<td>{last_modif}</td>
 			</tr>
@@ -188,7 +188,7 @@
 				<tr>
 					<form method='POST' action="{form_article_action}">
 						<!-- BEGIN comment_form_block -->
-						<td style='padding-top:20px;padding-left:20px;width: 6em'>
+						<td style='padding-top:20px;padding-left:20px' width=1%>
 							<b>{lang_add_comments}:</b><br>
 							<textarea cols=40 rows=5 name="comment_box"></textarea>
 						</td>
