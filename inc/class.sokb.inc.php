@@ -92,12 +92,15 @@
 			// We use COALESCE (VALUE in case of maxdb) to turn NULLs into zeros, to avoid some databases (postgres and maxdb, don't know about mssql)
 			// to sort records with score NULL before records with a score > 0.
 			$score = (($this->db->Type == 'maxdb')? 'VALUE(SUM(phpgw_kb_search.score), 0)' : 'SUM(COALESCE(phpgw_kb_search.score))') . ' AS pertinence';
+            // have to figure out later if maxdb is broken here...
+			$files_field = (($this->db->Type == 'maxdb')? 'VALUE(art_file)' : 'COALESCE(art_file)') . ' AS files';
 
-			$fields = array('phpgw_kb_articles.art_id', 'title', 'topic', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5', $score);
+			$fields = array('phpgw_kb_articles.art_id', 'title', 'topic', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5', $score, $files_field);
 			$fields_str = implode(', ', $fields);
 			$owners = implode(', ', $owners);
 
 			$sql = "SELECT $fields_str FROM phpgw_kb_articles LEFT JOIN phpgw_kb_search ON phpgw_kb_articles.art_id=phpgw_kb_search.art_id ";
+            $sql .= "LEFT JOIN phpgw_kb_files ON phpgw_kb_articles.art_id=phpgw_kb_files.art_id ";
 			$sql .= "WHERE user_id IN ($owners)";
 			if ($publish_filter && $publish_filter!='all') 
 			{
@@ -141,7 +144,7 @@
 
 					// build query for the rest of results (looking in title, topic and text only). These appear after the previous ones are shown.
 					// I must use the negation of the previous conditions to avoid shown repeated records
-					$sql_rest = $sql . " AND (keywords!='" . implode("' AND keywords!='", $words) . "' AND $likes)";
+					$sql_rest = $sql . " AND (keyword!='" . implode("' AND keyword!='", $words) . "' AND $likes)";
 				}
 			}
 
@@ -322,12 +325,17 @@
 			{
 				foreach ($fields as $field)
 				{
-					$articles[$i][$field] = $this->db->f($field);
+                    if (preg_match('/.* AS (.*)/', $field, $matches)) {
+                        $modified_field = $matches[1];
+                    } else {
+                        $modified_field = $field;
+                    }
+					$articles[$i][$modified_field] = $this->db->f($modified_field);
 				}
 				$articles[$i]['art_id'] = $this->db->f('art_id');
 				$username = $GLOBALS['phpgw']->accounts->get_account_name($articles[$i]['user_id'], $lid, $fname, $lname);
 				$articles[$i]['username'] = $fname . ' ' . $lname;
-				$articles[$i]['files'] = unserialize($articles[$i]['files']);
+				//$articles[$i]['files'] = unserialize($articles[$i]['files']);
 				$articles[$i]['total_votes'] = $articles[$i]['votes_1'] + $articles[$i]['votes_2'] + $articles[$i]['votes_3'] + $articles[$i]['votes_4'] + $articles[$i]['votes_5'];
 				if ($articles[$i]['total_votes'])
 				{
