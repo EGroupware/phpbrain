@@ -59,6 +59,14 @@
 		var $num_comments;
 
 		/**
+		* Type of LIKE SQL operator to use
+		*
+		* @access	private
+		* @var		string
+		*/
+		var $like;
+
+		/**
 		* Class constructor
 		*
 		* @author	Alejandro Pedraza
@@ -67,6 +75,16 @@
 		function sokb()
 		{
 			$this->db	= $GLOBALS['phpgw']->db;
+
+            // postgresql is case sensite by default, so make it case insensitive
+            if ($this->db->Type == 'pgsql')
+            {
+                $this->like = 'ILIKE';
+            }
+            else
+            {
+                $this->like = 'LIKE';
+            }
 		}
 
 		/**
@@ -93,7 +111,7 @@
 			// to sort records with score NULL before records with a score > 0.
 			$score = (($this->db->Type == 'maxdb')? 'VALUE(SUM(phpgw_kb_search.score), 0)' : 'SUM(COALESCE(phpgw_kb_search.score))') . ' AS pertinence';
             // have to figure out later if maxdb is broken here...
-			$files_field = (($this->db->Type == 'maxdb')? 'VALUE(art_file)' : 'COALESCE(art_file)') . ' AS files';
+			$files_field = (($this->db->Type == 'maxdb')? 'VALUE(art_file)' : 'COUNT(COALESCE(art_file))') . ' AS files';
 
 			$fields = array('phpgw_kb_articles.art_id', 'title', 'topic', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5', $score, $files_field);
 			$fields_str = implode(', ', $fields);
@@ -133,7 +151,7 @@
 						$likes[] = "phpgw_kb_articles.art_id='$word'";
 						break;
 					}
-					$likes[] = "title LIKE '%$word%' OR topic LIKE '%$word%' OR text LIKE '%$word%'";
+					$likes[] = "title {$this->like} '%$word%' OR topic {$this->like} '%$word%' OR text {$this->like} '%$word%'";
 				}
 				$likes = implode(' OR ', $likes);
 			
@@ -262,7 +280,7 @@
 			{
 				foreach ($all_words as $word)
 				{
-					$each_field[] = "(" . implode(" LIKE '%$word%' OR ", $target_fields) . " LIKE '%$word%')";
+					$each_field[] = "(" . implode(" {$this->like} '%$word%' OR ", $target_fields) . " {$this->like} '%$word%')";
 				}
 				if ($each_field)
 				{
@@ -274,7 +292,7 @@
 			$phrase = $this->db->db_addslashes($phrase);
 			if ($phrase)
 			{
-				$sql .= " AND (" . implode (" LIKE '%$phrase%' OR ", $target_fields) . " LIKE '%$phrase%')";
+				$sql .= " AND (" . implode (" {$this->like} '%$phrase%' OR ", $target_fields) . " {$this->like} '%$phrase%')";
 			}
 
 			// "With at least one of the words" filtering
@@ -285,7 +303,7 @@
 				$each_field = array();
 				foreach ($one_word as $word)
 				{
-					$each_field[] = "(" . implode(" LIKE '%$word' OR ", $target_fields) . " LIKE '%$word%')";
+					$each_field[] = "(" . implode(" {$this->like} '%$word' OR ", $target_fields) . " {$this->like} '%$word%')";
 				}
 				$sql .= " AND (". implode (" OR ", $each_field) . ")";
 			}
@@ -298,7 +316,7 @@
 			{
 				foreach ($without_words as $word)
 				{
-					$each_field[] = "(" . implode(" NOT LIKE '%word' AND ", $target_fields) . " NOT LIKE '%$word%')";
+					$each_field[] = "(" . implode(" NOT {$this->like} '%word' AND ", $target_fields) . " NOT {$this->like} '%$word%')";
 				}
 				$sql .= " AND " . implode(" AND ", $each_field);
 			}
@@ -422,7 +440,7 @@
 			{
 				$query = $this->db->db_addslashes($query);
 				$words = explode(' ', $query);
-				$sql .= " AND (summary LIKE '%" . implode("%' OR summary LIKE '%", $words) . "%' OR details LIKE '%" . implode("%' OR details LIKE '%", $words) . "%')";
+				$sql .= " AND (summary {$this->like} '%" . implode("%' OR summary {$this->like} '%", $words) . "%' OR details {$this->like} '%" . implode("%' OR details {$this->like} '%", $words) . "%')";
 			}
 			if ($order)
 			{
