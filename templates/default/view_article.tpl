@@ -362,5 +362,5 @@
 </div>
 
 <!-- BEGIN img_delete_block -->
-<a href="{href_del}"><img src="{img_src_del}" alt="{lang_delete}" title="{lang_delete}"></a>
+<a href="{href_del}"><img src="{img_src_del}" alt="{lang_delete}" title="{lang_delete}" style="width:16px; height:16px"></a>
 <!-- END img_delete_block -->
