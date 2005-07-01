@@ -1,19 +1,19 @@
 <!-- BEGIN header -->
 <form method="POST" action="{action_url}">
 <table border="0" align="center">
-   <tr bgcolor="{th_bg}">
-    <td colspan="2"><font color="{th_text}">&nbsp;<b>{title}</b></font></td>
+   <tr class="th">
+    <th colspan="2">{title}</th>
    </tr>
 <!-- END header -->
 
 <!-- BEGIN body -->
-<tr bgcolor="{row_on}">
+<tr class="row_on">
 	<td colspan="2">&nbsp;</td>
 </tr>
-<tr bgcolor="{row_off}">
+<tr class="row_off">
 	<td colspan="2"><b>{lang_Knowledge_Base_configuration}</b></td>
 </tr>
-<tr bgcolor="{row_on}">
+<tr class="row_on">
 	<td>{lang_Publish_articles_automatically?}</td>
 	<td>
 		<select name="newsettings[publish_articles]">
@@ -22,7 +22,7 @@
 		</select>
 	</td>
 </tr>
-<tr bgcolor="{row_off}">
+<tr class="row_off">
 	<td>{lang_Publish_comments_automatically?}</td>
 	<td>
 		<select name="newsettings[publish_comments]">
@@ -31,7 +31,7 @@
 		</select>
 	</td>
 </tr>
-<tr bgcolor="{row_on}">
+<tr class="row_on">
 	<td>{lang_Publish_questions_automatically?}</td>
 	<td>
 		<select name="newsettings[publish_questions]">
@@ -43,7 +43,7 @@
 <!-- END body -->
 
 <!-- BEGIN footer -->
-  <tr bgcolor="{th_bg}">
+  <tr class="th" >
     <td colspan="2">
 &nbsp;
     </td>

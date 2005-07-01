@@ -7,10 +7,10 @@
 <center>
 <form name="adv_search_form" method="POST" action="{form_action}">
 	<table style="border:1px solid black">
-		<tr class=th>
-			<td colspan=2 align=center><b>{lang_advanced_search}</b></td>
+		<tr class="th">
+			<th colspan="2" style="text-align:center">{lang_advanced_search}</th>
 		</tr>
-		<tr bgcolor="{row_off}">
+		<tr class="row_off">
 			<td colspan=2>
 				<table>
 					<tr>
@@ -39,11 +39,11 @@
 				</table>
 			</td>
 		</tr>
-		<tr bgcolor="{row_on}">
+		<tr class="row_on">
 			<td width=150>{lang_show_cats}:</td>
 			<td><select name="cat"><option value="0">{lang_all}</option>{select_categories}</select>&nbsp;&nbsp;{lang_include_subs}: <input type="checkbox" name="include_subs" value=True></td>
 		</tr>
-		<tr bgcolor="{row_off}">
+		<tr class="row_off">
 			<td>{lang_pub_date}:</td>
 			<td>
 				<select name="pub_date">
@@ -54,7 +54,7 @@
 				</select>
 			</td>
 		</tr>
-		<tr bgcolor="{row_on}">
+		<tr class="row_on">
 			<td>{lang_ocurrences}:</td>
 			<td>
 				<select name="ocurrences">
@@ -65,7 +65,7 @@
 				</select>
 			</td>
 		</tr>
-		<tr bgcolor="{row_off}">
+		<tr class="row_off">
 			<td>{lang_num_res}:</td>
 			<td>
 				<select name="num_res">
@@ -78,7 +78,7 @@
 				</select>
 			</td>
 		</tr>
-		<tr bgcolor="{row_on}">
+		<tr class="row_on">
 			<td>{lang_order}</td>
 			<td>
 				<select name="order">
