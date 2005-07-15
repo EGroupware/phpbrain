@@ -339,6 +339,7 @@
 		*/
 		function results_to_array($fields)
 		{
+			$articles = array();
 			for ($i=0; $this->db->next_record(); $i++)
 			{
 				foreach ($fields as $field)
