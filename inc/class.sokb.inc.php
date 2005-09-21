@@ -66,7 +66,7 @@
 		**/
 		function sokb()
 		{
-			$this->db	= $GLOBALS['phpgw']->db;
+			$this->db	= clone($GLOBALS['phpgw']->db);
 		}
 
 		/**
