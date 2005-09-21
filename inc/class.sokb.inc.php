@@ -74,7 +74,7 @@
 		**/
 		function sokb()
 		{
-			$this->db	= $GLOBALS['phpgw']->db;
+			$this->db	= clone($GLOBALS['phpgw']->db);
 
             // postgresql is case sensite by default, so make it case insensitive
             if ($this->db->Type == 'pgsql')
@@ -199,9 +199,9 @@
 			foreach ($sqls as $sql)
 			{
 				$this->db->query($sql, __LINE__, __FILE__);
+				$this->num_rows += $this->db->num_rows();
 				$this->db->limit_query($sql, $start, __LINE__, __FILE__, $upper_limit);
 				$start = $this->db->num_rows();
-				$this->num_rows += $this->db->num_rows();
 				$articles = array_merge($articles, $this->results_to_array($fields));
 			}
 
