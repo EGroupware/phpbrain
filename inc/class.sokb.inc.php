@@ -230,15 +230,15 @@
 		*/
 		function adv_search_articles($owners, $cats_ids, $ocurrences, $pub_date, $start, $num_res, $all_words, $phrase, $one_word, $without_words, $cat, $include_subs)
 		{
-			$fields= array('art_id', 'title', 'topic', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2',  'votes_3', 'votes_4', 'votes_5', 'files');
+			$fields= array('phpgw_kb_articles.art_id', 'title', 'topic', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2',  'votes_3', 'votes_4', 'votes_5');
 			$fields_str	= implode(' , ', $fields);
 
 			// permissions filtering
 			$owners	= implode(', ', $owners);
-			$sql = "SELECT $fields_str FROM phpgw_kb_articles WHERE user_id IN ($owners)";
+			$sql = "SELECT DISTINCT $fields_str FROM phpgw_kb_articles LEFT JOIN phpgw_kb_search ON phpgw_kb_articles.art_id=phpgw_kb_search.art_id WHERE user_id IN ($owners)";
 
 			// categories filtering
-			$cats_ids	= implode (', ', $cats_ids);
+			$cats_ids	= implode (',', $cats_ids);
 			if ($cats_ids) $sql .= " AND cat_id IN ($cats_ids)";
 
 			// date filtering
@@ -268,7 +268,7 @@
 					$target_fields = array('text');
 					break;
 				default:
-					$target_fields = array('title', 'topic', 'keywords', 'text');
+					$target_fields = array('title', 'topic', 'keyword', 'text');
 					break;
 			}
 
