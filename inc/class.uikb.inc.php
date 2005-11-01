@@ -190,7 +190,7 @@
 		*/
 		function index()
 		{
-			$category_passed	= (int)get_var('cat', 'GET', 0);
+			$category_passed	= (int) $_REQUEST['cat'];
 
 			$this->t->set_file('main', 'main.tpl');
 			$this->t->set_block('main', 'articles_block', 'articles');
@@ -317,8 +317,8 @@
 			{
 				if ($this->sitemgr) $this->nextmatchs->template->set_var('action_sitemgr', $this->link('menuaction=phpbrain.uikb.index'));
 				$this->t->set_var(array(
-					'left'		=> $this->nextmatchs->left($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction=phpbrain.uikb.index'),
-					'right'		=> $this->nextmatchs->right($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction=phpbrain.uikb.index'),
+					'left'		=> $this->nextmatchs->left($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction=phpbrain.uikb.index&cat='.$category_passed),
+					'right'		=> $this->nextmatchs->right($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction=phpbrain.uikb.index&cat='.$category_passed),
 					'num_regs'	=> $this->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start)
 				));
 				$this->t->parse('articles_navigation', 'articles_navigation_block');

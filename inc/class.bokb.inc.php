@@ -423,7 +423,7 @@
 			else
 			{
 				// show only articles in present category
-				$articles = $this->so->$search($owners, array($category_id), '', '', $this->sort, $this->order, $publish_filter, $this->query);
+				$articles = $this->so->$search($owners, array($category_id), $this->start, '', $this->sort, $this->order, $publish_filter, $this->query);
 			}
 
 			$this->num_rows = $this->so->num_rows;
