@@ -1,5 +1,6 @@
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	nl	/kb directory bestaat niet en kon niet worden aangemaakt.
 action	phpbrain	nl	Actie
+actions	phpbrain	nl	Acties
 add articles	phpbrain	nl	Artikelen toevoegen
 add link	phpbrain	nl	Link toevoegen
 add question	phpbrain	nl	Vraag stellen
@@ -40,15 +41,18 @@ comment has been published	phpbrain	nl	Opmerking is gepubliceerd
 comment has been submited for revision	phpbrain	nl	Opmerkingen zijn verstuurd om te worden beoordeeld
 comment has been submited for revision and rating will be published	phpbrain	nl	Opmerkingen zijn verstuurd om te worden beoordeeld en uw waardering zal worden gepubliceerd
 comments	phpbrain	nl	Opmerkingen
+configuration	phpbrain	nl	Configuratie
 create a new article to answer the question asked by %1 in %2	phpbrain	nl	Maak een nieuw artikel om de vraag van %1, gesteld op %2 te beantwoorden
 created by %1 on %2	phpbrain	nl	Gemaakt door %1 op %2
-creation date	phpbrain	nl	Creatie datum
-date	phpbrain	nl	Datum
+creation	phpbrain	nl	aanmaken
+creation date	phpbrain	nl	Aanmaakdatum
 delete article	phpbrain	nl	Artikel verwijderen
 delete selected	phpbrain	nl	Verwijder geselecteerde
+deleted relation to  article %1	phpbrain	nl	Relatie met artikel %1 verwijderd
 deleted relation to article %1	phpbrain	nl	Relatie met artikel %1 verwijderd
 descendent	phpbrain	nl	Aflopend
 details	phpbrain	nl	Details
+e-groupware knowledge base article attached	phpbrain	nl	eGroupWare kennisbankartikel bijgevoegd
 e-mail has been sent	phpbrain	nl	e-mail is verzonden
 edit article	phpbrain	nl	Artikel bewerken
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	nl	Voer een of meerdere woorden in om uw probleem te omschrijven of voer indien bekend het artikelnummer in
@@ -72,6 +76,7 @@ file was already missing from server, and was deleted from the database	phpbrain
 file was deleted successfully	phpbrain	nl	Bestand is verwijderd
 file wasn't in server and it couldn't be deleted from the database	phpbrain	nl	Bestand stond niet in de server en kon niet worden verwijderd uit de database
 find results	phpbrain	nl	Zoek resultaten
+global categories	phpbrain	nl	Globale categoriën
 have to be approved first	common	nl	Moeten eerst beoordeeld worden
 history	phpbrain	nl	Historie
 if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	nl	Als uw vraag niet voorkomt in de KennisBank, kunt u hieronder uw vraag stellen
@@ -103,12 +108,12 @@ modification date	phpbrain	nl	Modificatie datum
 most viewed	phpbrain	nl	Meest bekeken
 new article	phpbrain	nl	Nieuw artikel
 nobody has rated this article so far	phpbrain	nl	Geen gebruiker heeft dit artikel gewaardeerd
-none	phpbrain	nl	Geen
 nothing was uploaded!	phpbrain	nl	Er was niet geupload!
 number of results per page	phpbrain	nl	Resultaten per pagina
 ocurrences	phpbrain	nl	Voorkomen
 or browse the categories	phpbrain	nl	Of blader door de categorie&euml;n
 order results by	phpbrain	nl	Sorteer resultaten op
+outstanding published questions	phpbrain	nl	Openstaande gepubliceerde vragen
 past %1 months	phpbrain	nl	afgelopen %1 maanden
 past year	phpbrain	nl	afgelopen jaar
 people have rated this article	phpbrain	nl	gebruikers hebben dit artikel gewaardeerd
@@ -124,6 +129,7 @@ publish articles automatically?	common	nl	Publiceer artikelen automatisch?
 publish comments automatically?	common	nl	Publiceer opmerkingen automatisch?
 publish questions automatically?	common	nl	Publiceerd vragen automatisch
 publish selected	phpbrain	nl	Publiceer geselecteerde
+published	phpbrain	nl	Gepubliceerd
 question deleted successfully	phpbrain	nl	Vraag verwijderd
 questions deleted successfully	phpbrain	nl	Vragen verwijderd
 rating has been submited	phpbrain	nl	Waardering is verstuurd
@@ -137,6 +143,7 @@ reply-to	phpbrain	nl	Antwoord naar
 search in all the knowledge base	phpbrain	nl	Zoek in de KennisBank
 search results	phpbrain	nl	Zoek resultaten
 see more questions	phpbrain	nl	Bekijk meer vragen
+see more questions...	phpbrain	nl	Bekijk meer vragen...
 select articles	phpbrain	nl	Selecteer artikel
 show all comments	phpbrain	nl	Alle opmerkingen tonen
 show articles belonging to:	phpbrain	nl	Toon artikelen behorende aan:
@@ -146,21 +153,23 @@ submit comment and rating	phpbrain	nl	Opmerking en waardering versturen
 suggested category	phpbrain	nl	Aanbevolen categorie
 summary	phpbarin	nl	Samenvatting
 that file already exists	phpbrain	nl	Bestand bestaat reeds
+the article id must be a number	phpbrain	nl	Het artikel ID moet numeriek zijn
 the article is empty	phpbrain	nl	Het artikel is leeg
 the file was already missing in the server	phpbrain	nl	Het bestand ontbrak reeds in de server
 the following errors occurred	phpbrain	nl	De volgende fouten zijn geconstateerd
+the mail server returned:	phpbrain	nl	De mailserver antwoordde:
 the present category and all subcategories under it	phpbrain	nl	The present category and all subcategories under it
 the present category only	phpbrain	nl	The present category only
 there are no articles	phpbrain	nl	Er zijn geen artikelen
+there are no articles available	phpbrain	nl	Er zijn geen artikelen beschikbaar
 this article hasn't yet been published in the knowledge base	phpbrain	nl	Dit artikel is nog niet gepubliceerd in de KennisBank
 title	phpbrain	nl	Titel
 to create categories, press 'edit categories' in the preferences menu	phpbrain	nl	Om categorie&euml; te maken, druk op 'Categorie&euml;n bewerken' in het voorkeuren overzicht
 topic	phpbrain	nl	Onderwerp
 unable to add rating to database	phpbrain	nl	Waardering kon niet worden toegevoegd in de database
 unanswered questions	phpbrain	nl	Onbeantwoorde vragen
+unpublish	phpbrain	nl	Publicatie intrekken
 unpublished	phpbrain	nl	Niet gepubliceerd
-upload	phpbrain	nl	upload
-user	phpbrain	nl	Gebruiker
 user preferences	phpbrain	nl	Gebruikers voorkeuren
 views	phpbrain	nl	bekeken
 was it easy to find this article using the above search string?	phpbrain	nl	Was het eenvoudig om dit artikel te vinden door middel van bovenstaande zoekopdracht?
@@ -174,5 +183,6 @@ you have already qualified this article	phpbrain	nl	U heeft uw waardering reeds 
 you have not the proper permissions to do that	phpbrain	nl	U heeft niet de juiste rechten om deze handeling te doen
 you must enter a title	phpbrain	nl	U heeft geen titel opgegeven
 you must enter a topic	phpbrain	nl	U heeft geen onderwerp opgegeven
+your message could not be sent!	phpbrain	nl	Uw bericht kon niet verzonden worden!
 your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	nl	Uw vraag zal worden verstuurd, maar zal na goedkeuring geplaatst worden
 your question will be published immediately	phpbrain	nl	Uw vraag zal direct gepubliceerd worden
