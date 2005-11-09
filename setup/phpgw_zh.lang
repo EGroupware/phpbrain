@@ -9,13 +9,13 @@ actions	phpbrain	zh	动作
 active_when_checked	phpbrain	zh	选择后启用
 add_answer	phpbrain	zh	新增答案
 add articles	phpbrain	zh	新增文章
-Add Question	phpbrain	zh	新增问题
 add_comments	phpbrain	zh	新增备注
 added file %1	phpbrain	zh	新增文件 %1
 added link %1	phpbrain	zh	新增链接 %1
 added related articles %1	phpbrain	zh	新增相关文章 %1
 add link	phpbrain	zh	新增链接
 add_question (%1 open)	phpbrain	zh	新建问题 (%1 个开启中)
+Add Question	phpbrain	zh	新增问题
 add_question	phpbrain	zh	新建问题
 advanced search	phpbrain	zh	高级查找
 all articles	phpbrain	zh	所有文章
@@ -63,7 +63,7 @@ comment has been submited for revision	phpbrain	zh	评论已更新
 comment	phpbrain	zh	评论
 comments	phpbrain	zh	品论
 create a new article to answer the question asked by %1 in %2	phpbrain	zh	立新文章來回复%1在%2的问题
-created by %1 on %2	phpbrain	zh	章由%1在%2建立
+created by %1 on %2	phpbrain	zh	此文章由%1在%2建立
 creation date	phpbrain	zh	建立日期
 creation	phpbrain	zh	创建日期
 cur_open_qs	phpbrain	zh	回复问题
@@ -84,11 +84,11 @@ error deleting article from database	phpbrain	zh	无法从资料库中删除文�
 error deleting link	phpbrain	zh	删除链接时发生错误
 error downloading file	phpbrain	zh	下载文件时发生错误
 error: file doesn't exist in the database	phpbrain	zh	错误：资料库中没有该文件
+Error in e-mail address	phpbrain	zh	收件人的邮件地址有误
 error locating files directory	phpbrain	zh	定义文件夹时发生错误
 error moving file to directory	phpbrain	zh	移动文件夹时发生错误
 error publishing comment	phpbrain	zh	发布品论时发生错误
 error retrieving article	phpbrain	zh	重新取得文章时发生错误
-Error in e-mail address	phpbrain	zh	收件人的邮件地址有误
 error trying to delete comment	phpbrain	zh	尝试删除评论时发生错误
 error trying to delete question	phpbrain	zh	尝试删除问题时发生错误
 error trying to edit article	phpbrain	zh	尝试编辑文章时发生错误
@@ -146,6 +146,7 @@ maintain articles	phpbrain	zh	文章管理
 maintain questions	phpbrain	zh	问题管理
 main view	phpbrain	zh	浏览文章
 maximum number of comments to show:	phpbrain	zh	最多显示几条评论：
+Maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	zh	最多显示多少篇热门文章，最新文章以及未读文章。
 Modification date	phpbrain	zh	修改日期
 modified	phpbrain	zh	修改者
 Most viewed	phpbrain	zh	热门点击
@@ -168,68 +169,70 @@ past 3 moths:	phpbrain	zh	过去三个月
 past 6 moths:	phpbrain	zh	过去六个月
 past year:	phpbrain	zh	过去一年
 phpbrain	common	zh	知识管理
-Related Articles in the Knowledge Base	phpbrain	zh	知识管理中与此相关的文章
 phpbrain config	admin	zh	知识管理配置
 phpbrain_config	phpbrain	zh	知识管理配置
 Please rate the pertinence and quality of this article	phpbrain	zh	请给该文章打一个合适的分数
 poor	common	zh	很差
 preview	phpbrain	zh	预览
 Publication date	phpbrain	zh	发布时间
+publish	phpbrain	zh	发布
 Publish selected	phpbrain	zh	发布选中的条目
 question_added	phpbrain	zh	问题已新增到知识管理中
+Question deleted successfully	phpbrain	zh	问题成功删除
 question	phpbrain	zh	问题
 question_saved	phpbrain	zh	您的问题已送出，请等候管理员审核 
 rating %1	phpbrain	zh	评价: %1
 rating	phpbrain	zh	评价
+Recipient:	phpbrian	zh	收件人
 register	common	zh	注册
+Related Articles in the Knowledge Base	phpbrain	zh	知识管理中与此相关的文章
+Related Articles in the Knowledge Base	phpbrain	zh	知识管理中的相关文章
 related_url	phpbrain	zh	相关链接
+Reply-to	phpbrian	zh	回复人
 reset	phpbrain	zh	复位
 return_to_admin	phpbrain	zh	返回知识管理管理
 return_to_cats %1	phpbrain	zh	返回类别:%1
 return_to_index	phpbrain	zh	返回索引
 return_to_search %1	phpbrain	zh	返回查找:%1
-Recipient:	phpbrian	zh	收件人
-Reply-to	phpbrian	zh	回复人
 score %1	phpbrain	zh	得分:%1
 Search in all the Knowledge Base	phpbrain	zh	在整个知识管理当中查找
 Search results	phpbrain	zh	搜索结果
 section_maintain_questions	common	zh	维护问题
 section_maint_faqs	phpbrain	zh	管理提交的解答
-select Articles	phpbrain	zh	选择浏览
-Related Articles in the Knowledge Base	phpbrain	zh	知识管理中的相关文章
 Select articles	phpbrain	zh	选择文章
-Show messages in category	phpbrain	zh	显示哪各组中的相关信息
+select Articles	phpbrain	zh	选择浏览
 Show articles belonging to:	phpbrain	zh	显示方式：
-Title	phpbrain	zh	标题
-When navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	zh	按照何中类别方式显示为文章。
-Maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	zh	最多显示多少篇热门文章，最新文章以及未读文章。
+Show messages in category	phpbrain	zh	显示哪各组中的相关信息
 show	phpbrain	zh	显示
 $stat_name %1	phpbrain	zh	$stat_name %1
 submit comment and rating	phpbrain	zh	提交评论和评分
 submit comment	phpbrain	zh	提交评论
 submitted_by	phpbrain	zh	提交者:
-Summary	phpbrain	zh	概要
+summary	phpbrain	zh	概要
 text	common	zh	解答
 thanks_4_rating	phpbrain	zh	感谢您的评价.
-There are no articles	phpbrain	zh	知识管理暂时还没有文章。
 There are no articles available	phpbrain	zh	知识管理暂时还没有文章。
+There are no articles	phpbrain	zh	知识管理暂时还没有文章。
+Title	phpbrain	zh	标题
 To create categories, press 'Edit Categories' in the preferences menu	phpbrain	zh	请创建类别，点击个性化设置菜单上的“编辑类别”按钮。
 Topic	phpbrain	zh	主题
 tutorial	phpbrain	zh	指南
 tutorials	phpbrain	zh	指南
 Unanswered questions	phpbrain	zh	等待回复的问题
-up	phpbrain	zh	向上
+unpublish	phpbrain	zh	撤回
 upload	phpbrain	zh	上传
+up	phpbrain	zh	向上
 User preferences	phpbrain	zh	用户指定
 views %1	phpbrain	zh	查看%1
 views	phpbrain	zh	查看
 votes %1	phpbrain	zh	投票%1
+When navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	zh	按照何中类别方式显示为文章。
 With all the words	phpbrain	zh	包含下列所有词语
 With at least one of the words	phpbrain	zh	至少包含下列词语中的一个
 Without the words	phpbrain	zh	不包含下列词
 With the exact phrase	phpbrain	zh	包含下列特定短语
 You have already qualified this article	phpbrain	zh	你已经为此文作出的评价
 Your question will be published immediately	phpbrain	zh	您的问题会被立刻发布
-publish	phpbrain	zh	发布
-unpublish	phpbrain	zh	撤回
-Question deleted successfully	phpbrain	zh	问题成功删除	
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	zt	您的問題在通過審核後會被發佈
+you must enter a title	phpbrain	zt	您必須輸入標題
+you must enter a topic	phpbrain	zt	您必須輸入主題
