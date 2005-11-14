@@ -41,6 +41,7 @@ comment has been published	phpbrain	it	I commenti sono stati pubblicati.
 comment has been submited for revision	phpbrain	it	I commenti sono stati sottoposti a revisione.
 comment has been submited for revision and rating will be published	phpbrain	it	I commenti sono stati sottoposti a revisione e la valutazione sarà pubblicata.
 comments	phpbrain	it	Commenti
+configuration	phpbrain	it	Configurazione
 create a new article to answer the question asked by %1 in %2	phpbrain	it	Crea un nuovo articolo per rispondere alla domanda posta da %1 in %2
 created by %1 on %2	phpbrain	it	Creato da %1 il %2
 creation	phpbrain	it	creazione
@@ -51,6 +52,7 @@ deleted relation to  article %1	phpbrain	it	Eliminata relazione all'articolo %1
 deleted relation to article %1	phpbrain	it	Elimina il riferimento all'articolo %1
 descendent	phpbrain	it	Discendente
 details	phpbrain	it	Dettagli
+e-groupware knowledge base article attached	phpbrain	it	Articolo Archivio Conoscenza e-GroupWare allegato
 e-mail has been sent	phpbrain	it	l'e-mail è stata spedita
 edit article	phpbrain	it	Modifica articolo
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	it	Inserisci una o due parole che descrivono il problema, o digita il numero dell'articolo se lo conosci
@@ -88,7 +90,7 @@ keywords	phpbrain	it	Parole chiave
 knowledge base article #%1	phpbrain	it	Articolo Archivio Conoscenza n. %1
 knowledge base configuration	common	it	Configurazione Archivio Conoscenza
 last modification by %1 on %2	phpbrain	it	Ultima modifica di %1 il %2
-latest	phpbrain	it	Più recente
+latest	phpbrain	it	Più recenti
 latest comments	phpbrain	it	Commenti più recenti
 leave empty to automatically generate an id	phpbrain	it	Lascia vuoto per generare automaticamente un ID
 link could not be added	phpbrain	it	Il Link non è stato aggiunto
