@@ -245,7 +245,6 @@
 		));
 
 		$db2 = $GLOBALS['phpgw_setup']->db;
-		$db2->set_app('phpbrain');
 		$GLOBALS['phpgw_setup']->oProc->query("SELECT art_id,files FROM phpgw_kb_articles WHERE files != ''",__LINE__,__FILE__);
 		while ($GLOBALS['phpgw_setup']->oProc->next_record())
 		{
@@ -259,7 +258,7 @@
 						'art_id' => $art_id,
 						'art_file'   => $file['file'],
 						'art_file_comments'	=> $file['comment'],
-					),false,__LINE__,__FILE__);
+					),false,__LINE__,__FILE__,'phpbrain');
 				}
 			}
 		}
@@ -285,7 +284,6 @@
 		));
 
 		$db2 = $GLOBALS['phpgw_setup']->db;
-		$db2->set_app('phpbrain');
 		$GLOBALS['phpgw_setup']->oProc->query("SELECT art_id,urls FROM phpgw_kb_articles WHERE urls != ''",__LINE__,__FILE__);
 		while ($GLOBALS['phpgw_setup']->oProc->next_record())
 		{
@@ -299,7 +297,7 @@
 						'art_id' => $art_id,
 						'art_url'    => $url['link'],
 						'art_url_title'	=> $url['title'],
-					),false,__LINE__,__FILE__);
+					),false,__LINE__,__FILE__,'phpbrain');
 				}
 			}
 		}
