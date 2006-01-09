@@ -90,6 +90,7 @@ keywords	phpbrain	es-es	Palabras clave
 knowledge base article #%1	phpbrain	es-es	Artículo de la base de conocimiento nº%1
 knowledge base configuration	common	es-es	Configuración de la base de conocimiento
 last modification by %1 on %2	phpbrain	es-es	Ultima modificación por %1 en %2
+last modified	phpbrain	es-es	Última modificación
 latest	phpbrain	es-es	La última
 latest comments	phpbrain	es-es	Últimos comentarios
 leave empty to automatically generate an id	phpbrain	es-es	Dejar en blanco para generar un ID automáticamente

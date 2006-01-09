@@ -42,7 +42,7 @@
 								<td>
 									<!-- BEGIN articles_block -->
 									<i class=kbnum>({art_num}) </i><a href="{art_href}">{art_title}</a><br>
-									<div>Last Modified {art_date} - {img_stars} {attachment}</div>
+									<div>{lang_last_modified}: {art_date} - {img_stars} {attachment}</div>
 									<div style='font-size:80%;color:green'>{art_category}</div>
 									{art_topic}<br><br>
 									<!-- END articles_block -->

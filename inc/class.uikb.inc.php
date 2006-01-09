@@ -199,6 +199,7 @@
 			$this->t->set_block('main', 'articles_mostviewed_block', 'articles_mostviewed');
 			$this->t->set_block('main', 'unanswered_questions_block', 'unanswered_questions');
 			$this->t->set_var(array(
+				'lang_last_modified'			=> lang('Last Modified'),
 				'message'				=> $this->message,
 				'search_tpl'			=> $this->show_basic_search(),
 				'tr_class'				=> 'th',
@@ -349,7 +350,7 @@
 						'art_num'		=> $article_preview['art_id'],
 						'art_href'		=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $article_preview['art_id'] . $query),
 						'art_title'		=> $article_preview['title'],
-						'art_date'		=> date('F j, Y, g:i a', $article_preview['modified']),
+						'art_date'		=> $GLOBALS['egw']->common->show_date($article_preview['modified'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat'] . ' H:i'),
 						'img_stars'		=> $img_stars,
 						'attachment'	=> $attachment,
 						'art_category'	=> $category_path? lang('in %1', $category_path) : '',
