@@ -616,7 +616,7 @@
 			}
 
 			// Process related articles added
-			if ($_POST['update_related'])
+			if ($_POST['update_related'] && !empty($_POST['related_articles']))
 			{
 				$message = $this->bo->add_related();
 				$this->reload_page($article_id, $message);
