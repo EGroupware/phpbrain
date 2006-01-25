@@ -90,6 +90,7 @@ keywords	phpbrain	zh-tw	關鍵字
 knowledge base article #%1	phpbrain	zh-tw	知識庫文章 #%1
 knowledge base configuration	common	zh-tw	知識庫設定
 last modification by %1 on %2	phpbrain	zh-tw	最後由%1在%2修改
+last modified	phpbrain	zh-tw	最新異動日期
 latest	phpbrain	zh-tw	最新
 latest comments	phpbrain	zh-tw	最新評註
 leave empty to automatically generate an id	phpbrain	zh-tw	不填入資料來自動產生一個編號
