@@ -1,4 +1,5 @@
 action	phpbrain	eu	Ekintza
+actions	phpbrain	eu	Ekintzak
 add articles	phpbrain	eu	Artikulua erantsi
 add link	phpbrain	eu	Lotura erantsi
 add question	phpbrain	eu	Galdera erantsi
@@ -34,14 +35,17 @@ comment has been deleted	phpbrain	eu	Komentarioa ezabatua izan da
 comment has been published	phpbrain	eu	Komentarioa publikatua izan da
 comment has been submited for revision	phpbrain	eu	Komentarioa errebisio baterako bidali da
 comments	phpbrain	eu	Komentarioak
+configuration	phpbrain	eu	Konfigurazioa
 created by %1 on %2	phpbrain	eu	Sortzailea %1 %2
+creation	phpbrain	eu	sorkuntza
 creation date	phpbrain	eu	Sorrera data
-date	phpbrain	eu	Data
 delete article	phpbrain	eu	Artikulua ezabatu
 delete selected	phpbrain	eu	Aukeraketa borratu
+deleted relation to  article %1	phpbrain	eu	%1 artikuluarekiko erlazioa ezabatu da
 deleted relation to article %1	phpbrain	eu	%1 artikuluarekiko erlazioa ezabatu da
 descendent	phpbrain	eu	Beherakorra
 details	phpbrain	eu	Detaileak
+e-groupware knowledge base article attached	phpbrain	eu	E-GroupWare jakintza guneko artikulua erantsita
 e-mail has been sent	phpbrain	eu	e-maila bidaldu da
 edit article	phpbrain	eu	Artikulua editatu
 error deleting article from database	phpbrain	eu	Errorea artikulua datu basetik ezabatzerakoan
@@ -61,9 +65,11 @@ failure trying to delete the file	phpbrain	eu	Hutsegitea fitxategia ezabatzen sa
 file has been successfully uploaded	phpbrain	eu	Fitxategia arazorik gabe igo da zerbitzarira
 file was deleted successfully	phpbrain	eu	Fitxategia arazorik gabe ezabatu da
 find results	phpbrain	eu	Emaitzak bilatu
+global categories	phpbrain	eu	Kategoria orokorrak
 have to be approved first	common	eu	Onartua izan behar da lehenago
 history	phpbrain	eu	Historia
 if you wish, you can comment this article here	phpbrain	eu	Nahi baduzu artikulua hemen komentatu dezakezu
+in %1	phpbrain	eu	1%ean
 in the text	phpbrain	eu	Textuan
 in the title	phpbrain	eu	Tituluan
 in the topic	phpbrain	eu	Gaian
@@ -71,6 +77,8 @@ include subcategories	phpbrain	eu	Azpimailak gehitu
 keywords	phpbrain	eu	Hitz gakoak
 knowledge base article #%1	phpbrain	eu	Jakintza guneko artikulua #%1
 knowledge base configuration	common	eu	Jakintza guneko konfigurazioa
+last modification by %1 on %2	phpbrain	eu	Azken aldaketa %1tek %2an
+last modified	phpbrain	eu	Azken aldaketa
 latest	phpbrain	eu	Azkena
 latest comments	phpbrain	eu	Azken komentarioak
 leave empty to automatically generate an id	phpbrain	eu	Zurian utzi ID bat sortzeko automatikoki
@@ -89,11 +97,11 @@ modification date	phpbrain	eu	Aldaketa data
 most viewed	phpbrain	eu	Ikusienak
 new article	phpbrain	eu	Artikulu berria
 nobody has rated this article so far	phpbrain	eu	Oraindik inorrek ez du baloratu artikulu hau
-none	phpbrain	eu	Bat ere ez
 nothing was uploaded!	phpbrain	eu	Ez da ezer igo zerbitzarira!
 number of results per page	phpbrain	eu	Emaitza kopurua
 ocurrences	phpbrain	eu	Agerraldiak
 or browse the categories	phpbrain	eu	Edo kategoriak aztertu
+order results by	phpbrain	eu	Ordenatu emaitzak honen arabera
 past %1 months	phpbrain	eu	%1 aurreko hilabeteetan
 past year	phpbrain	eu	Iaz
 people have rated this article	phpbrain	eu	Artikulu hau baloratu duten pertsonak
@@ -109,6 +117,7 @@ publish articles automatically?	common	eu	Artikuluak automatikoki publikatu?
 publish comments automatically?	common	eu	Komentarioak automatikoki publikatu?
 publish questions automatically?	common	eu	Galderak automatikoki publikatu?
 publish selected	phpbrain	eu	Aukeratutakoa publikatu
+published	phpbrain	eu	Publikatu
 question deleted successfully	phpbrain	eu	Galdera arazorik gabe ezabatua
 questions deleted successfully	phpbrain	eu	Galderak arazorik gabe ezabatuak
 rating has been submited	phpbrain	eu	Balorazioa bidali da
@@ -122,6 +131,7 @@ reply-to	phpbrain	eu	Erantzun
 search in all the knowledge base	phpbrain	eu	Jakintza gune guztian bilatu
 search results	phpbrain	eu	Bilaketaren emaitzak
 see more questions	phpbrain	eu	Galdera gehiago ikusi
+see more questions...	phpbrain	eu	Galdera gehiago ikusi
 select articles	phpbrain	eu	Artikulua aukeratu
 show all comments	phpbrain	eu	Komentario guztiak erakutsi
 submit comment	phpbrain	eu	Komentarioa bidali
@@ -135,21 +145,24 @@ the following errors occurred	phpbrain	eu	Hurrengo erroreak gertatu dira
 the present category and all subcategories under it	phpbrain	eu	Momentuko kategoria eta azpikategoria guztiak
 the present category only	phpbrain	eu	Momentuko kategoria soilik
 there are no articles	phpbrain	eu	Ez dago artikulurik
+there are no articles available	phpbrain	eu	Ez dago artikulurik erabilgarri
+this article hasn't yet been published in the knowledge base	phpbrain	eu	Artikulua ez da jakintza gunean publikatua izan
 title	phpbrain	eu	Izenburua
 topic	phpbrain	eu	Gaia
 unable to add rating to database	phpbrain	eu	Ezin izan da balorazioa datu basean erantsi
 unanswered questions	phpbrain	eu	Erantzun gabeko galderak
+unpublish	phpbrain	eu	Publikatu gabe
 unpublished	phpbrain	eu	Publikatu gabe
-upload	phpbrain	eu	Zerbitzarira igo
-user	phpbrain	eu	Erabiltzailea
 user preferences	phpbrain	eu	Erabiltzailearen hobespenak
 views	phpbrain	eu	Ikuspegiak
 with all the words	phpbrain	eu	Hitz guztiekin
 with at least one of the words	phpbrain	eu	Gutxienez hitzetako batekin
 with the exact phrase	phpbrain	eu	Esaldi zehatzarekin
 without the words	phpbrain	eu	Hitzik gabe
+you are in %1	phpbrain	eu	%1ean zaude
 you have already qualified this article	phpbrain	eu	Artikulua hau dagoeneko baloratu duzu
 you have not the proper permissions to do that	phpbrain	eu	Ez daukazu baimenik hori egiteko
 you must enter a title	phpbrain	eu	Izenburu bat sartu behar duzu
 you must enter a topic	phpbrain	eu	Gai bat sartu behar duzu
+your message could not be sent!	phpbrain	eu	Zure mezua ez da bidali!
 your question will be published immediately	phpbrain	eu	Galdera berehala publikatuko da
