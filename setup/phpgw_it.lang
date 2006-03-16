@@ -90,6 +90,7 @@ keywords	phpbrain	it	Parole chiave
 knowledge base article #%1	phpbrain	it	Articolo Archivio Conoscenza n. %1
 knowledge base configuration	common	it	Configurazione Archivio Conoscenza
 last modification by %1 on %2	phpbrain	it	Ultima modifica di %1 il %2
+last modified	phpbrain	it	Ultima modifica
 latest	phpbrain	it	Più recenti
 latest comments	phpbrain	it	Commenti più recenti
 leave empty to automatically generate an id	phpbrain	it	Lascia vuoto per generare automaticamente un ID
