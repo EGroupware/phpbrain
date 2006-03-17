@@ -2,7 +2,6 @@
 action	phpbrain	pt-br	Ação
 actions	phpbrain	pt-br	Ações
 add articles	phpbrain	pt-br	Adicionar Artigos
-add global category	phpbrain	pt-br	Adicionar categoria global
 add link	phpbrain	pt-br	Adicionar Link
 add question	phpbrain	pt-br	Adicionar Pergunta
 added file %1	phpbrain	pt-br	Arquivo %1 adicionado
@@ -13,7 +12,6 @@ all articles	phpbrain	pt-br	Todos os Artigos
 answer	phpbrain	pt-br	Resposta
 anytime	phpbrain	pt-br	Qualquer tempo
 anywhere in the article	phpbrain	pt-br	Qualquer lugar no artigo
-are you sure you want to delete this category ?	phpbrain	pt-br	Você tem certeza que deseja apagar esta categoria?
 article	phpbrain	pt-br	Artigo
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	pt-br	Artigo adicionado ao banco de dados, agora você pode anexar arquivos ou links, ou outros artigos relacionados.
 article created	phpbrain	pt-br	Artigo criado
@@ -43,24 +41,20 @@ comment has been published	phpbrain	pt-br	Comentário foi publicado
 comment has been submited for revision	phpbrain	pt-br	Comentário foi submetido à revisão
 comment has been submited for revision and rating will be published	phpbrain	pt-br	Comentário foi submetido à revisão e a avaliação será publicada
 comments	phpbrain	pt-br	Comentários
+configuration	phpbrain	pt-br	Configuração
 create a new article to answer the question asked by %1 in %2	phpbrain	pt-br	Criar um novo artigo para sobre a pergunta respondida por %1 em %2
 created by %1 on %2	phpbrain	pt-br	Criado por %1 em %2
 creation	phpbrain	pt-br	Criação
 creation date	phpbrain	pt-br	Data de criação
-date	phpbrain	pt-br	Data
 delete article	phpbrain	pt-br	Apagar artigo
-delete categories	phpbrain	pt-br	Apagar Categorias
-delete category	phpbrain	pt-br	Apagar Categoria
 delete selected	phpbrain	pt-br	Apagar selecionado
 deleted relation to  article %1	phpbrain	pt-br	Relacionamento com o artigo %1, apagado
 deleted relation to article %1	phpbrain	pt-br	Relacionamento com o artigo %1, apagado
 descendent	phpbrain	pt-br	Descendente
-description can not exceed 255 characters in length !	phpbrain	pt-br	A descrição não pode exceder a 255 caracteres.
 details	phpbrain	pt-br	Detalhes
-do you also want to delete all global subcategories ?	phpbrain	pt-br	Você realmente deseja apagar todas as subcategorias?
+e-groupware knowledge base article attached	phpbrain	pt-br	Artigo anexado
 e-mail has been sent	phpbrain	pt-br	Mensagem enviada
 edit article	phpbrain	pt-br	Editar artigo
-edit global category	phpbrain	pt-br	Editar categoria global
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	pt-br	Digite uma ou duas palavras que caracterizem o artigo, ou informe diretamente o número do artigo caso você o saiba
 error deleting article from database	phpbrain	pt-br	Erro ao apagar o artigo da base de dados
 error deleting link	phpbrain	pt-br	Erro ao apagar o link
@@ -85,7 +79,6 @@ find results	phpbrain	pt-br	Resultados da pesquisa
 global categories	phpbrain	pt-br	Categorias globais
 have to be approved first	common	pt-br	Precisa ser aprovado
 history	phpbrain	pt-br	Histórico
-icon	phpbrain	pt-br	Icone
 if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	pt-br	Caso você não encontre as respostas à sua dúvida na base de conhecimento, descreva-a abaixo
 if you wish, you can comment this article here	phpbrain	pt-br	Caso você queira, é possível fazer seus comentários aqui
 in %1	phpbrain	pt-br	em %1
@@ -97,8 +90,9 @@ keywords	phpbrain	pt-br	Palavra(s) chave
 knowledge base article #%1	phpbrain	pt-br	Base de conhecimento - Artigo #%1
 knowledge base configuration	common	pt-br	Configuração da Base de Conhecimento
 last modification by %1 on %2	phpbrain	pt-br	Última modificação por %1 em %2
-latest	phpbrain	pt-br	Mais antigo
-latest comments	phpbrain	pt-br	Comentários anteriores
+last modified	phpbrain	pt-br	Modificado por último
+latest	phpbrain	pt-br	Último
+latest comments	phpbrain	pt-br	Últimos comentários
 leave empty to automatically generate an id	phpbrain	pt-br	Deixe em branco para gerar um ID automáticamente
 link could not be added	phpbrain	pt-br	O link não foi incluído
 link deleted successfully	phpbrain	pt-br	O link foi removido
@@ -107,7 +101,6 @@ links	phpbrain	pt-br	Links
 links & files	phpbrain	pt-br	Links e Arquivos
 mail article	phpbrain	pt-br	Artigo por e-mail
 main view	phpbrain	pt-br	Visualização principal
-maintain answers	admin	pt-br	Manter Respostas
 maintain articles	phpbrain	pt-br	Manutenção de artigos
 maintain questions	phpbrain	pt-br	Manutenção das questões
 maximum number of comments to show:	phpbrain	pt-br	Número máximo de comentários a serem visualizados
@@ -116,12 +109,12 @@ modification date	phpbrain	pt-br	Data de modificação
 most viewed	phpbrain	pt-br	Mais visualizado
 new article	phpbrain	pt-br	Artigo Novo
 nobody has rated this article so far	phpbrain	pt-br	Ninguém avaliou este artigo,até o momento
-none	phpbrain	pt-br	Nenhum
 nothing was uploaded!	phpbrain	pt-br	Nada foi enviado!
 number of results per page	phpbrain	pt-br	Número de resultados por página
 ocurrences	phpbrain	pt-br	Ocorrências
 or browse the categories	phpbrain	pt-br	Ou pesquisar a categoria
 order results by	phpbrain	pt-br	Ordenar resultados por
+outstanding published questions	phpbrain	pt-br	Destacando perguntas publicadas
 past %1 months	phpbrain	pt-br	após %1 meses
 past year	phpbrain	pt-br	após o ano
 people have rated this article	phpbrain	pt-br	pessoas avaliaram este artigo
@@ -161,28 +154,26 @@ submit comment and rating	phpbrain	pt-br	Enviar comentário e classificação
 suggested category	phpbrain	pt-br	Categoria sugerida
 summary	phpbarin	pt-br	Sumário
 that file already exists	phpbrain	pt-br	Esse arquivo já existe
-that name has been used already	phpbrain	pt-br	Esse nome já foi utilizado
+the article id must be a number	phpbrain	pt-br	O identificador do artigo deve ser um número
 the article is empty	phpbrain	pt-br	O artigo está vazio
 the file was already missing in the server	phpbrain	pt-br	O arquivo já estava faltando no servidor
-the following errors occured	phpbrain	pt-br	Ocorreram os seguintes erros
 the following errors occurred	phpbrain	pt-br	Os seguintes erros ocorreram
+the mail server returned:	phpbrain	pt-br	O servidor de e-mail retornou:
 the present category and all subcategories under it	phpbrain	pt-br	A categoria atual e todas as suas subcategorias
 the present category only	phpbrain	pt-br	Apenas a categoria atual
 there are no articles	phpbrain	pt-br	Não existem artigos
+there are no articles available	phpbrain	pt-br	Não há artigos disponíveis
 this article hasn't yet been published in the knowledge base	phpbrain	pt-br	Este artigo ainda não foi publicado na Base de Conhecimento
-this category is currently being used by applications as a parent category	phpbrain	pt-br	Esta categoria já está sendo utilizada como categoria pai por algum aplicativo.
 title	phpbrain	pt-br	Título
 to create categories, press 'edit categories' in the preferences menu	phpbrain	pt-br	Para criar Categorias, pressione 'Editar Categorias' no menu de preferências
 topic	phpbrain	pt-br	Tópico
 unable to add rating to database	phpbrain	pt-br	Não é possível adicionar classificação à base de dados
 unanswered questions	phpbrain	pt-br	Questões não respondidas
+unpublish	phpbrain	pt-br	Despublicar
 unpublished	phpbrain	pt-br	Não publicado
-upload	phpbrain	pt-br	Enviado
-user	phpbrain	pt-br	Usuário
 user preferences	phpbrain	pt-br	Preferências do usuário
 views	phpbrain	pt-br	consultas
 was it easy to find this article using the above search string?	phpbrain	pt-br	Foi fácil descobrir este artigo usando o string de busca acima?
-was it easy to find this article?	phpbrain	pt-br	Foi fácil encontrar este artigo?
 when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	pt-br	Quando navegando nas categorias, escolha se a lista dos artigos mostrados corresponde apenas à categoria atual, ou a categoria atual e todas as subcategorias
 with all the words	phpbrain	pt-br	Com todas as palavras
 with at least one of the words	phpbrain	pt-br	Com ao menos uma palavra
@@ -193,6 +184,6 @@ you have already qualified this article	phpbrain	pt-br	Você já classificou este 
 you have not the proper permissions to do that	phpbrain	pt-br	Você não possui privilégios para executar esta ação
 you must enter a title	phpbrain	pt-br	Você deve informar um título
 you must enter a topic	phpbrain	pt-br	Você deve informar um tópico
-you will need to remove the subcategories before you can delete this category	phpbrain	pt-br	Você precisa remover todas as subcategorias antes de apagar essa categoria
-your question will be posted, but only will be published after aproval of a system administrator	phpbrain	pt-br	Sua questão será enviada, porém somente será publicada após a avaliação de um administrador
+your message could not be sent!	phpbrain	pt-br	Sua mensagem não pôde ser enviada!
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	pt-br	Sua pergunta será postada, mas somente será publicada após a aprovação do usuário com direitos de publicação.
 your question will be published immediately	phpbrain	pt-br	Sua questão será publicada imediatamente
