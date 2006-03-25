@@ -90,6 +90,7 @@ keywords	phpbrain	nl	Trefwoorden
 knowledge base article #%1	phpbrain	nl	KennisBank artikel #%1
 knowledge base configuration	common	nl	KennisBank instellingen
 last modification by %1 on %2	phpbrain	nl	Laatste bijwerking door %1 op %2
+last modified	phpbrain	nl	Laatst gewijzigd
 latest	phpbrain	nl	Laatste
 latest comments	phpbrain	nl	Laatste opmerkingen
 leave empty to automatically generate an id	phpbrain	nl	Leeg laten om automatisch een nummer te genereren
