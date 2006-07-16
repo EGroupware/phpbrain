@@ -28,6 +28,7 @@ ascendent	phpbrain	eu	Gorakorra
 attach file	phpbrain	eu	Fitxategia erantsi
 attached files	phpbrain	eu	Fitxategi erantsiak
 average rating	phpbrain	eu	Bataz besteko puntuazioa
+before submiting a question, please search in the knowledge base first	phpbrain	eu	Galdera planteatu aurretik, bila ezazu jakintza gunean, mesedez
 comment	phpbrain	eu	Komentarioak
 comment and rating have been published	phpbrain	eu	Komentarioa eta puntuazioa publikatuak izan dira
 comment could not be inserted in the database	phpbrain	eu	Komentarioa ezin izan da datu basean txertatu
@@ -48,6 +49,7 @@ details	phpbrain	eu	Detaileak
 e-groupware knowledge base article attached	phpbrain	eu	E-GroupWare jakintza guneko artikulua erantsita
 e-mail has been sent	phpbrain	eu	e-maila bidaldu da
 edit article	phpbrain	eu	Artikulua editatu
+enter one or two words describing the issue, or type the article number if you know it	phpbrain	eu	Idatz ezazu hitz bat edo gehiago gaia azaltzeko edota sar ezazu artikuluaren zenbakia, jakinez gero.
 error deleting article from database	phpbrain	eu	Errorea artikulua datu basetik ezabatzerakoan
 error deleting link	phpbrain	eu	Erroreak lotura borratzerakoan
 error downloading file	phpbrain	eu	Errorea fitxategia deskargatzerakoan
@@ -68,6 +70,7 @@ find results	phpbrain	eu	Emaitzak bilatu
 global categories	phpbrain	eu	Kategoria orokorrak
 have to be approved first	common	eu	Onartua izan behar da lehenago
 history	phpbrain	eu	Historia
+if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	eu	Ezin baduzu aurkitu zure galderarentzako erantzunik jakintza gunean, deskriba ezazu ondoren
 if you wish, you can comment this article here	phpbrain	eu	Nahi baduzu artikulua hemen komentatu dezakezu
 in %1	phpbrain	eu	1%ean
 in the text	phpbrain	eu	Textuan
@@ -134,6 +137,7 @@ see more questions	phpbrain	eu	Galdera gehiago ikusi
 see more questions...	phpbrain	eu	Galdera gehiago ikusi
 select articles	phpbrain	eu	Artikulua aukeratu
 show all comments	phpbrain	eu	Komentario guztiak erakutsi
+show messages in category	phpbrain	eu	Kategoria honetako mezuak erakutsi
 submit comment	phpbrain	eu	Komentarioa bidali
 submit comment and rating	phpbrain	eu	Komentarioa eta balorazioa bidali
 suggested category	phpbrain	eu	Aholkatutako maila

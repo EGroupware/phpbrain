@@ -6,7 +6,7 @@ add link	phpbrain	hu	Hivatkozás hozzáadása
 add question	phpbrain	hu	Kérdés hozzáadása
 added file %1	phpbrain	hu	%1 állomány hozzáadva
 added link %1	phpbrain	hu	%1 hivatkozás hozzáadva
-added related articles %1	phpbrain	hu	% kapcsolódó cikk hozzáadva
+added related articles %1	phpbrain	hu	%1 kapcsolódó cikk hozzáadva
 advanced search	phpbrain	hu	Kiterjesztett keresés
 all articles	phpbrain	hu	Összes cikk
 answer	phpbrain	hu	válasz
@@ -81,7 +81,7 @@ have to be approved first	common	hu	Jóváhagyás szükséges
 history	phpbrain	hu	Történet
 if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	hu	Ha nem talál választ a problémájára a Tudástárba, alább leírhatja
 if you wish, you can comment this article here	phpbrain	hu	A cikkhez kommentár hozzáadása
-in %1	phpbrain	hu	itt: %'
+in %1	phpbrain	hu	itt: %1
 in the text	phpbrain	hu	szövegben
 in the title	phpbrain	hu	címben
 in the topic	phpbrain	hu	témában
