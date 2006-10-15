@@ -71,7 +71,7 @@ error: file doesn't exist in the database	phpbrain	nl	Fout: bestand bestaat niet
 excellent	phpbrain	nl	Uitstekend
 failure trying to delete the file	phpbrain	nl	Verwijderen van bestand is mislukt
 file could be deleted from server but not from database	phpbrain	nl	Bestand kon worden verwijderd van de server, maar niet uit de database
-file has been successfully uploaded	phpbrain	nl	Bestand geupload
+file has been successfully uploaded	phpbrain	nl	Bestand ge-upload
 file was already missing from server, and was deleted from the database	phpbrain	nl	Bestand ontbrak reeds op de server en was verwijderd uit de database
 file was deleted successfully	phpbrain	nl	Bestand is verwijderd
 file wasn't in server and it couldn't be deleted from the database	phpbrain	nl	Bestand stond niet in de server en kon niet worden verwijderd uit de database
@@ -103,13 +103,13 @@ mail article	phpbrain	nl	E-mail artikel
 main view	phpbrain	nl	Overzicht
 maintain articles	phpbrain	nl	Artikelen beheren
 maintain questions	phpbrain	nl	Vragen beheren
-maximum number of comments to show:	phpbrain	nl	Maximum number of comments to show:
-maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	nl	Maximum number of most popular articles, latest articles and unanswered questions to show in the main view:
-modification date	phpbrain	nl	Modificatie datum
+maximum number of comments to show:	phpbrain	nl	Maximum aantal van opmerkingen te tonen:
+maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	nl	Maximum aantal van meest populaire artikelen, laatste artikelen en onbeantwoorde vragen te tonen in de hoofdafbeelding
+modification date	phpbrain	nl	Wijziging datum
 most viewed	phpbrain	nl	Meest bekeken
 new article	phpbrain	nl	Nieuw artikel
 nobody has rated this article so far	phpbrain	nl	Geen gebruiker heeft dit artikel gewaardeerd
-nothing was uploaded!	phpbrain	nl	Er was niet geupload!
+nothing was uploaded!	phpbrain	nl	Er was niet ge-upload!
 number of results per page	phpbrain	nl	Resultaten per pagina
 ocurrences	phpbrain	nl	Voorkomen
 or browse the categories	phpbrain	nl	Of blader door de categorie&euml;n
