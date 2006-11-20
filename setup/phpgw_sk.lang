@@ -1,0 +1,186 @@
+/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	sk	/kb adresár neexistuje a nedá sa vytvori», prosím po¾iadajte správcu aby skontroloval globálne nastavenia
+action	phpbrain	sk	Akcia
+actions	phpbrain	sk	Akcie
+add articles	phpbrain	sk	Prida» èlánky
+add link	phpbrain	sk	Prida» odkaz
+add question	phpbrain	sk	Prida» otázku
+added file %1	phpbrain	sk	Pridaný súbor %1
+added link %1	phpbrain	sk	Pridaný odkaz %1
+added related articles %1	phpbrain	sk	Pridané súvisiace èlánky %1
+advanced search	phpbrain	sk	Roz¹írené hµadanie
+all articles	phpbrain	sk	V¹etky èlánky
+answer	phpbrain	sk	odpoveï
+anytime	phpbrain	sk	kedykoµvek
+anywhere in the article	phpbrain	sk	Kdekoµvek v èlánku
+article	phpbrain	sk	Èlánok
+article added to database, you can now attach files or links, or relate to other articles	phpbrain	sk	Èlánok pridaný do databázy, teraz mô¾ete prilo¾i» súbory alebo odkazy, alebo sa odkáza» na iné èlánky
+article created	phpbrain	sk	Èlánok vytvorený
+article deleted	phpbrain	sk	Èlánok vymazaný
+article deleted successfully	phpbrain	sk	Èlánok úspe¹ne vymazaný
+article edited	phpbrain	sk	Èlánok upravený
+article has been published	phpbrain	sk	Èlánok bol publikovaný
+article id	phpbrain	sk	ID èlánku
+articles added	phpbrain	sk	Èlánky pridané
+articles deleted successfully	phpbrain	sk	Èlánky úspe¹ne vymazané
+articles have been published	phpbrain	sk	Èlánky boli publikované
+articles in %1	phpbrain	sk	Èlánky v %1
+articles in %1 and all its subcategories	phpbrain	sk	Èlánky v %1 a v¹etkých podkategóriách
+articles not classified under any category	phpbrain	sk	Èlánky nespadajúce pod ¾iadnu kategóriu
+ascendent	phpbrain	sk	Vzostupne
+attach file	phpbrain	sk	Prilo¾i» súbor
+attached files	phpbrain	sk	Prilo¾ené súbory
+average rating	phpbrain	sk	Priemerné hodnotenie
+base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	sk	Základný adresár neexistuje, prosím po¾iadajte správcu aby skontroloval globálne nastavenia
+before submiting a question, please search in the knowledge base first	phpbrain	sk	E¹te pred odoslaním otázky, prosím prehµadajte najskôr poznatkovú bázu
+by answering this question you will help to get the answer quicker the next time	phpbrain	sk	Zodpovedaním tejto otázky napomô¾ete, aby nabudúce bola odpoveï dostupná skôr
+comment	phpbrain	sk	poznámka
+comment and rating have been published	phpbrain	sk	Poznámka a hodnotenie bolo publikované
+comment could not be inserted in the database	phpbrain	sk	Poznámku sa nepodarilo ulo¾i» do databázy
+comment has been deleted	phpbrain	sk	Poznámka bola vymazaná
+comment has been published	phpbrain	sk	Poznámka bola publikovaná
+comment has been submited for revision	phpbrain	sk	Poznámka bola odoslaná pre kontrolu
+comment has been submited for revision and rating will be published	phpbrain	sk	Poznámka bola odoslaná pre kontrolu a hodnotenie bude publikované
+comments	phpbrain	sk	Poznámky
+configuration	phpbrain	sk	Nastavenia
+create a new article to answer the question asked by %1 in %2	phpbrain	sk	Vytvori» nový èlánok pre zodpovedanie otázky, ktorú polo¾il %1 v %2
+created by %1 on %2	phpbrain	sk	Vytvoril/a %1 v %2
+creation	phpbrain	sk	vytvorenie
+creation date	phpbrain	sk	Dátum vytvorenia
+delete article	phpbrain	sk	Vymaza» èlánok
+delete selected	phpbrain	sk	Vymaza» oznaèené
+deleted relation to  article %1	phpbrain	sk	Vymazané prepojenie s èlánkom %1
+deleted relation to article %1	phpbrain	sk	Vymazané prepojenie s èlánkom %1
+descendent	phpbrain	sk	Zostupne
+details	phpbrain	sk	Podrobnosti
+e-groupware knowledge base article attached	phpbrain	sk	Èlánok Poznatkovej Bázy E-GroupWare je prilo¾ený
+e-mail has been sent	phpbrain	sk	e-mail bol odoslaný
+edit article	phpbrain	sk	Upravi» èlánok
+enter one or two words describing the issue, or type the article number if you know it	phpbrain	sk	Zadajte jedno alebo dve slová opisujúce zále¾itos», alebo zadajte èíslo èlánku (ak ho poznáte)
+error deleting article from database	phpbrain	sk	Chyba pri mazaní èlánky z databázy
+error deleting link	phpbrain	sk	Chyba pri mazaní odkazu
+error downloading file	phpbrain	sk	Chyba pri s»ahovaní súboru
+error locating files directory	phpbrain	sk	Chyba pri hµadaní adresára súborov
+error moving file to directory	phpbrain	sk	Chyba pri presúvaní súboru do adresára
+error publishing comment	phpbrain	sk	Chyba pri publikovaní poznámky
+error retrieving article	phpbrain	sk	Chyba pri získavaní èlánku
+error trying to delete comment	phpbrain	sk	Chyba pri pokuse o zmazanie poznámky
+error trying to delete question	phpbrain	sk	Chyba pri pokuse o zmazanie otázky
+error trying to edit article	phpbrain	sk	Chyba pri pokuse o úpravu èlánku
+error trying to publish article	phpbrain	sk	Chyba pri pokuse o publikovanie èlánku
+error: file doesn't exist in the database	phpbrain	sk	Chyba: súbor v databáze neexistuje
+excellent	phpbrain	sk	Vynikajúce
+failure trying to delete the file	phpbrain	sk	Mazanie súboru zlyhalo
+file could be deleted from server but not from database	phpbrain	sk	Súbor sa podarilo zmaza» zo servera, ale nie z databázy
+file has been successfully uploaded	phpbrain	sk	Súbor bol úspe¹ne nahratý
+file was already missing from server, and was deleted from the database	phpbrain	sk	Súbor u¾ predtým nebol na serveri, a bol vymazaný z databázy
+file was deleted successfully	phpbrain	sk	Súbor bol úspe¹ne vymazaný
+file wasn't in server and it couldn't be deleted from the database	phpbrain	sk	Súbor nebol na serveri a nepodarilo sa ho vymaza» z databázy
+global categories	phpbrain	sk	Globálne kategórie
+have to be approved first	common	sk	Musí by» najprv overený
+history	phpbrain	sk	História
+if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	sk	Ak v Poznatkovej Báze neviete nájs» odpoveï na Vá¹ problém, opí¹te ho tu:
+if you wish, you can comment this article here	phpbrain	sk	Ak chcete, mô¾ete zada» poznámku k èlánku
+in %1	phpbrain	sk	v %1
+in the text	phpbrain	sk	v texte
+in the title	phpbrain	sk	v nadpise
+in the topic	phpbrain	sk	v téme
+include subcategories	phpbrain	sk	Vrátane podkategórií
+keywords	phpbrain	sk	Kµúèové slová
+knowledge base article #%1	phpbrain	sk	Èlánok Poznatkovej Bázy #%1
+knowledge base configuration	common	sk	Nastavenia Poznatkovej Bázy
+last modification by %1 on %2	phpbrain	sk	Naposledy upravil %1 k %2
+last modified	phpbrain	sk	Naposledy zmenené
+latest	phpbrain	sk	Najnov¹ie
+latest comments	phpbrain	sk	Najnov¹ie poznámky
+leave empty to automatically generate an id	phpbrain	sk	Ak ponecháte prázdne, ID sa automaticky vygeneruje
+link could not be added	phpbrain	sk	Odkaz sa nepodarilo priradi»
+link deleted successfully	phpbrain	sk	Odkaz bol úspe¹ne vymazaný
+link has been added	phpbrain	sk	Odkaz bol pridaný
+links	phpbrain	sk	Odkazy
+links & files	phpbrain	sk	Odkazy & Súbory
+mail article	phpbrain	sk	Odosla» èlánok po¹tou
+main view	phpbrain	sk	Hlavný pohµad
+maintain articles	phpbrain	sk	Správa èlánkov
+maintain questions	phpbrain	sk	Správa otázok
+maximum number of comments to show:	phpbrain	sk	Koµko poznámok zobrazi»:
+maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	sk	Koµko najpopulárnej¹ích èlánkov, najnov¹ích èlánkov a nezodpovedaných otázok sa má zobrazi» v hlavnom pohµade:
+modification date	phpbrain	sk	Dátum zmeny
+most viewed	phpbrain	sk	Najèastej¹ie zobrazované
+new article	phpbrain	sk	Nový èlánok
+nobody has rated this article so far	phpbrain	sk	Zatiaµ tento èlánok nikto nehodnotil
+nothing was uploaded!	phpbrain	sk	Niè sa nenahralo!
+number of results per page	phpbrain	sk	Poèet výsledkov
+ocurrences	phpbrain	sk	Výskyty
+or browse the categories	phpbrain	sk	Alebo prezrie» kategórie
+order results by	phpbrain	sk	Výsledky zoradi» podµa
+outstanding published questions	phpbrain	sk	Nezodpovedané publikované otázky
+people have rated this article	phpbrain	sk	µudia ohodnotili tento èlánok
+phpbrain	common	sk	Poznatková Báza
+please rate the pertinence and quality of this article	phpbrain	sk	Prosím ohodno»te u¾itoènos» a kvalitu tohto èlánku
+please try again	phpbrain	sk	Prosím skúste to znovu
+poor	phpbrain	sk	Chabé
+printer view	phpbrain	sk	Náhµad tlaèe
+problem relating articles	phpbrain	sk	Èlánky súvisiace s problémom
+publication date	phpbrain	sk	Dátum publikácie
+publish	phpbrain	sk	Publikova»
+publish articles automatically?	common	sk	Publikova» èlánky automaticky?
+publish comments automatically?	common	sk	Publikova» poznámky automaticky?
+publish questions automatically?	common	sk	Publikova» otázky automaticky?
+publish selected	phpbrain	sk	Publikova» oznaèené
+published	phpbrain	sk	Publikované
+question deleted successfully	phpbrain	sk	Otázka úspe¹ne vymazaná
+questions deleted successfully	phpbrain	sk	Otázky úspe¹ne vymazané
+rating has been submited	phpbrain	sk	Hodnotenie bolo odoslané
+rating invalid	phpbrain	sk	Chybné hodnotenie
+recipient	phpbrain	sk	Adresát
+related articles in the knowledge base	phpbrain	sk	Súvisiace èlánky v Poznatkovej Báze
+relation with article was removed successfully	phpbrain	sk	Súvis s týmto èlánkom bol úspe¹ne zru¹ený
+removed file %1	phpbrain	sk	Odstránený súbor %1
+removed link %1	phpbrain	sk	Odstránený odkaz %1
+reply-to	phpbrain	sk	Odpoveda» (komu)
+search in all the knowledge base	phpbrain	sk	Hµada» v Poznatkovej Báze
+search results	phpbrain	sk	Prehµadáva» výsledky
+see more questions	phpbrain	sk	Zobrazi» viacej otázok
+see more questions...	phpbrain	sk	Zobrazi» viacej otázok...
+select articles	phpbrain	sk	Vyberte èlánky
+show all comments	phpbrain	sk	Zobrazi» v¹etky poznámky
+show articles belonging to:	phpbrain	sk	Zobrazi» èlánky nále¾iace k:
+show messages in category	phpbrain	sk	Zobrazi» správy v kategórii
+submit comment	phpbrain	sk	Odosla» poznámku
+submit comment and rating	phpbrain	sk	Odosla» poznámku a hodnotenie
+suggested category	phpbrain	sk	Odporúèaná kategória
+summary	phpbrain	sk	Zhrnutie
+that file already exists	phpbrain	sk	Tento súbor u¾ existuje
+the article id must be a number	phpbrain	sk	ID èlánku musí by» èíslom
+the article is empty	phpbrain	sk	Èlánok je prázdny
+the file was already missing in the server	phpbrain	sk	Súbor u¾ predtým chýbal na serveri
+the following errors occurred	phpbrain	sk	Nastali nasledovné chyby
+the mail server returned:	phpbrain	sk	Po¹tový server odpovedal:
+the present category and all subcategories under it	phpbrain	sk	Súèasná kategória a v¹etky jej podkategórie
+the present category only	phpbrain	sk	Len súèasná kategória
+there are no articles	phpbrain	sk	®iadne èlánky
+there are no articles available	phpbrain	sk	®iadne èlánky nie sú dostupné
+this article hasn't yet been published in the knowledge base	phpbrain	sk	Tento èlánok nebol zatiaµ publikovaný v Poznatkovej Báze
+title	phpbrain	sk	Názov
+to create categories, press 'edit categories' in the preferences menu	phpbrain	sk	Ak chcete vytvori» kategórie, kliknite na 'Upravi» Kategórie' v menu nastavení
+topic	phpbrain	sk	Téma
+unable to add rating to database	phpbrain	sk	Nepodarilo sa prida» hodnotenie do databázy
+unanswered questions	phpbrain	sk	Nezodpovedané otázky
+unpublish	phpbrain	sk	Od-publikova»
+unpublished	phpbrain	sk	od-publikované
+user preferences	phpbrain	sk	Pou¾ívateµské nastavenia
+views	phpbrain	sk	pohµady
+was it easy to find this article using the above search string?	phpbrain	sk	Bolo µahké nájs» tento èlánok pomocou uvedeného vyhµadávacieho re»azca?
+when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	sk	Poèas navigácie cez kategórie, vyberte, èi zobrazený zoznam èlánkov kore¹ponduje iba so súèasnou kategóriou, alebo so súèasnou kategóriou a v¹etkými jej podkategóriami.
+with all the words	phpbrain	sk	So v¹etkými uvedenými slovami
+with at least one of the words	phpbrain	sk	Aspoò s jedným z uvedených slov
+with the exact phrase	phpbrain	sk	Presne s touto frázou
+without the words	phpbrain	sk	Bez uvedených slov
+you are in %1	phpbrain	sk	Ste v %1
+you have already qualified this article	phpbrain	sk	U¾ ste èlánok kvalifikovali
+you have not the proper permissions to do that	phpbrain	sk	Na toto nemáte dostatoèné práva.
+you must enter a title	phpbrain	sk	Musíte zada» názov
+you must enter a topic	phpbrain	sk	Musíte zada» tému
+your message could not be sent!	phpbrain	sk	Správu sa nepodarilo odosla»!
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	sk	Va¹a otázka bude odoslaná, ale publikovaná bude iba po odsúhlasení pou¾ívateµom s príslu¹ným oprávnením
+your question will be published immediately	phpbrain	sk	Va¹a otázka bude ihneï publikovaná
