@@ -75,6 +75,7 @@ file has been successfully uploaded	phpbrain	sk	Súbor bol úspe¹ne nahratý
 file was already missing from server, and was deleted from the database	phpbrain	sk	Súbor u¾ predtým nebol na serveri, a bol vymazaný z databázy
 file was deleted successfully	phpbrain	sk	Súbor bol úspe¹ne vymazaný
 file wasn't in server and it couldn't be deleted from the database	phpbrain	sk	Súbor nebol na serveri a nepodarilo sa ho vymaza» z databázy
+find results	phpbrain	sk	Výsledky hµadania
 global categories	phpbrain	sk	Globálne kategórie
 have to be approved first	common	sk	Musí by» najprv overený
 history	phpbrain	sk	História
@@ -114,6 +115,8 @@ ocurrences	phpbrain	sk	Výskyty
 or browse the categories	phpbrain	sk	Alebo prezrie» kategórie
 order results by	phpbrain	sk	Výsledky zoradi» podµa
 outstanding published questions	phpbrain	sk	Nezodpovedané publikované otázky
+past %1 months	phpbrain	sk	posledných %1 mesiacov
+past year	phpbrain	sk	posledný rok
 people have rated this article	phpbrain	sk	µudia ohodnotili tento èlánok
 phpbrain	common	sk	Poznatková Báza
 please rate the pertinence and quality of this article	phpbrain	sk	Prosím ohodno»te u¾itoènos» a kvalitu tohto èlánku

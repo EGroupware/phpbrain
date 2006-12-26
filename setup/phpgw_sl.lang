@@ -33,8 +33,7 @@ average rating	phpbrain	sl	Povprečnna ocena
 base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	sl	Osnovna mapa ne obstaja. Sporočite oskrbniku, da preveri globalne nastavitve
 before submiting a question, please search in the knowledge base first	phpbrain	sl	Preden oddate vprašanje, preverite, če je morda že v bazi znanja
 by answering this question you will help to get the answer quicker the next time	phpbrain	sl	Če odgovorite na vprašanje, boste pripomogli, da bo prihodnjič vaše vprašanje hitreje obravnavano
-check spelling	phpbrain	sl	Preveri črkovanje
-comment	phpbrain	sl	mnenje
+comment	phpbrain	sl	Mnenje
 comment and rating have been published	phpbrain	sl	Mnenje in ocena sta bila objavljena
 comment could not be inserted in the database	phpbrain	sl	Mnenje ne more biti shranjeno v podatkovni bazi
 comment has been deleted	phpbrain	sl	Mnenje je bilo izbrisano
@@ -43,13 +42,10 @@ comment has been submited for revision	phpbrain	sl	Mnenje je bilo shranjeno za p
 comment has been submited for revision and rating will be published	phpbrain	sl	Mnenje je bilo shranjen za pregled. Ocena bo objavljena.
 comments	phpbrain	sl	Mnenja
 configuration	phpbrain	sl	Konfiguracija
-confirm	phpbrain	sl	Potrdi
-correct the errors and press confirm	phpbrain	sl	Popravite napake in potrdite
 create a new article to answer the question asked by %1 in %2	phpbrain	sl	Kreiraj nov članek na vprašanje, ki ga je v %2 zastavil %1.
 created by %1 on %2	phpbrain	sl	Kreiral %1 na %2
-creation	phpbrain	sl	ustvarjanja
+creation	phpbrain	sl	Ustvarjeno
 creation date	phpbrain	sl	Datum kreiranja
-date	phpbrain	sl	Datum
 delete article	phpbrain	sl	Briši članek
 delete selected	phpbrain	sl	Briši označeno
 deleted relation to  article %1	phpbrain	sl	Brisana povezava s člankom %1
@@ -85,15 +81,16 @@ have to be approved first	common	sl	Najprej mora biti odobreno
 history	phpbrain	sl	Zgodovina
 if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	sl	Če ne najdete odgovorov v bazi znanja, spodaj opišite vašo težavo ali vprašanje
 if you wish, you can comment this article here	phpbrain	sl	Če želite lahko za ta članek pustite vaše mnenje
-in %1	phpbrain	sl	v %1
-in the text	phpbrain	sl	v besedilu
-in the title	phpbrain	sl	v naslovu
-in the topic	phpbrain	sl	v temi
+in %1	phpbrain	sl	V %1
+in the text	phpbrain	sl	V besedilu
+in the title	phpbrain	sl	V naslovu
+in the topic	phpbrain	sl	V temi
 include subcategories	phpbrain	sl	Vključi podkategorije
 keywords	phpbrain	sl	Ključne besede
 knowledge base article #%1	phpbrain	sl	Baza znanja, članek %1
 knowledge base configuration	common	sl	Konfiguracija baze znanja
 last modification by %1 on %2	phpbrain	sl	Zadnji spremenil: %1, dne %2
+last modified	phpbrain	sl	Zadnjič spremenjeno
 latest	phpbrain	sl	Zadnje
 latest comments	phpbrain	sl	Zadnja mnenja
 leave empty to automatically generate an id	phpbrain	sl	Pustite prazno, da se šifra dodeli samodejno
@@ -112,16 +109,15 @@ modification date	phpbrain	sl	Datum spremembe
 most viewed	phpbrain	sl	Največkrat prebran
 new article	phpbrain	sl	Nov članek
 nobody has rated this article so far	phpbrain	sl	Tega članka ni še nihče ocenil
-none	phpbrain	sl	Trenutno jih ni
 nothing was uploaded!	phpbrain	sl	Nič ni bilo prenešeno!
 number of results per page	phpbrain	sl	Število rezultatov
 ocurrences	phpbrain	sl	Se pojavi
 or browse the categories	phpbrain	sl	Ali preglejte kategorije
 order results by	phpbrain	sl	Razvrsti rezultate po
 outstanding published questions	phpbrain	sl	Objavljena izrazita vprašanja
-past %1 months	phpbrain	sl	zadnjih %1 mesecev
-past year	phpbrain	sl	zadnje leto
-people have rated this article	phpbrain	sl	obiskovalci so že ocenili ta članek
+past %1 months	phpbrain	sl	Zadnjih %1 mesecev
+past year	phpbrain	sl	Zadnje leto
+people have rated this article	phpbrain	sl	Obiskovalci so že ocenili ta članek
 phpbrain	common	sl	Baza znanja
 please rate the pertinence and quality of this article	phpbrain	sl	Prosim, ocenite primernost in kakovost članka
 please try again	phpbrain	sl	Prosim poskusite znova
@@ -158,7 +154,6 @@ submit comment and rating	phpbrain	sl	Oddaj mnenje in oceno
 suggested category	phpbrain	sl	Predlagana kategorija
 summary	phpbrain	sl	Vsebina
 that file already exists	phpbrain	sl	Ta datoteka že obstaja
-the article doesn't have spell errors	phpbrain	sl	Članek nima zatipkanih besed
 the article id must be a number	phpbrain	sl	Šifra članka mora biti ID
 the article is empty	phpbrain	sl	Članek je prazen
 the file was already missing in the server	phpbrain	sl	Datoteka je že manjkala na strežniku
@@ -174,11 +169,10 @@ to create categories, press 'edit categories' in the preferences menu	phpbrain	s
 topic	phpbrain	sl	Tema
 unable to add rating to database	phpbrain	sl	Ne morem shraniti ocene v bazo podatkov
 unanswered questions	phpbrain	sl	Neodgovorjena vprašanja
-unpublished	phpbrain	sl	neobjavljeno
-upload	phpbrain	sl	naloži
-user	phpbrain	sl	Uporabnik
+unpublish	phpbrain	sl	Odstrani objavo
+unpublished	phpbrain	sl	Neobjavljeno
 user preferences	phpbrain	sl	Nastavitve uporabnika
-views	phpbrain	sl	ogledov
+views	phpbrain	sl	Ogledov
 was it easy to find this article using the above search string?	phpbrain	sl	Je bilo preprosto najti članek z zgornjim iskalnim nizom?
 when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	sl	Izberite, ali se ob krmarjenju skozi kategorije pokažejo le članki izbrane kategorije, ali tudi vseh njenih podkategorij.
 with all the words	phpbrain	sl	Vse besede
