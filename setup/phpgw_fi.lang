@@ -1,4 +1,6 @@
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	fi	/kb hakemistoa ei ollut ja ei voitu luoda, pyyd‰ yll‰pit‰j‰‰ tarkistamaan yleismaailmallista konfiguraatioa.
+action	phpbrain	fi	Toiminto
+actions	phpbrain	fi	Toiminnot
 add articles	phpbrain	fi	Lis‰‰ artikkeli
 add link	phpbrain	fi	Lis‰‰ linkki
 add question	phpbrain	fi	Lis‰‰ kysymys
@@ -36,13 +38,17 @@ comment and rating have been published	phpbrain	fi	kommentti ja arviointi on jul
 comment could not be inserted in the database	phpbrain	fi	Kommentti voidaan sijoittaa tietokantaan
 comment has been deleted	phpbrain	fi	kommentti on poistettu
 comment has been published	phpbrain	fi	kommentti on julkaistettu
+comment has been submited for revision	phpbrain	fi	Kommentti on toimitettu tarkastettavaksi
+comment has been submited for revision and rating will be published	phpbrain	fi	Kommentti on toimitettu tarkastettavaksi ja se arvioidaan ennen julkaisua
 comments	phpbrain	fi	Kommentit
+configuration	phpbrain	fi	Asetukset
 create a new article to answer the question asked by %1 in %2	phpbrain	fi	Luo uusi artikkeli vastataksesi, kysymys kysyttiin %1 %2
 created by %1 on %2	phpbrain	fi	Artikkelin loi %1 %2
+creation	phpbrain	fi	Luonut
 creation date	phpbrain	fi	Luomis p‰iv‰m‰‰r‰
-date	phpbrain	fi	p‰iv‰
 delete article	phpbrain	fi	poistaa artikkeli
 delete selected	phpbrain	fi	poista valittu
+deleted relation to  article %1	phpbrain	fi	Poistettiin viittaus artikkeliin %1
 deleted relation to article %1	phpbrain	fi	Poistettiin viittaus artikkeliin %1
 descendent	phpbrain	fi	Laskeva
 details	phpbrain	fi	Tiedot
@@ -70,10 +76,12 @@ file was already missing from server, and was deleted from the database	phpbrain
 file was deleted successfully	phpbrain	fi	Tiedosto poistettiin onnistuneesti
 file wasn't in server and it couldn't be deleted from the database	phpbrain	fi	Tiedostoa ei ollut palvelimella ja se ei ole voinut poistua tietokannasta
 find results	phpbrain	fi	etsimisen tulokset
+global categories	phpbrain	fi	Yleiset kategoriat
 have to be approved first	common	fi	t‰ytyy hyv‰ksy‰ ensiksi
 history	phpbrain	fi	Historia
 if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	fi	Jos et lˆyd‰ vastauksia ongelmiisi tietokannasta, kuvaile sit‰ alle
 if you wish, you can comment this article here	phpbrain	fi	Jos haluat  voit kommentoida t‰m‰n artikkelin t‰h‰n
+in %1	phpbrain	fi	%1:ssa
 in the text	phpbrain	fi	tekstiss‰
 in the title	phpbrain	fi	otsikossa
 in the topic	phpbrain	fi	aiheessa
@@ -82,6 +90,7 @@ keywords	phpbrain	fi	Avainsanat
 knowledge base article #%1	phpbrain	fi	Tietokanta artikkeli #%1
 knowledge base configuration	common	fi	Tietokannan konfiguraatio
 last modification by %1 on %2	phpbrain	fi	viimeksi muokattu %1 %2
+last modified	phpbrain	fi	Viimeksi muokattu
 latest	phpbrain	fi	Viimeisin
 latest comments	phpbrain	fi	Viimeisin kommentti
 leave empty to automatically generate an id	phpbrain	fi	J‰t‰ tyhj‰ksi aikaansaadaan automaattisesti ID
@@ -100,12 +109,12 @@ modification date	phpbrain	fi	Muunettu p‰iv‰
 most viewed	phpbrain	fi	eniten n‰ytetyt
 new article	phpbrain	fi	Uusi artikkeli
 nobody has rated this article so far	phpbrain	fi	Kukaan ei ole arvioinut t‰t‰ artikkelia n‰in kauan
-none	phpbrain	fi	Ei mit‰‰n
 nothing was uploaded!	phpbrain	fi	Mit‰‰n ei ladattu uudelleen!
 number of results per page	phpbrain	fi	Tuloksien numerot
 ocurrences	phpbrain	fi	Esiintym‰t
 or browse the categories	phpbrain	fi	tai selaa ryhm‰‰
 order results by	phpbrain	fi	j‰rjest‰ tulokset
+outstanding published questions	phpbrain	fi	K‰sittelem‰tˆn ka  julkaisematon kysymys
 past %1 months	phpbrain	fi	viime %1 kuukaudet
 past year	phpbrain	fi	viime vuosi
 people have rated this article	phpbrain	fi	ihmiset ovat arvioineet t‰t‰ artikkelia
@@ -135,6 +144,7 @@ reply-to	phpbrain	fi	vastaus
 search in all the knowledge base	phpbrain	fi	Haetaan koko tietokannasta
 search results	phpbrain	fi	Haun tulokset
 see more questions	phpbrain	fi	Katso lis‰‰ kysymyksi‰
+see more questions...	phpbrain	fi	Katso lis‰‰ kysymyksi‰...
 select articles	phpbrain	fi	Valitse artikkeli
 show all comments	phpbrain	fi	N‰yt‰ kaikki kommentit
 show articles belonging to:	phpbrain	fi	N‰yt‰ artikkeleihin liittyneet
@@ -148,6 +158,7 @@ the article id must be a number	phpbrain	fi	Artikkelin tunniste t‰ytyy olla nume
 the article is empty	phpbrain	fi	Artikkeli on tyhj‰
 the file was already missing in the server	phpbrain	fi	Tiedosto oli jo kadonnut palvelimelta
 the following errors occurred	phpbrain	fi	seuraavat virheet  esiintyv‰t
+the mail server returned:	phpbrain	fi	Postipalvelin antoi seuraavan ilmoituksen:
 the present category and all subcategories under it	phpbrain	fi	Nykyinen ryhm‰ ja kaikki aliryhm‰t sen allla
 the present category only	phpbrain	fi	Nykyinen ryhm‰ ainostaan
 there are no articles	phpbrain	fi	T‰‰ll‰ ei ole yht‰‰n artikkelia
@@ -156,10 +167,10 @@ this article hasn't yet been published in the knowledge base	phpbrain	fi	T‰t‰ ar
 title	phpbrain	fi	Otsikko
 to create categories, press 'edit categories' in the preferences menu	phpbrain	fi	Luodaksesi ryhmi‰, paina 'Muokkaa ryhmi‰' asetus valikossa
 topic	phpbrain	fi	Aihe
+unable to add rating to database	phpbrain	fi	Arvioita ei voitettu lis‰t‰ tietokantaan
 unanswered questions	phpbrain	fi	Vastaamattomat kysymykset
+unpublish	phpbrain	fi	Julkaisematon
 unpublished	phpbrain	fi	julkaisematon
-upload	phpbrain	fi	kopioida palvelimelle
-user	phpbrain	fi	k‰ytt‰j‰
 user preferences	phpbrain	fi	K‰ytt‰j‰n asetukset
 views	phpbrain	fi	n‰kym‰t
 was it easy to find this article using the above search string?	phpbrain	fi	Oliko t‰m‰ artikkeli helppo lˆyt‰‰ k‰ytt‰m‰ll‰ yll‰ olevaa etsij‰‰?
@@ -172,5 +183,6 @@ you have already qualified this article	phpbrain	fi	Olet jo muokannut t‰t‰ artik
 you have not the proper permissions to do that	phpbrain	fi	Sinulla ei ole asianomaista lupaa tehd‰ sit‰
 you must enter a title	phpbrain	fi	Sinun t‰ytyy kirjoittaa otsikko
 you must enter a topic	phpbrain	fi	Sinun t‰ytyy kirjoittaa aihe
+your message could not be sent!	phpbrain	fi	Viesti‰si ei voitu l‰hett‰‰!
 your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	fi	Kysymyksesi toimitetaan mutta julkaistaan vain hyv‰ksymisen j‰lkeen mik‰li k‰ytt‰j‰ll‰ on julkaisemiseen oikeudet.
 your question will be published immediately	phpbrain	fi	Kysymyksesi julkaistaan heti
