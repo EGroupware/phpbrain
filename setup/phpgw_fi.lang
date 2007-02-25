@@ -24,8 +24,8 @@ articles added	phpbrain	fi	Artikkelit lis‰tty
 articles deleted successfully	phpbrain	fi	Artikkelit poistettu onnistuneesti
 articles have been published	phpbrain	fi	Artikkelit on julkaistu
 articles in %1	phpbrain	fi	Artikkelit %1 :ssa
-articles in %1 and all its subcategories	phpbrain	fi	Artikkelit %1:ssa ja kaikki sen aliryhm‰t
-articles not classified under any category	phpbrain	fi	Artikkelia ei ole lukiteltu mihink‰‰n ryhm‰‰n
+articles in %1 and all its subcategories	phpbrain	fi	Artikkelit %1:ssa ja kaikki sen alikategoriat
+articles not classified under any category	phpbrain	fi	Artikkelia ei ole luokiteltu mihink‰‰n kategoriaan
 ascendent	phpbrain	fi	Nouseva
 attach file	phpbrain	fi	Liit‰ tiedosto
 attached files	phpbrain	fi	tiedostot liitetty
@@ -72,7 +72,7 @@ excellent	phpbrain	fi	Erinomainen
 failure trying to delete the file	phpbrain	fi	Ep‰onnistuminen yritett‰ess‰ poistaa tiedostoa
 file could be deleted from server but not from database	phpbrain	fi	Tiedosto voidaan poistaa palvelimelta mutta ei tietokannasta.
 file has been successfully uploaded	phpbrain	fi	Tiedosto on onnistuneesti tallennettu
-file was already missing from server, and was deleted from the database	phpbrain	fi	Tiedosto oli jo kadonnut palvelimelta, ja oli tuhoutunut tiedotosta
+file was already missing from server, and was deleted from the database	phpbrain	fi	Tiedosto oli jo kadonnut palvelimelta, ja oli tuhoutunut tiedostosta
 file was deleted successfully	phpbrain	fi	Tiedosto poistettiin onnistuneesti
 file wasn't in server and it couldn't be deleted from the database	phpbrain	fi	Tiedostoa ei ollut palvelimella ja se ei ole voinut poistua tietokannasta
 find results	phpbrain	fi	etsimisen tulokset
@@ -85,7 +85,7 @@ in %1	phpbrain	fi	%1:ssa
 in the text	phpbrain	fi	tekstiss‰
 in the title	phpbrain	fi	otsikossa
 in the topic	phpbrain	fi	aiheessa
-include subcategories	phpbrain	fi	sis‰lt‰‰ aliryhm‰t
+include subcategories	phpbrain	fi	sis‰lt‰‰ alikategoriat
 keywords	phpbrain	fi	Avainsanat
 knowledge base article #%1	phpbrain	fi	Tietokanta artikkeli #%1
 knowledge base configuration	common	fi	Tietokannan konfiguraatio
@@ -112,7 +112,7 @@ nobody has rated this article so far	phpbrain	fi	Kukaan ei ole arvioinut t‰t‰ ar
 nothing was uploaded!	phpbrain	fi	Mit‰‰n ei ladattu uudelleen!
 number of results per page	phpbrain	fi	Tuloksien numerot
 ocurrences	phpbrain	fi	Esiintym‰t
-or browse the categories	phpbrain	fi	tai selaa ryhm‰‰
+or browse the categories	phpbrain	fi	tai selaa kategoriaa
 order results by	phpbrain	fi	j‰rjest‰ tulokset
 outstanding published questions	phpbrain	fi	K‰sittelem‰tˆn ka  julkaisematon kysymys
 past %1 months	phpbrain	fi	viime %1 kuukaudet
@@ -151,7 +151,7 @@ show articles belonging to:	phpbrain	fi	N‰yt‰ artikkeleihin liittyneet
 show messages in category	phpbrain	fi	N‰yt‰ viestit kategoriassa
 submit comment	phpbrain	fi	Ehdota kommenttia
 submit comment and rating	phpbrain	fi	Ehdota kommenttia ja arviointia
-suggested category	phpbrain	fi	Ehdotetut ryhm‰t
+suggested category	phpbrain	fi	Ehdotetut kategoriat
 summary	phpbrain	fi	Tiivistelm‰
 that file already exists	phpbrain	fi	t‰m‰ tiedosto on jo olemassa
 the article id must be a number	phpbrain	fi	Artikkelin tunniste t‰ytyy olla numero
@@ -159,13 +159,13 @@ the article is empty	phpbrain	fi	Artikkeli on tyhj‰
 the file was already missing in the server	phpbrain	fi	Tiedosto oli jo kadonnut palvelimelta
 the following errors occurred	phpbrain	fi	seuraavat virheet  esiintyv‰t
 the mail server returned:	phpbrain	fi	Postipalvelin antoi seuraavan ilmoituksen:
-the present category and all subcategories under it	phpbrain	fi	Nykyinen ryhm‰ ja kaikki aliryhm‰t sen allla
-the present category only	phpbrain	fi	Nykyinen ryhm‰ ainostaan
+the present category and all subcategories under it	phpbrain	fi	Nykyinen kategoria ja kaikki alikategoriat sen alla
+the present category only	phpbrain	fi	Nykyinen kategoria ainostaan
 there are no articles	phpbrain	fi	T‰‰ll‰ ei ole yht‰‰n artikkelia
 there are no articles available	phpbrain	fi	Artikkeleita ei ole saatavilla
-this article hasn't yet been published in the knowledge base	phpbrain	fi	T‰t‰ artikkelia ei ole viel‰ julkaistettu tietokannassa
+this article hasn't yet been published in the knowledge base	phpbrain	fi	T‰t‰ artikkelia ei ole viel‰ julkaistu tietokannassa
 title	phpbrain	fi	Otsikko
-to create categories, press 'edit categories' in the preferences menu	phpbrain	fi	Luodaksesi ryhmi‰, paina 'Muokkaa ryhmi‰' asetus valikossa
+to create categories, press 'edit categories' in the preferences menu	phpbrain	fi	Luodaksesi kategorioita, paina 'Muokkaa kategoria' asetus valikossa
 topic	phpbrain	fi	Aihe
 unable to add rating to database	phpbrain	fi	Arvioita ei voitettu lis‰t‰ tietokantaan
 unanswered questions	phpbrain	fi	Vastaamattomat kysymykset
