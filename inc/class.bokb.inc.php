@@ -30,7 +30,7 @@
 		* Data manipulation object
 		*
 		* @access	private
-		* @var		object so
+		* @var		so
 		*/
 		var $so;
 
@@ -38,7 +38,7 @@
 		* Categories object
 		*
 		* @access	public
-		* @var		object categories
+		* @var		categories
 		*/
 		var $categories_obj;
 
@@ -280,7 +280,7 @@
 			if (!$this->admin_config['publish_questions']) $this->admin_config['publish_questions'] = 'True';
 			
 			$this->start			= get_var('start', 'any', 0);
-			$this->query			= urldecode(get_var('query', 'any', ''));
+			$GLOBALS['query'] = $this->query			= urldecode(get_var('query', 'any', ''));
 			$this->sort				= get_var('sort', 'any', '');
 			$this->order			= get_var('order', 'any', '');
 			$this->publish_filter	= get_var('publish_filter', 'any', 'all');
@@ -396,7 +396,7 @@
 		**/
 		function search_articles($category_id, $publish_filter = False, $permissions=0, $questions=False)
 		{
-			$search = $questions? 'unanswered_questions' : 'search_articles';
+			$search = $questions ? 'unanswered_questions' : 'search_articles';
 			if (!$permissions) $permissions = $this->read_right;
 
 			$owners = $this->accessible_owners($permissions);

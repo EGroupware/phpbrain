@@ -729,6 +729,7 @@
 				'lang_upload'			=> lang('upload'),
 				'lang_attach_file'		=> lang('Attach file'),
 				'lang_delete'			=> lang('delete'),
+				'lang_confirm_delete'   => lang('Are you sure?'),
 				'img_printer'			=> $GLOBALS['phpgw']->common->image('phpbrain', 'articleprint'),
 				'href_printer'			=> $this->link('menuaction=phpbrain.uikb.view_article&art_id='. $article_id .'&printer=1'),
 				'img_mail'				=> $GLOBALS['phpgw']->common->image('phpbrain', 'mail'),

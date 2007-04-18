@@ -156,7 +156,7 @@
 								</td>
 								<td>
 									<form method="POST" action ="{form_del_art}">
-										&nbsp;&nbsp;<input type="submit" name="delete_article" value="{lang_delete_article}">
+										&nbsp;&nbsp;<input type="submit" name="delete_article" value="{lang_delete_article}" onclick="return confirm('{lang_confirm_delete}');">
 									</form>
 									<!-- END edit_del_block -->
 								</td>
@@ -362,5 +362,5 @@
 </div>
 
 <!-- BEGIN img_delete_block -->
-<a href="{href_del}"><img src="{img_src_del}" alt="{lang_delete}" title="{lang_delete}" style="width:16px; height:16px"></a>
+<a href="{href_del}" onclick="return confirm('{lang_confirm_delete}');"><img src="{img_src_del}" alt="{lang_delete}" title="{lang_delete}" style="width:16px; height:16px"></a>
 <!-- END img_delete_block -->
