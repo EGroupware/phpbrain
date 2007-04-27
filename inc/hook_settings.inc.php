@@ -55,5 +55,18 @@
 			'values'  => $num_comments,
 			'default' => '',
 			'size'    => '5'
-		)
+		),
+		'rtfEditorFeatures' => array(
+			'type'   => 'select',
+			'label'  => 'Features of the editor?',
+			'name'   => 'rtfEditorFeatures',
+			'values' => array(
+				'simple'   => lang('Simple'),
+				'extended' => lang('Regular'),
+				'advanced' => lang('Everything'), 
+			),
+			'help'   => 'You can customize how many icons and toolbars the editor shows.',
+			'xmlrpc' => True,
+			'admin'  => False
+		),
 	);

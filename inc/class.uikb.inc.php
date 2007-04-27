@@ -1333,8 +1333,12 @@
 				$category_selected = $question['cat_id'];
 			}
 			
-			$html = CreateObject('phpgwapi.html');
-			$content = $html->htmlarea('exec[text]', $content);
+			if (!is_object($GLOBALS['egw']->html))
+			{
+				require_once(EGW_API_INC.'/class.html.inc.php');
+				$GLOBALS['egw']->html = new html;
+			}
+			$content = $GLOBALS['egw']->html->fckEditor('exec[text]', $content, $GLOBALS['egw_info']['user']['preferences']['phpbrain']['rtfEditorFeatures']);
 	
 			// Finally, fill the input fields
 			if (!$this->sitemgr)
