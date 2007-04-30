@@ -398,7 +398,6 @@
 			'nullable' => False
 		));
 
-		$GLOBALS['setup_info']['phpbrain']['currentver'] = '1.0.5';
-		return $GLOBALS['setup_info']['phpbrain']['currentver'];
+		return $GLOBALS['setup_info']['phpbrain']['currentver'] = '1.0.5';
 	}
 ?>

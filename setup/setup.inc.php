@@ -22,8 +22,6 @@
 	$setup_info['phpbrain']['note']   = 'Knowledge Base repository';
 	$setup_info['phpbrain']['license']  = 'GPL';
 	$setup_info['phpbrain']['description'] = 'Searchable Knowledge Base.';
-	$setup_info['phpbrain']['maintainer'] = 'Alejandro Pedraza';
-	$setup_info['phpbrain']['maintainer_email'] = 'alpeb@users.sourceforge.net';
 
 	/* The hooks this app includes, needed for hooks registration */
 	$setup_info['phpbrain']['hooks'][] = 'about';
@@ -47,7 +45,7 @@
 	/* Dependencies for this app to work */
 	$setup_info['phpbrain']['depends'][] = array(
 		'appname' => 'phpgwapi',
-		'versions' => Array('1.0.0','1.0.1','1.2','1.3')
+		'versions' => Array('1.2','1.3','1.4','1.5')
 	);
 
 
