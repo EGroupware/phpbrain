@@ -30,7 +30,7 @@
 		* Database object
 		*
 		* @access	private
-		* @var		object db
+		* @var		egw_db
 		*/
 		var $db;
 
@@ -75,6 +75,7 @@
 		function sokb()
 		{
 			$this->db	= clone($GLOBALS['phpgw']->db);
+			$this->db->set_app('phpbrain');
 
             // postgresql is case sensite by default, so make it case insensitive
             if ($this->db->Type == 'pgsql')
@@ -104,6 +105,63 @@
 		*/
 		function search_articles($owners, $categories, $start, $upper_limit = '', $sort, $order, $publish_filter = False, $query)
 		{
+			$where = array(
+				'user_id' => $owners,
+				'cat_id'  => !$categories ? 0 : $categories,
+			);
+			if ($publish_filter && $publish_filter != 'all') 
+			{
+				$where['published'] = (int)$publish_filter == 'published';
+			}
+			$fields = '*';
+			$fields .= ",(SELECT count(*) FROM phpgw_kb_files WHERE art_id=phpgw_kb_articles.art_id) AS files";
+
+			if ($query)
+			{
+				$words = $likes = $scores = array();
+				foreach (explode(' ',$query) as $word)
+				{
+					$scores[] = 'keyword='.$this->db->quote($word);
+
+					if ((int)$word) 
+					{
+						$likes[] = 'phpgw_kb_articles.art_id='.(int)$word;
+						continue;	// numbers are only searched as article-id
+					}
+					foreach(array('title','topic','text') as $col)
+					{
+						$likes[] = $col.' '.$this->like.' '.$this->db->quote('%'.$word.'%');
+					} 
+				}
+				$score = 'SELECT sum(score) FROM phpgw_kb_search WHERE art_id=phpgw_kb_articles.art_id AND ('.implode(' OR ',$scores).')';
+				$fields .= ",($score) AS pertinence";
+				
+				$where[] = "(($score) > 0 OR ".implode(' OR ',$likes).')';
+			}
+			$order_sql = array();
+			if (preg_match('/^[a-z_0-9]+$/',$order))
+			{
+				$order_sql[] = $order.' '.($sort != 'DESC' ? 'ASC' : 'DESC');
+			}
+			if ($query)
+			{
+				$order_sql[] = "pertinence DESC";
+			}
+			if (!$order && !$query)
+			{
+				$order_sql[] = "modified DESC";
+			}
+			$order_sql = ' ORDER BY ' . implode(',', $order_sql);
+
+			$this->db->select('phpgw_kb_articles','COUNT(*)',$where,__LINE__,__FILE__);
+			$this->num_rows = $this->db->next_record() ? $this->db->f(0) : 0;
+			
+			$this->db->select('phpgw_kb_articles',$fields,$where,__LINE__,__FILE__,$start,$order_sql);
+			$this->db->query($sql, __LINE__, __FILE__,$start,0);
+
+			return $this->results_to_array($dummy);
+
+/* not working old code: did return more then max_matches entries
 			$order = $this->db->db_addslashes($order);
 			if ($sort != 'DESC') $sort = 'ASC';
 
@@ -119,7 +177,8 @@
 
 			$sql = "SELECT $fields_str FROM phpgw_kb_articles LEFT JOIN phpgw_kb_search ON phpgw_kb_articles.art_id=phpgw_kb_search.art_id ";
             $sql .= "LEFT JOIN phpgw_kb_files ON phpgw_kb_articles.art_id=phpgw_kb_files.art_id ";
-			$sql .= "WHERE user_id IN ($owners)";
+            
+ 			$sql .= "WHERE user_id IN ($owners)";
 			if ($publish_filter && $publish_filter!='all') 
 			{
 				($publish_filter == 'published')? $publish_filter = 1 : $publish_filter = 0;
@@ -206,6 +265,7 @@
 			}
 
 			return $articles;
+*/
 		}
 
 		/**
@@ -340,6 +400,23 @@
 		function results_to_array($fields)
 		{
 			$articles = array();
+			while(($article = $this->db->row(true)))
+			{
+				$article['username'] = $GLOBALS['egw']->common->grab_owner_name($article['user_id']);
+				$article['total_votes'] = $article['votes_1'] + $article['votes_2'] + $article['votes_3'] + $article['votes_4'] + $article['votes_5'];
+				if ($article['total_votes'])
+				{
+					$article['average_votes'] = (1*$article['votes_1'] + 2*$article['votes_2'] + 3*$article['votes_3'] + 4*$article['votes_4'] + 5*$article['votes_5']) / ($article['total_votes']);
+				}
+				else
+				{
+					$article['average_votes'] = 0;	// avoid division by zero
+				}
+				$articles[] = $article;
+			}
+			return $articles;
+
+/* old code requires the $fields to be named
 			for ($i=0; $this->db->next_record(); $i++)
 			{
 				foreach ($fields as $field)
@@ -365,7 +442,32 @@
 					$articles[$i]['average_votes'] = 0;	// avoid division by zero
 				}
 			}
-			return $articles;
+*/
+		}
+
+		/**
+		* Upgrades the keywords in the phpgw_kb_search table
+		*
+		* @author	Ralf Becker
+		* @access	public
+		* @param	int		$art_id	Article ID
+		* @param	string	$words			all Keyword(s)
+		* @param	mixed	$upgrade_key	Whether to give more or less score to $word
+		* @return	void
+		*/
+		function update_keywords($art_id, $words, $upgrade_key)
+		{
+			$words = array_diff(explode(' ',$words),array(''));
+			
+			// delete all existing and NOT longer mentioned keywords
+			$this->db->delete('phpgw_kb_search',
+				$this->db->expression('phpgw_kb_search',array('art_id' => $art_id,),' AND NOT ',array('keyword'=>$words)),
+				__LINE__,__FILE__);
+				
+			foreach($words as $word)
+			{
+				$this->update_keyword($art_id,$word,$upgrade_key);
+			}
 		}
 
 		/**
@@ -378,7 +480,7 @@
 		* @param	mixed	$upgrade_key	Whether to give more or less score to $word
 		* @return	void
 		*/
-		function update_keywords($art_id, $word, $upgrade_key)
+		function update_keyword($art_id, $word, $upgrade_key)
 		{
 			$word = $this->db->db_addslashes(substr($word, 0, 30));
 
@@ -386,11 +488,11 @@
 			$sql = "SELECT score FROM phpgw_kb_search WHERE keyword='$word' AND art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 			$keyword_exists = $this->db->next_record();
-			if ($keyword_exists && upgrade_key != 'same')
+			if ($keyword_exists && $upgrade_key != 'same')
 			{
 				// upgrade score
 				$old_score = $this->db->f('score');
-				$new_score = $upgrade_key? $old_score + 1 : $old_score - 1;
+				$new_score = $upgrade_key ? $old_score + 1 : $old_score - 1;
 				$sql = "UPDATE phpgw_kb_search SET score=$new_score WHERE keyword='$word' AND art_id=$art_id";
 				$this->db->query($sql, __LINE__, __FILE__);
 			}
@@ -497,11 +599,7 @@
 				$article_id = $this->db->get_last_insert_id('phpgw_kb_articles', 'art_id');
 
 				// update table phpgw_kb_search with keywords. Even if no keywords were introduced, generate an entry
-				$keywords = explode (' ', $contents['keywords']);
-				foreach ($keywords as $keyword)
-				{
-					$this->update_keywords($article_id, $keyword, 'same');
-				}
+				$this->update_keywords($article_id, $contents['keywords'], 'same');
 
 				// if publication is automatic and the article answers a question, delete the question
 				if ($publish && $contents['answering_question'])
@@ -527,11 +625,7 @@
 				if ($this->db->affected_rows()) $queries_ok = true;
 
 				// update keywords
-				$keywords = explode (' ', $contents['keywords']);
-				foreach ($keywords as $keyword)
-				{
-					$this->update_keywords($contents['editing_article_id'], $keyword, True, False);
-				}
+				$this->update_keywords($contents['editing_article_id'],$contents['keywords'], True, False);
 
 				if ($queries_ok)
 				{
