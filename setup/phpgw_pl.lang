@@ -1,4 +1,6 @@
+/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	pl	katalog /kb nie istnieje i nie móg³ zostaæ utworzony, proszê poprosiæ administratora o sprawdzenie konfiguracji globalnej
 action	phpbrain	pl	Akcja
+actions	phpbrain	pl	Operacje
 add articles	phpbrain	pl	Dodaj artyku³y
 add link	phpbrain	pl	Dodaj link
 add question	phpbrain	pl	Dodaj pytanie
@@ -29,7 +31,7 @@ attach file	phpbrain	pl	Dodaj plik
 attached files	phpbrain	pl	Za³±czone pliki
 average rating	phpbrain	pl	¦rednia ocena
 base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	pl	¦cie¿ka domowa nie istnieje, popro¶ administratora aby sprawdzi³ konfiguracje globaln±
-before submiting a question, please search in the knowledge base first	phpbrain	pl	Przed wys³aniem pytania, pzreczytaj uwa¿nie <i>Bazê wiedzy</i>
+before submiting a question, please search in the knowledge base first	phpbrain	pl	Przed wys³aniem pytania, przeczytaj uwa¿nie <i>Bazê wiedzy</i>
 by answering this question you will help to get the answer quicker the next time	phpbrain	pl	Odpowiadaj±c na to pytanie, pomo¿esz innym (i sobie) znale¼æ odpowiedzi innym razem
 comment	phpbrain	pl	komentarz
 comment and rating have been published	phpbrain	pl	Komentarz i ocena zosta³y opublikowane
@@ -39,15 +41,18 @@ comment has been published	phpbrain	pl	Komentarz zosta³ opublikowany
 comment has been submited for revision	phpbrain	pl	Komentarz zosta³ wys³any do akceptacji
 comment has been submited for revision and rating will be published	phpbrain	pl	Komentarz zosta³ wys³any do akceptacji, a ocena bêdzie opublikowana
 comments	phpbrain	pl	Komentarze
+configuration	phpbrain	pl	Konfiguracja
 create a new article to answer the question asked by %1 in %2	phpbrain	pl	Stwórz nowy artyku³ aby odpowiedzieæ na pytanie zadane przez %1 w %2
 created by %1 on %2	phpbrain	pl	Stworzony przez %1 %2
+creation	phpbrain	pl	tworzenie
 creation date	phpbrain	pl	Data stworzenia
-date	phpbrain	pl	Data
 delete article	phpbrain	pl	Skasuj artyku³
 delete selected	phpbrain	pl	Skasuj zaznaczone
-deleted relation to article %1	phpbrain	pl	Skasowana reacja do artyku³u %1
+deleted relation to  article %1	phpbrain	pl	Skasowane powi±zanie do artyku³u %1
+deleted relation to article %1	phpbrain	pl	Skasowane powi±zanie do artyku³u %1
 descendent	phpbrain	pl	Malej±co
 details	phpbrain	pl	Szczegó³y
+e-groupware knowledge base article attached	phpbrain	pl	Artyku³ Bazy Wiedzy eGroupWare zosta³ do³±czony
 e-mail has been sent	phpbrain	pl	e-mail zosta³ wys³any
 edit article	phpbrain	pl	Edytuj artyku³
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	pl	Wpisz jedno lub dwa s³owa opisuj±ce przypadek, lub numer artyku³u, je¿eli go znasz
@@ -62,18 +67,19 @@ error trying to delete comment	phpbrain	pl	B³±d podczas kasowania komentarza
 error trying to delete question	phpbrain	pl	B³±d podczas kasowania pytania
 error trying to edit article	phpbrain	pl	B³±d podczas próby edycji artyku³u
 error trying to publish article	phpbrain	pl	B³±d podczas próby publikacji artyku³u
-error: file doesn\'t exist in the database	phpbrain	pl	B³±d: plik nie istnieje w bazie danych
+error: file doesn't exist in the database	phpbrain	pl	B³±d: plik nie istineje w bazie danych
 excellent	phpbrain	pl	Doskona³a
 failure trying to delete the file	phpbrain	pl	Nieudane kasowanie pliku
 file could be deleted from server but not from database	phpbrain	pl	Plik zosta³ skasowany z serwera, ale nie z bazy danych
 file has been successfully uploaded	phpbrain	pl	Plik zosta³ za³adowany
 file was already missing from server, and was deleted from the database	phpbrain	pl	Pliku nie by³o ju¿ na serwerze i zosta³ skasowany z bazy danych
 file was deleted successfully	phpbrain	pl	Plik zosta³ skasowany
-file wasn\'t in server and it couldn\'t be deleted from the database	phpbrain	pl	Pliku nie by³o na serwerze i nie móg³ byæ skasowany z bazy danych
+file wasn't in server and it couldn't be deleted from the database	phpbrain	pl	Plik nie znajdowa³ siê na serwerze i nie móg³ zostaæ usuniêty z bazy wiedzy
 find results	phpbrain	pl	Znajd¼ wyniki
+global categories	phpbrain	pl	Kategorie globalne
 have to be approved first	common	pl	Musi byæ najpierw zatwierdzony
 history	phpbrain	pl	Historia
-if you can\'t find answers to your problem in the knowledge base, describe it below	phpbrain	pl	Je¿eli nie mo¿esz znale¼æ w Bazie Wiedzy rozwi±zania swojego problemu, opisz go poni¿ej
+if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	pl	Je¿eli nie mo¿esz znale¼æ rozwi±zañ swoich problemów w bazie wiedzy, opisz je tutaj
 if you wish, you can comment this article here	phpbrain	pl	Je¿eli masz ochotê, mo¿esz skomentowaæ tutaj ten artyku³
 in %1	phpbrain	pl	w %1
 in the text	phpbrain	pl	w tek¶cie
@@ -84,6 +90,7 @@ keywords	phpbrain	pl	S³owa kluczowe
 knowledge base article #%1	phpbrain	pl	Artyku³ Bazy Wiedzy nr %1
 knowledge base configuration	common	pl	Konfiguracja Bazy Wiedzy
 last modification by %1 on %2	phpbrain	pl	Ostatnio modyfikowany przez %1 %2
+last modified	phpbrain	pl	Ostatnio modyfikowany
 latest	phpbrain	pl	Ostatnie
 latest comments	phpbrain	pl	Ostatnie komentarze
 leave empty to automatically generate an id	phpbrain	pl	Zostaw puste, aby automatycznie wygenerowaæ ID
@@ -97,17 +104,17 @@ main view	phpbrain	pl	Widok g³ówny
 maintain articles	phpbrain	pl	Zarz±dzaj artyku³ami
 maintain questions	phpbrain	pl	Zarz±dzaj pytaniami
 maximum number of comments to show:	phpbrain	pl	Maksymalna ilo¶æ komentarzy do wy¶wietlenia:
-maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	pl	Maksymalna ilo¶æ najbardziej popularnych artyku³ów, najnowszysch artyku³ów i pytañ bez odpowiedzi, która bêdzie wy¶wietlana w g³ównym widoku:
+maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	pl	Maksymalna ilo¶æ najbardziej popularnych artyku³ów, najnowszych artyku³ów i pytañ bez odpowiedzi, która bêdzie wy¶wietlana w g³ównym widoku:
 modification date	phpbrain	pl	Data modyfikacji
 most viewed	phpbrain	pl	Najczê¶ciej czytane
 new article	phpbrain	pl	Nowy artyku³
 nobody has rated this article so far	phpbrain	pl	Jeszcze nikt nie ocenia³ tego artyku³u
-none	phpbrain	pl	Nie ma
 nothing was uploaded!	phpbrain	pl	Nic nie zosta³o za³adowane!
 number of results per page	phpbrain	pl	Ile wyników
 ocurrences	phpbrain	pl	Wyst±pienia
 or browse the categories	phpbrain	pl	Lub przegl±daj kategorie
 order results by	phpbrain	pl	Sortuj wyniki wed³ug
+outstanding published questions	phpbrain	pl	Zadane pytania bez odpowiedzi
 past %1 months	phpbrain	pl	ostatnie %1 miesiêcy
 past year	phpbrain	pl	ostatni rok
 people have rated this article	phpbrain	pl	kto¶ ju¿ ocenia³ ten artyku³
@@ -123,6 +130,7 @@ publish articles automatically?	common	pl	Publikowaæ artyku³y automatycznie?
 publish comments automatically?	common	pl	Publikowaæ komentarze automatycznie?
 publish questions automatically?	common	pl	Publikowaæ pytania automatycznie?
 publish selected	phpbrain	pl	Publikuj zaznaczone
+published	phpbrain	pl	Opublikowano
 question deleted successfully	phpbrain	pl	Pytanie zosta³o skasowane
 questions deleted successfully	phpbrain	pl	Pytania zosta³y skasowane
 rating has been submited	phpbrain	pl	Ocena zosta³a wys³ana
@@ -136,6 +144,7 @@ reply-to	phpbrain	pl	Odpowied¼ do
 search in all the knowledge base	phpbrain	pl	Szukaj w ca³ej Bazie Wiedzy
 search results	phpbrain	pl	Wyniki wyszukiwania
 see more questions	phpbrain	pl	Zobacz wiêcej pytañ
+see more questions...	phpbrain	pl	Zobacz wiêcej pytañ...
 select articles	phpbrain	pl	Wybierz artyku³y
 show all comments	phpbrain	pl	Poka¿ wszystkie komentarze
 show articles belonging to:	phpbrain	pl	Poka¿ artyku³y nale¿±ce do:
@@ -145,22 +154,25 @@ submit comment and rating	phpbrain	pl	Wy¶lij komentarz i ocenê
 suggested category	phpbrain	pl	Sugerowana kategoria
 summary	phpbrain	pl	Podsumowanie
 that file already exists	phpbrain	pl	Ten plik ju¿ istnieje
+the article id must be a number	phpbrain	pl	Idenyfikator artyku³u musi byæ numeryczny
 the article is empty	phpbrain	pl	Ten artyku³ jest pusty
 the file was already missing in the server	phpbrain	pl	Pliku ju¿ nie by³o na serwerze
 the following errors occurred	phpbrain	pl	Wystapi³y nastepuj±ce b³êdy:
+the mail server returned:	phpbrain	pl	Odpowied¼ serwera pocztowego
 the present category and all subcategories under it	phpbrain	pl	Bie¿±ca kategoria i wszystkie podkategorie
 the present category only	phpbrain	pl	Tylko bie¿±ca kategoria
 there are no articles	phpbrain	pl	Nie ma artyku³ów
-this article hasn\'t yet been published in the knowledge base	phpbrain	pl	Ten artyku³ nie by³ jeszcze publikowany w Bazie Wiedzy
+there are no articles available	phpbrain	pl	Brak dostêpnych artyku³ów
+this article hasn't yet been published in the knowledge base	phpbrain	pl	Ten artyku³ nie zosta³ jeszcze opublikowany w Bazie Wiedzy
 title	phpbrain	pl	Tytu³
-to create categories, press \'edit categories\' in the preferences menu	phpbrain	pl	Aby dodaæ kategoriê, kliknij 'Edycja kategorii' w menu preferencji
+to create categories, press 'edit categories' in the preferences menu	phpbrain	pl	W celu utworzenia kategorii, naci¶nij 'Edytuj kategorie' w menu ustawieñ
 topic	phpbrain	pl	Topic
 unable to add rating to database	phpbrain	pl	Nie mo¿na dodaæ oceny do bazy danych
 unanswered questions	phpbrain	pl	Pytania bez odpowiedzi
+unpublish	phpbrain	pl	Nieopublikowany
 unpublished	phpbrain	pl	nieopublikowany
-upload	phpbrain	pl	³adowanie
-user	phpbrain	pl	Uzytkownik
 user preferences	phpbrain	pl	Preferencje u¿ytkownika
+views	phpbrain	pl	ods³on
 was it easy to find this article using the above search string?	phpbrain	pl	Czy ³atwo by³o znale¼æ ten artyku³ u¿ywaj±c powy¿szego ci±gu znaków?
 when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	pl	Poruszaj±c sie pomiêdzy kategoriami, wybierz czy lista artyku³ów ma dotyczyæ tylko bie¿±cej kategorii, czy te¿ tak¿e jej podkategorii.
 with all the words	phpbrain	pl	Ze wszystkimi s³owami
@@ -172,5 +184,6 @@ you have already qualified this article	phpbrain	pl	Ju¿ ocenia³e¶ ten artyku³
 you have not the proper permissions to do that	phpbrain	pl	Nie masz wystarczaj±cych uprawnieñ, aby to zrobiæ
 you must enter a title	phpbrain	pl	Musisz wpisac tytu³
 you must enter a topic	phpbrain	pl	Musisz wpisaæ topic
-your question will be posted, but only will be published after aproval of a system administrator	phpbrain	pl	Twoje pytanie zostanie wys³ane, ale bedzie opublikowane dopiero po zaakceptowaniu przez Administratora
+your message could not be sent!	phpbrain	pl	Twoja wiadomo¶æ nie mog³a zostaæ wys³ana
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	pl	Twoje pytanie zostanie przes³ane, ale zostanie opublikowane dopiero po zaakceptowaniu przez uprawnionego u¿ytkownika
 your question will be published immediately	phpbrain	pl	Twoje pytanie zostanie opublikowane natychmiast
