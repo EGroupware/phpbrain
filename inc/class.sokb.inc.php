@@ -458,10 +458,10 @@
 		function update_keywords($art_id, $words, $upgrade_key)
 		{
 			$words = array_diff(explode(' ',$words),array(''));
-			
+
 			// delete all existing and NOT longer mentioned keywords
-			$this->db->delete('phpgw_kb_search',
-				$this->db->expression('phpgw_kb_search',array('art_id' => $art_id,),' AND NOT ',array('keyword'=>$words)),
+			$this->db->delete('phpgw_kb_search',!$words ? array('art_id' => $art_id) :
+				$this->db->expression('phpgw_kb_search',array('art_id' => $art_id),' AND NOT ',array('keyword'=>$words)),
 				__LINE__,__FILE__);
 				
 			foreach($words as $word)
