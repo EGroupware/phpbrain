@@ -28,6 +28,7 @@
 	$setup_info['phpbrain']['hooks'][] = 'admin';
 	$setup_info['phpbrain']['hooks'][] = 'add_def_pref';
 	$setup_info['phpbrain']['hooks'][] = 'config';
+	$setup_info['phpbrain']['hooks'][] = 'config_validate';
 	$setup_info['phpbrain']['hooks'][] = 'preferences';
 	$setup_info['phpbrain']['hooks'][] = 'settings';
 	$setup_info['phpbrain']['hooks'][] = 'sidebox_menu';
