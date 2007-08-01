@@ -1,5 +1,7 @@
 <!-- BEGIN header -->
+<p style="text-align: center; color: {th_err};">{error}</p>
 <form method="POST" action="{action_url}">
+{hidden_vars}
 <table border="0" align="center">
    <tr class="th">
     <th colspan="2">{title}</th>
@@ -38,6 +40,15 @@
 			<option value="True"{selected_publish_questions_True}>{lang_Yes}</option>
 			<option value="False"{selected_publish_questions_False}>{lang_Have_to_be_approved_first}</option>
 		</select>
+	</td>
+</tr>
+<tr class="row_off">
+	<td>  
+	  	{lang_Image_directory_relative_to_document_root_(use_/_!),_example:} /images<br />
+  		{lang_An_existing_AND_by_the_webserver_readable_directory_enables_the_image_browser_and_upload.}<br />
+  		{lang_Upload_requires_the_directory_to_be_writable_by_the_webserver!}
+	<td>
+		<input name="newsettings[upload_dir]" size="40" value="{value_upload_dir}"/>
 	</td>
 </tr>
 <!-- END body -->
