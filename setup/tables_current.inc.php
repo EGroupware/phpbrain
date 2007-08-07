@@ -19,7 +19,7 @@
 				'q_id' => array('type' => 'int','precision' => '8','nullable' => False),
 				'title' => array('type' => 'varchar','precision' => '255','nullable' => False),
 				'topic' => array('type' => 'varchar','precision' => '255','nullable' => False),
-				'text' => array('type' => 'text','nullable' => False),
+				'text' => array('type' => 'longtext'),
 				'cat_id' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
 				'published' => array('type' => 'int','precision' => '2','nullable' => False,'default' => '0'),
 				'user_id' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),

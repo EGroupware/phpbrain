@@ -14,7 +14,7 @@
 	/* Basic information about this app */
 	$setup_info['phpbrain']['name']      = 'phpbrain';
 	$setup_info['phpbrain']['title']     = 'Knowledge Base';
-	$setup_info['phpbrain']['version']   = '1.0.5';
+	$setup_info['phpbrain']['version']   = '1.5.001';
 	$setup_info['phpbrain']['app_order'] = 25;
 	$setup_info['phpbrain']['enable']    = 1;
 

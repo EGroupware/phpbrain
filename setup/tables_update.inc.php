@@ -400,4 +400,12 @@
 
 		return $GLOBALS['setup_info']['phpbrain']['currentver'] = '1.0.5';
 	}
+	
+	$test[] = '1.0.5';
+	function phpbrain_upgrade1_0_5()
+	{
+		$GLOBALS['egw_setup']->oProc->AlterColumn('phpgw_kb_articles','text',array('type' => 'longtext'));		
+		
+		return $GLOBALS['setup_info']['phpbrain']['currentver'] = '1.5.001';
+	}
 ?>
