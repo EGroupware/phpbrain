@@ -1290,7 +1290,6 @@
 				if (!$this->message)
 				{
 					$article	= $this->bo->get_article($article_id);
-
 					// Check edit rights
 					if (!$this->bo->check_permission($this->bo->edit_right)) $this->die_peacefully('You have not the proper permissions to do that');
 
@@ -1360,14 +1359,13 @@
 			{
 				$extra .= '&q_id='. $_GET['q_id'];
 			}
-
 			$this->t->set_var(array(
 				'message'			=> "<tr><td colspan=2 align=center style='color:red'>" . $this->message . "</td></tr>",
 				'hidden_fields'		=> $hidden_fields,
 				'form_action'		=> $this->link('menuaction=phpbrain.uikb.edit_article'. $extra),
-				'value_title'		=> $title,
-				'value_topic'		=> $topic,
-				'value_keywords'	=> $keywords,
+				'value_title'		=> htmlspecialchars($title),
+				'value_topic'		=> htmlspecialchars($topic),
+				'value_keywords'	=> htmlspecialchars($keywords),
 				'value_text'		=> $content,
 				'btn_save'			=> $btn_save,
 				'btn_cancel'		=> $btn_cancel
