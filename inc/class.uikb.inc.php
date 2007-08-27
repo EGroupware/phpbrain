@@ -1365,9 +1365,9 @@
 				'message'			=> "<tr><td colspan=2 align=center style='color:red'>" . $this->message . "</td></tr>",
 				'hidden_fields'		=> $hidden_fields,
 				'form_action'		=> $this->link('menuaction=phpbrain.uikb.edit_article'. $extra),
-				'value_title'		=> $title,
-				'value_topic'		=> $topic,
-				'value_keywords'	=> $keywords,
+				'value_title'		=> htmlspecialchars($title),
+				'value_topic'		=> htmlspecialchars($topic),
+				'value_keywords'	=> htmlspecialchars($keywords),
 				'value_text'		=> $content,
 				'btn_save'			=> $btn_save,
 				'btn_cancel'		=> $btn_cancel
