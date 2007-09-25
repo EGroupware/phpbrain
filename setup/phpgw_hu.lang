@@ -1,189 +1,189 @@
-/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	hu	A Tudástár alapkönyvtára nem létezik a fájlrendszeren és nem lehet létrehozni, kérem értesítse az adminisztrátort a problémáról.
-action	phpbrain	hu	Mûvelet
-actions	phpbrain	hu	Mûveletek
-add articles	phpbrain	hu	Cikk hozzáadása
-add link	phpbrain	hu	Hivatkozás hozzáadása
-add question	phpbrain	hu	Kérdés hozzáadása
-added file %1	phpbrain	hu	%1 állomány hozzáadva
-added link %1	phpbrain	hu	%1 hivatkozás hozzáadva
-added related articles %1	phpbrain	hu	%1 kapcsolódó cikk hozzáadva
-advanced search	phpbrain	hu	Kiterjesztett keresés
-all articles	phpbrain	hu	Összes cikk
-answer	phpbrain	hu	válasz
-anytime	phpbrain	hu	bármikor
-anywhere in the article	phpbrain	hu	Bárhol a cikkben
+/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	hu	A TudÃ¡stÃ¡r alapkÃ¶nyvtÃ¡ra nem lÃ©tezik a fÃ¡jlrendszeren Ã©s nem lehet lÃ©trehozni, kÃ©rem Ã©rtesÃ­tse az adminisztrÃ¡tort a problÃ©mÃ¡rÃ³l.
+action	phpbrain	hu	MÅ±velet
+actions	phpbrain	hu	MÅ±veletek
+add articles	phpbrain	hu	Cikk hozzÃ¡adÃ¡sa
+add link	phpbrain	hu	HivatkozÃ¡s hozzÃ¡adÃ¡sa
+add question	phpbrain	hu	KÃ©rdÃ©s hozzÃ¡adÃ¡sa
+added file %1	phpbrain	hu	%1 Ã¡llomÃ¡ny hozzÃ¡adva
+added link %1	phpbrain	hu	%1 hivatkozÃ¡s hozzÃ¡adva
+added related articles %1	phpbrain	hu	%1 kapcsolÃ³dÃ³ cikk hozzÃ¡adva
+advanced search	phpbrain	hu	Kiterjesztett keresÃ©s
+all articles	phpbrain	hu	Ã–sszes cikk
+answer	phpbrain	hu	vÃ¡lasz
+anytime	phpbrain	hu	bÃ¡rmikor
+anywhere in the article	phpbrain	hu	BÃ¡rhol a cikkben
 article	phpbrain	hu	Cikk
-article added to database, you can now attach files or links, or relate to other articles	phpbrain	hu	Cikk hozzáadva az adatbázishoz, lehetõsége van állományok és hivatkozások csatolására vagy más cikkekre utalásra
-article created	phpbrain	hu	Cikk létrehozva
-article deleted	phpbrain	hu	Cikk törölve
-article deleted successfully	phpbrain	hu	Cikk sikeresen törölve
-article edited	phpbrain	hu	Cikk szerkesztése
-article has been published	phpbrain	hu	Cikk publikálva
-article id	phpbrain	hu	Cikk azonosító
-articles added	phpbrain	hu	Cikkek hozzáadva
-articles deleted successfully	phpbrain	hu	Cikkek sikeresen törölve
-articles have been published	phpbrain	hu	Cikkek publikálva
-articles in %1	phpbrain	hu	Cikkek itt %1
-articles in %1 and all its subcategories	phpbrain	hu	Cikkek itt %1 és az összes alkategóriájában
-articles not classified under any category	phpbrain	hu	Kategórián kívüli cikkek
-ascendent	phpbrain	hu	Emelkedõ
-attach file	phpbrain	hu	Állomány csatolása
-attached files	phpbrain	hu	Csatolt állományok
-average rating	phpbrain	hu	Átlagos osztályzat
-base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	hu	A Tudástár alapkönyvtára nem létezik a fájlrendszeren és nem lehet létrehozni, kérem értesítse az adminisztrátort a problémáról.
-before submiting a question, please search in the knowledge base first	phpbrain	hu	Mielõtt kérdést tenne fel, kérem keressen a Tudástárban, hátha már szerepel benne a válasz.
-by answering this question you will help to get the answer quicker the next time	phpbrain	hu	Erre a kérdésre válaszolva segíthet abban, hogy legközelebb a megolást gyorsabban megtalálják.
-comment	phpbrain	hu	kommentár
-comment and rating have been published	phpbrain	hu	Kommentár és osztályzat publikálva.
-comment could not be inserted in the database	phpbrain	hu	Kommentár nem írható az adatbázisba.
-comment has been deleted	phpbrain	hu	Kommentár törölve
-comment has been published	phpbrain	hu	Kommentár publikálva
-comment has been submited for revision	phpbrain	hu	Kommentár felülvizsgálatra elküldve
-comment has been submited for revision and rating will be published	phpbrain	hu	Kommentár jóváhagyásra elküldve és az osztályzat publikálása meg fog történni
-comments	phpbrain	hu	Kommentárok
-configuration	phpbrain	hu	Beállítás
-create a new article to answer the question asked by %1 in %2	phpbrain	hu	Új cikk írása a %1 által feltett kérdésre a %2 kategóriában
-created by %1 on %2	phpbrain	hu	Készítette %1, %2
-creation	phpbrain	hu	Létrehozás
-creation date	phpbrain	hu	Létrehozás dátuma
-delete article	phpbrain	hu	Cikk törlése
-delete selected	phpbrain	hu	Kijelölt törlése
-deleted relation to  article %1	phpbrain	hu	%1 cikkre utalás törölve
-deleted relation to article %1	phpbrain	hu	%1 cikkre utalás törölve
-descendent	phpbrain	hu	Csökkenõ
-details	phpbrain	hu	Részletek
-e-groupware knowledge base article attached	phpbrain	hu	Tudástár cikk csatolva
-e-mail has been sent	phpbrain	hu	email elküldve
-edit article	phpbrain	hu	Cikk szerkesztése
-enter one or two words describing the issue, or type the article number if you know it	phpbrain	hu	A probléma néhány szavas leírása, vagy a cikk száma, amennyiben ismert
-error deleting article from database	phpbrain	hu	Hiba a cikk adatbázisból való törlésekor
-error deleting link	phpbrain	hu	Hiba a hivatkozás törlésekor
-error downloading file	phpbrain	hu	Hiba az állomány letöltésekor
-error locating files directory	phpbrain	hu	Hiba az állományok könyvtárának elérésekor
-error moving file to directory	phpbrain	hu	Hiba az állomány könyvtárba mozgatásakor
-error publishing comment	phpbrain	hu	Hiba a kommentár publikációjakor
-error retrieving article	phpbrain	hu	Hiba a cikk lehívásakor
-error trying to delete comment	phpbrain	hu	Hiba a kommentár törlésekor
-error trying to delete question	phpbrain	hu	Hiba a kérdés törlésekor
-error trying to edit article	phpbrain	hu	Hiba a cikk szerkesztésre lehívásakor
-error trying to publish article	phpbrain	hu	Hiba a cikk publikálásakor
-error: file doesn't exist in the database	phpbrain	hu	Hiba: az állomány nem létezik az adatbázisban
-excellent	phpbrain	hu	Kiváló
-failure trying to delete the file	phpbrain	hu	Hiba az állomány törlésekor
-file could be deleted from server but not from database	phpbrain	hu	Az állomány a fájlrendszerrõl törlésre kerülhetett, de az adatbázisból nem
-file has been successfully uploaded	phpbrain	hu	Állomány sikeresen feltöltve
-file was already missing from server, and was deleted from the database	phpbrain	hu	Az állomány hiányzik a fájlrendszerrõl és törölve van az adatbázisból
-file was deleted successfully	phpbrain	hu	Állomány sikeresen törölve
-file wasn't in server and it couldn't be deleted from the database	phpbrain	hu	Az állomány nincs a fájlrendszeren és nem törölhetõ az adatbázisból
-find results	phpbrain	hu	Keresési eredmények
-global categories	phpbrain	hu	Globális kategóriák
-have to be approved first	common	hu	Jóváhagyás szükséges
-history	phpbrain	hu	Történet
-if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	hu	Ha nem talál választ a problémájára a Tudástárba, alább leírhatja
-if you wish, you can comment this article here	phpbrain	hu	A cikkhez kommentár hozzáadása
+article added to database, you can now attach files or links, or relate to other articles	phpbrain	hu	Cikk hozzÃ¡adva az adatbÃ¡zishoz, lehetÅ‘sÃ©ge van Ã¡llomÃ¡nyok Ã©s hivatkozÃ¡sok csatolÃ¡sÃ¡ra vagy mÃ¡s cikkekre utalÃ¡sra
+article created	phpbrain	hu	Cikk lÃ©trehozva
+article deleted	phpbrain	hu	Cikk tÃ¶rÃ¶lve
+article deleted successfully	phpbrain	hu	Cikk sikeresen tÃ¶rÃ¶lve
+article edited	phpbrain	hu	Cikk szerkesztÃ©se
+article has been published	phpbrain	hu	Cikk publikÃ¡lva
+article id	phpbrain	hu	Cikk azonosÃ­tÃ³
+articles added	phpbrain	hu	Cikkek hozzÃ¡adva
+articles deleted successfully	phpbrain	hu	Cikkek sikeresen tÃ¶rÃ¶lve
+articles have been published	phpbrain	hu	Cikkek publikÃ¡lva
+articles in %1	phpbrain	hu	Cikkek a(z) %1 kategÃ³riÃ¡ban
+articles in %1 and all its subcategories	phpbrain	hu	Cikkek a(z) %1 kategÃ³riÃ¡ban Ã©s az Ã¶sszes alkategÃ³riÃ¡jÃ¡ban
+articles not classified under any category	phpbrain	hu	KategÃ³riÃ¡n kÃ­vÃ¼li cikkek
+ascendent	phpbrain	hu	EmelkedÅ‘
+attach file	phpbrain	hu	ÃllomÃ¡ny csatolÃ¡sa
+attached files	phpbrain	hu	Csatolt Ã¡llomÃ¡nyok
+average rating	phpbrain	hu	Ãtlagos osztÃ¡lyzat
+base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	hu	A TudÃ¡stÃ¡r alapkÃ¶nyvtÃ¡ra nem lÃ©tezik a fÃ¡jlrendszeren Ã©s nem lehet lÃ©trehozni, kÃ©rem Ã©rtesÃ­tse az adminisztrÃ¡tort a problÃ©mÃ¡rÃ³l.
+before submiting a question, please search in the knowledge base first	phpbrain	hu	MielÅ‘tt kÃ©rdÃ©st tenne fel, kÃ©rem keressen a TudÃ¡stÃ¡rban, hÃ¡tha mÃ¡r szerepel benne a vÃ¡lasz.
+by answering this question you will help to get the answer quicker the next time	phpbrain	hu	Erre a kÃ©rdÃ©sre vÃ¡laszolva segÃ­thet abban, hogy legkÃ¶zelebb a megolÃ¡st gyorsabban megtalÃ¡ljÃ¡k.
+comment	phpbrain	hu	HozzÃ¡szÃ³lÃ¡s
+comment and rating have been published	phpbrain	hu	HozzÃ¡szÃ³lÃ¡s Ã©s osztÃ¡lyzat publikÃ¡lva.
+comment could not be inserted in the database	phpbrain	hu	HozzÃ¡szÃ³lÃ¡s nem Ã­rhatÃ³ az adatbÃ¡zisba.
+comment has been deleted	phpbrain	hu	HozzÃ¡szÃ³lÃ¡s tÃ¶rÃ¶lve
+comment has been published	phpbrain	hu	HozzÃ¡szÃ³lÃ¡s publikÃ¡lva
+comment has been submited for revision	phpbrain	hu	HozzÃ¡szÃ³lÃ¡s felÃ¼lvizsgÃ¡latra elkÃ¼ldve
+comment has been submited for revision and rating will be published	phpbrain	hu	KommentÃ¡r jÃ³vÃ¡hagyÃ¡sra elkÃ¼ldve Ã©s az osztÃ¡lyzat publikÃ¡lÃ¡sa meg fog tÃ¶rtÃ©nni
+comments	phpbrain	hu	HozzÃ¡szÃ³lÃ¡sok
+configuration	phpbrain	hu	BeÃ¡llÃ­tÃ¡s
+create a new article to answer the question asked by %1 in %2	phpbrain	hu	Ãšj cikk Ã­rÃ¡sa a %1 Ã¡ltal feltett kÃ©rdÃ©sre a %2 kategÃ³riÃ¡ban
+created by %1 on %2	phpbrain	hu	KÃ©szÃ­tette %1, %2
+creation	phpbrain	hu	LÃ©trehozÃ¡s
+creation date	phpbrain	hu	LÃ©trehozÃ¡s dÃ¡tuma
+delete article	phpbrain	hu	Cikk tÃ¶rlÃ©se
+delete selected	phpbrain	hu	KijelÃ¶lt tÃ¶rlÃ©se
+deleted relation to  article %1	phpbrain	hu	%1 cikkre utalÃ¡s tÃ¶rÃ¶lve
+deleted relation to article %1	phpbrain	hu	%1 cikkre utalÃ¡s tÃ¶rÃ¶lve
+descendent	phpbrain	hu	CsÃ¶kkenÅ‘
+details	phpbrain	hu	RÃ©szletek
+e-groupware knowledge base article attached	phpbrain	hu	TudÃ¡stÃ¡r cikk csatolva
+e-mail has been sent	phpbrain	hu	email elkÃ¼ldve
+edit article	phpbrain	hu	Cikk szerkesztÃ©se
+enter one or two words describing the issue, or type the article number if you know it	phpbrain	hu	A problÃ©ma nÃ©hÃ¡ny szavas leÃ­rÃ¡sa, vagy a cikk sorszÃ¡ma, amennyiben ismert.
+error deleting article from database	phpbrain	hu	Hiba a cikk adatbÃ¡zisbÃ³l valÃ³ tÃ¶rlÃ©sekor
+error deleting link	phpbrain	hu	Hiba a hivatkozÃ¡s tÃ¶rlÃ©sekor
+error downloading file	phpbrain	hu	Hiba az Ã¡llomÃ¡ny letÃ¶ltÃ©sekor
+error locating files directory	phpbrain	hu	Hiba az Ã¡llomÃ¡nyok kÃ¶nyvtÃ¡rÃ¡nak elÃ©rÃ©sekor
+error moving file to directory	phpbrain	hu	Hiba az Ã¡llomÃ¡ny kÃ¶nyvtÃ¡rba mozgatÃ¡sakor
+error publishing comment	phpbrain	hu	Hiba a hozzÃ¡szÃ³lÃ¡s publikÃ¡ciÃ³jakor
+error retrieving article	phpbrain	hu	Hiba a cikk lehÃ­vÃ¡sakor
+error trying to delete comment	phpbrain	hu	Hiba a hozzÃ¡szÃ³lÃ¡s tÃ¶rlÃ©sekor
+error trying to delete question	phpbrain	hu	Hiba a kÃ©rdÃ©s tÃ¶rlÃ©sekor
+error trying to edit article	phpbrain	hu	Hiba a cikk szerkesztÃ©sre lehÃ­vÃ¡sakor
+error trying to publish article	phpbrain	hu	Hiba a cikk publikÃ¡lÃ¡sakor
+error: file doesn't exist in the database	phpbrain	hu	Hiba: az Ã¡llomÃ¡ny nem lÃ©tezik az adatbÃ¡zisban
+excellent	phpbrain	hu	KitÅ±nÅ‘
+failure trying to delete the file	phpbrain	hu	Hiba az Ã¡llomÃ¡ny tÃ¶rlÃ©sekor
+file could be deleted from server but not from database	phpbrain	hu	Az Ã¡llomÃ¡ny a fÃ¡jlrendszerrÅ‘l tÃ¶rlÃ©sre kerÃ¼lhetett, de az adatbÃ¡zisbÃ³l nem
+file has been successfully uploaded	phpbrain	hu	ÃllomÃ¡ny sikeresen feltÃ¶ltve
+file was already missing from server, and was deleted from the database	phpbrain	hu	Az Ã¡llomÃ¡ny hiÃ¡nyzik a fÃ¡jlrendszerrÅ‘l Ã©s tÃ¶rÃ¶lve van az adatbÃ¡zisbÃ³l
+file was deleted successfully	phpbrain	hu	ÃllomÃ¡ny sikeresen tÃ¶rÃ¶lve
+file wasn't in server and it couldn't be deleted from the database	phpbrain	hu	Az Ã¡llomÃ¡ny nincs a fÃ¡jlrendszeren Ã©s nem tÃ¶rÃ¶lhetÅ‘ az adatbÃ¡zisbÃ³l
+find results	phpbrain	hu	KeresÃ©si eredmÃ©nyek
+global categories	phpbrain	hu	GlobÃ¡lis kategÃ³riÃ¡k
+have to be approved first	common	hu	JÃ³vÃ¡hagyÃ¡s szÃ¼ksÃ©ges
+history	phpbrain	hu	TÃ¶rtÃ©net
+if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	hu	Ha nem talÃ¡l vÃ¡laszt a problÃ©mÃ¡jÃ¡ra a TudÃ¡stÃ¡rban, Ã­rja le a kÃ©rdÃ©sÃ©t
+if you wish, you can comment this article here	phpbrain	hu	A cikkhez kommentÃ¡r hozzÃ¡adÃ¡sa
 in %1	phpbrain	hu	itt: %1
-in the text	phpbrain	hu	szövegben
-in the title	phpbrain	hu	címben
-in the topic	phpbrain	hu	témában
-include subcategories	phpbrain	hu	Alkategóriákkal együtt
+in the text	phpbrain	hu	szÃ¶vegben
+in the title	phpbrain	hu	cÃ­mben
+in the topic	phpbrain	hu	tÃ©mÃ¡ban
+include subcategories	phpbrain	hu	AlkategÃ³riÃ¡kkal egyÃ¼tt
 keywords	phpbrain	hu	Kulcsszavak
-knowledge base article #%1	phpbrain	hu	Tudástár cikk #%1
-knowledge base configuration	common	hu	Tudástár alap konfiguráció
-last modification by %1 on %2	phpbrain	hu	Utoljára %1 módosította ekkor: %2
-last modified	phpbrain	hu	Utolsó módosítás
+knowledge base article #%1	phpbrain	hu	TudÃ¡stÃ¡r cikk #%1
+knowledge base configuration	common	hu	TudÃ¡stÃ¡r alap konfigurÃ¡ciÃ³
+last modification by %1 on %2	phpbrain	hu	UtoljÃ¡ra %2 mÃ³dosÃ­totta %1
+last modified	phpbrain	hu	UtolsÃ³ mÃ³dosÃ­tÃ¡s
 latest	phpbrain	hu	Legfrissebb
-latest comments	phpbrain	hu	Legfrissebb kommentárok
-leave empty to automatically generate an id	phpbrain	hu	Hagyja üresen automatikus azonosító generáláshoz
-link could not be added	phpbrain	hu	Hivatkozás nem adható hozzá
-link deleted successfully	phpbrain	hu	Hivatkozás sikeresen törölve
-link has been added	phpbrain	hu	Hivatkozás hozzáadva
-links	phpbrain	hu	Hivatkozások
-links & files	phpbrain	hu	Hivatkozások és állományok
-mail article	phpbrain	hu	Cikk küldése emailben
-main view	phpbrain	hu	Fõ nézet
-maintain articles	phpbrain	hu	Cikkek karbantartása
-maintain questions	phpbrain	hu	Kérdések karbantartása
-maximum number of comments to show:	phpbrain	hu	Megjelenítendõ kommentárok maximális száma:
-maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	hu	Legnépszerûbb cikkek, legújabb cikkek és megválaszolatlan kérdések megjelenésének maximális száma a fõképernyõn
-modification date	phpbrain	hu	Módosítás dátuma
-most viewed	phpbrain	hu	Legtöbbet megjelenített
-new article	phpbrain	hu	Új cikk
-nobody has rated this article so far	phpbrain	hu	Senki sem osztályozta a cikket
-nothing was uploaded!	phpbrain	hu	Semmi sem kerül feltöltésre!
-number of results per page	phpbrain	hu	Találatok száma
-ocurrences	phpbrain	hu	Elõfordulás
-or browse the categories	phpbrain	hu	Vagy kategóriák böngészése
-order results by	phpbrain	hu	Találatok rendezése
-outstanding published questions	phpbrain	hu	Nyitott kérdések
-past %1 months	phpbrain	hu	elmúlt %1 hónap
-past year	phpbrain	hu	múlt év
-people have rated this article	phpbrain	hu	cikk osztályzását végezte
-phpbrain	common	hu	Tudástár
-please rate the pertinence and quality of this article	phpbrain	hu	Kérem osztályozza a cikk hasznosságát és minõségét
-please try again	phpbrain	hu	Kérem próbálja újra
+latest comments	phpbrain	hu	Legfrissebb hozzÃ¡szÃ³lÃ¡sok
+leave empty to automatically generate an id	phpbrain	hu	Hagyja Ã¼resen automatikus azonosÃ­tÃ³ generÃ¡lÃ¡shoz
+link could not be added	phpbrain	hu	HivatkozÃ¡s nem adhatÃ³ hozzÃ¡
+link deleted successfully	phpbrain	hu	HivatkozÃ¡s sikeresen tÃ¶rÃ¶lve
+link has been added	phpbrain	hu	HivatkozÃ¡s hozzÃ¡adva
+links	phpbrain	hu	HivatkozÃ¡sok
+links & files	phpbrain	hu	HivatkozÃ¡sok Ã©s Ã¡llomÃ¡nyok
+mail article	phpbrain	hu	Cikk kÃ¼ldÃ©se emailben
+main view	phpbrain	hu	FÅ‘ nÃ©zet
+maintain articles	phpbrain	hu	Cikkek karbantartÃ¡sa
+maintain questions	phpbrain	hu	KÃ©rdÃ©sek karbantartÃ¡sa
+maximum number of comments to show:	phpbrain	hu	MegjelenÃ­tendÅ‘ hozzÃ¡szÃ³lÃ¡sok maximÃ¡lis szÃ¡ma:
+maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	hu	LegnÃ©pszerÅ±bb cikkek, legÃºjabb cikkek Ã©s megvÃ¡laszolatlan kÃ©rdÃ©sek megjelenÃ©sÃ©nek maximÃ¡lis szÃ¡ma a fÅ‘kÃ©pernyÅ‘n
+modification date	phpbrain	hu	MÃ³dosÃ­tÃ¡s dÃ¡tuma
+most viewed	phpbrain	hu	LegtÃ¶bbet megjelenÃ­tett
+new article	phpbrain	hu	Ãšj cikk
+nobody has rated this article so far	phpbrain	hu	Senki sem osztÃ¡lyozta a cikket
+nothing was uploaded!	phpbrain	hu	Semmi sem kerÃ¼l feltÃ¶ltÃ©sre!
+number of results per page	phpbrain	hu	TalÃ¡latok szÃ¡ma
+ocurrences	phpbrain	hu	ElÅ‘fordulÃ¡s
+or browse the categories	phpbrain	hu	KategÃ³riÃ¡k bÃ¶ngÃ©szÃ©se
+order results by	phpbrain	hu	TalÃ¡latok rendezÃ©se
+outstanding published questions	phpbrain	hu	Nyitott kÃ©rdÃ©sek
+past %1 months	phpbrain	hu	elmÃºlt %1 hÃ³nap
+past year	phpbrain	hu	mÃºlt Ã©v
+people have rated this article	phpbrain	hu	cikk osztÃ¡lyzÃ¡sÃ¡t vÃ©gezte
+phpbrain	common	hu	TudÃ¡stÃ¡r
+please rate the pertinence and quality of this article	phpbrain	hu	KÃ©rem osztÃ¡lyozza a cikk hasznossÃ¡gÃ¡t Ã©s minÅ‘sÃ©gÃ©t
+please try again	phpbrain	hu	KÃ©rem prÃ³bÃ¡lja Ãºjra
 poor	phpbrain	hu	Gyenge
-printer view	phpbrain	hu	Nyomtatási kép
-problem relating articles	phpbrain	hu	Probléma a más cikkre utalással
-publication date	phpbrain	hu	Publikáció dátuma
-publish	phpbrain	hu	Publikál
-publish articles automatically?	common	hu	Cikkek automatikusan publikálásra kerüljenek?
-publish comments automatically?	common	hu	Kommentárok automatikusan publikálásra kerüljenek?
-publish questions automatically?	common	hu	Kérdések automatikusan publikálásra kerüljenek?
-publish selected	phpbrain	hu	Publikálás kiválasztva
-published	phpbrain	hu	Publikálva
-question deleted successfully	phpbrain	hu	Kérdés sikeresen törölve
-questions deleted successfully	phpbrain	hu	Kérdések sikeresen törölve
-rating has been submited	phpbrain	hu	Osztályzás elküldve
-rating invalid	phpbrain	hu	Osztályzás nem érvényes
-recipient	phpbrain	hu	Címzett
-related articles in the knowledge base	phpbrain	hu	Kapcsolt cikkek a Tudástárban
-relation with article was removed successfully	phpbrain	hu	Cikkre hivatkozás sikeresen törölve
-removed file %1	phpbrain	hu	%1 állomány törölve
-removed link %1	phpbrain	hu	%1 hivatkozás törölve
-reply-to	phpbrain	hu	Válasz
-search in all the knowledge base	phpbrain	hu	Keresés a Tudástárban
-search results	phpbrain	hu	Keresési eredmények
-see more questions	phpbrain	hu	Több kérdés mutatása
-see more questions...	phpbrain	hu	Több kérdés mutatása ...
-select articles	phpbrain	hu	Cikkek kiválasztása
-show all comments	phpbrain	hu	Összes kommentár mutatása
-show articles belonging to:	phpbrain	hu	Hozzátartozó cikkek mutatása:
-show messages in category	phpbrain	hu	Kategóriában szereplõ cikkek mutatása
-submit comment	phpbrain	hu	Kommentár elküldése
-submit comment and rating	phpbrain	hu	Kommentár és osztályzat küldése
-suggested category	phpbrain	hu	Javasolt kategória
-summary	phpbrain	hu	Összefoglaló
-that file already exists	phpbrain	hu	Az állomány már létezik
-the article id must be a number	phpbrain	hu	Az állomány azonosító szám kell legyen
-the article is empty	phpbrain	hu	A cikk üres
-the file was already missing in the server	phpbrain	hu	Az állomány már hiányzik a fájlrendszerbõl
-the following errors occurred	phpbrain	hu	A következõ hiba történt
-the mail server returned:	phpbrain	hu	A levelezõszerver válasza:
-the present category and all subcategories under it	phpbrain	hu	Jelenlegi kategória és a hozzá tartozó összes alkategória
-the present category only	phpbrain	hu	Csak a jelenlegi kategória
-there are no articles	phpbrain	hu	Cikkek nem találhatóak
-there are no articles available	phpbrain	hu	Cikkek nem találhatóak
-this article hasn't yet been published in the knowledge base	phpbrain	hu	A cikk még nem került publikálásra a Tudástárban
-title	phpbrain	hu	Cím
-to create categories, press 'edit categories' in the preferences menu	phpbrain	hu	Kategória létrehozása a 'Kategóriák szerkesztése' menüpont alatt végezhetõ el
-topic	phpbrain	hu	Alcím
-unable to add rating to database	phpbrain	hu	Osztályzat hozzáadása az adatbázishoz nem lehetséges
-unanswered questions	phpbrain	hu	Megválaszolatlan kérdések
-unpublish	phpbrain	hu	Publikálás visszavonása
-unpublished	phpbrain	hu	publikálatlan
-user preferences	phpbrain	hu	Felhasználó beállításai
-views	phpbrain	hu	nézetek
-was it easy to find this article using the above search string?	phpbrain	hu	Könnyû volt megtalálni ezt a cikket a fenti keresési szöveggel?
-when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	hu	Kategóriák közötti navigáláskor kiválasztható, hogy csak az aktuális kategória cikkei jelenjenek meg, vagy az összes alkategóriáé is.
-with all the words	phpbrain	hu	Összes szó egyezése
-with at least one of the words	phpbrain	hu	Legalább egy szó egyezés
-with the exact phrase	phpbrain	hu	Pontos kifejezésre
-without the words	phpbrain	hu	Ezen szavak kivételével
-you are in %1	phpbrain	hu	Aktuális hely %1
-you have already qualified this article	phpbrain	hu	Már minõsítette ezt a cikket
-you have not the proper permissions to do that	phpbrain	hu	Nincs engedélye elvégezni a mûveletet
-you must enter a title	phpbrain	hu	Cím megadása szükséges
-you must enter a topic	phpbrain	hu	Alcím megadása szükséges
-your message could not be sent!	phpbrain	hu	Az üzenet nem került elküldésre!
-your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	hu	A kérdés elküldve jóváhagyásra. Jóváhagyás után a cikk publikálásra kerül
-your question will be published immediately	phpbrain	hu	A kérdés azonnal publikálásra kerül
+printer view	phpbrain	hu	NyomtatÃ¡si kÃ©p
+problem relating articles	phpbrain	hu	ProblÃ©ma a mÃ¡s cikkre utalÃ¡ssal
+publication date	phpbrain	hu	PublikÃ¡ciÃ³ dÃ¡tuma
+publish	phpbrain	hu	PublikÃ¡l
+publish articles automatically?	common	hu	Cikkek automatikusan publikÃ¡lÃ¡sra kerÃ¼ljenek?
+publish comments automatically?	common	hu	HozzÃ¡szÃ³lÃ¡sok automatikusan publikÃ¡lÃ¡sra kerÃ¼ljenek?
+publish questions automatically?	common	hu	KÃ©rdÃ©sek automatikusan publikÃ¡lÃ¡sra kerÃ¼ljenek?
+publish selected	phpbrain	hu	PublikÃ¡lÃ¡s kivÃ¡lasztva
+published	phpbrain	hu	PublikÃ¡lva
+question deleted successfully	phpbrain	hu	KÃ©rdÃ©s sikeresen tÃ¶rÃ¶lve
+questions deleted successfully	phpbrain	hu	KÃ©rdÃ©sek sikeresen tÃ¶rÃ¶lve
+rating has been submited	phpbrain	hu	OsztÃ¡lyzat elkÃ¼ldve
+rating invalid	phpbrain	hu	OsztÃ¡lyzat nem Ã©rvÃ©nyes
+recipient	phpbrain	hu	CÃ­mzett
+related articles in the knowledge base	phpbrain	hu	KapcsolÃ³dÃ³ cikkek a TudÃ¡stÃ¡rban
+relation with article was removed successfully	phpbrain	hu	Cikkre hivatkozÃ¡s sikeresen tÃ¶rÃ¶lve
+removed file %1	phpbrain	hu	%1 Ã¡llomÃ¡ny tÃ¶rÃ¶lve
+removed link %1	phpbrain	hu	%1 hivatkozÃ¡s tÃ¶rÃ¶lve
+reply-to	phpbrain	hu	VÃ¡lasz
+search in all the knowledge base	phpbrain	hu	KeresÃ©s a TudÃ¡stÃ¡rban
+search results	phpbrain	hu	KeresÃ©si eredmÃ©nyek
+see more questions	phpbrain	hu	TÃ¶bb kÃ©rdÃ©s mutatÃ¡sa
+see more questions...	phpbrain	hu	TÃ¶bb kÃ©rdÃ©s mutatÃ¡sa ...
+select articles	phpbrain	hu	Cikkek kivÃ¡lasztÃ¡sa
+show all comments	phpbrain	hu	Ã–sszes hozzÃ¡szÃ³lÃ¡s mutatÃ¡sa
+show articles belonging to:	phpbrain	hu	HozzÃ¡tartozÃ³ cikkek mutatÃ¡sa:
+show messages in category	phpbrain	hu	KategÃ³riÃ¡ban szereplÅ‘ cikkek mutatÃ¡sa
+submit comment	phpbrain	hu	HozzÃ¡szÃ³lÃ¡s elkÃ¼ldÃ©se
+submit comment and rating	phpbrain	hu	HozzÃ¡szÃ³lÃ¡s Ã©s osztÃ¡lyzat kÃ¼ldÃ©se
+suggested category	phpbrain	hu	Javasolt kategÃ³ria
+summary	phpbrain	hu	Ã–sszefoglalÃ³
+that file already exists	phpbrain	hu	Az Ã¡llomÃ¡ny mÃ¡r lÃ©tezik
+the article id must be a number	phpbrain	hu	Az Ã¡llomÃ¡ny azonosÃ­tÃ³ szÃ¡m kell legyen
+the article is empty	phpbrain	hu	A cikk Ã¼res
+the file was already missing in the server	phpbrain	hu	Az Ã¡llomÃ¡ny mÃ¡r hiÃ¡nyzik a fÃ¡jlrendszerbÅ‘l
+the following errors occurred	phpbrain	hu	A kÃ¶vetkezÅ‘ hiba tÃ¶rtÃ©nt
+the mail server returned:	phpbrain	hu	A levelezÅ‘szerver vÃ¡lasza:
+the present category and all subcategories under it	phpbrain	hu	Jelenlegi kategÃ³ria Ã©s a hozzÃ¡ tartozÃ³ Ã¶sszes alkategÃ³ria
+the present category only	phpbrain	hu	Csak a jelenlegi kategÃ³ria
+there are no articles	phpbrain	hu	Cikkek nem talÃ¡lhatÃ³ak
+there are no articles available	phpbrain	hu	Cikkek nem talÃ¡lhatÃ³ak
+this article hasn't yet been published in the knowledge base	phpbrain	hu	A cikk mÃ©g nem kerÃ¼lt publikÃ¡lÃ¡sra a TudÃ¡stÃ¡rban
+title	phpbrain	hu	CÃ­m
+to create categories, press 'edit categories' in the preferences menu	phpbrain	hu	KategÃ³ria lÃ©trehozÃ¡sa a 'KategÃ³riÃ¡k szerkesztÃ©se' menÃ¼pont alatt vÃ©gezhetÅ‘ el
+topic	phpbrain	hu	TÃ©ma
+unable to add rating to database	phpbrain	hu	OsztÃ¡lyzat hozzÃ¡adÃ¡sa az adatbÃ¡zishoz nem lehetsÃ©ges
+unanswered questions	phpbrain	hu	MegvÃ¡laszolatlan kÃ©rdÃ©sek
+unpublish	phpbrain	hu	PublikÃ¡lÃ¡s visszavonÃ¡sa
+unpublished	phpbrain	hu	publikÃ¡latlan
+user preferences	phpbrain	hu	FelhasznÃ¡lÃ³ beÃ¡llÃ­tÃ¡sai
+views	phpbrain	hu	nÃ©zetek
+was it easy to find this article using the above search string?	phpbrain	hu	KÃ¶nnyÅ± volt megtalÃ¡lni ezt a cikket a fenti keresÃ©si szÃ¶veggel?
+when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	hu	KategÃ³riÃ¡k kÃ¶zÃ¶tti navigÃ¡lÃ¡skor kivÃ¡laszthatÃ³, hogy csak az aktuÃ¡lis kategÃ³ria cikkei jelenjenek meg, vagy az Ã¶sszes alkategÃ³riÃ¡Ã© is.
+with all the words	phpbrain	hu	Ã–sszes szÃ³ egyezÃ©se
+with at least one of the words	phpbrain	hu	LegalÃ¡bb egy szÃ³ egyezÃ©s
+with the exact phrase	phpbrain	hu	Pontos kifejezÃ©sre
+without the words	phpbrain	hu	Ezen szavak kivÃ©telÃ©vel
+you are in %1	phpbrain	hu	AktuÃ¡lis hely %1
+you have already qualified this article	phpbrain	hu	MÃ¡r minÅ‘sÃ­tette ezt a cikket
+you have not the proper permissions to do that	phpbrain	hu	Nincs engedÃ©lye elvÃ©gezni a mÅ±veletet
+you must enter a title	phpbrain	hu	CÃ­m megadÃ¡sa szÃ¼ksÃ©ges
+you must enter a topic	phpbrain	hu	TÃ©ma megadÃ¡sa szÃ¼ksÃ©ges
+your message could not be sent!	phpbrain	hu	Az Ã¼zenet nem kerÃ¼lt elkÃ¼ldÃ©sre!
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	hu	A kÃ©rdÃ©s elkÃ¼ldve jÃ³vÃ¡hagyÃ¡sra. JÃ³vÃ¡hagyÃ¡s utÃ¡n a cikk publikÃ¡lÃ¡sra kerÃ¼l
+your question will be published immediately	phpbrain	hu	A kÃ©rdÃ©s azonnal publikÃ¡lÃ¡sra kerÃ¼l
