@@ -152,7 +152,7 @@ show messages in category	phpbrain	ru	Показать сообщения в категории
 submit comment	phpbrain	ru	Отправить комментарий
 submit comment and rating	phpbrain	ru	Отправить комментарий и рейтинг
 suggested category	phpbrain	ru	Предложенная категория
-summary	phpbarin	ru	Итог
+summary	phpbrain	ru	Итог
 that file already exists	phpbrain	ru	Этот файл уже существует
 the article id must be a number	phpbrain	ru	Идентификатор статьи должен быть числом
 the article is empty	phpbrain	ru	Статья пуста
@@ -165,13 +165,13 @@ there are no articles	phpbrain	ru	Нет статей
 there are no articles available	phpbrain	ru	Нет доступных статей
 this article hasn't yet been published in the knowledge base	phpbrain	ru	Статья не была еще опубликована в Базе Знаний
 title	phpbrain	ru	Заголовок
-to create categories, press 'edit categories' in the preferences menu	phpbrain	ru	Для создания категорий выберике 'Редактировать Категории' в меню предпочтений
+to create categories, press 'edit categories' in the preferences menu	phpbrain	ru	Для создания категорий выберике 'Редактировать Категории' в меню настроек
 topic	phpbrain	ru	Тема
 unable to add rating to database	phpbrain	ru	Невозможно добавить рейтинг в базу данных
 unanswered questions	phpbrain	ru	Неотвеченные вопросы
 unpublish	phpbrain	ru	Не публиковать
 unpublished	phpbrain	ru	Неопубликовано
-user preferences	phpbrain	ru	Предпочтения пользователя
+user preferences	phpbrain	ru	Настройки пользователя
 views	phpbrain	ru	просмотров
 was it easy to find this article using the above search string?	phpbrain	ru	Облегчила ли задачу по поиску данной статьи строка поиска внизу?
 when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	ru	Когда будете перемещаться по категориям, выберите, соответствует ли список статей только настоящей категории, или же настоящей категории и всем её подкатегориям
