@@ -111,7 +111,7 @@
 			);
 			if ($publish_filter && $publish_filter != 'all') 
 			{
-				$where['published'] = (int)$publish_filter == 'published';
+				$where['published'] = (int) ($publish_filter == 'published');
 			}
 			$fields = '*';
 			$fields .= ",(SELECT count(*) FROM phpgw_kb_files WHERE art_id=phpgw_kb_articles.art_id) AS files";
