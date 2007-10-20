@@ -1141,6 +1141,7 @@
 			if ($test[0]['name'])
 			{
 				// the file is in the server, proceed to rm it
+				$GLOBALS['phpgw']->vfs->override_acl = 1; // No acl set in upload (has edit rights)
 				$remove = $GLOBALS['phpgw']->vfs->rm(array(
 					'string'	=> '/kb/' . $file,
 					'relatives'	=> array(RELATIVE_NONE)
