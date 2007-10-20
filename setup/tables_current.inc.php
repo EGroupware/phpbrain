@@ -12,8 +12,8 @@
   /* $Id$ */
 
 
-	$phpgw_baseline = array(
-		'phpgw_kb_articles' => array(
+	$egw_baseline = array(
+		'egw_kb_articles' => array(
 			'fd' => array(
 				'art_id' => array('type' => 'auto','nullable' => False),
 				'q_id' => array('type' => 'int','precision' => '8','nullable' => False),
@@ -38,11 +38,11 @@
 			'ix' => array(),
 			'uc' => array()
 		),
-		'phpgw_kb_comment' => array(
+		'egw_kb_comment' => array(
 			'fd' => array(
 				'comment_id' => array('type' => 'auto','nullable' => False),
 				'user_id' => array('type' => 'int','precision' => '4','nullable' => False),
-				'comment' => array('type' => 'text','nullable' => False),
+				'kb_comment' => array('type' => 'text','nullable' => False),
 				'entered' => array('type' => 'int','precision' => '4','nullable' => True),
 				'art_id' => array('type' => 'int','precision' => '4','nullable' => False),
 				'published' => array('type' => 'int','precision' => '2','nullable' => False)
@@ -52,7 +52,7 @@
 			'ix' => array('art_id'),
 			'uc' => array()
 		),
-		'phpgw_kb_questions' => array(
+		'egw_kb_questions' => array(
 			'fd' => array(
 				'question_id' => array('type' => 'auto','nullable' => False),
 				'user_id' => array('type' => 'int','precision' => '4','nullable' => False),
@@ -67,7 +67,7 @@
 			'ix' => array(),
 			'uc' => array()
 		),
-		'phpgw_kb_ratings' => array(
+		'egw_kb_ratings' => array(
 			'fd' => array(
 				'user_id' => array('type' => 'int','precision' => '4','nullable' => False),
 				'art_id' => array('type' => 'int','precision' => '4','nullable' => False)
@@ -77,7 +77,7 @@
 			'ix' => array(),
 			'uc' => array()
 		),
-		'phpgw_kb_related_art' => array(
+		'egw_kb_related_art' => array(
 			'fd' => array(
 				'art_id' => array('type' => 'int','precision' => '4','nullable' => False),
 				'related_art_id' => array('type' => 'int','precision' => '4','nullable' => False)
@@ -87,7 +87,7 @@
 			'ix' => array(),
 			'uc' => array()
 		),
-		'phpgw_kb_search' => array(
+		'egw_kb_search' => array(
 			'fd' => array(
 				'keyword' => array('type' => 'varchar','precision' => '30','nullable' => False),
 				'art_id' => array('type' => 'int','precision' => '4','nullable' => False),
@@ -98,7 +98,7 @@
 			'ix' => array(),
 			'uc' => array()
 		),
-		'phpgw_kb_files' => array(
+		'egw_kb_files' => array(
 			'fd' => array(
 				'art_id' => array('type' => 'int','precision' => '4'),
 				'art_file' => array('type' => 'varchar','precision' => '255'),
@@ -109,7 +109,7 @@
 			'ix' => array(),
 			'uc' => array()
 		),
-		'phpgw_kb_urls' => array(
+		'egw_kb_urls' => array(
 			'fd' => array(
 				'art_id' => array('type' => 'int','precision' => '4'),
 				'art_url' => array('type' => 'varchar','precision' => '255'),

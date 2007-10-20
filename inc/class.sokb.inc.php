@@ -114,7 +114,7 @@
 				$where['published'] = (int)$publish_filter == 'published';
 			}
 			$fields = '*';
-			$fields .= ",(SELECT count(*) FROM phpgw_kb_files WHERE art_id=phpgw_kb_articles.art_id) AS files";
+			$fields .= ",(SELECT count(*) FROM egw_kb_files WHERE art_id=egw_kb_articles.art_id) AS files";
 
 			if ($query)
 			{
@@ -125,7 +125,7 @@
 
 					if ((int)$word) 
 					{
-						$likes[] = 'phpgw_kb_articles.art_id='.(int)$word;
+						$likes[] = 'egw_kb_articles.art_id='.(int)$word;
 						continue;	// numbers are only searched as article-id
 					}
 					foreach(array('title','topic','text') as $col)
@@ -133,7 +133,7 @@
 						$likes[] = $col.' '.$this->like.' '.$this->db->quote('%'.$word.'%');
 					} 
 				}
-				$score = 'SELECT sum(score) FROM phpgw_kb_search WHERE art_id=phpgw_kb_articles.art_id AND ('.implode(' OR ',$scores).')';
+				$score = 'SELECT sum(score) FROM egw_kb_search WHERE art_id=egw_kb_articles.art_id AND ('.implode(' OR ',$scores).')';
 				$fields .= ",($score) AS pertinence";
 				
 				$where[] = "(($score) > 0 OR ".implode(' OR ',$likes).')';
@@ -153,10 +153,10 @@
 			}
 			$order_sql = ' ORDER BY ' . implode(',', $order_sql);
 
-			$this->db->select('phpgw_kb_articles','COUNT(*)',$where,__LINE__,__FILE__);
+			$this->db->select('egw_kb_articles','COUNT(*)',$where,__LINE__,__FILE__);
 			$this->num_rows = $this->db->next_record() ? $this->db->f(0) : 0;
 			
-			$this->db->select('phpgw_kb_articles',$fields,$where,__LINE__,__FILE__,$start,$order_sql);
+			$this->db->select('egw_kb_articles',$fields,$where,__LINE__,__FILE__,$start,$order_sql);
 			$this->db->query($sql, __LINE__, __FILE__,$start,0);
 
 			return $this->results_to_array($dummy);
@@ -167,16 +167,16 @@
 
 			// We use COALESCE (VALUE in case of maxdb) to turn NULLs into zeros, to avoid some databases (postgres and maxdb, don't know about mssql)
 			// to sort records with score NULL before records with a score > 0.
-			$score = (($this->db->Type == 'maxdb')? 'VALUE(SUM(phpgw_kb_search.score), 0)' : 'SUM(COALESCE(phpgw_kb_search.score))') . ' AS pertinence';
+			$score = (($this->db->Type == 'maxdb')? 'VALUE(SUM(egw_kb_search.score), 0)' : 'SUM(COALESCE(egw_kb_search.score))') . ' AS pertinence';
             // have to figure out later if maxdb is broken here...
 			$files_field = (($this->db->Type == 'maxdb')? 'VALUE(art_file)' : 'COUNT(COALESCE(art_file))') . ' AS files';
 
-			$fields = array('phpgw_kb_articles.art_id', 'title', 'topic', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5', $score, $files_field);
+			$fields = array('egw_kb_articles.art_id', 'title', 'topic', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5', $score, $files_field);
 			$fields_str = implode(', ', $fields);
 			$owners = implode(', ', $owners);
 
-			$sql = "SELECT $fields_str FROM phpgw_kb_articles LEFT JOIN phpgw_kb_search ON phpgw_kb_articles.art_id=phpgw_kb_search.art_id ";
-            $sql .= "LEFT JOIN phpgw_kb_files ON phpgw_kb_articles.art_id=phpgw_kb_files.art_id ";
+			$sql = "SELECT $fields_str FROM egw_kb_articles LEFT JOIN egw_kb_search ON egw_kb_articles.art_id=egw_kb_search.art_id ";
+            $sql .= "LEFT JOIN egw_kb_files ON egw_kb_articles.art_id=egw_kb_files.art_id ";
             
  			$sql .= "WHERE user_id IN ($owners)";
 			if ($publish_filter && $publish_filter!='all') 
@@ -207,7 +207,7 @@
 				{
 					if ((int)$word) 
 					{
-						$likes[] = "phpgw_kb_articles.art_id='$word'";
+						$likes[] = "egw_kb_articles.art_id='$word'";
 						break;
 					}
 					$likes[] = "title {$this->like} '%$word%' OR topic {$this->like} '%$word%' OR text {$this->like} '%$word%'";
@@ -226,7 +226,7 @@
 			}
 
 			// Group by on all fields to return unique records and calculate pertinence scores
-			$groupby = " GROUP BY phpgw_kb_articles.art_id, title, topic, views, cat_id, published, user_id, created, modified, votes_1, votes_2, votes_3, votes_4, votes_5";
+			$groupby = " GROUP BY egw_kb_articles.art_id, title, topic, views, cat_id, published, user_id, created, modified, votes_1, votes_2, votes_3, votes_4, votes_5";
 			$order_sql = array();
 			if ($order)
 			{
@@ -290,12 +290,12 @@
 		*/
 		function adv_search_articles($owners, $cats_ids, $ocurrences, $pub_date, $start, $num_res, $all_words, $phrase, $one_word, $without_words, $cat, $include_subs)
 		{
-			$fields= array('phpgw_kb_articles.art_id', 'title', 'topic', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2',  'votes_3', 'votes_4', 'votes_5');
+			$fields= array('egw_kb_articles.art_id', 'title', 'topic', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2',  'votes_3', 'votes_4', 'votes_5');
 			$fields_str	= implode(' , ', $fields);
 
 			// permissions filtering
 			$owners	= implode(', ', $owners);
-			$sql = "SELECT DISTINCT $fields_str FROM phpgw_kb_articles LEFT JOIN phpgw_kb_search ON phpgw_kb_articles.art_id=phpgw_kb_search.art_id WHERE user_id IN ($owners)";
+			$sql = "SELECT DISTINCT $fields_str FROM egw_kb_articles LEFT JOIN egw_kb_search ON egw_kb_articles.art_id=egw_kb_search.art_id WHERE user_id IN ($owners)";
 
 			// categories filtering
 			$cats_ids	= implode (',', $cats_ids);
@@ -446,7 +446,7 @@
 		}
 
 		/**
-		* Upgrades the keywords in the phpgw_kb_search table
+		* Upgrades the keywords in the egw_kb_search table
 		*
 		* @author	Ralf Becker
 		* @access	public
@@ -460,8 +460,8 @@
 			$words = array_diff(explode(' ',$words),array(''));
 
 			// delete all existing and NOT longer mentioned keywords
-			$this->db->delete('phpgw_kb_search',!$words ? array('art_id' => $art_id) :
-				$this->db->expression('phpgw_kb_search',array('art_id' => $art_id),' AND NOT ',array('keyword'=>$words)),
+			$this->db->delete('egw_kb_search',!$words ? array('art_id' => $art_id) :
+				$this->db->expression('egw_kb_search',array('art_id' => $art_id),' AND NOT ',array('keyword'=>$words)),
 				__LINE__,__FILE__);
 				
 			foreach($words as $word)
@@ -471,7 +471,7 @@
 		}
 
 		/**
-		* Upgrades phpgw_kb_search table given user input
+		* Upgrades egw_kb_search table given user input
 		*
 		* @author	Alejandro Pedraza
 		* @access	public
@@ -485,7 +485,7 @@
 			$word = $this->db->db_addslashes(substr($word, 0, 30));
 
 			// retrieve current score
-			$sql = "SELECT score FROM phpgw_kb_search WHERE keyword='$word' AND art_id=$art_id";
+			$sql = "SELECT score FROM egw_kb_search WHERE keyword='$word' AND art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 			$keyword_exists = $this->db->next_record();
 			if ($keyword_exists && $upgrade_key != 'same')
@@ -493,13 +493,13 @@
 				// upgrade score
 				$old_score = $this->db->f('score');
 				$new_score = $upgrade_key ? $old_score + 1 : $old_score - 1;
-				$sql = "UPDATE phpgw_kb_search SET score=$new_score WHERE keyword='$word' AND art_id=$art_id";
+				$sql = "UPDATE egw_kb_search SET score=$new_score WHERE keyword='$word' AND art_id=$art_id";
 				$this->db->query($sql, __LINE__, __FILE__);
 			}
 			elseif (!$keyword_exists || $upgrade_key != 'same')
 			{
 				// create new entry for word
-				$sql = "INSERT INTO phpgw_kb_search (keyword, art_id, score) VALUES('$word', $art_id, 1)";
+				$sql = "INSERT INTO egw_kb_search (keyword, art_id, score) VALUES('$word', $art_id, 1)";
 				$this->db->query($sql, __LINE__, __FILE__);
 			}
 		}
@@ -524,7 +524,7 @@
 			$fields = array('question_id', 'user_id', 'summary', 'details', 'cat_id', 'creation', 'published');
 			$fields_str = implode(', ', $fields);
 			$owners = implode(', ', $owners);
-			$sql = "SELECT $fields_str FROM phpgw_kb_questions WHERE user_id IN ($owners)";
+			$sql = "SELECT $fields_str FROM egw_kb_questions WHERE user_id IN ($owners)";
 			if ($publish_filter && $publish_filter!='all') 
 			{
 				($publish_filter == 'published')? $publish_filter = 1 : $publish_filter = 0;
@@ -584,7 +584,7 @@
 			{
 				($publish)? $publish = 1 : $publish = 0;
 				$q_id = $contents['answering_question']? $contents['answering_question'] : 0;
-				$sql = "INSERT INTO phpgw_kb_articles (q_id, title, topic, text, cat_id, published, user_id, created, modified, modified_user_id, votes_1, votes_2, votes_3, votes_4, votes_5) VALUES ("
+				$sql = "INSERT INTO egw_kb_articles (q_id, title, topic, text, cat_id, published, user_id, created, modified, modified_user_id, votes_1, votes_2, votes_3, votes_4, votes_5) VALUES ("
 						. "$q_id, '"
 						. $this->db->db_addslashes($contents['title']) . "', '"
 						. $this->db->db_addslashes($contents['topic']) . "', '"
@@ -596,15 +596,15 @@
 						. $GLOBALS['phpgw_info']['user']['account_id'] . ", "
 						. " 0, 0, 0, 0, 0)";
 				$this->db->query($sql, __LINE__, __FILE__);
-				$article_id = $this->db->get_last_insert_id('phpgw_kb_articles', 'art_id');
+				$article_id = $this->db->get_last_insert_id('egw_kb_articles', 'art_id');
 
-				// update table phpgw_kb_search with keywords. Even if no keywords were introduced, generate an entry
+				// update table egw_kb_search with keywords. Even if no keywords were introduced, generate an entry
 				$this->update_keywords($article_id, $contents['keywords'], 'same');
 
 				// if publication is automatic and the article answers a question, delete the question
 				if ($publish && $contents['answering_question'])
 				{
-					$sql = "DELETE FROM phpgw_kb_questions WHERE question_id=$q_id";
+					$sql = "DELETE FROM egw_kb_questions WHERE question_id=$q_id";
 					$this->db->query($sql, __LINE__, __FILE__);
 				}
 
@@ -612,7 +612,7 @@
 			}
 			else
 			{
-				$sql = "UPDATE phpgw_kb_articles SET "
+				$sql = "UPDATE egw_kb_articles SET "
 						." title='" . $this->db->db_addslashes($contents['title'])
 						."', topic='" . $this->db->db_addslashes($contents['topic'])
 						."', text='" . $this->db->db_addslashes($contents['text'])
@@ -649,7 +649,7 @@
 		**/
 		function change_articles_owner($owner, $new_owner)
 		{
-			$sql = "UPDATE phpgw_kb_articles SET user_id='$new_owner' WHERE user_id='$owner'";
+			$sql = "UPDATE egw_kb_articles SET user_id='$new_owner' WHERE user_id='$owner'";
 			$this->db->query($sql, __LINE__, __FILE__);
 		}
 
@@ -663,7 +663,7 @@
 		**/
 		function delete_article($art_id)
 		{
-			$sql = "DELETE FROM phpgw_kb_articles WHERE art_id=$art_id";
+			$sql = "DELETE FROM egw_kb_articles WHERE art_id=$art_id";
 			if (!$this->db->query($sql, __LINE__, __FILE__)) return 0;
 			return 1;
 		}
@@ -678,7 +678,7 @@
 		**/
 		function delete_question($q_id)
 		{
-			$sql = "DELETE FROM phpgw_kb_questions WHERE question_id=$q_id";
+			$sql = "DELETE FROM egw_kb_questions WHERE question_id=$q_id";
 			if (!$this->db->query($sql, __LINE__, __FILE__)) return 0;
 			return 1;
 		}
@@ -693,7 +693,7 @@
 		*/
 		function get_latest_articles($parent_cat)
 		{
-			$sql = "SELECT art_id, title, topic, text, modified, votes_1, votes_2, votes_3, votes_4, votes_5 FROM phpgw_kb_articles";
+			$sql = "SELECT art_id, title, topic, text, modified, votes_1, votes_2, votes_3, votes_4, votes_5 FROM egw_kb_articles";
 			$this->db->query($sql, __LINE__, __FILE__);
 
 			$articles = array();
@@ -725,7 +725,7 @@
 			$fields = array('art_id', 'title', 'topic', 'text', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'modified_user_id', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5');
 			$fields_str = implode(", ", $fields);
 
-			$sql =	"SELECT $fields_str FROM phpgw_kb_articles WHERE art_id=$art_id";
+			$sql =	"SELECT $fields_str FROM egw_kb_articles WHERE art_id=$art_id";
 			//echo "sql: $sql <br>";
 			$this->db->query($sql, __LINE__, __FILE__);
 			$article = array();
@@ -736,7 +736,7 @@
 			}
 
 			// get article's attached files names
-			$this->db->query("SELECT art_file, art_file_comments FROM phpgw_kb_files WHERE art_id=$art_id", __LINE__, __FILE__);
+			$this->db->query("SELECT art_file, art_file_comments FROM egw_kb_files WHERE art_id=$art_id", __LINE__, __FILE__);
 			$article['files'] = array();
 			$i = 0;
 			while ($this->db->next_record())
@@ -747,7 +747,7 @@
 			}
 
 			// get article's attached urls
-			$this->db->query("SELECT art_url, art_url_title FROM phpgw_kb_urls WHERE art_id=$art_id", __LINE__, __FILE__);
+			$this->db->query("SELECT art_url, art_url_title FROM egw_kb_urls WHERE art_id=$art_id", __LINE__, __FILE__);
 			$article['urls'] = array();
 			$i = 0;
 			while ($this->db->next_record())
@@ -758,7 +758,7 @@
 			}
 
 			// get article's keywords
-			$this->db->query("SELECT keyword FROM phpgw_kb_search WHERE art_id=$art_id", __LINE__, __FILE__);
+			$this->db->query("SELECT keyword FROM egw_kb_search WHERE art_id=$art_id", __LINE__, __FILE__);
 			$article['keywords'] = array();
 			while ($this->db->next_record())
 			{
@@ -791,7 +791,7 @@
 		**/
 		function get_articles_ids($owner)
 		{
-			$sql = "SELECT art_id FROM phpgw_kb_articles WHERE user_id=$owner";
+			$sql = "SELECT art_id FROM egw_kb_articles WHERE user_id=$owner";
 			$this->db->query($sql, __LINE__, __FILE__);
 			$articles_ids = array();
 			while ($this->db->next_record())
@@ -812,7 +812,7 @@
 		function register_view($art_id, $current_count)
 		{
 			$current_count ++;
-			$sql = "UPDATE phpgw_kb_articles SET views=$current_count WHERE art_id=$art_id";
+			$sql = "UPDATE egw_kb_articles SET views=$current_count WHERE art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 		}
 
@@ -826,9 +826,9 @@
 		*/
 		function get_comments($art_id, $limit)
 		{
-			$fields = array('comment_id', 'user_id', 'comment', 'entered', 'art_id', 'published');
+			$fields = array('comment_id', 'user_id', 'kb_comment', 'entered', 'art_id', 'published');
 			$fields_str = implode(", ", $fields);
-			$sql = "SELECT " . $fields_str . " FROM phpgw_kb_comment WHERE art_id=$art_id ORDER BY entered DESC";
+			$sql = "SELECT " . $fields_str . " FROM egw_kb_comment WHERE art_id=$art_id ORDER BY entered DESC";
 			$this->db->query($sql, __LINE__, __FILE__);
 			$this->num_comments = $this->db->num_rows();
 			if ($limit)
@@ -858,7 +858,7 @@
 		*/
 		function delete_comments($art_id)
 		{
-			$sql = "DELETE FROM phpgw_kb_comment WHERE art_id=$art_id";
+			$sql = "DELETE FROM egw_kb_comment WHERE art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 		}
 
@@ -872,12 +872,12 @@
 		*/
 		function delete_ratings($art_id)
 		{
-			$sql = "DELETE FROM phpgw_kb_ratings WHERE art_id=$art_id";
+			$sql = "DELETE FROM egw_kb_ratings WHERE art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 		}
 
 		/**
-		* Delete article's file entries in phpgw_kb_files
+		* Delete article's file entries in egw_kb_files
 		*
 		* @author	Alejandro Pedraza
 		* @access	public
@@ -893,7 +893,7 @@
 				$file_to_erase = $this->db->db_addslashes($file_to_erase);
 				$files = " AND art_file='$file_to_erase'";
 			}
-			$sql = "DELETE FROM phpgw_kb_files WHERE art_id=$art_id$files";
+			$sql = "DELETE FROM egw_kb_files WHERE art_id=$art_id$files";
 			$this->db->query($sql, __LINE__, __FILE__);
 			if ($this->db->affected_rows()) return True;
 			return False;
@@ -909,7 +909,7 @@
 		*/
 		function delete_urls($art_id)
 		{
-			$sql = "DELETE FROM phpgw_kb_urls WHERE art_id=$art_id";
+			$sql = "DELETE FROM egw_kb_urls WHERE art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 		}
 
@@ -925,7 +925,7 @@
 		function get_related_articles($art_id, $owners)
 		{
 			$owners = implode(', ', $owners);
-			$sql = "SELECT phpgw_kb_articles.art_id, phpgw_kb_articles.title FROM phpgw_kb_related_art, phpgw_kb_articles WHERE phpgw_kb_related_art.related_art_id=phpgw_kb_articles.art_id AND phpgw_kb_related_art.art_id=$art_id AND phpgw_kb_articles.user_id IN ($owners)";
+			$sql = "SELECT egw_kb_articles.art_id, egw_kb_articles.title FROM egw_kb_related_art, egw_kb_articles WHERE egw_kb_related_art.related_art_id=egw_kb_articles.art_id AND egw_kb_related_art.art_id=$art_id AND egw_kb_articles.user_id IN ($owners)";
 			$this->db->query($sql, __LINE__, __FILE__);
 			$related = array();
 			while ($this->db->next_record())
@@ -945,7 +945,7 @@
 		**/
 		function user_has_voted($art_id)
 		{
-			$sql = "SELECT * FROM phpgw_kb_ratings WHERE user_id=" . $GLOBALS['phpgw_info']['user']['account_id'] . " AND art_id=$art_id";
+			$sql = "SELECT * FROM egw_kb_ratings WHERE user_id=" . $GLOBALS['phpgw_info']['user']['account_id'] . " AND art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 			if ($this->db->next_record()) return 1;
 			return 0;
@@ -965,7 +965,7 @@
 		{
 			$comment = $this->db->db_addslashes($comment);
 			($publish)? $publish = 1 : $publish = 0;
-			$sql = "INSERT INTO phpgw_kb_comment (user_id, comment, entered, art_id, published) VALUES("
+			$sql = "INSERT INTO egw_kb_comment (user_id, kb_comment, entered, art_id, published) VALUES("
 					. $GLOBALS['phpgw_info']['user']['account_id'] . ", '$comment', " . time() . ", $art_id, $publish)";
 			$this->db->query($sql, __LINE__, __FILE__);
 			if (!$this->db->affected_rows()) return 0;
@@ -984,7 +984,7 @@
 		*/
 		function add_link($url, $title, $art_id)
 		{
-			$sql = "INSERT INTO phpgw_kb_urls (art_id, art_url, art_url_title) VALUES ($art_id, '$url', '$title')";
+			$sql = "INSERT INTO egw_kb_urls (art_id, art_url, art_url_title) VALUES ($art_id, '$url', '$title')";
 			$this->db->query($sql, __LINE__, __FILE__);
 			if (!$this->db->affected_rows()) return 0;
 			return 1;
@@ -1000,15 +1000,15 @@
 		**/
 		function publish_article($art_id)
 		{
-			$sql = "UPDATE phpgw_kb_articles SET published=1, created=". time() . ", modified=" . time() . " WHERE art_id=$art_id";
+			$sql = "UPDATE egw_kb_articles SET published=1, created=". time() . ", modified=" . time() . " WHERE art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 
 			// check if the article answers a question, and if so, delete it
-			$sql = "SELECT q_id FROM phpgw_kb_articles WHERE art_id=$art_id";
+			$sql = "SELECT q_id FROM egw_kb_articles WHERE art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 			if ($this->db->next_record())
 			{
-				$sql = "DELETE FROM phpgw_kb_questions WHERE question_id=".$this->db->f('q_id');
+				$sql = "DELETE FROM egw_kb_questions WHERE question_id=".$this->db->f('q_id');
 				$this->db->query($sql, __LINE__, __FILE__);
 			}
 
@@ -1025,7 +1025,7 @@
 		**/
 		function publish_question($q_id)
 		{
-			$sql = "UPDATE phpgw_kb_questions SET published=1 WHERE question_id=$q_id";
+			$sql = "UPDATE egw_kb_questions SET published=1 WHERE question_id=$q_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 			return ($this->db->affected_rows());
 		}
@@ -1041,7 +1041,7 @@
 		*/
 		function publish_comment($art_id, $comment_id)
 		{
-			$sql = "UPDATE phpgw_kb_comment SET published=1 WHERE art_id=$art_id AND comment_id=$comment_id";
+			$sql = "UPDATE egw_kb_comment SET published=1 WHERE art_id=$art_id AND comment_id=$comment_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 			return ($this->db->affected_rows());
 		}
@@ -1057,7 +1057,7 @@
 		*/
 		function delete_comment($art_id, $comment_id)
 		{
-			$sql = "DELETE FROM phpgw_kb_comment WHERE art_id=$art_id AND comment_id=$comment_id";
+			$sql = "DELETE FROM egw_kb_comment WHERE art_id=$art_id AND comment_id=$comment_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 			return ($this->db->affected_rows());
 		}
@@ -1074,7 +1074,7 @@
 		function delete_link($art_id, $delete_link)
 		{
 			$delete_link = $this->db->db_addslashes($delete_link);
-			$sql = "DELETE FROM phpgw_kb_urls WHERE art_id=$art_id AND art_url='$delete_link'";
+			$sql = "DELETE FROM egw_kb_urls WHERE art_id=$art_id AND art_url='$delete_link'";
 			$this->db->query($sql, __LINE__, __FILE__);
 			if (!$this->db->affected_rows()) return 0;
 			return 1;
@@ -1093,7 +1093,7 @@
 		function add_vote($art_id, $rating, $current_rating)
 		{
 			$new_rating = $current_rating + 1;
-			$sql = "UPDATE phpgw_kb_articles SET votes_" . $rating . "=$new_rating WHERE art_id=$art_id";
+			$sql = "UPDATE egw_kb_articles SET votes_" . $rating . "=$new_rating WHERE art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 			if (!$this->db->affected_rows()) return 0;
 			return 1;
@@ -1109,7 +1109,7 @@
 		**/
 		function add_rating_user($art_id)
 		{
-			$sql = "INSERT INTO phpgw_kb_ratings (user_id, art_id) VALUES(" . $GLOBALS['phpgw_info']['user']['account_id'] . ", $art_id)";
+			$sql = "INSERT INTO egw_kb_ratings (user_id, art_id) VALUES(" . $GLOBALS['phpgw_info']['user']['account_id'] . ", $art_id)";
 			$this->db->query($sql, __LINE__, __FILE__);
 			if (!$this->db->affected_rows()) return 0;
 			return 1;
@@ -1130,7 +1130,7 @@
 			$comment = $_POST['file_comment']? $_POST['file_comment'] : '';
 			$comment = $this->db->db_addslashes($comment);
 
-			$sql = "INSERT INTO phpgw_kb_files (art_id, art_file, art_file_comments) VALUES($article_id, '$file_name', '$comment')";
+			$sql = "INSERT INTO egw_kb_files (art_id, art_file, art_file_comments) VALUES($article_id, '$file_name', '$comment')";
 			$this->db->query($sql, __LINE__, __FILE__);
 			if (!$this->db->next_record()) return 0;
 			return 1;
@@ -1146,7 +1146,7 @@
 		**/
 		function exist_articleID($article_id)
 		{
-			$sql = "SELECT art_id FROM phpgw_kb_articles WHERE art_id=" . $article_id;
+			$sql = "SELECT art_id FROM egw_kb_articles WHERE art_id=" . $article_id;
 			$this->db->query($sql, __LINE__, __FILE__);
 			return $this->db->next_record();
 		}
@@ -1162,7 +1162,7 @@
 		function owners_list($articles)
 		{
 			$articles = implode(', ', $articles);
-			$sql = "SELECT art_id, user_id FROM phpgw_kb_articles WHERE art_id IN($articles)";
+			$sql = "SELECT art_id, user_id FROM egw_kb_articles WHERE art_id IN($articles)";
 			$this->db->query($sql, __LINE__, __FILE__);
 			$owners = array();
 			while ($this->db->next_record())
@@ -1186,7 +1186,7 @@
 			$added = False;
 			foreach ($articles as $article)
 			{
-				$sql = "INSERT INTO phpgw_kb_related_art (art_id, related_art_id) VALUES($art_id, $article)";
+				$sql = "INSERT INTO egw_kb_related_art (art_id, related_art_id) VALUES($art_id, $article)";
 				$this->db->query($sql, __LINE__, __FILE__);
 				if ($this->db->affected_rows()) $added = True;
 			}
@@ -1205,7 +1205,7 @@
 		function delete_related($art_id, $related_id, $all = False)
 		{
 			$sql_operator = $all? 'OR' : 'AND';
-			$sql = "DELETE FROM phpgw_kb_related_art WHERE art_id=$art_id $sql_operator related_art_id=$related_id";
+			$sql = "DELETE FROM egw_kb_related_art WHERE art_id=$art_id $sql_operator related_art_id=$related_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 		}
 
@@ -1219,7 +1219,7 @@
 		*/
 		function delete_search($art_id)
 		{
-			$sql = "DELETE FROM phpgw_kb_search WHERE art_id=$art_id";
+			$sql = "DELETE FROM egw_kb_search WHERE art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 		}
 
@@ -1235,7 +1235,7 @@
 		function add_question($data, $publish)
 		{
 			($publish)? $publish = 1 : $publish = 0;
-			$sql = "INSERT INTO phpgw_kb_questions (user_id, summary, details, cat_id, creation, published) VALUES ("
+			$sql = "INSERT INTO egw_kb_questions (user_id, summary, details, cat_id, creation, published) VALUES ("
 					. $GLOBALS['phpgw_info']['user']['account_id'] . ", '"
 					. $this->db->db_addslashes($data['summary']) . "', '"
 					. $this->db->db_addslashes($data['details']) . "', "
@@ -1259,7 +1259,7 @@
 			$fields = array('user_id', 'summary', 'details', 'cat_id', 'creation');
 			$fields_str = implode(", ", $fields);
 
-			$sql = "SELECT $fields_str FROM phpgw_kb_questions WHERE question_id=$q_id AND published=1";
+			$sql = "SELECT $fields_str FROM egw_kb_questions WHERE question_id=$q_id AND published=1";
 			$this->db->query($sql, __LINE__, __FILE__);
 			$question = array();
 			while ($this->db->next_record())

@@ -14,7 +14,7 @@
 	/* Basic information about this app */
 	$setup_info['phpbrain']['name']      = 'phpbrain';
 	$setup_info['phpbrain']['title']     = 'Knowledge Base';
-	$setup_info['phpbrain']['version']   = '1.5.001';
+	$setup_info['phpbrain']['version']   = '1.5.002';
 	$setup_info['phpbrain']['app_order'] = 25;
 	$setup_info['phpbrain']['enable']    = 1;
 
@@ -34,14 +34,14 @@
 	$setup_info['phpbrain']['hooks'][] = 'sidebox_menu';
 	$setup_info['phpbrain']['hooks'][] = 'deleteaccount';
 
-	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_articles';
-	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_comment';
-	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_questions';
-	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_ratings';
-	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_related_art';
-	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_search';
-	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_files';
-	$setup_info['phpbrain']['tables'][] = 'phpgw_kb_urls';
+	$setup_info['phpbrain']['tables'][] = 'egw_kb_articles';
+	$setup_info['phpbrain']['tables'][] = 'egw_kb_comment';
+	$setup_info['phpbrain']['tables'][] = 'egw_kb_questions';
+	$setup_info['phpbrain']['tables'][] = 'egw_kb_ratings';
+	$setup_info['phpbrain']['tables'][] = 'egw_kb_related_art';
+	$setup_info['phpbrain']['tables'][] = 'egw_kb_search';
+	$setup_info['phpbrain']['tables'][] = 'egw_kb_files';
+	$setup_info['phpbrain']['tables'][] = 'egw_kb_urls';
 
 	/* Dependencies for this app to work */
 	$setup_info['phpbrain']['depends'][] = array(

@@ -232,7 +232,7 @@
 		function bokb()
 		{
 			// version check
-			if ($GLOBALS['phpgw_info']['apps']['phpbrain']['version'] != '1.5.001')
+			if ($GLOBALS['phpgw_info']['apps']['phpbrain']['version'] != '1.5.002')
 			{
 				$GLOBALS['phpgw']->common->phpgw_header();
 				echo parse_navbar();

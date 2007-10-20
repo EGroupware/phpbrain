@@ -408,4 +408,19 @@
 		
 		return $GLOBALS['setup_info']['phpbrain']['currentver'] = '1.5.001';
 	}
+	
+	$test[] = '1.5.001';
+	function phpbrain_upgrade1_5_001()
+	{
+		// Firsts phpgw -> egw prefix
+		foreach(array('phpgw_kb_articles','phpgw_kb_comment','phpgw_kb_questions','phpgw_kb_ratings','phpgw_kb_related_art','phpgw_kb_search','phpgw_kb_files','phpgw_kb_urls') as $table)
+		{
+			$GLOBALS['egw_setup']->oProc->RenameTable($table,str_replace('phpgw_kb','egw_kb',$table));
+		}
+		
+		// Second rename egw_kb_comment.comment column (Oracle reserved work)
+		$GLOBALS['egw_setup']->oProc->RenameColumn('egw_kb_comment', 'comment', 'kb_comment');	
+		
+		return $GLOBALS['setup_info']['phpbrain']['currentver'] = '1.5.002';
+	}
 ?>

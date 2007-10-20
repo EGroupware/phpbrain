@@ -859,7 +859,7 @@
 						'comment_user'		=> $comment['username'],
 						'link_publish'		=> $link_publish,
 						'link_delete'		=> $link_delete,
-						'comment_content'	=> $comment['comment']
+						'comment_content'	=> $comment['kb_comment']
 					));
 					$this->t->parse('comment', 'comment_block', True);
 				}
