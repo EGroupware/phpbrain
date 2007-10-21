@@ -14,8 +14,8 @@
 	\**************************************************************************/
 	/* $Id$ */
 
-	$phpgw_info = array();
-	$GLOBALS['phpgw_info']['flags'] = array(
+	$egw_info = array();
+	$GLOBALS['egw_info']['flags'] = array(
 		'currentapp' => 'phpbrain',
 		'noheader'   => True,
 		'nonavbar'   => True
@@ -25,5 +25,5 @@
 	$obj = CreateObject('phpbrain.uikb');
 	$obj->index();
 
-	$GLOBALS['phpgw']->common->phpgw_exit(true);
+	$GLOBALS['egw']->common->egw_exit(true);
 ?>

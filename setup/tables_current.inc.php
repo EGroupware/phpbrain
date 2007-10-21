@@ -12,7 +12,7 @@
   /* $Id$ */
 
 
-	$egw_baseline = array(
+	$phpgw_baseline = array(
 		'egw_kb_articles' => array(
 			'fd' => array(
 				'art_id' => array('type' => 'auto','nullable' => False),
