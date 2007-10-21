@@ -9,9 +9,11 @@ added link %1	phpbrain	es-es	Se ha añadido el enlace %1
 added related articles %1	phpbrain	es-es	Se han añadido los artículos relacionados %1
 advanced search	phpbrain	es-es	Búsqueda avanzada
 all articles	phpbrain	es-es	Todos los artículos
+allow posting of questions	phpbrain	es-es	Permitir el envío de preguntas
 answer	phpbrain	es-es	Respuesta
 anytime	phpbrain	es-es	Cualquier hora
 anywhere in the article	phpbrain	es-es	En cualquier lugar del artículo
+are you sure?	phpbrain	es-es	¿Está seguro?
 article	phpbrain	es-es	Artículo
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	es-es	El artículo ha sido añadido a la base de datos. Ahora puede adjuntar ficheros o enlaces, así como relacionarlo con otros artículos.
 article created	phpbrain	es-es	Artículo creado
@@ -56,6 +58,7 @@ e-groupware knowledge base article attached	phpbrain	es-es	Se ha adjuntado un ar
 e-mail has been sent	phpbrain	es-es	se ha enviado el correo
 edit article	phpbrain	es-es	Editar artículo
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	es-es	Introduzca una o dos palabras que describan el problema, o escriba el número del artículo si lo sabe
+enterprise knowledge articles repository	phpbrain	es-es	Repositorio para los artículos de conocimiento de la empresa
 error deleting article from database	phpbrain	es-es	Error al borrar el artículo de la base de datos
 error deleting link	phpbrain	es-es	Error al borrar el enlace
 error downloading file	phpbrain	es-es	Error al descargar el fichero
@@ -87,6 +90,7 @@ in the title	phpbrain	es-es	en el título
 in the topic	phpbrain	es-es	en el asunto
 include subcategories	phpbrain	es-es	Incluir subcategorías
 keywords	phpbrain	es-es	Palabras clave
+knowledge base	phpbrain	es-es	Base de conocimiento
 knowledge base article #%1	phpbrain	es-es	Artículo de la base de conocimiento nº%1
 knowledge base configuration	common	es-es	Configuración de la base de conocimiento
 last modification by %1 on %2	phpbrain	es-es	Ultima modificación por %1 en %2
