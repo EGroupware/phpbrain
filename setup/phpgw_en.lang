@@ -9,9 +9,11 @@ added link %1	phpbrain	en	Added link %1
 added related articles %1	phpbrain	en	Added related articles %1
 advanced search	phpbrain	en	Advanced Search
 all articles	phpbrain	en	All articles
+allow posting of questions	phpbrain	en	Allow posting of questions
 answer	phpbrain	en	answer
 anytime	phpbrain	en	anytime
 anywhere in the article	phpbrain	en	Anywhere in the article
+are you sure?	phpbrain	en	Are you sure?
 article	phpbrain	en	Article
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	en	Article added to database, you can now attach files or links, or relate to other articles
 article created	phpbrain	en	Article created
@@ -56,6 +58,7 @@ e-groupware knowledge base article attached	phpbrain	en	E-GroupWare Knowledge Ba
 e-mail has been sent	phpbrain	en	e-mail has been sent
 edit article	phpbrain	en	Edit article
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	en	Enter one or two words describing the issue, or type the article number if you know it
+enterprise knowledge articles repository	phpbrain	en	Enterprise Knowledge articles repository
 error deleting article from database	phpbrain	en	Error deleting article from database
 error deleting link	phpbrain	en	Error deleting link
 error downloading file	phpbrain	en	Error downloading file
@@ -87,6 +90,7 @@ in the title	phpbrain	en	in the title
 in the topic	phpbrain	en	in the topic
 include subcategories	phpbrain	en	Include subcategories
 keywords	phpbrain	en	Keywords
+knowledge base	phpbrain	en	Knowledge Base
 knowledge base article #%1	phpbrain	en	Knowledge Base article #%1
 knowledge base configuration	common	en	Knowledge Base configuration
 last modification by %1 on %2	phpbrain	en	Last modification by %1 on %2
