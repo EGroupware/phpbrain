@@ -232,42 +232,42 @@
 		function bokb()
 		{
 			// version check
-			if ($GLOBALS['phpgw_info']['apps']['phpbrain']['version'] != '1.5.002')
+			if ($GLOBALS['egw_info']['apps']['phpbrain']['version'] != '1.5.002')
 			{
-				$GLOBALS['phpgw']->common->phpgw_header();
+				$GLOBALS['egw']->common->egw_header();
 				echo parse_navbar();
 				die("Please upgrade this application to be able to use it");
 			}
 
 			$this->so						= CreateObject('phpbrain.sokb');
 			$this->categories_obj			= CreateObject('phpgwapi.categories', '', 'phpbrain');	// force phpbrain cause it might be running from sitemgr...
-			$GLOBALS['phpgw']->config		= CreateObject('phpgwapi.config');
-			$GLOBALS['phpgw']->vfs			= CreateObject('phpgwapi.vfs');
-			$GLOBALS['phpgw']->historylog	= CreateObject('phpgwapi.historylog','phpbrain');
+			$GLOBALS['egw']->config		= CreateObject('phpgwapi.config');
+			$GLOBALS['egw']->vfs			= CreateObject('phpgwapi.vfs');
+			$GLOBALS['egw']->historylog	= CreateObject('phpgwapi.historylog','phpbrain');
 
-			$this->grants				= $GLOBALS['phpgw']->acl->get_grants('phpbrain');
+			$this->grants				= $GLOBALS['egw']->acl->get_grants('phpbrain');
 			//echo "grants: <pre>";print_r($this->grants);echo "</pre>";
 			// full grants for admin on user 0 (anonymous questions on previous phpbrain version)
-			if ($GLOBALS['phpgw']->acl->check('run',1,'admin')) $this->grants[0] = -1;
-			$this->preferences			= $GLOBALS['phpgw']->preferences->data['phpbrain'];
+			if ($GLOBALS['egw']->acl->check('run',1,'admin')) $this->grants[0] = -1;
+			$this->preferences			= $GLOBALS['egw']->preferences->data['phpbrain'];
 			
-			$this->read_right			= PHPGW_ACL_READ;
-			$this->edit_right			= PHPGW_ACL_EDIT;
-			$this->publish_right		= PHPGW_ACL_CUSTOM_1;
+			$this->read_right			= EGW_ACL_READ;
+			$this->edit_right			= EGW_ACL_EDIT;
+			$this->publish_right		= EGW_ACL_CUSTOM_1;
 
 			// acl grants puts all rights (-1) on current the user itself. That has to be modified here since the user doesn't have necessarily publish rights
 			// Here I have to accumulate the rights the user has on every group it belongs to
 			$grants_user = $this->read_right | $this->edit_right;	// The user can always read and edit his own articles
-			$user_groups = $GLOBALS['phpgw']->accounts->membership($GLOBALS['phpgw_info']['user']['account_id']);
+			$user_groups = $GLOBALS['egw']->accounts->membership($GLOBALS['egw_info']['user']['account_id']);
 			foreach ($user_groups as $group)
 			{
 				$grants_user |= $this->grants[$group['account_id']];
 				//echo "for the group: ";echo $group['account_id'];echo " the right: ";echo $this->grants[$group['account_id']];echo "<br>";
 			}
 			//echo "grants_user: $grants_user<br>";
-			$this->grants[$GLOBALS['phpgw_info']['user']['account_id']] = $grants_user;
+			$this->grants[$GLOBALS['egw_info']['user']['account_id']] = $grants_user;
 
-			$this->admin_config		= $GLOBALS['phpgw']->config->read_repository();
+			$this->admin_config		= $GLOBALS['egw']->config->read_repository();
 
 			if (!$this->all_categories = $this->categories_obj->return_sorted_array('', False, '', '', '', True, 0)) $this->all_categories = array();
 
@@ -346,7 +346,7 @@
 		*/
 		function accessible_owners($permissions = 0)
 		{
-			$owners = array($GLOBALS['phpgw_info']['user']['account_id']);
+			$owners = array($GLOBALS['egw_info']['user']['account_id']);
 			if (!$permissions) $permissions = $this->read_right;
 			foreach ($this->grants as $user=>$right)
 			{
@@ -401,7 +401,7 @@
 
 			$owners = $this->accessible_owners($permissions);
 			// admins can also see questions asked by user_id=0 (questions that were passed from previous phpbrain version were the user_id wasn't recorded)
-			if ($questions && $GLOBALS['phpgw']->acl->check('run',1,'admin')) $owners[0] = 0;
+			if ($questions && $GLOBALS['egw']->acl->check('run',1,'admin')) $owners[0] = 0;
 			
 			if ($this->preferences['show_tree'] == 'all')
 			{
@@ -475,7 +475,7 @@
 			$owners = $this->accessible_owners();
 
 			// admins can also see questions asked by user_id=0 (questions that were passed from previous phpbrain version were the user_id wasn't recorded)
-			if ($GLOBALS['phpgw']->acl->check('run',1,'admin')) $owners[0] = 0;
+			if ($GLOBALS['egw']->acl->check('run',1,'admin')) $owners[0] = 0;
 			
 			$cats_ids = array();
 			foreach ($this->categories as $cat)
@@ -498,12 +498,12 @@
 		*/
 		function return_history()
 		{
-			$history = $GLOBALS['phpgw']->historylog->return_array('', '', 'history_timestamp', 'DESC', $this->article_id);
+			$history = $GLOBALS['egw']->historylog->return_array('', '', 'history_timestamp', 'DESC', $this->article_id);
 			// echo "history: <pre>";print_r($history);echo "</pre>";
 			for ($i = 0; $i<sizeof($history); $i++)
 			{
-				$history[$i]['datetime'] = $GLOBALS['phpgw']->common->show_date($history[$i]['datetime'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']);
-				$GLOBALS['phpgw']->accounts->get_account_name($history[$i]['owner'], $lid, $fname, $lname);
+				$history[$i]['datetime'] = $GLOBALS['egw']->common->show_date($history[$i]['datetime'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']);
+				$GLOBALS['egw']->accounts->get_account_name($history[$i]['owner'], $lid, $fname, $lname);
 				$history[$i]['owner'] = $fname . ' ' . $lname;
 
 				switch ($history[$i]['status'])
@@ -598,7 +598,7 @@
 					$this->error_msg = 'edit_err';
 					return False;
 				}
-				$GLOBALS['phpgw']->historylog->add('EA', $this->article_id, 'article edited', '');
+				$GLOBALS['egw']->historylog->add('EA', $this->article_id, 'article edited', '');
 				return $art_id;
 			}
 
@@ -620,7 +620,7 @@
 			if ($this->admin_config['publish_articles'] == 'True') $publish = True;
 
 			$art_id = $this->so->save_article($content, True, $publish);
-			if ($art_id) $GLOBALS['phpgw']->historylog->add('NA', $art_id, 'article created', '');
+			if ($art_id) $GLOBALS['egw']->historylog->add('NA', $art_id, 'article created', '');
 			return $art_id;
 		}
 
@@ -645,7 +645,7 @@
 				foreach ($files as $file)
 				{
 					// verify the file exists in the server
-					$test = $GLOBALS['phpgw']->vfs->ls(array(
+					$test = $GLOBALS['egw']->vfs->ls(array(
 						'string'		=> '/kb/' . $file['file'],
 						'relatives'		=> array(RELATIVE_NONE),
 						'checksubdirs'	=> False,
@@ -654,7 +654,8 @@
 					if ($test[0]['name'])
 					{
 						// the file is in the server, proceed to rm it
-						$remove = $GLOBALS['phpgw']->vfs->rm(array(
+						$GLOBALS['egw']->vfs->override_acl = 1;
+						$remove = $GLOBALS['egw']->vfs->rm(array(
 							'string'	=> '/kb/' . $file['file'],
 							'relatives'	=> array(RELATIVE_NONE)
 						));
@@ -669,13 +670,13 @@
 			$this->so->delete_related($art_id, $art_id, True);
 			// delete search index
 			$this->so->delete_search($art_id);
-			// delete files entries in phpgw_kb_files
+			// delete files entries in egw_kb_files
 			$this->so->delete_files($art_id);
 			// delete urls
 			$this->so->delete_urls($art_id);
 			// delete article
 			if (!$this->so->delete_article($art_id)) return 'err_del_art';
-			if ($art_id) $GLOBALS['phpgw']->historylog->add('AD', $art_id, 'article deleted', '');
+			if ($art_id) $GLOBALS['egw']->historylog->add('AD', $art_id, 'article deleted', '');
 			return 'del_art_ok';
 		}
 
@@ -690,14 +691,14 @@
 		function delete_owner_articles($owner)
 		{
 			// check if user calling deletion is an admin with user deletion privileges
-			if ($GLOBALS['phpgw']->acl->check('account_access',32,'admin'))
+			if ($GLOBALS['egw']->acl->check('account_access',32,'admin'))
 			{
 				$this->list_users();
 				die('invalid rights');
 			}
 
 			// fetch articles from user
-			$GLOBALS['phpgw']->vfs->override_acl = 1;
+			$GLOBALS['egw']->vfs->override_acl = 1;
 			$owner = (int)$owner;
 			$articles_ids = $this->so->get_articles_ids($owner);
 			foreach ($articles_ids as $article_id)
@@ -719,7 +720,7 @@
 		function change_articles_owner($owner, $new_owner)
 		{
 			// check if user calling deletion is an admin with user deletion privileges
-			if ($GLOBALS['phpgw']->acl->check('account_access',32,'admin'))
+			if ($GLOBALS['egw']->acl->check('account_access',32,'admin'))
 			{
 				$this->list_users();
 				die('invalid rights');
@@ -733,12 +734,12 @@
 			foreach ($articles_ids as $article_id)
 			{
 				$article = $this->so->get_article($article_id);
-				$GLOBALS['phpgw']->vfs->override_acl = 1;
+				$GLOBALS['egw']->vfs->override_acl = 1;
 				if (is_array($article['files']))
 				{
 					foreach ($article['files'] as $file)
 					{
-						$GLOBALS['phpgw']->vfs->set_attributes(array(
+						$GLOBALS['egw']->vfs->set_attributes(array(
 							'string'		=> '/kb/' . $file['file'],
 							'relatives'		=> array(RELATIVE_NONE),
 							'attributes'	=> array('owner_id' => $new_owner),
@@ -787,27 +788,27 @@
 			$this->article_owner = $article['user_id'];
 			if (!$this->check_permission($this->read_right | $this->publish_right)) $this->die_peacefully('You have not the proper permissions to do that');
 
-			$GLOBALS['phpgw']->accounts->get_account_name($article['user_id'], $lid, $fname, $lname);
+			$GLOBALS['egw']->accounts->get_account_name($article['user_id'], $lid, $fname, $lname);
 			$article['username'] = $fname . ' ' . $lname;
 			$fname = ''; $lname = '';
-			$GLOBALS['phpgw']->accounts->get_account_name($article['modified_user_id'], $lid, $fname, $lname);
+			$GLOBALS['egw']->accounts->get_account_name($article['modified_user_id'], $lid, $fname, $lname);
 			$article['modified_username'] = $fname . ' ' .$lname;
 
 			// register article view if it has been published (one hit per session)
-			if (!$data = $GLOBALS['phpgw']->session->appsession('views', 'phpbrain')) $data = array();
+			if (!$data = $GLOBALS['egw']->session->appsession('views', 'phpbrain')) $data = array();
 			if ($article['published'] && !in_array($this->article_id, $data))
 			{
 				$data[] = $this->article_id;
-				$GLOBALS['phpgw']->session->appsession('views', 'phpbrain', $data);
+				$GLOBALS['egw']->session->appsession('views', 'phpbrain', $data);
 				$this->so->register_view($this->article_id, $article['views']);
 			}
 
 			// process search_feedback (can do this only once per session per article)
-			if (!$data = $GLOBALS['phpgw']->session->appsession('feedback', 'phpbrain')) $data = array();
+			if (!$data = $GLOBALS['egw']->session->appsession('feedback', 'phpbrain')) $data = array();
 			if ($_POST['feedback_query'] && !in_array($this->article_id, $data))
 			{
 				$data[] = $this->article_id;
-				$GLOBALS['phpgw']->session->appsession('feedback', 'phpbrain', $data);
+				$GLOBALS['egw']->session->appsession('feedback', 'phpbrain', $data);
 				$upgrade_key = $_POST['yes_easy']? True : False;
 				$words = explode(' ', $_POST['feedback_query']);
 				foreach ($words as $word)
@@ -900,9 +901,9 @@
 				if (!$this->so->add_rating_user($this->article_id)) return 0;
 			}
 			// register vote in session
-			if (!$data = $GLOBALS['phpgw']->session->appsession('ratings', 'phpbrain')) $data = array();
+			if (!$data = $GLOBALS['egw']->session->appsession('ratings', 'phpbrain')) $data = array();
 			$data[] = $this->article_id;
-			$GLOBALS['phpgw']->session->appsession('ratings', 'phpbrain', $data);
+			$GLOBALS['egw']->session->appsession('ratings', 'phpbrain', $data);
 
 			return 1;
 		}
@@ -945,7 +946,7 @@
 
 			if(!$this->so->add_link(get_var('url', 'POST'), get_var('url_title', 'POST'), $this->article_id)) return 'link_prob';
 
-			$GLOBALS['phpgw']->historylog->add('AL', $this->article_id, get_var('url', 'POST'), '');
+			$GLOBALS['egw']->historylog->add('AL', $this->article_id, get_var('url', 'POST'), '');
 			return 'link_ok';
 		}
 
@@ -1037,7 +1038,7 @@
 
 			if (!$this->so->delete_link($this->article_id, $link)) return 'link_del_err';
 
-			$GLOBALS['phpgw']->historylog->add('RL', $this->article_id, $delete_link, '');
+			$GLOBALS['egw']->historylog->add('RL', $this->article_id, $delete_link, '');
 			return 'link_del_ok';
 		}
 
@@ -1058,26 +1059,26 @@
 			// TODO: check filename for invalid characters
 		
 			// check if basedir exists
-			$test=$GLOBALS['phpgw']->vfs->get_real_info(array('string' => '/', 'relatives' => array(RELATIVE_NONE), 'relative' => False));
+			$test=$GLOBALS['egw']->vfs->get_real_info(array('string' => '/', 'relatives' => array(RELATIVE_NONE), 'relative' => False));
 			if($test[mime_type]!='Directory')
 			{
 				return 'no_basedir';
 			}
 
 			// check if /kb  exists
-			$test = @$GLOBALS['phpgw']->vfs->get_real_info(array('string' => '/kb', 'relatives' => array(RELATIVE_NONE), 'relative' => False));
+			$test = @$GLOBALS['egw']->vfs->get_real_info(array('string' => '/kb', 'relatives' => array(RELATIVE_NONE), 'relative' => False));
 			if($test[mime_type]!='Directory')
 			{
 				// if not, create it
-				$GLOBALS['phpgw']->vfs->override_acl = 1;
-				$GLOBALS['phpgw']->vfs->mkdir(array(
+				$GLOBALS['egw']->vfs->override_acl = 1;
+				$GLOBALS['egw']->vfs->mkdir(array(
 					'string' => '/kb',
 					'relatives' => array(RELATIVE_NONE)
 				));
-				$GLOBALS['phpgw']->vfs->override_acl = 0;
+				$GLOBALS['egw']->vfs->override_acl = 0;
 
 				// test one more time
-				$test = $GLOBALS['phpgw']->vfs->get_real_info(array('string' => '/kb', 'relatives' => array(RELATIVE_NONE), 'relative' => False));
+				$test = $GLOBALS['egw']->vfs->get_real_info(array('string' => '/kb', 'relatives' => array(RELATIVE_NONE), 'relative' => False));
 				if($test[mime_type]!='Directory')
 				{
 					return 'no_kbdir';
@@ -1087,7 +1088,7 @@
 			$filename = stripslashes('kb' . $this->article_id . '-' . $_FILES['new_file']['name']);	// strip slashes eventually generated if magic_quotes_gpc is set on
 			
 			// check the file doesn't already exist (happens when double POSTing)
-			$test = $GLOBALS['phpgw']->vfs->ls(array(
+			$test = $GLOBALS['egw']->vfs->ls(array(
 				'string'		=> '/kb/' . $filename,
 				'relatives'		=> array(RELATIVE_NONE),
 				'checksubdirs'	=> False,
@@ -1097,20 +1098,20 @@
 
 			// at last, copy the file from /tmp to /kb
 			$cd_args = array('string'	=> '/kb', 'relative' => False, 'relatives' => RELATIVE_NONE);
-			if (!$GLOBALS['phpgw']->vfs->cd($cd_args)) return 'error_cd';
+			if (!$GLOBALS['egw']->vfs->cd($cd_args)) return 'error_cd';
 
 			$cp_args = array(
 						'from'		=> $_FILES['new_file']['tmp_name'],
 						'to'		=> $filename,
 						'relatives'	=> array(RELATIVE_NONE|VFS_REAL, RELATIVE_ALL)
 					);
-			$GLOBALS['phpgw']->vfs->override_acl = 1; // should I implement ACL on this folder? Don't think so :>
-			if (!$GLOBALS['phpgw']->vfs->cp($cp_args)) return 'error_cp';
-			$GLOBALS['phpgw']->vfs->override_acl = 0;
+			$GLOBALS['egw']->vfs->override_acl = 1; // should I implement ACL on this folder? Don't think so :>
+			if (!$GLOBALS['egw']->vfs->cp($cp_args)) return 'error_cp';
+			$GLOBALS['egw']->vfs->override_acl = 0;
 
 			$this->so->add_file($this->article_id, $filename);
 
-			$GLOBALS['phpgw']->historylog->add('AF', $this->article_id, $_FILES['new_file']['name'], '');
+			$GLOBALS['egw']->historylog->add('AF', $this->article_id, $_FILES['new_file']['name'], '');
 			return 'upload_ok';
 		}
 
@@ -1132,7 +1133,7 @@
 			if (!$this->check_permission($this->edit_right)) return 'no_perm';
 
 			// verify the file exists in the server
-			$test = $GLOBALS['phpgw']->vfs->ls(array(
+			$test = $GLOBALS['egw']->vfs->ls(array(
 				'string'		=> '/kb/' . $file,
 				'relatives'		=> array(RELATIVE_NONE),
 				'checksubdirs'	=> False,
@@ -1141,8 +1142,8 @@
 			if ($test[0]['name'])
 			{
 				// the file is in the server, proceed to rm it
-				$GLOBALS['phpgw']->vfs->override_acl = 1; // No acl set in upload (has edit rights)
-				$remove = $GLOBALS['phpgw']->vfs->rm(array(
+				$GLOBALS['egw']->vfs->override_acl = 1; // No acl set in upload (has edit rights)
+				$remove = $GLOBALS['egw']->vfs->rm(array(
 					'string'	=> '/kb/' . $file,
 					'relatives'	=> array(RELATIVE_NONE)
 				));
@@ -1159,7 +1160,7 @@
 			// now delete it from the database
 			ereg('^kb[0-9]*-(.*)', $file, $new_filename);
 			if ($success = $this->so->delete_files($this->article_id, $file))
-				$GLOBALS['phpgw']->historylog->add('RF', $this->article_id, $new_filename[1], '');
+				$GLOBALS['egw']->historylog->add('RF', $this->article_id, $new_filename[1], '');
 			if ($in_server && $success) return 'file_del_ok';
 			if ($in_server && !$success) return 'file_db_del_err';
 			if (!$in_server && $success) return 'file_noserv_db_ok';
@@ -1199,7 +1200,7 @@
 			if (!$this->so->add_related($this->article_id, $final_list)) return 'articles_not_added';
 
 			$final_list = implode(', ', $final_list);
-			$GLOBALS['phpgw']->historylog->add('AR', $this->article_id, $final_list, '');
+			$GLOBALS['egw']->historylog->add('AR', $this->article_id, $final_list, '');
 			return 'articles_added';
 		}
 
@@ -1214,7 +1215,7 @@
 		{
 			$related_article = urldecode($_GET['delete_related']);
 			$this->so->delete_related($this->article_id, $related_article);
-			$GLOBALS['phpgw']->historylog->add('DR', $this->article_id, $related_article, '');
+			$GLOBALS['egw']->historylog->add('DR', $this->article_id, $related_article, '');
 		}
 
 		/**
@@ -1245,9 +1246,9 @@
 		function get_question($q_id)
 		{
 			$question = $this->so->get_question($q_id);
-			$username = $GLOBALS['phpgw']->accounts->get_account_name($question['user_id'], $lid, $fname, $lname);
+			$username = $GLOBALS['egw']->accounts->get_account_name($question['user_id'], $lid, $fname, $lname);
 			$question['username'] = $fname . ' ' . $lname;
-			$question['creation'] = $GLOBALS['phpgw']->common->show_date($question['creation'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']);
+			$question['creation'] = $GLOBALS['egw']->common->show_date($question['creation'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']);
 			return $question;
 		}
 
@@ -1267,18 +1268,18 @@
 			$theresults = ereg("^[^@ ]+@[^@ ]+\.[^@ \.]+$", $recipient, $trashed);
 			if (!$theresults) return 'mail_err';
 
-			$GLOBALS['phpgw']->send = CreateObject('phpgwapi.send');
-			$GLOBALS['phpgw']->send->From = $GLOBALS['phpgw_info']['user']['email'];
-			$GLOBALS['phpgw']->send->FromName = $GLOBALS['phpgw_info']['user']['fullname'];
-			if ($reply_to) $GLOBALS['phpgw']->send->AddReplyTo($reply_to);
-			$GLOBALS['phpgw']->send->AddAddress($recipient);
-			$GLOBALS['phpgw']->send->Subject = get_var('subject', 'POST');
-			$GLOBALS['phpgw']->send->Body = get_var('txt_message', 'POST', lang('E-GroupWare Knowledge Base article attached'));
-			$GLOBALS['phpgw']->send->AddStringAttachment($article_contents, lang('article').'.html', 'base64', 'text/html');
+			$GLOBALS['egw']->send = CreateObject('phpgwapi.send');
+			$GLOBALS['egw']->send->From = $GLOBALS['egw_info']['user']['email'];
+			$GLOBALS['egw']->send->FromName = $GLOBALS['egw_info']['user']['fullname'];
+			if ($reply_to) $GLOBALS['egw']->send->AddReplyTo($reply_to);
+			$GLOBALS['egw']->send->AddAddress($recipient);
+			$GLOBALS['egw']->send->Subject = get_var('subject', 'POST');
+			$GLOBALS['egw']->send->Body = get_var('txt_message', 'POST', lang('E-GroupWare Knowledge Base article attached'));
+			$GLOBALS['egw']->send->AddStringAttachment($article_contents, lang('article').'.html', 'base64', 'text/html');
 			$message = '';
-			if (!$GLOBALS['phpgw']->send->Send())
+			if (!$GLOBALS['egw']->send->Send())
 			{
-				 $message = lang('Your message could not be sent!') . '<br>' . lang('The mail server returned:') . htmlspecialchars($GLOBALS['phpgw']->send->ErrorInfo);
+				 $message = lang('Your message could not be sent!') . '<br>' . lang('The mail server returned:') . htmlspecialchars($GLOBALS['egw']->send->ErrorInfo);
 			}
 			if ($message) return $message;
 			return 'mail_ok';
@@ -1296,11 +1297,11 @@
 		{
 			if (!$this->navbar_shown)
 			{
-				$GLOBALS['phpgw']->common->phpgw_header();
+				$GLOBALS['egw']->common->egw_header();
 				echo parse_navbar();
 			}
 			echo "<div style='text-align:center; font-weight:bold'>" . lang($error_msg) . "</div>";
-			$GLOBALS['phpgw']->common->phpgw_footer();
+			$GLOBALS['egw']->common->egw_footer();
 			die();
 		}
 	}

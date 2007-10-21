@@ -16,8 +16,8 @@
 	{
 		$file = array
 		(
-			'Site Configuration'		=> $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname),
-			'Global Categories'			=> $GLOBALS['phpgw']->link('/index.php','menuaction=admin.uicategories.index&appname=phpbrain')
+			'Site Configuration'		=> $GLOBALS['egw']->link('/index.php','menuaction=admin.uiconfig.index&appname=' . $appname),
+			'Global Categories'			=> $GLOBALS['egw']->link('/index.php','menuaction=admin.uicategories.index&appname=phpbrain')
 		);
 		display_section($appname,$file);
 	}

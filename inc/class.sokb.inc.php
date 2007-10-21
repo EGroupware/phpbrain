@@ -74,7 +74,7 @@
 		**/
 		function sokb()
 		{
-			$this->db	= clone($GLOBALS['phpgw']->db);
+			$this->db	= clone($GLOBALS['egw']->db);
 			$this->db->set_app('phpbrain');
 
             // postgresql is case sensite by default, so make it case insensitive
@@ -429,7 +429,7 @@
 					$articles[$i][$modified_field] = $this->db->f($modified_field);
 				}
 				$articles[$i]['art_id'] = $this->db->f('art_id');
-				$username = $GLOBALS['phpgw']->accounts->get_account_name($articles[$i]['user_id'], $lid, $fname, $lname);
+				$username = $GLOBALS['egw']->accounts->get_account_name($articles[$i]['user_id'], $lid, $fname, $lname);
 				$articles[$i]['username'] = $fname . ' ' . $lname;
 				//$articles[$i]['files'] = unserialize($articles[$i]['files']);
 				$articles[$i]['total_votes'] = $articles[$i]['votes_1'] + $articles[$i]['votes_2'] + $articles[$i]['votes_3'] + $articles[$i]['votes_4'] + $articles[$i]['votes_5'];
@@ -561,7 +561,7 @@
 				{
 					$questions[$i][$field] = $this->db->f($field);
 				}
-				$username = $GLOBALS['phpgw']->accounts->get_account_name($questions[$i]['user_id'], $lid, $fname, $lname);
+				$username = $GLOBALS['egw']->accounts->get_account_name($questions[$i]['user_id'], $lid, $fname, $lname);
 				$questions[$i]['username'] = $fname . ' ' . $lname;
 			}
 			return $questions;
@@ -591,9 +591,9 @@
 						. $this->db->db_addslashes($contents['text']) . "', "
 						. (int) $contents['cat_id'] . ", "
 						. $publish . ", "
-						. $GLOBALS['phpgw_info']['user']['account_id'] . ", "
+						. $GLOBALS['egw_info']['user']['account_id'] . ", "
 						. $current_time . ", " . $current_time . ", "
-						. $GLOBALS['phpgw_info']['user']['account_id'] . ", "
+						. $GLOBALS['egw_info']['user']['account_id'] . ", "
 						. " 0, 0, 0, 0, 0)";
 				$this->db->query($sql, __LINE__, __FILE__);
 				$article_id = $this->db->get_last_insert_id('egw_kb_articles', 'art_id');
@@ -618,7 +618,7 @@
 						."', text='" . $this->db->db_addslashes($contents['text'])
 						."', cat_id='" . (int)($contents['cat_id'])
 						."', modified=" . $current_time
-						.", modified_user_id=" . $GLOBALS['phpgw_info']['user']['account_id']
+						.", modified_user_id=" . $GLOBALS['egw_info']['user']['account_id']
 						." WHERE art_id=" . $contents['editing_article_id'];
 				$this->db->query($sql, __LINE__, __FILE__);
 				$queries_ok = false;
@@ -842,7 +842,7 @@
 				{
 					$comments[$i][$field] = $this->db->f($field);
 				}
-				$GLOBALS['phpgw']->accounts->get_account_name($comments[$i]['user_id'], $lid, $fname, $lname);
+				$GLOBALS['egw']->accounts->get_account_name($comments[$i]['user_id'], $lid, $fname, $lname);
 				$comments[$i]['username'] = $fname . ' ' . $lname;
 			}
 			return $comments;
@@ -945,7 +945,7 @@
 		**/
 		function user_has_voted($art_id)
 		{
-			$sql = "SELECT * FROM egw_kb_ratings WHERE user_id=" . $GLOBALS['phpgw_info']['user']['account_id'] . " AND art_id=$art_id";
+			$sql = "SELECT * FROM egw_kb_ratings WHERE user_id=" . $GLOBALS['egw_info']['user']['account_id'] . " AND art_id=$art_id";
 			$this->db->query($sql, __LINE__, __FILE__);
 			if ($this->db->next_record()) return 1;
 			return 0;
@@ -966,7 +966,7 @@
 			$comment = $this->db->db_addslashes($comment);
 			($publish)? $publish = 1 : $publish = 0;
 			$sql = "INSERT INTO egw_kb_comment (user_id, kb_comment, entered, art_id, published) VALUES("
-					. $GLOBALS['phpgw_info']['user']['account_id'] . ", '$comment', " . time() . ", $art_id, $publish)";
+					. $GLOBALS['egw_info']['user']['account_id'] . ", '$comment', " . time() . ", $art_id, $publish)";
 			$this->db->query($sql, __LINE__, __FILE__);
 			if (!$this->db->affected_rows()) return 0;
 			return 1;
@@ -1109,7 +1109,7 @@
 		**/
 		function add_rating_user($art_id)
 		{
-			$sql = "INSERT INTO egw_kb_ratings (user_id, art_id) VALUES(" . $GLOBALS['phpgw_info']['user']['account_id'] . ", $art_id)";
+			$sql = "INSERT INTO egw_kb_ratings (user_id, art_id) VALUES(" . $GLOBALS['egw_info']['user']['account_id'] . ", $art_id)";
 			$this->db->query($sql, __LINE__, __FILE__);
 			if (!$this->db->affected_rows()) return 0;
 			return 1;
@@ -1236,7 +1236,7 @@
 		{
 			($publish)? $publish = 1 : $publish = 0;
 			$sql = "INSERT INTO egw_kb_questions (user_id, summary, details, cat_id, creation, published) VALUES ("
-					. $GLOBALS['phpgw_info']['user']['account_id'] . ", '"
+					. $GLOBALS['egw_info']['user']['account_id'] . ", '"
 					. $this->db->db_addslashes($data['summary']) . "', '"
 					. $this->db->db_addslashes($data['details']) . "', "
 					. (int)$data['cat_id'] . ", "

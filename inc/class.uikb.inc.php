@@ -12,7 +12,7 @@
 *  Free Software Foundation; either version 2 of the License, or (at your  *
 *  option) any later version.                                              *
 \**************************************************************************/
-
+$GLOBALS['egw']->vfs->override_acl = 1;
 	/* $Id$ */
 	
 	/**
@@ -139,7 +139,7 @@
 			if ($link)
 			{
 				$this->link					= $link;
-				$GLOBALS['phpgw']->translation->add_app('phpbrain');
+				$GLOBALS['egw']->translation->add_app('phpbrain');
 			}
 			else
 			{
@@ -166,7 +166,7 @@
 			}
 			else
 			{
-				$this->t					= $GLOBALS['phpgw']->template;
+				$this->t					= $GLOBALS['egw']->template;
 				$this->nextmatchs			= CreateObject('phpgwapi.nextmatchs');
 			}
 			if (isset($arguments['post_questions']) && $arguments['post_questions'] == 'on')
@@ -203,12 +203,12 @@
 				'message'				=> $this->message,
 				'search_tpl'			=> $this->show_basic_search(),
 				'tr_class'				=> 'th',
-				'bg_lists'				=> $GLOBALS['phpgw_info']['theme']['row_off']
+				'bg_lists'				=> $GLOBALS['egw_info']['theme']['row_off']
 			));
 
 			if(!$this->sitemgr)
 			{
-				$GLOBALS['phpgw']->common->phpgw_header();
+				$GLOBALS['egw']->common->egw_header();
 				echo parse_navbar();
 				$this->navbar_shown = True;
 
@@ -328,7 +328,7 @@
 				{
 					if ($article_preview['total_votes'])	// only show stars if article has been rated
 					{
-						$img_stars = "<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', round($article_preview['average_votes']) . 'stars') . "' width=50 height=10>";
+						$img_stars = "<img src='" . $GLOBALS['egw']->common->image('phpbrain', round($article_preview['average_votes']) . 'stars') . "' width=50 height=10>";
 					}
 					else
 					{
@@ -336,7 +336,7 @@
 					}
 					if ($article_preview['files'])
 					{
-						$attachment = "<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'attach') . "'>";
+						$attachment = "<img src='" . $GLOBALS['egw']->common->image('phpbrain', 'attach') . "'>";
 					}
 					else
 					{
@@ -377,7 +377,7 @@
 					'art_href'		=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $articles_latest[$i]['art_id']),
 					'art_title'		=> $articles_latest[$i]['title'],
 					'unpublished'	=> $unpublished,
-					'art_date'		=> $GLOBALS['phpgw']->common->show_date($articles_latest[$i]['created'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']),
+					'art_date'		=> $GLOBALS['egw']->common->show_date($articles_latest[$i]['created'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']),
 					'art_category'	=> $category_path? lang('in %1', $category_path) : ''
 				));
 				$this->t->parse('articles_latest', 'articles_latest_block', True);
@@ -459,15 +459,15 @@
 		{
 			if (!$this->sitemgr)
 			{
-				$GLOBALS['phpgw']->common->phpgw_header();
+				$GLOBALS['egw']->common->egw_header();
 				echo parse_navbar();
 				$this->navbar_shown = True;
 			}
 			$this->t->set_file('search_form', 'adv_search.tpl');
 			
 			$this->t->set_var(array(
-				'row_on'			=> $GLOBALS['phpgw_info']['theme']['row_on'],
-				'row_off'			=> $GLOBALS['phpgw_info']['theme']['row_off'],
+				'row_on'			=> $GLOBALS['egw_info']['theme']['row_on'],
+				'row_off'			=> $GLOBALS['egw_info']['theme']['row_off'],
 				'lang_advanced_search' => lang('Advanced Search'),
 				'lang_find'			=> lang('Find results'),
 				'lang_all_words'	=> lang('With all the words'),
@@ -540,7 +540,7 @@
 			if ($_POST['delete_article'])
 			{
 				$message = $this->bo->delete_article($article['files']);
-				$GLOBALS['phpgw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.index&message=' . $message);
+				$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.index&message=' . $message);
 				die();
 			}
 
@@ -579,7 +579,7 @@
 				if ($_POST['Rate'])
 				{
 					$valid_rates = array(1,2,3,4,5);
-					if (!$data = $GLOBALS['phpgw']->session->appsession('ratings', 'phpbrain')) $data = array();
+					if (!$data = $GLOBALS['egw']->session->appsession('ratings', 'phpbrain')) $data = array();
 					if (($this->bo->user_has_voted() && !$this->sitemgr) || in_array($article['art_id'], $data) || !in_array($_POST['Rate'], $valid_rates))
 						$this->die_peacefully('Rating invalid');
 					if (!$this->bo->add_rating($article['votes_' . $_POST['Rate']], $this->sitemgr)) $this->die_peacefully('Unable to add rating to database');
@@ -681,25 +681,25 @@
 
 				if (!$this->sitemgr)
 				{
-					// $GLOBALS['phpgw_info']['flags']['css'] = $this->tabs_css();	Don't use this 'cause incompatible with sitemgr
-					if(!@is_object($GLOBALS['phpgw']->js))
+					// $GLOBALS['egw_info']['flags']['css'] = $this->tabs_css();	Don't use this 'cause incompatible with sitemgr
+					if(!@is_object($GLOBALS['egw']->js))
 					{
-						$GLOBALS['phpgw']->js = CreateObject('phpgwapi.javascript');
+						$GLOBALS['egw']->js = CreateObject('phpgwapi.javascript');
 					}
-					$GLOBALS['phpgw']->js->validate_file('tabs','tabs');
-					$GLOBALS['phpgw']->js->set_onload('tab.init();');
-					$GLOBALS['phpgw_info']['flags']['java_script_thirst'] = "<script>function openpopup() {window1=window.open('" . $this->link('menuaction=phpbrain.uikb.pop_search') . "', 'Search', 'width=800,height=600,toolbar=no,scrollbars=yes,resizable=yes');}</script>";
+					$GLOBALS['egw']->js->validate_file('tabs','tabs');
+					$GLOBALS['egw']->js->set_onload('tab.init();');
+					$GLOBALS['egw_info']['flags']['java_script_thirst'] = "<script>function openpopup() {window1=window.open('" . $this->link('menuaction=phpbrain.uikb.pop_search') . "', 'Search', 'width=800,height=600,toolbar=no,scrollbars=yes,resizable=yes');}</script>";
 
 					$this->t->set_var('link_main_view', '');
 
-					$GLOBALS['phpgw']->common->phpgw_header();
+					$GLOBALS['egw']->common->egw_header();
 					echo parse_navbar();
 					$this->navbar_shown = True;
 				}
 				else
 				{
 					// Since cannot use js object with sitemanager, I have to manually insert the javascript include:
-					$this->t->set_var('tabs_script', $GLOBALS['phpgw']->link('/phpgwapi/js/tabs/tabs.js'));
+					$this->t->set_var('tabs_script', $GLOBALS['egw']->link('/egwapi/js/tabs/tabs.js'));
 
 					$this->t->set_var('link_main_view', "<a href='". $this->link('menuaction=phpbrain.uikb.index') ."'>". lang('Main View', 'phpbrain') ."</a>&nbsp;&nbsp;|<br>");
 				}
@@ -730,16 +730,16 @@
 				'lang_attach_file'		=> lang('Attach file'),
 				'lang_delete'			=> lang('delete'),
 				'lang_confirm_delete'   => lang('Are you sure?'),
-				'img_printer'			=> $GLOBALS['phpgw']->common->image('phpbrain', 'articleprint'),
+				'img_printer'			=> $GLOBALS['egw']->common->image('phpbrain', 'articleprint'),
 				'href_printer'			=> $this->link('menuaction=phpbrain.uikb.view_article&art_id='. $article_id .'&printer=1'),
-				'img_mail'				=> $GLOBALS['phpgw']->common->image('phpbrain', 'mail'),
-				'img_src_del'			=> $GLOBALS['phpgw']->common->image('phpbrain', 'delete'),
+				'img_mail'				=> $GLOBALS['egw']->common->image('phpbrain', 'mail'),
+				'img_src_del'			=> $GLOBALS['egw']->common->image('phpbrain', 'delete'),
 				'alt_printer'			=> lang('Printer view'),
 				'alt_mail'				=> lang('Mail article'),
 				'href_mail'				=> $this->link('menuaction=phpbrain.uikb.mail_article&art_id='. $article_id),
 				'form_article_action'	=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $article_id),
 				'form_del_action'		=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $article_id),
-				'url_bluedot'			=> $GLOBALS['phpgw']->common->image('phpbrain', 'bluedot')
+				'url_bluedot'			=> $GLOBALS['egw']->common->image('phpbrain', 'bluedot')
 			));
 
 			$published = $article['published']? '' : lang("This article hasn't yet been published in the Knowledge Base");
@@ -747,12 +747,12 @@
 			$img_stars = '';
 			if ($article['modified_username'])
 			{
-				$lastmodif = lang('Last modification by %1 on %2', $article['modified_username'], $GLOBALS['phpgw']->common->show_date($article['modified'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']));
+				$lastmodif = lang('Last modification by %1 on %2', $article['modified_username'], $GLOBALS['egw']->common->show_date($article['modified'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']));
 			}
 			// only show stars if article has been rated
 			if ($article['total_votes'])
 			{
-				$img_stars = "<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', round($article['average_votes']) . 'stars') . "' width=50 height=10>";
+				$img_stars = "<img src='" . $GLOBALS['egw']->common->image('phpbrain', round($article['average_votes']) . 'stars') . "' width=50 height=10>";
 			}
 
 			// show edit and delete button if user has edit rights and he's not using sitemgr
@@ -794,7 +794,7 @@
 				'title'				=> $article['title'],
 				'topic'				=> $article['topic'],
 				'keywords'			=> $article['keywords'],
-				'createdby'			=> lang('Created by %1 on %2', $article['username'], $GLOBALS['phpgw']->common->show_date($article['created'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat'])),
+				'createdby'			=> lang('Created by %1 on %2', $article['username'], $GLOBALS['egw']->common->show_date($article['created'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat'])),
 				'last_modif'		=> $lastmodif,
 				'content'			=> $article['text']
 			));
@@ -814,11 +814,11 @@
 			if (!$print_view && $article['published'])
 			{
 				// show feedback question if article has been published, a basic search was done and this article hasn't been given any feedback on this session
-				if (!$data = $GLOBALS['phpgw']->session->appsession('feedback', 'phpbrain')) $data = array();
+				if (!$data = $GLOBALS['egw']->session->appsession('feedback', 'phpbrain')) $data = array();
 				if ($this->bo->query && !in_array($article['art_id'], $data))
 				{
 					$this->t->set_var(array(
-						'tr_bgcolor'			=> $GLOBALS['phpgw_info']['theme']['row_off'],
+						'tr_bgcolor'			=> $GLOBALS['egw_info']['theme']['row_off'],
 						'query'					=> $this->bo->query,
 						'form_easy_q_action'	=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $article_id),
 						'lang_question_easy'	=> lang('Was it easy to find this article using the above search string?'),
@@ -855,7 +855,7 @@
 					}
 
 					$this->t->set_var(array(
-						'comment_date'		=> $GLOBALS['phpgw']->common->show_date($comment['entered'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']),
+						'comment_date'		=> $GLOBALS['egw']->common->show_date($comment['entered'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']),
 						'comment_user'		=> $comment['username'],
 						'link_publish'		=> $link_publish,
 						'link_delete'		=> $link_delete,
@@ -876,7 +876,7 @@
 				));
 
 				// setup voting form if article has been published and (user has not voted already or accessed through sitemgr) and has not voted this article in this session
-				if (!$data = $GLOBALS['phpgw']->session->appsession('ratings', 'phpbrain')) $data = array();
+				if (!$data = $GLOBALS['egw']->session->appsession('ratings', 'phpbrain')) $data = array();
 				if (($this->bo->user_has_voted($article_id) && !$this->sitemgr) || in_array($article['art_id'], $data))
 				{
 					$this->t->set_var(array(
@@ -1111,8 +1111,8 @@
 			$this->t->set_file('mail_form', 'mail_article.tpl');
 			$this->t->set_var(array(
 				'form_action'		=> $this->link('menuaction=phpbrain.uikb.view_article&mail=1&art_id='. $article_id),
-				'row_on'			=> $GLOBALS['phpgw_info']['theme']['row_on'],
-				'row_off'			=> $GLOBALS['phpgw_info']['theme']['row_off'],
+				'row_on'			=> $GLOBALS['egw_info']['theme']['row_on'],
+				'row_off'			=> $GLOBALS['egw_info']['theme']['row_off'],
 				'lang_recipient'	=> lang('Recipient'),
 				'val_recipient'		=> $recipient,
 				'lang_subject'		=> lang('Subject'),
@@ -1126,7 +1126,7 @@
 
 			if (!$this->sitemgr)
 			{
-				$GLOBALS['phpgw']->common->phpgw_header();
+				$GLOBALS['egw']->common->egw_header();
 				echo parse_navbar();
 				$this->navbar_shown = True;
 			}
@@ -1163,7 +1163,7 @@
 				'lang_all'			=> lang('All'),
 				'lang_search'		=> lang('Search'),
 				'lang_select'		=> lang('Select'),
-				'th_color'			=> $GLOBALS['phpgw_info']['theme']['th_bg'],
+				'th_color'			=> $GLOBALS['egw_info']['theme']['th_bg'],
 				'value_query'		=> $this->bo->query,
 				'form_select_articles_action' => $this->link('menuaction=phpbrain.uikb.pop_search'),
 				'form_filters_action' => $this->link('menuaction=phpbrain.uikb.pop_search&start=' . $this->bo->start . '&sort=' . $this->bo->sort),
@@ -1257,7 +1257,7 @@
 					// if article is new tell to insert files and stuff
 					$message = '';
 					if (!$article) $message = '&message=add_ok_cont&tabpage=2';
-					$GLOBALS['phpgw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.view_article&art_id=' .  $edited_art . $message);
+					$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.view_article&art_id=' .  $edited_art . $message);
 					die();
 				}
 				else
@@ -1283,7 +1283,7 @@
 				// Process cancel button
 				if ($_POST['cancel'])
 				{
-					$GLOBALS['phpgw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.view_article&art_id=' .  $_GET['art_id']);
+					$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.view_article&art_id=' .  $_GET['art_id']);
 					die();
 				}
 
@@ -1312,7 +1312,7 @@
 				// Process cancel button
 				if ($_POST['cancel'])
 				{
-					$GLOBALS['phpgw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.index');
+					$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.index');
 					die();
 				}
 				$q_id = (int)get_var('q_id', 'GET', 0);
@@ -1343,7 +1343,7 @@
 			// Finally, fill the input fields
 			if (!$this->sitemgr)
 			{
-				$GLOBALS['phpgw']->common->phpgw_header();
+				$GLOBALS['egw']->common->egw_header();
 				echo parse_navbar();
 				$this->navbar_shown = True;
 			}
@@ -1388,7 +1388,7 @@
 			if ($_POST['submit'])
 			{
 				$this->bo->add_question();
-				$GLOBALS['phpgw']->redirect($this->link('menuaction=phpbrain.uikb.index'));	// don't use redirect_link cause it ain't work in sitemgr
+				$GLOBALS['egw']->redirect($this->link('menuaction=phpbrain.uikb.index'));	// don't use redirect_link cause it ain't work in sitemgr
 				end;
 			}
 
@@ -1426,7 +1426,7 @@
 
 			if (!$this->sitemgr)
 			{
-				$GLOBALS['phpgw']->common->phpgw_header();
+				$GLOBALS['egw']->common->egw_header();
 				echo parse_navbar();
 				$this->navbar_shown = True;
 			}
@@ -1494,7 +1494,7 @@
 				{
 					$message = $_GET['delete']? 'del_art_ok' : 'del_arts_ok';
 				}
-				$GLOBALS['phpgw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.maintain_articles&message=' . $message);
+				$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.maintain_articles&message=' . $message);
 				die();
 			}
 
@@ -1528,7 +1528,7 @@
 				{
 					$message = $_GET['publish']? 'publish_ok' : 'publishs_ok';
 				}
-				$GLOBALS['phpgw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.maintain_articles&message=' . $message);
+				$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.maintain_articles&message=' . $message);
 				die();
 			}
 
@@ -1544,21 +1544,21 @@
 					$actions = '';
 
 					// skip if article unpublished, user has no publish right on owner and user!=owner
-					if (!$article['published'] && !($this->bo->grants[$article['user_id']] & $this->bo->publish_right) && $article['user_id']!=$GLOBALS['phpgw_info']['user']['account_id']) continue;
+					if (!$article['published'] && !($this->bo->grants[$article['user_id']] & $this->bo->publish_right) && $article['user_id']!=$GLOBALS['egw_info']['user']['account_id']) continue;
 
 					$actions = "<a href='". $this->link('menuaction=phpbrain.uikb.view_article&art_id='. $article['art_id']) ."'>
-								<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'view') . "' title='". lang('view')  ."'>
+								<img src='" . $GLOBALS['egw']->common->image('phpbrain', 'view') . "' title='". lang('view')  ."'>
 								</a>";
 					if (!$article['published'] && ($this->bo->grants[$article['user_id']] & $this->bo->publish_right))
 					{
 						$actions .= "<a href='". $this->link('menuaction=phpbrain.uikb.maintain_articles&publish='. $article['art_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query) ."'>
-											<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'new') . "' title='". lang('publish')  ."'>
+											<img src='" . $GLOBALS['egw']->common->image('phpbrain', 'new') . "' title='". lang('publish')  ."'>
 											</a>";
 					}
 					if ($this->bo->grants[$article['user_id']] & $this->bo->edit_right)
 					{
 						$actions .= "<a href='". $this->link('menuaction=phpbrain.uikb.maintain_articles&delete='. $article['art_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query). "'>
-											<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'delete') . "' title='" . lang('delete') . "'>
+											<img src='" . $GLOBALS['egw']->common->image('phpbrain', 'delete') . "' title='" . lang('delete') . "'>
 											</a>";
 					}
 					$this->t->set_var(array(
@@ -1566,7 +1566,7 @@
 						'title'				=> $article['title'],
 						'topic'				=> $article['topic'],
 						'author'			=> $article['username'],
-						'date'				=> $GLOBALS['phpgw']->common->show_date($article['modified'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']),
+						'date'				=> $GLOBALS['egw']->common->show_date($article['modified'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']),
 						'actions'			=> $actions,
 						'name_checkbox'		=> 'select[' . $article['art_id']  . ']'
 					));
@@ -1586,7 +1586,7 @@
 			if ($this->bo->publish_filter == 'published') $select_publish .= ' selected';
 			$select_publish .= '>' . lang('Published') . '</option>';
 
-			$GLOBALS['phpgw_info']['flags']['java_script_thirst'] = $this->javascript_check_all();
+			$GLOBALS['egw_info']['flags']['java_script_thirst'] = $this->javascript_check_all();
 
 			$this->t->set_var(array(
 				'message'				=> $this->message,
@@ -1595,7 +1595,7 @@
 				'value_query'			=> $this->bo->query,
 				'form_maintain_articles_action'=> $this->link('menuaction=phpbrain.uikb.maintain_articles'),
 				'form_filters_action'	=> $this->link(array('menuaction' => 'phpbrain.uikb.maintain_articles', 'start' => $this->bo->start, 'sort' => $this->bo->sort)),
-				'img_src_checkall'		=> $GLOBALS['phpgw']->common->image('phpbrain', 'check'),
+				'img_src_checkall'		=> $GLOBALS['egw']->common->image('phpbrain', 'check'),
 				'order'					=> $this->bo->order, 
 				'publish_filter'		=> $this->bo->publish_filter,
 				'head_title'			=> $this->nextmatchs->show_sort_order($this->bo->sort, 'title', $this->bo->order, '', lang('Title')),
@@ -1613,7 +1613,7 @@
 
 			if (!$this->sitemgr)
 			{
-				$GLOBALS['phpgw']->common->phpgw_header();
+				$GLOBALS['egw']->common->egw_header();
 				echo parse_navbar();
 				$this->navbar_shown = True;
 			}
@@ -1672,7 +1672,7 @@
 				{
 					$message = $_GET['delete']? 'del_q_ok' : 'del_qs_ok';
 				}
-				$GLOBALS['phpgw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.maintain_questions&message=' . $message);
+				$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.maintain_questions&message=' . $message);
 				die();
 			}
 
@@ -1706,7 +1706,7 @@
 				{
 					$message = $_GET['publish']? 'publish_ok' : 'publishs_ok';
 				}
-				$GLOBALS['phpgw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.maintain_questions&message=' . $message);
+				$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.maintain_questions&message=' . $message);
 				die();
 			}
 
@@ -1725,7 +1725,7 @@
 				if ($question['published'])
 				{
 					$actions = "<a href='". $this->link('menuaction=phpbrain.uikb.edit_article&q_id='. $question['question_id']) ."'>
-							<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'answer') . "' title='". lang('answer')  ."'>
+							<img src='" . $GLOBALS['egw']->common->image('phpbrain', 'answer') . "' title='". lang('answer')  ."'>
 							</a>";
 				}
 
@@ -1733,7 +1733,7 @@
 				if (!$question['published'] && ($this->bo->grants[$question['user_id']] & $this->bo->publish_right))
 				{
 					$actions .= "<a href='". $this->link('menuaction=phpbrain.uikb.maintain_questions&publish='. $question['question_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query) ."'>
-										<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'new') . "' title='". lang('publish')  ."'>
+										<img src='" . $GLOBALS['egw']->common->image('phpbrain', 'new') . "' title='". lang('publish')  ."'>
 										</a>";
 				}
 
@@ -1741,14 +1741,14 @@
 				if ($this->bo->grants[$question['user_id']] & $this->bo->edit_right)
 				{
 					$actions .= "<a href='". $this->link('menuaction=phpbrain.uikb.maintain_questions&delete='. $question['question_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query). "'>
-										<img src='" . $GLOBALS['phpgw']->common->image('phpbrain', 'delete') . "' title='" . lang('delete') . "'>
+										<img src='" . $GLOBALS['egw']->common->image('phpbrain', 'delete') . "' title='" . lang('delete') . "'>
 										</a>";
 				}
 				$this->t->set_var(array(
 					'tr_color'			=> $this->nextmatchs->alternate_row_color($tr_color),
 					'summary'			=> $question['summary'],
 					'details'			=> $question['details'],
-					'date'				=> $GLOBALS['phpgw']->common->show_date($question['creation'], $GLOBALS['phpgw_info']['user']['preferences']['common']['dateformat']),
+					'date'				=> $GLOBALS['egw']->common->show_date($question['creation'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']),
 					'author'			=> $question['username'],
 					'actions'			=> $actions,
 					'name_checkbox'		=> 'select[' . $question['question_id']  . ']'
@@ -1784,7 +1784,7 @@
 				$select_publish .= ">" . lang('unpublished') . "</option><option value='published'";
 				if ($this->bo->publish_filter == 'published') $select_publish .= ' selected';
 				$select_publish .= '>' . lang('Published') . '</option>';
-				$GLOBALS['phpgw_info']['flags']['java_script_thirst'] = $this->javascript_check_all();
+				$GLOBALS['egw_info']['flags']['java_script_thirst'] = $this->javascript_check_all();
 
 				$this->t->set_var(array(
 					'head_summary'			=> $this->nextmatchs->show_sort_order($this->bo->sort, 'summary', $this->bo->order, '', lang('Summary')),
@@ -1801,7 +1801,7 @@
 				'value_query'			=> $this->bo->query,
 				'form_maintain_questions_action'=> $this->link('menuaction=phpbrain.uikb.maintain_questions'),
 				'form_filters_action'	=> $this->link('menuaction=phpbrain.uikb.maintain_questions&start='. $this->bo->start .'&sort='. $this->bo->sort),
-				'img_src_checkall'		=> $GLOBALS['phpgw']->common->image('phpbrain', 'check'),
+				'img_src_checkall'		=> $GLOBALS['egw']->common->image('phpbrain', 'check'),
 				'order'					=> $this->bo->order, 
 				'publish_filter'		=> $this->bo->publish_filter,
 				'left'					=> $this->nextmatchs->left($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category . '&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
@@ -1814,7 +1814,7 @@
 
 			if (!$this->sitemgr)
 			{
-				$GLOBALS['phpgw']->common->phpgw_header();
+				$GLOBALS['egw']->common->egw_header();
 				echo parse_navbar();
 				$this->navbar_shown = True;
 			}
@@ -1840,7 +1840,7 @@
 		*/
 		function reload_page($article_id, $message)
 		{
-			$GLOBALS['phpgw']->redirect($this->link("menuaction=phpbrain.uikb.view_article&art_id=$article_id&message=$message"));
+			$GLOBALS['egw']->redirect($this->link("menuaction=phpbrain.uikb.view_article&art_id=$article_id&message=$message"));
 		}
 
 		/**
@@ -1860,12 +1860,12 @@
 			// remove kb-# prefix
 			ereg('^kb[0-9]*-(.*)', $filename, $new_filename);
 
-			$download_browser = CreateObject('phpgwapi.browser');
+			$download_browser = CreateObject('egwapi.browser');
 			$download_browser->content_header($new_filename[1]);
 			$cd_args = array('string'	=> '/kb', 'relative' => False, 'relatives' => RELATIVE_NONE);
-			if (!$GLOBALS['phpgw']->vfs->cd($cd_args)) die('could not cd');
-			echo $GLOBALS['phpgw']->vfs->read(array('string' => $filename));
-			$GLOBALS['phpgw']->common->phpgw_exit();
+			if (!$GLOBALS['egw']->vfs->cd($cd_args)) die('could not cd');
+			echo $GLOBALS['egw']->vfs->read(array('string' => $filename));
+			$GLOBALS['egw']->common->egw_exit();
 		}
 
 		/**
@@ -1889,7 +1889,7 @@
 				$num_main_cat ++;
 				$categories_str .= "<tr><td valign=top>";
 				if ($cat['icon'])
-						$categories_str .= "<img src='" . $GLOBALS['phpgw_info']['server']['webserver_url'] . SEP . 'phpgwapi' . SEP . 'images' . SEP . $cat['icon'] . "'>";
+						$categories_str .= "<img src='" . $GLOBALS['egw_info']['server']['webserver_url'] . SEP . 'egwapi' . SEP . 'images' . SEP . $cat['icon'] . "'>";
 				$categories_str .= "</td><td><a href='".$this->link('menuaction=phpbrain.uikb.index&cat='.$cat['id'])
 										."'><b>".$cat['name']."</b></a><br><div style='padding-left:10px'>";
 				$has_subcats = False;
@@ -2017,7 +2017,7 @@
 			}
 			else
 			{
-				return $GLOBALS['phpgw']->link($this->link, $args);
+				return $GLOBALS['egw']->link($this->link, $args);
 			}
 		}
 
@@ -2063,11 +2063,11 @@
 		{
 			if (!$this->navbar_shown && !$this->sitemgr)
 			{
-				$GLOBALS['phpgw']->common->phpgw_header();
+				$GLOBALS['egw']->common->egw_header();
 				echo parse_navbar();
 			}
 			echo "<div style='text-align:center; font-weight:bold'>" . lang($error_msg) . "</div>";
-			$GLOBALS['phpgw']->common->phpgw_footer();
+			$GLOBALS['egw']->common->egw_footer();
 			die();
 		}
 	}	
