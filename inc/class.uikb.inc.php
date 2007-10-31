@@ -699,7 +699,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 				else
 				{
 					// Since cannot use js object with sitemanager, I have to manually insert the javascript include:
-					$this->t->set_var('tabs_script', $GLOBALS['egw']->link('/egwapi/js/tabs/tabs.js'));
+					$this->t->set_var('tabs_script', $GLOBALS['egw']->link('/phpgwapi/js/tabs/tabs.js'));
 
 					$this->t->set_var('link_main_view', "<a href='". $this->link('menuaction=phpbrain.uikb.index') ."'>". lang('Main View', 'phpbrain') ."</a>&nbsp;&nbsp;|<br>");
 				}
@@ -1860,7 +1860,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 			// remove kb-# prefix
 			ereg('^kb[0-9]*-(.*)', $filename, $new_filename);
 
-			$download_browser = CreateObject('egwapi.browser');
+			$download_browser = CreateObject('phpgwapi.browser');
 			$download_browser->content_header($new_filename[1]);
 			$cd_args = array('string'	=> '/kb', 'relative' => False, 'relatives' => RELATIVE_NONE);
 			if (!$GLOBALS['egw']->vfs->cd($cd_args)) die('could not cd');
@@ -1889,7 +1889,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 				$num_main_cat ++;
 				$categories_str .= "<tr><td valign=top>";
 				if ($cat['icon'])
-						$categories_str .= "<img src='" . $GLOBALS['egw_info']['server']['webserver_url'] . SEP . 'egwapi' . SEP . 'images' . SEP . $cat['icon'] . "'>";
+						$categories_str .= "<img src='" . $GLOBALS['egw_info']['server']['webserver_url'] . SEP . 'phpgwapi' . SEP . 'images' . SEP . $cat['icon'] . "'>";
 				$categories_str .= "</td><td><a href='".$this->link('menuaction=phpbrain.uikb.index&cat='.$cat['id'])
 										."'><b>".$cat['name']."</b></a><br><div style='padding-left:10px'>";
 				$has_subcats = False;
