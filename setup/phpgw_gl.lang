@@ -1,0 +1,193 @@
+/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	gl	O directorio /kb non existe e non foi posible crealo. Consulte co administrador para verificar a configuración global.
+action	phpbrain	gl	Acción
+actions	phpbrain	gl	Accións
+add articles	phpbrain	gl	Engadir artigos
+add link	phpbrain	gl	Engadir ligazón
+add question	phpbrain	gl	Engadir pregunta
+added file %1	phpbrain	gl	Ficheiro %1 engadido
+added link %1	phpbrain	gl	Ligazón %1 engadida
+added related articles %1	phpbrain	gl	Artigos relacionados %1 engadidos
+advanced search	phpbrain	gl	Busca avanzada
+all articles	phpbrain	gl	Todos os artigos
+allow posting of questions	phpbrain	gl	Permitir o envío de preguntas
+answer	phpbrain	gl	Resposta
+anytime	phpbrain	gl	Calquera hora
+anywhere in the article	phpbrain	gl	Calquera lugar no artigo
+are you sure?	phpbrain	gl	Está seguro?
+article	phpbrain	gl	Artigo
+article added to database, you can now attach files or links, or relate to other articles	phpbrain	gl	O artigo engadiuse á base de datos. Agora pode anexar ficheiros ou ligazóns, e relacionalo con outros artigos.
+article created	phpbrain	gl	Artigo creado
+article deleted	phpbrain	gl	Artigo eliminado
+article deleted successfully	phpbrain	gl	O artigo  eliminouse  con éxito
+article edited	phpbrain	gl	O artigo foi editado
+article has been published	phpbrain	gl	O artigo foi publicado
+article id	phpbrain	gl	ID do artigo
+articles added	phpbrain	gl	Artigos engadidos
+articles deleted successfully	phpbrain	gl	Os artigos elimináronse con éxito
+articles have been published	phpbrain	gl	Os artigos foron publicados
+articles in %1	phpbrain	gl	Artigos en %1
+articles in %1 and all its subcategories	phpbrain	gl	Artigos en %1 e todas as subcategorías
+articles not classified under any category	phpbrain	gl	Artigos sen clasificar en ningunha categoría
+ascendent	phpbrain	gl	Ascendente
+attach file	phpbrain	gl	Anexar ficheiro
+attached files	phpbrain	gl	Ficheiros anexos
+average rating	phpbrain	gl	Clasificación media
+base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	gl	O directorio base non existe. Consulte co administrador para verificar a configuración global.
+before submiting a question, please search in the knowledge base first	phpbrain	gl	Antes de enviar unha pregunta, busque antes na base de coñecemento
+by answering this question you will help to get the answer quicker the next time	phpbrain	gl	Ao responder esta pregunta, axudará a obter unha resposta máis rápida a próxima vez
+comment	phpbrain	gl	comentario
+comment and rating have been published	phpbrain	gl	O comentario e a clasificación foron publicados
+comment could not be inserted in the database	phpbrain	gl	Non foi posible inserir o comentario na base de datos
+comment has been deleted	phpbrain	gl	O comentario foi eliminado
+comment has been published	phpbrain	gl	O comentario foi publicado
+comment has been submited for revision	phpbrain	gl	O comentario enviouse para ser revisado
+comment has been submited for revision and rating will be published	phpbrain	gl	O comentario enviouse para ser revisado e publicarase a clasificación
+comments	phpbrain	gl	Comentarios
+configuration	phpbrain	gl	Configuración
+create a new article to answer the question asked by %1 in %2	phpbrain	gl	Crear un novo artigo para responder a pregunta realizada por %1 en %2
+created by %1 on %2	phpbrain	gl	Creado por %1 en %2
+creation	phpbrain	gl	creación
+creation date	phpbrain	gl	Data de creación
+delete article	phpbrain	gl	Eliminar artigo
+delete selected	phpbrain	gl	Eliminar a selección
+deleted relation to  article %1	phpbrain	gl	Eliminada a relación co artigo %1
+deleted relation to article %1	phpbrain	gl	Eliminada a relación co artigo %1
+descendent	phpbrain	gl	Descendente
+details	phpbrain	gl	Detalles
+e-groupware knowledge base article attached	phpbrain	gl	Artigo anexado á base de coñecemento de eGroupware
+e-mail has been sent	phpbrain	gl	Correo electrónico enviado
+edit article	phpbrain	gl	Editar artigo
+enter one or two words describing the issue, or type the article number if you know it	phpbrain	gl	Introduza unha ou dúas palabras que describan o problema, ou insira o número do artigo se o coñece
+enterprise knowledge articles repository	phpbrain	gl	Repositorio de artigos de coñecemento da empresa
+error deleting article from database	phpbrain	gl	Erro ao eliminar o artigo da base de datos
+error deleting link	phpbrain	gl	Erro ao eliminar a ligazón
+error downloading file	phpbrain	gl	Erro ao descargar o ficheiro
+error locating files directory	phpbrain	gl	Erro ao localizar o directorio dos ficheiros
+error moving file to directory	phpbrain	gl	Erro ao mover o ficheiro ao directorio
+error publishing comment	phpbrain	gl	Erro ao publicar o comentario
+error retrieving article	phpbrain	gl	Erro ao recuperar o artigo
+error trying to delete comment	phpbrain	gl	Erro ao tentar eliminar o comentario
+error trying to delete question	phpbrain	gl	Erro ao tentar eliminar a pregunta
+error trying to edit article	phpbrain	gl	Erro ao tentar editar o artigo
+error trying to publish article	phpbrain	gl	Erro ao tentar publicar o artigo
+error: file doesn't exist in the database	phpbrain	gl	Erro: O ficheiro non existe na base de datos
+excellent	phpbrain	gl	Excelente
+failure trying to delete the file	phpbrain	gl	Erro ao tentar eliminar o ficheiro
+file could be deleted from server but not from database	phpbrain	gl	Foi posible eliminar o ficheiro do servidor mais non da base de datos
+file has been successfully uploaded	phpbrain	gl	O ficheiro cargouse no servidor con éxito
+file was already missing from server, and was deleted from the database	phpbrain	gl	O ficheiro xa non está no servidor, e foi eliminado da base de datos.
+file was deleted successfully	phpbrain	gl	O ficheiro  eliminouse  con éxito
+file wasn't in server and it couldn't be deleted from the database	phpbrain	gl	O ficheiro non estaba no servidor e non foi  posible eliminalo da base de datos.
+find results	phpbrain	gl	Localizar resultados
+global categories	phpbrain	gl	Categorías globais
+have to be approved first	common	gl	Debe ser aprobado antes
+history	phpbrain	gl	Historial
+if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	gl	Se non pode encontrar respostas ao problema na base de coñecemento, descríbao a seguir
+if you wish, you can comment this article here	phpbrain	gl	Pode comentar aquí este artigo
+in %1	phpbrain	gl	en %1
+in the text	phpbrain	gl	no texto
+in the title	phpbrain	gl	no título
+in the topic	phpbrain	gl	no asunto
+include subcategories	phpbrain	gl	Incluír subcategorías
+keywords	phpbrain	gl	Palabras chave
+knowledge base	phpbrain	gl	Base de coñecemento
+knowledge base article #%1	phpbrain	gl	Artigo da base de coñecemento #%1
+knowledge base configuration	common	gl	Configuración da base de coñecemento
+last modification by %1 on %2	phpbrain	gl	Última modificación por %1 en %2
+last modified	phpbrain	gl	Última modificación
+latest	phpbrain	gl	Último
+latest comments	phpbrain	gl	Últimos comentarios
+leave empty to automatically generate an id	phpbrain	gl	Deixar en branco para xerar un ID automaticamente
+link could not be added	phpbrain	gl	Non foi posible engadir a ligazón
+link deleted successfully	phpbrain	gl	A ligazón  eliminouse  con éxito
+link has been added	phpbrain	gl	Engadiuse a ligazón
+links	phpbrain	gl	Ligazóns
+links & files	phpbrain	gl	Ligazóns e ficheiros
+mail article	phpbrain	gl	Enviar artigo por correo
+main view	phpbrain	gl	Visualización principal
+maintain articles	phpbrain	gl	Mantemento de artigos
+maintain questions	phpbrain	gl	Mantemento de preguntas
+maximum number of comments to show:	phpbrain	gl	Número máximo de comentarios que mostrar:
+maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	gl	Número máximo de artigos máis populares, de artigos máis recentes e de preguntas sen responder para mostrar na visualización principal:
+modification date	phpbrain	gl	Data de modificación
+most viewed	phpbrain	gl	Máis visitados
+new article	phpbrain	gl	Novo artigo
+nobody has rated this article so far	phpbrain	gl	Ninguén clasificou aínda este artigo
+nothing was uploaded!	phpbrain	gl	Non se cargou nada
+number of results per page	phpbrain	gl	Número de resultados
+ocurrences	phpbrain	gl	Ocorrencias
+or browse the categories	phpbrain	gl	Ou explorar as categorías
+order results by	phpbrain	gl	Ordenar resultados por
+outstanding published questions	phpbrain	gl	Preguntas publicadas máis destacadas
+past %1 months	phpbrain	gl	%1 meses anteriores
+past year	phpbrain	gl	ano pasado
+people have rated this article	phpbrain	gl	persoas clasificaron este artigo
+phpbrain	common	gl	Base de coñecemento
+please rate the pertinence and quality of this article	phpbrain	gl	Clasifique a utilidade e calidade deste artigo
+please try again	phpbrain	gl	Tente de novo
+poor	phpbrain	gl	Pobre
+printer view	phpbrain	gl	Visualización de impresión
+problem relating articles	phpbrain	gl	Problema relacionando artigos
+publication date	phpbrain	gl	Data de publicación
+publish	phpbrain	gl	Publicar
+publish articles automatically?	common	gl	Desexa publicar artigos automaticamente?
+publish comments automatically?	common	gl	Desexa publicar comentarios automaticamente?
+publish questions automatically?	common	gl	Desexa publicar preguntas automaticamente?
+publish selected	phpbrain	gl	Publicar a selección
+published	phpbrain	gl	Publicado
+question deleted successfully	phpbrain	gl	A pregunta eliminouse  con éxito
+questions deleted successfully	phpbrain	gl	As preguntas  elimináronse con éxito
+rating has been submited	phpbrain	gl	A clasificación foi enviada
+rating invalid	phpbrain	gl	A clasificación non é válida
+recipient	phpbrain	gl	Destinatario
+related articles in the knowledge base	phpbrain	gl	Artigos relacionados na base de coñecemento
+relation with article was removed successfully	phpbrain	gl	A relación co artigo eliminouse  con éxito
+removed file %1	phpbrain	gl	Eliminouse o ficheiro %1
+removed link %1	phpbrain	gl	Eliminouse a ligazón %1
+reply-to	phpbrain	gl	Responder a
+search in all the knowledge base	phpbrain	gl	Buscar en toda a base de coñecemento
+search results	phpbrain	gl	Resultados da busca
+see more questions	phpbrain	gl	Ver máis preguntas
+see more questions...	phpbrain	gl	Ver máis preguntas...
+select articles	phpbrain	gl	Seleccionar artigos
+show all comments	phpbrain	gl	Mostrar todos os comentarios
+show articles belonging to:	phpbrain	gl	Mostrar artigos pertencentes a:
+show messages in category	phpbrain	gl	Mostrar mensaxes na categoría
+submit comment	phpbrain	gl	Enviar comentario
+submit comment and rating	phpbrain	gl	Enviar comentario e clasificación
+suggested category	phpbrain	gl	Categoría suxerida
+summary	phpbrain	gl	Resumo
+that file already exists	phpbrain	gl	O ficheiro xa existe
+the article id must be a number	phpbrain	gl	O ID do artigo debe ser un número
+the article is empty	phpbrain	gl	O artigo está en branco
+the file was already missing in the server	phpbrain	gl	O ficheiro xa non estaba no servidor
+the following errors occurred	phpbrain	gl	Houbo os seguintes erros
+the mail server returned:	phpbrain	gl	O servidor de correo devolveu:
+the present category and all subcategories under it	phpbrain	gl	A categoría actual e todas as súas subcategorías
+the present category only	phpbrain	gl	Só a categoría actual
+there are no articles	phpbrain	gl	Non hai artigos
+there are no articles available	phpbrain	gl	Non hai artigos dispoñibles
+this article hasn't yet been published in the knowledge base	phpbrain	gl	Este artigo aínda non foi publicado na base de coñecemento
+title	phpbrain	gl	Título
+to create categories, press 'edit categories' in the preferences menu	phpbrain	gl	Para crear categorías, prema Editar categorías no menú Preferencias
+topic	phpbrain	gl	Tema
+unable to add rating to database	phpbrain	gl	Non foi posible engadir a clasificación á base de datos
+unanswered questions	phpbrain	gl	Preguntas sen responder
+unpublish	phpbrain	gl	Despublicar
+unpublished	phpbrain	gl	despublicado
+user preferences	phpbrain	gl	Preferencias do usuario
+views	phpbrain	gl	visualizacións
+was it easy to find this article using the above search string?	phpbrain	gl	Foi fácil encontrar o artigo con esta cadea de busca?
+when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	gl	Ao navegar polas categorías, escolla se a lista de artigos mostrada corresponde ora só á categoría actual, ora á categoría actual e a todas as súas subcategorías.
+with all the words	phpbrain	gl	Con todas as palabras
+with at least one of the words	phpbrain	gl	Con polo menos unha das palabras
+with the exact phrase	phpbrain	gl	Coa frase exacta
+without the words	phpbrain	gl	Sen as palabras
+you are in %1	phpbrain	gl	Está en %1
+you have already qualified this article	phpbrain	gl	Xa calificou este artigo
+you have not the proper permissions to do that	phpbrain	gl	Non ten permiso para facer iso
+you must enter a title	phpbrain	gl	Debe introducir un título
+you must enter a topic	phpbrain	gl	Debe introducir un tema
+your message could not be sent!	phpbrain	gl	Non foi posible enviar a súa mensaxe
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	gl	Enviarase a pregunta, mais só se publicará despois de ser aprobada por un usuario con dereitos de publicación.
+your question will be published immediately	phpbrain	gl	A pregunta publicarase inmediatamente.
