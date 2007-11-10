@@ -1,8 +1,8 @@
 $stat_name %1	phpbrain	ca	$stat_name %1
-%1 contains %2 items	phpbrain	ca	%1 contÈ %2 elements
-%1 faqs_activated	phpbrain	ca	%1 PF est‡n activades
-%1 faqs_deleted	phpbrain	ca	%1 PF est‡n esborrades
-%1 matches found	phpbrain	ca	Trobades %1 coincidËncies
+%1 contains %2 items	phpbrain	ca	%1 cont√© %2 elements
+%1 faqs_activated	phpbrain	ca	%1 PF est√†n activades
+%1 faqs_deleted	phpbrain	ca	%1 PF est√†n esborrades
+%1 matches found	phpbrain	ca	Trobades %1 coincid√®ncies
 %1 questions_activated	phpbrain	ca	%1 preguntes activades
 %1 questions_deleted	phpbrain	ca	%1 preguntes esborrades
 active_when_checked	phpbrain	ca	Activar al marcar
@@ -11,12 +11,12 @@ add_comments	phpbrain	ca	Afegir comentaris
 add_question	phpbrain	ca	Afegir pregunta
 add_question (%1 open)	phpbrain	ca	Afegir pregunta (%1 obertes)
 allow html	admin	ca	Permetre etiquetes HTML als missatges
-already_rated	phpbrain	ca	Ja heu valorat aquest element. Gr‡cies.
-anon user	admin	ca	Usuari anÚnim
+already_rated	phpbrain	ca	Ja heu valorat aquest element. Gr√†cies.
+anon user	admin	ca	Usuari an√≤nim
 answer	phpbrain	ca	Resposta
 browse	common	ca	Examinar
-cant_post_must_register	phpbrain	ca	Heu de ser un usuari registrat per poder afegir informaciÛ a la base de coneixments
-check_before_submit	phpbrain	ca	Comproveu que aquesta informaciÛ no existeixi ja a la base de datos abans d'enviar-la.
+cant_post_must_register	phpbrain	ca	Heu de ser un usuari registrat per poder afegir informaci√≥ a la base de coneixments
+check_before_submit	phpbrain	ca	Comproveu que aquesta informaci√≥ no existeixi ja a la base de datos abans d'enviar-la.
 close window	phpbrain	ca	tancar finestra
 comment	phpbrain	ca	Comentaris
 comments	phpbrain	ca	Comentaris
@@ -27,55 +27,55 @@ edit_faq	phpbrain	ca	Editar PF
 enable	common	ca	Activar
 example	phpbrain	ca	Exemple
 excellent	common	ca	Excel.lent
-explain_faq_admin	phpbrain	ca	Les respostes a les PFs han d'estar activades per que els usuaris les puguin veure. Seleccioneu les PF que volgueu activar. TambÈ podeu seleccionar respostes inapropiades i que volgueu esborrar.
+explain_faq_admin	phpbrain	ca	Les respostes a les PFs han d'estar activades per que els usuaris les puguin veure. Seleccioneu les PF que volgueu activar. Tamb√© podeu seleccionar respostes inapropiades i que volgueu esborrar.
 explain_maintain_answers	phpbrain	ca	Les preguntes enviades pels usuaris ha d'activar-les un administrador. Seleccioneu les respostes que volgueu activar o esborrar
 explain_questions_admin	phpbrain	ca	Les respostes enviades pels usuaris ha d'activar-les un administrador. Seleccioneu les respostes que volgueu activar o esborrar
 faq	phpbrain	ca	PF (Preguntes Frequents)
 faq_saved	phpbrain	ca	PF desades
 faqs	phpbrain	ca	PFs
 faqs_and_tutes	phpbrain	ca	PF i tutorials
-global categories	phpbrain	ca	CategorÌas globales
+global categories	phpbrain	ca	Categor√≠as globales
 improve_by_rate	phpbrain	ca	Ajudeu-nos a millorar valorant els missatges
-inspire_by_suggestions	phpbrain	ca	Si necessiteu inspiraciÛ, feu una ullada a les preguntes obertes.
-invalid faq request - or something is nqr	phpbrain	ca	ERROR: la PF solicitada no es v‡lida
-kb_contains	phpbrain	ca	La Base de Coneixements contÈ
+inspire_by_suggestions	phpbrain	ca	Si necessiteu inspiraci√≥, feu una ullada a les preguntes obertes.
+invalid faq request - or something is nqr	phpbrain	ca	ERROR: la PF solicitada no es v√†lida
+kb_contains	phpbrain	ca	La Base de Coneixements cont√©
 know_contrib	phpbrain	ca	Sabeu la resposta? En aquest cas, responeu.
-last_mod %1	phpbrain	ca	Darrera modificaciÛ: %1
+last_mod %1	phpbrain	ca	Darrera modificaci√≥: %1
 maintain answers	phpbrain	ca	Mantenimiento de respuestas
 maintain questions	phpbrain	ca	Mantenimiento de preguntas
 maintain_answers	phpbrain	ca	Mantenir respostes
 no comments	phpbrain	ca	Sense comentaris
-none found - revise or browse	phpbrain	ca	No s'ha trobat res - si us plau, reviseu la vostra recerca o navegaciÛ
+none found - revise or browse	phpbrain	ca	No s'ha trobat res - si us plau, reviseu la vostra recerca o navegaci√≥
 none_pending	phpbrain	ca	Res pendent
 none_unanswered	phpbrain	ca	No hi han PFs sense respondre
-not_submit_qs_warn	phpbrain	ca	Si us plau, fixeu-vos que aquest no Ès el lloc per a fer preguntes. Per aixÛ, hi Ès la plana de preguntes. Si entreu una pregunta sense una resposta en aquesta plana, s'esborrar‡.
+not_submit_qs_warn	phpbrain	ca	Si us plau, fixeu-vos que aquest no √©s el lloc per a fer preguntes. Per aix√≥, hi √©s la plana de preguntes. Si entreu una pregunta sense una resposta en aquesta plana, s'esborrar√†.
 num_faqs %1	phpbrain	ca	Preguntes Frequents (%1)
 num_open %1	phpbrain	ca	Obertes (%1)
 num_pages %1	phpbrain	ca	Planes (%1)
 num_tutes %1	phpbrain	ca	Tutorials (%1)
 phpbrain	common	ca	Base de Coneixement
-phpbrain config	admin	ca	ConfiguraciÛ de la Base de Coneixement
-phpbrain_config	phpbrain	ca	ConfiguraciÛ de la Base de Coneixement
+phpbrain config	admin	ca	Configuraci√≥ de la Base de Coneixement
+phpbrain_config	phpbrain	ca	Configuraci√≥ de la Base de Coneixement
 poor	common	ca	Pobre
-preview	phpbrain	ca	vista prËvia
+preview	phpbrain	ca	vista pr√®via
 question	phpbrain	ca	Pregunta
-rating	phpbrain	ca	ValoraciÛ
-rating %1	phpbrain	ca	valoraciÛ %1
+rating	phpbrain	ca	Valoraci√≥
+rating %1	phpbrain	ca	valoraci√≥ %1
 register	common	ca	Registrar
 related_url	phpbrain	ca	URL relacionada
 reset	phpbrain	ca	Restablir
-return_to_admin	phpbrain	ca	Tornar a AdministraciÛ
+return_to_admin	phpbrain	ca	Tornar a Administraci√≥
 return_to_cats %1	phpbrain	ca	Tornar a la Categoria %1
 return_to_index	phpbrain	ca	Tornar a l'index
-return_to_search %1	phpbrain	ca	Tornar a la b˙squeda %1
-score %1	phpbrain	ca	puntuaciÛ %1
+return_to_search %1	phpbrain	ca	Tornar a la b√∫squeda %1
+score %1	phpbrain	ca	puntuaci√≥ %1
 section_maint_faqs	phpbrain	ca	Mantenir PFs pendents
 section_maintain_questions	phpbrain	ca	Mantenir preguntes
 show	phpbrain	ca	mostrar
-site configuration	phpbrain	ca	ConfiguraciÛn del sitio
+site configuration	phpbrain	ca	Configuraci√≥n del sitio
 submitted_by	phpbrain	ca	Enviat per
 text	common	ca	Text
-thanks_4_rating	phpbrain	ca	Gr‡cias per valorar aquest element
+thanks_4_rating	phpbrain	ca	Gr√†cias per valorar aquest element
 tutorial	phpbrain	ca	Tutorial
 tutorials	phpbrain	ca	Tutorials
 up	phpbrain	ca	amunt

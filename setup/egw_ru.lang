@@ -1,189 +1,189 @@
-/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	ru	Каталог /kb не существует и не может быть создан, пожалуйста, попросите администратора проверить общую конфигурацию
-action	phpbrain	ru	Действие
-actions	phpbrain	ru	Действия
-add articles	phpbrain	ru	Добавить статьи
-add link	phpbrain	ru	Добавить ссылку
-add question	phpbrain	ru	Добавить Вопрос
-added file %1	phpbrain	ru	Добавлен файл %1
-added link %1	phpbrain	ru	Добавлена ссылка %1
-added related articles %1	phpbrain	ru	Добавлены связанные статьи %1
-advanced search	phpbrain	ru	Расширенный Поиск
-all articles	phpbrain	ru	Все статьи
-answer	phpbrain	ru	ответ
-anytime	phpbrain	ru	в любое время
-anywhere in the article	phpbrain	ru	В любом месте статьи
-article	phpbrain	ru	Статья
-article added to database, you can now attach files or links, or relate to other articles	phpbrain	ru	Статья добавлена в базу данных, теперь вы можете прикрепить файл или ссылку или связать с другими статьями
-article created	phpbrain	ru	Статья создана
-article deleted	phpbrain	ru	Статья удалена
-article deleted successfully	phpbrain	ru	Статья успешно удалена
-article edited	phpbrain	ru	Статья отредактирована
-article has been published	phpbrain	ru	Статья была опубликована
-article id	phpbrain	ru	Идентификатор Статьи
-articles added	phpbrain	ru	Статьи добавлены
-articles deleted successfully	phpbrain	ru	Статьи успешно удалены
-articles have been published	phpbrain	ru	Статьи опубликованы
-articles in %1	phpbrain	ru	Статьи в %1
-articles in %1 and all its subcategories	phpbrain	ru	Статьи в %1 и всех подкатегориях
-articles not classified under any category	phpbrain	ru	Статья не относится ни к одной категории
-ascendent	phpbrain	ru	По возрастанию
-attach file	phpbrain	ru	Прикрепить файл
-attached files	phpbrain	ru	Прикрепленные файлы
-average rating	phpbrain	ru	Средний рейтинг
-base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	ru	Базовый каталог не существует, пожалуйста, попросите администратора проверить общую конфигурацию
-before submiting a question, please search in the knowledge base first	phpbrain	ru	Перед тем как отправить вопрос, пожалуйста, поищите сначала в Базе Знаний.
-by answering this question you will help to get the answer quicker the next time	phpbrain	ru	Ответив на этот вопрос, вы поможете быстрее найти ответ на него в следующий раз
-comment	phpbrain	ru	комментарий
-comment and rating have been published	phpbrain	ru	Комментарий и рейтинг были опубликованы
-comment could not be inserted in the database	phpbrain	ru	Комментарий не может быть помещен в базу данных
-comment has been deleted	phpbrain	ru	Комментарий был удален
-comment has been published	phpbrain	ru	Комментарий был опубликован
-comment has been submited for revision	phpbrain	ru	Комментарий предоставялен на проверку
-comment has been submited for revision and rating will be published	phpbrain	ru	Комментарий предоставялен на проверку и рейтинг был опубликован
-comments	phpbrain	ru	Комментарии
-configuration	phpbrain	ru	Конфигурация
-create a new article to answer the question asked by %1 in %2	phpbrain	ru	Созадать новую статью для ответов на вопросы от %1 в %2
-created by %1 on %2	phpbrain	ru	Создано %1, дата создания %2
-creation	phpbrain	ru	создание
-creation date	phpbrain	ru	Дата создания
-delete article	phpbrain	ru	Удалить статью
-delete selected	phpbrain	ru	Удалить отмеченное
-deleted relation to  article %1	phpbrain	ru	Удалена связь со статьей %1
-deleted relation to article %1	phpbrain	ru	Удалена связь со статьей %1
-descendent	phpbrain	ru	По убыванию
-details	phpbrain	ru	Подробности
-e-groupware knowledge base article attached	phpbrain	ru	Прикреплена статья Базы Знаний E-GroupWare
-e-mail has been sent	phpbrain	ru	сообщение электронно почты отправлено
-edit article	phpbrain	ru	Редактировать статью
-enter one or two words describing the issue, or type the article number if you know it	phpbrain	ru	Введите одно или два слова, описывающие запрос, или введите номер статьи, если Вы его знаете
-error deleting article from database	phpbrain	ru	Ошибка удаление статьи из базы данных
-error deleting link	phpbrain	ru	Ошибка удаления ссылки
-error downloading file	phpbrain	ru	Ошибка скачивания файла
-error locating files directory	phpbrain	ru	Ошибка размещения каталога файлов
-error moving file to directory	phpbrain	ru	Ошибка перемещения файла в каталог
-error publishing comment	phpbrain	ru	Ошибка публикации комментария
-error retrieving article	phpbrain	ru	Ошибка извлечения статтьи
-error trying to delete comment	phpbrain	ru	Ошибка попытки удаления комментария
-error trying to delete question	phpbrain	ru	Ошибка попытки удаления вопроса
-error trying to edit article	phpbrain	ru	Ошибка попытки редактирования статьи
-error trying to publish article	phpbrain	ru	Ошибка попытки удаления статьи
-error: file doesn't exist in the database	phpbrain	ru	Ошибка: файл отсутствует в базе данных
-excellent	phpbrain	ru	Отлично
-failure trying to delete the file	phpbrain	ru	Ошибка попытки удаления файла
-file could be deleted from server but not from database	phpbrain	ru	Файл может быть удален с сервера, но не из базы данных
-file has been successfully uploaded	phpbrain	ru	Файл был успешно выгружен
-file was already missing from server, and was deleted from the database	phpbrain	ru	Файл уже отсутствует на сервере, удален из базы данных
-file was deleted successfully	phpbrain	ru	Файл был успешно удален
-file wasn't in server and it couldn't be deleted from the database	phpbrain	ru	Файл осутствует на сервере и не может быть удален из базы данных
-find results	phpbrain	ru	Поиск результатов
-global categories	phpbrain	ru	Общие Категории
-have to be approved first	common	ru	Сначала необходимо одобрение
-history	phpbrain	ru	История
-if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	ru	Если вы не можете найти ответы на Ващу проблему в базе знаний, опишите её ниже
-if you wish, you can comment this article here	phpbrain	ru	Если вы хотите, можете оставить свой комментарий здесь
-in %1	phpbrain	ru	в %1
-in the text	phpbrain	ru	в тексте
-in the title	phpbrain	ru	в заголовке
-in the topic	phpbrain	ru	в теме
-include subcategories	phpbrain	ru	Включая подкатегории
-keywords	phpbrain	ru	Ключевые слова
-knowledge base article #%1	phpbrain	ru	Статья Базы Знаний #%1
-knowledge base configuration	common	ru	Конфигурация Базы Знаний
-last modification by %1 on %2	phpbrain	ru	Последние изменения внесены %1 (дата правки %2)
-last modified	phpbrain	ru	Последнее Изменение
-latest	phpbrain	ru	Последние
-latest comments	phpbrain	ru	Последние комментарии
-leave empty to automatically generate an id	phpbrain	ru	Оставьте пустой для автоматической генерации идентификатора
-link could not be added	phpbrain	ru	Ссылка не может быть добавлена
-link deleted successfully	phpbrain	ru	Ссылка успешно удалена
-link has been added	phpbrain	ru	Ссылка была добавлена
-links	phpbrain	ru	Ссылки
-links & files	phpbrain	ru	Ссылки и файлы
-mail article	phpbrain	ru	Отправить по e-mail
-main view	phpbrain	ru	Основной Вид
-maintain articles	phpbrain	ru	Обслуживание Статей
-maintain questions	phpbrain	ru	Обслуживание Вопросов
-maximum number of comments to show:	phpbrain	ru	Максимальное количество комментариев к показу:
-maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	ru	Максимальное количество наиболее популярных статей, последних статей и вопросов без ответа, показываемое в основном виде.
-modification date	phpbrain	ru	Дата изменения
-most viewed	phpbrain	ru	Наиболее просматриваемые
-new article	phpbrain	ru	Новая Статья
-nobody has rated this article so far	phpbrain	ru	Никто не оценивал эту статью уже очень давно
-nothing was uploaded!	phpbrain	ru	Ничего не выгружено!
-number of results per page	phpbrain	ru	Количество результатов
-ocurrences	phpbrain	ru	Вхождения
-or browse the categories	phpbrain	ru	Или просмотрите категории
-order results by	phpbrain	ru	Сортировать результаты по
-outstanding published questions	phpbrain	ru	Неразрешенные опубликованные вопросы
-past %1 months	phpbrain	ru	спустя %1 месяц(ев)
-past year	phpbrain	ru	спустя год
-people have rated this article	phpbrain	ru	люди оценили данную статью
-phpbrain	common	ru	База Знаний
-please rate the pertinence and quality of this article	phpbrain	ru	Пожалуйста оцените релевантность и качество данной статьи
-please try again	phpbrain	ru	Попробуйте еще раз
-poor	phpbrain	ru	Плохо
-printer view	phpbrain	ru	Версия для печати
-problem relating articles	phpbrain	ru	Проблема при оценке статьи
-publication date	phpbrain	ru	Дата публикации
-publish	phpbrain	ru	Опубликовать
-publish articles automatically?	common	ru	Публиковать статьи автоматически?
-publish comments automatically?	common	ru	Публиковать комментарии автоматически?
-publish questions automatically?	common	ru	Публиковать вопросы автоматически
-publish selected	phpbrain	ru	Опубликовать выбранное
-published	phpbrain	ru	Опубликовано
-question deleted successfully	phpbrain	ru	Вопрос удален успешно
-questions deleted successfully	phpbrain	ru	Вопросы удалены успешно
-rating has been submited	phpbrain	ru	Оценка отправлена
-rating invalid	phpbrain	ru	Неверная оценка
-recipient	phpbrain	ru	Адресат
-related articles in the knowledge base	phpbrain	ru	Связанные Статьи в Базе Знаний
-relation with article was removed successfully	phpbrain	ru	Свзяь со статьей успешно удалена
-removed file %1	phpbrain	ru	Удален файл %1
-removed link %1	phpbrain	ru	Удалена ссылка %1
-reply-to	phpbrain	ru	Ответить
-search in all the knowledge base	phpbrain	ru	Поиск по всей Базе Знаний
-search results	phpbrain	ru	Результаты поиска
-see more questions	phpbrain	ru	Смотреть больше вопросов
-see more questions...	phpbrain	ru	Смотреть больше вопросов...
-select articles	phpbrain	ru	Выбирите статьи
-show all comments	phpbrain	ru	Показать все комментарии
-show articles belonging to:	phpbrain	ru	Показать статьи, принадлежащие :
-show messages in category	phpbrain	ru	Показать сообщения в категории
-submit comment	phpbrain	ru	Отправить комментарий
-submit comment and rating	phpbrain	ru	Отправить комментарий и рейтинг
-suggested category	phpbrain	ru	Предложенная категория
-summary	phpbrain	ru	Итог
-that file already exists	phpbrain	ru	Этот файл уже существует
-the article id must be a number	phpbrain	ru	Идентификатор статьи должен быть числом
-the article is empty	phpbrain	ru	Статья пуста
-the file was already missing in the server	phpbrain	ru	Файл уже отсутствует на сервере
-the following errors occurred	phpbrain	ru	Произошли следующие ошибки
-the mail server returned:	phpbrain	ru	Почтовый сервер вернул:
-the present category and all subcategories under it	phpbrain	ru	Настоящая категория и все её подкатегории
-the present category only	phpbrain	ru	Только настоящая категория
-there are no articles	phpbrain	ru	Нет статей
-there are no articles available	phpbrain	ru	Нет доступных статей
-this article hasn't yet been published in the knowledge base	phpbrain	ru	Статья не была еще опубликована в Базе Знаний
-title	phpbrain	ru	Заголовок
-to create categories, press 'edit categories' in the preferences menu	phpbrain	ru	Для создания категорий выберике 'Редактировать Категории' в меню настроек
-topic	phpbrain	ru	Тема
-unable to add rating to database	phpbrain	ru	Невозможно добавить рейтинг в базу данных
-unanswered questions	phpbrain	ru	Неотвеченные вопросы
-unpublish	phpbrain	ru	Не публиковать
-unpublished	phpbrain	ru	Неопубликовано
-user preferences	phpbrain	ru	Настройки пользователя
-views	phpbrain	ru	просмотров
-was it easy to find this article using the above search string?	phpbrain	ru	Облегчила ли задачу по поиску данной статьи строка поиска внизу?
-when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	ru	Когда будете перемещаться по категориям, выберите, соответствует ли список статей только настоящей категории, или же настоящей категории и всем её подкатегориям
-with all the words	phpbrain	ru	Содержащих все слова
-with at least one of the words	phpbrain	ru	Содержащих хотя бы одно слово
-with the exact phrase	phpbrain	ru	Содержащих точную фразу
-without the words	phpbrain	ru	Не содержащих слова
-you are in %1	phpbrain	ru	Вы находитесь в %1
-you have already qualified this article	phpbrain	ru	Вы уже оценили эту статью
-you have not the proper permissions to do that	phpbrain	ru	У вас нет достаточных прав для выполнения этого действия
-you must enter a title	phpbrain	ru	Вы должны ввести заголовок
-you must enter a topic	phpbrain	ru	Вы должны ввести тему
-your message could not be sent!	phpbrain	ru	Ваше сообщение не может быть послано!
-your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	ru	Ваш вопрос будет отправлен, но будет опубликован только после утверждения пользователем с правами публикации
-your question will be published immediately	phpbrain	ru	Ваш вопрос будет незамедлительно опубликован
+/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	ru	п п╟я┌п╟п╩п╬пЁ /kb п╫п╣ я│я┐я┴п╣я│я┌п╡я┐п╣я┌ п╦ п╫п╣ п╪п╬п╤п╣я┌ п╠я▀я┌я▄ я│п╬п╥п╢п╟п╫, п©п╬п╤п╟п╩я┐п╧я│я┌п╟, п©п╬п©я─п╬я│п╦я┌п╣ п╟п╢п╪п╦п╫п╦я│я┌я─п╟я┌п╬я─п╟ п©я─п╬п╡п╣я─п╦я┌я▄ п╬п╠я┴я┐я▌ п╨п╬п╫я└п╦пЁя┐я─п╟я├п╦я▌
+action	phpbrain	ru	п■п╣п╧я│я┌п╡п╦п╣
+actions	phpbrain	ru	п■п╣п╧я│я┌п╡п╦я▐
+add articles	phpbrain	ru	п■п╬п╠п╟п╡п╦я┌я▄ я│я┌п╟я┌я▄п╦
+add link	phpbrain	ru	п■п╬п╠п╟п╡п╦я┌я▄ я│я│я▀п╩п╨я┐
+add question	phpbrain	ru	п■п╬п╠п╟п╡п╦я┌я▄ п▓п╬п©я─п╬я│
+added file %1	phpbrain	ru	п■п╬п╠п╟п╡п╩п╣п╫ я└п╟п╧п╩ %1
+added link %1	phpbrain	ru	п■п╬п╠п╟п╡п╩п╣п╫п╟ я│я│я▀п╩п╨п╟ %1
+added related articles %1	phpbrain	ru	п■п╬п╠п╟п╡п╩п╣п╫я▀ я│п╡я▐п╥п╟п╫п╫я▀п╣ я│я┌п╟я┌я▄п╦ %1
+advanced search	phpbrain	ru	п═п╟я│я┬п╦я─п╣п╫п╫я▀п╧ п÷п╬п╦я│п╨
+all articles	phpbrain	ru	п▓я│п╣ я│я┌п╟я┌я▄п╦
+answer	phpbrain	ru	п╬я┌п╡п╣я┌
+anytime	phpbrain	ru	п╡ п╩я▌п╠п╬п╣ п╡я─п╣п╪я▐
+anywhere in the article	phpbrain	ru	п▓ п╩я▌п╠п╬п╪ п╪п╣я│я┌п╣ я│я┌п╟я┌я▄п╦
+article	phpbrain	ru	п║я┌п╟я┌я▄я▐
+article added to database, you can now attach files or links, or relate to other articles	phpbrain	ru	п║я┌п╟я┌я▄я▐ п╢п╬п╠п╟п╡п╩п╣п╫п╟ п╡ п╠п╟п╥я┐ п╢п╟п╫п╫я▀я┘, я┌п╣п©п╣я─я▄ п╡я▀ п╪п╬п╤п╣я┌п╣ п©я─п╦п╨я─п╣п©п╦я┌я▄ я└п╟п╧п╩ п╦п╩п╦ я│я│я▀п╩п╨я┐ п╦п╩п╦ я│п╡я▐п╥п╟я┌я▄ я│ п╢я─я┐пЁп╦п╪п╦ я│я┌п╟я┌я▄я▐п╪п╦
+article created	phpbrain	ru	п║я┌п╟я┌я▄я▐ я│п╬п╥п╢п╟п╫п╟
+article deleted	phpbrain	ru	п║я┌п╟я┌я▄я▐ я┐п╢п╟п╩п╣п╫п╟
+article deleted successfully	phpbrain	ru	п║я┌п╟я┌я▄я▐ я┐я│п©п╣я┬п╫п╬ я┐п╢п╟п╩п╣п╫п╟
+article edited	phpbrain	ru	п║я┌п╟я┌я▄я▐ п╬я┌я─п╣п╢п╟п╨я┌п╦я─п╬п╡п╟п╫п╟
+article has been published	phpbrain	ru	п║я┌п╟я┌я▄я▐ п╠я▀п╩п╟ п╬п©я┐п╠п╩п╦п╨п╬п╡п╟п╫п╟
+article id	phpbrain	ru	п≤п╢п╣п╫я┌п╦я└п╦п╨п╟я┌п╬я─ п║я┌п╟я┌я▄п╦
+articles added	phpbrain	ru	п║я┌п╟я┌я▄п╦ п╢п╬п╠п╟п╡п╩п╣п╫я▀
+articles deleted successfully	phpbrain	ru	п║я┌п╟я┌я▄п╦ я┐я│п©п╣я┬п╫п╬ я┐п╢п╟п╩п╣п╫я▀
+articles have been published	phpbrain	ru	п║я┌п╟я┌я▄п╦ п╬п©я┐п╠п╩п╦п╨п╬п╡п╟п╫я▀
+articles in %1	phpbrain	ru	п║я┌п╟я┌я▄п╦ п╡ %1
+articles in %1 and all its subcategories	phpbrain	ru	п║я┌п╟я┌я▄п╦ п╡ %1 п╦ п╡я│п╣я┘ п©п╬п╢п╨п╟я┌п╣пЁп╬я─п╦я▐я┘
+articles not classified under any category	phpbrain	ru	п║я┌п╟я┌я▄я▐ п╫п╣ п╬я┌п╫п╬я│п╦я┌я│я▐ п╫п╦ п╨ п╬п╢п╫п╬п╧ п╨п╟я┌п╣пЁп╬я─п╦п╦
+ascendent	phpbrain	ru	п÷п╬ п╡п╬п╥я─п╟я│я┌п╟п╫п╦я▌
+attach file	phpbrain	ru	п÷я─п╦п╨я─п╣п©п╦я┌я▄ я└п╟п╧п╩
+attached files	phpbrain	ru	п÷я─п╦п╨я─п╣п©п╩п╣п╫п╫я▀п╣ я└п╟п╧п╩я▀
+average rating	phpbrain	ru	п║я─п╣п╢п╫п╦п╧ я─п╣п╧я┌п╦п╫пЁ
+base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	ru	п▒п╟п╥п╬п╡я▀п╧ п╨п╟я┌п╟п╩п╬пЁ п╫п╣ я│я┐я┴п╣я│я┌п╡я┐п╣я┌, п©п╬п╤п╟п╩я┐п╧я│я┌п╟, п©п╬п©я─п╬я│п╦я┌п╣ п╟п╢п╪п╦п╫п╦я│я┌я─п╟я┌п╬я─п╟ п©я─п╬п╡п╣я─п╦я┌я▄ п╬п╠я┴я┐я▌ п╨п╬п╫я└п╦пЁя┐я─п╟я├п╦я▌
+before submiting a question, please search in the knowledge base first	phpbrain	ru	п÷п╣я─п╣п╢ я┌п╣п╪ п╨п╟п╨ п╬я┌п©я─п╟п╡п╦я┌я▄ п╡п╬п©я─п╬я│, п©п╬п╤п╟п╩я┐п╧я│я┌п╟, п©п╬п╦я┴п╦я┌п╣ я│п╫п╟я┤п╟п╩п╟ п╡ п▒п╟п╥п╣ п≈п╫п╟п╫п╦п╧.
+by answering this question you will help to get the answer quicker the next time	phpbrain	ru	п·я┌п╡п╣я┌п╦п╡ п╫п╟ я█я┌п╬я┌ п╡п╬п©я─п╬я│, п╡я▀ п©п╬п╪п╬п╤п╣я┌п╣ п╠я▀я│я┌я─п╣п╣ п╫п╟п╧я┌п╦ п╬я┌п╡п╣я┌ п╫п╟ п╫п╣пЁп╬ п╡ я│п╩п╣п╢я┐я▌я┴п╦п╧ я─п╟п╥
+comment	phpbrain	ru	п╨п╬п╪п╪п╣п╫я┌п╟я─п╦п╧
+comment and rating have been published	phpbrain	ru	п п╬п╪п╪п╣п╫я┌п╟я─п╦п╧ п╦ я─п╣п╧я┌п╦п╫пЁ п╠я▀п╩п╦ п╬п©я┐п╠п╩п╦п╨п╬п╡п╟п╫я▀
+comment could not be inserted in the database	phpbrain	ru	п п╬п╪п╪п╣п╫я┌п╟я─п╦п╧ п╫п╣ п╪п╬п╤п╣я┌ п╠я▀я┌я▄ п©п╬п╪п╣я┴п╣п╫ п╡ п╠п╟п╥я┐ п╢п╟п╫п╫я▀я┘
+comment has been deleted	phpbrain	ru	п п╬п╪п╪п╣п╫я┌п╟я─п╦п╧ п╠я▀п╩ я┐п╢п╟п╩п╣п╫
+comment has been published	phpbrain	ru	п п╬п╪п╪п╣п╫я┌п╟я─п╦п╧ п╠я▀п╩ п╬п©я┐п╠п╩п╦п╨п╬п╡п╟п╫
+comment has been submited for revision	phpbrain	ru	п п╬п╪п╪п╣п╫я┌п╟я─п╦п╧ п©я─п╣п╢п╬я│я┌п╟п╡я▐п╩п╣п╫ п╫п╟ п©я─п╬п╡п╣я─п╨я┐
+comment has been submited for revision and rating will be published	phpbrain	ru	п п╬п╪п╪п╣п╫я┌п╟я─п╦п╧ п©я─п╣п╢п╬я│я┌п╟п╡я▐п╩п╣п╫ п╫п╟ п©я─п╬п╡п╣я─п╨я┐ п╦ я─п╣п╧я┌п╦п╫пЁ п╠я▀п╩ п╬п©я┐п╠п╩п╦п╨п╬п╡п╟п╫
+comments	phpbrain	ru	п п╬п╪п╪п╣п╫я┌п╟я─п╦п╦
+configuration	phpbrain	ru	п п╬п╫я└п╦пЁя┐я─п╟я├п╦я▐
+create a new article to answer the question asked by %1 in %2	phpbrain	ru	п║п╬п╥п╟п╢п╟я┌я▄ п╫п╬п╡я┐я▌ я│я┌п╟я┌я▄я▌ п╢п╩я▐ п╬я┌п╡п╣я┌п╬п╡ п╫п╟ п╡п╬п©я─п╬я│я▀ п╬я┌ %1 п╡ %2
+created by %1 on %2	phpbrain	ru	п║п╬п╥п╢п╟п╫п╬ %1, п╢п╟я┌п╟ я│п╬п╥п╢п╟п╫п╦я▐ %2
+creation	phpbrain	ru	я│п╬п╥п╢п╟п╫п╦п╣
+creation date	phpbrain	ru	п■п╟я┌п╟ я│п╬п╥п╢п╟п╫п╦я▐
+delete article	phpbrain	ru	пёп╢п╟п╩п╦я┌я▄ я│я┌п╟я┌я▄я▌
+delete selected	phpbrain	ru	пёп╢п╟п╩п╦я┌я▄ п╬я┌п╪п╣я┤п╣п╫п╫п╬п╣
+deleted relation to  article %1	phpbrain	ru	пёп╢п╟п╩п╣п╫п╟ я│п╡я▐п╥я▄ я│п╬ я│я┌п╟я┌я▄п╣п╧ %1
+deleted relation to article %1	phpbrain	ru	пёп╢п╟п╩п╣п╫п╟ я│п╡я▐п╥я▄ я│п╬ я│я┌п╟я┌я▄п╣п╧ %1
+descendent	phpbrain	ru	п÷п╬ я┐п╠я▀п╡п╟п╫п╦я▌
+details	phpbrain	ru	п÷п╬п╢я─п╬п╠п╫п╬я│я┌п╦
+e-groupware knowledge base article attached	phpbrain	ru	п÷я─п╦п╨я─п╣п©п╩п╣п╫п╟ я│я┌п╟я┌я▄я▐ п▒п╟п╥я▀ п≈п╫п╟п╫п╦п╧ E-GroupWare
+e-mail has been sent	phpbrain	ru	я│п╬п╬п╠я┴п╣п╫п╦п╣ я█п╩п╣п╨я┌я─п╬п╫п╫п╬ п©п╬я┤я┌я▀ п╬я┌п©я─п╟п╡п╩п╣п╫п╬
+edit article	phpbrain	ru	п═п╣п╢п╟п╨я┌п╦я─п╬п╡п╟я┌я▄ я│я┌п╟я┌я▄я▌
+enter one or two words describing the issue, or type the article number if you know it	phpbrain	ru	п▓п╡п╣п╢п╦я┌п╣ п╬п╢п╫п╬ п╦п╩п╦ п╢п╡п╟ я│п╩п╬п╡п╟, п╬п©п╦я│я▀п╡п╟я▌я┴п╦п╣ п╥п╟п©я─п╬я│, п╦п╩п╦ п╡п╡п╣п╢п╦я┌п╣ п╫п╬п╪п╣я─ я│я┌п╟я┌я▄п╦, п╣я│п╩п╦ п▓я▀ п╣пЁп╬ п╥п╫п╟п╣я┌п╣
+error deleting article from database	phpbrain	ru	п·я┬п╦п╠п╨п╟ я┐п╢п╟п╩п╣п╫п╦п╣ я│я┌п╟я┌я▄п╦ п╦п╥ п╠п╟п╥я▀ п╢п╟п╫п╫я▀я┘
+error deleting link	phpbrain	ru	п·я┬п╦п╠п╨п╟ я┐п╢п╟п╩п╣п╫п╦я▐ я│я│я▀п╩п╨п╦
+error downloading file	phpbrain	ru	п·я┬п╦п╠п╨п╟ я│п╨п╟я┤п╦п╡п╟п╫п╦я▐ я└п╟п╧п╩п╟
+error locating files directory	phpbrain	ru	п·я┬п╦п╠п╨п╟ я─п╟п╥п╪п╣я┴п╣п╫п╦я▐ п╨п╟я┌п╟п╩п╬пЁп╟ я└п╟п╧п╩п╬п╡
+error moving file to directory	phpbrain	ru	п·я┬п╦п╠п╨п╟ п©п╣я─п╣п╪п╣я┴п╣п╫п╦я▐ я└п╟п╧п╩п╟ п╡ п╨п╟я┌п╟п╩п╬пЁ
+error publishing comment	phpbrain	ru	п·я┬п╦п╠п╨п╟ п©я┐п╠п╩п╦п╨п╟я├п╦п╦ п╨п╬п╪п╪п╣п╫я┌п╟я─п╦я▐
+error retrieving article	phpbrain	ru	п·я┬п╦п╠п╨п╟ п╦п╥п╡п╩п╣я┤п╣п╫п╦я▐ я│я┌п╟я┌я┌я▄п╦
+error trying to delete comment	phpbrain	ru	п·я┬п╦п╠п╨п╟ п©п╬п©я▀я┌п╨п╦ я┐п╢п╟п╩п╣п╫п╦я▐ п╨п╬п╪п╪п╣п╫я┌п╟я─п╦я▐
+error trying to delete question	phpbrain	ru	п·я┬п╦п╠п╨п╟ п©п╬п©я▀я┌п╨п╦ я┐п╢п╟п╩п╣п╫п╦я▐ п╡п╬п©я─п╬я│п╟
+error trying to edit article	phpbrain	ru	п·я┬п╦п╠п╨п╟ п©п╬п©я▀я┌п╨п╦ я─п╣п╢п╟п╨я┌п╦я─п╬п╡п╟п╫п╦я▐ я│я┌п╟я┌я▄п╦
+error trying to publish article	phpbrain	ru	п·я┬п╦п╠п╨п╟ п©п╬п©я▀я┌п╨п╦ я┐п╢п╟п╩п╣п╫п╦я▐ я│я┌п╟я┌я▄п╦
+error: file doesn't exist in the database	phpbrain	ru	п·я┬п╦п╠п╨п╟: я└п╟п╧п╩ п╬я┌я│я┐я┌я│я┌п╡я┐п╣я┌ п╡ п╠п╟п╥п╣ п╢п╟п╫п╫я▀я┘
+excellent	phpbrain	ru	п·я┌п╩п╦я┤п╫п╬
+failure trying to delete the file	phpbrain	ru	п·я┬п╦п╠п╨п╟ п©п╬п©я▀я┌п╨п╦ я┐п╢п╟п╩п╣п╫п╦я▐ я└п╟п╧п╩п╟
+file could be deleted from server but not from database	phpbrain	ru	п╓п╟п╧п╩ п╪п╬п╤п╣я┌ п╠я▀я┌я▄ я┐п╢п╟п╩п╣п╫ я│ я│п╣я─п╡п╣я─п╟, п╫п╬ п╫п╣ п╦п╥ п╠п╟п╥я▀ п╢п╟п╫п╫я▀я┘
+file has been successfully uploaded	phpbrain	ru	п╓п╟п╧п╩ п╠я▀п╩ я┐я│п©п╣я┬п╫п╬ п╡я▀пЁя─я┐п╤п╣п╫
+file was already missing from server, and was deleted from the database	phpbrain	ru	п╓п╟п╧п╩ я┐п╤п╣ п╬я┌я│я┐я┌я│я┌п╡я┐п╣я┌ п╫п╟ я│п╣я─п╡п╣я─п╣, я┐п╢п╟п╩п╣п╫ п╦п╥ п╠п╟п╥я▀ п╢п╟п╫п╫я▀я┘
+file was deleted successfully	phpbrain	ru	п╓п╟п╧п╩ п╠я▀п╩ я┐я│п©п╣я┬п╫п╬ я┐п╢п╟п╩п╣п╫
+file wasn't in server and it couldn't be deleted from the database	phpbrain	ru	п╓п╟п╧п╩ п╬я│я┐я┌я│я┌п╡я┐п╣я┌ п╫п╟ я│п╣я─п╡п╣я─п╣ п╦ п╫п╣ п╪п╬п╤п╣я┌ п╠я▀я┌я▄ я┐п╢п╟п╩п╣п╫ п╦п╥ п╠п╟п╥я▀ п╢п╟п╫п╫я▀я┘
+find results	phpbrain	ru	п÷п╬п╦я│п╨ я─п╣п╥я┐п╩я▄я┌п╟я┌п╬п╡
+global categories	phpbrain	ru	п·п╠я┴п╦п╣ п п╟я┌п╣пЁп╬я─п╦п╦
+have to be approved first	common	ru	п║п╫п╟я┤п╟п╩п╟ п╫п╣п╬п╠я┘п╬п╢п╦п╪п╬ п╬п╢п╬п╠я─п╣п╫п╦п╣
+history	phpbrain	ru	п≤я│я┌п╬я─п╦я▐
+if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	ru	п∙я│п╩п╦ п╡я▀ п╫п╣ п╪п╬п╤п╣я┌п╣ п╫п╟п╧я┌п╦ п╬я┌п╡п╣я┌я▀ п╫п╟ п▓п╟я┴я┐ п©я─п╬п╠п╩п╣п╪я┐ п╡ п╠п╟п╥п╣ п╥п╫п╟п╫п╦п╧, п╬п©п╦я┬п╦я┌п╣ п╣я▒ п╫п╦п╤п╣
+if you wish, you can comment this article here	phpbrain	ru	п∙я│п╩п╦ п╡я▀ я┘п╬я┌п╦я┌п╣, п╪п╬п╤п╣я┌п╣ п╬я│я┌п╟п╡п╦я┌я▄ я│п╡п╬п╧ п╨п╬п╪п╪п╣п╫я┌п╟я─п╦п╧ п╥п╢п╣я│я▄
+in %1	phpbrain	ru	п╡ %1
+in the text	phpbrain	ru	п╡ я┌п╣п╨я│я┌п╣
+in the title	phpbrain	ru	п╡ п╥п╟пЁп╬п╩п╬п╡п╨п╣
+in the topic	phpbrain	ru	п╡ я┌п╣п╪п╣
+include subcategories	phpbrain	ru	п▓п╨п╩я▌я┤п╟я▐ п©п╬п╢п╨п╟я┌п╣пЁп╬я─п╦п╦
+keywords	phpbrain	ru	п п╩я▌я┤п╣п╡я▀п╣ я│п╩п╬п╡п╟
+knowledge base article #%1	phpbrain	ru	п║я┌п╟я┌я▄я▐ п▒п╟п╥я▀ п≈п╫п╟п╫п╦п╧ #%1
+knowledge base configuration	common	ru	п п╬п╫я└п╦пЁя┐я─п╟я├п╦я▐ п▒п╟п╥я▀ п≈п╫п╟п╫п╦п╧
+last modification by %1 on %2	phpbrain	ru	п÷п╬я│п╩п╣п╢п╫п╦п╣ п╦п╥п╪п╣п╫п╣п╫п╦я▐ п╡п╫п╣я│п╣п╫я▀ %1 (п╢п╟я┌п╟ п©я─п╟п╡п╨п╦ %2)
+last modified	phpbrain	ru	п÷п╬я│п╩п╣п╢п╫п╣п╣ п≤п╥п╪п╣п╫п╣п╫п╦п╣
+latest	phpbrain	ru	п÷п╬я│п╩п╣п╢п╫п╦п╣
+latest comments	phpbrain	ru	п÷п╬я│п╩п╣п╢п╫п╦п╣ п╨п╬п╪п╪п╣п╫я┌п╟я─п╦п╦
+leave empty to automatically generate an id	phpbrain	ru	п·я│я┌п╟п╡я▄я┌п╣ п©я┐я│я┌п╬п╧ п╢п╩я▐ п╟п╡я┌п╬п╪п╟я┌п╦я┤п╣я│п╨п╬п╧ пЁп╣п╫п╣я─п╟я├п╦п╦ п╦п╢п╣п╫я┌п╦я└п╦п╨п╟я┌п╬я─п╟
+link could not be added	phpbrain	ru	п║я│я▀п╩п╨п╟ п╫п╣ п╪п╬п╤п╣я┌ п╠я▀я┌я▄ п╢п╬п╠п╟п╡п╩п╣п╫п╟
+link deleted successfully	phpbrain	ru	п║я│я▀п╩п╨п╟ я┐я│п©п╣я┬п╫п╬ я┐п╢п╟п╩п╣п╫п╟
+link has been added	phpbrain	ru	п║я│я▀п╩п╨п╟ п╠я▀п╩п╟ п╢п╬п╠п╟п╡п╩п╣п╫п╟
+links	phpbrain	ru	п║я│я▀п╩п╨п╦
+links & files	phpbrain	ru	п║я│я▀п╩п╨п╦ п╦ я└п╟п╧п╩я▀
+mail article	phpbrain	ru	п·я┌п©я─п╟п╡п╦я┌я▄ п©п╬ e-mail
+main view	phpbrain	ru	п·я│п╫п╬п╡п╫п╬п╧ п▓п╦п╢
+maintain articles	phpbrain	ru	п·п╠я│п╩я┐п╤п╦п╡п╟п╫п╦п╣ п║я┌п╟я┌п╣п╧
+maintain questions	phpbrain	ru	п·п╠я│п╩я┐п╤п╦п╡п╟п╫п╦п╣ п▓п╬п©я─п╬я│п╬п╡
+maximum number of comments to show:	phpbrain	ru	п°п╟п╨я│п╦п╪п╟п╩я▄п╫п╬п╣ п╨п╬п╩п╦я┤п╣я│я┌п╡п╬ п╨п╬п╪п╪п╣п╫я┌п╟я─п╦п╣п╡ п╨ п©п╬п╨п╟п╥я┐:
+maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	ru	п°п╟п╨я│п╦п╪п╟п╩я▄п╫п╬п╣ п╨п╬п╩п╦я┤п╣я│я┌п╡п╬ п╫п╟п╦п╠п╬п╩п╣п╣ п©п╬п©я┐п╩я▐я─п╫я▀я┘ я│я┌п╟я┌п╣п╧, п©п╬я│п╩п╣п╢п╫п╦я┘ я│я┌п╟я┌п╣п╧ п╦ п╡п╬п©я─п╬я│п╬п╡ п╠п╣п╥ п╬я┌п╡п╣я┌п╟, п©п╬п╨п╟п╥я▀п╡п╟п╣п╪п╬п╣ п╡ п╬я│п╫п╬п╡п╫п╬п╪ п╡п╦п╢п╣.
+modification date	phpbrain	ru	п■п╟я┌п╟ п╦п╥п╪п╣п╫п╣п╫п╦я▐
+most viewed	phpbrain	ru	п²п╟п╦п╠п╬п╩п╣п╣ п©я─п╬я│п╪п╟я┌я─п╦п╡п╟п╣п╪я▀п╣
+new article	phpbrain	ru	п²п╬п╡п╟я▐ п║я┌п╟я┌я▄я▐
+nobody has rated this article so far	phpbrain	ru	п²п╦п╨я┌п╬ п╫п╣ п╬я├п╣п╫п╦п╡п╟п╩ я█я┌я┐ я│я┌п╟я┌я▄я▌ я┐п╤п╣ п╬я┤п╣п╫я▄ п╢п╟п╡п╫п╬
+nothing was uploaded!	phpbrain	ru	п²п╦я┤п╣пЁп╬ п╫п╣ п╡я▀пЁя─я┐п╤п╣п╫п╬!
+number of results per page	phpbrain	ru	п п╬п╩п╦я┤п╣я│я┌п╡п╬ я─п╣п╥я┐п╩я▄я┌п╟я┌п╬п╡
+ocurrences	phpbrain	ru	п▓я┘п╬п╤п╢п╣п╫п╦я▐
+or browse the categories	phpbrain	ru	п≤п╩п╦ п©я─п╬я│п╪п╬я┌я─п╦я┌п╣ п╨п╟я┌п╣пЁп╬я─п╦п╦
+order results by	phpbrain	ru	п║п╬я─я┌п╦я─п╬п╡п╟я┌я▄ я─п╣п╥я┐п╩я▄я┌п╟я┌я▀ п©п╬
+outstanding published questions	phpbrain	ru	п²п╣я─п╟п╥я─п╣я┬п╣п╫п╫я▀п╣ п╬п©я┐п╠п╩п╦п╨п╬п╡п╟п╫п╫я▀п╣ п╡п╬п©я─п╬я│я▀
+past %1 months	phpbrain	ru	я│п©я┐я│я┌я▐ %1 п╪п╣я│я▐я├(п╣п╡)
+past year	phpbrain	ru	я│п©я┐я│я┌я▐ пЁп╬п╢
+people have rated this article	phpbrain	ru	п╩я▌п╢п╦ п╬я├п╣п╫п╦п╩п╦ п╢п╟п╫п╫я┐я▌ я│я┌п╟я┌я▄я▌
+phpbrain	common	ru	п▒п╟п╥п╟ п≈п╫п╟п╫п╦п╧
+please rate the pertinence and quality of this article	phpbrain	ru	п÷п╬п╤п╟п╩я┐п╧я│я┌п╟ п╬я├п╣п╫п╦я┌п╣ я─п╣п╩п╣п╡п╟п╫я┌п╫п╬я│я┌я▄ п╦ п╨п╟я┤п╣я│я┌п╡п╬ п╢п╟п╫п╫п╬п╧ я│я┌п╟я┌я▄п╦
+please try again	phpbrain	ru	п÷п╬п©я─п╬п╠я┐п╧я┌п╣ п╣я┴п╣ я─п╟п╥
+poor	phpbrain	ru	п÷п╩п╬я┘п╬
+printer view	phpbrain	ru	п▓п╣я─я│п╦я▐ п╢п╩я▐ п©п╣я┤п╟я┌п╦
+problem relating articles	phpbrain	ru	п÷я─п╬п╠п╩п╣п╪п╟ п©я─п╦ п╬я├п╣п╫п╨п╣ я│я┌п╟я┌я▄п╦
+publication date	phpbrain	ru	п■п╟я┌п╟ п©я┐п╠п╩п╦п╨п╟я├п╦п╦
+publish	phpbrain	ru	п·п©я┐п╠п╩п╦п╨п╬п╡п╟я┌я▄
+publish articles automatically?	common	ru	п÷я┐п╠п╩п╦п╨п╬п╡п╟я┌я▄ я│я┌п╟я┌я▄п╦ п╟п╡я┌п╬п╪п╟я┌п╦я┤п╣я│п╨п╦?
+publish comments automatically?	common	ru	п÷я┐п╠п╩п╦п╨п╬п╡п╟я┌я▄ п╨п╬п╪п╪п╣п╫я┌п╟я─п╦п╦ п╟п╡я┌п╬п╪п╟я┌п╦я┤п╣я│п╨п╦?
+publish questions automatically?	common	ru	п÷я┐п╠п╩п╦п╨п╬п╡п╟я┌я▄ п╡п╬п©я─п╬я│я▀ п╟п╡я┌п╬п╪п╟я┌п╦я┤п╣я│п╨п╦
+publish selected	phpbrain	ru	п·п©я┐п╠п╩п╦п╨п╬п╡п╟я┌я▄ п╡я▀п╠я─п╟п╫п╫п╬п╣
+published	phpbrain	ru	п·п©я┐п╠п╩п╦п╨п╬п╡п╟п╫п╬
+question deleted successfully	phpbrain	ru	п▓п╬п©я─п╬я│ я┐п╢п╟п╩п╣п╫ я┐я│п©п╣я┬п╫п╬
+questions deleted successfully	phpbrain	ru	п▓п╬п©я─п╬я│я▀ я┐п╢п╟п╩п╣п╫я▀ я┐я│п©п╣я┬п╫п╬
+rating has been submited	phpbrain	ru	п·я├п╣п╫п╨п╟ п╬я┌п©я─п╟п╡п╩п╣п╫п╟
+rating invalid	phpbrain	ru	п²п╣п╡п╣я─п╫п╟я▐ п╬я├п╣п╫п╨п╟
+recipient	phpbrain	ru	п░п╢я─п╣я│п╟я┌
+related articles in the knowledge base	phpbrain	ru	п║п╡я▐п╥п╟п╫п╫я▀п╣ п║я┌п╟я┌я▄п╦ п╡ п▒п╟п╥п╣ п≈п╫п╟п╫п╦п╧
+relation with article was removed successfully	phpbrain	ru	п║п╡п╥я▐я▄ я│п╬ я│я┌п╟я┌я▄п╣п╧ я┐я│п©п╣я┬п╫п╬ я┐п╢п╟п╩п╣п╫п╟
+removed file %1	phpbrain	ru	пёп╢п╟п╩п╣п╫ я└п╟п╧п╩ %1
+removed link %1	phpbrain	ru	пёп╢п╟п╩п╣п╫п╟ я│я│я▀п╩п╨п╟ %1
+reply-to	phpbrain	ru	п·я┌п╡п╣я┌п╦я┌я▄
+search in all the knowledge base	phpbrain	ru	п÷п╬п╦я│п╨ п©п╬ п╡я│п╣п╧ п▒п╟п╥п╣ п≈п╫п╟п╫п╦п╧
+search results	phpbrain	ru	п═п╣п╥я┐п╩я▄я┌п╟я┌я▀ п©п╬п╦я│п╨п╟
+see more questions	phpbrain	ru	п║п╪п╬я┌я─п╣я┌я▄ п╠п╬п╩я▄я┬п╣ п╡п╬п©я─п╬я│п╬п╡
+see more questions...	phpbrain	ru	п║п╪п╬я┌я─п╣я┌я▄ п╠п╬п╩я▄я┬п╣ п╡п╬п©я─п╬я│п╬п╡...
+select articles	phpbrain	ru	п▓я▀п╠п╦я─п╦я┌п╣ я│я┌п╟я┌я▄п╦
+show all comments	phpbrain	ru	п÷п╬п╨п╟п╥п╟я┌я▄ п╡я│п╣ п╨п╬п╪п╪п╣п╫я┌п╟я─п╦п╦
+show articles belonging to:	phpbrain	ru	п÷п╬п╨п╟п╥п╟я┌я▄ я│я┌п╟я┌я▄п╦, п©я─п╦п╫п╟п╢п╩п╣п╤п╟я┴п╦п╣ :
+show messages in category	phpbrain	ru	п÷п╬п╨п╟п╥п╟я┌я▄ я│п╬п╬п╠я┴п╣п╫п╦я▐ п╡ п╨п╟я┌п╣пЁп╬я─п╦п╦
+submit comment	phpbrain	ru	п·я┌п©я─п╟п╡п╦я┌я▄ п╨п╬п╪п╪п╣п╫я┌п╟я─п╦п╧
+submit comment and rating	phpbrain	ru	п·я┌п©я─п╟п╡п╦я┌я▄ п╨п╬п╪п╪п╣п╫я┌п╟я─п╦п╧ п╦ я─п╣п╧я┌п╦п╫пЁ
+suggested category	phpbrain	ru	п÷я─п╣п╢п╩п╬п╤п╣п╫п╫п╟я▐ п╨п╟я┌п╣пЁп╬я─п╦я▐
+summary	phpbrain	ru	п≤я┌п╬пЁ
+that file already exists	phpbrain	ru	п╜я┌п╬я┌ я└п╟п╧п╩ я┐п╤п╣ я│я┐я┴п╣я│я┌п╡я┐п╣я┌
+the article id must be a number	phpbrain	ru	п≤п╢п╣п╫я┌п╦я└п╦п╨п╟я┌п╬я─ я│я┌п╟я┌я▄п╦ п╢п╬п╩п╤п╣п╫ п╠я▀я┌я▄ я┤п╦я│п╩п╬п╪
+the article is empty	phpbrain	ru	п║я┌п╟я┌я▄я▐ п©я┐я│я┌п╟
+the file was already missing in the server	phpbrain	ru	п╓п╟п╧п╩ я┐п╤п╣ п╬я┌я│я┐я┌я│я┌п╡я┐п╣я┌ п╫п╟ я│п╣я─п╡п╣я─п╣
+the following errors occurred	phpbrain	ru	п÷я─п╬п╦п╥п╬я┬п╩п╦ я│п╩п╣п╢я┐я▌я┴п╦п╣ п╬я┬п╦п╠п╨п╦
+the mail server returned:	phpbrain	ru	п÷п╬я┤я┌п╬п╡я▀п╧ я│п╣я─п╡п╣я─ п╡п╣я─п╫я┐п╩:
+the present category and all subcategories under it	phpbrain	ru	п²п╟я│я┌п╬я▐я┴п╟я▐ п╨п╟я┌п╣пЁп╬я─п╦я▐ п╦ п╡я│п╣ п╣я▒ п©п╬п╢п╨п╟я┌п╣пЁп╬я─п╦п╦
+the present category only	phpbrain	ru	п╒п╬п╩я▄п╨п╬ п╫п╟я│я┌п╬я▐я┴п╟я▐ п╨п╟я┌п╣пЁп╬я─п╦я▐
+there are no articles	phpbrain	ru	п²п╣я┌ я│я┌п╟я┌п╣п╧
+there are no articles available	phpbrain	ru	п²п╣я┌ п╢п╬я│я┌я┐п©п╫я▀я┘ я│я┌п╟я┌п╣п╧
+this article hasn't yet been published in the knowledge base	phpbrain	ru	п║я┌п╟я┌я▄я▐ п╫п╣ п╠я▀п╩п╟ п╣я┴п╣ п╬п©я┐п╠п╩п╦п╨п╬п╡п╟п╫п╟ п╡ п▒п╟п╥п╣ п≈п╫п╟п╫п╦п╧
+title	phpbrain	ru	п≈п╟пЁп╬п╩п╬п╡п╬п╨
+to create categories, press 'edit categories' in the preferences menu	phpbrain	ru	п■п╩я▐ я│п╬п╥п╢п╟п╫п╦я▐ п╨п╟я┌п╣пЁп╬я─п╦п╧ п╡я▀п╠п╣я─п╦п╨п╣ 'п═п╣п╢п╟п╨я┌п╦я─п╬п╡п╟я┌я▄ п п╟я┌п╣пЁп╬я─п╦п╦' п╡ п╪п╣п╫я▌ п╫п╟я│я┌я─п╬п╣п╨
+topic	phpbrain	ru	п╒п╣п╪п╟
+unable to add rating to database	phpbrain	ru	п²п╣п╡п╬п╥п╪п╬п╤п╫п╬ п╢п╬п╠п╟п╡п╦я┌я▄ я─п╣п╧я┌п╦п╫пЁ п╡ п╠п╟п╥я┐ п╢п╟п╫п╫я▀я┘
+unanswered questions	phpbrain	ru	п²п╣п╬я┌п╡п╣я┤п╣п╫п╫я▀п╣ п╡п╬п©я─п╬я│я▀
+unpublish	phpbrain	ru	п²п╣ п©я┐п╠п╩п╦п╨п╬п╡п╟я┌я▄
+unpublished	phpbrain	ru	п²п╣п╬п©я┐п╠п╩п╦п╨п╬п╡п╟п╫п╬
+user preferences	phpbrain	ru	п²п╟я│я┌я─п╬п╧п╨п╦ п©п╬п╩я▄п╥п╬п╡п╟я┌п╣п╩я▐
+views	phpbrain	ru	п©я─п╬я│п╪п╬я┌я─п╬п╡
+was it easy to find this article using the above search string?	phpbrain	ru	п·п╠п╩п╣пЁя┤п╦п╩п╟ п╩п╦ п╥п╟п╢п╟я┤я┐ п©п╬ п©п╬п╦я│п╨я┐ п╢п╟п╫п╫п╬п╧ я│я┌п╟я┌я▄п╦ я│я┌я─п╬п╨п╟ п©п╬п╦я│п╨п╟ п╡п╫п╦п╥я┐?
+when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	ru	п п╬пЁп╢п╟ п╠я┐п╢п╣я┌п╣ п©п╣я─п╣п╪п╣я┴п╟я┌я▄я│я▐ п©п╬ п╨п╟я┌п╣пЁп╬я─п╦я▐п╪, п╡я▀п╠п╣я─п╦я┌п╣, я│п╬п╬я┌п╡п╣я┌я│я┌п╡я┐п╣я┌ п╩п╦ я│п©п╦я│п╬п╨ я│я┌п╟я┌п╣п╧ я┌п╬п╩я▄п╨п╬ п╫п╟я│я┌п╬я▐я┴п╣п╧ п╨п╟я┌п╣пЁп╬я─п╦п╦, п╦п╩п╦ п╤п╣ п╫п╟я│я┌п╬я▐я┴п╣п╧ п╨п╟я┌п╣пЁп╬я─п╦п╦ п╦ п╡я│п╣п╪ п╣я▒ п©п╬п╢п╨п╟я┌п╣пЁп╬я─п╦я▐п╪
+with all the words	phpbrain	ru	п║п╬п╢п╣я─п╤п╟я┴п╦я┘ п╡я│п╣ я│п╩п╬п╡п╟
+with at least one of the words	phpbrain	ru	п║п╬п╢п╣я─п╤п╟я┴п╦я┘ я┘п╬я┌я▐ п╠я▀ п╬п╢п╫п╬ я│п╩п╬п╡п╬
+with the exact phrase	phpbrain	ru	п║п╬п╢п╣я─п╤п╟я┴п╦я┘ я┌п╬я┤п╫я┐я▌ я└я─п╟п╥я┐
+without the words	phpbrain	ru	п²п╣ я│п╬п╢п╣я─п╤п╟я┴п╦я┘ я│п╩п╬п╡п╟
+you are in %1	phpbrain	ru	п▓я▀ п╫п╟я┘п╬п╢п╦я┌п╣я│я▄ п╡ %1
+you have already qualified this article	phpbrain	ru	п▓я▀ я┐п╤п╣ п╬я├п╣п╫п╦п╩п╦ я█я┌я┐ я│я┌п╟я┌я▄я▌
+you have not the proper permissions to do that	phpbrain	ru	пё п╡п╟я│ п╫п╣я┌ п╢п╬я│я┌п╟я┌п╬я┤п╫я▀я┘ п©я─п╟п╡ п╢п╩я▐ п╡я▀п©п╬п╩п╫п╣п╫п╦я▐ я█я┌п╬пЁп╬ п╢п╣п╧я│я┌п╡п╦я▐
+you must enter a title	phpbrain	ru	п▓я▀ п╢п╬п╩п╤п╫я▀ п╡п╡п╣я│я┌п╦ п╥п╟пЁп╬п╩п╬п╡п╬п╨
+you must enter a topic	phpbrain	ru	п▓я▀ п╢п╬п╩п╤п╫я▀ п╡п╡п╣я│я┌п╦ я┌п╣п╪я┐
+your message could not be sent!	phpbrain	ru	п▓п╟я┬п╣ я│п╬п╬п╠я┴п╣п╫п╦п╣ п╫п╣ п╪п╬п╤п╣я┌ п╠я▀я┌я▄ п©п╬я│п╩п╟п╫п╬!
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	ru	п▓п╟я┬ п╡п╬п©я─п╬я│ п╠я┐п╢п╣я┌ п╬я┌п©я─п╟п╡п╩п╣п╫, п╫п╬ п╠я┐п╢п╣я┌ п╬п©я┐п╠п╩п╦п╨п╬п╡п╟п╫ я┌п╬п╩я▄п╨п╬ п©п╬я│п╩п╣ я┐я┌п╡п╣я─п╤п╢п╣п╫п╦я▐ п©п╬п╩я▄п╥п╬п╡п╟я┌п╣п╩п╣п╪ я│ п©я─п╟п╡п╟п╪п╦ п©я┐п╠п╩п╦п╨п╟я├п╦п╦
+your question will be published immediately	phpbrain	ru	п▓п╟я┬ п╡п╬п©я─п╬я│ п╠я┐п╢п╣я┌ п╫п╣п╥п╟п╪п╣п╢п╩п╦я┌п╣п╩я▄п╫п╬ п╬п©я┐п╠п╩п╦п╨п╬п╡п╟п╫

@@ -76,7 +76,7 @@ file was already missing from server, and was deleted from the database	phpbrain
 file was deleted successfully	phpbrain	nl	Bestand is verwijderd
 file wasn't in server and it couldn't be deleted from the database	phpbrain	nl	Bestand stond niet in de server en kon niet worden verwijderd uit de database
 find results	phpbrain	nl	Zoek resultaten
-global categories	phpbrain	nl	Globale categoriën
+global categories	phpbrain	nl	Globale categoriÃ«n
 have to be approved first	common	nl	Moeten eerst beoordeeld worden
 history	phpbrain	nl	Historie
 if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	nl	Als uw vraag niet voorkomt in de KennisBank, kunt u hieronder uw vraag stellen

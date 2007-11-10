@@ -1,184 +1,184 @@
-/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	ko	/kb µğ·ºÅä¸®°¡ Á¸ÀçÇÏÁö ¾Ê°Å³ª, »ı¼ºÇÒ ¼ö ¾ø½À´Ï´Ù. °ü¸®ÀÚ¿¡°Ô Àü¿ª¼³Á¤ È®ÀÎÀ» ¿äÃ»ÇØÁÖ¼¼¿ä
-action	phpbrain	ko	È°µ¿
-actions	phpbrain	ko	È°µ¿µé
-add articles	phpbrain	ko	°Ô½Ã¹° Ãß°¡
-add link	phpbrain	ko	¸µÅ© Ãß°¡
-add question	phpbrain	ko	Áú¹® Ãß°¡
-added file %1	phpbrain	ko	ÆÄÀÏ %1 Ãß°¡µÊ
-added link %1	phpbrain	ko	¸µÅ© %1 Ãß°¡µÊ
-added related articles %1	phpbrain	ko	°ü·Ã °Ô½Ã¹° %1 Ãß°¡µÊ
-advanced search	phpbrain	ko	»ó¼¼°Ë»ö
-all articles	phpbrain	ko	¸ğµç °Ô½Ã¹°
-answer	phpbrain	ko	ÀÀ´ä
-anytime	phpbrain	ko	¾ğÁ¦³ª
-anywhere in the article	phpbrain	ko	°Ô½Ã¹° ÀüÃ¼
-article	phpbrain	ko	°Ô½Ã¹°
-article added to database, you can now attach files or links, or relate to other articles	phpbrain	ko	°Ô½Ã¹°ÀÌ µ¥ÀÌÅÍº£ÀÌ½º¿¡ ÀúÀåµÇ¾ú½À´Ï´Ù. ÀÌÁ¦ ÆÄÀÏ,¸µÅ©,°ü·Ã °Ô½Ã¹°À» »ğÀÔÇÒ ¼ö ÀÖ½À´Ï´Ù.
-article created	phpbrain	ko	°Ô½Ã¹° »ı¼ºµÊ
-article deleted	phpbrain	ko	°Ô½Ã¹° »èÁ¦µÊ
-article deleted successfully	phpbrain	ko	°Ô½Ã¹° »èÁ¦ ¼º°ø
-article edited	phpbrain	ko	°Ô½Ã¹° ¼öÁ¤µÊ
-article has been published	phpbrain	ko	°Ô½Ã¹°ÀÌ ¹ßÇàµÇ¾ú½À´Ï´Ù
-article id	phpbrain	ko	°Ô½Ã¹° ID
-articles added	phpbrain	ko	°Ô½Ã¹°µéÀÌ Ãß°¡µÇ¾ú½À´Ï´Ù
-articles deleted successfully	phpbrain	ko	°Ô½Ã¹°µéÀÌ ¼º°øÀûÀ¸·Î »èÁ¦µÇ¾ú½À´Ï´Ù
-articles have been published	phpbrain	ko	°Ô½Ã¹°µéÀÌ ¹ßÇàµÇ¾ú½À´Ï´Ù
-articles in %1	phpbrain	ko	%1 ºĞ·ùÀÇ °Ô½Ã¹°
-articles in %1 and all its subcategories	phpbrain	ko	%1 ¹× ÇÏÀ§ºĞ·ù¿¡ ¼ÓÇÑ °Ô½Ã¹°
-articles not classified under any category	phpbrain	ko	°Ô½Ã¹°ÀÌ ¾î¶°ÇÑ Ä«Å×°í¸®·Îµµ ºĞ·ùµÇÁö ¾Ê¾Ò½À´Ï´Ù.
-ascendent	phpbrain	ko	¿À¸§Â÷¼ø
-attach file	phpbrain	ko	ÆÄÀÏ Ã·ºÎ
-attached files	phpbrain	ko	Ã·ºÎ ÆÄÀÏ
-average rating	phpbrain	ko	Æò±Õ Æò°¡µµ
-base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	ko	±âº» µğ·ºÅä¸®°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù. °ü¸®ÀÚ¿¡°Ô Àü¿ª¼³Á¤ÀÇ È®ÀÎÀ» ¿äÃ»ÇØÁÖ¼¼¿ä
-before submiting a question, please search in the knowledge base first	phpbrain	ko	Áú¹®À» µî·ÏÇÏ±âÀü¿¡, Áö½Ä±â¹İ°Ë»öÀ» ¸ÕÀú ÇØº¸½Ã±â ¹Ù¶ø´Ï´Ù
-category	phpbrain	ko	ºĞ·ù
-comment	phpbrain	ko	Ä¿¸àÆ®
-comment and rating have been published	phpbrain	ko	Ä¿¸àÆ®¿Í Æò°¡°¡ ¹ßÇàµÇ¾ú½À´Ï´Ù.
-comment could not be inserted in the database	phpbrain	ko	Ä¿¸àÆ®°¡ µ¥ÀÌÅÍº£ÀÌ½º¿¡ »ğÀÔµÇÁö ¸øÇß½À´Ï´Ù.
-comment has been deleted	phpbrain	ko	Ä¿¸àÆ®»ç »èÁ¦µÇ¾ú½À´Ï´Ù.
-comment has been published	phpbrain	ko	Ä¿¸àÆ®°¡ ¹ßÇàµÇ¾ú½À´Ï´Ù.
-comment has been submited for revision	phpbrain	ko	Ä¿¸àÆ®°¡ °³Á¤¿¡ Àû¿ëµÇ¾ú½À´Ï´Ù.
-comment has been submited for revision and rating will be published	phpbrain	ko	Ä¿¸àÆ®°¡ °³Á¤¿¡ Àû¿ëµÇ¾úÀ¸¸ç Æò°¡°¡ ¹ßÇàµÇ¾ú½À´Ï´Ù
-comments	phpbrain	ko	Ä¿¸àÆ®µé
-configuration	phpbrain	ko	¼³Á¤
-created by %1 on %2	phpbrain	ko	%2 ÀÏ %1¿¡ ÀÇÇØ »ı¼ºµÊ
-creation date	phpbrain	ko	»ı¼ºÀÏ
-delete article	phpbrain	ko	°Ô½Ã¹° »èÁ¦
-delete selected	phpbrain	ko	¼±ÅÃ »èÁ¦
-deleted relation to  article %1	phpbrain	ko	%1 °Ô½Ã¹°°ú °ü·Ã±ÛÀÌ »èÁ¦µÇ¾ú½À´Ï´Ù.
-deleted relation to article %1	phpbrain	ko	%1 °Ô½Ã¹°°ú °ü·Ã±ÛÀÌ »èÁ¦µÇ¾ú½À´Ï´Ù.
-descendent	phpbrain	ko	³»¸²Â÷¼ø
-details	phpbrain	ko	³»¿ë
-e-groupware knowledge base article attached	phpbrain	ko	E-±×·ì¿ş¾îÀÇ Áö½Ä±â¹İ °Ô½Ã¹°ÀÌ Ã·ºÎµÇ¾ú½À´Ï´Ù
-e-mail has been sent	phpbrain	ko	E-MailÀÌ ¹ß¼ÛµÇ¾ú½À´Ï´Ù.
-edit article	phpbrain	ko	°Ô½Ã¹° ¼öÁ¤
-enter one or two words describing the issue, or type the article number if you know it	phpbrain	ko	ÇÑµÎ°¡Áö ´Ü¾î¸¦ ÀÔ·ÂÇÏ°Å³ª, °Ô½Ã¹° ¹øÈ£·Î °Ë»öÇÒ ¼ö ÀÖ½À´Ï´Ù
-error deleting article from database	phpbrain	ko	µ¥ÀÌÅÍº£ÀÌ½º¿¡¼­ °Ô½Ã¹° »èÁ¦ ¿À·ù¹ß»ı
-error deleting link	phpbrain	ko	¸µÅ© »èÁ¦ ¿À·ù ¹ß»ı
-error downloading file	phpbrain	ko	ÆÄÀÏ ´Ù¿î·Îµå ¿À·ù »èÁ¦
-error locating files directory	phpbrain	ko	ÆÄÀÏ µğ·ºÅä¸® ÁöÁ¤ ¹ß»ı
-error moving file to directory	phpbrain	ko	ÆÄÀÏÀ» µğ·ºÅä¸®¿¡ ÀÌµ¿ÇÏ´Â Áß ¿À·ù¹ß»ı
-error publishing comment	phpbrain	ko	Ä¿¸àÆ® ¹ßÇàÁß ¿À·ù¹ß»ı
-error retrieving article	phpbrain	ko	°Ô½Ã¹° ¼ö½ÅÁß ¿À·ù¹ß»ı
-error trying to delete comment	phpbrain	ko	Ä¿¸àÆ® »èÁ¦½ÃµµÁß ¿À·ù¹ß»ı
-error trying to delete question	phpbrain	ko	Áú¹® »èÁ¦½ÃµµÁß ¿À·ù¹ß»ı
-error trying to edit article	phpbrain	ko	°Ô½Ã¹° ¼öÁ¤½ÃµµÁß ¿À·ù¹ß»ı
-error trying to publish article	phpbrain	ko	°Ô½Ã¹° ¹ßÇà½ÃµµÁß ¿À·ù¹ß»ı
-error: file doesn't exist in the database	phpbrain	ko	¿À·ù: µ¥ÀÌÅÍº£ÀÌ½º¿¡ ÆÄÀÏÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.
-excellent	phpbrain	ko	¸Å¿ìÁÁÀ½
-failure trying to delete the file	phpbrain	ko	ÆÄÀÏ »èÁ¦½Ãµµ°¡ ½ÇÆĞÇÏ¿´½À´Ï´Ù
-file could be deleted from server but not from database	phpbrain	ko	ÆÄÀÏÀº ¼­¹ö¿¡¼­ »èÁ¦µË´Ï´Ù (µ¥ÀÌÅÍº£ÀÌ½º´Â ¾Æ´Ô)
-file has been successfully uploaded	phpbrain	ko	ÆÄÀÏÀÌ ¼º°øÀûÀ¸·Î ¾÷·Îµå µÇ¾ú½À´Ï´Ù.
-file was already missing from server, and was deleted from the database	phpbrain	ko	ÆÄÀÏÀÌ ÀÌ¹Ì ¼­¹ö¿¡¼­ »èÁ¦µÇ¾ú½À´Ï´Ù. µû¶ó¼­ µ¥ÀÌÅÍº£ÀÌ½º¿¡¼­µµ »èÁ¦µÇ¾ú½À´Ï´Ù
-file was deleted successfully	phpbrain	ko	ÆÄÀÏÀÌ ¼º°øÀûÀ¸·Î »èÁ¦µÇ¾ú½À´Ï´Ù.
-file wasn't in server and it couldn't be deleted from the database	phpbrain	ko	ÆÄÀÏÀÌ ÀÌ¹Ì ¼­¹ö¿¡ ¾øÀ¸³ª µ¥ÀÌÅÍº£ÀÌ½º¿¡¼­µµ »èÁ¦µÇÁö ¾Ê¾Ò½À´Ï´Ù.
-find results	phpbrain	ko	°á°ú °Ë»ö
-global categories	phpbrain	ko	Àü¿ª ºĞ·ù
-have to be approved first	common	ko	ÀÎ°¡¸¦ ¸ÕÀú ¹Ş¾Æ¾ß ÇÕ´Ï´Ù.
-history	phpbrain	ko	³»¿ª
-if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	ko	Áö½Ä±â¹İ°Ë»ö¿¡¼­ ¹®Á¦ÀÇ ÇØ°áÀ» Ã£À» ¼ö ¾ø´Â °æ¿ì ¾Æ·¡¿¡ ÀÛ¼ºÇØÁÖ¼¼¿ä
-if you wish, you can comment this article here	phpbrain	ko	ÀÌ °Ô½Ã¹°¿¡ Ä¿¸àÆ®¸¦ µî·ÏÇÒ ¼ö ÀÖ½À´Ï´Ù
-in %1	phpbrain	ko	ºĞ·ù : %1
-in the text	phpbrain	ko	ÅØ½ºÆ® ¾È¿¡¼­
-in the title	phpbrain	ko	Á¦¸ñ ¾È¿¡¼­
-in the topic	phpbrain	ko	ÁÖÁ¦ ¾È¿¡¼­
-include subcategories	phpbrain	ko	ÇÏÀ§ºĞ·ù Æ÷ÇÔ
-keywords	phpbrain	ko	Å°¿öµå
-knowledge base article #%1	phpbrain	ko	Áö½Ä±â¹İ °Ô½Ã¹° #%1
-knowledge base configuration	common	ko	Áö½Ä±â¹İ ¼³Á¤
-last modification by %1 on %2	phpbrain	ko	%2 ÀÏ %1¿¡ ÀÇÇØ ÃÖÁ¾ ¼öÁ¤µÊ
-last modified	phpbrain	ko	ÃÖÁ¾°»½Å
-latest	phpbrain	ko	ÃÖ±Ù
-latest comments	phpbrain	ko	ÃÖ±Ù Ä¿¸àÆ®µé
-leave empty to automatically generate an id	phpbrain	ko	ÀÚµ¿À¸·Î ID¸¦ »ı¼ºÇÏ·Á¸é °ø¶õÀ¸·Î µÎ¼¼¿ä
-link could not be added	phpbrain	ko	¸µÅ©°¡ Ãß°¡µÇÁö ¸øÇß½À´Ï´Ù.
-link deleted successfully	phpbrain	ko	¸µÅ©°¡ »èÁ¦µÇ¾ú½À´Ï´Ù.
-link has been added	phpbrain	ko	¸µÅ©°¡ Ãß°¡µÇ¾ú½À´Ï´Ù.
-links	phpbrain	ko	¸µÅ©
-links & files	phpbrain	ko	ÆÄÀÏ°ú ¸µÅ©
-main view	phpbrain	ko	¸ŞÀÎÈ­¸é
-maintain articles	phpbrain	ko	°Ô½Ã¹° °ü¸®
-maintain questions	phpbrain	ko	Áú¹® °ü¸®
-maximum number of comments to show:	phpbrain	ko	Ä¿¸àÆ®¸¦ º¸¿©ÁÙ ÃÖ´ë°¹¼ö:
-maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	ko	ÀÎ±â °Ô½Ã¹°°ú ÃÖ±Ù°Ô½Ã¹°, ´äº¯µÇÁö ¾ÊÀº °Ô½Ã¹°À» ¸ŞÀÎ¿¡ º¸¿©ÁÙ ÃÖ´ë °¹¼ö:
-modification date	phpbrain	ko	¼öÁ¤ÀÏÀÚ
-most viewed	phpbrain	ko	¸¹ÀÌ º» °Ô½Ã¹°
-new article	phpbrain	ko	»õ °Ô½Ã¹°
-nobody has rated this article so far	phpbrain	ko	´©±¸µµ ÀÌ °Ô½Ã¹°À» Æò°¡ÇÏÁö ¾Ê¾Ò½À´Ï´Ù.
-nothing was uploaded!	phpbrain	ko	¾Æ¹«°Íµµ ¾÷·Îµå µÇÁö ¾Ê¾Ò½À´Ï´Ù.
-number of results per page	phpbrain	ko	°á°ú°¹¼ö
-ocurrences	phpbrain	ko	°Ë»ö´ë»ó
-order results by	phpbrain	ko	°á°ú Á¤·Ä ¹æ½Ä
-outstanding published questions	phpbrain	ko	¹ÌÇØ°á ¹ßÇà Áú¹®
-past %1 months	phpbrain	ko	%1 °³¿ù Àü
-past year	phpbrain	ko	³â Àü
-people have rated this article	phpbrain	ko	»ç¿ëÀÚµéÀÌ ÀÌ °Ô½Ã¹°À» Æò°¡Çß½À´Ï´Ù
-phpbrain	common	ko	Áö½Ä ±â¹İ
-please rate the pertinence and quality of this article	phpbrain	ko	ÀÌ °Ô½Ã¹°ÀÇ ÀûÇÕ¼º°ú È°¿ëµµµîÀ» Æò°¡ÇØÁÖ¼¼¿ä
-please try again	phpbrain	ko	´Ù½Ã ½ÃµµÇØÁÖ¼¼¿ä
-poor	phpbrain	ko	ÇüÆí¾øÀ½
-printer view	phpbrain	ko	ÀÎ¼âº¸±â
-publication date	phpbrain	ko	¹ßÇàÀÏÀÚ
-publish	phpbrain	ko	¹ßÇà
-publish articles automatically?	common	ko	°Ô½Ã¹°À» ÀÚµ¿À¸·Î ¹ßÇàÇÏ½Ã°Ú½À´Ï±î?
-publish comments automatically?	common	ko	ÄÚ¸àÆ®¸¦ ÀÚµ¿À¸·Î ¹ßÇàÇÏ½Ã°Ú½À´Ï±î?
-publish questions automatically?	common	ko	Áú¹®À» ÀÚµ¿À¸·Î ¹ßÇàÇÏ½Ã°Ú½À´Ï±î?
-publish selected	phpbrain	ko	¼±ÅÃµÈ°Í ¹ßÇà
-published	phpbrain	ko	¹ßÇàµÊ
-question deleted successfully	phpbrain	ko	Áú¹®ÀÌ »èÁ¦µÇ¾ú½À´Ï´Ù
-questions deleted successfully	phpbrain	ko	Áú¹®µéÀÌ »èÁ¦µÇ¾ú½À´Ï´Ù.
-rating has been submited	phpbrain	ko	Æò°¡°¡ ¹İ¿µµÇ¾ú½À´Ï´Ù
-rating invalid	phpbrain	ko	Æò°¡°¡ Àß¸øµÇ¾ú½À´Ï´Ù
-recipient	phpbrain	ko	¼ö½ÅÀÎ
-related articles in the knowledge base	phpbrain	ko	Áö½Ä°Ë»ö³»ÀÇ °ü·Ã °Ô½Ã¹°
-relation with article was removed successfully	phpbrain	ko	°Ô½Ã¹°ÀÇ °ü·Ã¼ºÀÌ ¼º°øÀûÀ¸·Î »èÁ¦µÇ¾ú½À´Ï´Ù.
-removed file %1	phpbrain	ko	%1 ÆÄÀÏ »èÁ¦µÊ
-removed link %1	phpbrain	ko	%1 ¸µÅ© »èÁ¦µÊ
-reply-to	phpbrain	ko	È¸½Å
-search in all the knowledge base	phpbrain	ko	Áö½Ä±â¹İ ÀüÃ¼ °Ë»ö
-search results	phpbrain	ko	°Ë»ö °á°úµé
-see more questions	phpbrain	ko	´õ ¸¹Àº Áú¹®µé º¸±â
-see more questions...	phpbrain	ko	´õ ¸¹Àº Áú¹®µé º¸±â...
-select articles	phpbrain	ko	°Ô½Ã¹° ¼±ÅÃ
-show all comments	phpbrain	ko	¸ğµç Ä¿¸àÆ® º¸ÀÌ±â
-show articles belonging to:	phpbrain	ko	ÇØ´ç ºĞ·ù¿¡ ¼ÓÇÑ °Ô½Ã¹° º¸ÀÌ±â:
-show messages in category	phpbrain	ko	ºĞ·ù³»ÀÇ ¸Ş½ÃÁö º¸ÀÌ±â
-submit comment	phpbrain	ko	Ä¿¸àÆ® µî·Ï
-submit comment and rating	phpbrain	ko	Ä¿¸àÆ® ¹× Æò°¡ µî·Ï
-suggested category	phpbrain	ko	ÃßÃµ ºĞ·ù
-summary	phpbrain	ko	¿ä¾à
-that file already exists	phpbrain	ko	ÇØ´ç ÆÄÀÏÀº ÀÌ¹Ì ÀÖ½À´Ï´Ù.
-the article id must be a number	phpbrain	ko	°Ô½Ã¹°ID´Â ¹«Á¶°Ç ¼ıÀÚ¸¸ °¡´ÉÇÕ´Ï´Ù
-the article is empty	phpbrain	ko	°Ô½Ã¹°ÀÌ ºñ¾îÀÖ½À´Ï´Ù.
-the file was already missing in the server	phpbrain	ko	ÇØ´ç ÆÄÀÏÀº ÀÌ¹Ì ¼­¹ö¿¡¼­ »ç¶óÁ³½À´Ï´Ù.
-the following errors occurred	phpbrain	ko	´ÙÀ½ÀÇ ¿¡·¯°¡ ¹ß»ıÇÏ¿´½À´Ï´Ù.
-the mail server returned:	phpbrain	ko	¸ŞÀÏ¼­¹öÀÇ ¹İ¼Û¸Ş½ÃÁö:
-the present category and all subcategories under it	phpbrain	ko	Á¦°øµÇ´Â ºĞ·ù¿Í ¸ğµç ÇÏÀ§Ä«Å×°í¸®µéÀ» Æ÷ÇÔ
-the present category only	phpbrain	ko	Á¦°øµÇ´Â ºĞ·ù¸¸
-there are no articles	phpbrain	ko	°Ô½Ã¹°ÀÌ ¾ø½À´Ï´Ù
-there are no articles available	phpbrain	ko	°Ô½Ã¹°ÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.
-this article hasn't yet been published in the knowledge base	phpbrain	ko	ÀÌ °Ô½Ã¹°Àº ¾ÆÁ÷ Áö½Ä±â¹İÀ¸·Î ¹ßÇàµÇÁö ¾Ê¾Ò½À´Ï´Ù
-title	phpbrain	ko	Á¦¸ñ
-to create categories, press 'edit categories' in the preferences menu	phpbrain	ko	ºĞ·ù¸¦ »ı¼ºÇÏ±â À§ÇØ¼­´Â È¯°æ¼³Á¤ÀÇ 'ºĞ·ù ¼öÁ¤'À» ´­·¯ÁÖ¼¼¿ä
-topic	phpbrain	ko	ÁÖÁ¦
-unable to add rating to database	phpbrain	ko	Æò°¡¸¦ µ¥ÀÌÅÍº£ÀÌ½º¿¡ Ãß°¡ÇÒ ¼ö ¾ø½À´Ï´Ù.
-unanswered questions	phpbrain	ko	´äº¯ÀÌ ¾ø´Â °Ô½Ã¹°µé
-unpublish	phpbrain	ko	¹ßÇàÃë¼Ò
-unpublished	phpbrain	ko	¹ßÇàÃë¼ÒµÊ
-user preferences	phpbrain	ko	»ç¿ëÀÚ È¯°æ¼³Á¤
-views	phpbrain	ko	¿­¶÷
-was it easy to find this article using the above search string?	phpbrain	ko	¾Æ·¡ÀÇ °Ë»ö¾î·Î ÀÌ °Ô½Ã¹°À» Ã£´Â°ÍÀÌ ½¬¿ü½À´Ï±î?
-when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	ko	ºĞ·ù¸¦ ÅëÇÑ ³×ºñ°ÔÀÌ¼Ç¿¡¼­ Á¦°øµÇ´Â ºĞ·ù¿Í ÀÏÄ¡ÇÏ´Â °Ô½Ã¹°ÀÇ ¸ñ·Ï¸¸ ³ª¿Ã°ÍÀÎÁö ¾Æ´Ï¸é Á¦°øµÇ´Â ºĞ·ù¿Í ¸ğµçºĞ·ù°¡ ³ª¿Ã°ÍÀÎÁö¸¦ ¼±ÅÃÇÒ¼öÀÖ½À´Ï´Ù.
-with all the words	phpbrain	ko	¸ğµç ´Ü¾î¸¦ Æ÷ÇÔ
-with at least one of the words	phpbrain	ko	ÇÑ°³ ÀÌ»óÀÇ ´Ü¾î¸¦ Æ÷ÇÔ
-with the exact phrase	phpbrain	ko	Á¤È®ÇÑ ¹®ÀåÀ» Æ÷ÇÔ
-without the words	phpbrain	ko	´Ü¾î¸¦ Á¦¿Ü
-you are in %1	phpbrain	ko	ÇöÀçÀ§Ä¡: %1
-you have already qualified this article	phpbrain	ko	´ç½ÅÀº ÀÌ¹Ì ÀÌ °Ô½Ã¹°ÀÇ ±ÇÇÑÀ» È¹µæÇÏ¿´½À´Ï´Ù.
-you have not the proper permissions to do that	phpbrain	ko	´ç½ÅÀº ±×°ÍÀ» ÇÏ±â À§ÇÑ ±ÇÇÑÀÌ ¾ø½À´Ï´Ù.
-you must enter a title	phpbrain	ko	Á¦¸ñÀ» ÀÔ·ÂÇÏ¿©¾ß ÇÕ´Ï´Ù
-you must enter a topic	phpbrain	ko	ÁÖÁ¦¸¦ ÀÔ·ÂÇÏ¿©¾ß ÇÕ´Ï´Ù
-your message could not be sent!	phpbrain	ko	´ç½ÅÀÇ ¸Ş½ÃÁö°¡ Àü¼ÛµÇÁö ¸øÇß½À´Ï´Ù
-your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	ko	´ç½ÅÀÇ Áú¹®Àº µî·ÏµÇ¾ú½À´Ï´Ù. ¹ßÇà±ÇÇÑÀÌ ÀÖ´Â »ç¿ëÀÚÀÇ Çã°¡ÈÄ¿¡ ¹ßÇàµË´Ï´Ù.
-your question will be published immediately	phpbrain	ko	´ç½ÅÀÇ Áú¹®Àº Áï½Ã ¹ßÇàµÉ°ÍÀÔ´Ï´Ù
+/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	ko	/kb ë””ë ‰í† ë¦¬ê°€ ì¡´ì¬í•˜ì§€ ì•Šê±°ë‚˜, ìƒì„±í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤. ê´€ë¦¬ìì—ê²Œ ì „ì—­ì„¤ì • í™•ì¸ì„ ìš”ì²­í•´ì£¼ì„¸ìš”
+action	phpbrain	ko	í™œë™
+actions	phpbrain	ko	í™œë™ë“¤
+add articles	phpbrain	ko	ê²Œì‹œë¬¼ ì¶”ê°€
+add link	phpbrain	ko	ë§í¬ ì¶”ê°€
+add question	phpbrain	ko	ì§ˆë¬¸ ì¶”ê°€
+added file %1	phpbrain	ko	íŒŒì¼ %1 ì¶”ê°€ë¨
+added link %1	phpbrain	ko	ë§í¬ %1 ì¶”ê°€ë¨
+added related articles %1	phpbrain	ko	ê´€ë ¨ ê²Œì‹œë¬¼ %1 ì¶”ê°€ë¨
+advanced search	phpbrain	ko	ìƒì„¸ê²€ìƒ‰
+all articles	phpbrain	ko	ëª¨ë“  ê²Œì‹œë¬¼
+answer	phpbrain	ko	ì‘ë‹µ
+anytime	phpbrain	ko	ì–¸ì œë‚˜
+anywhere in the article	phpbrain	ko	ê²Œì‹œë¬¼ ì „ì²´
+article	phpbrain	ko	ê²Œì‹œë¬¼
+article added to database, you can now attach files or links, or relate to other articles	phpbrain	ko	ê²Œì‹œë¬¼ì´ ë°ì´í„°ë² ì´ìŠ¤ì— ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤. ì´ì œ íŒŒì¼,ë§í¬,ê´€ë ¨ ê²Œì‹œë¬¼ì„ ì‚½ì…í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤.
+article created	phpbrain	ko	ê²Œì‹œë¬¼ ìƒì„±ë¨
+article deleted	phpbrain	ko	ê²Œì‹œë¬¼ ì‚­ì œë¨
+article deleted successfully	phpbrain	ko	ê²Œì‹œë¬¼ ì‚­ì œ ì„±ê³µ
+article edited	phpbrain	ko	ê²Œì‹œë¬¼ ìˆ˜ì •ë¨
+article has been published	phpbrain	ko	ê²Œì‹œë¬¼ì´ ë°œí–‰ë˜ì—ˆìŠµë‹ˆë‹¤
+article id	phpbrain	ko	ê²Œì‹œë¬¼ ID
+articles added	phpbrain	ko	ê²Œì‹œë¬¼ë“¤ì´ ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤
+articles deleted successfully	phpbrain	ko	ê²Œì‹œë¬¼ë“¤ì´ ì„±ê³µì ìœ¼ë¡œ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤
+articles have been published	phpbrain	ko	ê²Œì‹œë¬¼ë“¤ì´ ë°œí–‰ë˜ì—ˆìŠµë‹ˆë‹¤
+articles in %1	phpbrain	ko	%1 ë¶„ë¥˜ì˜ ê²Œì‹œë¬¼
+articles in %1 and all its subcategories	phpbrain	ko	%1 ë° í•˜ìœ„ë¶„ë¥˜ì— ì†í•œ ê²Œì‹œë¬¼
+articles not classified under any category	phpbrain	ko	ê²Œì‹œë¬¼ì´ ì–´ë– í•œ ì¹´í…Œê³ ë¦¬ë¡œë„ ë¶„ë¥˜ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.
+ascendent	phpbrain	ko	ì˜¤ë¦„ì°¨ìˆœ
+attach file	phpbrain	ko	íŒŒì¼ ì²¨ë¶€
+attached files	phpbrain	ko	ì²¨ë¶€ íŒŒì¼
+average rating	phpbrain	ko	í‰ê·  í‰ê°€ë„
+base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	ko	ê¸°ë³¸ ë””ë ‰í† ë¦¬ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ê´€ë¦¬ìì—ê²Œ ì „ì—­ì„¤ì •ì˜ í™•ì¸ì„ ìš”ì²­í•´ì£¼ì„¸ìš”
+before submiting a question, please search in the knowledge base first	phpbrain	ko	ì§ˆë¬¸ì„ ë“±ë¡í•˜ê¸°ì „ì—, ì§€ì‹ê¸°ë°˜ê²€ìƒ‰ì„ ë¨¼ì € í•´ë³´ì‹œê¸° ë°”ëë‹ˆë‹¤
+category	phpbrain	ko	ë¶„ë¥˜
+comment	phpbrain	ko	ì»¤ë©˜íŠ¸
+comment and rating have been published	phpbrain	ko	ì»¤ë©˜íŠ¸ì™€ í‰ê°€ê°€ ë°œí–‰ë˜ì—ˆìŠµë‹ˆë‹¤.
+comment could not be inserted in the database	phpbrain	ko	ì»¤ë©˜íŠ¸ê°€ ë°ì´í„°ë² ì´ìŠ¤ì— ì‚½ì…ë˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.
+comment has been deleted	phpbrain	ko	ì»¤ë©˜íŠ¸ì‚¬ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.
+comment has been published	phpbrain	ko	ì»¤ë©˜íŠ¸ê°€ ë°œí–‰ë˜ì—ˆìŠµë‹ˆë‹¤.
+comment has been submited for revision	phpbrain	ko	ì»¤ë©˜íŠ¸ê°€ ê°œì •ì— ì ìš©ë˜ì—ˆìŠµë‹ˆë‹¤.
+comment has been submited for revision and rating will be published	phpbrain	ko	ì»¤ë©˜íŠ¸ê°€ ê°œì •ì— ì ìš©ë˜ì—ˆìœ¼ë©° í‰ê°€ê°€ ë°œí–‰ë˜ì—ˆìŠµë‹ˆë‹¤
+comments	phpbrain	ko	ì»¤ë©˜íŠ¸ë“¤
+configuration	phpbrain	ko	ì„¤ì •
+created by %1 on %2	phpbrain	ko	%2 ì¼ %1ì— ì˜í•´ ìƒì„±ë¨
+creation date	phpbrain	ko	ìƒì„±ì¼
+delete article	phpbrain	ko	ê²Œì‹œë¬¼ ì‚­ì œ
+delete selected	phpbrain	ko	ì„ íƒ ì‚­ì œ
+deleted relation to  article %1	phpbrain	ko	%1 ê²Œì‹œë¬¼ê³¼ ê´€ë ¨ê¸€ì´ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.
+deleted relation to article %1	phpbrain	ko	%1 ê²Œì‹œë¬¼ê³¼ ê´€ë ¨ê¸€ì´ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.
+descendent	phpbrain	ko	ë‚´ë¦¼ì°¨ìˆœ
+details	phpbrain	ko	ë‚´ìš©
+e-groupware knowledge base article attached	phpbrain	ko	E-ê·¸ë£¹ì›¨ì–´ì˜ ì§€ì‹ê¸°ë°˜ ê²Œì‹œë¬¼ì´ ì²¨ë¶€ë˜ì—ˆìŠµë‹ˆë‹¤
+e-mail has been sent	phpbrain	ko	E-Mailì´ ë°œì†¡ë˜ì—ˆìŠµë‹ˆë‹¤.
+edit article	phpbrain	ko	ê²Œì‹œë¬¼ ìˆ˜ì •
+enter one or two words describing the issue, or type the article number if you know it	phpbrain	ko	í•œë‘ê°€ì§€ ë‹¨ì–´ë¥¼ ì…ë ¥í•˜ê±°ë‚˜, ê²Œì‹œë¬¼ ë²ˆí˜¸ë¡œ ê²€ìƒ‰í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤
+error deleting article from database	phpbrain	ko	ë°ì´í„°ë² ì´ìŠ¤ì—ì„œ ê²Œì‹œë¬¼ ì‚­ì œ ì˜¤ë¥˜ë°œìƒ
+error deleting link	phpbrain	ko	ë§í¬ ì‚­ì œ ì˜¤ë¥˜ ë°œìƒ
+error downloading file	phpbrain	ko	íŒŒì¼ ë‹¤ìš´ë¡œë“œ ì˜¤ë¥˜ ì‚­ì œ
+error locating files directory	phpbrain	ko	íŒŒì¼ ë””ë ‰í† ë¦¬ ì§€ì • ë°œìƒ
+error moving file to directory	phpbrain	ko	íŒŒì¼ì„ ë””ë ‰í† ë¦¬ì— ì´ë™í•˜ëŠ” ì¤‘ ì˜¤ë¥˜ë°œìƒ
+error publishing comment	phpbrain	ko	ì»¤ë©˜íŠ¸ ë°œí–‰ì¤‘ ì˜¤ë¥˜ë°œìƒ
+error retrieving article	phpbrain	ko	ê²Œì‹œë¬¼ ìˆ˜ì‹ ì¤‘ ì˜¤ë¥˜ë°œìƒ
+error trying to delete comment	phpbrain	ko	ì»¤ë©˜íŠ¸ ì‚­ì œì‹œë„ì¤‘ ì˜¤ë¥˜ë°œìƒ
+error trying to delete question	phpbrain	ko	ì§ˆë¬¸ ì‚­ì œì‹œë„ì¤‘ ì˜¤ë¥˜ë°œìƒ
+error trying to edit article	phpbrain	ko	ê²Œì‹œë¬¼ ìˆ˜ì •ì‹œë„ì¤‘ ì˜¤ë¥˜ë°œìƒ
+error trying to publish article	phpbrain	ko	ê²Œì‹œë¬¼ ë°œí–‰ì‹œë„ì¤‘ ì˜¤ë¥˜ë°œìƒ
+error: file doesn't exist in the database	phpbrain	ko	ì˜¤ë¥˜: ë°ì´í„°ë² ì´ìŠ¤ì— íŒŒì¼ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+excellent	phpbrain	ko	ë§¤ìš°ì¢‹ìŒ
+failure trying to delete the file	phpbrain	ko	íŒŒì¼ ì‚­ì œì‹œë„ê°€ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤
+file could be deleted from server but not from database	phpbrain	ko	íŒŒì¼ì€ ì„œë²„ì—ì„œ ì‚­ì œë©ë‹ˆë‹¤ (ë°ì´í„°ë² ì´ìŠ¤ëŠ” ì•„ë‹˜)
+file has been successfully uploaded	phpbrain	ko	íŒŒì¼ì´ ì„±ê³µì ìœ¼ë¡œ ì—…ë¡œë“œ ë˜ì—ˆìŠµë‹ˆë‹¤.
+file was already missing from server, and was deleted from the database	phpbrain	ko	íŒŒì¼ì´ ì´ë¯¸ ì„œë²„ì—ì„œ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤. ë”°ë¼ì„œ ë°ì´í„°ë² ì´ìŠ¤ì—ì„œë„ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤
+file was deleted successfully	phpbrain	ko	íŒŒì¼ì´ ì„±ê³µì ìœ¼ë¡œ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.
+file wasn't in server and it couldn't be deleted from the database	phpbrain	ko	íŒŒì¼ì´ ì´ë¯¸ ì„œë²„ì— ì—†ìœ¼ë‚˜ ë°ì´í„°ë² ì´ìŠ¤ì—ì„œë„ ì‚­ì œë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.
+find results	phpbrain	ko	ê²°ê³¼ ê²€ìƒ‰
+global categories	phpbrain	ko	ì „ì—­ ë¶„ë¥˜
+have to be approved first	common	ko	ì¸ê°€ë¥¼ ë¨¼ì € ë°›ì•„ì•¼ í•©ë‹ˆë‹¤.
+history	phpbrain	ko	ë‚´ì—­
+if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	ko	ì§€ì‹ê¸°ë°˜ê²€ìƒ‰ì—ì„œ ë¬¸ì œì˜ í•´ê²°ì„ ì°¾ì„ ìˆ˜ ì—†ëŠ” ê²½ìš° ì•„ë˜ì— ì‘ì„±í•´ì£¼ì„¸ìš”
+if you wish, you can comment this article here	phpbrain	ko	ì´ ê²Œì‹œë¬¼ì— ì»¤ë©˜íŠ¸ë¥¼ ë“±ë¡í•  ìˆ˜ ìˆìŠµë‹ˆë‹¤
+in %1	phpbrain	ko	ë¶„ë¥˜ : %1
+in the text	phpbrain	ko	í…ìŠ¤íŠ¸ ì•ˆì—ì„œ
+in the title	phpbrain	ko	ì œëª© ì•ˆì—ì„œ
+in the topic	phpbrain	ko	ì£¼ì œ ì•ˆì—ì„œ
+include subcategories	phpbrain	ko	í•˜ìœ„ë¶„ë¥˜ í¬í•¨
+keywords	phpbrain	ko	í‚¤ì›Œë“œ
+knowledge base article #%1	phpbrain	ko	ì§€ì‹ê¸°ë°˜ ê²Œì‹œë¬¼ #%1
+knowledge base configuration	common	ko	ì§€ì‹ê¸°ë°˜ ì„¤ì •
+last modification by %1 on %2	phpbrain	ko	%2 ì¼ %1ì— ì˜í•´ ìµœì¢… ìˆ˜ì •ë¨
+last modified	phpbrain	ko	ìµœì¢…ê°±ì‹ 
+latest	phpbrain	ko	ìµœê·¼
+latest comments	phpbrain	ko	ìµœê·¼ ì»¤ë©˜íŠ¸ë“¤
+leave empty to automatically generate an id	phpbrain	ko	ìë™ìœ¼ë¡œ IDë¥¼ ìƒì„±í•˜ë ¤ë©´ ê³µë€ìœ¼ë¡œ ë‘ì„¸ìš”
+link could not be added	phpbrain	ko	ë§í¬ê°€ ì¶”ê°€ë˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.
+link deleted successfully	phpbrain	ko	ë§í¬ê°€ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.
+link has been added	phpbrain	ko	ë§í¬ê°€ ì¶”ê°€ë˜ì—ˆìŠµë‹ˆë‹¤.
+links	phpbrain	ko	ë§í¬
+links & files	phpbrain	ko	íŒŒì¼ê³¼ ë§í¬
+main view	phpbrain	ko	ë©”ì¸í™”ë©´
+maintain articles	phpbrain	ko	ê²Œì‹œë¬¼ ê´€ë¦¬
+maintain questions	phpbrain	ko	ì§ˆë¬¸ ê´€ë¦¬
+maximum number of comments to show:	phpbrain	ko	ì»¤ë©˜íŠ¸ë¥¼ ë³´ì—¬ì¤„ ìµœëŒ€ê°¯ìˆ˜:
+maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	ko	ì¸ê¸° ê²Œì‹œë¬¼ê³¼ ìµœê·¼ê²Œì‹œë¬¼, ë‹µë³€ë˜ì§€ ì•Šì€ ê²Œì‹œë¬¼ì„ ë©”ì¸ì— ë³´ì—¬ì¤„ ìµœëŒ€ ê°¯ìˆ˜:
+modification date	phpbrain	ko	ìˆ˜ì •ì¼ì
+most viewed	phpbrain	ko	ë§ì´ ë³¸ ê²Œì‹œë¬¼
+new article	phpbrain	ko	ìƒˆ ê²Œì‹œë¬¼
+nobody has rated this article so far	phpbrain	ko	ëˆ„êµ¬ë„ ì´ ê²Œì‹œë¬¼ì„ í‰ê°€í•˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.
+nothing was uploaded!	phpbrain	ko	ì•„ë¬´ê²ƒë„ ì—…ë¡œë“œ ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.
+number of results per page	phpbrain	ko	ê²°ê³¼ê°¯ìˆ˜
+ocurrences	phpbrain	ko	ê²€ìƒ‰ëŒ€ìƒ
+order results by	phpbrain	ko	ê²°ê³¼ ì •ë ¬ ë°©ì‹
+outstanding published questions	phpbrain	ko	ë¯¸í•´ê²° ë°œí–‰ ì§ˆë¬¸
+past %1 months	phpbrain	ko	%1 ê°œì›” ì „
+past year	phpbrain	ko	ë…„ ì „
+people have rated this article	phpbrain	ko	ì‚¬ìš©ìë“¤ì´ ì´ ê²Œì‹œë¬¼ì„ í‰ê°€í–ˆìŠµë‹ˆë‹¤
+phpbrain	common	ko	ì§€ì‹ ê¸°ë°˜
+please rate the pertinence and quality of this article	phpbrain	ko	ì´ ê²Œì‹œë¬¼ì˜ ì í•©ì„±ê³¼ í™œìš©ë„ë“±ì„ í‰ê°€í•´ì£¼ì„¸ìš”
+please try again	phpbrain	ko	ë‹¤ì‹œ ì‹œë„í•´ì£¼ì„¸ìš”
+poor	phpbrain	ko	í˜•í¸ì—†ìŒ
+printer view	phpbrain	ko	ì¸ì‡„ë³´ê¸°
+publication date	phpbrain	ko	ë°œí–‰ì¼ì
+publish	phpbrain	ko	ë°œí–‰
+publish articles automatically?	common	ko	ê²Œì‹œë¬¼ì„ ìë™ìœ¼ë¡œ ë°œí–‰í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
+publish comments automatically?	common	ko	ì½”ë©˜íŠ¸ë¥¼ ìë™ìœ¼ë¡œ ë°œí–‰í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
+publish questions automatically?	common	ko	ì§ˆë¬¸ì„ ìë™ìœ¼ë¡œ ë°œí–‰í•˜ì‹œê² ìŠµë‹ˆê¹Œ?
+publish selected	phpbrain	ko	ì„ íƒëœê²ƒ ë°œí–‰
+published	phpbrain	ko	ë°œí–‰ë¨
+question deleted successfully	phpbrain	ko	ì§ˆë¬¸ì´ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤
+questions deleted successfully	phpbrain	ko	ì§ˆë¬¸ë“¤ì´ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.
+rating has been submited	phpbrain	ko	í‰ê°€ê°€ ë°˜ì˜ë˜ì—ˆìŠµë‹ˆë‹¤
+rating invalid	phpbrain	ko	í‰ê°€ê°€ ì˜ëª»ë˜ì—ˆìŠµë‹ˆë‹¤
+recipient	phpbrain	ko	ìˆ˜ì‹ ì¸
+related articles in the knowledge base	phpbrain	ko	ì§€ì‹ê²€ìƒ‰ë‚´ì˜ ê´€ë ¨ ê²Œì‹œë¬¼
+relation with article was removed successfully	phpbrain	ko	ê²Œì‹œë¬¼ì˜ ê´€ë ¨ì„±ì´ ì„±ê³µì ìœ¼ë¡œ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.
+removed file %1	phpbrain	ko	%1 íŒŒì¼ ì‚­ì œë¨
+removed link %1	phpbrain	ko	%1 ë§í¬ ì‚­ì œë¨
+reply-to	phpbrain	ko	íšŒì‹ 
+search in all the knowledge base	phpbrain	ko	ì§€ì‹ê¸°ë°˜ ì „ì²´ ê²€ìƒ‰
+search results	phpbrain	ko	ê²€ìƒ‰ ê²°ê³¼ë“¤
+see more questions	phpbrain	ko	ë” ë§ì€ ì§ˆë¬¸ë“¤ ë³´ê¸°
+see more questions...	phpbrain	ko	ë” ë§ì€ ì§ˆë¬¸ë“¤ ë³´ê¸°...
+select articles	phpbrain	ko	ê²Œì‹œë¬¼ ì„ íƒ
+show all comments	phpbrain	ko	ëª¨ë“  ì»¤ë©˜íŠ¸ ë³´ì´ê¸°
+show articles belonging to:	phpbrain	ko	í•´ë‹¹ ë¶„ë¥˜ì— ì†í•œ ê²Œì‹œë¬¼ ë³´ì´ê¸°:
+show messages in category	phpbrain	ko	ë¶„ë¥˜ë‚´ì˜ ë©”ì‹œì§€ ë³´ì´ê¸°
+submit comment	phpbrain	ko	ì»¤ë©˜íŠ¸ ë“±ë¡
+submit comment and rating	phpbrain	ko	ì»¤ë©˜íŠ¸ ë° í‰ê°€ ë“±ë¡
+suggested category	phpbrain	ko	ì¶”ì²œ ë¶„ë¥˜
+summary	phpbrain	ko	ìš”ì•½
+that file already exists	phpbrain	ko	í•´ë‹¹ íŒŒì¼ì€ ì´ë¯¸ ìˆìŠµë‹ˆë‹¤.
+the article id must be a number	phpbrain	ko	ê²Œì‹œë¬¼IDëŠ” ë¬´ì¡°ê±´ ìˆ«ìë§Œ ê°€ëŠ¥í•©ë‹ˆë‹¤
+the article is empty	phpbrain	ko	ê²Œì‹œë¬¼ì´ ë¹„ì–´ìˆìŠµë‹ˆë‹¤.
+the file was already missing in the server	phpbrain	ko	í•´ë‹¹ íŒŒì¼ì€ ì´ë¯¸ ì„œë²„ì—ì„œ ì‚¬ë¼ì¡ŒìŠµë‹ˆë‹¤.
+the following errors occurred	phpbrain	ko	ë‹¤ìŒì˜ ì—ëŸ¬ê°€ ë°œìƒí•˜ì˜€ìŠµë‹ˆë‹¤.
+the mail server returned:	phpbrain	ko	ë©”ì¼ì„œë²„ì˜ ë°˜ì†¡ë©”ì‹œì§€:
+the present category and all subcategories under it	phpbrain	ko	ì œê³µë˜ëŠ” ë¶„ë¥˜ì™€ ëª¨ë“  í•˜ìœ„ì¹´í…Œê³ ë¦¬ë“¤ì„ í¬í•¨
+the present category only	phpbrain	ko	ì œê³µë˜ëŠ” ë¶„ë¥˜ë§Œ
+there are no articles	phpbrain	ko	ê²Œì‹œë¬¼ì´ ì—†ìŠµë‹ˆë‹¤
+there are no articles available	phpbrain	ko	ê²Œì‹œë¬¼ì´ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.
+this article hasn't yet been published in the knowledge base	phpbrain	ko	ì´ ê²Œì‹œë¬¼ì€ ì•„ì§ ì§€ì‹ê¸°ë°˜ìœ¼ë¡œ ë°œí–‰ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤
+title	phpbrain	ko	ì œëª©
+to create categories, press 'edit categories' in the preferences menu	phpbrain	ko	ë¶„ë¥˜ë¥¼ ìƒì„±í•˜ê¸° ìœ„í•´ì„œëŠ” í™˜ê²½ì„¤ì •ì˜ 'ë¶„ë¥˜ ìˆ˜ì •'ì„ ëˆŒëŸ¬ì£¼ì„¸ìš”
+topic	phpbrain	ko	ì£¼ì œ
+unable to add rating to database	phpbrain	ko	í‰ê°€ë¥¼ ë°ì´í„°ë² ì´ìŠ¤ì— ì¶”ê°€í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.
+unanswered questions	phpbrain	ko	ë‹µë³€ì´ ì—†ëŠ” ê²Œì‹œë¬¼ë“¤
+unpublish	phpbrain	ko	ë°œí–‰ì·¨ì†Œ
+unpublished	phpbrain	ko	ë°œí–‰ì·¨ì†Œë¨
+user preferences	phpbrain	ko	ì‚¬ìš©ì í™˜ê²½ì„¤ì •
+views	phpbrain	ko	ì—´ëŒ
+was it easy to find this article using the above search string?	phpbrain	ko	ì•„ë˜ì˜ ê²€ìƒ‰ì–´ë¡œ ì´ ê²Œì‹œë¬¼ì„ ì°¾ëŠ”ê²ƒì´ ì‰¬ì› ìŠµë‹ˆê¹Œ?
+when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	ko	ë¶„ë¥˜ë¥¼ í†µí•œ ë„¤ë¹„ê²Œì´ì…˜ì—ì„œ ì œê³µë˜ëŠ” ë¶„ë¥˜ì™€ ì¼ì¹˜í•˜ëŠ” ê²Œì‹œë¬¼ì˜ ëª©ë¡ë§Œ ë‚˜ì˜¬ê²ƒì¸ì§€ ì•„ë‹ˆë©´ ì œê³µë˜ëŠ” ë¶„ë¥˜ì™€ ëª¨ë“ ë¶„ë¥˜ê°€ ë‚˜ì˜¬ê²ƒì¸ì§€ë¥¼ ì„ íƒí• ìˆ˜ìˆìŠµë‹ˆë‹¤.
+with all the words	phpbrain	ko	ëª¨ë“  ë‹¨ì–´ë¥¼ í¬í•¨
+with at least one of the words	phpbrain	ko	í•œê°œ ì´ìƒì˜ ë‹¨ì–´ë¥¼ í¬í•¨
+with the exact phrase	phpbrain	ko	ì •í™•í•œ ë¬¸ì¥ì„ í¬í•¨
+without the words	phpbrain	ko	ë‹¨ì–´ë¥¼ ì œì™¸
+you are in %1	phpbrain	ko	í˜„ì¬ìœ„ì¹˜: %1
+you have already qualified this article	phpbrain	ko	ë‹¹ì‹ ì€ ì´ë¯¸ ì´ ê²Œì‹œë¬¼ì˜ ê¶Œí•œì„ íšë“í•˜ì˜€ìŠµë‹ˆë‹¤.
+you have not the proper permissions to do that	phpbrain	ko	ë‹¹ì‹ ì€ ê·¸ê²ƒì„ í•˜ê¸° ìœ„í•œ ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤.
+you must enter a title	phpbrain	ko	ì œëª©ì„ ì…ë ¥í•˜ì—¬ì•¼ í•©ë‹ˆë‹¤
+you must enter a topic	phpbrain	ko	ì£¼ì œë¥¼ ì…ë ¥í•˜ì—¬ì•¼ í•©ë‹ˆë‹¤
+your message could not be sent!	phpbrain	ko	ë‹¹ì‹ ì˜ ë©”ì‹œì§€ê°€ ì „ì†¡ë˜ì§€ ëª»í–ˆìŠµë‹ˆë‹¤
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	ko	ë‹¹ì‹ ì˜ ì§ˆë¬¸ì€ ë“±ë¡ë˜ì—ˆìŠµë‹ˆë‹¤. ë°œí–‰ê¶Œí•œì´ ìˆëŠ” ì‚¬ìš©ìì˜ í—ˆê°€í›„ì— ë°œí–‰ë©ë‹ˆë‹¤.
+your question will be published immediately	phpbrain	ko	ë‹¹ì‹ ì˜ ì§ˆë¬¸ì€ ì¦‰ì‹œ ë°œí–‰ë ê²ƒì…ë‹ˆë‹¤
