@@ -333,7 +333,7 @@
 		*/
 		function select_category($category_selected = '')
 		{
-			return $this->categories_obj->formated_list('select', 'all', $category_selected , True);
+			return $this->categories_obj->formatted_list('select', 'all', $category_selected , True);
 		}
 
 		/**

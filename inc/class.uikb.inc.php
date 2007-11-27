@@ -499,7 +499,7 @@
 				'lang_asc'			=> lang('Ascendent'),
 				'lang_search'		=> lang('search'),
 				'form_action'		=> $this->link('menuaction=phpbrain.uikb.index'),
-				'select_categories'	=> $this->bo->categories_obj->formated_list('select', 'all', '', True)
+				'select_categories'	=> $this->bo->categories_obj->formatted_list('select', 'all', '', True)
 			));
 			if ($this->sitemgr)
 			{
@@ -1172,7 +1172,7 @@
 				'left'				=> $this->nextmatchs->left($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.pop_search&query=' . $this->bo->query),
 				'right'				=> $this->nextmatchs->right($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.pop_search&query=' . $this->bo->query),
 				'num_regs'			=> $this->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start),
-				'select_categories'	=> $this->bo->categories_obj->formated_list('select', 'all', '', True)
+				'select_categories'	=> $this->bo->categories_obj->formatted_list('select', 'all', '', True)
 			));
 
 			foreach ($articles_list as $article)
@@ -1607,7 +1607,7 @@
 				'left'					=> $this->nextmatchs->left($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_articles&cat='. $actual_category . '&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
 				'right'					=> $this->nextmatchs->right($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_articles&cat='. $actual_category .'&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
 				'num_regs'				=> $this->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start),
-				'select_categories'		=> $this->bo->categories_obj->formated_list('select', 'all', $actual_category, True),
+				'select_categories'		=> $this->bo->categories_obj->formatted_list('select', 'all', $actual_category, True),
 				'select_publish'		=> $select_publish,
 				'lang_publish_selected'	=> lang('Publish selected'),
 				'lang_delete_selected'	=> lang('Delete selected')
@@ -1809,7 +1809,7 @@
 				'left'					=> $this->nextmatchs->left($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category . '&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
 				'right'					=> $this->nextmatchs->right($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category .'&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
 				'num_regs'				=> $this->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start),
-				'select_categories'		=> $this->bo->categories_obj->formated_list('select', 'all', $actual_category, True),
+				'select_categories'		=> $this->bo->categories_obj->formatted_list('select', 'all', $actual_category, True),
 				'lang_publish_selected'	=> lang('Publish selected'),
 				'lang_delete_selected'	=> lang('Delete selected')
 			));
