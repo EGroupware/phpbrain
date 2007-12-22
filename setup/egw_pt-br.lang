@@ -9,9 +9,11 @@ added link %1	phpbrain	pt-br	Link %1 adicionado
 added related articles %1	phpbrain	pt-br	Artigos relacionados %1 adicionados
 advanced search	phpbrain	pt-br	Pesquisa Avançada
 all articles	phpbrain	pt-br	Todos os Artigos
+allow posting of questions	phpbrain	pt-br	Permitir postar perguntas
 answer	phpbrain	pt-br	Resposta
 anytime	phpbrain	pt-br	Qualquer tempo
 anywhere in the article	phpbrain	pt-br	Qualquer lugar no artigo
+are you sure?	phpbrain	pt-br	Você tem certeza ?
 article	phpbrain	pt-br	Artigo
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	pt-br	Artigo adicionado ao banco de dados, agora você pode anexar arquivos ou links, ou outros artigos relacionados.
 article created	phpbrain	pt-br	Artigo criado
@@ -56,6 +58,7 @@ e-groupware knowledge base article attached	phpbrain	pt-br	Artigo anexado
 e-mail has been sent	phpbrain	pt-br	Mensagem enviada
 edit article	phpbrain	pt-br	Editar artigo
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	pt-br	Digite uma ou duas palavras que caracterizem o artigo, ou informe diretamente o número do artigo caso você o saiba
+enterprise knowledge articles repository	phpbrain	pt-br	Repositório de artigos da Base de Conhecimento Enterprise
 error deleting article from database	phpbrain	pt-br	Erro ao apagar o artigo da base de dados
 error deleting link	phpbrain	pt-br	Erro ao apagar o link
 error downloading file	phpbrain	pt-br	Erro ao carregar o arquivo
@@ -87,6 +90,7 @@ in the title	phpbrain	pt-br	no título
 in the topic	phpbrain	pt-br	no tópico
 include subcategories	phpbrain	pt-br	incluir subcategorias
 keywords	phpbrain	pt-br	Palavra(s) chave
+knowledge base	phpbrain	pt-br	Base de Conhecimento
 knowledge base article #%1	phpbrain	pt-br	Base de conhecimento - Artigo #%1
 knowledge base configuration	common	pt-br	Configuração da Base de Conhecimento
 last modification by %1 on %2	phpbrain	pt-br	Última modificação por %1 em %2

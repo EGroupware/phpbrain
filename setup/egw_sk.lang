@@ -9,9 +9,11 @@ added link %1	phpbrain	sk	Pridaný odkaz %1
 added related articles %1	phpbrain	sk	Pridané súvisiace články %1
 advanced search	phpbrain	sk	Pokročilé hľadanie
 all articles	phpbrain	sk	Všetky články
+allow posting of questions	phpbrain	sk	Povoliť posielanie otázok
 answer	phpbrain	sk	odpoveď
 anytime	phpbrain	sk	kedykoľvek
 anywhere in the article	phpbrain	sk	Kdekoľvek v článku
+are you sure?	phpbrain	sk	Ste si istí?
 article	phpbrain	sk	Článok
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	sk	Článok pridaný do databázy, teraz môžete priložiť súbory alebo odkazy, alebo sa odkázať na iné články
 article created	phpbrain	sk	Článok bol vytvorený
@@ -56,6 +58,7 @@ e-groupware knowledge base article attached	phpbrain	sk	Článok Poznatkovej Bá
 e-mail has been sent	phpbrain	sk	E-mail bol odoslaný
 edit article	phpbrain	sk	Upraviť článok
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	sk	Zadajte jedno alebo dve slová opisujúce záležitosť, alebo zadajte číslo článku (ak ho poznáte)
+enterprise knowledge articles repository	phpbrain	sk	Podnikový zdroj poznatkov
 error deleting article from database	phpbrain	sk	Nastala chyba počas odstraňovania článku z databázy
 error deleting link	phpbrain	sk	Nastala chyba počas odstraňovania odkazu
 error downloading file	phpbrain	sk	Nastala chyba počas sťahovania súboru
@@ -87,6 +90,7 @@ in the title	phpbrain	sk	v nadpise
 in the topic	phpbrain	sk	v téme
 include subcategories	phpbrain	sk	Vrátane podkategórií
 keywords	phpbrain	sk	Kľúčové slová
+knowledge base	phpbrain	sk	Poznatková báza
 knowledge base article #%1	phpbrain	sk	Článok Poznatkovej Bázy #%1
 knowledge base configuration	common	sk	Základná konfigurácia Poznatkovej Bázy
 last modification by %1 on %2	phpbrain	sk	Naposledy upravil %1 k %2
@@ -119,7 +123,7 @@ past %1 months	phpbrain	sk	posledných %1 mesiacov
 past year	phpbrain	sk	posledný rok
 people have rated this article	phpbrain	sk	ľudia ohodnotili tento článok
 phpbrain	common	sk	Poznatková Báza
-please rate the pertinence and quality of this article	phpbrain	sk	Prosím ohodnoťte užitočnosť a kvalitu tohto článku
+please rate the pertinence and quality of this article	phpbrain	sk	Prosím, ohodnoťte užitočnosť a kvalitu tohto článku
 please try again	phpbrain	sk	Prosím skúste to znovu
 poor	phpbrain	sk	Chabé
 printer view	phpbrain	sk	Náhľad tlače
@@ -165,7 +169,7 @@ there are no articles	phpbrain	sk	Žiadne články
 there are no articles available	phpbrain	sk	Žiadne články nie sú dostupné
 this article hasn't yet been published in the knowledge base	phpbrain	sk	Tento článok nebol zatiaľ publikovaný v Poznatkovej Báze
 title	phpbrain	sk	Názov
-to create categories, press 'edit categories' in the preferences menu	phpbrain	sk	Ak chcete vytvoriť kategórie, kliknite na 'Upraviť Kategórie' v menu nastavení
+to create categories, press 'edit categories' in the preferences menu	phpbrain	sk	Ak chcete vytvoriť kategórie, kliknite na 'Upraviť Kategórie' v ponuke predvolieb
 topic	phpbrain	sk	Téma
 unable to add rating to database	phpbrain	sk	Nepodarilo sa pridať hodnotenie do databázy
 unanswered questions	phpbrain	sk	Nezodpovedané otázky
