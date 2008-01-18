@@ -1,4 +1,16 @@
 <style>
+	#toc { /* these styles apply to the TOC container */
+		background: #ddd;
+		border: solid black 1px;
+		margin: 10px; padding: 10px;
+	}
+	.TOCEntry { font-family: sans-serif; }
+	.TOCEntry a { text-decoration: none; }
+	.TOCLevel1 { font-size: 16pt; font-weight: bold; }
+	.TOCLevel2 { font-size: 12pt; margin-left: .5in; }
+	.TOCBackLink { display: block; }
+	.TOCSecNum:after { content: ":"; }
+	
 	td
 	{
 		text-align: left;
@@ -142,7 +154,11 @@
 		<div id="tabcontent1" class="inactivetab">
 			<table class="tabcontent" width="100%" style="padding: 10px"border="0" cellspacing="0" cellpadding="0">
 				<tr>
-					<td colspan=3>{content}</td>
+					<td colspan=3>
+						<input name="backlinkText" id="backlinkText" type="hidden" size="40" value="{backlinkText}"/>						
+						{toc_header}
+						{content}
+					</td>
 				</tr>
 				<tr>
 					<td colspan=3>

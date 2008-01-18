@@ -687,6 +687,17 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 						$GLOBALS['egw']->js = CreateObject('phpgwapi.javascript');
 					}
 					$GLOBALS['egw']->js->validate_file('tabs','tabs');
+					
+					$toc_header = "";
+					$backlinkText = "";
+					if ($this->bo->admin_config['show_toc'] == "True")
+					{
+						$toc_header = '<div id="toc"><h1>'.lang("Table of Contents").'</h1></div>';
+						$this->bo->admin_config['backlinkText'] == "" ? $backlinkText = lang("Contents") : $backlinkText = $this->bo->admin_config['backlinkText'];
+						$GLOBALS['egw']->js->validate_file('toc','toc','phpbrain');
+					}
+					$this->t->set_var('toc_header', $toc_header);
+					$this->t->set_var('backlinkText', $backlinkText);
 					$GLOBALS['egw']->js->set_onload('tab.init();');
 					$GLOBALS['egw_info']['flags']['java_script_thirst'] = "<script>function openpopup() {window1=window.open('" . $this->link('menuaction=phpbrain.uikb.pop_search') . "', 'Search', 'width=800,height=600,toolbar=no,scrollbars=yes,resizable=yes');}</script>";
 
@@ -700,7 +711,16 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 				{
 					// Since cannot use js object with sitemanager, I have to manually insert the javascript include:
 					$this->t->set_var('tabs_script', $GLOBALS['egw']->link('/phpgwapi/js/tabs/tabs.js'));
-
+					$toc_header = "";
+					$backlinkText = "";
+					if ($this->bo->admin_config['show_toc'] == "True")
+					{
+						$toc_header = '<div id="toc"><h1>'.lang("Table of Contents").'</h1></div>';
+						$this->bo->admin_config['backlinkText'] == "" ? $backlinkText = lang("Contents") : $backlinkText = $this->bo->admin_config['backlinkText'];						
+						$this->t->set_var('toc_script', $GLOBALS['egw']->link('/phpbrain/js/toc/toc.js'));
+					}
+					$this->t->set_var('toc_header', $toc_header);
+					$this->t->set_var('backlinkText', $backlinkText);					
 					$this->t->set_var('link_main_view', "<a href='". $this->link('menuaction=phpbrain.uikb.index') ."'>". lang('Main View', 'phpbrain') ."</a>&nbsp;&nbsp;|<br>");
 				}
 			}

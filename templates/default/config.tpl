@@ -51,6 +51,21 @@
 		<input name="newsettings[upload_dir]" size="40" value="{value_upload_dir}"/>
 	</td>
 </tr>
+<tr class="row_on">
+	<td>{lang_Should_the_article_view_make_an_automatic_table_of_contents?}</td>
+	<td>
+		<select name="newsettings[show_toc]">
+			<option value="False"{selected_show_toc_False}>{lang_No}</option>		
+			<option value="True"{selected_show_toc_True}>{lang_Yes}</option>			
+		</select>
+	</td>
+</tr>
+<tr class="row_off">
+	<td>{lang_Name_of_the_backlink_to_the_index:}</td>
+	<td>
+		<input name="newsettings[backlinkText]" size="40" value="{value_backlinkText}"/>
+	</td>
+</tr>
 <!-- END body -->
 
 <!-- BEGIN footer -->
