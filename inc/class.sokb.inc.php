@@ -1129,10 +1129,29 @@
 			$file_name = $this->db->db_addslashes($file_name);
 			$comment = $_POST['file_comment']? $_POST['file_comment'] : '';
 			$comment = $this->db->db_addslashes($comment);
-
-			$sql = "INSERT INTO egw_kb_files (art_id, art_file, art_file_comments) VALUES($article_id, '$file_name', '$comment')";
-			$this->db->query($sql, __LINE__, __FILE__);
-			if (!$this->db->next_record()) return 0;
+			# check if file is already stored
+			$selectstat="select * from egw_kb_files where art_id=$article_id and art_file='".$file_name."'";
+			$this->db->query($selectstat, __LINE__, __FILE__);
+			if ($this->db->next_record())
+			{
+				# preserve old comment, if no new one is given
+				if (strlen($comment)>0)
+				{
+ 					#$overwritetime = time();
+					# not sure if a modified mark is wanted
+					#$this->db->query("UPDATE egw_kb_files SET art_file_comments=".($comment?"'".$comment."'":"art_file_comments").
+					#       "' (replaced '". date('Y-m-d H:i', $overwritetime).")' where art_id=$article_id and art_file='".$file_name."'", __LINE__, __FILE__);
+					$updatestatement="UPDATE egw_kb_files SET art_file_comments="."'".$comment."'".
+                    	" where art_id=$article_id and art_file='".$file_name."'";
+            		$this->db->query($updatestatement, __LINE__, __FILE__);
+				}
+			} else {
+				# add the file to the database
+				$sql = "INSERT INTO egw_kb_files (art_id, art_file, art_file_comments) ".
+					" VALUES ($article_id, '$file_name', '$comment') "; 
+				$this->db->query($sql, __LINE__, __FILE__);
+				if (!$this->db->next_record()) return 0;
+			}
 			return 1;
 		}
 

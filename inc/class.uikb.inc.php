@@ -603,7 +603,10 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 			// Process file upload
 			if ($_FILES)
 			{
-				$message = $this->bo->process_upload();
+				$overwrite=0;
+				if ($_POST['file_overwrite']=='on') $overwrite=1; 
+				//$message .= $_POST['file_overwrite'];
+				$message = $this->bo->process_upload($overwrite);
 				$this->reload_page($article_id, $message);
 				die();
 			}
@@ -748,6 +751,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 				'lang_action'			=> lang('Action'),
 				'lang_upload'			=> lang('upload'),
 				'lang_attach_file'		=> lang('Attach file'),
+				'lang_overwrite_file'	=> lang('overwrite file'),
 				'lang_delete'			=> lang('delete'),
 				'lang_confirm_delete'   => lang('Are you sure?'),
 				'img_printer'			=> $GLOBALS['egw']->common->image('phpbrain', 'articleprint'),

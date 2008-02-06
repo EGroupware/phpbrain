@@ -9,9 +9,11 @@ added link %1	phpbrain	de	Link %1 hinzugefügt
 added related articles %1	phpbrain	de	Verwandte Artikel %1 hinzugefügt
 advanced search	phpbrain	de	Erweiterte Suche
 all articles	phpbrain	de	Alle Artikel
+allow posting of questions	phpbrain	de	Erlaube das Posten von Fragen
 answer	phpbrain	de	Antwort
 anytime	phpbrain	de	jederzeit
 anywhere in the article	phpbrain	de	Im gesamten Artikel
+are you sure?	phpbrain	de	Sind Sie Sicher?
 article	phpbrain	de	Artikel
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	de	Der Artikel wurde zur Datenbank hinzugefügt. Sie können nun Links, Dateien oder verwandte Artikel zu diesem Artikel hinzufügen.
 article created	phpbrain	de	Artikel wurde erstellt
@@ -42,6 +44,7 @@ comment has been submited for revision	phpbrain	de	Kommantar wurde eingereicht z
 comment has been submited for revision and rating will be published	phpbrain	de	Kommentar wurde eingereicht zur Überprüfung. Ihre Bewertung wird veröffentlicht
 comments	phpbrain	de	Kommentare
 configuration	phpbrain	de	Konfiguration
+contents	phpbrain	de	Inhalt
 create a new article to answer the question asked by %1 in %2	phpbrain	de	Einen neuen Artikel erstellen um auf die Frage, gestellt von %1 in %2 zu antworten
 created by %1 on %2	phpbrain	de	Erstellt von %1 in %2
 creation	phpbrain	de	Erstellung
@@ -56,6 +59,7 @@ e-groupware knowledge base article attached	phpbrain	de	eGroupWare Wissensdatenb
 e-mail has been sent	phpbrain	de	E-Mail wurde versendet
 edit article	phpbrain	de	Artikel bearbeiten
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	de	Bitte geben Sie ein oder zwei Worte ein welche Ihre Frage beschreiben, oder geben Sie die Artikel Nummer ein wenn Sie diese Wissen
+enterprise knowledge articles repository	phpbrain	de	Wissensdatenbank Artikel Speicherort
 error deleting article from database	phpbrain	de	Es ist ein Fehler beim löschen des Artikel in der Datenbank aufgetreten
 error deleting link	phpbrain	de	Fehler beim löschen des Link
 error downloading file	phpbrain	de	Fehler beim runterladen der Datei
@@ -87,9 +91,11 @@ in the title	phpbrain	de	im Titel
 in the topic	phpbrain	de	im Thema
 include subcategories	phpbrain	de	inklusive Unterkategorien
 keywords	phpbrain	de	Schlüsselworte
+knowledge base	phpbrain	de	Wissensdatenbank
 knowledge base article #%1	phpbrain	de	Wissensdatenbank Artikel %1
 knowledge base configuration	common	de	Wissensdatenbank konfiguration
 last modification by %1 on %2	phpbrain	de	Zuletzt bearbeitet von %1 am %2
+last modified	phpbrain	de	Zuletzt bearbeitet
 latest	phpbrain	de	Zuletzt
 latest comments	phpbrain	de	Letzte Kommentare
 leave empty to automatically generate an id	phpbrain	de	um automatisch eine ID zu erstellen geben Sie nichts ein
@@ -106,6 +112,7 @@ maximum number of comments to show:	phpbrain	de	Maximale Anzahl von Artikeln wel
 maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	de	Maximale Anzahl der meist gelesenen Artikel, der letzten Artikel und der offenen Fragen welche in der Übersicht angezeigt werden sollen
 modification date	phpbrain	de	Änderungs Datum
 most viewed	phpbrain	de	Meist gelesen
+name of the backlink to the index:	admin	de	Name des Rückverweises zum Index
 new article	phpbrain	de	Neuer Artikel
 nobody has rated this article so far	phpbrain	de	Dieser Artikel wurde noch nicht bewertet
 nothing was uploaded!	phpbrain	de	Es wurde nichts hochgeladen!
@@ -114,6 +121,7 @@ ocurrences	phpbrain	de	Auftreten
 or browse the categories	phpbrain	de	Oder die Kategorien durchsuchen
 order results by	phpbrain	de	Ergebnisse sortieren nach
 outstanding published questions	phpbrain	de	Ausstehende veröffentlichte Fragen
+overwrite file	phpbrain	de	existierende Datei überschreiben?
 past %1 months	phpbrain	de	letzte %1 Monate
 past year	phpbrain	de	letztes Jahr
 people have rated this article	phpbrain	de	Dieser Artikel wurde bewerted von folgenden Personen mit
@@ -145,6 +153,7 @@ search results	phpbrain	de	Suchergebnis
 see more questions	phpbrain	de	Mehr Fragen anzeigen
 see more questions...	phpbrain	de	Mehr Fragen anzeigen...
 select articles	phpbrain	de	Artikel auswählen
+should the article view make an automatic table of contents?	admin	de	Soll die Artikelansicht ein Inhaltsverzeichnis generieren?
 show all comments	phpbrain	de	Alle Kommentare anzeigen
 show articles belonging to:	phpbrain	de	Zeige Artikel welche gehören zu:
 show messages in category	phpbrain	de	Zeige Nachrichten in Kategorie
@@ -152,6 +161,7 @@ submit comment	phpbrain	de	Kommentar absenden
 submit comment and rating	phpbrain	de	Kommentar und Bewertung absenden
 suggested category	phpbrain	de	Vorgeschlagene Kategorie
 summary	phpbrain	de	Summe
+table of contents	phpbrain	de	Inhaltsverzeichnis
 that file already exists	phpbrain	de	Diese Datei existiert bereits
 the article id must be a number	phpbrain	de	Die Artikel ID muß eine Zahl sein
 the article is empty	phpbrain	de	Dieser Artikel ist leer

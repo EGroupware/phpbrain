@@ -286,6 +286,7 @@
 						<form method=POST name="file_form" action="{form_file_action}" enctype="multipart/form-data">
 							{lang_attach_file}: <input type='file' name='new_file'>&nbsp;&nbsp;
 							{lang_comment}: &nbsp;<input type="text" name="file_comment">&nbsp;&nbsp;
+							{lang_overwrite_file}:&nbsp;<input type="checkbox" name="file_overwrite" value="on">&nbsp;&nbsp;
 							<input type=submit name="upload" value="{lang_upload}">
 						</form>
 						<!-- END file_upload_block -->
@@ -313,7 +314,7 @@
 						<!-- BEGIN related_article_add_block -->
 						<form method="POST" name="add_article_form" action="{form_add_article_action}">
 							&nbsp;&nbsp;&nbsp;{lang_add_related}: &nbsp;<input type="text" name="related_articles" size="40" value="" readonly>
-							<input type="button" value="{lang_select_articles}" onClick="openpopup();">
+							<input type="button" value="{lang_select_articles}" onClick="openpopup();";>
 							&nbsp;&nbsp;<input type="button" value="{lang_clear}" onClick="document.add_article_form.related_articles.value='';">
 							&nbsp;&nbsp;<input type="submit" name="update_related" value="{lang_update}">
 						</form>

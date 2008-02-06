@@ -415,7 +415,7 @@
 
 				$articles = $this->so->$search($owners, $cats_ids, $this->start, '', $this->sort, $this->order, $publish_filter, $this->query);
 			}
-			elseif ($category_id == 0)
+			elseif (empty($category_id))
 			{
 				// show only articles that are not categorized
 				$articles = $this->so->$search($owners, 0, $this->start, '', $this->sort, $this->order, $publish_filter, $this->query);
@@ -943,7 +943,7 @@
 		{
 			// first check permission
 			if (!$this->check_permission($this->edit_right)) return 'no_perm';
-
+			if (strlen(get_var('url', 'POST'))==0) return 'link_prob';
 			if(!$this->so->add_link(get_var('url', 'POST'), get_var('url_title', 'POST'), $this->article_id)) return 'link_prob';
 
 			$GLOBALS['egw']->historylog->add('AL', $this->article_id, get_var('url', 'POST'), '');
@@ -1038,7 +1038,7 @@
 
 			if (!$this->so->delete_link($this->article_id, $link)) return 'link_del_err';
 
-			$GLOBALS['egw']->historylog->add('RL', $this->article_id, $delete_link, '');
+			$GLOBALS['egw']->historylog->add('RL', $this->article_id, $link, '');
 			return 'link_del_ok';
 		}
 
@@ -1049,8 +1049,9 @@
 		* @author	Alejandro Pedraza
 		* @return	string: error or confirmation message
 		*/
-		function process_upload()
+		function process_upload($overwrite=0)
 		{
+			//error_log("kb-sokb-process_upload");
 			// check permissions
 			if (!$this->check_permission($this->edit_right)) return 'no_perm';
 			// check something was indeed uploaded
@@ -1094,7 +1095,7 @@
 				'checksubdirs'	=> False,
 				'nofiles'		=> False
 			));
-			if ($test[0]['name']) return 'overwrite';
+			if ($test[0]['name'] && !$overwrite) return 'overwrite';
 
 			// at last, copy the file from /tmp to /kb
 			$cd_args = array('string'	=> '/kb', 'relative' => False, 'relatives' => RELATIVE_NONE);

@@ -44,6 +44,7 @@ comment has been submited for revision	phpbrain	en	Comment has been submited for
 comment has been submited for revision and rating will be published	phpbrain	en	Comment has been submited for revision and rating will be published
 comments	phpbrain	en	Comments
 configuration	phpbrain	en	Configuration
+contents	phpbrain	en	Contents
 create a new article to answer the question asked by %1 in %2	phpbrain	en	Create a new article to answer the question asked by %1 in %2
 created by %1 on %2	phpbrain	en	Created by %1 on %2
 creation	phpbrain	en	creation
@@ -111,6 +112,7 @@ maximum number of comments to show:	phpbrain	en	Maximum number of comments to sh
 maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	en	Maximum number of most popular articles, latest articles and unanswered questions to show in the main view:
 modification date	phpbrain	en	Modification date
 most viewed	phpbrain	en	Most viewed
+name of the backlink to the index:	admin	en	Name of the backlink to the index:
 new article	phpbrain	en	New Article
 nobody has rated this article so far	phpbrain	en	Nobody has rated this article so far
 nothing was uploaded!	phpbrain	en	Nothing was uploaded!
@@ -119,6 +121,7 @@ ocurrences	phpbrain	en	Ocurrences
 or browse the categories	phpbrain	en	Or browse the categories
 order results by	phpbrain	en	Order results by
 outstanding published questions	phpbrain	en	Outstanding published questions
+overwrite file	phpbrain	en	overwrite existing file?
 past %1 months	phpbrain	en	past %1 months
 past year	phpbrain	en	past year
 people have rated this article	phpbrain	en	people have rated this article
@@ -150,6 +153,7 @@ search results	phpbrain	en	Search results
 see more questions	phpbrain	en	See more questions
 see more questions...	phpbrain	en	See more questions...
 select articles	phpbrain	en	Select articles
+should the article view make an automatic table of contents?	admin	en	Should the article view make an automatic table of contents?
 show all comments	phpbrain	en	Show all comments
 show articles belonging to:	phpbrain	en	Show articles belonging to:
 show messages in category	phpbrain	en	Show messages in category
@@ -157,6 +161,7 @@ submit comment	phpbrain	en	Submit comment
 submit comment and rating	phpbrain	en	Submit comment and rating
 suggested category	phpbrain	en	Suggested category
 summary	phpbrain	en	Summary
+table of contents	phpbrain	en	Table of Contents
 that file already exists	phpbrain	en	That file already exists
 the article id must be a number	phpbrain	en	The article ID must be a number
 the article is empty	phpbrain	en	The article is empty
