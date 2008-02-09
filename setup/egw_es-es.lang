@@ -44,6 +44,7 @@ comment has been submited for revision	phpbrain	es-es	El comentario se ha enviad
 comment has been submited for revision and rating will be published	phpbrain	es-es	El comentario se ha enviado para una revisión y se publicará la valoración
 comments	phpbrain	es-es	Comentarios
 configuration	phpbrain	es-es	Configuración
+contents	phpbrain	es-es	Contenido
 create a new article to answer the question asked by %1 in %2	phpbrain	es-es	Crear un nuevo artículo para responder la pregunta realizada por %1 en %2
 created by %1 on %2	phpbrain	es-es	Creado por %1 en %2
 creation	phpbrain	es-es	creación
@@ -111,6 +112,7 @@ maximum number of comments to show:	phpbrain	es-es	Número máximo de comentario
 maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	es-es	Número máximo de artículos más populares, últimos artículos y preguntas sin responder a mostrar en la vista principal:
 modification date	phpbrain	es-es	Fecha de modificación
 most viewed	phpbrain	es-es	Los más vistos
+name of the backlink to the index:	admin	es-es	Nombre del enlace de vuelta al índice:
 new article	phpbrain	es-es	Nuevo artículo
 nobody has rated this article so far	phpbrain	es-es	Nadie ha valorado este artículo aún
 nothing was uploaded!	phpbrain	es-es	¡No se ha subido nada al servidor!
@@ -119,6 +121,7 @@ ocurrences	phpbrain	es-es	Ocurrencias
 or browse the categories	phpbrain	es-es	O examinar las categorias
 order results by	phpbrain	es-es	Ordenar resultados por
 outstanding published questions	phpbrain	es-es	Preguntas publicadas más destacadas
+overwrite file	phpbrain	es-es	¿Sobreescribir el fichero existente?
 past %1 months	phpbrain	es-es	%1 meses anteriores
 past year	phpbrain	es-es	año pasado
 people have rated this article	phpbrain	es-es	personas han valorado este artículo
@@ -150,6 +153,7 @@ search results	phpbrain	es-es	Resultados de la búsqueda
 see more questions	phpbrain	es-es	Ver más preguntas
 see more questions...	phpbrain	es-es	Ver más preguntas...
 select articles	phpbrain	es-es	Seleccionar artículos
+should the article view make an automatic table of contents?	admin	es-es	¿Debe generarse una tabla de contenidos automáticamente al ver el artículo?
 show all comments	phpbrain	es-es	Mostrar todos los comentarios
 show articles belonging to:	phpbrain	es-es	Mostrar artículos pertenecientes a:
 show messages in category	phpbrain	es-es	Mostrar mensajes en la categoría
@@ -157,6 +161,7 @@ submit comment	phpbrain	es-es	Enviar comentario
 submit comment and rating	phpbrain	es-es	Enviar comentario y valoración
 suggested category	phpbrain	es-es	Categoría sugerida
 summary	phpbrain	es-es	Resumen
+table of contents	phpbrain	es-es	Tabla de contenidos
 that file already exists	phpbrain	es-es	El fichero ya existe
 the article id must be a number	phpbrain	es-es	El ID del artículo debe ser un número
 the article is empty	phpbrain	es-es	El artículo está vacío
