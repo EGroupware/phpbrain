@@ -33,6 +33,7 @@
 	$setup_info['phpbrain']['hooks'][] = 'settings';
 	$setup_info['phpbrain']['hooks'][] = 'sidebox_menu';
 	$setup_info['phpbrain']['hooks'][] = 'deleteaccount';
+	$setup_info['phpbrain']['hooks']['search_link'] = 'phpbrain.bokb.search_link';
 
 	$setup_info['phpbrain']['tables'][] = 'egw_kb_articles';
 	$setup_info['phpbrain']['tables'][] = 'egw_kb_comment';

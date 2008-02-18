@@ -1285,6 +1285,74 @@
 			if ($message) return $message;
 			return 'mail_ok';
 		}
+		/**
+		 * get title for an article item identified by $entry
+		 * 
+		 * Is called as hook to participate in the linking
+		 *
+		 * @param int/array $entry int art_id or array with article item
+		 * @param string/boolean string with title, null if article item not found, false if no perms to view it
+		 */
+		function link_title( $entry )
+		{
+			if (!is_array($entry))
+			{
+				$entry = $this->get_article( $entry );
+			}
+			if (!$entry)
+			{
+				return $entry;
+			}
+			return $entry['topic'].' #'.$entry['art_id'].': '.$entry['title'];
+		}
+
+		/**
+		 * query knowledgebase for entries matching $pattern
+		 *
+		 * Is called as hook to participate in the linking
+		 *
+		 * @param string $pattern pattern to search
+		 * @return array with art_id - title pairs of the matching entries
+		 */
+		function link_query( $pattern )
+		{
+			$result = array();
+			$owners = $this->accessible_owners();
+			$this->phrase=$pattern;
+			$this->ocurrences="all";
+			foreach((array) $articles = $this->so->adv_search_articles($owners, array(), $this->ocurrences, $this->pub_date, $this->start, $this->num_res, $this->all_words, $this->phrase, $this->one_word, $this->without_words, $this->cat, $this->include_subs) as $item )
+			{
+				if ($item) $result[$item['art_id']] = $this->link_title($item);
+			}
+			return $result;
+		}
+
+		/**
+		 * Hook called by link-class to include tracker in the appregistry of the linkage
+		 *
+		 * @param array/string $location location and other parameters (not used)
+		 * @return array with method-names
+		 */
+		function search_link($location)
+		{
+			return array(
+				'query' => 'phpbrain.bokb.link_query',
+				'title' => 'phpbrain.bokb.link_title',
+				'view'  => array(
+					'menuaction' => 'phpbrain.uikb.view_article',
+				),
+				'view_id' => 'art_id',
+				'view_popup'  => 'false',			
+/*
+				'add' => array(
+					'menuaction' => 'phpbrain.uikb.edit_article','popup'=>1,
+				),
+				'add_app'    => 'link_app',
+				'add_id'     => 'link_id',		
+				'add_popup'  => '700x550',			
+*/
+			);
+		}
 
 		/**
 		* Stop execution and show error message

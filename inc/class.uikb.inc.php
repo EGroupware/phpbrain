@@ -530,6 +530,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 			{
 				$print_view = False;
 			}
+
 			$article		= $this->bo->get_article($article_id);
 			//echo "article: <pre>";print_r($article);echo  "</pre>";
 
@@ -1251,7 +1252,6 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 				'answer_question'	=> '',
 				'article_id'		=> '',
 				));
-
 			// saving either an edited or a new article (answering a question or just a new article)
 			if ($_POST['save'])
 			{
