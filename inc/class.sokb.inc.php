@@ -155,9 +155,9 @@
 
 			$this->db->select('egw_kb_articles','COUNT(*)',$where,__LINE__,__FILE__);
 			$this->num_rows = $this->db->next_record() ? $this->db->f(0) : 0;
-			
-			$this->db->select('egw_kb_articles',$fields,$where,__LINE__,__FILE__,$start,$order_sql);
-			$this->db->query($sql, __LINE__, __FILE__,$start,0);
+		
+			$this->db->select('egw_kb_articles',$fields,$where,__LINE__,__FILE__,$start,$order_sqli,False,($upper_limit?$upper_limit:0));
+			$this->db->query($sql, __LINE__, __FILE__,$start,($upper_limit?$upper_limit:0));
 
 			return $this->results_to_array($dummy);
 
