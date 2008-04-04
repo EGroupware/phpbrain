@@ -64,20 +64,20 @@ error deleting article from database	phpbrain	de	Es ist ein Fehler beim löschen
 error deleting link	phpbrain	de	Fehler beim löschen des Link
 error downloading file	phpbrain	de	Fehler beim runterladen der Datei
 error locating files directory	phpbrain	de	Der Datei Ordner konnte nicht gefunden werden
-error moving file to directory	phpbrain	de	Beim verschieben der Datein in den Ordner ist ein Fehler aufgetreten
+error moving file to directory	phpbrain	de	Beim verschieben der Dateien in den Ordner ist ein Fehler aufgetreten
 error publishing comment	phpbrain	de	Es ist ein Fehler beim veröffentlichen des Kommentars aufgetreten
 error retrieving article	phpbrain	de	Fehler beim empfangen des Artikel
 error trying to delete comment	phpbrain	de	Es ist ein Fehler beim löschen des Kommentars
 error trying to delete question	phpbrain	de	Es ist ein Fehler beim löschen der Frage
 error trying to edit article	phpbrain	de	Es ist ein Fehler beim versuch diesen Artikel zu bearbeiten
 error trying to publish article	phpbrain	de	Fehler beim veröffentlichen des Artikels
-error: file doesn't exist in the database	phpbrain	de	Fehler: Diese Datein existiert nicht in der Datenbank
+error: file doesn't exist in the database	phpbrain	de	Fehler: Diese Dateien existiert nicht in der Datenbank
 excellent	phpbrain	de	Sehr gut
 failure trying to delete the file	phpbrain	de	Es sit ein Fehler aufgetreten beim Versuch den Artikel zu löschen
 file could be deleted from server but not from database	phpbrain	de	Datei konnte auf dem Server gelöscht werden, jedoch nicht in der Datenbank
 file has been successfully uploaded	phpbrain	de	Datei wurde erfolgreich hochgeladen
 file was already missing from server, and was deleted from the database	phpbrain	de	Die Datei ist auf dem Server nicht mehr vorhanden und wurde in der Datenbank gelöscht
-file was deleted successfully	phpbrain	de	Datein wurde erfolgreich gelöscht
+file was deleted successfully	phpbrain	de	Dateien wurde erfolgreich gelöscht
 file wasn't in server and it couldn't be deleted from the database	phpbrain	de	Die Datei war weder auf dem Server noch in der Datenbank vorhanden und konnte nicht gelöscht werden
 find results	phpbrain	de	Finde Ergebnisse
 global categories	phpbrain	de	Globale Kategorien
@@ -108,7 +108,7 @@ mail article	phpbrain	de	Artikel per Mail versenden
 main view	phpbrain	de	Gesamtübersicht
 maintain articles	phpbrain	de	Artikel verwalten
 maintain questions	phpbrain	de	Fragen verwalten
-maximum number of comments to show:	phpbrain	de	Maximale Anzahl von Artikeln welche angezeigt werden soll
+maximum number of comments to show:	phpbrain	de	Maximale Anzahl von Kommentaren (zu Artikeln) welche angezeigt werden soll
 maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	de	Maximale Anzahl der meist gelesenen Artikel, der letzten Artikel und der offenen Fragen welche in der Übersicht angezeigt werden sollen
 modification date	phpbrain	de	Änderungs Datum
 most viewed	phpbrain	de	Meist gelesen
