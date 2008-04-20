@@ -14,7 +14,7 @@
 \**************************************************************************/
 $GLOBALS['egw']->vfs->override_acl = 1;
 	/* $Id$ */
-	
+
 	/**
 	* Presentation layer of the Knowledge Base
 	*
@@ -180,7 +180,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 				$this->message = lang($this->bo->messages_array[$this->message]);
 			}
 		}
-	
+
 		/**
 		* Shows main screen
 		*
@@ -222,8 +222,8 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 			{
 				$this->t->set_var('link_add_question', "<a href='". $this->link('menuaction=phpbrain.uikb.index') ."'>". lang('Main View', 'phpbrain') ."</a>&nbsp;&nbsp;|<br><br>");
 			}
-			
-			// *** SHOW CATEGORIES (not if searching) *** 
+
+			// *** SHOW CATEGORIES (not if searching) ***
 			if (!$this->bo->query && !$_POST['adv_search'])
 			{
 				$parent_id = 0;
@@ -288,7 +288,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 				$lang_articles = lang('Search results');
 				$this->bo->load_categories($this->bo->cat);
 			}
-	
+
 			$this->t->set_var(array(
 				'browse_cats'	=> $browse_cats,
 				'categories'	=> $show_categories,
@@ -342,7 +342,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 					{
 						$attachment = '';
 					}
-	
+
 					$query = $this->bo->query? '&query=' . urlencode($this->bo->query) : '';
 					$this->path = ''; // have always to reset this before calling category_path()
 					$category_path = $this->category_path($article_preview['cat_id']);
@@ -361,7 +361,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 			}
 			$this->t->set_var('lang_articles', $lang_articles);
 
-			// *** SHOW LATEST ARTICLES LIST *** 
+			// *** SHOW LATEST ARTICLES LIST ***
 			if (!$articles_latest = $this->bo->return_latest_mostviewed($category_passed, 'created'))
 			{
 				$this->t->set_var('articles_latest', "<tr><td colspan=2 align=center><br>----- " . lang('None') . " -----</td></tr>");
@@ -384,7 +384,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 			}
 			$this->t->set_var('lang_latest', lang('Latest'));
 
-			// *** SHOW MOST POPULAR ARTICLES LIST *** 
+			// *** SHOW MOST POPULAR ARTICLES LIST ***
 			if (!$most_viewed= $this->bo->return_latest_mostviewed($category_passed, 'views'))
 			{
 				$this->t->set_var('articles_mostviewed', "<tr><td colspan=2 align=center><br>----- " . lang('None') . " -----</td></tr>");
@@ -409,7 +409,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 				'lang_views'		=> lang('views')
 			));
 
-			// *** SHOW UNANSWERED QUESTIONS *** 
+			// *** SHOW UNANSWERED QUESTIONS ***
 			if (!$unanswered_questions = $this->bo->unanswered_questions($category_passed))
 			{
 				$this->t->set_var('unanswered_questions', "<tr><td colspan=2 align=center><br>----- " . lang('None') . " -----</td></tr>");
@@ -437,7 +437,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 				'lang_unanswered'	=> lang('Unanswered questions'),
 				'more_questions'	=> $more_questions
 			));
-			
+
 			if ($this->sitemgr)
 			{
 				return $this->t->parse('out', 'main');
@@ -464,7 +464,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 				$this->navbar_shown = True;
 			}
 			$this->t->set_file('search_form', 'adv_search.tpl');
-			
+
 			$this->t->set_var(array(
 				'row_on'			=> $GLOBALS['egw_info']['theme']['row_on'],
 				'row_off'			=> $GLOBALS['egw_info']['theme']['row_off'],
@@ -605,7 +605,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 			if ($_FILES)
 			{
 				$overwrite=0;
-				if ($_POST['file_overwrite']=='on') $overwrite=1; 
+				if ($_POST['file_overwrite']=='on') $overwrite=1;
 				//$message .= $_POST['file_overwrite'];
 				$message = $this->bo->process_upload($overwrite);
 				$this->reload_page($article_id, $message);
@@ -691,7 +691,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 						$GLOBALS['egw']->js = CreateObject('phpgwapi.javascript');
 					}
 					$GLOBALS['egw']->js->validate_file('tabs','tabs');
-					
+
 					$toc_header = "";
 					$backlinkText = "";
 					if ($this->bo->admin_config['show_toc'] == "True")
@@ -720,11 +720,11 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 					if ($this->bo->admin_config['show_toc'] == "True")
 					{
 						$toc_header = '<div id="toc"><h1>'.lang("Table of Contents").'</h1></div>';
-						$this->bo->admin_config['backlinkText'] == "" ? $backlinkText = lang("Contents") : $backlinkText = $this->bo->admin_config['backlinkText'];						
+						$this->bo->admin_config['backlinkText'] == "" ? $backlinkText = lang("Contents") : $backlinkText = $this->bo->admin_config['backlinkText'];
 						$this->t->set_var('toc_script', $GLOBALS['egw']->link('/phpbrain/js/toc/toc.js'));
 					}
 					$this->t->set_var('toc_header', $toc_header);
-					$this->t->set_var('backlinkText', $backlinkText);					
+					$this->t->set_var('backlinkText', $backlinkText);
 					$this->t->set_var('link_main_view', "<a href='". $this->link('menuaction=phpbrain.uikb.index') ."'>". lang('Main View', 'phpbrain') ."</a>&nbsp;&nbsp;|<br>");
 				}
 			}
@@ -823,7 +823,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 				'last_modif'		=> $lastmodif,
 				'content'			=> $article['text']
 			));
-			
+
 			$this->t->set_var(array(
 				'easy_question'			=> '',
 				'lang_comments'			=> '',
@@ -944,7 +944,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 				$this->t->set_var($print_view? 'file' : 'file_item', '');
 			}
 			else
-			{	
+			{
 				foreach ($article['files'] as $file)
 				{
 					ereg('^kb[0-9]*-(.*)', $file['file'], $new_filename);
@@ -1227,7 +1227,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 			$this->t->set_file('edit_article', 'edit_article.tpl');
 			$this->t->set_block('edit_article', 'answer_question_block', 'answer_question');
 			$this->t->set_block('edit_article', 'article_id_block', 'article_id');
-			
+
 			$this->t->set_var(array(
 				'lang_articleID'		=> lang('Article ID'),
 				'lang_category'			=> lang('Category'),
@@ -1271,7 +1271,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 				{
 					$this->message .= lang('The article is empty') . '<br>';
 				}
-				
+
 				if ($this->message)
 				{
 					$this->message .= '<br>' . lang('Please try again');
@@ -1355,15 +1355,15 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 				$title = $question['summary'];
 				$category_selected = $question['cat_id'];
 			}
-			
+
 			if (!is_object($GLOBALS['egw']->html))
 			{
 				require_once(EGW_API_INC.'/class.html.inc.php');
 				$GLOBALS['egw']->html = new html;
 			}
-			
+
 			$content = $GLOBALS['egw']->html->fckEditor('exec[text]', $content, $GLOBALS['egw_info']['user']['preferences']['phpbrain']['rtfEditorFeatures'],array('toolbar_expanded' =>'true'),'400px','100%',$this->bo->admin_config['upload_dir'] ? $this->bo->admin_config['upload_dir'] : null);
-	
+
 			// Finally, fill the input fields
 			if (!$this->sitemgr)
 			{
@@ -1481,7 +1481,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 
 			if (!$this->bo->order) $this->bo->order = 'created';
 			if (!$this->bo->sort) $this->bo->sort = 'DESC';
-			
+
 			$this->bo->load_categories($actual_category);
 
 			// obtain articles to which one has any kind of permission
@@ -1620,7 +1620,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 				'form_maintain_articles_action'=> $this->link('menuaction=phpbrain.uikb.maintain_articles'),
 				'form_filters_action'	=> $this->link(array('menuaction' => 'phpbrain.uikb.maintain_articles', 'start' => $this->bo->start, 'sort' => $this->bo->sort)),
 				'img_src_checkall'		=> $GLOBALS['egw']->common->image('phpbrain', 'check'),
-				'order'					=> $this->bo->order, 
+				'order'					=> $this->bo->order,
 				'publish_filter'		=> $this->bo->publish_filter,
 				'head_title'			=> $this->nextmatchs->show_sort_order($this->bo->sort, 'title', $this->bo->order, '', lang('Title')),
 				'head_topic'			=> $this->nextmatchs->show_sort_order($this->bo->sort, 'topic', $this->bo->order, '', lang('Topic')),
@@ -1826,7 +1826,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 				'form_maintain_questions_action'=> $this->link('menuaction=phpbrain.uikb.maintain_questions'),
 				'form_filters_action'	=> $this->link('menuaction=phpbrain.uikb.maintain_questions&start='. $this->bo->start .'&sort='. $this->bo->sort),
 				'img_src_checkall'		=> $GLOBALS['egw']->common->image('phpbrain', 'check'),
-				'order'					=> $this->bo->order, 
+				'order'					=> $this->bo->order,
 				'publish_filter'		=> $this->bo->publish_filter,
 				'left'					=> $this->nextmatchs->left($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category . '&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
 				'right'					=> $this->nextmatchs->right($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category .'&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
@@ -1878,7 +1878,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 		{
 			$article_id		= (int)get_var('art_id', 'GET');
 			$filename		= urldecode(get_var('file', 'GET'));
-			
+
 			$this->bo->download_file_checks($article_id, $filename);
 
 			// remove kb-# prefix
@@ -1913,7 +1913,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 				$num_main_cat ++;
 				$categories_str .= "<tr><td valign=top>";
 				if ($cat['icon'])
-						$categories_str .= "<img src='" . $GLOBALS['egw_info']['server']['webserver_url'] . SEP . 'phpgwapi' . SEP . 'images' . SEP . $cat['icon'] . "'>";
+						$categories_str .= "<img src='" . $GLOBALS['egw_info']['server']['webserver_url'] . '/phpgwapi/images/' . $cat['icon'] . "'>";
 				$categories_str .= "</td><td><a href='".$this->link('menuaction=phpbrain.uikb.index&cat='.$cat['id'])
 										."'><b>".$cat['name']."</b></a><br><div style='padding-left:10px'>";
 				$has_subcats = False;
@@ -2069,7 +2069,7 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 			      {
 			        document.admin_articles.elements[i].checked = true;
 			      }
-			    } 
+			    }
 			  }
 			}</script>";
 			return $javascript;
@@ -2094,5 +2094,5 @@ $GLOBALS['egw']->vfs->override_acl = 1;
 			$GLOBALS['egw']->common->egw_footer();
 			die();
 		}
-	}	
+	}
 ?>
