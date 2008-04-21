@@ -456,7 +456,7 @@ function phpbrain_upgrade1_5_002()
 		list(,$fname) = explode('-',$file['art_file'],2);
 		sqlfs_stream_wrapper::rename('/kb/'.$file['art_file'],'/apps/phpbrain/'.$file['art_id'].'/'.$fname);
 	}
-	$ok = sqlfs_stream_wrapper::rmdir('/kb');
+	$ok = sqlfs_stream_wrapper::rmdir('/kb',0);
 	egw_vfs::$is_root = $current_is_root;
 	egw_vfs::$user = $current_user;
 
