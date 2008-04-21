@@ -223,14 +223,6 @@ class bokb
 	**/
 	function bokb()
 	{
-		// version check
-		if ($GLOBALS['egw_info']['apps']['phpbrain']['version'] != '1.5.002')
-		{
-			$GLOBALS['egw']->common->egw_header();
-			echo parse_navbar();
-			die("Please upgrade this application to be able to use it");
-		}
-
 		$this->so						= CreateObject('phpbrain.sokb');
 		$this->categories_obj			= CreateObject('phpgwapi.categories', '', 'phpbrain');	// force phpbrain cause it might be running from sitemgr...
 		$GLOBALS['egw']->historylog	= CreateObject('phpgwapi.historylog','phpbrain');
