@@ -44,6 +44,7 @@ comment has been submited for revision	phpbrain	pt-br	Comentário foi submetido 
 comment has been submited for revision and rating will be published	phpbrain	pt-br	Comentário foi submetido à revisão e a avaliação será publicada
 comments	phpbrain	pt-br	Comentários
 configuration	phpbrain	pt-br	Configuração
+contents	phpbrain	pt-br	Conteúdos
 create a new article to answer the question asked by %1 in %2	phpbrain	pt-br	Criar um novo artigo para sobre a pergunta respondida por %1 em %2
 created by %1 on %2	phpbrain	pt-br	Criado por %1 em %2
 creation	phpbrain	pt-br	Criação
@@ -111,6 +112,7 @@ maximum number of comments to show:	phpbrain	pt-br	Número máximo de comentári
 maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	pt-br	Número máximo dos artigos mais populares, últimos artigos e perguntas não respondidas a serem visualizados na janela principal.
 modification date	phpbrain	pt-br	Data de modificação
 most viewed	phpbrain	pt-br	Mais visualizado
+name of the backlink to the index:	admin	pt-br	Nome do link de retorno ao index:
 new article	phpbrain	pt-br	Artigo Novo
 nobody has rated this article so far	phpbrain	pt-br	Ninguém avaliou este artigo,até o momento
 nothing was uploaded!	phpbrain	pt-br	Nada foi enviado!
@@ -119,6 +121,7 @@ ocurrences	phpbrain	pt-br	Ocorrências
 or browse the categories	phpbrain	pt-br	Ou pesquisar a categoria
 order results by	phpbrain	pt-br	Ordenar resultados por
 outstanding published questions	phpbrain	pt-br	Destacando perguntas publicadas
+overwrite file	phpbrain	pt-br	sobrescrever o arquivo existente?
 past %1 months	phpbrain	pt-br	após %1 meses
 past year	phpbrain	pt-br	após o ano
 people have rated this article	phpbrain	pt-br	pessoas avaliaram este artigo
@@ -150,6 +153,7 @@ search results	phpbrain	pt-br	Resultados da pesquisa
 see more questions	phpbrain	pt-br	Ver mais questões
 see more questions...	phpbrain	pt-br	Ver mais questões
 select articles	phpbrain	pt-br	Selecionar artigos
+should the article view make an automatic table of contents?	admin	pt-br	A exibição do artigo deverá fazer um índice automático?
 show all comments	phpbrain	pt-br	Mostrar todos os comentários
 show articles belonging to:	phpbrain	pt-br	Mostrar os artigos que pertencem a:
 show messages in category	phpbrain	pt-br	Mostrar as mensagens na categoria
@@ -157,6 +161,7 @@ submit comment	phpbrain	pt-br	Enviar comentário
 submit comment and rating	phpbrain	pt-br	Enviar comentário e classificação
 suggested category	phpbrain	pt-br	Categoria sugerida
 summary	phpbrain	pt-br	Sumário
+table of contents	phpbrain	pt-br	Índice
 that file already exists	phpbrain	pt-br	Esse arquivo já existe
 the article id must be a number	phpbrain	pt-br	O identificador do artigo deve ser um número
 the article is empty	phpbrain	pt-br	O artigo está vazio
