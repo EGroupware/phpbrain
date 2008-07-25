@@ -44,6 +44,7 @@ comment has been submited for revision	phpbrain	cs	Komntář byl odeslán k revi
 comment has been submited for revision and rating will be published	phpbrain	cs	Komentář byl odeslán k revizi a hodnocení bude publikováno
 comments	phpbrain	cs	Komentáře
 configuration	phpbrain	cs	Konfigurace
+contents	phpbrain	cs	Obsah
 create a new article to answer the question asked by %1 in %2	phpbrain	cs	Vytvořit nový článek v odpovědi na otázku od %1 z %2
 created by %1 on %2	phpbrain	cs	Vytvořil(a) %1 v %2
 creation	phpbrain	cs	Vytvoření
@@ -111,6 +112,7 @@ maximum number of comments to show:	phpbrain	cs	Maximální počet zobrazovanýc
 maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	cs	Maximální počet nejpopulárnějších článků, nejnovějších článků a nezodpovězených otázek, které se mají zobrazovat v hlavním pohledu
 modification date	phpbrain	cs	Datum změny
 most viewed	phpbrain	cs	Nejvíce zobrazované
+name of the backlink to the index:	admin	cs	Název odkazu na obsah
 new article	phpbrain	cs	Nový článek
 nobody has rated this article so far	phpbrain	cs	Nikdo tento článek dosud nehodnotil
 nothing was uploaded!	phpbrain	cs	Nic nebylo uploadováno!
@@ -119,6 +121,7 @@ ocurrences	phpbrain	cs	Výskyty
 or browse the categories	phpbrain	cs	Nebo procházet kategorie
 order results by	phpbrain	cs	Řadit výsledky podle
 outstanding published questions	phpbrain	cs	Nezodpovězené publikované otázky
+overwrite file	phpbrain	cs	přepsat stávající soubor?
 past %1 months	phpbrain	cs	Poslední(ch) %1 měsíc(e/ů)
 past year	phpbrain	cs	Poslední rok
 people have rated this article	phpbrain	cs	lidé ohodnotili tento článek
@@ -150,6 +153,7 @@ search results	phpbrain	cs	Výsledky hledání
 see more questions	phpbrain	cs	Zobrazit více otázek
 see more questions...	phpbrain	cs	Zobrazit více otázek...
 select articles	phpbrain	cs	Vybrat články
+should the article view make an automatic table of contents?	admin	cs	Má zobrazení článku automaticky generovat obsah?
 show all comments	phpbrain	cs	Zobrazit všechny komentáře
 show articles belonging to:	phpbrain	cs	Zobrazit články náležící k:
 show messages in category	phpbrain	cs	Zobrazit zprávy v kategorii
@@ -157,6 +161,7 @@ submit comment	phpbrain	cs	Odelat komentář
 submit comment and rating	phpbrain	cs	Odeslat komentář a hodnocení
 suggested category	phpbrain	cs	Doporučená kategorie
 summary	phpbrain	cs	Shrnutí
+table of contents	phpbrain	cs	Obsah
 that file already exists	phpbrain	cs	Soubor již existuje
 the article id must be a number	phpbrain	cs	ID článku musí být číslo
 the article is empty	phpbrain	cs	Článek je prázdný
