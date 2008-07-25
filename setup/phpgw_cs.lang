@@ -9,9 +9,11 @@ added link %1	phpbrain	cs	Pøidán odkaz %1
 added related articles %1	phpbrain	cs	Pøidány související èlánky %1
 advanced search	phpbrain	cs	Roz¹íøené hledání
 all articles	phpbrain	cs	V¹echny èlánky
+allow posting of questions	phpbrain	cs	Povolit posílání otázek
 answer	phpbrain	cs	odpovìï
 anytime	phpbrain	cs	Kdykoli
 anywhere in the article	phpbrain	cs	Kdekoli v èlánku
+are you sure?	phpbrain	cs	Jste si jistý(á)?
 article	phpbrain	cs	Èlánek
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	cs	Èlánek byl pøidán do databáze. Nyní k nìmu mù¾ete pøipojit soubory a odkazy nebo ho uvést do souvislosti s jinými èlánky
 article created	phpbrain	cs	Èlánek vytvoøen
@@ -56,6 +58,7 @@ e-groupware knowledge base article attached	phpbrain	cs	Èlánek z databáze znalos
 e-mail has been sent	phpbrain	cs	e-mail byl odeslán
 edit article	phpbrain	cs	Editovat èlánek
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	cs	Zadejte jedno nebo dvì slova popisující zále¾itost nebo napi¹te rovnou èíslo èlánku, pokud ho znáte
+enterprise knowledge articles repository	phpbrain	cs	Podniková databáze znalostí
 error deleting article from database	phpbrain	cs	Chyba pøi mazání èlánku z databáze
 error deleting link	phpbrain	cs	Chyba pøi mazání odkazu
 error downloading file	phpbrain	cs	Chyba pøi stahování souboru
@@ -87,6 +90,7 @@ in the title	phpbrain	cs	V titulku
 in the topic	phpbrain	cs	V tématu
 include subcategories	phpbrain	cs	Zahrnout podkategorie
 keywords	phpbrain	cs	Klíèová slova
+knowledge base	phpbrain	cs	Databáze znalostí
 knowledge base article #%1	phpbrain	cs	Èlánek databáze znalostí #%1
 knowledge base configuration	common	cs	Konfigurace databáze znalostí
 last modification by %1 on %2	phpbrain	cs	Podlední úpravy od %1 k %2
