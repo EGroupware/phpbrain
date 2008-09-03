@@ -1,0 +1,197 @@
+/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	bg	Директория /kb не съществува и не може да бъде създадена. Моля, обърнете се към Администратора да провери конфигурацията.
+action	phpbrain	bg	Действие
+actions	phpbrain	bg	Действия
+add articles	phpbrain	bg	Добавяне на статии
+add link	phpbrain	bg	Добавяне на връзка
+add question	phpbrain	bg	Добавяне на въпрос
+added file %1	phpbrain	bg	Файлът %1 е добавен
+added link %1	phpbrain	bg	Връзката %1 е добавена
+added related articles %1	phpbrain	bg	Добавени са свързани статии %1
+advanced search	phpbrain	bg	Разширено търсене
+all articles	phpbrain	bg	Всички статии
+allow posting of questions	phpbrain	bg	Позволява добавяне на въпроси
+answer	phpbrain	bg	отговор
+anytime	phpbrain	bg	по всяко време
+anywhere in the article	phpbrain	bg	където и да е в статията
+are you sure?	phpbrain	bg	Сигурни ли сте?
+article	phpbrain	bg	Статия
+article added to database, you can now attach files or links, or relate to other articles	phpbrain	bg	Статията е добавена в базата данни. Сега може да приложите файлове или връзки, или да я свържете с други статии.
+article created	phpbrain	bg	Статията е създадена
+article deleted	phpbrain	bg	Статията е изтрита
+article deleted successfully	phpbrain	bg	Статията е изтрита успешно.
+article edited	phpbrain	bg	Статията е редактирана
+article has been published	phpbrain	bg	Статията е публикувана
+article id	phpbrain	bg	No. на статия
+articles added	phpbrain	bg	статии са добавени
+articles deleted successfully	phpbrain	bg	Статиите са изтрити успешно
+articles have been published	phpbrain	bg	Статиите са публикувани
+articles in %1	phpbrain	bg	Статии в %1
+articles in %1 and all its subcategories	phpbrain	bg	Статии в %1 и всички подкатегории
+articles not classified under any category	phpbrain	bg	Статии, не класифицирани в категория
+ascendent	phpbrain	bg	Възходящ
+attach file	phpbrain	bg	Прилагане на файл
+attached files	phpbrain	bg	Приложени файлове
+average rating	phpbrain	bg	Усреднена оценка
+base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	bg	Базовата директория не съществува. Моля, обърнете се към Администратора да провери конфигурацията.
+before submiting a question, please search in the knowledge base first	phpbrain	bg	Преди да изпратите въпрос, моля, потърсете в Базата знания
+by answering this question you will help to get the answer quicker the next time	phpbrain	bg	Като отговорите на въпроса ще помогнете за по-бързо получаване на отговор на следващи въпроси.
+comment	phpbrain	bg	коментар
+comment and rating have been published	phpbrain	bg	Коментарът и оценката са публикувани
+comment could not be inserted in the database	phpbrain	bg	Записът на коментара в базата данни е неуспешен
+comment has been deleted	phpbrain	bg	Коментарът е изтрит
+comment has been published	phpbrain	bg	Коментарът е публикуван
+comment has been submited for revision	phpbrain	bg	Коментарът е изпратен за преглед
+comment has been submited for revision and rating will be published	phpbrain	bg	Коментарът е изпратен за преглед и оценката ще бъде публикувана
+comments	phpbrain	bg	Коментари
+configuration	phpbrain	bg	Настройка
+contents	phpbrain	bg	Съдържание
+create a new article to answer the question asked by %1 in %2	phpbrain	bg	Създайте нова статия, за да отговорите на въпроса, зададен от %1 в %2
+created by %1 on %2	phpbrain	bg	Създадена от %1 на %2
+creation	phpbrain	bg	създаване
+creation date	phpbrain	bg	Дата на създаване
+delete article	phpbrain	bg	Изтриване на статия
+delete selected	phpbrain	bg	Изтриване на избраните
+deleted relation to  article %1	phpbrain	bg	Изтрита е връзката със статия %1
+deleted relation to article %1	phpbrain	bg	Изтрита е връзката със статия %1
+descendent	phpbrain	bg	Низходящ
+details	phpbrain	bg	Подробности
+e-groupware knowledge base article attached	phpbrain	bg	Приложена е статия от Базата знания на E-GroupWare
+e-mail has been sent	phpbrain	bg	E-Mail-ът е изпратен
+edit article	phpbrain	bg	Редактирай статия
+enter one or two words describing the issue, or type the article number if you know it	phpbrain	bg	Въведете една или две думи с описание на публикацията, или номера на статията, ако го знаете.
+error deleting article from database	phpbrain	bg	Грешка при изтриване на статия от базата данни
+error deleting link	phpbrain	bg	Грешка при изтриване на връзка
+error downloading file	phpbrain	bg	Грешка при изтегляне на файла
+error locating files directory	phpbrain	bg	Грешка при търсене на директорията с файловете
+error moving file to directory	phpbrain	bg	Грешка при преместване на файл в директорията
+error publishing comment	phpbrain	bg	Грешка при публикуване на коментара
+error retrieving article	phpbrain	bg	Грешка при отваряне на статията
+error trying to delete comment	phpbrain	bg	Грешка при изтриване на коментар
+error trying to delete question	phpbrain	bg	Грешка при изтриване на въпрос
+error trying to edit article	phpbrain	bg	Грешка при изтриване на статия
+error trying to publish article	phpbrain	bg	Грешка при публикуване на статия
+error: file doesn't exist in the database	phpbrain	bg	Грешка: файлът не съществува в базата данни
+excellent	phpbrain	bg	Отличен
+failure trying to delete the file	phpbrain	bg	Грешка при изтриване на файла
+file could be deleted from server but not from database	phpbrain	bg	Файлът е изтрит от сървъра, но НЕ и от базата данни
+file has been successfully uploaded	phpbrain	bg	Файлът беше качен успешно
+file was already missing from server, and was deleted from the database	phpbrain	bg	Файлът не съществува на сървъра, поради това е изтрит от базата данни
+file was deleted successfully	phpbrain	bg	Файлът е изтрит успешно
+file wasn't in server and it couldn't be deleted from the database	phpbrain	bg	Файлът не съществува на сървъра, но изтриването му от базата е неуспешно
+find results	phpbrain	bg	Резултати от търсенето
+global categories	phpbrain	bg	Глобални категории
+have to be approved first	common	bg	След одобрение
+history	phpbrain	bg	История
+if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	bg	Ако не можете да откриете решения на Вашия проблем в Базата знания, опишете го по-долу
+if you wish, you can comment this article here	phpbrain	bg	Ако желаете, може да коментирате статията тук
+in %1	phpbrain	bg	в %1
+in the text	phpbrain	bg	в текста
+in the title	phpbrain	bg	в заглавието
+in the topic	phpbrain	bg	в темата
+include subcategories	phpbrain	bg	Включително подкатегориите
+keywords	phpbrain	bg	Ключови думи
+knowledge base	phpbrain	bg	База знания
+knowledge base article #%1	phpbrain	bg	Статия #%1 от Базата знания
+knowledge base configuration	common	bg	Конфигурация на Базата знания
+last modification by %1 on %2	phpbrain	bg	Последно изменение от %1 на %2
+last modified	phpbrain	bg	Последно изменение
+latest	phpbrain	bg	Най-нови
+latest comments	phpbrain	bg	Най-нови коментари
+leave empty to automatically generate an id	phpbrain	bg	При празно поле ще се генерира автоматично No.
+link could not be added	phpbrain	bg	Връзката не е добавена
+link deleted successfully	phpbrain	bg	Връзката е изтрита успешно
+link has been added	phpbrain	bg	Връзката е добавена
+links	phpbrain	bg	Връзки
+links & files	phpbrain	bg	Връзки и файлове
+mail article	phpbrain	bg	Изпращане по E-Mail
+main view	phpbrain	bg	Главен изглед
+maintain articles	phpbrain	bg	Управление на статиите
+maintain questions	phpbrain	bg	Управление на въпросите
+maximum number of comments to show:	phpbrain	bg	Брой показвани коментари:
+maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	bg	Брой на най-популярни и най-нови статии, и въпроси без отговор, показвани на главния екран:
+modification date	phpbrain	bg	Дата на промяна
+most viewed	phpbrain	bg	Най-разглеждани
+name of the backlink to the index:	admin	bg	Име на връзката към съдържанието
+new article	phpbrain	bg	Нова статия
+nobody has rated this article so far	phpbrain	bg	Статията няма оценки до момента
+nothing was uploaded!	phpbrain	bg	Нищо не е качено!
+number of results per page	phpbrain	bg	Брой резултати
+ocurrences	phpbrain	bg	Съвпадения
+or browse the categories	phpbrain	bg	Или разгледайте категориите
+order results by	phpbrain	bg	Подреди резултатите по
+outstanding published questions	phpbrain	bg	Публикувани по-важни въпроси
+overwrite file	phpbrain	bg	припокриване на съществуващия файл?
+past %1 months	phpbrain	bg	последните %1 месеца
+past year	phpbrain	bg	последната година
+people have rated this article	phpbrain	bg	оценки е получила тази статия
+phpbrain	common	bg	База Знания
+please rate the pertinence and quality of this article	phpbrain	bg	Моля, оценете важността и качеството на статията
+please try again	phpbrain	bg	Моля, опитайте отново
+poor	phpbrain	bg	Слаб
+printer view	phpbrain	bg	Изглед за печат
+problem relating articles	phpbrain	bg	Проблем при свързване на статиите
+publication date	phpbrain	bg	Дата на публикуване
+publish	phpbrain	bg	Публикуване
+publish articles automatically?	common	bg	Автоматично публикуване на статии?
+publish comments automatically?	common	bg	Автоматично публикуване на коментари?
+publish questions automatically?	common	bg	Автоматично публикуване на въпроси?
+publish selected	phpbrain	bg	Пубилувай избраните
+published	phpbrain	bg	Публикувани
+question deleted successfully	phpbrain	bg	Въпросът е изтрит успешно
+questions deleted successfully	phpbrain	bg	Въпросите са изтрити успешно
+rating has been submited	phpbrain	bg	Оценката е изпратена
+rating invalid	phpbrain	bg	Оценката е невалидна
+recipient	phpbrain	bg	Получател
+related articles in the knowledge base	phpbrain	bg	Свързани статии в Базата знания
+relation with article was removed successfully	phpbrain	bg	Връзката със статията е премахната успешно
+removed file %1	phpbrain	bg	Изтрит е файла %1
+removed link %1	phpbrain	bg	Изтрита е връзката %1
+reply-to	phpbrain	bg	Отговор до
+search in all the knowledge base	phpbrain	bg	Търсене в цялата База знания
+search results	phpbrain	bg	Резултати от търсенето
+see more questions	phpbrain	bg	Още въпроси
+see more questions...	phpbrain	bg	Още въпроси...
+select articles	phpbrain	bg	Изберете статии
+should the article view make an automatic table of contents?	admin	bg	Да се състави ли автоматично съдържание при преглед на статия?
+show all comments	phpbrain	bg	Покажи всички коментари
+show articles belonging to:	phpbrain	bg	Покажи статиите, принадлежащи на:
+show messages in category	phpbrain	bg	Покажи съобщенията в категория
+submit comment	phpbrain	bg	Изпращане на коментар
+submit comment and rating	phpbrain	bg	Изпращане на коментар и оценка
+suggested category	phpbrain	bg	Предполагаема категория
+summary	phpbrain	bg	Обобщение
+table of contents	phpbrain	bg	Съдържание
+that file already exists	phpbrain	bg	Файлът вече съществува
+the article id must be a number	phpbrain	bg	No. на статията трябва да е число
+the article is empty	phpbrain	bg	Статията е празна
+the file was already missing in the server	phpbrain	bg	Файлът не съществува на сървъра.
+the following errors occurred	phpbrain	bg	Възникнали са следните грешки
+the mail server returned:	phpbrain	bg	Пощенският сървър отговори:
+the present category and all subcategories under it	phpbrain	bg	Текущата категория и всичките й подкатегории
+the present category only	phpbrain	bg	Само текущата категория
+there are no articles	phpbrain	bg	Няма статии
+there are no articles available	phpbrain	bg	Няма налични статии
+this article hasn't yet been published in the knowledge base	phpbrain	bg	Статията още не е публикувана в Базата знания
+title	phpbrain	bg	Заглавие
+to create categories, press 'edit categories' in the preferences menu	phpbrain	bg	За да създадете категории, използвайте 'Редактиране на категориите' в меню 'Настройки'
+topic	phpbrain	bg	Тема
+unable to add rating to database	phpbrain	bg	Неуспешно добавяне на оценката в базата данни
+unanswered questions	phpbrain	bg	Въпроси без отговор
+unpublish	phpbrain	bg	Снемане от публикация
+unpublished	phpbrain	bg	снета от публикация
+user preferences	phpbrain	bg	Настройки на потребителя
+views	phpbrain	bg	изгледи
+was it easy to find this article using the above search string?	phpbrain	bg	Лесно ли беше откриването на статията чрез този низ за търсене?
+when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	bg	При преглед по категории, изберете дали да се показват статии от текущата категория или и от всичките й подкатегории
+with all the words	phpbrain	bg	Съдържа всички думи
+with at least one of the words	phpbrain	bg	Съдържа поне една от думите
+with the exact phrase	phpbrain	bg	Съдържа точната фраза
+without the words	phpbrain	bg	Не съдържа думите
+you are in %1	phpbrain	bg	Вие сте в %1
+you have already qualified this article	phpbrain	bg	Вече сте оценили тази статия
+you have not the proper permissions to do that	phpbrain	bg	Нямата права за това действие
+you must enter a title	phpbrain	bg	Необходимо е да въведете заглавие
+you must enter a topic	phpbrain	bg	Необходимо е да въведете тема
+your message could not be sent!	phpbrain	bg	Съобщението Ви не беше изпратено!
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	bg	Въпросът Ви е изпратен, но ще бъде публикуван само след одобрение на потребител със съответните права
+your question will be published immediately	phpbrain	bg	Въпросът Ви ще бъде публикуван незабавно
