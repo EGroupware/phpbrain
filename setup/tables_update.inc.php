@@ -12,7 +12,6 @@
  * @version $Id$
  */
 
-$test[] = '0.9.14.001';
 function phpbrain_upgrade0_9_14_001()
 {
 	global $DEBUG;
@@ -199,14 +198,14 @@ function phpbrain_upgrade0_9_14_001()
 	return $GLOBALS['setup_info']['phpbrain']['currentver'];
 }
 
-$test[] = '1.0RC5';
+
 function phpbrain_upgrade1_0RC5()
 {
 	$GLOBALS['setup_info']['phpbrain']['currentver'] = '1.0.0';
 	return $GLOBALS['setup_info']['phpbrain']['currentver'];
 }
 
-$test[] = '1.0.0';
+
 function phpbrain_upgrade1_0_0()
 {
 	$GLOBALS['egw_setup']->oProc->AlterColumn('phpgw_kb_search', 'keyword', array('type' => 'varchar', 'precision' => '30', 'nullable' => False));
@@ -215,7 +214,7 @@ function phpbrain_upgrade1_0_0()
 	return $GLOBALS['setup_info']['phpbrain']['currentver'];
 }
 
-$test[] = '1.0.1';
+
 // this upgrade changes \n from older version's plain text to <br>
 function phpbrain_upgrade1_0_1()
 {
@@ -242,7 +241,7 @@ function phpbrain_upgrade1_0_1()
 	return $GLOBALS['setup_info']['phpbrain']['currentver'];
 }
 
-$test[] = '1.0.2';
+
 function phpbrain_upgrade1_0_2()
 {
 	$GLOBALS['egw_setup']->oProc->CreateTable('phpgw_kb_files',array(
@@ -281,7 +280,6 @@ function phpbrain_upgrade1_0_2()
 }
 
 
-$test[] = '1.0.3';
 function phpbrain_upgrade1_0_3()
 {
 	$GLOBALS['egw_setup']->oProc->CreateTable('phpgw_kb_urls',array(
@@ -319,7 +317,7 @@ function phpbrain_upgrade1_0_3()
 	return $GLOBALS['setup_info']['phpbrain']['currentver'];
 }
 
-$test[] = '1.0.4';
+
 function phpbrain_upgrade1_0_4()
 {
 	$GLOBALS['egw_setup']->oProc->DropColumn('phpgw_kb_articles',array(
@@ -414,7 +412,7 @@ function phpbrain_upgrade1_0_4()
 	return $GLOBALS['setup_info']['phpbrain']['currentver'] = '1.0.5';
 }
 
-$test[] = '1.0.5';
+
 function phpbrain_upgrade1_0_5()
 {
 	$GLOBALS['egw_setup']->oProc->AlterColumn('phpgw_kb_articles','text',array('type' => 'longtext'));
@@ -422,7 +420,7 @@ function phpbrain_upgrade1_0_5()
 	return $GLOBALS['setup_info']['phpbrain']['currentver'] = '1.5.001';
 }
 
-$test[] = '1.5.001';
+
 function phpbrain_upgrade1_5_001()
 {
 	// Firsts phpgw -> egw prefix
@@ -437,7 +435,7 @@ function phpbrain_upgrade1_5_001()
 	return $GLOBALS['setup_info']['phpbrain']['currentver'] = '1.5.002';
 }
 
-$test[] = '1.5.002';
+
 function phpbrain_upgrade1_5_002()
 {
 	// make kb files regular attachments
@@ -464,4 +462,10 @@ function phpbrain_upgrade1_5_002()
 	$GLOBALS['egw_setup']->oProc->DropTable('egw_kb_files');
 
 	return $GLOBALS['setup_info']['phpbrain']['currentver'] = '1.5.003';
+}
+
+
+function phpbrain_upgrade1_5_003()
+{
+	return $GLOBALS['setup_info']['phpbrain']['currentver'] = '1.6';
 }

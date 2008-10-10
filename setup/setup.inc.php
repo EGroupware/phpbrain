@@ -15,7 +15,7 @@
 /* Basic information about this app */
 $setup_info['phpbrain']['name']      = 'phpbrain';
 $setup_info['phpbrain']['title']     = 'Knowledge Base';
-$setup_info['phpbrain']['version']   = '1.5.003';
+$setup_info['phpbrain']['version']   = '1.6';
 $setup_info['phpbrain']['app_order'] = 25;
 $setup_info['phpbrain']['enable']    = 1;
 
@@ -47,7 +47,7 @@ $setup_info['phpbrain']['tables'][] = 'egw_kb_urls';
 /* Dependencies for this app to work */
 $setup_info['phpbrain']['depends'][] = array(
 	'appname' => 'phpgwapi',
-	'versions' => Array('1.2','1.3','1.4','1.5')
+	'versions' => Array('1.4','1.5','1.6','1.7')
 );
 
 
