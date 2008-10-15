@@ -44,6 +44,7 @@ comment has been submited for revision	phpbrain	sk	Poznámka bola odoslaná pre 
 comment has been submited for revision and rating will be published	phpbrain	sk	Poznámka bola odoslaná pre kontrolu a hodnotenie bude publikované
 comments	phpbrain	sk	Poznámky
 configuration	phpbrain	sk	Konfigurácia
+contents	phpbrain	sk	Obsah
 create a new article to answer the question asked by %1 in %2	phpbrain	sk	Vytvoriť nový článok pre zodpovedanie otázky, ktorú položil %1 v %2
 created by %1 on %2	phpbrain	sk	Vytvoril/a %1 v %2
 creation	phpbrain	sk	vytvorenie
@@ -111,6 +112,7 @@ maximum number of comments to show:	phpbrain	sk	Koľko poznámok zobraziť:
 maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	sk	Koľko najpopulárnejších článkov, najnovších článkov a nezodpovedaných otázok sa má zobraziť v hlavnom pohľade:
 modification date	phpbrain	sk	Dátum zmeny
 most viewed	phpbrain	sk	Najčastejšie zobrazované
+name of the backlink to the index:	admin	sk	Názov spätného odkazu na index:
 new article	phpbrain	sk	Nový článok
 nobody has rated this article so far	phpbrain	sk	Zatiaľ tento článok nikto nehodnotil
 nothing was uploaded!	phpbrain	sk	Nič sa neodovzdalo!
@@ -119,6 +121,7 @@ ocurrences	phpbrain	sk	Výskyty
 or browse the categories	phpbrain	sk	Alebo prezrieť kategórie
 order results by	phpbrain	sk	Výsledky zoradiť podľa
 outstanding published questions	phpbrain	sk	Nezodpovedané publikované otázky
+overwrite file	phpbrain	sk	Prepísať existujúci súbor?
 past %1 months	phpbrain	sk	posledných %1 mesiacov
 past year	phpbrain	sk	posledný rok
 people have rated this article	phpbrain	sk	ľudia ohodnotili tento článok
@@ -150,6 +153,7 @@ search results	phpbrain	sk	Prehľadávať výsledky
 see more questions	phpbrain	sk	Zobraziť viacej otázok
 see more questions...	phpbrain	sk	Zobraziť viacej otázok...
 select articles	phpbrain	sk	Vyberte články
+should the article view make an automatic table of contents?	admin	sk	Mal by tento pohľad na článok vytvoriť automaticky tabuľku s obsahom?
 show all comments	phpbrain	sk	Zobraziť všetky poznámky
 show articles belonging to:	phpbrain	sk	Zobraziť články náležiace k:
 show messages in category	phpbrain	sk	Zobraziť správy v kategórii
@@ -157,6 +161,7 @@ submit comment	phpbrain	sk	Odoslať poznámku
 submit comment and rating	phpbrain	sk	Odoslať poznámku a hodnotenie
 suggested category	phpbrain	sk	Odporúčaná kategória
 summary	phpbrain	sk	Zhrnutie
+table of contents	phpbrain	sk	Tabuľka s obsahom
 that file already exists	phpbrain	sk	Tento súbor už existuje
 the article id must be a number	phpbrain	sk	ID článku musí byť číslom
 the article is empty	phpbrain	sk	Článok je prázdny
