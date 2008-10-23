@@ -642,7 +642,7 @@ class uikb
 		{
 			// add a content-type header to overwrite an existing default charset in apache (AddDefaultCharset directiv)
 			header('Content-type: text/html; charset='.$GLOBALS['egw']->translation->charset());
-			ob_end_flush();
+			#ob_end_flush();
 
 			$this->t->set_file('view_article', 'print_article.tpl');
 			$this->t->set_block('view_article', 'file_item_block', 'file_item');
