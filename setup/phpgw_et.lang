@@ -30,6 +30,7 @@ comment	phpbrain	et	kommentaar
 comment has been deleted	phpbrain	et	Kommentaar on kustutatud
 comments	phpbrain	et	Kommentaarid
 configuration	phpbrain	et	Konfiguratsioon
+created by %1 on %2	phpbrain	et	Autor: %1 %2
 creation	phpbrain	et	tegemine
 creation date	phpbrain	et	Tegemise kuupäev
 delete article	phpbrain	et	Kustuta artikkel
@@ -45,6 +46,7 @@ excellent	phpbrain	et	Ekselent
 global categories	phpbrain	et	Globaalsed Kategooriad
 history	phpbrain	et	Ajalugu
 if you wish, you can comment this article here	phpbrain	et	Kui sa soovid saad kommenteerida seda artikklit siin
+in %1	phpbrain	et	asukohas %1
 in the text	phpbrain	et	tekstis
 in the title	phpbrain	et	pealkirjas
 in the topic	phpbrain	et	teemas
@@ -53,7 +55,7 @@ keywords	phpbrain	et	Märksõnad
 knowledge base	phpbrain	et	Teadmiste Baas
 knowledge base article #%1	phpbrain	et	Teadmiste Baasi artikkel #%1
 knowledge base configuration	common	et	Teadmiste Baasi konfigureerimine
-last modification by %1 on %2	phpbrain	et	Viimati muudetud %1 on %2
+last modification by %1 on %2	phpbrain	et	Viimati muutis: %1 %2
 last modified	phpbrain	et	Viimati muudetud
 latest	phpbrain	et	Viimane
 latest comments	phpbrain	et	Viimased kommentaarid
@@ -101,9 +103,10 @@ the mail server returned:	phpbrain	et	Mail server vastas:
 there are no articles	phpbrain	et	Siin ei ole artikleid
 there are no articles available	phpbrain	et	Siin ei ole artikleid saadaval
 title	phpbrain	et	Pealkiri
+to create categories, press 'edit categories' in the preferences menu	phpbrain	et	Kategooriate tegemiseks vajuta `Muuda Kategooriaid` Eelistuste menüüs
 topic	phpbrain	et	Teema
 unanswered questions	phpbrain	et	Vastamata küsimused
 user preferences	phpbrain	et	Kasutaja eelistused
-views	phpbrain	et	vaated
+views	phpbrain	et	korda vaadatud
 you must enter a title	phpbrain	et	Pead sisestama pealkirja
 you must enter a topic	phpbrain	et	Pead sisestama teema
