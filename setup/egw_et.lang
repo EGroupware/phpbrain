@@ -1,0 +1,112 @@
+action	phpbrain	et	Tegevus
+actions	phpbrain	et	Tegevused
+add articles	phpbrain	et	Lisa artiklid
+add link	phpbrain	et	Lisa link
+add question	phpbrain	et	Lisa Küsimus
+added file %1	phpbrain	et	Lisatud fail %1
+added link %1	phpbrain	et	Lisatud link %1
+advanced search	phpbrain	et	Laiendatud Otsing
+all articles	phpbrain	et	Kõik artiklid
+allow posting of questions	phpbrain	et	Luba postitada küsimus
+answer	phpbrain	et	vastus
+anytime	phpbrain	et	igal ajal
+anywhere in the article	phpbrain	et	Ükskõik kus artiklis
+are you sure?	phpbrain	et	Oled kindel ?
+article	phpbrain	et	Artikkel
+article created	phpbrain	et	Artikkel tehtud
+article deleted	phpbrain	et	Artikkel kustutatud
+article deleted successfully	phpbrain	et	Artikkel täielikult kustutatud
+article edited	phpbrain	et	Artikkel muudetud
+article id	phpbrain	et	Artikli ID
+articles added	phpbrain	et	Artiklid lisatud
+articles deleted successfully	phpbrain	et	Artiklid täielikult kustutatud
+articles in %1	phpbrain	et	Artiklid %1
+articles in %1 and all its subcategories	phpbrain	et	Artiklid %1ja kõik selle alamkategooriad
+articles not classified under any category	phpbrain	et	Artiklid pole klassifitseeritud ühtegi kategooriasse
+attach file	phpbrain	et	Kaasa Fail
+attached files	phpbrain	et	Kaasatud Failid
+average rating	phpbrain	et	Keskmine reiting
+comment	phpbrain	et	kommentaar
+comment has been deleted	phpbrain	et	Kommentaar on kustutatud
+comments	phpbrain	et	Kommentaarid
+configuration	phpbrain	et	Konfiguratsioon
+created by %1 on %2	phpbrain	et	Autor: %1 %2
+creation	phpbrain	et	tegemine
+creation date	phpbrain	et	Tegemise kuupäev
+delete article	phpbrain	et	Kustuta artikkel
+delete selected	phpbrain	et	Kustuta valitud
+details	phpbrain	et	Detailselt
+e-mail has been sent	phpbrain	et	e-mail on saadetud
+edit article	phpbrain	et	Muuda artiklit
+enter one or two words describing the issue, or type the article number if you know it	phpbrain	et	Sisesta üks või paar kirjeldavat sõna või trüki artikli number
+error deleting link	phpbrain	et	Viga lingi kustutamisel
+error downloading file	phpbrain	et	Viga faili allalaadimisel
+error moving file to directory	phpbrain	et	Viga faili liigutamisel kausta
+excellent	phpbrain	et	Ekselent
+global categories	phpbrain	et	Globaalsed Kategooriad
+history	phpbrain	et	Ajalugu
+if you wish, you can comment this article here	phpbrain	et	Kui sa soovid saad kommenteerida seda artikklit siin
+in %1	phpbrain	et	asukohas %1
+in the text	phpbrain	et	tekstis
+in the title	phpbrain	et	pealkirjas
+in the topic	phpbrain	et	teemas
+include subcategories	phpbrain	et	kaasa alamkategooriad
+keywords	phpbrain	et	Märksõnad
+knowledge base	phpbrain	et	Teadmiste Baas
+knowledge base article #%1	phpbrain	et	Teadmiste Baasi artikkel #%1
+knowledge base configuration	common	et	Teadmiste Baasi konfigureerimine
+last modification by %1 on %2	phpbrain	et	Viimati muutis: %1 %2
+last modified	phpbrain	et	Viimati muudetud
+latest	phpbrain	et	Viimane
+latest comments	phpbrain	et	Viimased kommentaarid
+leave empty to automatically generate an id	phpbrain	et	Jäta tühjaks automaatselt genereerimaks ID
+link deleted successfully	phpbrain	et	Link täielikult kustutatud
+links	phpbrain	et	Lingid
+links & files	phpbrain	et	Lingid & Failid
+main view	phpbrain	et	Peavaade
+maintain articles	phpbrain	et	Hoolda Artikleid
+maintain questions	phpbrain	et	Hoolda Küsimusi
+maximum number of comments to show:	phpbrain	et	Maksimum arv kommentaare mida näidata:
+maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	et	Maksimum arv populaarseimatest artiklitest, viimastest artiklitest ja vastamata küsimustest mida näidatakse peavaates:
+modification date	phpbrain	et	Modifitseerimise kuupäev
+most viewed	phpbrain	et	Enim vaadatud
+new article	phpbrain	et	Uus Artikkel
+past %1 months	phpbrain	et	eelmised %1 kuud
+past year	phpbrain	et	eelmine aasta
+phpbrain	common	et	Teadmiste Baas
+please try again	phpbrain	et	Palun proovi uuesti
+poor	phpbrain	et	Vaene
+publication date	phpbrain	et	Avaldamise kuupäev
+publish	phpbrain	et	Avalda
+publish articles automatically?	common	et	Avalda artiklid automaatselt ?
+publish comments automatically?	common	et	Avalda kommentaarid automaatselt ?
+publish questions automatically?	common	et	Avalda küsimused automaatselt
+publish selected	phpbrain	et	Avalda märgitud
+published	phpbrain	et	Avaldatud
+question deleted successfully	phpbrain	et	Küsimus täielikult kustutatud
+questions deleted successfully	phpbrain	et	Küsimused täielikult kustutatud
+related articles in the knowledge base	phpbrain	et	Seotud artiklid Teadmiste baasis
+removed file %1	phpbrain	et	Eemaldatud fail %1
+removed link %1	phpbrain	et	Eemaldatud link %1
+search in all the knowledge base	phpbrain	et	Otsi kogu Teadmiste Baasist
+search results	phpbrain	et	Otsingu tulemused
+see more questions	phpbrain	et	Näita rohkem küsimusi
+see more questions...	phpbrain	et	Näita rohkem küsimusi:
+select articles	phpbrain	et	Märgi artikklid
+show all comments	phpbrain	et	Näita kõiki kommentaare
+show articles belonging to:	phpbrain	et	Näita artikkleid mis kuuluvad:
+summary	phpbrain	et	Summarselt
+that file already exists	phpbrain	et	See fail eksisteerib juba
+the article id must be a number	phpbrain	et	Artikli ID peab olema number
+the article is empty	phpbrain	et	Artikkel on tühi
+the mail server returned:	phpbrain	et	Mail server vastas:
+there are no articles	phpbrain	et	Siin ei ole artikleid
+there are no articles available	phpbrain	et	Siin ei ole artikleid saadaval
+title	phpbrain	et	Pealkiri
+to create categories, press 'edit categories' in the preferences menu	phpbrain	et	Kategooriate tegemiseks vajuta `Muuda Kategooriaid` Eelistuste menüüs
+topic	phpbrain	et	Teema
+unanswered questions	phpbrain	et	Vastamata küsimused
+user preferences	phpbrain	et	Kasutaja eelistused
+views	phpbrain	et	korda vaadatud
+you must enter a title	phpbrain	et	Pead sisestama pealkirja
+you must enter a topic	phpbrain	et	Pead sisestama teema
