@@ -1999,7 +1999,7 @@ class uikb
 	{
 		if ($this->sitemgr)
 		{
-			return $this->link . '&' . $args;
+			return $this->link . (strpos($this->link,'?') !== false ? '&' : '?') . $args;
 		}
 		else
 		{
