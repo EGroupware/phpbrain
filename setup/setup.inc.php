@@ -18,6 +18,7 @@ $setup_info['phpbrain']['title']     = 'Knowledge Base';
 $setup_info['phpbrain']['version']   = '1.6';
 $setup_info['phpbrain']['app_order'] = 25;
 $setup_info['phpbrain']['enable']    = 1;
+$setup_info['phpbrain']['index']     = 'phpbrain.uikb.index';
 
 $setup_info['phpbrain']['author'] = 'Alejandro Pedraza';
 $setup_info['phpbrain']['note']   = 'Knowledge Base repository';
