@@ -16,7 +16,9 @@
 *
 * Last Editor:	$Author$
 */
-class uikb
+require_once(EGW_INCLUDE_ROOT.'/phpbrain/inc/class.bokb.inc.php');
+
+class uikb extends bokb
 {
 	/**
 	* Array of public functions in this class
@@ -124,8 +126,10 @@ class uikb
 	* @param	string	$link		link prefix to use if accessed through sitemgr
 	* @param	array	$arguments	Arguments passed by sitemgr
 	*/
-	function uikb($sitemgr=False, $link=False, $arguments=False)
+	function __construct($sitemgr=False, $link=False, $arguments=False)
 	{
+		#parent::__construct();
+		$this->bo						= CreateObject('phpbrain.bokb');
 		$this->sitemgr					= $sitemgr;
 		if ($link)
 		{
@@ -136,7 +140,6 @@ class uikb
 		{
 			$this->link					= '/index.php';
 		}
-		$this->bo						= CreateObject('phpbrain.bokb');
 		if ($sitemgr)
 		{
 			$this->t					= CreateObject('phpgwapi.Template', $this->sitemgr);
@@ -170,6 +173,10 @@ class uikb
 		{
 			$this->message = lang($this->bo->messages_array[$this->message]);
 		}
+	}
+	function uikb($sitemgr=False, $link=False, $arguments=False)
+	{
+		self::__construct($sitemgr=False, $link=False, $arguments=False);
 	}
 
 	/**
@@ -309,9 +316,9 @@ class uikb
 		{
 			if ($this->sitemgr) $this->nextmatchs->template->set_var('action_sitemgr', $this->link('menuaction=phpbrain.uikb.index'));
 			$this->t->set_var(array(
-				'left'		=> $this->nextmatchs->left($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction=phpbrain.uikb.index&cat='.$category_passed),
-				'right'		=> $this->nextmatchs->right($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction=phpbrain.uikb.index&cat='.$category_passed),
-				'num_regs'	=> $this->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start)
+				'left'		=> $this->nextmatchs->left($this->link, $this->bo->start, parent::$num_rows, 'menuaction=phpbrain.uikb.index&cat='.$category_passed),
+				'right'		=> $this->nextmatchs->right($this->link, $this->bo->start, parent::$num_rows, 'menuaction=phpbrain.uikb.index&cat='.$category_passed),
+				'num_regs'	=> $this->nextmatchs->show_hits(parent::$num_rows, $this->bo->start)
 			));
 			$this->t->parse('articles_navigation', 'articles_navigation_block');
 
@@ -420,7 +427,7 @@ class uikb
 		}
 
 		$more_questions = '';
-		if ($this->bo->num_questions > $this->bo->preferences['num_lines'])
+		if (parent::$num_questions > $this->bo->preferences['num_lines'])
 		{
 			$more_questions = "<div style='text-align:right; padding-top:10px'><a href='" . $this->link('menuaction=phpbrain.uikb.maintain_questions') . "'>" . lang('See more questions...') . "</a></div>";
 		}
@@ -877,7 +884,7 @@ class uikb
 				$this->t->parse('comment', 'comment_block', True);
 			}
 			$lang_comments = lang('Comments');
-			if (!$more_comments && $this->preferences['num_comments'] != 'All' && $this->bo->num_comments > $this->bo->preferences['num_comments'])
+			if (!$more_comments && $this->preferences['num_comments'] != 'All' && parent::$num_comments > $this->bo->preferences['num_comments'])
 			{
 				$link_more_comments = "<a href='" . $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $article_id . '&more_comments=1') . "'>" . lang('Show all comments') . "</a>";
 				$lang_comments = lang('Latest comments');
@@ -1181,9 +1188,9 @@ class uikb
 			'form_filters_action' => $this->link('menuaction=phpbrain.uikb.pop_search&start=' . $this->bo->start . '&sort=' . $this->bo->sort),
 			'head_number'		=> $this->nextmatchs->show_sort_order($this->bo->sort, 'art_id', $this->bo->order, '', lang('Article ID')),
 			'head_title'		=> $this->nextmatchs->show_sort_order($this->bo->sort, 'title', $this->bo->order, '', lang('Title')),
-			'left'				=> $this->nextmatchs->left($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.pop_search&query=' . $this->bo->query),
-			'right'				=> $this->nextmatchs->right($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.pop_search&query=' . $this->bo->query),
-			'num_regs'			=> $this->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start),
+			'left'				=> $this->nextmatchs->left($this->link, $this->bo->start, parent::$num_rows, 'menuaction.phpbrain.uikb.pop_search&query=' . $this->bo->query),
+			'right'				=> $this->nextmatchs->right($this->link, $this->bo->start, parent::$num_rows, 'menuaction.phpbrain.uikb.pop_search&query=' . $this->bo->query),
+			'num_regs'			=> $this->nextmatchs->show_hits(parent::$num_rows, $this->bo->start),
 			'select_categories'	=> $this->bo->categories_obj->formatted_list('select', 'all', '', True)
 		));
 
@@ -1613,9 +1620,9 @@ class uikb
 			'head_topic'			=> $this->nextmatchs->show_sort_order($this->bo->sort, 'topic', $this->bo->order, '', lang('Topic')),
 			'head_author'			=> $this->nextmatchs->show_sort_order($this->bo->sort, 'user_id', $this->bo->order, '', lang('Author')),
 			'head_date'				=> $this->nextmatchs->show_sort_order($this->bo->sort, 'created', $this->bo->order, '', lang('Date')),
-			'left'					=> $this->nextmatchs->left($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_articles&cat='. $actual_category . '&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
-			'right'					=> $this->nextmatchs->right($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_articles&cat='. $actual_category .'&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
-			'num_regs'				=> $this->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start),
+			'left'					=> $this->nextmatchs->left($this->link, $this->bo->start, parent::$num_rows, 'menuaction.phpbrain.uikb.maintain_articles&cat='. $actual_category . '&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
+			'right'					=> $this->nextmatchs->right($this->link, $this->bo->start, parent::$num_rows, 'menuaction.phpbrain.uikb.maintain_articles&cat='. $actual_category .'&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
+			'num_regs'				=> $this->nextmatchs->show_hits(parent::$num_rows, $this->bo->start),
 			'select_categories'		=> $this->bo->categories_obj->formatted_list('select', 'all', $actual_category, True),
 			'select_publish'		=> $select_publish,
 			'lang_publish_selected'	=> lang('Publish selected'),
@@ -1815,9 +1822,9 @@ class uikb
 			'img_src_checkall'		=> $GLOBALS['egw']->common->image('phpbrain', 'check'),
 			'order'					=> $this->bo->order,
 			'publish_filter'		=> $this->bo->publish_filter,
-			'left'					=> $this->nextmatchs->left($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category . '&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
-			'right'					=> $this->nextmatchs->right($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category .'&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
-			'num_regs'				=> $this->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start),
+			'left'					=> $this->nextmatchs->left($this->link, $this->bo->start, parent::$num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category . '&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
+			'right'					=> $this->nextmatchs->right($this->link, $this->bo->start, parent::$num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category .'&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
+			'num_regs'				=> $this->nextmatchs->show_hits(parent::$num_rows, $this->bo->start),
 			'select_categories'		=> $this->bo->categories_obj->formatted_list('select', 'all', $actual_category, True),
 			'lang_publish_selected'	=> lang('Publish selected'),
 			'lang_delete_selected'	=> lang('Delete selected')

@@ -16,16 +16,10 @@
 *
 * Last Editor:	$Author$
 **/
-class bokb
-{
-	/**
-	* Data manipulation object
-	*
-	* @access	private
-	* @var		sokb
-	*/
-	var $so;
+require_once(EGW_INCLUDE_ROOT.'/phpbrain/inc/class.sokb.inc.php');
 
+class bokb extends sokb
+{
 	/**
 	* Categories object
 	*
@@ -104,7 +98,7 @@ class bokb
 	* @access	public
 	* @var		int
 	*/
-	var $num_rows;
+	static public $num_rows;
 
 	/**
 	* Number of questions returned by a query
@@ -112,7 +106,7 @@ class bokb
 	* @access	public
 	* @var		int
 	*/
-	var $num_questions;
+	static public $num_questions;
 
 	/**
 	* Number of comments returned by a query
@@ -120,7 +114,7 @@ class bokb
 	* @access	public
 	* @var		int
 	*/
-	var $num_comments;
+	static public $num_comments;
 
 	/**
 	* Error messages produced by methods
@@ -221,9 +215,9 @@ class bokb
 	* @author	Alejandro Pedraza
 	* @access	public
 	**/
-	function bokb()
+	function __construct()
 	{
-		$this->so						= CreateObject('phpbrain.sokb');
+		parent::__construct();
 		$this->categories_obj			= CreateObject('phpgwapi.categories', '', 'phpbrain');	// force phpbrain cause it might be running from sitemgr...
 		$GLOBALS['egw']->historylog	= CreateObject('phpgwapi.historylog','phpbrain');
 
@@ -278,7 +272,10 @@ class bokb
 		$this->ocurrences	= get_var('ocurrences', 'any', 0);
 		$this->num_res		= get_var('num_res', 'any', '');
 	}
-
+	function bokb()
+	{
+		self::__construct();
+	}
 	/**
 	* Returns a single category
 	*
@@ -395,20 +392,20 @@ class bokb
 			}
 			$cats_ids[] = $category_id;
 
-			$articles = $this->so->$search($owners, $cats_ids, $this->start, '', $this->sort, $this->order, $publish_filter, $this->query);
+			$articles = parent::$search($owners, $cats_ids, $this->start, '', $this->sort, $this->order, $publish_filter, $this->query);
 		}
 		elseif (empty($category_id))
 		{
 			// show only articles that are not categorized
-			$articles = $this->so->$search($owners, 0, $this->start, '', $this->sort, $this->order, $publish_filter, $this->query);
+			$articles = parent::$search($owners, 0, $this->start, '', $this->sort, $this->order, $publish_filter, $this->query);
 		}
 		else
 		{
 			// show only articles in present category
-			$articles = $this->so->$search($owners, array($category_id), $this->start, '', $this->sort, $this->order, $publish_filter, $this->query);
+			$articles = parent::$search($owners, array($category_id), $this->start, '', $this->sort, $this->order, $publish_filter, $this->query);
 		}
+		self::$num_rows = parent::$num_rows;
 
-		$this->num_rows = $this->so->num_rows;
 		return $articles;
 	}
 
@@ -439,8 +436,8 @@ class bokb
 			$cats_ids[] = $this->cat;
 		}
 
-		$articles = $this->so->adv_search_articles($owners, $cats_ids, $this->ocurrences, $this->pub_date, $this->start, $this->num_res, $this->all_words, $this->phrase, $this->one_word, $this->without_words, $this->cat, $this->include_subs);
-		$this->num_rows = $this->so->num_rows;
+		$articles = parent::adv_search_articles($owners, $cats_ids, $this->ocurrences, $this->pub_date, $this->start, $this->num_res, $this->all_words, $this->phrase, $this->one_word, $this->without_words, $this->cat, $this->include_subs);
+		self::$num_rows = parent::$num_rows;
 		return $articles;
 	}
 
@@ -466,8 +463,8 @@ class bokb
 		}
 		$cats_ids[] = $category_id;
 
-		$questions = $this->so->unanswered_questions($owners, $cats_ids, 0, $this->preferences['num_lines'], 'DESC', 'creation', 'published', '');
-		$this->num_questions = $this->so->num_questions;
+		$questions = parent::unanswered_questions($owners, $cats_ids, 0, $this->preferences['num_lines'], 'DESC', 'creation', 'published', '');
+		self::$num_questions = parent::$num_questions;
 		return $questions;
 	}
 
@@ -540,7 +537,7 @@ class bokb
 			$cats_ids[] = $cat['id'];
 		}
 
-		return $this->so->search_articles($owners, $cats_ids, 0, $this->preferences['num_lines'], 'DESC', $order, 'published', '');
+		return parent::search_articles($owners, $cats_ids, 0, $this->preferences['num_lines'], 'DESC', $order, 'published', '');
 	}
 
 	/**
@@ -575,7 +572,7 @@ class bokb
 		}
 		elseif ($content['editing_article_id'])
 		{
-			if(!$art_id = $this->so->save_article($content, False))
+			if(!$art_id = parent::save_article($content, False))
 			{
 				$this->error_msg = 'edit_err';
 				return False;
@@ -592,7 +589,7 @@ class bokb
 		}
 
 		// if adding a new article, check that the  articleID doesn't already exist if it was given
-		if ($content['articleID'] && $this->so->exist_articleID($content['articleID']))
+		if ($content['articleID'] && parent::exist_articleID($content['articleID']))
 		{
 			$this->error_msg = "Article ID already exists";
 			return False;
@@ -601,7 +598,7 @@ class bokb
 		$publish = False;
 		if ($this->admin_config['publish_articles'] == 'True') $publish = True;
 
-		$art_id = $this->so->save_article($content, True, $publish);
+		$art_id = parent::save_article($content, True, $publish);
 		if ($art_id) $GLOBALS['egw']->historylog->add('NA', $art_id, 'article created', '');
 
 		return $art_id;
@@ -624,17 +621,17 @@ class bokb
 		// delete files
 		egw_link::delete_attached('phpbrain',$art_id);
 		// delete comments
-		$this->so->delete_comments($art_id);
+		parent::delete_comments($art_id);
 		// delete ratings
-		$this->so->delete_ratings($art_id);
+		parent::delete_ratings($art_id);
 		// delete related articles
-		$this->so->delete_related($art_id, $art_id, True);
+		parent::delete_related($art_id, $art_id, True);
 		// delete search index
-		$this->so->delete_search($art_id);
+		parent::delete_search($art_id);
 		// delete urls
-		$this->so->delete_urls($art_id);
+		parent::delete_urls($art_id);
 		// delete article
-		if (!$this->so->delete_article($art_id)) return 'err_del_art';
+		if (!parent::delete_article($art_id)) return 'err_del_art';
 		if ($art_id) $GLOBALS['egw']->historylog->add('AD', $art_id, 'article deleted', '');
 		return 'del_art_ok';
 	}
@@ -658,7 +655,7 @@ class bokb
 
 		// fetch articles from user
 		$owner = (int)$owner;
-		$articles_ids = $this->so->get_articles_ids($owner);
+		$articles_ids = parent::get_articles_ids($owner);
 		foreach ($articles_ids as $article_id)
 		{
 			$this->delete_article($article_id, -1);
@@ -687,7 +684,7 @@ class bokb
 		$new_owner = (int)$new_owner;
 
 		// now change articles owners
-		$this->so->change_articles_owner($owner, $new_owner);
+		parent::change_articles_owner($owner, $new_owner);
 	}
 
 	/**
@@ -705,7 +702,7 @@ class bokb
 		$this->article_owner = $owner;
 		if (!$this->check_permission($this->edit_right, $owner)) return 'no_perm';
 
-		if (!$this->so->delete_question($q_id)) return 'err_del_q';
+		if (!parent::delete_question($q_id)) return 'err_del_q';
 		return 'del_q_ok';
 	}
 
@@ -722,7 +719,7 @@ class bokb
 	**/
 	function get_article($art_id,$die_if_no_access=true)
 	{
-		if (!$article = $this->so->get_article($art_id)) return null;
+		if (!$article = parent::get_article($art_id)) return null;
 		$this->article_id = $article['art_id'];
 
 		// check permissions
@@ -747,7 +744,7 @@ class bokb
 		{
 			$data[] = $this->article_id;
 			$GLOBALS['egw']->session->appsession('views', 'phpbrain', $data);
-			$this->so->register_view($this->article_id, $article['views']);
+			parent::register_view($this->article_id, $article['views']);
 		}
 
 		// process search_feedback (can do this only once per session per article)
@@ -760,7 +757,7 @@ class bokb
 			$words = explode(' ', $_POST['feedback_query']);
 			foreach ($words as $word)
 			{
-				$this->so->update_keywords($this->article_id, $word, $upgrade_key);
+				parent::update_keywords($this->article_id, $word, $upgrade_key);
 			}
 		}
 
@@ -819,8 +816,8 @@ class bokb
 	function get_comments($art_id, $limit = False)
 	{
 		if ($limit) $limit = $this->preferences['num_comments'];
-		$comments = $this->so->get_comments($art_id, $limit);
-		$this->num_comments = $this->so->num_comments;
+		$comments = parent::get_comments($art_id, $limit);
+		self::$num_comments = parent::$num_comments;
 		return $comments;
 	}
 
@@ -835,7 +832,7 @@ class bokb
 	function get_related_articles($art_id)
 	{
 		$owners = $this->accessible_owners();
-		return $this->so->get_related_articles($art_id, $owners);
+		return parent::get_related_articles($art_id, $owners);
 	}
 
 	/**
@@ -847,7 +844,7 @@ class bokb
 	**/
 	function user_has_voted()
 	{
-		return $this->so->user_has_voted($this->article_id);
+		return parent::user_has_voted($this->article_id);
 	}
 
 	/**
@@ -861,10 +858,10 @@ class bokb
 	*/
 	function add_rating($current_rating, $sitemgr=False)
 	{
-		if(!$this->so->add_vote($this->article_id, $_POST['Rate'], $current_rating)) return 0;
+		if(!parent::add_vote($this->article_id, $_POST['Rate'], $current_rating)) return 0;
 		if (!$sitemgr)
 		{
-			if (!$this->so->add_rating_user($this->article_id)) return 0;
+			if (!parent::add_rating_user($this->article_id)) return 0;
 		}
 		// register vote in session
 		if (!$data = $GLOBALS['egw']->session->appsession('ratings', 'phpbrain')) $data = array();
@@ -894,7 +891,7 @@ class bokb
 			$publish = False;
 			$message = 'comm_submited';
 		}
-		if (!$this->so->add_comment($comment, $this->article_id, $publish)) return 0;
+		if (!parent::add_comment($comment, $this->article_id, $publish)) return 0;
 		return $message;
 	}
 
@@ -910,7 +907,7 @@ class bokb
 		// first check permission
 		if (!$this->check_permission($this->edit_right)) return 'no_perm';
 		if (strlen(get_var('url', 'POST'))==0) return 'link_prob';
-		if(!$this->so->add_link(get_var('url', 'POST'), get_var('url_title', 'POST'), $this->article_id)) return 'link_prob';
+		if(!parent::add_link(get_var('url', 'POST'), get_var('url_title', 'POST'), $this->article_id)) return 'link_prob';
 
 		$GLOBALS['egw']->historylog->add('AL', $this->article_id, get_var('url', 'POST'), '');
 		return 'link_ok';
@@ -932,7 +929,7 @@ class bokb
 		// first check permission
 		if (!$this->check_permission($this->publish_right, $owner)) return 'no_perm';
 
-		if (!$this->so->publish_article($art_id)) return 'publish_err';
+		if (!parent::publish_article($art_id)) return 'publish_err';
 		return 'publish_ok';
 	}
 
@@ -950,7 +947,7 @@ class bokb
 		// first check permission
 		if (!$this->check_permission($this->publish_right, $owner)) return 'no_perm';
 
-		if (!$this->so->publish_question($q_id)) return 'publish_err';
+		if (!parent::publish_question($q_id)) return 'publish_err';
 		return 'publish_ok';
 	}
 
@@ -967,7 +964,7 @@ class bokb
 		// first check permission
 		if (!$this->check_permission($this->edit_right)) return 'no_perm';
 
-		if (!$this->so->publish_comment($this->article_id, $comment_id)) return 'publish_comm_err';
+		if (!parent::publish_comment($this->article_id, $comment_id)) return 'publish_comm_err';
 		return 'publish_comm_ok';
 	}
 
@@ -985,7 +982,7 @@ class bokb
 		// check permission
 		if (!$this->check_permission($this->edit_right)) return 'no_perm';
 
-		if (!$this->so->delete_comment($this->article_id, $comment_id)) return 'del_comm_err';
+		if (!parent::delete_comment($this->article_id, $comment_id)) return 'del_comm_err';
 		return 'del_comm_ok';
 	}
 
@@ -1002,7 +999,7 @@ class bokb
 		// first check permission
 		if (!$this->check_permission($this->edit_right)) return 'no_perm';
 
-		if (!$this->so->delete_link($this->article_id, $link)) return 'link_del_err';
+		if (!parent::delete_link($this->article_id, $link)) return 'link_del_err';
 
 		$GLOBALS['egw']->historylog->add('RL', $this->article_id, $link, '');
 		return 'link_del_ok';
@@ -1082,14 +1079,14 @@ class bokb
 		}
 
 		// check permissions on those articles
-		$owners_list = $this->so->owners_list($parsed_list);
+		$owners_list = parent::owners_list($parsed_list);
 		foreach ($owners_list as $owner)
 		{
 			if ($this->check_permission($this->edit_right, $owner['user_id'])) $final_list[] = $owner['art_id'];
 		}
 
 		// update database
-		if (!$this->so->add_related($this->article_id, $final_list)) return 'articles_not_added';
+		if (!parent::add_related($this->article_id, $final_list)) return 'articles_not_added';
 
 		$final_list = implode(', ', $final_list);
 		$GLOBALS['egw']->historylog->add('AR', $this->article_id, $final_list, '');
@@ -1106,7 +1103,7 @@ class bokb
 	function delete_related()
 	{
 		$related_article = urldecode($_GET['delete_related']);
-		$this->so->delete_related($this->article_id, $related_article);
+		parent::delete_related($this->article_id, $related_article);
 		$GLOBALS['egw']->historylog->add('DR', $this->article_id, $related_article, '');
 	}
 
@@ -1124,7 +1121,7 @@ class bokb
 		$data['details'] = get_var('details', 'POST');
 		$data['cat_id'] = (int)get_var('cat_id', 'POST', 0);
 		$publish = ($this->admin_config['publish_questions'] == 'True')? True : False;
-		return $this->so->add_question($data, $publish);
+		return parent::add_question($data, $publish);
 	}
 
 	/**
@@ -1137,7 +1134,7 @@ class bokb
 	*/
 	function get_question($q_id)
 	{
-		$question = $this->so->get_question($q_id);
+		$question = parent::get_question($q_id);
 		$username = $GLOBALS['egw']->accounts->get_account_name($question['user_id'], $lid, $fname, $lname);
 		$question['username'] = $fname . ' ' . $lname;
 		$question['creation'] = $GLOBALS['egw']->common->show_date($question['creation'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']);
@@ -1214,7 +1211,7 @@ class bokb
 		$owners = $this->accessible_owners();
 		$this->phrase=$pattern;
 		$this->ocurrences="all";
-		foreach((array) $articles = $this->so->adv_search_articles($owners, array(), $this->ocurrences, $this->pub_date, $this->start, $this->num_res, $this->all_words, $this->phrase, $this->one_word, $this->without_words, $this->cat, $this->include_subs) as $item )
+		foreach((array) $articles = parent::adv_search_articles($owners, array(), $this->ocurrences, $this->pub_date, $this->start, $this->num_res, $this->all_words, $this->phrase, $this->one_word, $this->without_words, $this->cat, $this->include_subs) as $item )
 		{
 			if ($item) $result[$item['art_id']] = $this->link_title($item);
 		}

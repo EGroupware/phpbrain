@@ -16,7 +16,13 @@
 *
 * Last Editor:	$Author$
 */
-class sokb
+
+if (!defined('PHPBRAIN_APP'))
+{
+    define('PHPBRAIN_APP','phpbrain');
+}
+
+class sokb 
 {
 	/**
 	* Database object
@@ -24,7 +30,35 @@ class sokb
 	* @access	private
 	* @var		egw_db
 	*/
-	var $db;
+	static public $db;
+
+	/**
+	 * Timestaps that need to be adjusted to user-time on reading or saving
+	 *
+	 * @var array
+	*/
+	static public $timestamps = array(
+		'created','modified','entered','creation',
+	);
+	/**
+	 * Offset in secconds between user and server-time, it need to be add to a server-time to get the user-time
+	 * or substracted from a user-time to get the server-time
+	 *
+	 * @var int
+	 */
+	static public $tz_offset_s;
+	/**
+	 * Current time as timestamp in user-time
+	 *
+	 * @var int
+	 */
+	static public $now;
+	/**
+	 * Start of today in user-time
+	 *
+	 * @var int
+	 */
+	static public $today;
 
 	/**
 	* Number of rows in result set
@@ -32,7 +66,7 @@ class sokb
 	* @access	public
 	* @var		int
 	*/
-	var $num_rows;
+	static public $num_rows;
 
 	/**
 	* Number of unanswered questions in result set
@@ -40,7 +74,7 @@ class sokb
 	* @access	public
 	* @var		int
 	*/
-	var $num_questions;
+	static public $num_questions;
 
 	/**
 	* Number of comments in result set
@@ -48,7 +82,7 @@ class sokb
 	* @access	public
 	* @var		int
 	*/
-	var $num_comments;
+	static public $num_comments;
 
 	/**
 	* Type of LIKE SQL operator to use
@@ -56,7 +90,7 @@ class sokb
 	* @access	private
 	* @var		string
 	*/
-	var $like;
+	static public $like;
 
 	/**
 	* Class constructor
@@ -64,12 +98,21 @@ class sokb
 	* @author	Alejandro Pedraza
 	* @access	public
 	**/
+	function __construct()
+	{
+		self::$db = $GLOBALS['egw']->db;
+		self::$tz_offset_s = $GLOBALS['egw']->datetime->tz_offset;
+		self::$now = time() + self::$tz_offset_s;   // time() is server-time and we need a user-time
+		self::$today = mktime(0,0,0,date('m',self::$now),date('d',self::$now),date('Y',self::$now));
+
+		self::$like = self::$db->capabilities['case_insensitive_like'];
+	}
+	/**
+	 * old class constructor, now wraps the new one
+	 */
 	function sokb()
 	{
-		$this->db	= clone($GLOBALS['egw']->db);
-		$this->db->set_app('phpbrain');
-
-		$this->like = $this->db->capabilities['case_insensitive_like'];
+		self::__construct();
 	}
 
 	/**
@@ -104,7 +147,7 @@ class sokb
 			$words = $likes = $scores = array();
 			foreach (explode(' ',$query) as $word)
 			{
-				$scores[] = 'keyword='.$this->db->quote($word);
+				$scores[] = 'keyword='.self::$db->quote($word);
 
 				if ((int)$word)
 				{
@@ -113,7 +156,7 @@ class sokb
 				}
 				foreach(array('title','topic','text') as $col)
 				{
-					$likes[] = $col.' '.$this->like.' '.$this->db->quote('%'.$word.'%');
+					$likes[] = $col.' '.self::$like.' '.self::$db->quote('%'.$word.'%');
 				}
 			}
 			$score = 'SELECT sum(score) FROM egw_kb_search WHERE art_id=egw_kb_articles.art_id AND ('.implode(' OR ',$scores).')';
@@ -136,11 +179,11 @@ class sokb
 		}
 		$order_sql = ' ORDER BY ' . implode(',', $order_sql);
 
-		$this->db->select('egw_kb_articles','COUNT(*)',$where,__LINE__,__FILE__);
-		$this->num_rows = $this->db->next_record() ? $this->db->f(0) : 0;
+		self::$db->select('egw_kb_articles','COUNT(*)',$where,__LINE__,__FILE__);
+		self::$num_rows = self::$db->next_record() ? self::$db->f(0) : 0;
 
-		$this->db->select('egw_kb_articles',$fields,$where,__LINE__,__FILE__,$start,$order_sql,False,($upper_limit?$upper_limit:0));
-		$this->db->query($sql, __LINE__, __FILE__,$start,($upper_limit?$upper_limit:0));
+		self::$db->select('egw_kb_articles',$fields,$where,__LINE__,__FILE__,$start,$order_sql,False,($upper_limit?$upper_limit:0));
+		//self::$db->query($sql, __LINE__, __FILE__,$start,($upper_limit?$upper_limit:0));
 
 		return $this->results_to_array($dummy);
 	}
@@ -210,14 +253,14 @@ class sokb
 		}
 
 		// "with all the words" filtering
-		$all_words = $this->db->db_addslashes($all_words);
+		$all_words = self::$db->db_addslashes($all_words);
 		$all_words = strlen($all_words)? explode(' ', $all_words) : False;
 		$each_field = array();
 		if ($all_words)
 		{
 			foreach ($all_words as $word)
 			{
-				$each_field[] = "(" . implode(" {$this->like} '%$word%' OR ", $target_fields) . " {$this->like} '%$word%')";
+				$each_field[] = "(" . implode(" {self::$like} '%$word%' OR ", $target_fields) . " {self::$like} '%$word%')";
 			}
 			if ($each_field)
 			{
@@ -226,43 +269,43 @@ class sokb
 		}
 
 		// "with the exact phrase" filtering
-		$phrase = $this->db->db_addslashes($phrase);
+		$phrase = self::$db->db_addslashes($phrase);
 		if ($phrase)
 		{
-			$sql .= " AND (" . implode (" {$this->like} '%$phrase%' OR ", $target_fields) . " {$this->like} '%$phrase%')";
+			$sql .= " AND (" . implode (" {self::$like} '%$phrase%' OR ", $target_fields) . " {self::$like} '%$phrase%')";
 		}
 
 		// "With at least one of the words" filtering
-		$one_word = $this->db->db_addslashes($one_word);
+		$one_word = self::$db->db_addslashes($one_word);
 		$one_word = strlen($one_word)? explode(' ', $one_word) : False;
 		if ($one_word)
 		{
 			$each_field = array();
 			foreach ($one_word as $word)
 			{
-				$each_field[] = "(" . implode(" {$this->like} '%$word' OR ", $target_fields) . " {$this->like} '%$word%')";
+				$each_field[] = "(" . implode(" {self::$like} '%$word' OR ", $target_fields) . " {self::$like} '%$word%')";
 			}
 			$sql .= " AND (". implode (" OR ", $each_field) . ")";
 		}
 
 		// "Without the words" filtering
-		$without_words = $this->db->db_addslashes($without_words);
+		$without_words = self::$db->db_addslashes($without_words);
 		$without_words = strlen($without_words)? explode(' ', $without_words) : False;
 		$each_field = array();
 		if ($without_words)
 		{
 			foreach ($without_words as $word)
 			{
-				$each_field[] = "(" . implode(" NOT {$this->like} '%word' AND ", $target_fields) . " NOT {$this->like} '%$word%')";
+				$each_field[] = "(" . implode(" NOT {self::$like} '%word' AND ", $target_fields) . " NOT {self::$like} '%$word%')";
 			}
 			$sql .= " AND " . implode(" AND ", $each_field);
 		}
 
 		// do the query
 		//echo "query: $sql <br>";
-		$this->db->query($sql, __LINE__, __FILE__);
-		$this->num_rows = $this->db->num_rows();
-		$this->db->limit_query($sql, $start, __LINE__, __FILE__, $num_res);
+		self::$db->query($sql, __LINE__, __FILE__);
+		self::$num_rows = self::$db->num_rows();
+		self::$db->limit_query($sql, $start, __LINE__, __FILE__, $num_res);
 		return $this->results_to_array($fields);
 	}
 
@@ -277,7 +320,7 @@ class sokb
 	function results_to_array($fields)
 	{
 		$articles = array();
-		while(($article = $this->db->row(true)))
+		while(($article = self::$db->row(true)))
 		{
 			$article['username'] = $GLOBALS['egw']->common->grab_owner_name($article['user_id']);
 			$article['total_votes'] = $article['votes_1'] + $article['votes_2'] + $article['votes_3'] + $article['votes_4'] + $article['votes_5'];
@@ -295,6 +338,25 @@ class sokb
 	}
 
 	/**
+	* delete the keywords in the egw_kb_search table for a given article
+	*
+	* @author	Klaus Leithoff
+	* @access	public
+	* @param	int		$art_id	Article ID
+	* @param	string	$words			all Keyword(s)
+	* @return	void
+	*/
+	function delete_keywords($art_id, $words=false)
+	{
+		if ($words) $words = array_diff(explode(' ',$words),array(''));
+
+		// delete all existing and NOT longer mentioned keywords
+		self::$db->delete('egw_kb_search',!$words ? array('art_id' => $art_id) :
+			self::$db->expression('egw_kb_search',array('art_id' => $art_id),' AND ',array('keyword'=>$words)),
+			__LINE__,__FILE__);
+	}
+
+	/**
 	* Upgrades the keywords in the egw_kb_search table
 	*
 	* @author	Ralf Becker
@@ -304,18 +366,42 @@ class sokb
 	* @param	mixed	$upgrade_key	Whether to give more or less score to $word
 	* @return	void
 	*/
-	function update_keywords($art_id, $words, $upgrade_key)
+	function update_keywords($art_id, $words, $upgrade_key, $cleanupkeys = false)
 	{
-		$words = array_diff(explode(' ',$words),array(''));
-
+		$old_keys = self::get_keywords($art_id);
+		$words = explode(' ',$words);
+		$to_delete = array_diff($old_keys, $words);
 		// delete all existing and NOT longer mentioned keywords
-		$this->db->delete('egw_kb_search',!$words ? array('art_id' => $art_id) :
-			$this->db->expression('egw_kb_search',array('art_id' => $art_id),' AND NOT ',array('keyword'=>$words)),
-			__LINE__,__FILE__);
+		if ($cleanupkeys && !empty($to_delete)) self::delete_keywords($art_id, implode(' ',$to_delete));
 
 		foreach($words as $word)
 		{
-			$this->update_keyword($art_id,$word,$upgrade_key);
+			self::update_keyword($art_id,$word,$upgrade_key);
+		}
+	}
+
+	/**
+	* Checks if there is already an keyword in the db with the given ID
+	*
+	* @author	Klaus Leithoff
+	* @access	public
+	* @param	int		$art_id		article id
+	* @param	string	$word		keyword
+	* @param	int		$score		score (reference)
+	* @return	int				1 if there is one, 0 if not
+	**/
+	function exist_keyword($article_id, $word, &$score=1)
+	{
+		$fields_str = "count(art_id), score";
+		$where = array(
+			'art_id'=>$article_id,
+			'keyword'=>$word
+		);
+		foreach(self::$db->select('egw_kb_search',$fields_str,$where,__LINE__,__FILE__,false,' GROUP BY score ',PHPBRAIN_APP) as $row)
+		{
+			#error_log(__METHOD__.$row['count(art_id)'].'#' .$row['score']);
+			$score = $row['score'];
+			return $row['count(art_id)'];
 		}
 	}
 
@@ -331,25 +417,27 @@ class sokb
 	*/
 	function update_keyword($art_id, $word, $upgrade_key)
 	{
-		$word = $this->db->db_addslashes(substr($word, 0, 30));
-
 		// retrieve current score
-		$sql = "SELECT score FROM egw_kb_search WHERE keyword='$word' AND art_id=$art_id";
-		$this->db->query($sql, __LINE__, __FILE__);
-		$keyword_exists = $this->db->next_record();
-		if ($keyword_exists && $upgrade_key != 'same')
+		$keyword_exists = self::exist_keyword($art_id, $word, $old_score);
+		#error_log(__METHOD__.$word.'#'.$keyword_exists.'#' .$old_score.'#'.$upgrade_key);
+		if ($keyword_exists )
 		{
 			// upgrade score
-			$old_score = $this->db->f('score');
 			$new_score = $upgrade_key ? $old_score + 1 : $old_score - 1;
-			$sql = "UPDATE egw_kb_search SET score=$new_score WHERE keyword='$word' AND art_id=$art_id";
-			$this->db->query($sql, __LINE__, __FILE__);
+			#error_log(__METHOD__."Update".$old_score."#".$upgrade_key);
+			$where = array( 'art_id' => $art_id, 'keyword' => $word);
+			$valuzes = array('score'=> $new_score);
+			if (!($upgrade_key === 'same')) {
+				#error_log(__METHOD__."Update".$new_score."#".$upgrade_key);
+				self::$db->update('egw_kb_search',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP);
+			}
 		}
-		elseif (!$keyword_exists || $upgrade_key != 'same')
+		else
 		{
 			// create new entry for word
-			$sql = "INSERT INTO egw_kb_search (keyword, art_id, score) VALUES('$word', $art_id, 1)";
-			$this->db->query($sql, __LINE__, __FILE__);
+			#error_log(__METHOD__."Insert");
+			$where = $valuzes = array( 'art_id' => $art_id, 'keyword' => $word, 'score'=> 1);
+			self::$db->insert('egw_kb_search',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP);
 		}
 	}
 
@@ -390,25 +478,24 @@ class sokb
 		}
 		if ($query)
 		{
-			$query = $this->db->db_addslashes($query);
+			$query = self::$db->db_addslashes($query);
 			$words = explode(' ', $query);
-			$sql .= " AND (summary {$this->like} '%" . implode("%' OR summary {$this->like} '%", $words) . "%' OR details {$this->like} '%" . implode("%' OR details {$this->like} '%", $words) . "%')";
+			$sql .= " AND (summary {self::$like} '%" . implode("%' OR summary {self::$like} '%", $words) . "%' OR details {self::$like} '%" . implode("%' OR details {self::$like} '%", $words) . "%')";
 		}
 		if ($order)
 		{
 			$sql .= " ORDER BY $order $sort";
 		}
 		//echo "sql: $sql <br><br>";
-		$this->db->query($sql, __LINE__, __FILE__);
-		$this->num_rows = $this->db->num_rows();
-		$this->num_questions = $this->num_rows;
-		$this->db->limit_query($sql, $start, __LINE__, __FILE__, $upper_limit);
+		self::$db->query($sql, __LINE__, __FILE__);
+		self::$num_questions = self::$num_rows = self::$db->num_rows();
+		self::$db->limit_query($sql, $start, __LINE__, __FILE__, $upper_limit);
 		$questions = array();
-		for ($i=0; $this->db->next_record(); $i++)
+		for ($i=0; self::$db->next_record(); $i++)
 		{
 			foreach ($fields as $field)
 			{
-				$questions[$i][$field] = $this->db->f($field);
+				$questions[$i][$field] = self::$db->f($field);
 			}
 			$username = $GLOBALS['egw']->accounts->get_account_name($questions[$i]['user_id'], $lid, $fname, $lname);
 			$questions[$i]['username'] = $fname . ' ' . $lname;
@@ -428,53 +515,57 @@ class sokb
 	**/
 	function save_article($contents, $is_new, $publish = False)
 	{
-		$current_time = time();
+		$current_time = self::$now;
 		if ($is_new)
 		{
 			($publish)? $publish = 1 : $publish = 0;
 			$q_id = $contents['answering_question']? $contents['answering_question'] : 0;
-			$sql = "INSERT INTO egw_kb_articles (q_id, title, topic, text, cat_id, published, user_id, created, modified, modified_user_id, votes_1, votes_2, votes_3, votes_4, votes_5) VALUES ("
-					. "$q_id, '"
-					. $this->db->db_addslashes($contents['title']) . "', '"
-					. $this->db->db_addslashes($contents['topic']) . "', '"
-					. $this->db->db_addslashes($contents['text']) . "', "
-					. (int) $contents['cat_id'] . ", "
-					. $publish . ", "
-					. $GLOBALS['egw_info']['user']['account_id'] . ", "
-					. $current_time . ", " . $current_time . ", "
-					. $GLOBALS['egw_info']['user']['account_id'] . ", "
-					. " 0, 0, 0, 0, 0)";
-			$this->db->query($sql, __LINE__, __FILE__);
-			$article_id = $this->db->get_last_insert_id('egw_kb_articles', 'art_id');
-
+			$valuzes = array(
+				'q_id'	=> $q_id,
+				'title' => $contents['title'],
+				'topic'	=> $contents['topic'],
+				'text'	=> $contents['text'],
+				'cat_id'=> (int) $contents['cat_id'],
+				'published'	=> $publish,
+				'user_id'	=> $GLOBALS['egw_info']['user']['account_id'],
+				'created'	=> $current_time,
+				'modified'	=> $current_time,
+				'modified_user_id'	=> $GLOBALS['egw_info']['user']['account_id'],
+				'votes_1'	=> 0, 
+				'votes_2'	=> 0, 
+				'votes_3'	=> 0, 
+				'votes_4'	=> 0, 
+				'votes_5'	=> 0,
+			);
+			self::$db->insert('egw_kb_articles',$valuzes,array(),__LINE__,__FILE__,PHPBRAIN_APP);
+			$article_id = self::$db->get_last_insert_id('egw_kb_articles', 'art_id');
+			#error_log(__METHOD__.":$article_id created");
 			// update table egw_kb_search with keywords. Even if no keywords were introduced, generate an entry
-			$this->update_keywords($article_id, $contents['keywords'], 'same');
+			self::update_keywords($article_id, $contents['keywords'], 'same');
 
 			// if publication is automatic and the article answers a question, delete the question
 			if ($publish && $contents['answering_question'])
 			{
-				$sql = "DELETE FROM egw_kb_questions WHERE question_id=$q_id";
-				$this->db->query($sql, __LINE__, __FILE__);
+				self::delete_question($q_id);
 			}
 
 			return $article_id;
 		}
 		else
 		{
-			$sql = "UPDATE egw_kb_articles SET "
-					." title='" . $this->db->db_addslashes($contents['title'])
-					."', topic='" . $this->db->db_addslashes($contents['topic'])
-					."', text='" . $this->db->db_addslashes($contents['text'])
-					."', cat_id='" . (int)($contents['cat_id'])
-					."', modified=" . $current_time
-					.", modified_user_id=" . $GLOBALS['egw_info']['user']['account_id']
-					." WHERE art_id=" . $contents['editing_article_id'];
-			$this->db->query($sql, __LINE__, __FILE__);
+			$valuzes = array('title'=>$contents['title'],
+					'topic'=> $contents['topic'],
+					'text' => $contents['text'],
+					'cat_id'=> (int)$contents['cat_id'],
+					'modified' => $current_time,
+					'modified_user_id' => $GLOBALS['egw_info']['user']['account_id'],
+			);
 			$queries_ok = false;
-			if ($this->db->affected_rows()) $queries_ok = true;
+			$where = array('art_id'=>$contents['editing_article_id']);
+			$queries_ok = self::$db->update('egw_kb_articles',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP);
 
-			// update keywords
-			$this->update_keywords($contents['editing_article_id'],$contents['keywords'], True, False);
+			// update keywords, preserve keyword score
+			self::update_keywords($contents['editing_article_id'],$contents['keywords'], 'same', True);
 
 			if ($queries_ok)
 			{
@@ -498,8 +589,9 @@ class sokb
 	**/
 	function change_articles_owner($owner, $new_owner)
 	{
-		$sql = "UPDATE egw_kb_articles SET user_id='$new_owner' WHERE user_id='$owner'";
-		$this->db->query($sql, __LINE__, __FILE__);
+		$valuzes = array( 'user_id'=>$new_owner);
+		$where = array('user_id'=>$owner);
+		self::$db->update('egw_kb_articles',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP);
 	}
 
 	/**
@@ -512,9 +604,16 @@ class sokb
 	**/
 	function delete_article($art_id)
 	{
-		$sql = "DELETE FROM egw_kb_articles WHERE art_id=$art_id";
-		if (!$this->db->query($sql, __LINE__, __FILE__)) return 0;
-		return 1;
+		$deleted = true;
+		$where = array(
+			'art_id' =>$art_id,
+		);
+		if ($art_id &&  !self::$db->delete('egw_kb_articles',$where,__LINE__,__FILE__,PHPBRAIN_APP)) {
+			error_log(__FILE__.':'.__METHOD__,":Could not delete article No.:$art_id");
+			$deleted = false;
+		}
+		if ($deleted) self::delete_keywords($art_id);
+		return $deleted;
 	}
 
 	/**
@@ -527,9 +626,15 @@ class sokb
 	**/
 	function delete_question($q_id)
 	{
-		$sql = "DELETE FROM egw_kb_questions WHERE question_id=$q_id";
-		if (!$this->db->query($sql, __LINE__, __FILE__)) return 0;
-		return 1;
+		$deleted = true;
+		$where = array(
+			'question_id' =>$q_id,
+		);
+		if ($q_id &&  !self::$db->delete('egw_kb_questions',$where,__LINE__,__FILE__,PHPBRAIN_APP)) {
+			error_log(__FILE__.':'.__METHOD__,":Could not delete Question No.:$q_id");
+			$deleted = false;
+		}
+		return $deleted;
 	}
 
 	/**
@@ -540,26 +645,29 @@ class sokb
 	* @param	int	$parent_cat	Category id
 	* @return	array	Articles
 	*/
+	/*
+ 	not used anymore? 
 	function get_latest_articles($parent_cat)
 	{
 		$sql = "SELECT art_id, title, topic, text, modified, votes_1, votes_2, votes_3, votes_4, votes_5 FROM egw_kb_articles";
-		$this->db->query($sql, __LINE__, __FILE__);
+		self::$db->query($sql, __LINE__, __FILE__);
 
 		$articles = array();
-		while ($this->db->next_record())
+		while (self::$db->next_record())
 		{
-			$rating = 1*$this->db->f('votes_1') + 2*$this->db->f('votes_2') + 3*$this->db->f('votes_3') + 4*$this->db->f('votes_4') + 5*$this->db->f('votes_5');
-			$articles[$this->db->f('art_id')] = array(
-				'title'		=> $this->db->f('title'),
-				'topic'		=> $this->db->f('topic'),
-				'text'		=> $this->db->f('text'),
-				'modified'	=> $this->db->f('modified'),
+			$rating = 1*self::$db->f('votes_1') + 2*self::$db->f('votes_2') + 3*self::$db->f('votes_3') + 4*self::$db->f('votes_4') + 5*self::$db->f('votes_5');
+			$articles[self::$db->f('art_id')] = array(
+				'title'		=> self::$db->f('title'),
+				'topic'		=> self::$db->f('topic'),
+				'text'		=> self::$db->f('text'),
+				'modified'	=> self::$db->f('modified'),
 				'rating'	=> $rating
 			);
 		}
 
 		return $articles;
 	}
+	*/
 
 	/**
 	* Returns article
@@ -573,35 +681,21 @@ class sokb
 	{
 		$fields = array('art_id', 'title', 'topic', 'text', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'modified_user_id', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5');
 		$fields_str = implode(", ", $fields);
-
-		$sql =	"SELECT $fields_str FROM egw_kb_articles WHERE art_id=$art_id";
-		//echo "sql: $sql <br>";
-		$this->db->query($sql, __LINE__, __FILE__);
-		$article = array();
-		if (!$this->db->next_record()) return 0;
-		foreach ($fields as $field)
+		$where = array('art_id'=>$art_id);
+		$article=array();
+		foreach(self::$db->select('egw_kb_articles',$fields_str,$where,__LINE__,__FILE__,false,'',PHPBRAIN_APP) as $row)
 		{
-			$article[$field] = $this->db->f($field);
+			foreach ($fields as $field)
+			{
+				$article[$field] = $row[$field];
+			}
 		}
-
 		// get article's attached urls
-		$this->db->query("SELECT art_url, art_url_title FROM egw_kb_urls WHERE art_id=$art_id", __LINE__, __FILE__);
-		$article['urls'] = array();
-		$i = 0;
-		while ($this->db->next_record())
-		{
-			$article['urls'][$i]['link'] = $this->db->f('art_url');
-			$article['urls'][$i]['title'] = $this->db->f('art_url_title');
-			$i++;
+		foreach ( self::get_urls($art_id) as $url ) {
+			$article['urls'][] = array('link' => $url['art_url'], 'title' =>$url['art_url_title']);
 		}
-
 		// get article's keywords
-		$this->db->query("SELECT keyword FROM egw_kb_search WHERE art_id=$art_id", __LINE__, __FILE__);
-		$article['keywords'] = array();
-		while ($this->db->next_record())
-		{
-			$article['keywords'][] = $this->db->f('keyword');
-		}
+		$article['keywords'] = self::get_keywords($art_id);
 		$article['keywords'] = implode(' ', $article['keywords']);
 
 		// normalize vote frequence to the range 0 - 40
@@ -620,6 +714,44 @@ class sokb
 	}
 
 	/**
+	* Returns article's keywords
+	*
+	* @author	klaus Leithoff
+	* @param	int		$art_id		article id
+	* @return	array				keywords
+	*/
+	function get_keywords($art_id)
+	{
+		$fields_str = "keyword";
+		$rv = array();
+		$where = array('art_id'=>$art_id );
+		foreach(self::$db->select('egw_kb_search',$fields_str,$where,__LINE__,__FILE__,false,' ORDER BY keyword ASC',PHPBRAIN_APP) as $row)
+		{
+			$rv[] = $row[$fields_str];
+		}
+		return $rv;
+	}
+
+ 	/**
+	* Returns article's urls
+	*
+	* @author	klaus Leithoff
+	* @param	int		$art_id		article id
+	* @return	array				URLs
+	*/
+	function get_urls($art_id)
+	{
+		$fields_str = "art_url, art_url_title";
+		$rv = array();
+		$where = array('art_id'=>$art_id );
+		foreach(self::$db->select('egw_kb_urls',$fields_str,$where,__LINE__,__FILE__,false,' ORDER BY art_url_title ASC',PHPBRAIN_APP) as $row)
+		{
+			$rv[] = $row;
+		}
+		return $rv;
+	}
+
+	/**
 	* Returns all articles ids from a given owner
 	*
 	* @author	Alejandro Pedraza
@@ -629,14 +761,14 @@ class sokb
 	**/
 	function get_articles_ids($owner)
 	{
-		$sql = "SELECT art_id FROM egw_kb_articles WHERE user_id=$owner";
-		$this->db->query($sql, __LINE__, __FILE__);
-		$articles_ids = array();
-		while ($this->db->next_record())
+		$fields_str = "art_id";
+		$rv = array();
+		$where = array('user_id'=>$owner,);
+		foreach(self::$db->select('egw_kb_articles',$fields_str,$where,__LINE__,__FILE__,false,'',PHPBRAIN_APP) as $row)
 		{
-			$articles_ids[] = $this->db->f('art_id');
+			$rv[] = $row[$field_str];
 		}
-		return $articles_ids;
+		return $rv;
 	}
 
 	/**
@@ -650,8 +782,13 @@ class sokb
 	function register_view($art_id, $current_count)
 	{
 		$current_count ++;
-		$sql = "UPDATE egw_kb_articles SET views=$current_count WHERE art_id=$art_id";
-		$this->db->query($sql, __LINE__, __FILE__);
+		$valuzes = array(
+			'views' => $current_count,
+		);
+		$where = array(
+			'art_id' =>$art_id,
+		);
+		self::$db->update('egw_kb_articles',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP);
 	}
 
 	/**
@@ -664,24 +801,14 @@ class sokb
 	*/
 	function get_comments($art_id, $limit)
 	{
-		$fields = array('comment_id', 'user_id', 'kb_comment', 'entered', 'art_id', 'published');
-		$fields_str = implode(", ", $fields);
-		$sql = "SELECT " . $fields_str . " FROM egw_kb_comment WHERE art_id=$art_id ORDER BY entered DESC";
-		$this->db->query($sql, __LINE__, __FILE__);
-		$this->num_comments = $this->db->num_rows();
-		if ($limit)
-		{
-			$this->db->limit_query($sql, 0, __LINE__, __FILE__, $limit);
-		}
+		$fields_str = "comment_id, user_id, kb_comment, entered, art_id, published";
 		$comments = array();
-		for ($i=0; $this->db->next_record(); $i++)
+		$where = array('art_id'=>$art_id );
+		foreach(self::$db->select('egw_kb_comment',$fields_str,$where,__LINE__,__FILE__,($limit ? 0:false),' ORDER BY entered DESC',PHPBRAIN_APP,$limit) as $row)
 		{
-			foreach ($fields as $field)
-			{
-				$comments[$i][$field] = $this->db->f($field);
-			}
-			$GLOBALS['egw']->accounts->get_account_name($comments[$i]['user_id'], $lid, $fname, $lname);
-			$comments[$i]['username'] = $fname . ' ' . $lname;
+			$GLOBALS['egw']->accounts->get_account_name($row['user_id'], $lid, $fname, $lname);
+			$row['username'] = $fname . ' ' . $lname;
+			$comments[] = $row;
 		}
 		return $comments;
 	}
@@ -696,8 +823,7 @@ class sokb
 	*/
 	function delete_comments($art_id)
 	{
-		$sql = "DELETE FROM egw_kb_comment WHERE art_id=$art_id";
-		$this->db->query($sql, __LINE__, __FILE__);
+		if ($art_id) self::$db->delete('egw_kb_comment',array('art_id' => $art_id),__LINE__,__FILE__,PHPBRAIN_APP);
 	}
 
 	/**
@@ -710,8 +836,7 @@ class sokb
 	*/
 	function delete_ratings($art_id)
 	{
-		$sql = "DELETE FROM egw_kb_ratings WHERE art_id=$art_id";
-		$this->db->query($sql, __LINE__, __FILE__);
+		if ($art_id) self::$db->delete('egw_kb_ratings',array('art_id' => $art_id),__LINE__,__FILE__,PHPBRAIN_APP);
 	}
 
 	/**
@@ -724,8 +849,7 @@ class sokb
 	*/
 	function delete_urls($art_id)
 	{
-		$sql = "DELETE FROM egw_kb_urls WHERE art_id=$art_id";
-		$this->db->query($sql, __LINE__, __FILE__);
+		if ($art_id) self::$db->delete('egw_kb_urls',array('art_id' => $art_id),__LINE__,__FILE__,PHPBRAIN_APP);
 	}
 
 	/**
@@ -740,12 +864,17 @@ class sokb
 	function get_related_articles($art_id, $owners)
 	{
 		$owners = implode(', ', $owners);
-		$sql = "SELECT egw_kb_articles.art_id, egw_kb_articles.title FROM egw_kb_related_art, egw_kb_articles WHERE egw_kb_related_art.related_art_id=egw_kb_articles.art_id AND egw_kb_related_art.art_id=$art_id AND egw_kb_articles.user_id IN ($owners)";
-		$this->db->query($sql, __LINE__, __FILE__);
+		$fields_str = "egw_kb_articles.art_id, egw_kb_articles.title";
 		$related = array();
-		while ($this->db->next_record())
+		$where = array(
+			'egw_kb_related_art.related_art_id=egw_kb_articles.art_id',
+			'egw_kb_related_art.art_id='. $art_id, 
+			'egw_kb_articles.user_id in ('.$owners.')',
+		);
+		foreach(self::$db->select('egw_kb_articles',$fields_str,$where,__LINE__,__FILE__,false,'',PHPBRAIN_APP,0,
+			", egw_kb_related_art") as $row)
 		{
-			$related[] = array('art_id' => $this->db->f('art_id'), 'title' => $this->db->f('title'));
+			$related[] = $row;
 		}
 		return $related;
 	}
@@ -760,10 +889,12 @@ class sokb
 	**/
 	function user_has_voted($art_id)
 	{
-		$sql = "SELECT * FROM egw_kb_ratings WHERE user_id=" . $GLOBALS['egw_info']['user']['account_id'] . " AND art_id=$art_id";
-		$this->db->query($sql, __LINE__, __FILE__);
-		if ($this->db->next_record()) return 1;
-		return 0;
+		$fields_str = "count(art_id)";
+		$where = array('art_id'=>$article_id, 'user_id'=> $GLOBALS['egw_info']['user']['account_id']);
+		foreach(self::$db->select('egw_kb_ratings',$fields_str,$where,__LINE__,__FILE__,false,'',PHPBRAIN_APP) as $row)
+		{
+			return $row[$fields_str];
+		}
 	}
 
 	/**
@@ -778,13 +909,22 @@ class sokb
 	**/
 	function add_comment($comment, $art_id, $publish)
 	{
-		$comment = $this->db->db_addslashes($comment);
 		($publish)? $publish = 1 : $publish = 0;
-		$sql = "INSERT INTO egw_kb_comment (user_id, kb_comment, entered, art_id, published) VALUES("
-				. $GLOBALS['egw_info']['user']['account_id'] . ", '$comment', " . time() . ", $art_id, $publish)";
-		$this->db->query($sql, __LINE__, __FILE__);
-		if (!$this->db->affected_rows()) return 0;
-		return 1;
+		$added = true;
+		$valuzes = array(
+			'user_id' => $GLOBALS['egw_info']['user']['account_id'],
+			'kb_comment' => $comment,
+			'entered' => self::$now,
+			'art_id' => $art_id,
+			'published' =>$publish
+		);
+		$where = $valuzes;
+		unset($where['entered']);
+		if (!self::$db->insert('egw_kb_comment',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP)) {
+			error_log(__FILE__.':'.__METHOD__,":Could not add comment to Articel No.:$art_id");
+			$added = false;
+		}
+		return $added;
 	}
 
 	/**
@@ -799,10 +939,18 @@ class sokb
 	*/
 	function add_link($url, $title, $art_id)
 	{
-		$sql = "INSERT INTO egw_kb_urls (art_id, art_url, art_url_title) VALUES ($art_id, '$url', '$title')";
-		$this->db->query($sql, __LINE__, __FILE__);
-		if (!$this->db->affected_rows()) return 0;
-		return 1;
+		$added = true;
+		$valuzes = array(
+			'art_id' => $art_id,
+			'art_url' =>$url,
+			'art_url_title'=>$title,
+		);
+		$where = $valuzes;
+		if (!self::$db->insert('egw_kb_urls',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP)) {
+			error_log(__FILE__.':'.__METHOD__,":Could not add urls to Article No.:$art_id");
+			$added = false;
+		}
+		return true;
 	}
 
 	/**
@@ -815,16 +963,25 @@ class sokb
 	**/
 	function publish_article($art_id)
 	{
-		$sql = "UPDATE egw_kb_articles SET published=1, created=". time() . ", modified=" . time() . " WHERE art_id=$art_id";
-		$this->db->query($sql, __LINE__, __FILE__);
+		$updated = true;
+		$valuzes = array(
+			'published' => 1,
+			'created'	=> self::$now,
+			'modified'	=> self::$now,
+		);
+		$where = array(
+			'art_id' =>$art_id,
+		);
+		if (!self::$db->update('egw_kb_articles',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP)) {
+			error_log(__FILE__.':'.__METHOD__,":Could not update (publish) article No.:$art_id");
+			$updated = false;
+		}
 
 		// check if the article answers a question, and if so, delete it
-		$sql = "SELECT q_id FROM egw_kb_articles WHERE art_id=$art_id";
-		$this->db->query($sql, __LINE__, __FILE__);
-		if ($this->db->next_record())
+		$fields_str = "q_id";
+		foreach(self::$db->select('egw_kb_articles',$fields_str,$where,__LINE__,__FILE__,false,'',PHPBRAIN_APP) as $row)
 		{
-			$sql = "DELETE FROM egw_kb_questions WHERE question_id=".$this->db->f('q_id');
-			$this->db->query($sql, __LINE__, __FILE__);
+			self::delete_question($row[$fields_str]);
 		}
 
 		return True;
@@ -840,9 +997,18 @@ class sokb
 	**/
 	function publish_question($q_id)
 	{
-		$sql = "UPDATE egw_kb_questions SET published=1 WHERE question_id=$q_id";
-		$this->db->query($sql, __LINE__, __FILE__);
-		return ($this->db->affected_rows());
+		$updated = true;
+		$valuzes = array(
+			'published' => 1,
+		);
+		$where = array(
+			'question_id' =>$q_id,
+		);
+		if (!self::$db->update('egw_kb_questions',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP)) {
+			error_log(__FILE__.':'.__METHOD__,":Could not publish question $q_id");
+			$updated = false;
+		}
+		return $updated;
 	}
 
 	/**
@@ -856,9 +1022,19 @@ class sokb
 	*/
 	function publish_comment($art_id, $comment_id)
 	{
-		$sql = "UPDATE egw_kb_comment SET published=1 WHERE art_id=$art_id AND comment_id=$comment_id";
-		$this->db->query($sql, __LINE__, __FILE__);
-		return ($this->db->affected_rows());
+		$updated = true;
+		$valuzes = array(
+			'published' => 1,
+		);
+		$where = array(
+			'art_id' =>$art_id,
+			'comment_id' => $comment_id,
+		);
+		if (!self::$db->update('egw_kb_comment',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP)) {
+			error_log(__FILE__.':'.__METHOD__,":Could not update (publish) comment $comment_id for Articel No.:$art_id");
+			$updated = false;
+		}
+		return $updated;
 	}
 
 	/**
@@ -872,9 +1048,16 @@ class sokb
 	*/
 	function delete_comment($art_id, $comment_id)
 	{
-		$sql = "DELETE FROM egw_kb_comment WHERE art_id=$art_id AND comment_id=$comment_id";
-		$this->db->query($sql, __LINE__, __FILE__);
-		return ($this->db->affected_rows());
+		$deleted = true;
+		$where = array(
+			'art_id' => $art_id,
+			'comment_id' => $comment_id,
+		);
+		if (!self::$db->delete('egw_kb_comment',$where,__LINE__,__FILE__,PHPBRAIN_APP)) {
+			error_log(__FILE__.':'.__METHOD__,":Could not delete comment $comment_id for article No.:$art_id");
+			$deleted = false;
+		}
+		return $deleted;
 	}
 
 	/**
@@ -888,11 +1071,16 @@ class sokb
 	*/
 	function delete_link($art_id, $delete_link)
 	{
-		$delete_link = $this->db->db_addslashes($delete_link);
-		$sql = "DELETE FROM egw_kb_urls WHERE art_id=$art_id AND art_url='$delete_link'";
-		$this->db->query($sql, __LINE__, __FILE__);
-		if (!$this->db->affected_rows()) return 0;
-		return 1;
+		$deleted = true;
+		$where = array(
+			'art_id' =>$art_id,
+			'art_url'=> $delete_link,
+		);
+		if ($art_id &&  !self::$db->delete('egw_kb_urls',$where,__LINE__,__FILE__,PHPBRAIN_APP)) {
+			error_log(__FILE__.':'.__METHOD__,":Could not delete Articel No.:$art_id from egw_kb_urls");
+			$deleted = false;
+		}
+		return $deleted;
 	}
 
 	/**
@@ -907,11 +1095,19 @@ class sokb
 	**/
 	function add_vote($art_id, $rating, $current_rating)
 	{
+		$updated = true;
 		$new_rating = $current_rating + 1;
-		$sql = "UPDATE egw_kb_articles SET votes_" . $rating . "=$new_rating WHERE art_id=$art_id";
-		$this->db->query($sql, __LINE__, __FILE__);
-		if (!$this->db->affected_rows()) return 0;
-		return 1;
+		$valuzes = array(
+			'votes_'.$rating => $new_rating,
+		);
+		$where = array(
+			'art_id' =>$art_id,
+		);
+		if (!self::$db->update('egw_kb_articles',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP)) {
+			error_log(__FILE__.':'.__METHOD__,":Could not update Articel No.:$art_id with new rating");
+			$updated = false;
+		}
+		return $updated;
 	}
 
 	/**
@@ -920,14 +1116,21 @@ class sokb
 	* @author	Alejandro Pedraza
 	* @access	public
 	* @param	int	$art_id		article id
-	* @return	bool			1 on success, 0 on failure
+	* @return	bool		,	1 on success, 0 on failure
 	**/
 	function add_rating_user($art_id)
 	{
-		$sql = "INSERT INTO egw_kb_ratings (user_id, art_id) VALUES(" . $GLOBALS['egw_info']['user']['account_id'] . ", $art_id)";
-		$this->db->query($sql, __LINE__, __FILE__);
-		if (!$this->db->affected_rows()) return 0;
-		return 1;
+		$added = true;
+		$valuzes = array(
+			'user_id' => $GLOBALS['egw_info']['user']['account_id'],
+			'art_id' =>$art_id
+		);
+		$where = $valuzes;
+		if (!self::$db->insert('egw_kb_ratings',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP)) {
+			error_log(__FILE__.':'.__METHOD__,":Could not add voting for Articel No.:$art_id by user No.:$user_id");
+			$added = false;	
+		}
+		return $added;
 	}
 
 	/**
@@ -940,9 +1143,12 @@ class sokb
 	**/
 	function exist_articleID($article_id)
 	{
-		$sql = "SELECT art_id FROM egw_kb_articles WHERE art_id=" . $article_id;
-		$this->db->query($sql, __LINE__, __FILE__);
-		return $this->db->next_record();
+		$fields_str = "count(art_id)";
+		$where = array('art_id'=>$article_id);
+		foreach(self::$db->select('egw_kb_articles',$fields_str,$where,__LINE__,__FILE__,false,'',PHPBRAIN_APP) as $row)
+		{
+			return $row[$fields_str];
+		}
 	}
 
 	/**
@@ -955,13 +1161,12 @@ class sokb
 	*/
 	function owners_list($articles)
 	{
-		$articles = implode(', ', $articles);
-		$sql = "SELECT art_id, user_id FROM egw_kb_articles WHERE art_id IN($articles)";
-		$this->db->query($sql, __LINE__, __FILE__);
+		$fields_str = "art_id, user_id";
 		$owners = array();
-		while ($this->db->next_record())
+		$where = array('art_id'=>(array)$articles);
+		foreach(self::$db->select('egw_kb_articles',$fields_str,$where,__LINE__,__FILE__,false,'',PHPBRAIN_APP) as $row)
 		{
-			$owners[] = array('art_id' => $this->db->f('art_id'), 'user_id' => $this->db->f('user_id'));
+			$owners[] = $row;
 		}
 		return $owners;
 	}
@@ -977,12 +1182,23 @@ class sokb
 	*/
 	function add_related($art_id, $articles)
 	{
-		$added = False;
-		foreach ($articles as $article)
+		$added = true;
+		foreach ((array)$articles as $article)
 		{
-			$sql = "INSERT INTO egw_kb_related_art (art_id, related_art_id) VALUES($art_id, $article)";
-			$this->db->query($sql, __LINE__, __FILE__);
-			if ($this->db->affected_rows()) $added = True;
+			if ($art_id == $article) {
+				error_log(__FILE__.':'.__METHOD__,":Sorry, I dont relate an Articel (No.:$article) to itself");
+				continue;
+			}
+			$added = true;
+			$valuzes = array(
+				'art_id' => $art_id, 
+				'related_art_id' =>$article
+			);
+			$where = $valuzes;
+			if (!self::$db->insert('egw_kb_related_art',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP)) {
+				error_log(__FILE__.':'.__METHOD__,":Could not add related Articel No.:$article to Article No.:$art_id"); 
+				$added = false;
+			}
 		}
 		return $added;
 	}
@@ -999,8 +1215,8 @@ class sokb
 	function delete_related($art_id, $related_id, $all = False)
 	{
 		$sql_operator = $all? 'OR' : 'AND';
-		$sql = "DELETE FROM egw_kb_related_art WHERE art_id=$art_id $sql_operator related_art_id=$related_id";
-		$this->db->query($sql, __LINE__, __FILE__);
+		self::$db->delete('egw_kb_related_art',(array) self::$db->expression('egw_kb_related_art',
+							array('art_id'=>$art_id)," $sql_operator ",array('related_art_id'=>$related_id)),__LINE__,__FILE__,PHPBRAIN_APP);
 	}
 
 	/**
@@ -1013,8 +1229,7 @@ class sokb
 	*/
 	function delete_search($art_id)
 	{
-		$sql = "DELETE FROM egw_kb_search WHERE art_id=$art_id";
-		$this->db->query($sql, __LINE__, __FILE__);
+		if ($art_id) self::$db->delete('egw_kb_search',array('art_id' => $art_id),__LINE__,__FILE__,PHPBRAIN_APP);
 	}
 
 	/**
@@ -1029,15 +1244,22 @@ class sokb
 	function add_question($data, $publish)
 	{
 		($publish)? $publish = 1 : $publish = 0;
-		$sql = "INSERT INTO egw_kb_questions (user_id, summary, details, cat_id, creation, published) VALUES ("
-				. $GLOBALS['egw_info']['user']['account_id'] . ", '"
-				. $this->db->db_addslashes($data['summary']) . "', '"
-				. $this->db->db_addslashes($data['details']) . "', "
-				. (int)$data['cat_id'] . ", "
-				. time() . ", "
-				. $publish . ")";
-		$this->db->query($sql, __LINE__, __FILE__);
-		return $this->db->affected_rows();
+		
+		$question = array(
+			'user_id'	=>	$GLOBALS['egw_info']['user']['account_id'],
+			'summary'	=>	$data['summary'],
+			'details'	=>	$data['details'],
+			'cat_id'	=>	(int)$data['cat_id'],
+			'creation'	=>	self::$now,
+			'published'	=>	$publish,
+		);
+
+		self::$db->insert('egw_kb_questions',$question,false,__LINE__,__FILE__,PHPBRAIN_APP);
+		if (!($q_id = self::$db->get_last_insert_id('egw_kb_questions','question_id')))
+		{
+			return false;
+		}
+		return 1;
 	}
 
 	/**
@@ -1050,17 +1272,13 @@ class sokb
 	*/
 	function get_question($q_id)
 	{
-		$fields = array('user_id', 'summary', 'details', 'cat_id', 'creation');
-		$fields_str = implode(", ", $fields);
-
-		$sql = "SELECT $fields_str FROM egw_kb_questions WHERE question_id=$q_id AND published=1";
-		$this->db->query($sql, __LINE__, __FILE__);
+		$fields_str = "user_id, summary, details, cat_id, creation";
 		$question = array();
-		while ($this->db->next_record())
+		$where = array('question_id'=>$q_id, 'published'=> 1);
+		foreach(self::$db->select('egw_kb_questions',$fields_str,$where,__LINE__,__FILE__,false,'',PHPBRAIN_APP) as $row)
 		{
-			foreach ($fields as $field)
-			{
-				$question[$field] = $this->db->f($field);
+			foreach($row as $key => $value) {
+				$question[$key] = $value;
 			}
 		}
 		return $question;
