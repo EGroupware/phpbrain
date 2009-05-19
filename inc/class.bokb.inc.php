@@ -564,6 +564,9 @@ class bokb extends sokb
 		$content['text'] =& $content['exec']['text'];
 		unset($content['exec']);
 
+		// running text input of user through htmlpurifier
+		$content['text'] = html::purify($content['text']);
+
 		// if editing an article, check it has the right to do so
 		if ($content['editing_article_id'] && !($this->check_permission($this->edit_right)))
 		{
