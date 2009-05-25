@@ -132,6 +132,7 @@ class sokb
 	*/
 	function search_articles($owners, $categories, $start, $upper_limit = '', $sort, $order, $publish_filter = False, $query)
 	{
+		$loclike = self::$like;
 		$where = array(
 			'user_id' => $owners,
 			'cat_id'  => !$categories ? 0 : $categories,
@@ -156,7 +157,7 @@ class sokb
 				}
 				foreach(array('title','topic','text') as $col)
 				{
-					$likes[] = $col.' '.self::$like.' '.self::$db->quote('%'.$word.'%');
+					$likes[] = $col.' '.$loclike.' '.self::$db->quote('%'.$word.'%');
 				}
 			}
 			$score = 'SELECT sum(score) FROM egw_kb_search WHERE art_id=egw_kb_articles.art_id AND ('.implode(' OR ',$scores).')';
@@ -210,6 +211,7 @@ class sokb
 	*/
 	function adv_search_articles($owners, $cats_ids, $ocurrences, $pub_date, $start, $num_res, $all_words, $phrase, $one_word, $without_words, $cat, $include_subs)
 	{
+		$loclike = self::$like;
 		$fields= array('egw_kb_articles.art_id', 'title', 'topic', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2',  'votes_3', 'votes_4', 'votes_5');
 		$fields_str	= implode(' , ', $fields);
 
@@ -260,7 +262,7 @@ class sokb
 		{
 			foreach ($all_words as $word)
 			{
-				$each_field[] = "(" . implode(" {self::$like} '%$word%' OR ", $target_fields) . " {self::$like} '%$word%')";
+				$each_field[] = "(" . implode(" {$loclike} '%$word%' OR ", $target_fields) . " {$loclike} '%$word%')";
 			}
 			if ($each_field)
 			{
@@ -272,7 +274,7 @@ class sokb
 		$phrase = self::$db->db_addslashes($phrase);
 		if ($phrase)
 		{
-			$sql .= " AND (" . implode (" {self::$like} '%$phrase%' OR ", $target_fields) . " {self::$like} '%$phrase%')";
+			$sql .= " AND (" . implode (" {$loclike} '%$phrase%' OR ", $target_fields) . " {$loclike} '%$phrase%')";
 		}
 
 		// "With at least one of the words" filtering
@@ -283,7 +285,7 @@ class sokb
 			$each_field = array();
 			foreach ($one_word as $word)
 			{
-				$each_field[] = "(" . implode(" {self::$like} '%$word' OR ", $target_fields) . " {self::$like} '%$word%')";
+				$each_field[] = "(" . implode(" {$loclike} '%$word' OR ", $target_fields) . " {$loclike} '%$word%')";
 			}
 			$sql .= " AND (". implode (" OR ", $each_field) . ")";
 		}
@@ -296,7 +298,7 @@ class sokb
 		{
 			foreach ($without_words as $word)
 			{
-				$each_field[] = "(" . implode(" NOT {self::$like} '%word' AND ", $target_fields) . " NOT {self::$like} '%$word%')";
+				$each_field[] = "(" . implode(" NOT {$loclike} '%$word' AND ", $target_fields) . " NOT {$loclike} '%$word%')";
 			}
 			$sql .= " AND " . implode(" AND ", $each_field);
 		}
@@ -458,6 +460,7 @@ class sokb
 	*/
 	function unanswered_questions($owners, $categories, $start, $upper_limit='', $sort, $order, $publish_filter=False, $query)
 	{
+		$loclike = self::$like;
 		$fields = array('question_id', 'user_id', 'summary', 'details', 'cat_id', 'creation', 'published');
 		$fields_str = implode(', ', $fields);
 		$owners = implode(', ', $owners);
@@ -480,7 +483,7 @@ class sokb
 		{
 			$query = self::$db->db_addslashes($query);
 			$words = explode(' ', $query);
-			$sql .= " AND (summary {self::$like} '%" . implode("%' OR summary {self::$like} '%", $words) . "%' OR details {self::$like} '%" . implode("%' OR details {self::$like} '%", $words) . "%')";
+			$sql .= " AND (summary {$loclike} '%" . implode("%' OR summary {$loclike} '%", $words) . "%' OR details {$loclike} '%" . implode("%' OR details {$loclike} '%", $words) . "%')";
 		}
 		if ($order)
 		{
