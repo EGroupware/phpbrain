@@ -227,10 +227,10 @@ function phpbrain_upgrade1_0_1()
 		$art_id = $GLOBALS['egw_setup']->oProc->f('art_id');
 		$text = $GLOBALS['egw_setup']->oProc->f('text');
 
-		if (!ereg("<[^<]+>.+<[^/]*/.+>", $text))
+		if (!preg_match('/'."<[^<]+>.+<[^\\/]*\\/.+>".'/', $text))
 		{
 			// text doesn't have html -> proceed to replace all \n by <br>
-			$new_text = ereg_replace("\n", "<br />", $text);
+			$new_text = preg_replace('/'."\n".'/', "<br />", $text);
 
 			$sql ="UPDATE phpgw_kb_articles SET text='$new_text' WHERE art_id = $art_id";
 			$db1->query($sql, __LINE__, __FILE__);
