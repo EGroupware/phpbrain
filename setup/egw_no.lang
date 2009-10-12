@@ -9,9 +9,11 @@ added link %1	phpbrain	no	La til lenke %1
 added related articles %1	phpbrain	no	La til relatert artikkel %1
 advanced search	phpbrain	no	Avansert søk
 all articles	phpbrain	no	Alle artikler
+allow posting of questions	phpbrain	no	Tillat å utgi spørsmål
 answer	phpbrain	no	svar
 anytime	phpbrain	no	når som helst
 anywhere in the article	phpbrain	no	Hvor som helst i artikkelen
+are you sure?	phpbrain	no	Er du sikker?
 article	phpbrain	no	Artikkel
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	no	Artikkel lagt til database, du kan nå legge ved filer og lenker, eller relatere til andre artikler
 article created	phpbrain	no	Artikkel opprettet
@@ -42,6 +44,7 @@ comment has been submited for revision	phpbrain	no	Kommentar har blitt avsendt f
 comment has been submited for revision and rating will be published	phpbrain	no	Kommentar har blitt avsendt for revisjon og vurdering vil ble publisert
 comments	phpbrain	no	Kommentarer
 configuration	phpbrain	no	Konfigurasjon
+contents	phpbrain	no	Inhold
 create a new article to answer the question asked by %1 in %2	phpbrain	no	Opprette en ny artikkel for å svare på spørsmål stilt av %1 i %2
 created by %1 on %2	phpbrain	no	Opprettet av %1 den %2
 creation	phpbrain	no	opprettelse
@@ -87,9 +90,11 @@ in the title	phpbrain	no	i tittelen
 in the topic	phpbrain	no	i emnet
 include subcategories	phpbrain	no	Inkluder underkategorier
 keywords	phpbrain	no	Nøkkelord
-knowledge base article #%1	phpbrain	no	Kunnskapsbase artikkel #%1
-knowledge base configuration	common	no	Kunnskapsbase konfigurasjon
+knowledge base	phpbrain	no	Kunnskaps Base
+knowledge base article #%1	phpbrain	no	Kunnskaps base artikkel #%1
+knowledge base configuration	phpbrain	no	Kunnskaps base konfigurasjon
 last modification by %1 on %2	phpbrain	no	Siste endret av %1 den %2
+last modified	phpbrain	no	Sist endret
 latest	phpbrain	no	Siste
 latest comments	phpbrain	no	Siste kommentar
 leave empty to automatically generate an id	phpbrain	no	La denne stå blankt for å generere en ident
@@ -125,9 +130,9 @@ printer view	phpbrain	no	Forhåndsvis
 problem relating articles	phpbrain	no	Problem ved å relatere artikler
 publication date	phpbrain	no	Publiseringsdato
 publish	phpbrain	no	Publiser
-publish articles automatically?	common	no	Publisere artikler automatisk ?
-publish comments automatically?	common	no	Publisere kommentarer automatisk ?
-publish questions automatically?	common	no	Publisere spørsmål automatisk ?
+publish articles automatically?	phpbrain	no	Publisere artikler automatisk ?
+publish comments automatically?	phpbrain	no	Publisere kommentarer automatisk ?
+publish questions automatically?	phpbrain	no	Publisere spørsmål automatisk ?
 publish selected	phpbrain	no	Publiser valgte
 published	phpbrain	no	Publisert
 question deleted successfully	phpbrain	no	Spørsmål ble slettet
