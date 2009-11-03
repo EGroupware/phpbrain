@@ -1233,7 +1233,6 @@ class bokb extends sokb
 				'menuaction' => 'phpbrain.uikb.view_article',
 			),
 			'view_id' => 'art_id',
-			'view_popup'  => 'false',
 		);
 	}
 
