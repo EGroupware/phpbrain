@@ -9,9 +9,11 @@ added link %1	phpbrain	hu	%1 hivatkozás hozzáadva
 added related articles %1	phpbrain	hu	%1 kapcsolódó cikk hozzáadva
 advanced search	phpbrain	hu	Kiterjesztett keresés
 all articles	phpbrain	hu	Összes cikk
+allow posting of questions	phpbrain	hu	Kérdések postázásának engedélyezése
 answer	phpbrain	hu	válasz
 anytime	phpbrain	hu	bármikor
 anywhere in the article	phpbrain	hu	Bárhol a cikkben
+are you sure?	phpbrain	hu	Biztos vagy benne?
 article	phpbrain	hu	Cikk
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	hu	Cikk hozzáadva az adatbázishoz, lehetősége van állományok és hivatkozások csatolására vagy más cikkekre utalásra
 article created	phpbrain	hu	Cikk létrehozva
@@ -42,6 +44,7 @@ comment has been submited for revision	phpbrain	hu	Hozzászólás felülvizsgál
 comment has been submited for revision and rating will be published	phpbrain	hu	Kommentár jóváhagyásra elküldve és az osztályzat publikálása meg fog történni
 comments	phpbrain	hu	Hozzászólások
 configuration	phpbrain	hu	Beállítás
+contents	phpbrain	hu	Tartalom
 create a new article to answer the question asked by %1 in %2	phpbrain	hu	Új cikk írása a %1 által feltett kérdésre a %2 kategóriában
 created by %1 on %2	phpbrain	hu	Készítette %1, %2
 creation	phpbrain	hu	Létrehozás
@@ -56,6 +59,7 @@ e-groupware knowledge base article attached	phpbrain	hu	Tudástár cikk csatolva
 e-mail has been sent	phpbrain	hu	email elküldve
 edit article	phpbrain	hu	Cikk szerkesztése
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	hu	A probléma néhány szavas leírása, vagy a cikk sorszáma, amennyiben ismert.
+enterprise knowledge articles repository	phpbrain	hu	Vállalati Tudástár cikktörzs
 error deleting article from database	phpbrain	hu	Hiba a cikk adatbázisból való törlésekor
 error deleting link	phpbrain	hu	Hiba a hivatkozás törlésekor
 error downloading file	phpbrain	hu	Hiba az állomány letöltésekor
@@ -87,6 +91,7 @@ in the title	phpbrain	hu	címben
 in the topic	phpbrain	hu	témában
 include subcategories	phpbrain	hu	Alkategóriákkal együtt
 keywords	phpbrain	hu	Kulcsszavak
+knowledge base	phpbrain	hu	Tudástár bázis
 knowledge base article #%1	phpbrain	hu	Tudástár cikk #%1
 knowledge base configuration	common	hu	Tudástár alap konfiguráció
 last modification by %1 on %2	phpbrain	hu	Utoljára %2 módosította %1
@@ -107,6 +112,7 @@ maximum number of comments to show:	phpbrain	hu	Megjelenítendő hozzászóláso
 maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	hu	Legnépszerűbb cikkek, legújabb cikkek és megválaszolatlan kérdések megjelenésének maximális száma a főképernyőn
 modification date	phpbrain	hu	Módosítás dátuma
 most viewed	phpbrain	hu	Legtöbbet megjelenített
+name of the backlink to the index:	admin	hu	Az index visszacsatolás neve
 new article	phpbrain	hu	Új cikk
 nobody has rated this article so far	phpbrain	hu	Senki sem osztályozta a cikket
 nothing was uploaded!	phpbrain	hu	Semmi sem kerül feltöltésre!
@@ -115,6 +121,7 @@ ocurrences	phpbrain	hu	Előfordulás
 or browse the categories	phpbrain	hu	Kategóriák böngészése
 order results by	phpbrain	hu	Találatok rendezése
 outstanding published questions	phpbrain	hu	Nyitott kérdések
+overwrite file	phpbrain	hu	Felülírja a létező filet?
 past %1 months	phpbrain	hu	elmúlt %1 hónap
 past year	phpbrain	hu	múlt év
 people have rated this article	phpbrain	hu	cikk osztályzását végezte
@@ -146,6 +153,7 @@ search results	phpbrain	hu	Keresési eredmények
 see more questions	phpbrain	hu	Több kérdés mutatása
 see more questions...	phpbrain	hu	Több kérdés mutatása ...
 select articles	phpbrain	hu	Cikkek kiválasztása
+should the article view make an automatic table of contents?	admin	hu	Készüljön automatikusan tartalomjegyzék?
 show all comments	phpbrain	hu	Összes hozzászólás mutatása
 show articles belonging to:	phpbrain	hu	Hozzátartozó cikkek mutatása:
 show messages in category	phpbrain	hu	Kategóriában szereplő cikkek mutatása
@@ -153,6 +161,7 @@ submit comment	phpbrain	hu	Hozzászólás elküldése
 submit comment and rating	phpbrain	hu	Hozzászólás és osztályzat küldése
 suggested category	phpbrain	hu	Javasolt kategória
 summary	phpbrain	hu	Összefoglaló
+table of contents	phpbrain	hu	Tartalomjegyzék
 that file already exists	phpbrain	hu	Az állomány már létezik
 the article id must be a number	phpbrain	hu	Az állomány azonosító szám kell legyen
 the article is empty	phpbrain	hu	A cikk üres
