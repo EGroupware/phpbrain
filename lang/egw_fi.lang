@@ -1,0 +1,188 @@
+/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	fi	/kb hakemistoa ei ollut ja ei voitu luoda, pyydä ylläpitäjää tarkistamaan yleismaailmallista konfiguraatioa.
+action	phpbrain	fi	Toiminto
+actions	phpbrain	fi	Toiminnot
+add articles	phpbrain	fi	Lisää artikkeli
+add link	phpbrain	fi	Lisää linkki
+add question	phpbrain	fi	Lisää kysymys
+added file %1	phpbrain	fi	Liitetty tiedosto %1
+added link %1	phpbrain	fi	Liitetty linkki %1
+added related articles %1	phpbrain	fi	Liitetty asiallinen artikkeli %1
+advanced search	phpbrain	fi	Tarkennettu haku
+all articles	phpbrain	fi	Kaikki artikkelit
+answer	phpbrain	fi	vastaus
+anytime	phpbrain	fi	milloin tahansa
+anywhere in the article	phpbrain	fi	Missä tahansa artikkelissa
+article	phpbrain	fi	Artikkeli
+article added to database, you can now attach files or links, or relate to other articles	phpbrain	fi	Artikkeli lisätty tietokantaan, sinä voit nyt liittää tiedostot tai linkit, tai liittää muut artikkelit
+article created	phpbrain	fi	Artikkeli luodaan
+article deleted	phpbrain	fi	Artikkeli poistettu
+article deleted successfully	phpbrain	fi	Artikkeli poistettu onnistuneesti
+article edited	phpbrain	fi	Artikkelia muokataan
+article has been published	phpbrain	fi	Artikkeli on julkistettu
+article id	phpbrain	fi	Artikkelin tunniste
+articles added	phpbrain	fi	Artikkelit lisätty
+articles deleted successfully	phpbrain	fi	Artikkelit poistettu onnistuneesti
+articles have been published	phpbrain	fi	Artikkelit on julkaistu
+articles in %1	phpbrain	fi	Artikkelit %1 :ssa
+articles in %1 and all its subcategories	phpbrain	fi	Artikkelit %1:ssa ja kaikki sen alikategoriat
+articles not classified under any category	phpbrain	fi	Artikkelia ei ole luokiteltu mihinkään kategoriaan
+ascendent	phpbrain	fi	Nouseva
+attach file	phpbrain	fi	Liitä tiedosto
+attached files	phpbrain	fi	tiedostot liitetty
+average rating	phpbrain	fi	keskiarvon arviointi
+base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	fi	kannan hakemistoa ei ole olemassa, pyydä ylläpitäjää tarkistamaan yleiskonfiguraatiota
+before submiting a question, please search in the knowledge base first	phpbrain	fi	Etsi tietokannasta ensiksi ennen kuin esität kysymyksen
+by answering this question you will help to get the answer quicker the next time	phpbrain	fi	Vastaamalla tähän kysymykseen helpotat saamaan vastauksen nopeammin ensi kerralla
+comment	phpbrain	fi	kommentti
+comment and rating have been published	phpbrain	fi	kommentti ja arviointi on julkaistettu
+comment could not be inserted in the database	phpbrain	fi	Kommentti voidaan sijoittaa tietokantaan
+comment has been deleted	phpbrain	fi	kommentti on poistettu
+comment has been published	phpbrain	fi	kommentti on julkaistettu
+comment has been submited for revision	phpbrain	fi	Kommentti on toimitettu tarkastettavaksi
+comment has been submited for revision and rating will be published	phpbrain	fi	Kommentti on toimitettu tarkastettavaksi ja se arvioidaan ennen julkaisua
+comments	phpbrain	fi	Kommentit
+configuration	phpbrain	fi	Asetukset
+create a new article to answer the question asked by %1 in %2	phpbrain	fi	Luo uusi artikkeli vastataksesi, kysymys kysyttiin %1 %2
+created by %1 on %2	phpbrain	fi	Artikkelin loi %1 %2
+creation	phpbrain	fi	Luonut
+creation date	phpbrain	fi	Luomis päivämäärä
+delete article	phpbrain	fi	poistaa artikkeli
+delete selected	phpbrain	fi	poista valittu
+deleted relation to  article %1	phpbrain	fi	Poistettiin viittaus artikkeliin %1
+deleted relation to article %1	phpbrain	fi	Poistettiin viittaus artikkeliin %1
+descendent	phpbrain	fi	Laskeva
+details	phpbrain	fi	Tiedot
+e-groupware knowledge base article attached	phpbrain	fi	E-GroupWare tietokanta artikkeli liitetty
+e-mail has been sent	phpbrain	fi	sähköposti viesti on lähetetty
+edit article	phpbrain	fi	Muokkaa artikkelia
+enter one or two words describing the issue, or type the article number if you know it	phpbrain	fi	Kirjoita yksi tai kaksi sanaa kuvailemaan aihetta, tai artikkelin tyyppi numero jos tiedät sen.
+error deleting article from database	phpbrain	fi	Virhe poistettaessa artikkelia tiedostosta
+error deleting link	phpbrain	fi	Virhe poistettaessa linkkiä
+error downloading file	phpbrain	fi	Virhe ladatessa tiedostoa
+error locating files directory	phpbrain	fi	Tiedostokansiota ei löydy
+error moving file to directory	phpbrain	fi	Virhe siirrettäessä luettelosta
+error publishing comment	phpbrain	fi	Virhe julkaistessa kommenttia
+error retrieving article	phpbrain	fi	Virhe haettaessa artikkelia
+error trying to delete comment	phpbrain	fi	Virhe yritettäessä poistaa kommenttia
+error trying to delete question	phpbrain	fi	Virhe yritetäessä poistaa kysymystä
+error trying to edit article	phpbrain	fi	Virhe  yritettäessä muokata artikkelia
+error trying to publish article	phpbrain	fi	Virhe yritettäessä julkaista artikkelia
+error: file doesn't exist in the database	phpbrain	fi	Virhe:tiedosto ei ole tiedostossa
+excellent	phpbrain	fi	Erinomainen
+failure trying to delete the file	phpbrain	fi	Epäonnistuminen yritettäessä poistaa tiedostoa
+file could be deleted from server but not from database	phpbrain	fi	Tiedosto voidaan poistaa palvelimelta mutta ei tietokannasta.
+file has been successfully uploaded	phpbrain	fi	Tiedosto on onnistuneesti tallennettu
+file was already missing from server, and was deleted from the database	phpbrain	fi	Tiedosto oli jo kadonnut palvelimelta, ja oli tuhoutunut tiedostosta
+file was deleted successfully	phpbrain	fi	Tiedosto poistettiin onnistuneesti
+file wasn't in server and it couldn't be deleted from the database	phpbrain	fi	Tiedostoa ei ollut palvelimella ja se ei ole voinut poistua tietokannasta
+find results	phpbrain	fi	etsimisen tulokset
+global categories	phpbrain	fi	Yleiset kategoriat
+have to be approved first	common	fi	täytyy hyväksyä ensiksi
+history	phpbrain	fi	Historia
+if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	fi	Jos et löydä vastauksia ongelmiisi tietokannasta, kuvaile sitä alle
+if you wish, you can comment this article here	phpbrain	fi	Jos haluat  voit kommentoida tämän artikkelin tähän
+in %1	phpbrain	fi	%1:ssa
+in the text	phpbrain	fi	tekstissä
+in the title	phpbrain	fi	otsikossa
+in the topic	phpbrain	fi	aiheessa
+include subcategories	phpbrain	fi	sisältää alikategoriat
+keywords	phpbrain	fi	Avainsanat
+knowledge base article #%1	phpbrain	fi	Tietokanta artikkeli #%1
+knowledge base configuration	common	fi	Tietokannan konfiguraatio
+last modification by %1 on %2	phpbrain	fi	viimeksi muokattu %1 %2
+last modified	phpbrain	fi	Viimeksi muokattu
+latest	phpbrain	fi	Viimeisin
+latest comments	phpbrain	fi	Viimeisin kommentti
+leave empty to automatically generate an id	phpbrain	fi	Jätä tyhjäksi aikaansaadaan automaattisesti ID
+link could not be added	phpbrain	fi	Linkkiä ei ole liitetty
+link deleted successfully	phpbrain	fi	Linkki poistettu onnistuneesti
+link has been added	phpbrain	fi	Linkki on liitetty
+links	phpbrain	fi	Linkit
+links & files	phpbrain	fi	Linkit&Tiedostot
+mail article	phpbrain	fi	Postittaa artikkeli
+main view	phpbrain	fi	Päänäkymä
+maintain articles	phpbrain	fi	Artikkeleiden säilyttäminen
+maintain questions	phpbrain	fi	Kysymysten säilytyttäminen
+maximum number of comments to show:	phpbrain	fi	kommenttien enimmäismäärä jotka näytetään
+maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	fi	Suosituimpien artikkelien enimmäismäärät, viimeiset artikkelit ja vastaamattomat kysymykset näytetään päänäkymässä:
+modification date	phpbrain	fi	Muunettu päivä
+most viewed	phpbrain	fi	eniten näytetyt
+new article	phpbrain	fi	Uusi artikkeli
+nobody has rated this article so far	phpbrain	fi	Kukaan ei ole arvioinut tätä artikkelia näin kauan
+nothing was uploaded!	phpbrain	fi	Mitään ei ladattu uudelleen!
+number of results per page	phpbrain	fi	Tuloksien numerot
+ocurrences	phpbrain	fi	Esiintymät
+or browse the categories	phpbrain	fi	tai selaa kategoriaa
+order results by	phpbrain	fi	järjestä tulokset
+outstanding published questions	phpbrain	fi	Käsittelemätön ka  julkaisematon kysymys
+past %1 months	phpbrain	fi	viime %1 kuukaudet
+past year	phpbrain	fi	viime vuosi
+people have rated this article	phpbrain	fi	ihmiset ovat arvioineet tätä artikkelia
+phpbrain	common	fi	Tietokanta
+please rate the pertinence and quality of this article	phpbrain	fi	Arvioi tämän artikkelin asiallisuutta ja laatua
+please try again	phpbrain	fi	Yritä uudelleen
+poor	phpbrain	fi	Huono
+printer view	phpbrain	fi	Tulostettava muoto
+problem relating articles	phpbrain	fi	Ongelmia kun arvioidaan artikkelia
+publication date	phpbrain	fi	Julkaisu päivä
+publish	phpbrain	fi	Julkaista
+publish articles automatically?	common	fi	Julkaistaanko artikkeli automaattisesti?
+publish comments automatically?	common	fi	Julkaistaanko kommentiti automaattisesti?
+publish questions automatically?	common	fi	Julkaistaanko kysymykset automaattisesti?
+publish selected	phpbrain	fi	Julkaisu valittu
+published	phpbrain	fi	Julkaistu
+question deleted successfully	phpbrain	fi	Kysymys poistettu onnistuneesti
+questions deleted successfully	phpbrain	fi	Kysymys poistettu onnistuneesti
+rating has been submited	phpbrain	fi	Arviointia on esitetty
+rating invalid	phpbrain	fi	arviointi epäkelpo
+recipient	phpbrain	fi	saaja
+related articles in the knowledge base	phpbrain	fi	arvioidut artikkelit tietokannassa
+relation with article was removed successfully	phpbrain	fi	Artikkelin suhteet oli siirretty onnistuneesti
+removed file %1	phpbrain	fi	uudelleen siirretty tiedosto
+removed link %1	phpbrain	fi	uudelleen siirretty linkki %1
+reply-to	phpbrain	fi	vastaus
+search in all the knowledge base	phpbrain	fi	Haetaan koko tietokannasta
+search results	phpbrain	fi	Haun tulokset
+see more questions	phpbrain	fi	Katso lisää kysymyksiä
+see more questions...	phpbrain	fi	Katso lisää kysymyksiä...
+select articles	phpbrain	fi	Valitse artikkeli
+show all comments	phpbrain	fi	Näytä kaikki kommentit
+show articles belonging to:	phpbrain	fi	Näytä artikkeleihin liittyneet
+show messages in category	phpbrain	fi	Näytä viestit kategoriassa
+submit comment	phpbrain	fi	Ehdota kommenttia
+submit comment and rating	phpbrain	fi	Ehdota kommenttia ja arviointia
+suggested category	phpbrain	fi	Ehdotetut kategoriat
+summary	phpbrain	fi	Tiivistelmä
+that file already exists	phpbrain	fi	tämä tiedosto on jo olemassa
+the article id must be a number	phpbrain	fi	Artikkelin tunniste täytyy olla numero
+the article is empty	phpbrain	fi	Artikkeli on tyhjä
+the file was already missing in the server	phpbrain	fi	Tiedosto oli jo kadonnut palvelimelta
+the following errors occurred	phpbrain	fi	seuraavat virheet  esiintyvät
+the mail server returned:	phpbrain	fi	Postipalvelin antoi seuraavan ilmoituksen:
+the present category and all subcategories under it	phpbrain	fi	Nykyinen kategoria ja kaikki alikategoriat sen alla
+the present category only	phpbrain	fi	Nykyinen kategoria ainostaan
+there are no articles	phpbrain	fi	Täällä ei ole yhtään artikkelia
+there are no articles available	phpbrain	fi	Artikkeleita ei ole saatavilla
+this article hasn't yet been published in the knowledge base	phpbrain	fi	Tätä artikkelia ei ole vielä julkaistu tietokannassa
+title	phpbrain	fi	Otsikko
+to create categories, press 'edit categories' in the preferences menu	phpbrain	fi	Luodaksesi kategorioita, paina 'Muokkaa kategoria' asetus valikossa
+topic	phpbrain	fi	Aihe
+unable to add rating to database	phpbrain	fi	Arvioita ei voitettu lisätä tietokantaan
+unanswered questions	phpbrain	fi	Vastaamattomat kysymykset
+unpublish	phpbrain	fi	Julkaisematon
+unpublished	phpbrain	fi	julkaisematon
+user preferences	phpbrain	fi	Käyttäjän asetukset
+views	phpbrain	fi	näkymät
+was it easy to find this article using the above search string?	phpbrain	fi	Oliko tämä artikkeli helppo löytää käyttämällä yllä olevaa etsijää?
+with all the words	phpbrain	fi	Sisältää kaikki sanat
+with at least one of the words	phpbrain	fi	Sisältää ainakin yhden sanan
+with the exact phrase	phpbrain	fi	Sisältää täsmälleen
+without the words	phpbrain	fi	Ei sisällä sanoja
+you are in %1	phpbrain	fi	Sinä olet %1
+you have already qualified this article	phpbrain	fi	Olet jo muokannut tätä artikkelia
+you have not the proper permissions to do that	phpbrain	fi	Sinulla ei ole asianomaista lupaa tehdä sitä
+you must enter a title	phpbrain	fi	Sinun täytyy kirjoittaa otsikko
+you must enter a topic	phpbrain	fi	Sinun täytyy kirjoittaa aihe
+your message could not be sent!	phpbrain	fi	Viestiäsi ei voitu lähettää!
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	fi	Kysymyksesi toimitetaan mutta julkaistaan vain hyväksymisen jälkeen mikäli käyttäjällä on julkaisemiseen oikeudet.
+your question will be published immediately	phpbrain	fi	Kysymyksesi julkaistaan heti

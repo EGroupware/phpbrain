@@ -1,0 +1,186 @@
+/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	el	/kb κατάλογος δεν υπάρχει και δεν μπόρεσε να δημιουργηθεί, παρακαλώ ζητήστε από τον διαχειριστή να ελέγξει τη γενκή δομή
+action	phpbrain	el	Ενέργεια
+actions	phpbrain	el	Ενέργειες
+add articles	phpbrain	el	Προσθήκη άρθρου
+add link	phpbrain	el	Προσθήκη συνδέσμου
+add question	phpbrain	el	Προσθήκη ερωτήματος
+added file %1	phpbrain	el	Προστέθηκε αρχείο %1
+added link %1	phpbrain	el	Προστέθηκε σύνδεσμος %1
+added related articles %1	phpbrain	el	Προστέθηκαν συναφή άρθρα %1
+advanced search	phpbrain	el	Προηγμένη αναζήτηση
+all articles	phpbrain	el	Όλα τα άρθρα
+answer	phpbrain	el	Απάντηση
+anytime	phpbrain	el	οποτεδήποτε
+anywhere in the article	phpbrain	el	οπουδήποτε
+article	phpbrain	el	Άρθρο
+article added to database, you can now attach files or links, or relate to other articles	phpbrain	el	Προστέθηκε άρθρο στο ηλεκτρονικό αρχείο, μπορείτε τώρα να επισυνάψετε αρχεία ή συνδέσμους, ή να συσχετίσετε με άλλα άρθρα
+article created	phpbrain	el	Δημιουργήθηκε άρθρο
+article deleted	phpbrain	el	Άρθρο διεγράφη
+article deleted successfully	phpbrain	el	Άρθρο διεγράφη επιτυχώς
+article edited	phpbrain	el	Άρθρο προσαρμόστηκε
+article has been published	phpbrain	el	Το άρθρο έχει δημοσιευθεί
+article id	phpbrain	el	Αριθμός άρθρου
+articles added	phpbrain	el	Προστέθηκαν αρχεία
+articles deleted successfully	phpbrain	el	Τα άρθρα διαγράφηκαν επιτυχώς
+articles have been published	phpbrain	el	Τα άρθρα έχουν δημοσιευθεί
+articles in %1	phpbrain	el	Άρθρα στην κατηγορία %1
+articles in %1 and all its subcategories	phpbrain	el	Άρθρα στην κατηγορία %1 και όλες τις υποκατηγορίες
+articles not classified under any category	phpbrain	el	Άρθρα που δεν έχουν ταξινομηθεί σε κάποια κατηγορία
+ascendent	phpbrain	el	Ανερχόμενος
+attach file	phpbrain	el	Επισύναψη Αρχείου
+attached files	phpbrain	el	Συνημμένα αρχεία
+average rating	phpbrain	el	Μέση αξιολόγηση
+base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	el	Δεν υπάρχει βασικός κατάλογος, παρακαλώ ζητήστε από το διαχειριστή να ελέγξει τη γενική δομή
+before submiting a question, please search in the knowledge base first	phpbrain	el	Πριν υποβάλλετε μία ερώτηση, παρακαλώ ψάξτε στη γνωσιακή βάση πρώτα
+by answering this question you will help to get the answer quicker the next time	phpbrain	el	Απαντώντας σε αυτή την ερώτηση θα βοηθήσετε ώστε να πάρετε γρηγορότερα την απάντηση την επόμενη φορά
+comment	phpbrain	el	Σχόλιο
+comment and rating have been published	phpbrain	el	Το σχόλιο και η αξιολόγηση έχουν δημοσιευθεί
+comment could not be inserted in the database	phpbrain	el	Δεν είναι δυνατή η προσθήκη του σχολίου στο ηλεκτρονικό αρχείο
+comment has been deleted	phpbrain	el	Το σχόλιο διεγράφη
+comment has been published	phpbrain	el	Το σχόλιο έχει δημοσιευθεί
+comment has been submited for revision	phpbrain	el	Το σχόλιο έχει υποβληθεί για αναθεώρηση
+comment has been submited for revision and rating will be published	phpbrain	el	Το σχόλιο έχει υποβληθεί για αναθεώρηση και η αξιολόγηση θα δημοσιευθεί
+comments	phpbrain	el	Σχόλια
+configuration	phpbrain	el	Διαμόρφωση
+create a new article to answer the question asked by %1 in %2	phpbrain	el	Δημιουργία νέου άρθρου για να απαντήσετε στην ερώτηση που υποβλήθηκε από τον %1 στις %2
+created by %1 on %2	phpbrain	el	Δημιουργήθηκε από %1 στις %2
+creation	phpbrain	el	δημιουργία
+creation date	phpbrain	el	Ημερομηνία δημιουργίας
+delete article	phpbrain	el	Διαγραφή άρθρου
+delete selected	phpbrain	el	Διαγραφή επιλεγμένου
+deleted relation to  article %1	phpbrain	el	Διεγράφη η σχέση με το άρθρο %1
+deleted relation to article %1	phpbrain	el	Διεγράφη η σχέση με το άρθρο %1
+descendent	phpbrain	el	Απόγονος
+details	phpbrain	el	Λεπτομέρειες
+e-groupware knowledge base article attached	phpbrain	el	Προσκολλήθηκε άρθρο της E-GroupWare Γνωσιακής Βάσης
+e-mail has been sent	phpbrain	el	e-mail εστάλη
+edit article	phpbrain	el	Επεξεργασία άρθρου
+enter one or two words describing the issue, or type the article number if you know it	phpbrain	el	Πληκτρολογήστε μία ή δύο λέξεις οι οποίες να περιγράφουν το θέμα το οποίο ψάχνετε ή δώστε τον αριθμό του άρθρου εφόσον τον γνωρίζετε
+error deleting article from database	phpbrain	el	Σφάλμα κατά τη διαγραφή άρθρου από το ηλεκτρονικό αρχείο
+error deleting link	phpbrain	el	Σφάλμα κατά τη διαγραφή του συνδέσμου
+error downloading file	phpbrain	el	Σφάλμα κατά το φόρτωμα του αρχείου
+error locating files directory	phpbrain	el	Σφάλμα στον εντοπισμό του καταλόγου αρχείων
+error moving file to directory	phpbrain	el	Σφάλμα στη μετακίνηση αρχείου στον κατάλογο
+error publishing comment	phpbrain	el	Σφάλμα στη δημοσίευση του σχολίου
+error retrieving article	phpbrain	el	Σφάλμα στην ανάκτηση του άρθρου
+error trying to delete comment	phpbrain	el	Σφάλμα στην προσπάθεια διαγραφής του σχολίου
+error trying to delete question	phpbrain	el	Σφάλμα στην προσπάθεια διαγραφής της ερώτησης
+error trying to edit article	phpbrain	el	Σφάλμα στην προσπάθεια επιμέλειας του άρθρου
+error trying to publish article	phpbrain	el	Σφάλμα στην προσπάθεια δημοσίευσης του άρθρου
+error: file doesn't exist in the database	phpbrain	el	Σφάλμα:δεν υπάρχει το αρχείο στο ηλεκτρονικό αρχείο
+excellent	phpbrain	el	Θαυμάσια
+failure trying to delete the file	phpbrain	el	Αποτυχία στην προσπάθεια διαγραφής του αρχείου
+file could be deleted from server but not from database	phpbrain	el	Το αρχείο μπορεί να διαγραφεί από τον server αλλά όχι από το ηλεκτρονικό αρχείο
+file has been successfully uploaded	phpbrain	el	Το αρχείο έχει επιτυχώς προστεθεί
+file was already missing from server, and was deleted from the database	phpbrain	el	Το αρχείο ήδη έλειπε από τον server, και διεγράφη από το ηλεκτρονικό αρχείο
+file was deleted successfully	phpbrain	el	Το αρχείο διεγράφη επιτυχώς
+file wasn't in server and it couldn't be deleted from the database	phpbrain	el	Το αρχείο δεν υπήρχε στον server και δεν μπορούσε να διαγραφεί από το ηλεκτρονικό αρχείο
+find results	phpbrain	el	Αναζήτηση αποτελεσμάτων
+global categories	phpbrain	el	Γενικές Κατηγορίες
+have to be approved first	common	el	Πρέπει πρώτα να εγκριθεί
+history	phpbrain	el	Ιστορικό
+if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	el	Εάν δεν μπορείτε να βρείτε τις απαντήσεις στο πρόβλημά σας στη γνωσιακή βάση, περιγράψτε το παρακάτω
+if you wish, you can comment this article here	phpbrain	el	Αν το επιθυμείτε, μπορείτε να σχολιάσετε το άρθρο εδώ
+in %1	phpbrain	el	στο %1
+in the text	phpbrain	el	στο κείμενο
+in the title	phpbrain	el	στον τίτλο
+in the topic	phpbrain	el	στο θέμα
+include subcategories	phpbrain	el	Συμπεριλάβετε τις υποκατηγορίες
+keywords	phpbrain	el	Λέξεις κλειδί
+knowledge base article #%1	phpbrain	el	Άρθρο Γνωσιακής Βάσης #%1
+knowledge base configuration	common	el	Προσαρμογή Γνωσιακής βάσης
+last modification by %1 on %2	phpbrain	el	Τελευταία αλλαγή από %1 στις %2
+last modified	phpbrain	el	Τελευταία αλλαγή
+latest	phpbrain	el	Τελευταία
+latest comments	phpbrain	el	Τελευταία σχόλια
+leave empty to automatically generate an id	phpbrain	el	Να μείνει κενό για την αυτόματη παραγωγή ενός ID
+link could not be added	phpbrain	el	Ο σύνδεσμος δεν μπόρεσε να προστεθεί
+link deleted successfully	phpbrain	el	Ο σύνδεσμος διεγράφη επιτυχώς
+link has been added	phpbrain	el	Προστέθηκε σύνδεσμος
+links	phpbrain	el	Σύνδεσμοι
+links & files	phpbrain	el	Σύνδεσμοι και αρχεία
+mail article	phpbrain	el	Άρθρο μηνύματος
+main view	phpbrain	el	Κύρια εμφάνιση
+maintain articles	phpbrain	el	Διατήρηση Άρθρων
+maintain questions	phpbrain	el	Διατήρηση Ερωτήσεων
+maximum number of comments to show:	phpbrain	el	Μέγιστος αριθμός σχολίων για προβολή:
+maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	el	Μέγιστος αριθμός των δημοφιλέστερων άρθρων, τελευταίων άρθρων και αναπάντητων ερωτήσεων για προβολή στην κύρια εμφάνιση:
+modification date	phpbrain	el	Ημερομηνία αλλαγής
+most viewed	phpbrain	el	Περισσότερες εμφανίσεις
+new article	phpbrain	el	Νέο άρθρο
+nobody has rated this article so far	phpbrain	el	Κανείς δεν έχει αξιολογήσει αυτό το άρθρο μέχρι τώρα
+nothing was uploaded!	phpbrain	el	Τίποτα δεν προστέθηκε!
+number of results per page	phpbrain	el	Αριθμός αποτελεσμάτων
+ocurrences	phpbrain	el	Συμβάντα
+or browse the categories	phpbrain	el	Ή αναζητήστε στις κατηγορίες
+order results by	phpbrain	el	Ταξινόμηση αποτελεσμάτων με βάση
+outstanding published questions	phpbrain	el	Εκκρεμείς δημοσιευμένες ερωτήσεις
+past year	phpbrain	el	περασμένο έτος
+people have rated this article	phpbrain	el	κάποιοι έχουν αξιολογήσει αυτό το άρθρο
+phpbrain	common	el	Γνωσιακή Βάση
+please rate the pertinence and quality of this article	phpbrain	el	Παρακαλώ αξιολογήστε την ορθότητα και την ποιότητα αυτού του άρθρου
+please try again	phpbrain	el	Παρακαλώ προσπαθήστε ξανά
+poor	phpbrain	el	Φτωχή
+printer view	phpbrain	el	προεπισκόπηση εκτύπωσης
+problem relating articles	phpbrain	el	Πρόβλημα στη συσχέτιση των άρθρων
+publication date	phpbrain	el	Ημερομηνία δημοσίευσης
+publish	phpbrain	el	Δημοσίευση
+publish articles automatically?	common	el	Δημοσίευση άρθρων αυτόματα;
+publish comments automatically?	common	el	Δημοσίευση σχολίων αυτόματα;
+publish questions automatically?	common	el	Δημοσίεση ερωτήσεων αυτόματα;
+publish selected	phpbrain	el	Επιλέχθηκε η δημοσίευση
+published	phpbrain	el	Δημοσιευμένα
+question deleted successfully	phpbrain	el	Διαγραφή ερώτησης επιτυχής
+questions deleted successfully	phpbrain	el	Διαγραφή ερωτήσεων επιτυχής
+rating has been submited	phpbrain	el	Υποβλήθηκε η αξιολόγηση
+rating invalid	phpbrain	el	Άκυρη αξιολόγηση
+recipient	phpbrain	el	Παραλήπτης
+related articles in the knowledge base	phpbrain	el	Συσχετιζόμενα Άρθρα στη Γνωσιακή Βάση
+relation with article was removed successfully	phpbrain	el	Η συσχέτιση με το άρθρο αφαιρέθηκε επιτυχώς
+removed file %1	phpbrain	el	Αφαιρέθηκε το αρχείο %1
+removed link %1	phpbrain	el	Αφαιρέθηκε ο σύνδεσμος %1
+reply-to	phpbrain	el	Απάντηση σε
+search in all the knowledge base	phpbrain	el	Αναζήτηση σε ολόκληρη τη γνωσιακή βάση
+search results	phpbrain	el	Αναζήτηση αποτελεσμάτων
+see more questions	phpbrain	el	Προβολή περισσότερων ερωτήσεων
+see more questions...	phpbrain	el	Προβολή περισσότερων ερωτήσεων...
+select articles	phpbrain	el	Επιλογή άρθρων
+show all comments	phpbrain	el	Παρουσίαση όλων των σχολίων
+show articles belonging to:	phpbrain	el	Παρουσίαση των άρθρων που ανήκουν στον:
+show messages in category	phpbrain	el	Παρουσίαση των μηνυμάτων στην κατηγορία
+submit comment	phpbrain	el	Υποβολή σχολίου
+submit comment and rating	phpbrain	el	Υποβολή σχολίου και αξιολόγησης
+suggested category	phpbrain	el	Προτεινόμενη κατηγορία
+summary	phpbrain	el	Περίληψη
+that file already exists	phpbrain	el	Αυτό το αρχείο υπάρχει ήδη
+the article id must be a number	phpbrain	el	Το ID του άρθρου πρέπει να είναι αριθμός
+the article is empty	phpbrain	el	Το άρθρο είναι κενό
+the file was already missing in the server	phpbrain	el	Το αρχείο έλειπε ήδη από τον server
+the following errors occurred	phpbrain	el	Προέκυψαν τα παρακάτω λάθη
+the present category and all subcategories under it	phpbrain	el	Την παρούσα κατηγορία και όλες τις υποκατηγορίες από κάτω της
+the present category only	phpbrain	el	Την παρούσα κατηγορία μόνο
+there are no articles	phpbrain	el	Δεν υπάρχουν καθόλου άρθρα
+there are no articles available	phpbrain	el	Δεν υπάρχουν διαθέσιμα άρθρα
+this article hasn't yet been published in the knowledge base	phpbrain	el	Αυτό το άρθρο δεν έχει ακόμα δημοσιευθεί στη Γνωσιακή Βάση
+title	phpbrain	el	Τίτλος
+to create categories, press 'edit categories' in the preferences menu	phpbrain	el	Για να δημιουργήσετε κατηγορίες, πατήστε 'Επιμέλεια Κατηγοριών' στο μενού προτιμήσεων
+topic	phpbrain	el	Θέμα
+unable to add rating to database	phpbrain	el	Δεν είναι δυνατή η προσθήκη αξιολόγησης στο ηλεκτρονικό αρχείο
+unanswered questions	phpbrain	el	Αναπάντητες ερωτήσεις
+unpublished	phpbrain	el	Aδημοσίευτα
+user preferences	phpbrain	el	Προτιμήσεις χρήστη
+views	phpbrain	el	εμφανίσεις
+was it easy to find this article using the above search string?	phpbrain	el	Ήταν εύκολη η εύρεση αυτού του άρθρου με τη χρήση της παραπάνω φόρμας αναζήτησης;
+when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	el	Όταν περιφέρεστε μέσα στις κατηγορίες, επιλέξτε αν η λίστα των εμφανιζόμενων άρθρων αντιστοιχεί μόνο στην παρούσα κατηγορία, ή στην παρούσα κατηγορία και όλες κάτω από αυτή.
+with all the words	phpbrain	el	Με όλες τις λέξεις
+with at least one of the words	phpbrain	el	Με τουλάχιστον μία πό τις λέξεις
+with the exact phrase	phpbrain	el	Με την ακριβή φράση
+without the words	phpbrain	el	Χωρίς τις λέξεις
+you are in %1	phpbrain	el	Βρίσκεστε στην κατηγορία %1
+you have already qualified this article	phpbrain	el	Έχετε ήδη αξιολογήσει αυτό το άρθρο
+you have not the proper permissions to do that	phpbrain	el	Δεν έχετε την κατάλληλη άδεια για να το κάνετε αυτό
+you must enter a title	phpbrain	el	Πρέπει να εισάγετε έναν τίτλο
+you must enter a topic	phpbrain	el	Πρέπει να εισάγετε ένα θέμα
+your message could not be sent!	phpbrain	el	Το μήνυμα σας δεν εστάλη!
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	el	Η ερώτησή σας θα καταχωρηθεί,αλλά θα δημοσιευθεί μόνον εφόσον λάβετε έγκριση από ένα χρήστη με δικαιώματα δημοσίευσης
+your question will be published immediately	phpbrain	el	Η ερώτησή σας θα δημοσιεθεί αμέσως

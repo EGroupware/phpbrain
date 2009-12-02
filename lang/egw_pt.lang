@@ -1,0 +1,189 @@
+/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	pt	/a directoria da base de conhecimento não existe e não pôde ser criada. Por favor, peça ao administrador para verificar as configurações gerais
+action	phpbrain	pt	Acção
+actions	phpbrain	pt	Acções
+add articles	phpbrain	pt	Adicionar artigos
+add link	phpbrain	pt	Adicionar ligação
+add question	phpbrain	pt	Adicionar questão
+added file %1	phpbrain	pt	Ficheiro %1 adicionada
+added link %1	phpbrain	pt	Ligação %1 adicionada
+added related articles %1	phpbrain	pt	Artigos relacionados %1 adicionados
+advanced search	phpbrain	pt	Pesquisa avançada
+all articles	phpbrain	pt	Todos os artigos
+answer	phpbrain	pt	Resposta
+anytime	phpbrain	pt	em qualquer altura
+anywhere in the article	phpbrain	pt	no artigo
+article	phpbrain	pt	Artigo
+article added to database, you can now attach files or links, or relate to other articles	phpbrain	pt	O artigo foi adicionado à base de dados. Agora pode anexar ficheiros ou ligações, ou relacioná-lo com outros artigos
+article created	phpbrain	pt	Artigo criado
+article deleted	phpbrain	pt	Artigo eliminado
+article deleted successfully	phpbrain	pt	O artigo foi eliminado com sucesso
+article edited	phpbrain	pt	Artigo editado
+article has been published	phpbrain	pt	O artigo foi publicado
+article id	phpbrain	pt	ID do artigo
+articles added	phpbrain	pt	Artigos adicionados
+articles deleted successfully	phpbrain	pt	Os artigos foram eliminados com sucesso
+articles have been published	phpbrain	pt	Os artigos foram publicados com sucesso
+articles in %1	phpbrain	pt	Artigos em %1
+articles in %1 and all its subcategories	phpbrain	pt	Artigos em %1 e todas as suas subcategorias
+articles not classified under any category	phpbrain	pt	Os artigos não foram integrados em nenhuma categoria
+ascendent	phpbrain	pt	Ordem ascendente
+attach file	phpbrain	pt	Anexar ficheiro
+attached files	phpbrain	pt	Ficheiros anexados
+average rating	phpbrain	pt	Classificação média
+base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	pt	A directoria base não existe. Por favor, peça ao administrador para verificar as configurações gerais
+before submiting a question, please search in the knowledge base first	phpbrain	pt	Antes de submeter uma questão, verifique se já não foi colocada na base de conhecimento
+by answering this question you will help to get the answer quicker the next time	phpbrain	pt	Ao responder a esta questão, obterá a resposta mais rapidamente da próxima vez
+comment	phpbrain	pt	Comentar
+comment and rating have been published	phpbrain	pt	O comentário e a classificação foram publicados
+comment could not be inserted in the database	phpbrain	pt	Não foi possível inserir o comentário na base de dados
+comment has been deleted	phpbrain	pt	O comentário foi eleminado
+comment has been published	phpbrain	pt	O comentário foi publicado
+comment has been submited for revision	phpbrain	pt	O comentário foi enviado para revisão
+comment has been submited for revision and rating will be published	phpbrain	pt	O comentário foi enviado para revisão e a classificação será publicada
+comments	phpbrain	pt	Comentários
+configuration	phpbrain	pt	Configuração
+create a new article to answer the question asked by %1 in %2	phpbrain	pt	Criar um novo artigo para responder à questão colocada por %1 em %2
+created by %1 on %2	phpbrain	pt	Criada por %1 em %2
+creation	phpbrain	pt	Data de criação
+creation date	phpbrain	pt	Data de criação
+delete article	phpbrain	pt	Eliminar artigo
+delete selected	phpbrain	pt	Eliminar itens seleccionados
+deleted relation to  article %1	phpbrain	pt	A relação ao artigo %1 foi eliminada
+deleted relation to article %1	phpbrain	pt	A relação ao artigo %1 foi eliminada
+descendent	phpbrain	pt	Ordem decrescente
+details	phpbrain	pt	Detalhes
+e-groupware knowledge base article attached	phpbrain	pt	Artigo da base de conhecimento do E-GroupWare anexada
+e-mail has been sent	phpbrain	pt	A mensagem foi enviada
+edit article	phpbrain	pt	Editar artigo
+enter one or two words describing the issue, or type the article number if you know it	phpbrain	pt	Insira uma ou duas palavras que descrevam a questão, ou escreva o número do artigo se o souber
+error deleting article from database	phpbrain	pt	Erro ao eliminar artigo da base de dados
+error deleting link	phpbrain	pt	Erro ao eliminar ligação
+error downloading file	phpbrain	pt	Erro ao transferir ficheiro
+error locating files directory	phpbrain	pt	Erro ao localizar directoria de ficheiros
+error moving file to directory	phpbrain	pt	Erro ao mover ficheiro para directoria
+error publishing comment	phpbrain	pt	Erro ao publicar comentário
+error retrieving article	phpbrain	pt	Erro ao recuperar artigo
+error trying to delete comment	phpbrain	pt	Erro ao tentar eliminar comentário
+error trying to delete question	phpbrain	pt	Erro ao tentar eliminar questão
+error trying to edit article	phpbrain	pt	Erro ao tentar editar artigo
+error trying to publish article	phpbrain	pt	Erro ao tentar publicar artigo
+error: file doesn't exist in the database	phpbrain	pt	Erro: o ficheiro não existe na base de dados
+excellent	phpbrain	pt	Excelente
+failure trying to delete the file	phpbrain	pt	Ocorreu um erro ao tentar eliminar o ficheiro
+file could be deleted from server but not from database	phpbrain	pt	O ficheiro pode ser eliminado do servidor mas não da base de dados
+file has been successfully uploaded	phpbrain	pt	O ficheiro foi enviado com sucesso
+file was already missing from server, and was deleted from the database	phpbrain	pt	O ficheiro não foi encontrado no servidor, e foi eliminado da base de dados
+file was deleted successfully	phpbrain	pt	O ficheiro foi eliminado com sucesso
+file wasn't in server and it couldn't be deleted from the database	phpbrain	pt	O ficheiro não existe no servidor e não pôde ser eliminado da base de dados
+find results	phpbrain	pt	Procurar resultados
+global categories	phpbrain	pt	Categorias gerais
+have to be approved first	common	pt	Tem de ser aprovado primeiro
+history	phpbrain	pt	Histórico
+if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	pt	Se não encontrar a solução do seu problema na base de conhecimento, descreva-o aqui
+if you wish, you can comment this article here	phpbrain	pt	Pode comentar este artigo aqui, se o desejar
+in %1	phpbrain	pt	em %1
+in the text	phpbrain	pt	no texto
+in the title	phpbrain	pt	no título
+in the topic	phpbrain	pt	no tópico
+include subcategories	phpbrain	pt	Incluir subcategorias
+keywords	phpbrain	pt	Palavras-chave
+knowledge base article #%1	phpbrain	pt	Artigo #%1 da base de conhecimento
+knowledge base configuration	common	pt	Configuração da base de conhecimento
+last modification by %1 on %2	phpbrain	pt	Última modificação efectuada por %1 em %2
+last modified	phpbrain	pt	Última modificação
+latest	phpbrain	pt	Último/a
+latest comments	phpbrain	pt	Últimos comentários
+leave empty to automatically generate an id	phpbrain	pt	Deixar vazio para gerar uma ID automaticamente
+link could not be added	phpbrain	pt	Não foi possível adicionar a ligação
+link deleted successfully	phpbrain	pt	A ligação foi eliminada com sucesso
+link has been added	phpbrain	pt	A ligação foi adicionada
+links	phpbrain	pt	Ligações
+links & files	phpbrain	pt	Ligações e ficheiros
+mail article	phpbrain	pt	Artigo principal
+main view	phpbrain	pt	Ver ecrã principal
+maintain articles	phpbrain	pt	Gerir artigos
+maintain questions	phpbrain	pt	Gerir questões
+maximum number of comments to show:	phpbrain	pt	Número máximo de comentários a exibir:
+maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	pt	Número máximo de artigos mais populares, últimos artigos e questões por responder a exibir no ecrã principal
+modification date	phpbrain	pt	Data de modificação
+most viewed	phpbrain	pt	Os mais lidos
+new article	phpbrain	pt	Novo artigo
+nobody has rated this article so far	phpbrain	pt	Ninguem classificou este artigo até ao momento
+nothing was uploaded!	phpbrain	pt	Nada foi enviado!
+number of results per page	phpbrain	pt	Resultados
+ocurrences	phpbrain	pt	Ocorrências
+or browse the categories	phpbrain	pt	Ou navegue pelas categorias
+order results by	phpbrain	pt	Ordenar os resultados por
+outstanding published questions	phpbrain	pt	Perguntas colocadas por responder
+past %1 months	phpbrain	pt	há %1 meses
+past year	phpbrain	pt	no ano passado
+people have rated this article	phpbrain	pt	Este artigo tem classificações
+phpbrain	common	pt	Base de conhecimento
+please rate the pertinence and quality of this article	phpbrain	pt	Por favor, classifique a pertinência e a qualidade deste artigo
+please try again	phpbrain	pt	Por favor, tente novamente
+poor	phpbrain	pt	Mau
+printer view	phpbrain	pt	Ver modo de impressão
+problem relating articles	phpbrain	pt	Problema ao relacionar artigos
+publication date	phpbrain	pt	Data de publicação
+publish	phpbrain	pt	Publicar
+publish articles automatically?	common	pt	Publicar artigos automaticamente ?
+publish comments automatically?	common	pt	Publicar comentários automaticamente ?
+publish questions automatically?	common	pt	Publicar questões automaticamente
+publish selected	phpbrain	pt	Publicar itens seleccionados
+published	phpbrain	pt	Publicado
+question deleted successfully	phpbrain	pt	A questão foi eliminada com sucesso
+questions deleted successfully	phpbrain	pt	As questões foram eliminadas com sucesso
+rating has been submited	phpbrain	pt	A classificação foi enviada
+rating invalid	phpbrain	pt	A classificação é inválida
+recipient	phpbrain	pt	Recipiente
+related articles in the knowledge base	phpbrain	pt	Artigos relacionados na base de conhecimento
+relation with article was removed successfully	phpbrain	pt	A relação do artigo foi removida com sucesso
+removed file %1	phpbrain	pt	O ficheiro %1 foi removido
+removed link %1	phpbrain	pt	A ligação %1 foi removida
+reply-to	phpbrain	pt	Responder a
+search in all the knowledge base	phpbrain	pt	Pesquisar em toda a base de conhecimento
+search results	phpbrain	pt	Pesquisar resultados
+see more questions	phpbrain	pt	Ver mais questões
+see more questions...	phpbrain	pt	Ver mais questões...
+select articles	phpbrain	pt	Seleccionar artigos
+show all comments	phpbrain	pt	Exibir todos os comentários
+show articles belonging to:	phpbrain	pt	Exibir artigos de:
+show messages in category	phpbrain	pt	Exibir mensagens da categoria
+submit comment	phpbrain	pt	Enviar comentário
+submit comment and rating	phpbrain	pt	Enviar comentário e classificação
+suggested category	phpbrain	pt	Categoria sugerida
+summary	phpbrain	pt	Assunto
+that file already exists	phpbrain	pt	Esse ficheiro já existe
+the article id must be a number	phpbrain	pt	A ID do artigo deve ser um número
+the article is empty	phpbrain	pt	O campo do artigo está vazio
+the file was already missing in the server	phpbrain	pt	O ficheiro não foi encontrado no servidor
+the following errors occurred	phpbrain	pt	Ocorreram os seguintes erros
+the mail server returned:	phpbrain	pt	O servidor de correio electrónico retornou:
+the present category and all subcategories under it	phpbrain	pt	A categoria actual e as suas subcategorias
+the present category only	phpbrain	pt	Apenas a categoria actual
+there are no articles	phpbrain	pt	Não há artigos
+there are no articles available	phpbrain	pt	Não há artigos disponíveis
+this article hasn't yet been published in the knowledge base	phpbrain	pt	Este artigo ainda não foi publicado na base de conhecimento
+title	phpbrain	pt	Título
+to create categories, press 'edit categories' in the preferences menu	phpbrain	pt	Para criar categorias, clique em "Editar categorias" no menu de preferências
+topic	phpbrain	pt	Tópico
+unable to add rating to database	phpbrain	pt	Não foi possível adicionar classificação à base de dados
+unanswered questions	phpbrain	pt	Questões por responder
+unpublish	phpbrain	pt	Por publicar
+unpublished	phpbrain	pt	não publicado
+user preferences	phpbrain	pt	Preferências do utilizador
+views	phpbrain	pt	leituras
+was it easy to find this article using the above search string?	phpbrain	pt	Foi fácil encontrar este artigo utilizando essas palavras de pesquisa?
+when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	pt	Ao navegar através das categorias, escolha se a lista de artigos exibidos corresponde apenas à categoria actual, ou se corresponde à categoria actual e a todas as categorias abaixo dessa.
+with all the words	phpbrain	pt	com todas as palavras
+with at least one of the words	phpbrain	pt	com pelo menos uma das palavras
+with the exact phrase	phpbrain	pt	com a frase exacta
+without the words	phpbrain	pt	sem as palavras
+you are in %1	phpbrain	pt	Você está no/a %1
+you have already qualified this article	phpbrain	pt	Já classificou este artigo
+you have not the proper permissions to do that	phpbrain	pt	Não tem permissões para o fazer
+you must enter a title	phpbrain	pt	É necessário inserir um título
+you must enter a topic	phpbrain	pt	É necessário inserir um tópico
+your message could not be sent!	phpbrain	pt	Não foi possível enviar a sua mensagem!
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	pt	A sua questão será colocada, mas apenas será publicada depois de ser aprovada por um utilizador com permissões de publicação
+your question will be published immediately	phpbrain	pt	A sua questão será publicada imediatamente
