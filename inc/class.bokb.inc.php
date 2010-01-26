@@ -382,7 +382,7 @@ class bokb extends sokb
 		// admins can also see questions asked by user_id=0 (questions that were passed from previous phpbrain version were the user_id wasn't recorded)
 		if ($questions && $GLOBALS['egw']->acl->check('run',1,'admin')) $owners[0] = 0;
 
-		if ($this->preferences['show_tree'] == 'all')
+		if ($this->preferences['show_tree'] == 'all' || !isset($category_id) || $category_id===0)
 		{
 			// show all articles under present category and descendant categories
 			$cats_ids = array();
@@ -393,11 +393,6 @@ class bokb extends sokb
 			$cats_ids[] = $category_id;
 
 			$articles = parent::$search($owners, $cats_ids, $this->start, '', $this->sort, $this->order, $publish_filter, $this->query);
-		}
-		elseif (empty($category_id))
-		{
-			// show only articles that are not categorized
-			$articles = parent::$search($owners, 0, $this->start, '', $this->sort, $this->order, $publish_filter, $this->query);
 		}
 		else
 		{
