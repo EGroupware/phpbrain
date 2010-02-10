@@ -1169,11 +1169,11 @@ class uikb extends bokb
 	*/
 	function pop_search()
 	{
-		$actual_category			= (int)get_var('cat', 'GET', 0);
+		$actual_category			= (int)get_var('cat', 'any', 0);
 		$this->bo->sort				= get_var('sort', 'any', 'ASC');
 		$this->bo->order			= get_var('order', 'any', 'title');
 		$this->bo->query			= get_var('query', 'any', '');
-		$this->bo->load_categories(0);
+		$this->bo->load_categories($actual_category);
 		$articles_list = $this->bo->search_articles($actual_category);
 		$this->t->set_file('popup', 'popup_search.tpl');
 		$this->t->set_block('popup', 'table_row_block', 'table_row');
@@ -1191,8 +1191,20 @@ class uikb extends bokb
 			'left'				=> $this->nextmatchs->left($this->link, $this->bo->start, parent::$num_rows, 'menuaction.phpbrain.uikb.pop_search&query=' . $this->bo->query),
 			'right'				=> $this->nextmatchs->right($this->link, $this->bo->start, parent::$num_rows, 'menuaction.phpbrain.uikb.pop_search&query=' . $this->bo->query),
 			'num_regs'			=> $this->nextmatchs->show_hits(parent::$num_rows, $this->bo->start),
-			'select_categories'	=> $this->bo->categories_obj->formatted_list('select', 'all', '', True)
+			'select_categories'	=> $this->bo->categories_obj->formatted_list('select', 'all', $actual_category, True),
 		));
+
+		if (count($articles_list) == 0)
+		{
+			$tr_color = $this->nextmatchs->alternate_row_color($tr_color);
+			$this->t->set_var(array(
+				'tr_color'		=> $tr_color,
+				'number'		=> '',
+				'title'			=> '',
+				'button'		=> ''
+			));
+			$this->t->parse('table_row', 'table_row_block', False);
+		}
 
 		foreach ($articles_list as $article)
 		{
@@ -1201,6 +1213,7 @@ class uikb extends bokb
 				'tr_color'		=> $tr_color,
 				'number'		=> $article['art_id'],
 				'title'			=> $article['title'],
+				'button'		=> '<input type="button" name="button" value="'.lang('Select').'" onClick="TransferID('.$article['art_id'].');">',
 
 			));
 			$this->t->parse('table_row', 'table_row_block', True);

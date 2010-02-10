@@ -10,12 +10,12 @@ function TransferID(articleID)
 	<tr>
 		{left}
 		<td>
-			<form method=POST action="{form_filters_action}">
+			<form method="POST" action="{form_filters_action}">
 				<table>
 					<tr>
 						<td>
 							{lang_category}&nbsp;&nbsp;
-							<select onchange="this.form.submit();">
+							<select name="cat" onchange="this.form.submit();">
 								<option value="0">{lang_all}</option>
 								{select_categories}
 							</select>
@@ -35,7 +35,7 @@ function TransferID(articleID)
 		<tr bgcolor="{th_color}">
 			<th>{head_number}</th><th>{head_title}</th><th></th>
 			<!-- BEGIN table_row_block -->
-			<tr bgcolor="{tr_color}"><td style="width: 6em">{number}</td><td>{title}</td><td align=center><input type="button" name="button" value="{lang_select}" onClick="TransferID({number});">
+			<tr bgcolor="{tr_color}"><td style="width: 6em">{number}</td><td>{title}</td><td align=center>{button}
 			<!-- END table_row_block -->
 		</tr>
 	</form>
