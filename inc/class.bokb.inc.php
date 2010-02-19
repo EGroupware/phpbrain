@@ -713,9 +713,10 @@ class bokb extends sokb
 	* @access	public
 	* @param	int		$art_id		article id
 	* @param 	boolean $die_if_no_access=true
+	* @param	boolean $register_view=true 
 	* @return	array/boolean array with article, null if not found or false if no perms (only if !$die_if_no_access)
 	**/
-	function get_article($art_id,$die_if_no_access=true)
+	function get_article($art_id,$die_if_no_access=true,$register_view=true)
 	{
 		if (!$article = parent::get_article($art_id)) return null;
 		$this->article_id = $article['art_id'];
@@ -738,7 +739,7 @@ class bokb extends sokb
 
 		// register article view if it has been published (one hit per session)
 		if (!$data = $GLOBALS['egw']->session->appsession('views', 'phpbrain')) $data = array();
-		if ($article['published'] && !in_array($this->article_id, $data))
+		if ($article['published'] && !in_array($this->article_id, $data) && $register_view)
 		{
 			$data[] = $this->article_id;
 			$GLOBALS['egw']->session->appsession('views', 'phpbrain', $data);
@@ -1186,7 +1187,7 @@ class bokb extends sokb
 		if (!is_array($entry))
 		{
 			$id = $entry['art_id'];
-			$entry = $this->get_article( $entry,false );
+			$entry = $this->get_article( $entry,false,false );
 		}
 		if (!$entry)
 		{
