@@ -1046,7 +1046,7 @@ class uikb extends bokb
 					$this->t->set_var('img_delete', '');
 				}
 				// if protocol not set, add it
-				if (!ereg('://', $link['link'])) $link['link'] = 'http://' . $link['link'];
+				if (!preg_match('/:\\/\\//', $link['link'])) $link['link'] = 'http://' . $link['link'];
 
 				if (!$link['title']) $link['title'] = $link['link'];
 				$this->t->set_var(array(
