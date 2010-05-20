@@ -32,7 +32,7 @@ ascendent	phpbrain	fi	Nouseva
 attach file	phpbrain	fi	Liitä tiedosto
 attached files	phpbrain	fi	Liitetiedostot
 average rating	phpbrain	fi	Arviointien keskiarvo
-base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	fi	Kannan hakemistoa ei ole olemassa, pyydä ylläpitäjää tarkistamaan palvelun asetukset.
+base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	fi	Kantahakemistoa ei ole olemassa, pyydä ylläpitäjää tarkistamaan palvelun asetukset.
 before submiting a question, please search in the knowledge base first	phpbrain	fi	Ole hyvä ja etsi tietokannasta vastausta ennen kuin esität kysymyksen.
 by answering this question you will help to get the answer quicker the next time	phpbrain	fi	Vastaamalla tähän kysymykseen helpotat saamaan vastauksen nopeammin ensi kerralla
 comment	phpbrain	fi	Kommentti
@@ -60,7 +60,7 @@ e-mail has been sent	phpbrain	fi	Sähköpostiviesti on lähetetty
 edit article	phpbrain	fi	Muokkaa artikkelia
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	fi	Kirjoita yksi tai kaksi sanaa kuvailemaan aihetta, tai artikkelin tyyppi numero jos tiedät sen.
 enterprise knowledge articles repository	phpbrain	fi	Tietokannann artikkelivarasto
-error deleting article from database	phpbrain	fi	Virhe poistettaessa artikkelia tiedostosta
+error deleting article from database	phpbrain	fi	Virhe poistettaessa artikkelia tietokannasta
 error deleting link	phpbrain	fi	Virhe poistettaessa linkkiä
 error downloading file	phpbrain	fi	Virhe ladatessa tiedostoa
 error locating files directory	phpbrain	fi	Tiedostokansiota ei löydy
@@ -76,7 +76,7 @@ excellent	phpbrain	fi	Erinomainen
 failure trying to delete the file	phpbrain	fi	Virhe yritettäessä poistaa tiedostoa
 file could be deleted from server but not from database	phpbrain	fi	Tiedosto voidaan poistaa palvelimelta, mutta ei tietokannasta.
 file has been successfully uploaded	phpbrain	fi	Tiedosto on onnistuneesti tallennettu
-file was already missing from server, and was deleted from the database	phpbrain	fi	Tiedosto oli jo kadonnut palvelimelta ja tuhoutunut tiedostosta
+file was already missing from server, and was deleted from the database	phpbrain	fi	Tiedosto oli jo kadonnut palvelimelta ja tuhoutunut tietokannasta
 file was deleted successfully	phpbrain	fi	Tiedosto poistettiin onnistuneesti
 file wasn't in server and it couldn't be deleted from the database	phpbrain	fi	Tiedostoa ei ollut palvelimella eikä sitä voitu poistaa tietokannasta.
 find results	phpbrain	fi	Hae tuloksia
@@ -109,7 +109,7 @@ main view	phpbrain	fi	Päänäkymä
 maintain articles	phpbrain	fi	Artikkeleiden hallinta
 maintain questions	phpbrain	fi	Kysymysten hallinta
 maximum number of comments to show:	phpbrain	fi	Näytettävien kommenttien enimmäismäärä
-maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	fi	Suosituimpien artikkelien enimmäismäärät, viimeisimmät artikkelit ja vastaamattomat kysymykset näytetään päänäkymässä:
+maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	fi	Valitse suosituimpien ja viimeisimpien artikkeleiden sekä vastaamattomien kysymysten enimmäismäärä, mikä näytetään päänäkymässä:
 modification date	phpbrain	fi	Muokkauspäivä
 most viewed	phpbrain	fi	Eniten näytetyt
 name of the backlink to the index:	admin	fi	Indeksin backlinkin nimi:
@@ -155,7 +155,7 @@ see more questions...	phpbrain	fi	Muita kysymyksiä...
 select articles	phpbrain	fi	Valitse artikkelit
 should the article view make an automatic table of contents?	admin	fi	Pitäisikö artikkelinäkymän luoda sisältöluettelo automaattisesti?
 show all comments	phpbrain	fi	Näytä kaikki kommentit
-show articles belonging to:	phpbrain	fi	Näytä artikkelit, jotka kuuluvat henkilölle:
+show articles belonging to:	phpbrain	fi	Näytettävät artikkelit
 show messages in category	phpbrain	fi	Näytä viestit kategoriassa
 submit comment	phpbrain	fi	Lisää kommentti
 submit comment and rating	phpbrain	fi	Lisää kommentti ja arviointi
@@ -183,7 +183,7 @@ unpublished	phpbrain	fi	Julkaisematon
 user preferences	phpbrain	fi	Käyttäjän asetukset
 views	phpbrain	fi	Näkymät
 was it easy to find this article using the above search string?	phpbrain	fi	Oliko tämä artikkeli helppo löytää käyttämällä yllä olevaa etsijää?
-when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	fi	Kun kategorioissa navigoidaan, tulisiko näyttää ainoastaan kategorian sisältö VAI kategorian sisältö sekä kategoriassa olevat ali-kategoriat
+when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	fi	Kun kategorioissa navigoidaan, tulisiko näyttää ainoastaan kategorian sisältö VAI kategorian sisältö sekä kategoriassa olevat alikategoriat
 with all the words	phpbrain	fi	Sisältää kaikki sanat
 with at least one of the words	phpbrain	fi	Sisältää ainakin yhden sanan
 with the exact phrase	phpbrain	fi	Sisältää täsmälleen
