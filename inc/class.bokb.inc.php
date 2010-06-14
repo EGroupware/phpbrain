@@ -257,6 +257,7 @@ class bokb extends sokb
 
 		$this->start			= get_var('start', 'any', 0);
 		$GLOBALS['query'] = $this->query			= urldecode(get_var('query', 'any', ''));
+		if($_GET['search']) $GLOBALS['query'] = $this->query = $_GET['search'];
 		$this->sort				= get_var('sort', 'any', '');
 		$this->order			= get_var('order', 'any', '');
 		$this->publish_filter	= get_var('publish_filter', 'any', 'all');
@@ -1204,16 +1205,19 @@ class bokb extends sokb
 	 * @param string $pattern pattern to search
 	 * @return array with art_id - title pairs of the matching entries
 	 */
-	function link_query( $pattern )
+	function link_query( $pattern, Array &$options = array() )
 	{
 		$result = array();
+		$start = $options['start'] ? $options['start'] : $this->start;
+		$limit = $options['num_rows'] ? $options['num_rows'] : $this->num_res;
 		$owners = $this->accessible_owners();
 		$this->phrase=$pattern;
 		$this->ocurrences="all";
-		foreach((array) $articles = parent::adv_search_articles($owners, array(), $this->ocurrences, $this->pub_date, $this->start, $this->num_res, $this->all_words, $this->phrase, $this->one_word, $this->without_words, $this->cat, $this->include_subs) as $item )
+		foreach((array) $articles = parent::adv_search_articles($owners, array(), $this->ocurrences, $this->pub_date, $start, $num_res, $this->all_words, $this->phrase, $this->one_word, $this->without_words, $this->cat, $this->include_subs) as $item )
 		{
 			if ($item) $result[$item['art_id']] = $this->link_title($item);
 		}
+		$options['total'] = parent::$num_rows;
 		return $result;
 	}
 
@@ -1232,6 +1236,7 @@ class bokb extends sokb
 				'menuaction' => 'phpbrain.uikb.view_article',
 			),
 			'view_id' => 'art_id',
+			'view_list'	=>	'phpbrain.uikb.index',
 		);
 	}
 
