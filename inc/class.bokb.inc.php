@@ -1024,7 +1024,7 @@ class bokb extends sokb
 		{
 			return 'overwrite';
 		}
-		egw_link::attach_file('phpbrain',$this->article_id,$_FILES['new_file']);
+		egw_link::attach_file('phpbrain',$this->article_id,$_FILES['new_file'],$_POST['file_comment']);
 
 		$GLOBALS['egw']->historylog->add('AF', $this->article_id, $_FILES['new_file']['name'], '');
 
