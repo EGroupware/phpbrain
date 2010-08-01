@@ -234,11 +234,13 @@ class bokb extends sokb
 		// acl grants puts all rights (-1) on current the user itself. That has to be modified here since the user doesn't have necessarily publish rights
 		// Here I have to accumulate the rights the user has on every group it belongs to
 		$grants_user = $this->read_right | $this->edit_right;	// The user can always read and edit his own articles
-		$user_groups = $GLOBALS['egw']->accounts->membership($GLOBALS['egw_info']['user']['account_id']);
-		foreach ($user_groups as $group)
+		if (($user_groups = $GLOBALS['egw']->accounts->membership($GLOBALS['egw_info']['user']['account_id'])))
 		{
-			$grants_user |= $this->grants[$group['account_id']];
-			//echo "for the group: ";echo $group['account_id'];echo " the right: ";echo $this->grants[$group['account_id']];echo "<br>";
+			foreach ($user_groups as $group)
+			{
+				$grants_user |= $this->grants[$group['account_id']];
+				//echo "for the group: ";echo $group['account_id'];echo " the right: ";echo $this->grants[$group['account_id']];echo "<br>";
+			}
 		}
 		//echo "grants_user: $grants_user<br>";
 		$this->grants[$GLOBALS['egw_info']['user']['account_id']] = $grants_user;
