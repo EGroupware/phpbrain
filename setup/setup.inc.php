@@ -1,6 +1,6 @@
 <?php
 /**
- * eGroupWare Knowledgebase - Setup
+ * EGroupware Knowledgebase - Setup
  *
  * Started off as a port of phpBrain - http://vrotvrot.com/phpBrain/ but quickly became a full rewrite
  *
@@ -15,7 +15,7 @@
 /* Basic information about this app */
 $setup_info['phpbrain']['name']      = 'phpbrain';
 $setup_info['phpbrain']['title']     = 'Knowledge Base';
-$setup_info['phpbrain']['version']   = '1.6';
+$setup_info['phpbrain']['version']   = '1.8';
 $setup_info['phpbrain']['app_order'] = 25;
 $setup_info['phpbrain']['enable']    = 1;
 $setup_info['phpbrain']['index']     = 'phpbrain.uikb.index';
@@ -48,7 +48,7 @@ $setup_info['phpbrain']['tables'][] = 'egw_kb_urls';
 /* Dependencies for this app to work */
 $setup_info['phpbrain']['depends'][] = array(
 	'appname' => 'phpgwapi',
-	'versions' => Array('1.4','1.5','1.6','1.7')
+	'versions' => Array('1.7','1.8','1.9')
 );
 
 

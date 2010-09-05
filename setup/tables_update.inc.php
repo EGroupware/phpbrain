@@ -1,6 +1,6 @@
 <?php
 /**
- * eGroupWare Knowledgebase - Setup
+ * EGroupware Knowledgebase - Setup
  *
  * Started off as a port of phpBrain - http://vrotvrot.com/phpBrain/ but quickly became a full rewrite
  *
@@ -468,4 +468,10 @@ function phpbrain_upgrade1_5_002()
 function phpbrain_upgrade1_5_003()
 {
 	return $GLOBALS['setup_info']['phpbrain']['currentver'] = '1.6';
+}
+
+
+function phpbrain_upgrade1_6()
+{
+	return $GLOBALS['setup_info']['phpbrain']['currentver'] = '1.8';
 }
