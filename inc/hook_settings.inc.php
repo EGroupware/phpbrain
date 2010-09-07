@@ -70,3 +70,16 @@
 			'admin'  => False
 		),
 	);
+	if ($GLOBALS['egw_info']['user']['apps']['filemanager'])
+	{
+		$GLOBALS['settings']['upload_dir'] = array(
+			'type'  => 'input',
+			'label' => 'VFS upload directory',
+			'name'  => 'upload_dir',
+			'size'  => 50,
+			'help'  => 'Start directory for image browser of rich text editor in EGroupware VFS (filemanager).',
+			'xmlrpc' => True,
+			'admin'  => False,
+		);
+	}
+	

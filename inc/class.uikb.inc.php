@@ -1363,7 +1363,10 @@ class uikb extends bokb
 			$category_selected = $question['cat_id'];
 		}
 
-		$content = html::fckEditor('exec[text]', $content, $GLOBALS['egw_info']['user']['preferences']['phpbrain']['rtfEditorFeatures'],array('toolbar_expanded' =>'true'),'400px','100%',$this->bo->admin_config['upload_dir'] ? $this->bo->admin_config['upload_dir'] : null);
+		$content = html::fckEditor('exec[text]', $content, 
+			$GLOBALS['egw_info']['user']['preferences']['phpbrain']['rtfEditorFeatures'],
+			array('toolbar_expanded' =>'true'),'400px','100%',
+			$GLOBALS['egw_info']['user']['preferences']['phpbrain']['upload_dir']);
 
 		// Finally, fill the input fields
 		if (!$this->sitemgr)
