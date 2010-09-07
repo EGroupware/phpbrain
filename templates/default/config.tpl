@@ -43,15 +43,6 @@
 	</td>
 </tr>
 <tr class="row_off">
-	<td>  
-	  	{lang_Image_directory_relative_to_document_root_(use_/_!),_example:} /images<br />
-  		{lang_An_existing_AND_by_the_webserver_readable_directory_enables_the_image_browser_and_upload.}<br />
-  		{lang_Upload_requires_the_directory_to_be_writable_by_the_webserver!}
-	<td>
-		<input name="newsettings[upload_dir]" size="40" value="{value_upload_dir}"/>
-	</td>
-</tr>
-<tr class="row_on">
 	<td>{lang_Should_the_article_view_make_an_automatic_table_of_contents?}</td>
 	<td>
 		<select name="newsettings[show_toc]">
@@ -60,7 +51,7 @@
 		</select>
 	</td>
 </tr>
-<tr class="row_off">
+<tr class="row_on">
 	<td>{lang_Name_of_the_backlink_to_the_index:}</td>
 	<td>
 		<input name="newsettings[backlinkText]" size="40" value="{value_backlinkText}"/>
