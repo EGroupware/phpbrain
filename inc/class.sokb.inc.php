@@ -1286,4 +1286,32 @@ class sokb
 		}
 		return $question;
 	}
+
+	/**
+	* Changes articles category when the old one is deleted
+	*
+	* @access	public
+	* @param	int	$cat		actual category
+	* @param	int	$new_category	new category
+	**/
+	function change_articles_cat($cat, $new_cat)
+	{
+		$valuzes = array('cat_id'=>$new_cat);
+		$where = array('cat_id'=>$cat);
+		self::$db->update('egw_kb_articles',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP);
+	}
+
+	/**
+	* Changes questions category when the old one is deleted
+	*
+	* @access	public
+	* @param	int	$cat		actual category
+	* @param	int	$new_category	new category
+	**/
+	function change_questions_cat($cat, $new_cat)
+	{
+		$valuzes = array('cat_id'=>$new_cat);
+		$where = array('cat_id'=>$cat);
+		self::$db->update('egw_kb_questions',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP);
+	}
 }

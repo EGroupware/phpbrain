@@ -1243,6 +1243,32 @@ class bokb extends sokb
 	}
 
 	/**
+	 * Hook called before deleting a category
+	 *
+	 * @param array $hook_data
+	 */
+	function delete_category($hook_data)
+	{
+		// get all cats if you want to drop sub cats
+		$drop_subs = ($hook_data['drop_subs'] && !$hook_data['modify_subs']);
+		if($drop_subs)
+		{
+			$cats = new categories('', 'phpbrain');
+			$cat_ids = $cats->return_all_children($hook_data['cat_id']);
+		}
+		else
+		{
+			$cat_ids = array($hook_data['cat_id']);
+		}
+
+		foreach($cat_ids as $cat_id)
+		{
+			parent::change_articles_cat($cat_id, 0);
+			parent::change_questions_cat($cat_id, 0);
+		}
+	}
+
+	/**
 	* Stop execution and show error message
 	*
 	* @author	Alejandro Pedraza
