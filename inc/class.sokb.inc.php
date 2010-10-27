@@ -137,6 +137,7 @@ class sokb
 			'user_id' => $owners,
 			'cat_id'  => !$categories ? 0 : $categories,
 		);
+		if (isset($owners['fetch']) && $owners['fetch'] == 'all') unset($where['user_id']); // if we pass fetch -> all, return all entrys
 		if ($publish_filter && $publish_filter != 'all')
 		{
 			$where['published'] = (int) ($publish_filter == 'published');
@@ -463,8 +464,9 @@ class sokb
 		$loclike = self::$like;
 		$fields = array('question_id', 'user_id', 'summary', 'details', 'cat_id', 'creation', 'published');
 		$fields_str = implode(', ', $fields);
-		$owners = implode(', ', $owners);
-		$sql = "SELECT $fields_str FROM egw_kb_questions WHERE user_id IN ($owners)";
+		$ownerquery = " IN (".implode(', ', $owners).") ";
+		if (isset($owners['fetch']) && $owners['fetch']=='all') $ownerquery = " > 0 ";
+		$sql = "SELECT $fields_str FROM egw_kb_questions WHERE user_id $ownerquery";
 		if ($publish_filter && $publish_filter!='all')
 		{
 			($publish_filter == 'published')? $publish_filter = 1 : $publish_filter = 0;
@@ -1296,7 +1298,11 @@ class sokb
 	**/
 	function change_articles_cat($cat, $new_cat)
 	{
-		$valuzes = array('cat_id'=>$new_cat);
+		$current_time = self::$now;
+		$valuzes = array('cat_id'=>$new_cat,
+						'modified'	=> $current_time,
+						'modified_user_id'	=> $GLOBALS['egw_info']['user']['account_id'],
+		);
 		$where = array('cat_id'=>$cat);
 		self::$db->update('egw_kb_articles',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP);
 	}

@@ -494,6 +494,9 @@ class bokb extends sokb
 				case 'AL':
 					$history[$i]['action'] = lang ('Added link %1', $history[$i]['new_value']);
 					break;
+				case 'CC':
+					$history[$i]['action'] = lang ('Changed category form %1 to %2',$history[$i]['old_value'], $history[$i]['new_value']);
+					break;
 				case 'RL':
 					$history[$i]['action'] = lang ('Removed link %1', $history[$i]['new_value']);
 					break;
@@ -1260,10 +1263,19 @@ class bokb extends sokb
 		{
 			$cat_ids = array($hook_data['cat_id']);
 		}
-
+		@set_time_limit( 0 );
 		foreach($cat_ids as $cat_id)
 		{
+			$buff = $this->return_single_category($cat_id);
+			$oldcat = $buff[0];
+			$allarticles = parent::search_articles(array('fetch'=>'all'), $cat_id, 0, '', 'DESC', 'art_id', false, '');
 			parent::change_articles_cat($cat_id, 0);
+			foreach ((array)$allarticles as $art) 
+			{
+				//error_log(__METHOD__.__LINE__.array2string($art));
+				$GLOBALS['egw']->historylog->add('CC', $art['art_id'], 'none',$oldcat['name'].' (ID:'.$oldcat['id'].')');
+			}
+			unset($allarticles);
 			parent::change_questions_cat($cat_id, 0);
 		}
 	}
