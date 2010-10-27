@@ -495,7 +495,7 @@ class bokb extends sokb
 					$history[$i]['action'] = lang ('Added link %1', $history[$i]['new_value']);
 					break;
 				case 'CC':
-					$history[$i]['action'] = lang ('Changed category form %1 to %2',$history[$i]['old_value'], $history[$i]['new_value']);
+					$history[$i]['action'] = lang ('Changed category from %1 to %2',$history[$i]['old_value'], $history[$i]['new_value']);
 					break;
 				case 'RL':
 					$history[$i]['action'] = lang ('Removed link %1', $history[$i]['new_value']);
