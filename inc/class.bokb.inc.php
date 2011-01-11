@@ -1223,6 +1223,13 @@ class bokb extends sokb
 			if ($item) $result[$item['art_id']] = $this->link_title($item);
 		}
 		$options['total'] = parent::$num_rows;
+
+		// Support linking by article number
+		if(is_numeric($pattern) || $pattern[0] == '#' && is_numeric(substr($pattern,1))) {
+			$item = $this->get_article($pattern[0] == '#' ? substr($pattern,1) : $pattern, false,false);
+			if($item) $result[$item['art_id']] = $this->link_title($item);
+			$options['total']++;
+		}
 		return $result;
 	}
 
