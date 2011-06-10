@@ -15,16 +15,16 @@ anytime	phpbrain	en	Anytime
 anywhere in the article	phpbrain	en	Anywhere in the article
 are you sure?	phpbrain	en	Are you sure?
 article	phpbrain	en	Article
-article added to database, you can now attach files or links, or relate to other articles	phpbrain	en	Article added to database, you can now attach files or links, or relate to other articles
-article created	phpbrain	en	Article created
-article deleted	phpbrain	en	Article deleted
-article deleted successfully	phpbrain	en	Article deleted successfully
-article edited	phpbrain	en	Article edited
-article has been published	phpbrain	en	Article has been published
+article added to database, you can now attach files or links, or relate to other articles	phpbrain	en	Article added to database, you can now attach files or links, or relate to other articles.
+article created	phpbrain	en	Article created.
+article deleted	phpbrain	en	Article deleted.
+article deleted successfully	phpbrain	en	Article deleted successfully.
+article edited	phpbrain	en	Article edited.
+article has been published	phpbrain	en	Article has been published.
 article id	phpbrain	en	Article ID
-articles added	phpbrain	en	Articles added
-articles deleted successfully	phpbrain	en	Articles deleted successfully
-articles have been published	phpbrain	en	Articles have been published
+articles added	phpbrain	en	Articles added.
+articles deleted successfully	phpbrain	en	Articles deleted successfully.
+articles have been published	phpbrain	en	Articles have been published.
 articles in %1	phpbrain	en	Articles in %1
 articles in %1 and all its subcategories	phpbrain	en	Articles in %1 and all its sub categories
 articles not classified under any category	phpbrain	en	Articles not classified under any category
@@ -32,17 +32,17 @@ ascendent	phpbrain	en	Ascendent
 attach file	phpbrain	en	Attach file
 attached files	phpbrain	en	Attached files
 average rating	phpbrain	en	Average rating
-base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	en	Base directory does not exist, please ask the administrator to check the global configuration
-before submiting a question, please search in the knowledge base first	phpbrain	en	Before submitting a question, please search in the knowledge base first
-by answering this question you will help to get the answer quicker the next time	phpbrain	en	By answering this question you will help to get the answer quicker the next time
+base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	en	Base directory does not exist, ask the administrator to check the global configuration.
+before submiting a question, please search in the knowledge base first	phpbrain	en	Before submitting a question, search in the Knowledge Base first.
+by answering this question you will help to get the answer quicker the next time	phpbrain	en	By answering this question you will help to get the answer quicker the next time.
 changed category from %1 to %2	phpbrain	en	Changed category from %1 to %2
 comment	phpbrain	en	Comment
-comment and rating have been published	phpbrain	en	Comment and rating have been published
-comment could not be inserted in the database	phpbrain	en	Comment could not be inserted in the database
-comment has been deleted	phpbrain	en	Comment has been deleted
-comment has been published	phpbrain	en	Comment has been published
-comment has been submited for revision	phpbrain	en	Comment has been submited for revision
-comment has been submited for revision and rating will be published	phpbrain	en	Comment has been submitted for revision and rating will be published
+comment and rating have been published	phpbrain	en	Comment and rating have been published.
+comment could not be inserted in the database	phpbrain	en	Comment could not be inserted in the database.
+comment has been deleted	phpbrain	en	Comment has been deleted.
+comment has been published	phpbrain	en	Comment has been published.
+comment has been submited for revision	phpbrain	en	Comment has been submitted for revision.
+comment has been submited for revision and rating will be published	phpbrain	en	Comment has been submitted for revision and rating will be published.
 comments	phpbrain	en	Comments
 configuration	phpbrain	en	Configuration
 contents	phpbrain	en	Contents
@@ -51,7 +51,7 @@ created by %1 on %2	phpbrain	en	Created by %1 on %2
 creation	phpbrain	en	Creation
 creation date	phpbrain	en	Creation date
 delete article	phpbrain	en	Delete article
-delete selected	phpbrain	en	Delete selected
+delete selected	phpbrain	en	Delete selected.
 deleted relation to  article %1	phpbrain	en	Deleted relation to  article %1
 deleted relation to article %1	phpbrain	en	Deleted relation to article %1
 descendent	phpbrain	en	Descendent
@@ -59,35 +59,35 @@ details	phpbrain	en	Details
 e-groupware knowledge base article attached	phpbrain	en	Knowledge Base article attached
 e-mail has been sent	phpbrain	en	Email has been sent
 edit article	phpbrain	en	Edit article
-enter one or two words describing the issue, or type the article number if you know it	phpbrain	en	Enter few words describing the issue, or type the article number if you know it
+enter one or two words describing the issue, or type the article number if you know it	phpbrain	en	Enter few words describing the issue, or type the article number if you know it.
 enterprise knowledge articles repository	phpbrain	en	Enterprise Knowledge articles repository
-error deleting article from database	phpbrain	en	Error deleting article from database
-error deleting link	phpbrain	en	Error deleting link
-error downloading file	phpbrain	en	Error downloading file
-error locating files directory	phpbrain	en	Error locating files directory
-error moving file to directory	phpbrain	en	Error moving file to directory
-error publishing comment	phpbrain	en	Error publishing comment
-error retrieving article	phpbrain	en	Error retrieving article
-error trying to delete comment	phpbrain	en	Error trying to delete comment
-error trying to delete question	phpbrain	en	Error trying to delete question
-error trying to edit article	phpbrain	en	Error trying to edit article
-error trying to publish article	phpbrain	en	Error trying to publish article
-error: file doesn't exist in the database	phpbrain	en	Error: file doesn't exist in the database
+error deleting article from database	phpbrain	en	Error deleting article from database!
+error deleting link	phpbrain	en	Error deleting link!
+error downloading file	phpbrain	en	Error downloading file!
+error locating files directory	phpbrain	en	Error locating files directory!
+error moving file to directory	phpbrain	en	Error moving file to directory!
+error publishing comment	phpbrain	en	Error publishing comment!
+error retrieving article	phpbrain	en	Error retrieving article!
+error trying to delete comment	phpbrain	en	Error trying to delete comment!
+error trying to delete question	phpbrain	en	Error trying to delete question!
+error trying to edit article	phpbrain	en	Error trying to edit article!
+error trying to publish article	phpbrain	en	Error trying to publish article!
+error: file doesn't exist in the database	phpbrain	en	Error: file doesn't exist in the database!
 excellent	phpbrain	en	Excellent
-failure trying to delete the file	phpbrain	en	Failure trying to delete the file
-file could be deleted from server but not from database	phpbrain	en	File could be deleted from server but not from database
-file has been successfully uploaded	phpbrain	en	File has been successfully uploaded
-file was already missing from server, and was deleted from the database	phpbrain	en	File was already missing from server, and was deleted from the database
-file was deleted successfully	phpbrain	en	File was deleted successfully
-file wasn't in server and it couldn't be deleted from the database	phpbrain	en	File wasn't in server and it couldn't be deleted from the database
+failure trying to delete the file	phpbrain	en	Failure trying to delete the file.
+file could be deleted from server but not from database	phpbrain	en	File could be deleted from server but not from database.
+file has been successfully uploaded	phpbrain	en	File has been successfully uploaded.
+file was already missing from server, and was deleted from the database	phpbrain	en	File was already missing from server, and was deleted from the database.
+file was deleted successfully	phpbrain	en	File was deleted successfully.
+file wasn't in server and it couldn't be deleted from the database	phpbrain	en	File wasn't in server and it couldn't be deleted from the database.
 find results	phpbrain	en	Find results
 global categories	phpbrain	en	Global categories
 have to be approved first	common	en	Have to be approved first
 history	phpbrain	en	History
-if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	en	If you can't find answers to your problem in the Knowledge Base, describe it below
-if you wish, you can comment this article here	phpbrain	en	If you wish, you can comment this article here
+if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	en	If you can't find answers to your problem in the Knowledge Base, describe it below.
+if you wish, you can comment this article here	phpbrain	en	If you wish, you can comment this article
 in %1	phpbrain	en	In %1
-in the text	phpbrain	en	in the text
+in the text	phpbrain	en	In the text
 in the title	phpbrain	en	In the title
 in the topic	phpbrain	en	In the topic
 include subcategories	phpbrain	en	Include sub categories
@@ -100,9 +100,9 @@ last modified	phpbrain	en	Last modified
 latest	phpbrain	en	Latest
 latest comments	phpbrain	en	Latest comments
 leave empty to automatically generate an id	phpbrain	en	Leave empty to automatically generate an ID
-link could not be added	phpbrain	en	Link could not be added
-link deleted successfully	phpbrain	en	Link deleted successfully
-link has been added	phpbrain	en	Link has been added
+link could not be added	phpbrain	en	Link could not be added!
+link deleted successfully	phpbrain	en	Link deleted successfully.
+link has been added	phpbrain	en	Link has been added.
 links	phpbrain	en	Links
 links & files	phpbrain	en	Links & Files
 mail article	phpbrain	en	Mail article
@@ -118,7 +118,7 @@ new article	phpbrain	en	New article
 nobody has rated this article so far	phpbrain	en	Nobody has rated this article so far
 nothing was uploaded!	phpbrain	en	Nothing was uploaded!
 number of results per page	phpbrain	en	Number of results
-ocurrences	phpbrain	en	Ocurrences
+ocurrences	phpbrain	en	Occurrences
 or browse the categories	phpbrain	en	Browse the categories
 order results by	phpbrain	en	Order results by
 outstanding published questions	phpbrain	en	Outstanding published questions
@@ -134,18 +134,18 @@ printer view	phpbrain	en	Printer view
 problem relating articles	phpbrain	en	Problem relating articles
 publication date	phpbrain	en	Publication date
 publish	phpbrain	en	Publish
-publish articles automatically?	common	en	Publish articles automatically?
-publish comments automatically?	common	en	Publish comments automatically?
+publish articles automatically?	common	en	Publish articles automatically
+publish comments automatically?	common	en	Publish comments automatically
 publish questions automatically?	common	en	Publish questions automatically
 publish selected	phpbrain	en	Publish selected
 published	phpbrain	en	Published
 question deleted successfully	phpbrain	en	Question deleted successfully
 questions deleted successfully	phpbrain	en	Questions deleted successfully
-rating has been submited	phpbrain	en	Rating has been submited
+rating has been submited	phpbrain	en	Rating has been submitted
 rating invalid	phpbrain	en	Rating invalid
 recipient	phpbrain	en	Recipient
 related articles in the knowledge base	phpbrain	en	Related articles in the Knowledge Base
-relation with article was removed successfully	phpbrain	en	Relation with article was removes successfully
+relation with article was removed successfully	phpbrain	en	Relation with article was removed successfully.
 removed file %1	phpbrain	en	Removed file %1
 removed link %1	phpbrain	en	Removed link %1
 reply-to	phpbrain	en	Reply-to
@@ -154,7 +154,7 @@ search results	phpbrain	en	Search results
 see more questions	phpbrain	en	See more questions
 see more questions...	phpbrain	en	See more questions...
 select articles	phpbrain	en	Select articles
-should the article view make an automatic table of contents?	admin	en	Should the article view make an automatic table of contents?
+should the article view make an automatic table of contents?	admin	en	Should the article view create an automatic table of contents?
 show all comments	phpbrain	en	Show all comments
 show articles belonging to:	phpbrain	en	Show articles belonging to:
 show messages in category	phpbrain	en	Show messages in category
@@ -163,24 +163,24 @@ submit comment and rating	phpbrain	en	Submit comment and rating
 suggested category	phpbrain	en	Suggested category
 summary	phpbrain	en	Summary
 table of contents	phpbrain	en	Table of contents
-that file already exists	phpbrain	en	That file already exists
-the article id must be a number	phpbrain	en	The article ID must be a number
-the article is empty	phpbrain	en	The article is empty
-the file was already missing in the server	phpbrain	en	The file was already missing in the server
-the following errors occurred	phpbrain	en	The following errors occurred
+that file already exists	phpbrain	en	That file already exists!
+the article id must be a number	phpbrain	en	The article ID must be a number.
+the article is empty	phpbrain	en	The article is empty.
+the file was already missing in the server	phpbrain	en	The file was already missing in the server.
+the following errors occurred	phpbrain	en	The following errors occurred:
 the mail server returned:	phpbrain	en	The mail server returned:
 the present category and all subcategories under it	phpbrain	en	The present category and all subcategories under it
 the present category only	phpbrain	en	The present category only
-there are no articles	phpbrain	en	There are no articles
-there are no articles available	phpbrain	en	There are no articles available
-this article hasn't yet been published in the knowledge base	phpbrain	en	This article hasn't yet been published in the Knowledge Base
+there are no articles	phpbrain	en	There are no articles.
+there are no articles available	phpbrain	en	There are no articles available.
+this article hasn't yet been published in the knowledge base	phpbrain	en	This article hasn't yet been published in the Knowledge Base.
 title	phpbrain	en	Title
-to create categories, press 'edit categories' in the preferences menu	phpbrain	en	To create categories, press 'Edit categories' in the preferences menu
+to create categories, press 'edit categories' in the preferences menu	phpbrain	en	To create categories, press 'Edit categories' in the preferences menu.
 topic	phpbrain	en	Topic
 unable to add rating to database	phpbrain	en	Unable to add rating to database
 unanswered questions	phpbrain	en	Unanswered questions
 unpublish	phpbrain	en	Unpublish
-unpublished	phpbrain	en	unpublished
+unpublished	phpbrain	en	Unpublished.
 user preferences	phpbrain	en	User preferences
 views	phpbrain	en	Views
 was it easy to find this article using the above search string?	phpbrain	en	Was it easy to find this article using the above search string?
@@ -190,10 +190,10 @@ with at least one of the words	phpbrain	en	With at least one of the words
 with the exact phrase	phpbrain	en	With the exact phrase
 without the words	phpbrain	en	Without the words
 you are in %1	phpbrain	en	You are in %1
-you have already qualified this article	phpbrain	en	You have already qualified this article
-you have not the proper permissions to do that	phpbrain	en	You have not the proper permissions to do that
-you must enter a title	phpbrain	en	You must enter a title
-you must enter a topic	phpbrain	en	You must enter a topic
+you have already qualified this article	phpbrain	en	You have already qualified this article.
+you have not the proper permissions to do that	phpbrain	en	You have not the proper permissions to do that.
+you must enter a title	phpbrain	en	You must enter a title.
+you must enter a topic	phpbrain	en	You must enter a topic.
 your message could not be sent!	phpbrain	en	Your message could not be sent!
-your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	en	Your question will be posted, but only will be published after approval by a user with publishing rights
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	en	Your question will be posted, but only will be published after approval by a user with publishing rights.
 your question will be published immediately	phpbrain	en	Your question will be published immediately
