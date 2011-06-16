@@ -51,7 +51,7 @@ created by %1 on %2	phpbrain	en	Created by %1 on %2
 creation	phpbrain	en	Creation
 creation date	phpbrain	en	Creation date
 delete article	phpbrain	en	Delete article
-delete selected	phpbrain	en	Delete selected.
+delete selected	phpbrain	en	Delete selected
 deleted relation to  article %1	phpbrain	en	Deleted relation to  article %1
 deleted relation to article %1	phpbrain	en	Deleted relation to article %1
 descendent	phpbrain	en	Descendent
@@ -169,8 +169,8 @@ the article is empty	phpbrain	en	The article is empty.
 the file was already missing in the server	phpbrain	en	The file was already missing in the server.
 the following errors occurred	phpbrain	en	The following errors occurred:
 the mail server returned:	phpbrain	en	The mail server returned:
-the present category and all subcategories under it	phpbrain	en	The present category and all subcategories under it
-the present category only	phpbrain	en	The present category only
+the present category and all subcategories under it	phpbrain	en	Present category and all it's subs
+the present category only	phpbrain	en	Present category only
 there are no articles	phpbrain	en	There are no articles.
 there are no articles available	phpbrain	en	There are no articles available.
 this article hasn't yet been published in the knowledge base	phpbrain	en	This article hasn't yet been published in the Knowledge Base.
@@ -184,7 +184,7 @@ unpublished	phpbrain	en	Unpublished.
 user preferences	phpbrain	en	User preferences
 views	phpbrain	en	Views
 was it easy to find this article using the above search string?	phpbrain	en	Was it easy to find this article using the above search string?
-when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	en	When navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.
+when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	en	When navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all it's subs.
 with all the words	phpbrain	en	With all the words
 with at least one of the words	phpbrain	en	With at least one of the words
 with the exact phrase	phpbrain	en	With the exact phrase
