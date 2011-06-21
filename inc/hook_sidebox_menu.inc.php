@@ -26,7 +26,7 @@
 		$menu_title = lang('Preferences');
 		$file = Array(
 			'Preferences'     => $GLOBALS['egw']->link('/index.php','menuaction=preferences.uisettings.index&appname=' . $appname),
-			'Edit Categories' => $GLOBALS['egw']->link('/index.php','menuaction=preferences.uicategories.index&cats_app='.$appname.'&cats_level=True&global_cats=True')
+			'Edit Categories' => $GLOBALS['egw']->link('/index.php','menuaction=preferences.preferences_categories_ui.index&cats_app='.$appname.'&cats_level=True&global_cats=True')
 		);
 		display_sidebox($appname,$menu_title,$file);
 	}
@@ -36,7 +36,7 @@
 		$menu_title = 'Administration';
 		$file = Array(
 			'Configuration'     => $GLOBALS['egw']->link('/index.php','menuaction=admin.uiconfig.index&appname=phpbrain'),
-			'Global Categories' => $GLOBALS['egw']->link('/index.php','menuaction=admin.uicategories.index&appname=phpbrain')
+			'Global Categories' => $GLOBALS['egw']->link('/index.php','menuaction=admin.admin_categories.index&appname=phpbrain')
 		);
 		display_sidebox($appname,$menu_title,$file);
 	}
