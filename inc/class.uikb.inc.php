@@ -189,7 +189,7 @@ class uikb extends bokb
 	function index()
 	{
 		$category_passed	= (int) $_REQUEST['cat'];
-
+		egw_cache::setSession('phpbrain','active_cat',$category_passed);
 		$this->t->set_file('main', 'main.tpl');
 		$this->t->set_block('main', 'articles_block', 'articles');
 		$this->t->set_block('main', 'articles_navigation_block', 'articles_navigation');
@@ -1231,6 +1231,7 @@ class uikb extends bokb
 	*/
 	function edit_article()
 	{
+		$active_cat =& egw_cache::getSession('phpbrain','active_cat');
 		$this->t->set_file('edit_article', 'edit_article.tpl');
 		$this->t->set_block('edit_article', 'answer_question_block', 'answer_question');
 		$this->t->set_block('edit_article', 'article_id_block', 'article_id');
@@ -1250,7 +1251,7 @@ class uikb extends bokb
 		$topic				= '';
 		$keywords			= '';
 		$content			= '';
-		$category_selected	= '';
+		$category_selected	= ($active_cat?$active_cat:'');
 		$hidden_fields		= '';
 		$btn_save			= "<input type='submit' value='". lang('Save') . "' name='save'>&nbsp;";
 		$btn_cancel			= "<input type='submit' value='". lang('Cancel') . "' name='cancel'>";
