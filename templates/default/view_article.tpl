@@ -7,7 +7,11 @@
 	.TOCEntry { font-family: sans-serif; }
 	.TOCEntry a { text-decoration: none; }
 	.TOCLevel1 { font-size: 16pt; font-weight: bold; }
-	.TOCLevel2 { font-size: 12pt; margin-left: .5in; }
+	.TOCLevel2 { font-size: 12pt; margin-left: .2in; }
+	.TOCLevel3 { font-size: 11pt; margin-left: .4in; }
+	.TOCLevel4 { font-size: 11pt; margin-left: .6in; }
+	.TOCLevel5 { font-size: 10pt; margin-left: .8in; }
+	.TOCLevel6 { font-size: 10pt; margin-left: 1in; }
 	.TOCBackLink { display: block; }
 	.TOCSecNum:after { content: ":"; }
 	
