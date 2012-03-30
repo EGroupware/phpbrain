@@ -792,7 +792,10 @@ class uikb extends bokb
 		}
 
 		// show publish button if article is unpublish and user has publish rights on owner
-		if (!$print_view && !$article['published'] && ($this->bo->grants[$article['user_id']] & $this->bo->publish_right))
+		$publish == false;
+		if (!$print_view && !$article['published'] && ($this->bo->grants[$article['user_id']] & $this->bo->publish_right)) $publish = true;
+		if ($publish == false && $this->bo->admin_config['publish_own_articles'] == 'True' && !empty($article['user_id']) && $article['user_id']==$GLOBALS['egw_info']['user']['account_id']) $publish = true;
+		if (!$print_view && !$article['published'] && $publish)
 		{
 			$this->t->set_var(array(
 				'form_publish_art'		=> $this->link('menuaction=phpbrain.uikb.view_article&art_id='. $article_id),
@@ -1571,14 +1574,17 @@ class uikb extends bokb
 			foreach ($articles_list as $article)
 			{
 				$actions = '';
-
+				$publish = false;
+				if (!$article['published'] && ($this->bo->grants[$article['user_id']] & $this->bo->publish_right)) $publish = true;
+				if ($publish == false && $this->bo->admin_config['publish_own_articles'] == 'True' && !empty($article['user_id']) && $article['user_id']==$GLOBALS['egw_info']['user']['account_id']) $publish = true;
+				//echo '#'.$article['art_id'].'#'.$article['user_id'].'<->'.$GLOBALS['egw_info']['user']['account_id'].":$publish#".$this->bo->admin_config['publish_own_articles']."#<br/>";
 				// skip if article unpublished, user has no publish right on owner and user!=owner
-				if (!$article['published'] && !($this->bo->grants[$article['user_id']] & $this->bo->publish_right) && $article['user_id']!=$GLOBALS['egw_info']['user']['account_id']) continue;
+				if (!$article['published'] && !$publish && $article['user_id']!=$GLOBALS['egw_info']['user']['account_id']) continue;
 
 				$actions = "<a href='". $this->link('menuaction=phpbrain.uikb.view_article&art_id='. $article['art_id']) ."'>
 							<img src='" . $GLOBALS['egw']->common->image('phpbrain', 'view') . "' title='". lang('view')  ."'>
 							</a>";
-				if (!$article['published'] && ($this->bo->grants[$article['user_id']] & $this->bo->publish_right))
+				if ($publish == true && !$article['published'])
 				{
 					$actions .= "<a href='". $this->link('menuaction=phpbrain.uikb.maintain_articles&publish='. $article['art_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query) ."'>
 										<img src='" . $GLOBALS['egw']->common->image('phpbrain', 'new') . "' title='". lang('publish')  ."'>

@@ -35,6 +35,7 @@ average rating	phpbrain	fi	Arviointien keskiarvo
 base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	fi	Kantahakemistoa ei ole olemassa, pyydä ylläpitäjää tarkistamaan palvelun asetukset.
 before submiting a question, please search in the knowledge base first	phpbrain	fi	Ole hyvä ja etsi tietokannasta vastausta ennen kuin esität kysymyksen.
 by answering this question you will help to get the answer quicker the next time	phpbrain	fi	Vastaamalla tähän kysymykseen helpotat saamaan vastauksen nopeammin ensi kerralla
+changed category from %1 to %2	phpbrain	fi	Kategoria muutettu, %1 kategoriaan/kategoriaksi %2
 comment	phpbrain	fi	Kommentti
 comment and rating have been published	phpbrain	fi	Kommentti ja arviointi on julkaistettu
 comment could not be inserted in the database	phpbrain	fi	Kommenttia ei voitu sijoittaa tietokantaan
