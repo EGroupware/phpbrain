@@ -255,6 +255,7 @@ class bokb extends sokb
 		if (!$this->preferences['num_comments']) $this->preferences['num_comments'] = '5';
 		if (!$this->admin_config['publish_comments']) $this->admin_config['publish_comments'] = 'True';
 		if (!$this->admin_config['publish_articles']) $this->admin_config['publish_articles'] = 'True';
+		if (!$this->admin_config['publish_own_articles']) $this->admin_config['publish_own_articles'] = 'False'; // old behavior
 		if (!$this->admin_config['publish_questions']) $this->admin_config['publish_questions'] = 'True';
 
 		$this->start			= get_var('start', 'any', 0);
@@ -601,7 +602,7 @@ class bokb extends sokb
 
 		$publish = False;
 		if ($this->admin_config['publish_articles'] == 'True') $publish = True;
-
+		if ($this->admin_config['publish_own_articles'] == 'True' && isset($content['user_id']) && $content['user_id']==$GLOBALS['egw_info']['user']['account_id']) $publish = True;
 		$art_id = parent::save_article($content, True, $publish);
 		if ($art_id) $GLOBALS['egw']->historylog->add('NA', $art_id, 'article created', '');
 
@@ -930,9 +931,19 @@ class bokb extends sokb
 	function publish_article($art_id=0, $owner=0)
 	{
 		if (!$art_id) $art_id = $this->article_id;
-
+		if (!$owner) $owner = $this->article_owner;
 		// first check permission
-		if (!$this->check_permission($this->publish_right, $owner)) return 'no_perm';
+		if (!$this->check_permission($this->publish_right, $owner))
+		{
+			if ($this->admin_config['publish_own_articles'] == 'True' && !empty($owner) && $owner==$GLOBALS['egw_info']['user']['account_id']) 
+			{
+				//$publish = True;
+			}
+			else
+			{
+				return 'no_perm';
+			}
+		}
 
 		if (!parent::publish_article($art_id)) return 'publish_err';
 		return 'publish_ok';

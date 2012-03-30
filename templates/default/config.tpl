@@ -24,6 +24,15 @@
 		</select>
 	</td>
 </tr>
+<tr class="row_on">
+	<td>{lang_Allow_the_publishing_of_articles_by_the_author?_(effective_only_if_the_approval_of_articles_is_required)}</td>
+	<td>
+		<select name="newsettings[publish_own_articles]">
+			<option value="False"{selected_publish_own_articles_False}>{lang_No}</option>
+			<option value="True"{selected_publish_own_articles_True}>{lang_Yes}</option>
+		</select>
+	</td>
+</tr>
 <tr class="row_off">
 	<td>{lang_Publish_comments_automatically?}</td>
 	<td>

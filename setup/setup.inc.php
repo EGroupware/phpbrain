@@ -15,7 +15,7 @@
 /* Basic information about this app */
 $setup_info['phpbrain']['name']      = 'phpbrain';
 $setup_info['phpbrain']['title']     = 'Knowledge Base';
-$setup_info['phpbrain']['version']   = '1.8';
+$setup_info['phpbrain']['version']   = '1.8.001';
 $setup_info['phpbrain']['app_order'] = 25;
 $setup_info['phpbrain']['enable']    = 1;
 $setup_info['phpbrain']['index']     = 'phpbrain.uikb.index';
@@ -51,6 +51,7 @@ $setup_info['phpbrain']['depends'][] = array(
 	'appname' => 'phpgwapi',
 	'versions' => Array('1.7','1.8','1.9')
 );
+
 
 
 

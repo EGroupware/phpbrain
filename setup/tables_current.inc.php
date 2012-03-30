@@ -35,7 +35,7 @@ $phpgw_baseline = array(
 		),
 		'pk' => array('art_id'),
 		'fk' => array(),
-		'ix' => array(),
+		'ix' => array('cat_id',array('art_id','cat_id')),
 		'uc' => array()
 	),
 	'egw_kb_comment' => array(
