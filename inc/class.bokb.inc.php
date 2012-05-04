@@ -436,7 +436,7 @@ class bokb extends sokb
 		}
 
 		$articles = parent::adv_search_articles($owners, $cats_ids, $this->ocurrences, $this->pub_date, $this->start, $this->num_res, $this->all_words, $this->phrase, $this->one_word, $this->without_words, $this->cat, $this->include_subs);
-		self::$num_rows = parent::$num_rows;
+		$this->num_rows = parent::$num_rows;
 		return $articles;
 	}
 

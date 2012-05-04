@@ -298,6 +298,7 @@ class uikb extends bokb
 		if ($_POST['adv_search'])
 		{
 			$articles_list = $this->bo->adv_search_articles();
+			if (!empty($this->bo->num_res)) $this->nextmatchs->maxmatches = $this->bo->num_res;
 		}
 		// normal browsing or basic search
 		else
@@ -316,9 +317,9 @@ class uikb extends bokb
 		{
 			if ($this->sitemgr) $this->nextmatchs->template->set_var('action_sitemgr', $this->link('menuaction=phpbrain.uikb.index'));
 			$this->t->set_var(array(
-				'left'		=> $this->nextmatchs->left($this->link, $this->bo->start, parent::$num_rows, 'menuaction=phpbrain.uikb.index&cat='.$category_passed),
-				'right'		=> $this->nextmatchs->right($this->link, $this->bo->start, parent::$num_rows, 'menuaction=phpbrain.uikb.index&cat='.$category_passed),
-				'num_regs'	=> $this->nextmatchs->show_hits(parent::$num_rows, $this->bo->start)
+				'left'		=> $this->nextmatchs->left($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction=phpbrain.uikb.index&cat='.$category_passed),
+				'right'		=> $this->nextmatchs->right($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction=phpbrain.uikb.index&cat='.$category_passed),
+				'num_regs'	=> $this->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start)
 			));
 			$this->t->parse('articles_navigation', 'articles_navigation_block');
 
@@ -1192,9 +1193,9 @@ class uikb extends bokb
 			'form_filters_action' => $this->link('menuaction=phpbrain.uikb.pop_search&start=' . $this->bo->start . '&sort=' . $this->bo->sort),
 			'head_number'		=> $this->nextmatchs->show_sort_order($this->bo->sort, 'art_id', $this->bo->order, '', lang('Article ID')),
 			'head_title'		=> $this->nextmatchs->show_sort_order($this->bo->sort, 'title', $this->bo->order, '', lang('Title')),
-			'left'				=> $this->nextmatchs->left($this->link, $this->bo->start, parent::$num_rows, 'menuaction.phpbrain.uikb.pop_search&query=' . $this->bo->query),
-			'right'				=> $this->nextmatchs->right($this->link, $this->bo->start, parent::$num_rows, 'menuaction.phpbrain.uikb.pop_search&query=' . $this->bo->query),
-			'num_regs'			=> $this->nextmatchs->show_hits(parent::$num_rows, $this->bo->start),
+			'left'				=> $this->nextmatchs->left($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.pop_search&query=' . $this->bo->query),
+			'right'				=> $this->nextmatchs->right($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.pop_search&query=' . $this->bo->query),
+			'num_regs'			=> $this->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start),
 			'select_categories'	=> $this->bo->categories_obj->formatted_list('select', 'all', $actual_category, True),
 		));
 
@@ -1810,9 +1811,9 @@ class uikb extends bokb
 			'img_src_checkall'		=> $GLOBALS['egw']->common->image('phpbrain', 'check'),
 			'order'					=> $this->bo->order,
 			'publish_filter'		=> $this->bo->publish_filter,
-			'left'					=> $this->nextmatchs->left($this->link, $this->bo->start, parent::$num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category . '&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
-			'right'					=> $this->nextmatchs->right($this->link, $this->bo->start, parent::$num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category .'&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
-			'num_regs'				=> $this->nextmatchs->show_hits(parent::$num_rows, $this->bo->start),
+			'left'					=> $this->nextmatchs->left($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category . '&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
+			'right'					=> $this->nextmatchs->right($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category .'&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
+			'num_regs'				=> $this->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start),
 			'select_categories'		=> $this->bo->categories_obj->formatted_list('select', 'all', $actual_category, True),
 			'lang_publish_selected'	=> lang('Publish selected'),
 			'lang_delete_selected'	=> lang('Delete selected')
