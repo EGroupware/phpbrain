@@ -22,7 +22,7 @@ if (!defined('PHPBRAIN_APP'))
     define('PHPBRAIN_APP','phpbrain');
 }
 
-class sokb 
+class sokb
 {
 	/**
 	* Database object
@@ -156,6 +156,12 @@ class sokb
 					$likes[] = 'egw_kb_articles.art_id='.(int)$word;
 					continue;	// numbers are only searched as article-id
 				}
+				if (strpos($word,"user_id=")!==false)
+				{
+					$word = str_replace('user_id=','',$word);
+					$adduserquery[]  = 'egw_kb_articles.user_id='.(int)$word;
+					continue;
+				}
 				foreach(array('title','topic','text') as $col)
 				{
 					$likes[] = $col.' '.$loclike.' '.self::$db->quote('%'.$word.'%');
@@ -165,6 +171,7 @@ class sokb
 			$fields .= ",($score) AS pertinence";
 
 			$where[] = "(($score) > 0 OR ".implode(' OR ',$likes).')';
+			if($adduserquery) $where[] = $adduserquery;
 		}
 		$order_sql = array();
 		if (preg_match('/^[a-z_0-9]+$/',$order))
@@ -536,10 +543,10 @@ class sokb
 				'created'	=> $current_time,
 				'modified'	=> $current_time,
 				'modified_user_id'	=> $GLOBALS['egw_info']['user']['account_id'],
-				'votes_1'	=> 0, 
-				'votes_2'	=> 0, 
-				'votes_3'	=> 0, 
-				'votes_4'	=> 0, 
+				'votes_1'	=> 0,
+				'votes_2'	=> 0,
+				'votes_3'	=> 0,
+				'votes_4'	=> 0,
 				'votes_5'	=> 0,
 			);
 			self::$db->insert('egw_kb_articles',$valuzes,array(),__LINE__,__FILE__,PHPBRAIN_APP);
@@ -651,7 +658,7 @@ class sokb
 	* @return	array	Articles
 	*/
 	/*
- 	not used anymore? 
+ 	not used anymore?
 	function get_latest_articles($parent_cat)
 	{
 		$sql = "SELECT art_id, title, topic, text, modified, votes_1, votes_2, votes_3, votes_4, votes_5 FROM egw_kb_articles";
@@ -873,7 +880,7 @@ class sokb
 		$related = array();
 		$where = array(
 			'egw_kb_related_art.related_art_id=egw_kb_articles.art_id',
-			'egw_kb_related_art.art_id='. $art_id, 
+			'egw_kb_related_art.art_id='. $art_id,
 			'egw_kb_articles.user_id in ('.$owners.')',
 		);
 		foreach(self::$db->select('egw_kb_articles',$fields_str,$where,__LINE__,__FILE__,false,'',PHPBRAIN_APP,0,
@@ -1133,7 +1140,7 @@ class sokb
 		$where = $valuzes;
 		if (!self::$db->insert('egw_kb_ratings',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP)) {
 			error_log(__FILE__.':'.__METHOD__,":Could not add voting for Articel No.:$art_id by user No.:$user_id");
-			$added = false;	
+			$added = false;
 		}
 		return $added;
 	}
@@ -1196,12 +1203,12 @@ class sokb
 			}
 			$added = true;
 			$valuzes = array(
-				'art_id' => $art_id, 
+				'art_id' => $art_id,
 				'related_art_id' =>$article
 			);
 			$where = $valuzes;
 			if (!self::$db->insert('egw_kb_related_art',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP)) {
-				error_log(__FILE__.':'.__METHOD__,":Could not add related Articel No.:$article to Article No.:$art_id"); 
+				error_log(__FILE__.':'.__METHOD__,":Could not add related Articel No.:$article to Article No.:$art_id");
 				$added = false;
 			}
 		}
@@ -1249,7 +1256,7 @@ class sokb
 	function add_question($data, $publish)
 	{
 		($publish)? $publish = 1 : $publish = 0;
-		
+
 		$question = array(
 			'user_id'	=>	$GLOBALS['egw_info']['user']['account_id'],
 			'summary'	=>	$data['summary'],
