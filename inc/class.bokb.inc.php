@@ -401,9 +401,9 @@ class bokb extends sokb
 		else
 		{
 			// show only articles in present category
-			$articles = parent::$search($owners, array($category_id), $this->start, '', $this->sort, $this->order, $publish_filter, $this->query);
+			$articles = parent::$search($owners, array($category_id), $this->start, ($this->num_rows?$this->num_rows:''), $this->sort, $this->order, $publish_filter, $this->query);
 		}
-		self::$num_rows = parent::$num_rows;
+		$this->num_rows = parent::$num_rows;
 
 		return $articles;
 	}
@@ -436,7 +436,7 @@ class bokb extends sokb
 		}
 
 		$articles = parent::adv_search_articles($owners, $cats_ids, $this->ocurrences, $this->pub_date, $this->start, $this->num_res, $this->all_words, $this->phrase, $this->one_word, $this->without_words, $this->cat, $this->include_subs);
-		self::$num_rows = parent::$num_rows;
+		$this->num_rows = parent::$num_rows;
 		return $articles;
 	}
 
@@ -621,6 +621,7 @@ class bokb extends sokb
 	function delete_article($art_id = 0, $owner = 0)
 	{
 		if (!$art_id) $art_id = $this->article_id;
+		//error_log(__METHOD__.__LINE__.' ArticleID'.$art_id.' Owner:'.$owner);
 		// check user has edit rights
 		if ($owner != -1 && !$this->check_permission($this->edit_right, $owner)) return 'no_perm';
 		// delete files
@@ -720,7 +721,7 @@ class bokb extends sokb
 	* @access	public
 	* @param	int		$art_id		article id
 	* @param 	boolean $die_if_no_access=true
-	* @param	boolean $register_view=true 
+	* @param	boolean $register_view=true
 	* @return	array/boolean array with article, null if not found or false if no perms (only if !$die_if_no_access)
 	**/
 	function get_article($art_id,$die_if_no_access=true,$register_view=true)
@@ -935,7 +936,7 @@ class bokb extends sokb
 		// first check permission
 		if (!$this->check_permission($this->publish_right, $owner))
 		{
-			if ($this->admin_config['publish_own_articles'] == 'True' && !empty($owner) && $owner==$GLOBALS['egw_info']['user']['account_id']) 
+			if ($this->admin_config['publish_own_articles'] == 'True' && !empty($owner) && $owner==$GLOBALS['egw_info']['user']['account_id'])
 			{
 				//$publish = True;
 			}
@@ -1288,7 +1289,7 @@ class bokb extends sokb
 			$oldcat = $buff[0];
 			$allarticles = parent::search_articles(array('fetch'=>'all'), $cat_id, 0, '', 'DESC', 'art_id', false, '');
 			parent::change_articles_cat($cat_id, 0);
-			foreach ((array)$allarticles as $art) 
+			foreach ((array)$allarticles as $art)
 			{
 				//error_log(__METHOD__.__LINE__.array2string($art));
 				$GLOBALS['egw']->historylog->add('CC', $art['art_id'], 'none',$oldcat['name'].' (ID:'.$oldcat['id'].')');

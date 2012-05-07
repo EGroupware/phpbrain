@@ -298,6 +298,7 @@ class uikb extends bokb
 		if ($_POST['adv_search'])
 		{
 			$articles_list = $this->bo->adv_search_articles();
+			if (!empty($this->bo->num_res)) $this->nextmatchs->maxmatches = $this->bo->num_res;
 		}
 		// normal browsing or basic search
 		else
@@ -316,9 +317,9 @@ class uikb extends bokb
 		{
 			if ($this->sitemgr) $this->nextmatchs->template->set_var('action_sitemgr', $this->link('menuaction=phpbrain.uikb.index'));
 			$this->t->set_var(array(
-				'left'		=> $this->nextmatchs->left($this->link, $this->bo->start, parent::$num_rows, 'menuaction=phpbrain.uikb.index&cat='.$category_passed),
-				'right'		=> $this->nextmatchs->right($this->link, $this->bo->start, parent::$num_rows, 'menuaction=phpbrain.uikb.index&cat='.$category_passed),
-				'num_regs'	=> $this->nextmatchs->show_hits(parent::$num_rows, $this->bo->start)
+				'left'		=> $this->nextmatchs->left($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction=phpbrain.uikb.index&cat='.$category_passed),
+				'right'		=> $this->nextmatchs->right($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction=phpbrain.uikb.index&cat='.$category_passed),
+				'num_regs'	=> $this->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start)
 			));
 			$this->t->parse('articles_navigation', 'articles_navigation_block');
 
@@ -516,9 +517,9 @@ class uikb extends bokb
 	* @access	public
 	* @return	mixed	Returns output string if accessed through sitemgr
 	*/
-	function view_article()
+	function view_article($article_id=null)
 	{
-		$article_id		= (int)get_var('art_id', 'GET', 0);
+		if (empty($article_id)) $article_id		= (int)get_var('art_id', 'GET', 0);
 		$more_comments	= (int)get_var('more_comments', 'GET', 0);
 		if ($_GET['printer'] || $_GET['mail'])
 		{
@@ -528,9 +529,10 @@ class uikb extends bokb
 		{
 			$print_view = False;
 		}
+		//echo "article: $article_id <pre>";
 
 		$article		= $this->bo->get_article($article_id);
-		//echo "article: <pre>";print_r($article);echo  "</pre>";
+		//echo "article: $article_id <pre>";print_r($article);echo  "</pre>";
 
 		if (!$article_id || !$article) $this->die_peacefully("Error retrieving article");
 		$can_edit = $this->bo->check_permission($this->bo->edit_right)? True : False;
@@ -1191,9 +1193,9 @@ class uikb extends bokb
 			'form_filters_action' => $this->link('menuaction=phpbrain.uikb.pop_search&start=' . $this->bo->start . '&sort=' . $this->bo->sort),
 			'head_number'		=> $this->nextmatchs->show_sort_order($this->bo->sort, 'art_id', $this->bo->order, '', lang('Article ID')),
 			'head_title'		=> $this->nextmatchs->show_sort_order($this->bo->sort, 'title', $this->bo->order, '', lang('Title')),
-			'left'				=> $this->nextmatchs->left($this->link, $this->bo->start, parent::$num_rows, 'menuaction.phpbrain.uikb.pop_search&query=' . $this->bo->query),
-			'right'				=> $this->nextmatchs->right($this->link, $this->bo->start, parent::$num_rows, 'menuaction.phpbrain.uikb.pop_search&query=' . $this->bo->query),
-			'num_regs'			=> $this->nextmatchs->show_hits(parent::$num_rows, $this->bo->start),
+			'left'				=> $this->nextmatchs->left($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.pop_search&query=' . $this->bo->query),
+			'right'				=> $this->nextmatchs->right($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.pop_search&query=' . $this->bo->query),
+			'num_regs'			=> $this->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start),
 			'select_categories'	=> $this->bo->categories_obj->formatted_list('select', 'all', $actual_category, True),
 		));
 
@@ -1367,7 +1369,7 @@ class uikb extends bokb
 			$category_selected = $question['cat_id'];
 		}
 
-		$content = html::fckEditor('exec[text]', $content, 
+		$content = html::fckEditor('exec[text]', $content,
 			$GLOBALS['egw_info']['user']['preferences']['phpbrain']['rtfEditorFeatures'],
 			array('toolbar_expanded' =>'true'),'400px','100%',
 			$GLOBALS['egw_info']['user']['preferences']['phpbrain']['upload_dir']);
@@ -1483,177 +1485,147 @@ class uikb extends bokb
 	* @access	public
 	* @return	void
 	*/
-	function maintain_articles()
+	function maintain_articles($content=null)
 	{
-		$actual_category = (int)get_var('cat', 'any', 0);
-
-		if (!$this->bo->order) $this->bo->order = 'created';
-		if (!$this->bo->sort) $this->bo->sort = 'DESC';
-
-		$this->bo->load_categories($actual_category);
-
-		// obtain articles to which one has any kind of permission
-		$articles_list = $this->bo->search_articles($actual_category, $this->bo->publish_filter, $this->bo->read_right | $this->bo->edit_right | $this->bo->publish_right);
-		//echo "articles_list: <pre>";print_r($articles_list);echo "</pre>";
-
-		// Process article deletion
-		if ($_GET['delete'] || $_POST['delete_selected'])
+		//error_log(__METHOD__.__LINE__.array2string($content));
+		if(!isset($content))
 		{
-			if ($_GET['delete'])
+			$content['nm'] = array(
+				'get_rows'       =>	'phpbrain.uikb.get_rows',	// I  method/callback to request the data for the rows eg. 'notes.bo.get_rows'
+				'filter_label'   =>	lang('published'),	// I  label for filter    (optional)
+				'filter'         =>	'',	// =All	// IO filter, if not 'no_filter' => True
+				//'filter_no_lang' => True,		// I  set no_lang for filter (=dont translate the options)
+				'no_filter2'     => True,	// I  disable the 2. filter (params are the same as for filter)
+				'no_cat'         => False,	// I  disable the cat-selectbox
+				'header_left'    =>	false,	// I  template to show left of the range-value, left-aligned (optional)
+				'header_right'   =>	false,	// I  template to show right of the range-value, right-aligned (optional)
+				'never_hide'     => True,	// I  never hide the nextmatch-line if less then maxmatch entries
+				'lettersearch'   => false,	// I  show a lettersearch
+				'start'          =>	0,		// IO position in list
+				'order'          =>	'modified',	// IO name of the column to sort after (optional for the sortheaders)
+				'sort'           =>	'DESC',	// IO direction of the sort: 'ASC' or 'DESC'
+				//'default_cols'   => 	// I  columns to use if there's no user or default pref (! as first char uses all but the named columns), default all columns
+				'csv_fields'     =>	false,	// I  false=disable csv export, true or unset=enable it with auto-detected fieldnames,
+								//or array with name=>label or name=>array('label'=>label,'type'=>type) pairs (type is a eT widget-type)
+			);
+			if ((int)$_GET['username'])
 			{
-				$selected = array($_GET['delete'] => '');
+				$content['nm']['col_filter']['username'] = (int)$_GET['username'];
+			}
+		}
+		elseif(isset($content['nm']['rows']['view']) )
+		{
+			$keys = array_keys($content['nm']['rows']['view']);
+			unset($content['nm']['rows']['view']);
+			unset($content['nm']['rows']['selected']);
+			return $this->view_article($keys[0]);
+		}
+		elseif(isset($content['nm']['rows']['delete']) || isset($content['delete']))
+		{
+			if (isset($content['nm']['rows']['delete']))
+			{
+				$list2delete = array_keys($content['nm']['rows']['delete']);
+				unset($content['nm']['rows']['delete']);
 			}
 			else
 			{
-				$selected = $_POST['select'];
+				unset($content['delete']);
+				$list2delete = $content['nm']['rows']['selected'];
 			}
-			$errors = False;
-			foreach ($selected as $art_id => $trash)
+			//error_log(__METHOD__.__LINE__.' To delete:'.array2string($list2delete));
+			foreach ((array)$list2delete as $k => $art_id)
 			{
-				$target_art = array();
-				foreach($articles_list as $article)
+				$mesg='';
+				if ($art_id)
 				{
-					if ($article['art_id'] == $art_id)
-					{
-						$target_art = $article;
-						break;
-					}
+					//error_log(' ArtikleID:'.$art_id.' about to delete');
+					$target_art = $this->bo->get_article($art_id,$die_if_no_access=false,$register_view=false);
+					if ($target_art) $mesg = $this->bo->delete_article($target_art['art_id'], $target_art['user_id']);
 				}
-				$message = $this->bo->delete_article($target_art['art_id'], $target_art['user_id']);
-				if ($message != 'del_art_ok') $errors = $message;
+				if (!empty($mesg)) $msg .= (!empty($msg)?' ':'').'ID '.$art_id.':'.(isset($this->bo->messages_array[$mesg])?lang($this->bo->messages_array[$mesg]):$mesg);
 			}
-			if (!$errors)
-			{
-				$message = $_GET['delete']? 'del_art_ok' : 'del_arts_ok';
-			}
-			$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.maintain_articles&message=' . $message);
-			$GLOBALS['egw']->common->egw_exit();
 		}
-
-		// Process article publication
-		if ($_GET['publish'] || $_POST['publish_selected'])
+		elseif(isset($content['nm']['rows']['publish']) || isset($content['publish']))
 		{
-			if ($_GET['publish'])
+			if (isset($content['nm']['rows']['publish']))
 			{
-				$selected = array($_GET['publish'] => '');
+				$list2publish = array_keys($content['nm']['rows']['publish']);
+				unset($content['nm']['rows']['publish']);
 			}
 			else
 			{
-				$selected = $_POST['select'];
+				unset($content['publish']);
+				$list2publish = $content['nm']['rows']['selected'];
 			}
-			$errors = False;
-			foreach ($selected as $art_id => $trash)
+			//error_log(__METHOD__.__LINE__.' To publish:'.array2string($list2publish));
+			foreach ((array)$list2publish as $k => $art_id)
 			{
-				$target_art = array();
-				foreach ($articles_list as $article)
+				$mesg ='';
+				if ($art_id)
 				{
-					if ($article['art_id'] == $art_id)
-					{
-						$target_art = $article;
-						break;
-					}
+					$target_art = $this->bo->get_article($art_id,$die_if_no_access=false,$register_view=false);
+					//error_log(' ArtikleID:'.$art_id.' Published?'.$target_art['published']);
+					if ($target_art && !$target_art['published']) $mesg = $this->bo->publish_article($target_art['art_id'], $target_art['user_id']);
 				}
-				$message = $this->bo->publish_article($target_art['art_id'], $target_art['user_id']);
-				if ($message != 'publish_ok') $errors = $message;
-			}
-			if (!$errors)
-			{
-				$message = $_GET['publish']? 'publish_ok' : 'publishs_ok';
-			}
-			$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.maintain_articles&message=' . $message);
-			$GLOBALS['egw']->common->egw_exit();
-		}
-
-		// Show table
-		$this->t->set_file('maintain_articles', 'maintain_articles.tpl');
-		$this->t->set_block('maintain_articles', 'table_row_block', 'table_row');
-		$this->t->set_var('table_row', '');
-
-		if ($articles_list)
-		{
-			foreach ($articles_list as $article)
-			{
-				$actions = '';
-				$publish = false;
-				if (!$article['published'] && ($this->bo->grants[$article['user_id']] & $this->bo->publish_right)) $publish = true;
-				if ($publish == false && $this->bo->admin_config['publish_own_articles'] == 'True' && !empty($article['user_id']) && $article['user_id']==$GLOBALS['egw_info']['user']['account_id']) $publish = true;
-				//echo '#'.$article['art_id'].'#'.$article['user_id'].'<->'.$GLOBALS['egw_info']['user']['account_id'].":$publish#".$this->bo->admin_config['publish_own_articles']."#<br/>";
-				// skip if article unpublished, user has no publish right on owner and user!=owner
-				if (!$article['published'] && !$publish && $article['user_id']!=$GLOBALS['egw_info']['user']['account_id']) continue;
-
-				$actions = "<a href='". $this->link('menuaction=phpbrain.uikb.view_article&art_id='. $article['art_id']) ."'>
-							<img src='" . $GLOBALS['egw']->common->image('phpbrain', 'view') . "' title='". lang('view')  ."'>
-							</a>";
-				if ($publish == true && !$article['published'])
-				{
-					$actions .= "<a href='". $this->link('menuaction=phpbrain.uikb.maintain_articles&publish='. $article['art_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query) ."'>
-										<img src='" . $GLOBALS['egw']->common->image('phpbrain', 'new') . "' title='". lang('publish')  ."'>
-										</a>";
-				}
-				if ($this->bo->grants[$article['user_id']] & $this->bo->edit_right)
-				{
-					$actions .= "<a href='". $this->link('menuaction=phpbrain.uikb.maintain_articles&delete='. $article['art_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query). "'>
-										<img src='" . $GLOBALS['egw']->common->image('phpbrain', 'delete') . "' title='" . lang('delete') . "'>
-										</a>";
-				}
-				$this->t->set_var(array(
-					'tr_color'			=> $this->nextmatchs->alternate_row_color($tr_color),
-					'title'				=> $article['title'],
-					'topic'				=> $article['topic'],
-					'author'			=> $article['username'],
-					'date'				=> $GLOBALS['egw']->common->show_date($article['modified'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']),
-					'actions'			=> $actions,
-					'name_checkbox'		=> 'select[' . $article['art_id']  . ']'
-				));
-				$this->t->parse('table_row', 'table_row_block', True);
+				if (!empty($mesg)) $msg .= (!empty($msg)?' ':'').'ID '.$art_id.':'.(isset($this->bo->messages_array[$mesg])?lang($this->bo->messages_array[$mesg]):$mesg);
 			}
 		}
-		else
-		{
-			$this->t->set_var('table_row', '<tr bgcolor="'. $this->nextmatchs->alternate_row_color($tr_color) .'"><td colspan="5" align="center">'. lang('There are no articles available') .'</td></tr>');
-		}
+		unset($content['nm']['rows']['selected']);
+		$sel_options['filter'] = array(lang('All'),lang('unpublished'),lang('published'));
+		$content['msg'] = $msg;
 
-		$select_publish = "<option value='all'";
-		if ($this->bo->publish_filter == 'all') $select_publish .= ' selected';
-		$select_publish .= ">" . lang('All') . "</option><option value='unpublished'";
-		if ($this->bo->publish_filter == 'unpublished') $select_publish .= ' selected';
-		$select_publish .= ">" . lang('unpublished') . "</option><option value='published'";
-		if ($this->bo->publish_filter == 'published') $select_publish .= ' selected';
-		$select_publish .= '>' . lang('Published') . '</option>';
-
-		$GLOBALS['egw_info']['flags']['java_script_thirst'] = $this->javascript_check_all();
-
-		$this->t->set_var(array(
-			'message'				=> $this->message,
-			'lang_actions'			=> lang('Actions'),
-			'lang_search'			=> lang('Search'),
-			'value_query'			=> $this->bo->query,
-			'form_maintain_articles_action'=> $this->link('menuaction=phpbrain.uikb.maintain_articles'),
-			'form_filters_action'	=> $this->link(array('menuaction' => 'phpbrain.uikb.maintain_articles', 'start' => $this->bo->start, 'sort' => $this->bo->sort)),
-			'img_src_checkall'		=> $GLOBALS['egw']->common->image('phpbrain', 'check'),
-			'order'					=> $this->bo->order,
-			'publish_filter'		=> $this->bo->publish_filter,
-			'head_title'			=> $this->nextmatchs->show_sort_order($this->bo->sort, 'title', $this->bo->order, '', lang('Title')),
-			'head_topic'			=> $this->nextmatchs->show_sort_order($this->bo->sort, 'topic', $this->bo->order, '', lang('Topic')),
-			'head_author'			=> $this->nextmatchs->show_sort_order($this->bo->sort, 'user_id', $this->bo->order, '', lang('Author')),
-			'head_date'				=> $this->nextmatchs->show_sort_order($this->bo->sort, 'created', $this->bo->order, '', lang('Date')),
-			'left'					=> $this->nextmatchs->left($this->link, $this->bo->start, parent::$num_rows, 'menuaction.phpbrain.uikb.maintain_articles&cat='. $actual_category . '&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
-			'right'					=> $this->nextmatchs->right($this->link, $this->bo->start, parent::$num_rows, 'menuaction.phpbrain.uikb.maintain_articles&cat='. $actual_category .'&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
-			'num_regs'				=> $this->nextmatchs->show_hits(parent::$num_rows, $this->bo->start),
-			'select_categories'		=> $this->bo->categories_obj->formatted_list('select', 'all', $actual_category, True),
-			'select_publish'		=> $select_publish,
-			'lang_publish_selected'	=> lang('Publish selected'),
-			'lang_delete_selected'	=> lang('Delete selected')
+		$tmpl = new etemplate('phpbrain.maintain_articles');
+		$tmpl->exec('phpbrain.uikb.maintain_articles',$content,$sel_options,$readonlys,array(
+			'nm' => $content['nm'],
 		));
+	}
 
-		if (!$this->sitemgr)
+	/**
+	 * query rows for the nextmatch widget
+	 *
+	 * @param array $query with keys 'start', 'search', 'order', 'sort', 'col_filter'
+	 * @param array &$rows returned rows/competitions
+	 * @param array &$readonlys eg. to disable buttons based on acl, not use here, maybe in a derived class
+	 * @return int total number of rows
+	 */
+	function get_rows($query,&$rows,&$readonlys)
+	{
+		//_debug_array($query);
+		$actual_category = (int)($query['cat_id']?$query['cat_id']:get_var('cat', 'any', 0));
+
+		$this->bo->order = ($query['order']?$query['order']:'created');
+		$this->bo->sort = ($query['sort']?$query['sort']:'DESC');
+		$this->bo->num_rows = ($query['num_rows']?$query['num_rows']:'');
+		$this->bo->start = ($query['start']?$query['start']:0);
+		if ($query['search']) $this->bo->query = $query['search'];//_debug_array($filter);
+		if ($query['col_filter']['user_id']) $this->bo->query .= ($this->bo->query?' ':'')."user_id=".$query['col_filter']['user_id'];
+		$this->bo->publish_filter = 'all';
+		if($query['filter']) $this->bo->publish_filter = ($query['filter']==2?'published':'unpublished') ;
+		$this->bo->load_categories($actual_category);
+		// obtain articles to which one has any kind of permission
+		$rows = $this->bo->search_articles($actual_category, $this->bo->publish_filter, $this->bo->read_right | $this->bo->edit_right | $this->bo->publish_right);
+		foreach ($rows as &$row)
 		{
-			$GLOBALS['egw']->common->egw_header();
-			echo parse_navbar();
-			$this->navbar_shown = True;
-		}
+			//_debug_array($row);
+			$row['modified'] = $GLOBALS['egw']->common->show_date($row['modified'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']);
+			$publish = false;
+			if (!$row['published'] && ($this->bo->grants[$row['user_id']] & $this->bo->publish_right)) $publish = true;
+			if ($publish == false && $this->bo->admin_config['publish_own_articles'] == 'True' && !empty($row['user_id']) && $row['user_id']==$GLOBALS['egw_info']['user']['account_id']) $publish = true;
+			//echo '#'.$article['art_id'].'#'.$article['user_id'].'<->'.$GLOBALS['egw_info']['user']['account_id'].":$publish#".$this->bo->admin_config['publish_own_articles']."#<br/>";
+			// skip if article unpublished, user has no publish right on owner and user!=owner
+			if (!$row['published'] && !$publish && $row['user_id']!=$GLOBALS['egw_info']['user']['account_id']) continue;
 
-		$this->t->pparse('output', 'maintain_articles');
+			if (!($publish == true && !$row['published']))
+			{
+				$readonlys['publish['.$row['art_id'].']'] = true;
+			}
+			if (!($this->bo->grants[$row['user_id']] & $this->bo->edit_right))
+			{
+				$readonlys['delete['.$row['art_id'].']'] = true;
+			}
+			if ($readonlys['delete['.$row['art_id'].']']===true && $readonlys['publish['.$row['art_id'].']']) $readonlys['selected['.$row['art_id'].']'] = true;
+		}
+		return $this->bo->num_rows;//count($rows);
 	}
 
 	/**
@@ -1839,9 +1811,9 @@ class uikb extends bokb
 			'img_src_checkall'		=> $GLOBALS['egw']->common->image('phpbrain', 'check'),
 			'order'					=> $this->bo->order,
 			'publish_filter'		=> $this->bo->publish_filter,
-			'left'					=> $this->nextmatchs->left($this->link, $this->bo->start, parent::$num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category . '&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
-			'right'					=> $this->nextmatchs->right($this->link, $this->bo->start, parent::$num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category .'&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
-			'num_regs'				=> $this->nextmatchs->show_hits(parent::$num_rows, $this->bo->start),
+			'left'					=> $this->nextmatchs->left($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category . '&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
+			'right'					=> $this->nextmatchs->right($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category .'&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
+			'num_regs'				=> $this->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start),
 			'select_categories'		=> $this->bo->categories_obj->formatted_list('select', 'all', $actual_category, True),
 			'lang_publish_selected'	=> lang('Publish selected'),
 			'lang_delete_selected'	=> lang('Delete selected')
