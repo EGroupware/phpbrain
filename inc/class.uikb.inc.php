@@ -1487,13 +1487,13 @@ class uikb extends bokb
 	*/
 	function maintain_articles($content=null)
 	{
-		//error_log(__METHOD__.__LINE__.array2string($content));
+		error_log(__METHOD__.__LINE__.array2string($content));
 		if(!isset($content))
 		{
 			$content['nm'] = array(
 				'get_rows'       =>	'phpbrain.uikb.get_rows',	// I  method/callback to request the data for the rows eg. 'notes.bo.get_rows'
 				'filter_label'   =>	lang('published'),	// I  label for filter    (optional)
-				'filter'         =>	'',	// =All	// IO filter, if not 'no_filter' => True
+				'filter'         =>	0,	// =All	// IO filter, if not 'no_filter' => True
 				//'filter_no_lang' => True,		// I  set no_lang for filter (=dont translate the options)
 				'no_filter2'     => True,	// I  disable the 2. filter (params are the same as for filter)
 				'no_cat'         => False,	// I  disable the cat-selectbox
