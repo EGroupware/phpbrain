@@ -140,6 +140,7 @@ publish comments automatically?	common	en	Publish comments automatically
 publish questions automatically?	common	en	Publish questions automatically
 publish selected	phpbrain	en	Publish selected
 published	phpbrain	en	Published
+question	phpbrain	en	Question
 question deleted successfully	phpbrain	en	Question deleted successfully
 questions deleted successfully	phpbrain	en	Questions deleted successfully
 rating has been submited	phpbrain	en	Rating has been submitted

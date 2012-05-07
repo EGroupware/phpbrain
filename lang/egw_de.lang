@@ -139,6 +139,7 @@ publish comments automatically?	common	de	Kommentare automatisch veröffentliche
 publish questions automatically?	common	de	Fragen automatisch veröffentlichen
 publish selected	phpbrain	de	Markierte veröffentlichen
 published	phpbrain	de	Veröffentlicht
+question	phpbrain	de	Frage
 question deleted successfully	phpbrain	de	Frage erfolgreich gelöscht
 questions deleted successfully	phpbrain	de	Fragen erfolgreich gelöscht
 rating has been submited	phpbrain	de	Ihre Bewertung wurde veröffentlicht
@@ -161,7 +162,7 @@ show messages in category	phpbrain	de	Zeige Nachrichten in Kategorie
 submit comment	phpbrain	de	Kommentar absenden
 submit comment and rating	phpbrain	de	Kommentar und Bewertung absenden
 suggested category	phpbrain	de	Vorgeschlagene Kategorie
-summary	phpbrain	de	Summe
+summary	phpbrain	de	Zusammenfassung
 table of contents	phpbrain	de	Inhaltsverzeichnis
 that file already exists	phpbrain	de	Diese Datei existiert bereits
 the article id must be a number	phpbrain	de	Die Artikel ID muß eine Zahl sein

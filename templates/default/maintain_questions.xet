@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- $Id$ -->
 <overlay>
-	<template id="phpbrain.maintain_articles.rows" template="" lang="" group="0" version="1.9.002">
+	<template id="phpbrain.maintain_questions.rows" template="" lang="" group="0" version="1.9.001">
 		<grid width="100%">
 			<columns>
 				<column/>
@@ -14,39 +14,39 @@
 			</columns>
 			<rows>
 				<row class="th">
-					<nextmatch-sortheader label="ID" id="art_id"/>
+					<nextmatch-sortheader label="ID" id="question_id"/>
 					<nextmatch-accountfilter id="user_id" options="author"/>
-					<nextmatch-sortheader label="Title" id="title"/>
-					<nextmatch-sortheader label="Topic" id="topic"/>
+					<nextmatch-sortheader label="Question" id="summary"/>
+					<nextmatch-sortheader label="Details" id="details"/>
 					<nextmatch-sortheader label="Category" id="cat_id"/>
-					<nextmatch-sortheader label="Date" id="modified"/>
+					<nextmatch-sortheader label="Creation" id="creation"/>
 					<hbox>
 						<description align="center" value="Actions"/>
 						<buttononly label="Select all" onclick="toggle_all(this.form,form::name('selected[]')); return false;" options="check"/>
 					</hbox>
 				</row>
 				<row class="row">
-					<description id="${row}[art_id]" readonly="true"/>
+					<description id="${row}[question_id]" readonly="true"/>
 					<menulist>
 						<menupopup type="select-account" id="${row}[user_id]" readonly="true"/>
 					</menulist>
-					<description id="${row}[title]"/>
-					<description id="${row}[topic]"/>
+					<description id="${row}[summary]"/>
+					<description id="${row}[details]"/>
 					<menulist>
 						<menupopup type="select-cat" id="${row}[cat_id]" readonly="true"/>
 					</menulist>
-					<description id="${row}[modified]"/>
+					<description id="${row}[creation]"/>
 					<hbox align="center" options="0,0">
-						<button label="View" id="view[$row_cont[art_id]]" image="view"/>
-						<button label="publish" id="publish[$row_cont[art_id]]" onclick="return confirm('publish this article?');" image="new"/>
-						<button statustext="Delete this article" label="Delete" id="delete[$row_cont[art_id]]" onclick="return confirm('Delete this article');" image="delete"/>
-						<checkbox align="right" id="selected[]" options="$row_cont[art_id]"/>
+						<button label="answer" id="answer[$row_cont[question_id]]" image="answer"/>
+						<button label="publish" id="publish[$row_cont[question_id]]" onclick="return confirm('publish this article?');" image="new"/>
+						<button statustext="Delete this article" label="Delete" id="delete[$row_cont[question_id]]" onclick="return confirm('Delete this article');" image="delete"/>
+						<checkbox align="right" id="selected[]" options="$row_cont[question_id]"/>
 					</hbox>
 				</row>
 			</rows>
 		</grid>
 	</template>
-	<template id="phpbrain.maintain_articles" template="" lang="" group="0" version="1.9.001">
+	<template id="phpbrain.maintain_questions" template="" lang="" group="0" version="1.9.001">
 		<grid width="100%">
 			<columns>
 				<column/>
@@ -58,7 +58,7 @@
 					<description/>
 				</row>
 				<row>
-					<nextmatch id="nm" options="phpbrain.maintain_articles.rows" span="all"/>
+					<nextmatch id="nm" options="phpbrain.maintain_questions.rows" span="all"/>
 				</row>
 				<row>
 					<hbox options="0,0">
@@ -66,7 +66,7 @@
 					</hbox>
 					<hbox align="right">
 						<button statustext="publish selected entries" label="Publish" id="publish" onclick="return confirm('publish the selected entries');"/>
-						<button label="delete" id="delete" onclick="return confirm('Are you sure you want to delete the selected articles ?');"/>
+						<button label="delete" id="delete" onclick="return confirm('Are you sure you want to delete the selected questions?');"/>
 						<image label="Toggle all" src="arrow_ltr" onclick="javascript:toggleAllCheckboxes();" href="#"/>
 					</hbox>
 				</row>

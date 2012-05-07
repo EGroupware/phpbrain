@@ -1280,13 +1280,15 @@ class sokb
 	* @author	Alejandro Pedraza
 	* @access	public
 	* @param	int		$q_id	Question id
+	* @param	mixed		$published	publish flag
 	* @return	array			Question
 	*/
-	function get_question($q_id)
+	function get_question($q_id,$published=1)
 	{
-		$fields_str = "user_id, summary, details, cat_id, creation";
+		$fields_str = "question_id, user_id, summary, details, cat_id, creation, published";
 		$question = array();
-		$where = array('question_id'=>$q_id, 'published'=> 1);
+		$where = array('question_id'=>$q_id);
+		if ($published!='both') $where['published']= $published;
 		foreach(self::$db->select('egw_kb_questions',$fields_str,$where,__LINE__,__FILE__,false,'',PHPBRAIN_APP) as $row)
 		{
 			foreach($row as $key => $value) {
