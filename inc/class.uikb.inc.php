@@ -1487,7 +1487,7 @@ class uikb extends bokb
 	*/
 	function maintain_articles($content=null)
 	{
-		error_log(__METHOD__.__LINE__.array2string($content));
+		//error_log(__METHOD__.__LINE__.array2string($content));
 		if(!isset($content))
 		{
 			$content['nm'] = array(
