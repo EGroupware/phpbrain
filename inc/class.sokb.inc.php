@@ -1164,6 +1164,28 @@ class sokb
 	}
 
 	/**
+	* Checks if there is already an article in the db with the given question ID
+	*
+	* @author	Leithoff, Klaus
+	* @access	public
+	* @param	int		$q_id		question id
+	* @return	mixed	false or art_id
+	**/
+	function exist_answer($q_id)
+	{
+		//error_log(__METHOD__.__LINE__.' ->'.$q_id);
+		$fields_str = "art_id";
+		$where = array('q_id'=>$q_id);
+		$rv = false;
+		foreach(self::$db->select('egw_kb_articles',$fields_str,$where,__LINE__,__FILE__,false,'',PHPBRAIN_APP) as $row)
+		{
+			$rv = $row[$fields_str];
+		}
+		//error_log(__METHOD__.__LINE__.' ->'.$rv);
+		return $rv;
+	}
+
+	/**
 	* Returns ids of owners of articles
 	*
 	* @author	Alejandro Pedraza
@@ -1295,6 +1317,7 @@ class sokb
 				$question[$key] = $value;
 			}
 		}
+		//error_log(__METHOD__.__LINE__.array2string($question));
 		return $question;
 	}
 

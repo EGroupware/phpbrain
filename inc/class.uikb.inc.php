@@ -1357,7 +1357,7 @@ class uikb extends bokb
 				$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.index');
 				$GLOBALS['egw']->common->egw_exit();
 			}
-			$question = $this->bo->get_question($q_id);
+			$question = $this->bo->get_question($q_id,'both');
 			$hidden_fields .= "<input type=hidden name='answering_question' value='" . $q_id . "'>";
 			$this->t->set_var(array(
 				'lang_summary'			=> lang('Summary'),
@@ -1676,6 +1676,9 @@ class uikb extends bokb
 			$keys = array_keys($content['nm']['rows']['answer']);
 			unset($content['nm']['rows']['answer']);
 			unset($content['nm']['rows']['selected']);
+			$artid=$this->bo->exist_answer($keys[0]);
+			//error_log(__METHOD__.__LINE__.' Question:'.$keys[0].' Art. exists:'.($artid?'jo':'no'));
+			if ($artid!==false) return $this->edit_article($artid); // Articel/Answer exists; use it for editing
 			return $this->edit_article($keys[0],$isQuestion=true);
 		}
 		elseif(isset($content['nm']['rows']['delete']) || isset($content['delete']))
