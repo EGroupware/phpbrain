@@ -515,6 +515,7 @@ class uikb extends bokb
 	*
 	* @author	Alejandro Pedraza
 	* @access	public
+	* @param 	int $article_id Article ID (by function call)
 	* @return	mixed	Returns output string if accessed through sitemgr
 	*/
 	function view_article($article_id=null)
@@ -1232,9 +1233,11 @@ class uikb extends bokb
 	*
 	* @author	Alejandro Pedraza
 	* @access	public
+	* @param 	int $_art_id Article ID (by function call)
+	* @param 	boolean $_isQuestion isQuestion flag (by function call)
 	* @return	void
 	*/
-	function edit_article()
+	function edit_article($_art_id=null, $_isQuestion=false)
 	{
 		$active_cat =& egw_cache::getSession('phpbrain','active_cat');
 		$this->t->set_file('edit_article', 'edit_article.tpl');
@@ -1251,7 +1254,7 @@ class uikb extends bokb
 		));
 
 		// These are the default values, that apply for entering a new article
-		$article_id			= (int)get_var('art_id', 'any', 0);
+		$article_id			= (int)($_art_id&&!$_isQuestion?$_art_id:get_var('art_id', 'any', 0));
 		$title				= '';
 		$topic				= '';
 		$keywords			= '';
@@ -1315,12 +1318,13 @@ class uikb extends bokb
 		}
 
 		// Edit existant article
-		if ((int)get_var('art_id', 'GET', 0))
+		$article_id			= (int)($_art_id&&!$_isQuestion?$_art_id:get_var('art_id', 'GET', 0));
+		if ($article_id)
 		{
 			// Process cancel button
 			if ($_POST['cancel'])
 			{
-				$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.view_article&art_id=' .  $_GET['art_id']);
+				$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.view_article&art_id=' .  $article_id);
 				$GLOBALS['egw']->common->egw_exit();
 			}
 
@@ -1344,7 +1348,8 @@ class uikb extends bokb
 		}
 
 		// answering a question
-		if ((int)get_var('q_id', 'GET', 0))
+		$q_id			= (int)($_art_id&&$_isQuestion?$_art_id:get_var('q_id', 'GET', 0));
+		if ($q_id)
 		{
 			// Process cancel button
 			if ($_POST['cancel'])
@@ -1352,8 +1357,7 @@ class uikb extends bokb
 				$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.index');
 				$GLOBALS['egw']->common->egw_exit();
 			}
-			$q_id = (int)get_var('q_id', 'GET', 0);
-			$question = $this->bo->get_question($q_id);
+			$question = $this->bo->get_question($q_id,'both');
 			$hidden_fields .= "<input type=hidden name='answering_question' value='" . $q_id . "'>";
 			$this->t->set_var(array(
 				'lang_summary'			=> lang('Summary'),
@@ -1481,8 +1485,9 @@ class uikb extends bokb
 	/**
 	* Article maintenance view
 	*
-	* @author	Alejandro Pedraza
+	* @author	Leithoff, Klaus
 	* @access	public
+	* @param array $content nm-content
 	* @return	void
 	*/
 	function maintain_articles($content=null)
@@ -1601,6 +1606,8 @@ class uikb extends bokb
 		if ($query['col_filter']['user_id']) $this->bo->query .= ($this->bo->query?' ':'')."user_id=".$query['col_filter']['user_id'];
 		$this->bo->publish_filter = 'all';
 		if($query['filter']) $this->bo->publish_filter = ($query['filter']==2?'published':'unpublished') ;
+		// if sitemgr -> obtain articles to which one has any kind of permission
+		if ($this->sitemgr) $this->bo->publish_filter = 'published';
 		$this->bo->load_categories($actual_category);
 		// obtain articles to which one has any kind of permission
 		$rows = $this->bo->search_articles($actual_category, $this->bo->publish_filter, $this->bo->read_right | $this->bo->edit_right | $this->bo->publish_right);
@@ -1631,209 +1638,158 @@ class uikb extends bokb
 	/**
 	* Question maintenance view
 	*
-	* @author	Alejandro Pedraza
+	* @author	Leithoff, Klaus
 	* @access	public
+	* @param array $content nm-content
 	* @return	mixed	When showing form, returns string output if acccess through sitemgr
 	*/
-	function maintain_questions()
+	function maintain_questions($content=null)
 	{
-		$actual_category = (int)get_var('cat', 'any', 0);
+		//error_log(__METHOD__.__LINE__.array2string($content));
+		if(!isset($content))
+		{
+			$content['nm'] = array(
+				'get_rows'       =>	'phpbrain.uikb.get_questions',	// I  method/callback to request the data for the rows eg. 'notes.bo.get_rows'
+				'filter_label'   =>	lang('published'),	// I  label for filter    (optional)
+				'filter'         =>	0,	// =All	// IO filter, if not 'no_filter' => True
+				//'filter_no_lang' => True,		// I  set no_lang for filter (=dont translate the options)
+				'no_filter2'     => True,	// I  disable the 2. filter (params are the same as for filter)
+				'no_cat'         => False,	// I  disable the cat-selectbox
+				'header_left'    =>	false,	// I  template to show left of the range-value, left-aligned (optional)
+				'header_right'   =>	false,	// I  template to show right of the range-value, right-aligned (optional)
+				'never_hide'     => True,	// I  never hide the nextmatch-line if less then maxmatch entries
+				'lettersearch'   => false,	// I  show a lettersearch
+				'start'          =>	0,		// IO position in list
+				'order'          =>	'creation',	// IO name of the column to sort after (optional for the sortheaders)
+				'sort'           =>	'DESC',	// IO direction of the sort: 'ASC' or 'DESC'
+				//'default_cols'   => 	// I  columns to use if there's no user or default pref (! as first char uses all but the named columns), default all columns
+				'csv_fields'     =>	false,	// I  false=disable csv export, true or unset=enable it with auto-detected fieldnames,
+								//or array with name=>label or name=>array('label'=>label,'type'=>type) pairs (type is a eT widget-type)
+			);
+			if ((int)$_GET['username'])
+			{
+				$content['nm']['col_filter']['username'] = (int)$_GET['username'];
+			}
+		}
+		elseif(isset($content['nm']['rows']['answer']) )
+		{
+			$keys = array_keys($content['nm']['rows']['answer']);
+			unset($content['nm']['rows']['answer']);
+			unset($content['nm']['rows']['selected']);
+			$artid=$this->bo->exist_answer($keys[0]);
+			//error_log(__METHOD__.__LINE__.' Question:'.$keys[0].' Art. exists:'.($artid?'jo':'no'));
+			if ($artid!==false) return $this->edit_article($artid); // Articel/Answer exists; use it for editing
+			return $this->edit_article($keys[0],$isQuestion=true);
+		}
+		elseif(isset($content['nm']['rows']['delete']) || isset($content['delete']))
+		{
+			if (isset($content['nm']['rows']['delete']))
+			{
+				$list2delete = array_keys($content['nm']['rows']['delete']);
+				unset($content['nm']['rows']['delete']);
+			}
+			else
+			{
+				unset($content['delete']);
+				$list2delete = $content['nm']['rows']['selected'];
+			}
+			//error_log(__METHOD__.__LINE__.' To delete:'.array2string($list2delete));
+			foreach ((array)$list2delete as $k => $art_id)
+			{
+				$mesg='';
+				if ($art_id)
+				{
+					//error_log(' ArtikleID:'.$art_id.' about to delete');
+					$target_art = $this->bo->get_question($art_id,'both');
+					if ($target_art['question_id']) $mesg = $this->bo->delete_question($target_art['question_id'], $target_art['user_id']);
+				}
+				if (!empty($mesg)) $msg .= (!empty($msg)?' ':'').'ID '.$art_id.':'.(isset($this->bo->messages_array[$mesg])?lang($this->bo->messages_array[$mesg]):$mesg);
+			}
+		}
+		elseif(isset($content['nm']['rows']['publish']) || isset($content['publish']))
+		{
+			if (isset($content['nm']['rows']['publish']))
+			{
+				$list2publish = array_keys($content['nm']['rows']['publish']);
+				unset($content['nm']['rows']['publish']);
+			}
+			else
+			{
+				unset($content['publish']);
+				$list2publish = $content['nm']['rows']['selected'];
+			}
+			//error_log(__METHOD__.__LINE__.' To publish:'.array2string($list2publish));
+			foreach ((array)$list2publish as $k => $art_id)
+			{
+				$mesg ='';
+				if ($art_id)
+				{
+					$target_art = $this->bo->get_question($art_id,$published=0);
+					//error_log(' Question:'.$art_id.'/'.$target_art['question_id'].' Published?'.$target_art['published']);
+					if ($target_art['question_id'] && !$target_art['published']) $mesg = $this->bo->publish_question($target_art['question_id'], $target_art['user_id']);
+				}
+				if (!empty($mesg)) $msg .= (!empty($msg)?' ':'').'ID '.$art_id.':'.(isset($this->bo->messages_array[$mesg])?lang($this->bo->messages_array[$mesg]):$mesg);
+			}
+		}
+		unset($content['nm']['rows']['selected']);
+		$sel_options['filter'] = array(lang('All'),lang('unpublished'),lang('published'));
+		$content['msg'] = $msg;
 
-		if (!$this->bo->order) $this->bo->order = 'creation';
-		if (!$this->bo->sort) $this->bo->sort = 'DESC';
+		$tmpl = new etemplate('phpbrain.maintain_questions');
+		$tmpl->exec('phpbrain.uikb.maintain_questions',$content,$sel_options,$readonlys,array(
+			'nm' => $content['nm'],
+		));
+	}
+
+	/**
+	 * query rows for the nextmatch widget
+	 *
+	 * @param array $query with keys 'start', 'search', 'order', 'sort', 'col_filter'
+	 * @param array &$rows returned rows/competitions
+	 * @param array &$readonlys eg. to disable buttons based on acl, not use here, maybe in a derived class
+	 * @return int total number of rows
+	 */
+	function get_questions($query,&$rows,&$readonlys)
+	{
+		//_debug_array($query);
+		$actual_category = (int)($query['cat_id']?$query['cat_id']:get_var('cat', 'any', 0));
+
+		$this->bo->order = ($query['order']?$query['order']:'creation');
+		$this->bo->sort = ($query['sort']?$query['sort']:'DESC');
+		$this->bo->num_rows = ($query['num_rows']?$query['num_rows']:'');
+		$this->bo->start = ($query['start']?$query['start']:0);
+		if ($query['search']) $this->bo->query = $query['search'];//_debug_array($filter);
+		if ($query['col_filter']['user_id']) $this->bo->query .= ($this->bo->query?' ':'')."user_id=".$query['col_filter']['user_id'];
+		$this->bo->publish_filter = 'all';
+		if($query['filter']) $this->bo->publish_filter = ($query['filter']==2?'published':'unpublished') ;
+		// if sitemgr -> obtain articles to which one has any kind of permission
+		if ($this->sitemgr) $this->bo->publish_filter = 'published';
 
 		$this->bo->load_categories($actual_category);
-
 		// obtain articles to which one has any kind of permission
-		if ($this->sitemgr) $this->bo->publish_filter = 'published';
-		$questions_list = $this->bo->search_articles($actual_category, $this->bo->publish_filter, $this->bo->read_right | $this->bo->edit_right | $this->bo->publish_right, True);
-		//echo "questions_list: <pre>";print_r($questions_list);echo "</pre>";
-
-		// Process question deletion
-		if ($_GET['delete'] || $_POST['delete_selected'])
+		$rows = $this->bo->search_articles($actual_category, $this->bo->publish_filter, $this->bo->read_right | $this->bo->edit_right | $this->bo->publish_right, True);
+		foreach ($rows as &$row)
 		{
-			if ($_GET['delete'])
+			//_debug_array($row);
+			$row['creation'] = $GLOBALS['egw']->common->show_date($row['creation'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']);
+			$publish = false;
+			if (!$row['published'] && ($this->bo->grants[$row['user_id']] & $this->bo->publish_right)) $publish = true;
+			if ($publish == false && $this->bo->admin_config['publish_own_articles'] == 'True' && !empty($row['user_id']) && $row['user_id']==$GLOBALS['egw_info']['user']['account_id']) $publish = true;
+			//echo '#'.$article['art_id'].'#'.$article['user_id'].'<->'.$GLOBALS['egw_info']['user']['account_id'].":$publish#".$this->bo->admin_config['publish_own_articles']."#<br/>";
+			// skip if article unpublished, user has no publish right on owner and user!=owner
+			if (!$row['published'] && !$publish && $row['user_id']!=$GLOBALS['egw_info']['user']['account_id']) continue;
+
+			if (!($publish == true && !$row['published']))
 			{
-				$selected = array($_GET['delete'] => '');
+				$readonlys['publish['.$row['question_id'].']'] = true;
 			}
-			else
+			if (!($this->bo->grants[$row['user_id']] & $this->bo->edit_right))
 			{
-				$selected = $_POST['select'];
+				$readonlys['delete['.$row['question_id'].']'] = true;
 			}
-			$errors = False;
-			foreach ($selected as $q_id => $trash)
-			{
-				$target_q = array();
-				foreach($questions_list as $question)
-				{
-					if ($question['question_id'] == $q_id)
-					{
-						$target_q = $question;
-						break;
-					}
-				}
-				$message = $this->bo->delete_question($target_q['question_id'], $target_q['user_id']);
-				if ($message != 'del_q_ok') $errors = $message;
-			}
-			if (!$errors)
-			{
-				$message = $_GET['delete']? 'del_q_ok' : 'del_qs_ok';
-			}
-			$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.maintain_questions&message=' . $message);
-			$GLOBALS['egw']->common->egw_exit();
+			if ($readonlys['delete['.$row['question_id'].']']===true && $readonlys['publish['.$row['question_id'].']']) $readonlys['selected['.$row['question_id'].']'] = true;
 		}
-
-		// Process question publication
-		if ($_GET['publish'] || $_POST['publish_selected'])
-		{
-			if ($_GET['publish'])
-			{
-				$selected = array($_GET['publish'] => '');
-			}
-			else
-			{
-				$selected = $_POST['select'];
-			}
-			$errors = False;
-			foreach ($selected as $question_id => $trash)
-			{
-				$target_question = array();
-				foreach ($questions_list as $question)
-				{
-					if ($question['question_id'] == $question_id)
-					{
-						$target_question = $question;
-						break;
-					}
-				}
-				$message = $this->bo->publish_question($target_question['question_id'], $target_question['user_id']);
-				if ($message != 'publish_ok') $errors = $message;
-			}
-			if (!$errors)
-			{
-				$message = $_GET['publish']? 'publish_ok' : 'publishs_ok';
-			}
-			$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.maintain_questions&message=' . $message);
-			$GLOBALS['egw']->common->egw_exit();
-		}
-
-		// Show table
-		$this->t->set_file('maintain_questions', 'maintain_questions.tpl');
-		$this->t->set_block('maintain_questions', 'table_row_block', 'table_row');
-		$this->t->set_var('table_row', '');
-
-		foreach ($questions_list as $question)
-		{
-			$actions = '';
-			// skip if question unpublished and user has no publish right on owner
-			if (!$question['published'] && !($this->bo->grants[$question['user_id']] & $this->bo->publish_right)) continue;
-
-			// can only attempt to answer a question if it has been published
-			if ($question['published'])
-			{
-				$actions = "<a href='". $this->link('menuaction=phpbrain.uikb.edit_article&q_id='. $question['question_id']) ."'>
-						<img src='" . $GLOBALS['egw']->common->image('phpbrain', 'answer') . "' title='". lang('answer')  ."'>
-						</a>";
-			}
-
-			// can only attempt to publish a question if it is unpblished and user has publish rights on owner
-			if (!$question['published'] && ($this->bo->grants[$question['user_id']] & $this->bo->publish_right))
-			{
-				$actions .= "<a href='". $this->link('menuaction=phpbrain.uikb.maintain_questions&publish='. $question['question_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query) ."'>
-									<img src='" . $GLOBALS['egw']->common->image('phpbrain', 'new') . "' title='". lang('publish')  ."'>
-									</a>";
-			}
-
-			// can only delete question if user has edit rights on owner
-			if ($this->bo->grants[$question['user_id']] & $this->bo->edit_right)
-			{
-				$actions .= "<a href='". $this->link('menuaction=phpbrain.uikb.maintain_questions&delete='. $question['question_id']  .'&order='. $this->bo->order .'&sort='. $this->bo->sort .'&query='. $this->bo->query). "'>
-									<img src='" . $GLOBALS['egw']->common->image('phpbrain', 'delete') . "' title='" . lang('delete') . "'>
-									</a>";
-			}
-			$this->t->set_var(array(
-				'tr_color'			=> $this->nextmatchs->alternate_row_color($tr_color),
-				'summary'			=> $question['summary'],
-				'details'			=> $question['details'],
-				'date'				=> $GLOBALS['egw']->common->show_date($question['creation'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']),
-				'author'			=> $question['username'],
-				'actions'			=> $actions,
-				'name_checkbox'		=> 'select[' . $question['question_id']  . ']'
-			));
-			$this->t->parse('table_row', 'table_row_block', True);
-		}
-
-		if ($this->sitemgr)
-		{
-			$this->nextmatchs->template->set_var('action_sitemgr', $this->link('menuaction=phpbrain.uikb.maintain_questions'));
-			$this->t->set_var(array(
-				'lang_outstanding_q'	=> lang('Outstanding published questions'),
-				'head_summary'			=> lang('Summary'),
-				'head_details'			=> lang('Details'),
-				'head_date'				=> lang('creation'),
-				'head_author'			=> lang('Author')
-			));
-			if ($this->allow_questions)
-			{
-				$this->t->set_var('links_nav', "<a href='". $this->link('menuaction=phpbrain.uikb.index') ."'>". lang('Main View', 'phpbrain') ."</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href='". $this->link('menuaction=phpbrain.uikb.add_question') ."'>". lang('Add Question') ."</a>&nbsp;&nbsp;|<br>");
-			}
-			else
-			{
-			$this->t->set_var('links_nav', "<a href='". $this->link('menuaction=phpbrain.uikb.index') ."'>". lang('Main View', 'phpbrain') ."</a>&nbsp;&nbsp;|<br>");
-			}
-		}
-		else
-		{
-			$select_publish = "<option value='all'";
-			if ($this->bo->publish_filter == 'all') $select_publish .= ' selected';
-			$select_publish .= ">" . lang('All') . "</option><option value='unpublished'";
-			if ($this->bo->publish_filter == 'unpublished') $select_publish .= ' selected';
-			$select_publish .= ">" . lang('unpublished') . "</option><option value='published'";
-			if ($this->bo->publish_filter == 'published') $select_publish .= ' selected';
-			$select_publish .= '>' . lang('Published') . '</option>';
-			$GLOBALS['egw_info']['flags']['java_script_thirst'] = $this->javascript_check_all();
-
-			$this->t->set_var(array(
-				'head_summary'			=> $this->nextmatchs->show_sort_order($this->bo->sort, 'summary', $this->bo->order, '', lang('Summary')),
-				'head_details'			=> $this->nextmatchs->show_sort_order($this->bo->sort, 'details', $this->bo->order, '', lang('Details')),
-				'head_date'				=> $this->nextmatchs->show_sort_order($this->bo->sort, 'creation', $this->bo->order, '', lang('creation')),
-				'head_author'			=> $this->nextmatchs->show_sort_order($this->bo->sort, 'user_id', $this->bo->order, '', lang('Author')),
-				'select_publish'		=> $select_publish
-			));
-		}
-		$this->t->set_var(array(
-			'message'				=> $this->message,
-			'lang_actions'			=> lang('Actions'),
-			'lang_search'			=> lang('Search'),
-			'value_query'			=> $this->bo->query,
-			'form_maintain_questions_action'=> $this->link('menuaction=phpbrain.uikb.maintain_questions'),
-			'form_filters_action'	=> $this->link('menuaction=phpbrain.uikb.maintain_questions&start='. $this->bo->start .'&sort='. $this->bo->sort),
-			'img_src_checkall'		=> $GLOBALS['egw']->common->image('phpbrain', 'check'),
-			'order'					=> $this->bo->order,
-			'publish_filter'		=> $this->bo->publish_filter,
-			'left'					=> $this->nextmatchs->left($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category . '&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
-			'right'					=> $this->nextmatchs->right($this->link, $this->bo->start, $this->bo->num_rows, 'menuaction.phpbrain.uikb.maintain_questions&cat='. $actual_category .'&publish_filter=' . $this->bo->publish_filter . '&query=' . $this->bo->query),
-			'num_regs'				=> $this->nextmatchs->show_hits($this->bo->num_rows, $this->bo->start),
-			'select_categories'		=> $this->bo->categories_obj->formatted_list('select', 'all', $actual_category, True),
-			'lang_publish_selected'	=> lang('Publish selected'),
-			'lang_delete_selected'	=> lang('Delete selected')
-		));
-
-		if (!$this->sitemgr)
-		{
-			$GLOBALS['egw']->common->egw_header();
-			echo parse_navbar();
-			$this->navbar_shown = True;
-		}
-
-		if ($this->sitemgr)
-		{
-			return $this->t->parse('out', 'maintain_questions');
-		}
-		else
-		{
-			$this->t->pparse('output', 'maintain_questions');
-		}
+		return $this->bo->num_rows;//count($rows);
 	}
 
 	/**

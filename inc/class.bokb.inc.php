@@ -1147,11 +1147,12 @@ class bokb extends sokb
 	* @author	Alejandro Pedraza
 	* @access	public
 	* @param	int		$q_id	Question id
+	* @param	mixed	$published	publish flag
 	* @return	array			Question
 	*/
-	function get_question($q_id)
+	function get_question($q_id,$published=1)
 	{
-		$question = parent::get_question($q_id);
+		$question = parent::get_question($q_id,$published);
 		$username = $GLOBALS['egw']->accounts->get_account_name($question['user_id'], $lid, $fname, $lname);
 		$question['username'] = $fname . ' ' . $lname;
 		$question['creation'] = $GLOBALS['egw']->common->show_date($question['creation'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']);
