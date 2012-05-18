@@ -691,7 +691,7 @@ class sokb
 	**/
 	function get_article($art_id)
 	{
-		$fields = array('art_id', 'title', 'topic', 'text', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'modified_user_id', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5');
+		$fields = array('art_id', 'q_id', 'title', 'topic', 'text', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'modified_user_id', 'votes_1', 'votes_2', 'votes_3', 'votes_4', 'votes_5');
 		$fields_str = implode(", ", $fields);
 		$where = array('art_id'=>$art_id);
 		$article=array();
