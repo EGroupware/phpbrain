@@ -46,7 +46,7 @@ comment has been submited for revision and rating will be published	phpbrain	de	
 comments	phpbrain	de	Kommentare
 configuration	phpbrain	de	Konfiguration
 contents	phpbrain	de	Inhalt
-create a new article to answer the question asked by %1 in %2	phpbrain	de	Einen neuen Artikel erstellen um auf die Frage, gestellt von %1 in %2 zu antworten
+create a new article to answer the question asked by %1 in %2	phpbrain	de	Einen neuen Artikel erstellen um auf die Frage, gestellt von %1 am %2 zu antworten
 created by %1 on %2	phpbrain	de	Erstellt von %1 in %2
 creation	phpbrain	de	Erstellung
 creation date	phpbrain	de	Erstellungsdatum
@@ -59,6 +59,7 @@ details	phpbrain	de	Details
 e-groupware knowledge base article attached	phpbrain	de	eGroupWare Wissensdatenbank Artikel angehangen
 e-mail has been sent	phpbrain	de	E-Mail wurde versendet
 edit article	phpbrain	de	Artikel bearbeiten
+edit unpublished article to answer the question asked by %1 in %2	phpbrain	de	Einen nicht veröffentlichten Artikel bearbeiten um auf die Frage, gestellt von %1 am %2 zu antworten
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	de	Bitte geben Sie ein oder zwei Worte ein welche Ihre Frage beschreiben, oder geben Sie die Artikel Nummer ein wenn Sie diese Wissen
 enterprise knowledge articles repository	phpbrain	de	Wissensdatenbank Artikel Speicherort
 error deleting article from database	phpbrain	de	Es ist ein Fehler beim löschen des Artikel in der Datenbank aufgetreten

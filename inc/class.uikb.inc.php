@@ -418,8 +418,15 @@ class uikb extends bokb
 		{
 			$this->path = '';
 			$category_path = $this->category_path($unanswered['cat_id']);
+			$linkArray = array('menuaction' => 'phpbrain.uikb.edit_article', 'q_id' => $unanswered['question_id']);
+			$artid=$this->bo->exist_answer($unanswered['question_id']);
+			if ($artid !== false)
+			{
+				$linkArray['art_id'] = $artid;
+				unset($linkArray['q_id']);
+			}
 			$this->t->set_var(array(
-				'art_href'				=> $this->link(array('menuaction' => 'phpbrain.uikb.edit_article', 'q_id' => $unanswered['question_id'])),
+				'art_href'				=> $this->link($linkArray),
 				'art_title'				=> $unanswered['summary'],
 				'who'					=> $unanswered['username'],
 				'unanswered_category'	=> $category_path? lang('in %1', $category_path) : ''
@@ -1340,7 +1347,21 @@ class uikb extends bokb
 				$content	= $article['text'];
 				$category_selected = $article['cat_id'];
 			}
-
+			if (isset($article['q_id'])&&!empty($article['q_id']))
+			{
+				$question = $this->bo->get_question($article['q_id'],'both');
+				if ($question['question_id'])
+				{
+					$this->t->set_var(array(
+						'lang_summary'			=> lang('Summary'),
+						'lang_details'			=> lang('Details'),
+						'lang_head_question'	=> lang('edit unpublished article to answer the question asked by %1 in %2', $question['username'], $question['creation']),
+						'question_summary'		=> $question['summary'],
+						'question_details'		=> $question['details']
+					));
+					$this->t->parse('answer_question', 'answer_question_block');
+				}
+			}
 			$this->t->set_var(array(
 				'show_articleID'	=> $article_id . "<input type=hidden name='editing_article_id' value=" . $article_id . ">",
 			));
