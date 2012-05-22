@@ -63,7 +63,7 @@
 			'values' => array(
 				'simple'   => lang('Simple'),
 				'extended' => lang('Regular'),
-				'advanced' => lang('Everything'), 
+				'advanced' => lang('Everything'),
 			),
 			'help'   => 'You can customize how many icons and toolbars the editor shows.',
 			'xmlrpc' => True,
@@ -73,7 +73,7 @@
 	if ($GLOBALS['egw_info']['user']['apps']['filemanager'])
 	{
 		$GLOBALS['settings']['upload_dir'] = array(
-			'type'  => 'input',
+			'type'  => 'vfs_dir',
 			'label' => 'VFS upload directory',
 			'name'  => 'upload_dir',
 			'size'  => 50,
@@ -82,4 +82,4 @@
 			'admin'  => False,
 		);
 	}
-	
+
