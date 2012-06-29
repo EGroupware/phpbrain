@@ -1205,7 +1205,6 @@ class bokb extends sokb
 	{
 		if (!is_array($entry))
 		{
-			$id = $entry['art_id'];
 			$entry = $this->get_article( $entry,false,false );
 		}
 		if (!$entry)
