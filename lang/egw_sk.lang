@@ -10,6 +10,7 @@ added related articles %1	phpbrain	sk	Pridané súvisiace články %1
 advanced search	phpbrain	sk	Pokročilé hľadanie
 all articles	phpbrain	sk	Všetky články
 allow posting of questions	phpbrain	sk	Povoliť posielanie otázok
+allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	sk	Povoliť publikovanie článkov autorom? (uplatní sa len ak sa vyžaduje potvrdzovanie článkov)
 answer	phpbrain	sk	odpoveď
 anytime	phpbrain	sk	kedykoľvek
 anywhere in the article	phpbrain	sk	Kdekoľvek v článku
@@ -35,6 +36,7 @@ average rating	phpbrain	sk	Priemerné hodnotenie
 base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	sk	Základný adresár neexistuje, prosím požiadajte správcu aby skontroloval globálnu konfiguráciu
 before submiting a question, please search in the knowledge base first	phpbrain	sk	Prosím, prehľadajte najskôr poznatkovú bázu, až potom položte novú otázku
 by answering this question you will help to get the answer quicker the next time	phpbrain	sk	Zodpovedaním tejto otázky napomôžete, aby nabudúce bola odpoveď dostupná skôr
+changed category from %1 to %2	phpbrain	sk	Kategória zmenená z %1 na %2
 comment	phpbrain	sk	poznámka
 comment and rating have been published	phpbrain	sk	Poznámka a hodnotenie bolo publikované
 comment could not be inserted in the database	phpbrain	sk	Poznámku sa nepodarilo uložiť do databázy
@@ -58,6 +60,7 @@ details	phpbrain	sk	Podrobnosti
 e-groupware knowledge base article attached	phpbrain	sk	Článok Poznatkovej Bázy E-GroupWare je priložený
 e-mail has been sent	phpbrain	sk	E-mail bol odoslaný
 edit article	phpbrain	sk	Upraviť článok
+edit unpublished article to answer the question asked by %1 in %2	phpbrain	sk	Upraviť nepublikovaný článok odpovedajúci na otázku %1 k %2
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	sk	Zadajte jedno alebo dve slová opisujúce záležitosť, alebo zadajte číslo článku (ak ho poznáte)
 enterprise knowledge articles repository	phpbrain	sk	Podnikový zdroj poznatkov
 error deleting article from database	phpbrain	sk	Nastala chyba počas odstraňovania článku z databázy
@@ -138,6 +141,7 @@ publish comments automatically?	common	sk	Publikovať poznámky automaticky?
 publish questions automatically?	common	sk	Publikovať otázky automaticky?
 publish selected	phpbrain	sk	Publikovať označené
 published	phpbrain	sk	Publikované
+question	phpbrain	sk	Otázka
 question deleted successfully	phpbrain	sk	Otázka bola úspešne odstránená
 questions deleted successfully	phpbrain	sk	Otázky boli úspešne odstránené
 rating has been submited	phpbrain	sk	Hodnotenie bolo odoslané
