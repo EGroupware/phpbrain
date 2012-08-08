@@ -9,9 +9,12 @@ added link %1	phpbrain	fr	Lien ajouté %1
 added related articles %1	phpbrain	fr	Article lié ajouté
 advanced search	phpbrain	fr	Recherche avancée
 all articles	phpbrain	fr	Tous les articles
+allow posting of questions	phpbrain	fr	Permettre de poster des questions
+allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	fr	Permettre la publication des articles par l'auteur ? (effectif seulement si l'approbation des articles est requise)
 answer	phpbrain	fr	Réponse
 anytime	phpbrain	fr	N'importe quand
 anywhere in the article	phpbrain	fr	N'importe où dans l'article
+are you sure?	phpbrain	fr	Etes vous certain ?
 article	phpbrain	fr	Article
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	fr	Article ajouté en base de données, vous pouvez maintenant attaché des fichiers ou des liens, ou pointer vers d'autres articles.
 article created	phpbrain	fr	Article créé
@@ -33,6 +36,7 @@ average rating	phpbrain	fr	Note moyenne
 base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	fr	Le répertoire de base n'existe pas, demandez svp à votre administrateur de vérifier la configuration globale
 before submiting a question, please search in the knowledge base first	phpbrain	fr	Avant de soumettre la question, merci de consulter la base de connaissances.
 by answering this question you will help to get the answer quicker the next time	phpbrain	fr	En répondant à cette question, vous contribuez à rendre l'accès à la réponse plus rapidement la prochaine fois.
+changed category from %1 to %2	phpbrain	fr	Catégorie change de %1 en %2
 comment	phpbrain	fr	Commentaire
 comment and rating have been published	phpbrain	fr	Les commentaire et note ont été publiés
 comment could not be inserted in the database	phpbrain	fr	Le commentaire ne peut être inséré dans la base.
@@ -42,6 +46,7 @@ comment has been submited for revision	phpbrain	fr	Le commentaire a été soumis
 comment has been submited for revision and rating will be published	phpbrain	fr	Le commentaire a été soumis à la relecture et la note sera publiée.
 comments	phpbrain	fr	Commentaires
 configuration	phpbrain	fr	Configuration
+contents	phpbrain	fr	Contenus
 create a new article to answer the question asked by %1 in %2	phpbrain	fr	Créez un nouvel article pour répondre à la question posée par %1 dans %2
 created by %1 on %2	phpbrain	fr	Créé par %1 le %2
 creation	phpbrain	fr	création
@@ -55,7 +60,9 @@ details	phpbrain	fr	Détails
 e-groupware knowledge base article attached	phpbrain	fr	Article intégré à la base de connaissances E-GroupWare
 e-mail has been sent	phpbrain	fr	l'e-mail a été envoyé
 edit article	phpbrain	fr	Editer l'article
+edit unpublished article to answer the question asked by %1 in %2	phpbrain	fr	Editer l'article non publié pour répondre à la question posée par %1 dans %2
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	fr	Entrez un ou deux mots décrivant le problème, ou tapez le numéro d'article si vous le connaissez
+enterprise knowledge articles repository	phpbrain	fr	Repertoire d'article des Connaissances de l'Entreprise
 error deleting article from database	phpbrain	fr	Erreur lors de la suppression de l'article en base
 error deleting link	phpbrain	fr	Erreur lors de la suppression du lien
 error downloading file	phpbrain	fr	Erreur lors du téléchargement du fichier
@@ -87,6 +94,7 @@ in the title	phpbrain	fr	dans le titre
 in the topic	phpbrain	fr	dans le sujet
 include subcategories	phpbrain	fr	Inclure les sous-catégories
 keywords	phpbrain	fr	Mots-clés
+knowledge base	phpbrain	fr	Base de Connaissances
 knowledge base article #%1	phpbrain	fr	Base de connaissance article n°%1
 knowledge base configuration	common	fr	Configuration de la Base de connaissance
 last modification by %1 on %2	phpbrain	fr	Dernière modification par %1 le %2
@@ -107,6 +115,7 @@ maximum number of comments to show:	phpbrain	fr	Nombre maximum de commentaires �
 maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	fr	Nombre maximum d'articles les plus populaires, les plus récents et de questions sans réponses dans la vue principale:
 modification date	phpbrain	fr	Date de modification
 most viewed	phpbrain	fr	Les plus consultés
+name of the backlink to the index:	admin	fr	Nom du lien de retour vers l'index:
 new article	phpbrain	fr	Nouvel article
 nobody has rated this article so far	phpbrain	fr	Personne n'a noté cet article à ce jour
 nothing was uploaded!	phpbrain	fr	Rien n'a été enregistré sur le serveur!
@@ -115,6 +124,7 @@ ocurrences	phpbrain	fr	Occurences
 or browse the categories	phpbrain	fr	Où consulter les catégories
 order results by	phpbrain	fr	Trier les résultats par
 outstanding published questions	phpbrain	fr	Questions éditées en suspens
+overwrite file	phpbrain	fr	Ecraser le ficher existant?
 past %1 months	phpbrain	fr	des derniers %1 mois
 past year	phpbrain	fr	de l'année dernière
 people have rated this article	phpbrain	fr	personnes ont noté cet article
@@ -131,6 +141,7 @@ publish comments automatically?	common	fr	Publier les commentaires automatiqueme
 publish questions automatically?	common	fr	Publier les questions automatiquement
 publish selected	phpbrain	fr	Publier
 published	phpbrain	fr	Publié
+question	phpbrain	fr	Question
 question deleted successfully	phpbrain	fr	Question supprimée avec succès
 questions deleted successfully	phpbrain	fr	Questions supprimées avec succès
 rating has been submited	phpbrain	fr	La note a été enregistrée
@@ -146,6 +157,7 @@ search results	phpbrain	fr	Résultats de la recherche
 see more questions	phpbrain	fr	Voir d'autres questions
 see more questions...	phpbrain	fr	Voir plus de questions...
 select articles	phpbrain	fr	Sélectionner les articles
+should the article view make an automatic table of contents?	admin	fr	Est-ce que la vue de l'article devrait créer une table de matières automatique ?
 show all comments	phpbrain	fr	Afficher l'ensemble des commentaires
 show articles belonging to:	phpbrain	fr	Afficher les articles appartenant à:
 show messages in category	phpbrain	fr	Afficher les articles dans la catégorie
@@ -153,6 +165,7 @@ submit comment	phpbrain	fr	Soumettre un commentaire
 submit comment and rating	phpbrain	fr	Soumettre un commentaire et une note
 suggested category	phpbrain	fr	Catégorie suggérée
 summary	phpbrain	fr	Sommaire
+table of contents	phpbrain	fr	Table de matières
 that file already exists	phpbrain	fr	Ce fichier existe déjà
 the article id must be a number	phpbrain	fr	L'ID d'article doit être un nombre
 the article is empty	phpbrain	fr	Cet article est vide
