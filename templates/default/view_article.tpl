@@ -169,16 +169,18 @@
 						<table border=0>
 							<tr>
 								<td>
-									<!-- BEGIN edit_del_block -->
+									<!-- BEGIN edit_btn_block -->
 									<form method="POST" action ="{form_edit_art}">
 										<input type="submit" name="edit_article" value="{lang_edit_art}">
 									</form>
+									<!-- END edit_btn_block -->
 								</td>
 								<td>
+									<!-- BEGIN del_btn_block -->
 									<form method="POST" action ="{form_del_art}">
 										&nbsp;&nbsp;<input type="submit" name="delete_article" value="{lang_delete_article}" onclick="return confirm('{lang_confirm_delete}');">
 									</form>
-									<!-- END edit_del_block -->
+									<!-- END del_btn_block -->
 								</td>
 								<td>
 									<!-- BEGIN publish_btn_block -->

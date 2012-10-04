@@ -233,7 +233,7 @@ class bokb extends sokb
 
 		// acl grants puts all rights (-1) on current the user itself. That has to be modified here since the user doesn't have necessarily publish rights
 		// Here I have to accumulate the rights the user has on every group it belongs to
-		$grants_user = $this->read_right | $this->edit_right;	// The user can always read and edit his own articles
+		$grants_user = $this->read_right | $this->edit_right | EGW_ACL_DELETE;	// The user can always read and edit his own articles
 		if (($user_groups = $GLOBALS['egw']->accounts->membership($GLOBALS['egw_info']['user']['account_id'])))
 		{
 			foreach ($user_groups as $group)
@@ -623,7 +623,7 @@ class bokb extends sokb
 		if (!$art_id) $art_id = $this->article_id;
 		//error_log(__METHOD__.__LINE__.' ArticleID'.$art_id.' Owner:'.$owner);
 		// check user has edit rights
-		if ($owner != -1 && !$this->check_permission($this->edit_right, $owner)) return 'no_perm';
+		if ($owner != -1 && !$this->check_permission(EGW_ACL_DELETE, $owner)) return 'no_perm';
 		// delete files
 		egw_link::delete_attached('phpbrain',$art_id);
 		// delete comments
@@ -706,7 +706,7 @@ class bokb extends sokb
 	{
 		// check user has edit rights on owner
 		$this->article_owner = $owner;
-		if (!$this->check_permission($this->edit_right, $owner)) return 'no_perm';
+		if (!$this->check_permission(EGW_ACL_DELETE, $owner)) return 'no_perm';
 
 		if (!parent::delete_question($q_id)) return 'err_del_q';
 		return 'del_q_ok';
@@ -789,27 +789,6 @@ class bokb extends sokb
 		}
 		return $files;
 	}
-
-	/**
-	* Previous checks before downloading a file
-	*
-	* @author	Alejandro Pedraza
-	* @access	public
-	* @param	int		$art_id		Article id
-	* @param	string	$filename	filename
-	* @return	void
-	*/
-/*		function download_file_checks($art_id, $filename)
-	{
-		if (!$article = $this->get_article($art_id)) $this->die_peacefully('Error downloading file');
-		if (!$this->check_permission($this->read_right)) $this->die_peacefully('You have not the proper permissions to do that');
-		$found_file = False;
-		foreach ($article['files'] as $article_file)
-		{
-			if ($article_file['file'] == $filename) $found_file = True;
-		}
-		if (!$found_file) $this->die_peacefully("Error: file doesn't exist in the database");
-	}*/
 
 	/**
 	* Returns article's comments

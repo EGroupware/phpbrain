@@ -544,6 +544,7 @@ class uikb extends bokb
 
 		if (!$article_id || !$article) $this->die_peacefully("Error retrieving article");
 		$can_edit = $this->bo->check_permission($this->bo->edit_right)? True : False;
+		$can_delete = $this->bo->check_permission(EGW_ACL_DELETE)? True : False;
 
 		// Process article deletion
 		if ($_POST['delete_article'])
@@ -684,7 +685,8 @@ class uikb extends bokb
 			$this->t->set_block('view_article', 'links_block', 'links');
 			$this->t->set_block('view_article', 'links_add_block', 'links_add');
 			$this->t->set_block('view_article', 'img_delete_block', 'img_delete');
-			$this->t->set_block('view_article', 'edit_del_block', 'edit_del');
+			$this->t->set_block('view_article', 'edit_btn_block', 'edit_btn');
+			$this->t->set_block('view_article', 'del_btn_block', 'del_btn');
 			$this->t->set_block('view_article', 'publish_btn_block', 'publish_btn');
 			$this->t->set_block('view_article', 'history_line_block', 'history_line');
 
@@ -786,19 +788,37 @@ class uikb extends bokb
 		}
 
 		// show edit and delete button if user has edit rights and he's not using sitemgr
-		if (!$print_view && $can_edit && !$this->sitemgr)
+		if (!$print_view && !$this->sitemgr && ($can_edit || $can_delete))
 		{
-			$this->t->set_var(array(
-				'form_edit_art'		=> $this->link('menuaction=phpbrain.uikb.edit_article&art_id=' . $article_id),
-				'form_del_art'		=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $article_id),
-				'lang_edit_art'			=> lang('Edit article'),
-				'lang_delete_article'	=> lang('Delete article')
-			));
-			$this->t->parse('edit_del', 'edit_del_block');
+			if($can_edit)
+			{
+				$this->t->set_var(array(
+					'form_edit_art'		=> $this->link('menuaction=phpbrain.uikb.edit_article&art_id=' . $article_id),
+					'lang_edit_art'			=> lang('Edit article'),
+				));
+				$this->t->parse('edit_btn', 'edit_btn_block');
+			}
+			else
+			{
+				$this->t->set_var('edit_btn', '');
+			}
+			if($can_delete)
+			{
+				$this->t->set_var(array(
+					'form_del_art'		=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $article_id),
+					'lang_delete_article'	=> lang('Delete article')
+				));
+				$this->t->parse('del_btn', 'del_btn_block');
+			}
+			else
+			{
+				$this->t->set_var('del_btn', '');
+			}
 		}
 		else
 		{
-			$this->t->set_var('edit_del', '');
+			$this->t->set_var('edit_btn', '');
+			$this->t->set_var('del_btn', '');
 		}
 
 		// show publish button if article is unpublish and user has publish rights on owner
@@ -1647,7 +1667,7 @@ class uikb extends bokb
 			{
 				$readonlys['publish['.$row['art_id'].']'] = true;
 			}
-			if (!($this->bo->grants[$row['user_id']] & $this->bo->edit_right))
+			if (!($this->bo->grants[$row['user_id']] & EGW_ACL_DELETE))
 			{
 				$readonlys['delete['.$row['art_id'].']'] = true;
 			}
