@@ -1559,61 +1559,41 @@ class uikb extends bokb
 				$content['nm']['col_filter']['username'] = (int)$_GET['username'];
 			}
 		}
-		elseif(isset($content['nm']['rows']['view']) )
+		// Handle legacy buttons like actions
+		if(is_array($content))
 		{
-			$keys = array_keys($content['nm']['rows']['view']);
-			unset($content['nm']['rows']['view']);
-			unset($content['nm']['rows']['selected']);
-			return $this->view_article($keys[0]);
-		}
-		elseif(isset($content['nm']['rows']['delete']) || isset($content['delete']))
-		{
-			if (isset($content['nm']['rows']['delete']))
+			foreach(array('publish', 'delete') as $button)
 			{
-				$list2delete = array_keys($content['nm']['rows']['delete']);
-				unset($content['nm']['rows']['delete']);
+				if(isset($content['nm']['rows'][$button]))
+				{
+					list($id) = @each($content['nm']['rows'][$button]);
+					$content['nm']['action'] = $button;
+					$content['nm']['selected'] = array($id);
+					break; // Only one can come per submit
+				}
+			}
+		}
+		if (is_array($content) && !empty($content['nm']['action']))
+		{
+			if (!count($content['nm']['selected']) && !$content['nm']['select_all'])
+			{
+				$msg = lang('You need to select some entries first');
 			}
 			else
 			{
-				unset($content['delete']);
-				$list2delete = $content['nm']['rows']['selected'];
-			}
-			//error_log(__METHOD__.__LINE__.' To delete:'.array2string($list2delete));
-			foreach ((array)$list2delete as $k => $art_id)
-			{
-				$mesg='';
-				if ($art_id)
+				if ($this->action($content['nm']['action'], $content['nm']['selected'], $content['nm']['select_all'],
+					$success, $failed, $action_msg, $content['nm'], $msg ))
 				{
-					//error_log(' ArtikleID:'.$art_id.' about to delete');
-					$target_art = $this->bo->get_article($art_id,$die_if_no_access=false,$register_view=false);
-					if ($target_art) $mesg = $this->bo->delete_article($target_art['art_id'], $target_art['user_id']);
+					$msg .= lang('%1 entries %2',$success,$action_msg);
 				}
-				if (!empty($mesg)) $msg .= (!empty($msg)?' ':'').'ID '.$art_id.':'.(isset($this->bo->messages_array[$mesg])?lang($this->bo->messages_array[$mesg]):$mesg);
-			}
-		}
-		elseif(isset($content['nm']['rows']['publish']) || isset($content['publish']))
-		{
-			if (isset($content['nm']['rows']['publish']))
-			{
-				$list2publish = array_keys($content['nm']['rows']['publish']);
-				unset($content['nm']['rows']['publish']);
-			}
-			else
-			{
-				unset($content['publish']);
-				$list2publish = $content['nm']['rows']['selected'];
-			}
-			//error_log(__METHOD__.__LINE__.' To publish:'.array2string($list2publish));
-			foreach ((array)$list2publish as $k => $art_id)
-			{
-				$mesg ='';
-				if ($art_id)
+				elseif(is_null($msg))
 				{
-					$target_art = $this->bo->get_article($art_id,$die_if_no_access=false,$register_view=false);
-					//error_log(' ArtikleID:'.$art_id.' Published?'.$target_art['published']);
-					if ($target_art && !$target_art['published']) $mesg = $this->bo->publish_article($target_art['art_id'], $target_art['user_id']);
+					$msg .= lang('%1 entries %2, %3 failed because of insufficent rights !!!',$success,$action_msg,$failed);
 				}
-				if (!empty($mesg)) $msg .= (!empty($msg)?' ':'').'ID '.$art_id.':'.(isset($this->bo->messages_array[$mesg])?lang($this->bo->messages_array[$mesg]):$mesg);
+				elseif($msg)
+				{
+					$msg .= "\n".lang('%1 entries %2, %3 failed.',$success,$action_msg,$failed);
+				}
 			}
 		}
 		unset($content['nm']['rows']['selected']);
@@ -1634,9 +1614,11 @@ class uikb extends bokb
 	 * @param array &$readonlys eg. to disable buttons based on acl, not use here, maybe in a derived class
 	 * @return int total number of rows
 	 */
-	function get_rows($query,&$rows,&$readonlys)
+	function get_rows(&$query,&$rows,&$readonlys)
 	{
 		//_debug_array($query);
+		$query['actions'] = $this->get_actions();
+		$query['row_id'] = 'art_id';
 		$actual_category = (int)($query['cat_id']?$query['cat_id']:get_var('cat', 'any', 0));
 
 		$this->bo->order = ($query['order']?$query['order']:'created');
@@ -1656,20 +1638,27 @@ class uikb extends bokb
 		{
 			//_debug_array($row);
 			$row['modified'] = $GLOBALS['egw']->common->show_date($row['modified'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']);
-			$publish = false;
-			if (!$row['published'] && ($this->bo->grants[$row['user_id']] & $this->bo->publish_right)) $publish = true;
-			if ($publish == false && $this->bo->admin_config['publish_own_articles'] == 'True' && !empty($row['user_id']) && $row['user_id']==$GLOBALS['egw_info']['user']['account_id']) $publish = true;
-			//echo '#'.$article['art_id'].'#'.$article['user_id'].'<->'.$GLOBALS['egw_info']['user']['account_id'].":$publish#".$this->bo->admin_config['publish_own_articles']."#<br/>";
-			// skip if article unpublished, user has no publish right on owner and user!=owner
-			if (!$row['published'] && !$publish && $row['user_id']!=$GLOBALS['egw_info']['user']['account_id']) continue;
+			$publish = !$row['published'] &&
+				// Publish own config option
+				(($this->bo->admin_config['publish_own_articles'] == 'True' && !empty($row['user_id']) && $row['user_id']==$GLOBALS['egw_info']['user']['account_id']) ||
+				($this->bo->admin_config['publish_own_articles'] == 'False' && $row['user_id'] != $GLOBALS['egw_info']['user']['account_id'])) &&
+				// Access Control
+				($this->bo->grants[$row['user_id']] & $this->bo->publish_right);
+			//echo '#'.$row['art_id'].'#'.$row['user_id'].'<->'.$GLOBALS['egw_info']['user']['account_id'].":$publish#".$this->bo->admin_config['publish_own_articles']."#<br/>";
 
-			if (!($publish == true && !$row['published']))
+			if(!($this->bo->grants[$row['user_id']] & EGW_ACL_EDIT))
+			{
+				$row['class'] .= ' rowNoEdit';
+			}
+			if ($publish != true || $row['published'])
 			{
 				$readonlys['publish['.$row['art_id'].']'] = true;
+				$row['class'] .= ' rowNoPublish';
 			}
 			if (!($this->bo->grants[$row['user_id']] & EGW_ACL_DELETE))
 			{
 				$readonlys['delete['.$row['art_id'].']'] = true;
+				$row['class'] .= ' rowNoDelete';
 			}
 			if ($readonlys['delete['.$row['art_id'].']']===true && $readonlys['publish['.$row['art_id'].']']) $readonlys['selected['.$row['art_id'].']'] = true;
 		}
@@ -2049,4 +2038,129 @@ class uikb extends bokb
 		$GLOBALS['egw']->common->egw_footer();
 		$GLOBALS['egw']->common->egw_exit();
 	}
+
+	/**
+	 * Get actions / context menu items
+	 *
+	 * @return array see nextmatch_widget::get_actions()
+	 */
+	private function get_actions()
+	{
+		$group = 0;
+		$actions = array(
+			'view' => array(
+				'default' => true,
+				'caption' => 'View article',
+				'allowOnMultiple' => false,
+				'group' => $group,
+				'url' => 'menuaction=phpbrain.uikb.view_article&art_id=$id',
+			),
+			'edit' => array(
+				'caption' => 'Edit',
+				'allowOnMultiple' => false,
+				'url' => 'menuaction=phpbrain.uikb.edit_article&art_id=$id',
+				'disableClass' => 'rowNoEdit',
+				'group' => $group,
+			),
+			'publish' => array(
+				'caption' => 'Publish',
+				'icon' => 'new',
+				'allowOnMultiple' => false,
+				'disableClass' => 'rowNoPublish',
+				'group' => $group,
+			),
+			'delete' => array(
+				'caption' => 'Delete',
+				'group' => ++$group,
+				'disableClass' => 'rowNoDelete',
+				'confirm' => lang('Are you sure you want to delete the selected articles ?')
+			)
+		);
+
+		//echo "<p>".__METHOD__."()</p>\n"; _debug_array($actions);
+		return $actions;
+	}
+
+	/**
+	 * Handles actions on multiple articles
+	 *
+	 * @param action
+	 * @param array $checked article ids to use if !$use_all
+	 * @param boolean $use_all if true use all entries of the current selection (in the session)
+	 * @param int &$success number of succeded actions
+	 * @param int &$failed number of failed actions (not enought permissions)
+	 * @param string &$action_msg translated verb for the actions, to be used in a message like '%1 entries deleted'
+	 * @param array $query get_rows parameter
+	 * @param string &$msg on return user feedback
+	 * @param boolean $skip_notifications=false true to NOT notify users about changes
+	 * @return boolean true if all actions succeded, false otherwise
+	 */
+	function action($action, $checked, $use_all, &$success, &$failed, &$action_msg,
+		array $query, &$msg, $skip_notifications = false)
+	{
+		//echo '<p>'.__METHOD__."('$action',".array2string($checked).','.(int)$use_all.",...)</p>\n";
+		$success = $failed = 0;
+		if ($use_all)
+		{
+			@set_time_limit(0);         // switch off the execution time limit, as it's for big selections too small
+			$query['num_rows'] = -1;    // all
+			$this->get_rows($query,$result,$readonlys);
+			$checked = array();
+			foreach($result as $key => $info)
+			{
+				if(is_numeric($key))
+				{
+					$checked[] = $info['art_id'];
+				}
+			}
+		}
+
+		// Actions with options in the selectbox
+		list($action, $settings) = explode('_', $action, 2);
+
+		// Actions that can handle a list of IDs
+		switch($action)
+		{
+			// Stub
+		}
+
+		// Actions that need to loop
+		foreach($checked as $id)
+		{
+			if(!$entry = $this->bo->get_article($id, $die_if_no_access = false, $register_view = false))
+			{
+				continue;
+			}
+			switch ($action)
+			{
+				case 'delete':
+					$mesg = $this->bo->delete_article($entry['art_id'], $entry['user_id']);
+					if (!empty($mesg))
+					{
+						$success++;
+						$action_msg = lang('deleted');
+					}
+					else
+					{
+						$failed++;
+					}
+					break;
+				
+				case 'publish':
+					if(!$entry['published']) $mesg = $this->bo->publish_article($entry['art_id'], $entry['user_id']);
+					if (!empty($mesg))
+					{
+						$success++;
+						$action_msg = lang('published');
+					}
+					else
+					{
+						$failed++;
+					}
+					break;
+			}
+		}
+		return $failed == 0;
+	}
+
 }
