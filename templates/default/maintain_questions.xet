@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- $Id$ -->
 <overlay>
-	<template id="phpbrain.maintain_questions.rows" template="" lang="" group="0" version="1.9.001">
+	<template id="phpbrain.maintain_questions.rows" template="" lang="" group="0" version="1.9.002">
 		<grid width="100%">
 			<columns>
 				<column/>
@@ -21,11 +21,11 @@
 					<nextmatch-sortheader label="Category" id="cat_id"/>
 					<nextmatch-sortheader label="Creation" id="creation"/>
 					<hbox>
-						<description align="center" value="Actions"/>
-						<buttononly label="Select all" onclick="toggle_all(this.form,form::name('selected[]')); return false;" options="check"/>
+						<nextmatch-header align="center" label="Actions" id="legacy_actions"/>
+						<button align="right" statustext="Check all" label="Check all" id="check_all" needed="1" onclick="egw_globalObjectManager.getObjectById('phpbrain.maintain_questions.rows').toggleAllSelected(); return false;" image="check"/>
 					</hbox>
 				</row>
-				<row class="row">
+				<row class="row $row_cont[class]">
 					<description id="${row}[question_id]" readonly="true"/>
 					<menulist>
 						<menupopup type="select-account" id="${row}[user_id]" readonly="true"/>
@@ -40,13 +40,12 @@
 						<button label="answer" id="answer[$row_cont[question_id]]" image="answer"/>
 						<button label="publish" id="publish[$row_cont[question_id]]" onclick="return confirm('publish this article?');" image="new"/>
 						<button statustext="Delete this article" label="Delete" id="delete[$row_cont[question_id]]" onclick="return confirm('Delete this article');" image="delete"/>
-						<checkbox align="right" id="selected[]" options="$row_cont[question_id]"/>
 					</hbox>
 				</row>
 			</rows>
 		</grid>
 	</template>
-	<template id="phpbrain.maintain_questions" template="" lang="" group="0" version="1.9.001">
+	<template id="phpbrain.maintain_questions" template="" lang="" group="0" version="1.9.002">
 		<grid width="100%">
 			<columns>
 				<column/>
@@ -65,9 +64,8 @@
 						<description/>
 					</hbox>
 					<hbox align="right">
-						<button statustext="publish selected entries" label="Publish" id="publish" onclick="return confirm('publish the selected entries');"/>
-						<button label="delete" id="delete" onclick="return confirm('Are you sure you want to delete the selected questions?');"/>
-						<image label="Toggle all" src="arrow_ltr" onclick="javascript:toggleAllCheckboxes();" href="#"/>
+						<buttononly label="Select action" id="legacy_actions" onclick="if (!egw_globalObjectManager.getObjectById('phpbrain.maintain_questions.rows').executeActionImplementation(this, 'popup')) alert(egw::lang('You need to select some entries first!')); return false;;"/>
+						<image label="Toggle all" src="arrow_ltr" onclick="egw_globalObjectManager.getObjectById('phpbrain.maintain_questions.rows').toggleAllSelected(); return false;" href="#"/>
 					</hbox>
 				</row>
 			</rows>
