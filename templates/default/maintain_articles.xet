@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!-- $Id$ -->
 <overlay>
-	<template id="phpbrain.maintain_articles.rows" template="" lang="" group="0" version="1.9.002">
+	<template id="phpbrain.maintain_articles.rows" template="" lang="" group="0" version="1.9.003">
 		<grid width="100%">
 			<columns>
 				<column/>
@@ -21,11 +21,11 @@
 					<nextmatch-sortheader label="Category" id="cat_id"/>
 					<nextmatch-sortheader label="Date" id="modified"/>
 					<hbox>
-						<description align="center" value="Actions"/>
+						<nextmatch-header align="center" label="Actions" id="legacy_actions"/>
 						<buttononly label="Select all" onclick="toggle_all(this.form,form::name('selected[]')); return false;" options="check"/>
 					</hbox>
 				</row>
-				<row class="row">
+				<row class="row $row_cont[class]">
 					<description id="${row}[art_id]" readonly="true"/>
 					<menulist>
 						<menupopup type="select-account" id="${row}[user_id]" readonly="true"/>
@@ -46,9 +46,10 @@
 			</rows>
 		</grid>
 	</template>
-	<template id="phpbrain.maintain_articles" template="" lang="" group="0" version="1.9.001">
+	<template id="phpbrain.maintain_articles" template="" lang="" group="0" version="1.9.002">
 		<grid width="100%">
 			<columns>
+				<column/>
 				<column/>
 				<column/>
 			</columns>
@@ -56,18 +57,18 @@
 				<row disabled="!@msg">
 					<description align="center" id="msg" span="all" class="redItalic"/>
 					<description/>
+					<description/>
 				</row>
 				<row>
 					<nextmatch id="nm" options="phpbrain.maintain_articles.rows" span="all"/>
 				</row>
-				<row>
+				<row disabled="!@nm[selectcols]=/legacy_actions/">
 					<hbox options="0,0">
 						<description/>
 					</hbox>
-					<hbox align="right">
-						<button statustext="publish selected entries" label="Publish" id="publish" onclick="return confirm('publish the selected entries');"/>
-						<button label="delete" id="delete" onclick="return confirm('Are you sure you want to delete the selected articles ?');"/>
-						<image label="Toggle all" src="arrow_ltr" onclick="javascript:toggleAllCheckboxes();" href="#"/>
+					<hbox align="right" span="all">
+						<buttononly label="Select action" id="legacy_actions" onclick="if (!egw_globalObjectManager.getObjectById('phpbrain.maintain_articles.rows').executeActionImplementation(this, 'popup')) alert(egw::lang('You need to select some entries first!')); return false;;"/>
+						<image href="#" label="Toggle all" src="arrow_ltr" onclick="javascript:toggleAllCheckboxes();"/>
 					</hbox>
 				</row>
 			</rows>
