@@ -643,54 +643,26 @@ class bokb extends sokb
 	}
 
 	/**
-	* Deletes owners articles (called by hook_deleteaccount)
-	*
-	* @author	Alejandro Pedraza
-	* @access	public
-	* @param	int		$owner		Article's owner id
-	* @return	void
-	*/
-	function delete_owner_articles($owner)
+	 * changes or deletes articles with a specified owner (for deleteaccount hook)
+	 *
+	 * @param array $args hook arguments
+	 * @param int $args['account_id'] account to delete
+	 * @param int $args['new_owner']=0 new owner
+	 */
+	function deleteaccount(array $args)  // new_owner=0 means delete
 	{
-		// check if user calling deletion is an admin with user deletion privileges
-		if ($GLOBALS['egw']->acl->check('account_access',32,'admin'))
+		if (!(int) $args['new_owner'])
 		{
-			$this->list_users();
-			die('invalid rights');
+			// fetch articles from user
+			foreach (parent::get_articles_ids((int)$args['account_id']) as $article_id)
+			{
+				$this->delete_article($article_id, -1);
+			}
 		}
-
-		// fetch articles from user
-		$owner = (int)$owner;
-		$articles_ids = parent::get_articles_ids($owner);
-		foreach ($articles_ids as $article_id)
+		else
 		{
-			$this->delete_article($article_id, -1);
+			parent::change_articles_owner((int)$args['account_id'], (int) $args['new_owner']);
 		}
-	}
-
-	/**
-	* changes articles owner (called by hook_deleteaccount)
-	*
-	* @author	Alejandro Pedraza
-	* @access	public
-	* @param	int		$owner		Article's owner id
-	* @param	int		$owner		Article's new owner id
-	* @return	void
-	*/
-	function change_articles_owner($owner, $new_owner)
-	{
-		// check if user calling deletion is an admin with user deletion privileges
-		if ($GLOBALS['egw']->acl->check('account_access',32,'admin'))
-		{
-			$this->list_users();
-			die('invalid rights');
-		}
-
-		$owner = (int)$owner;
-		$new_owner = (int)$new_owner;
-
-		// now change articles owners
-		parent::change_articles_owner($owner, $new_owner);
 	}
 
 	/**
