@@ -1176,8 +1176,8 @@ class bokb extends sokb
 	function link_query( $pattern, Array &$options = array() )
 	{
 		$result = array();
-		$start = $options['start'] ? $options['start'] : $this->start;
-		$limit = $options['num_rows'] ? $options['num_rows'] : $this->num_res;
+		$start = isset($options['start']) ? $options['start'] : 0;
+		$limit = isset($options['num_rows']) ? $options['num_rows'] : -1;
 		$owners = $this->accessible_owners();
 		$this->phrase=$pattern;
 		$this->ocurrences="all";
