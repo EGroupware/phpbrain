@@ -1184,7 +1184,7 @@ class bokb extends sokb
 		$owners = $this->accessible_owners();
 		$this->phrase=$pattern;
 		$this->ocurrences="all";
-		foreach((array) $articles = parent::adv_search_articles($owners, array(), $this->ocurrences, $this->pub_date, $this->start, $this->num_res, $this->all_words, $this->phrase, $this->one_word, $this->without_words, $this->cat, $this->include_subs) as $item )
+		foreach((array) $articles = parent::adv_search_articles($owners, array(), $this->ocurrences, $this->pub_date, 0, -1, $this->all_words, $this->phrase, $this->one_word, $this->without_words, $this->cat, $this->include_subs) as $item )
 		{
 			if ($item) $result[$item['art_id']] = $this->link_title($item);
 		}
