@@ -1414,8 +1414,7 @@ class uikb extends bokb
 			$category_selected = $question['cat_id'];
 		}
 
-		$content = html::fckEditor('exec[text]', $content,
-			$GLOBALS['egw_info']['user']['preferences']['phpbrain']['rtfEditorFeatures'],
+		$content = html::fckEditor('exec[text]', $content,'',
 			array('toolbar_expanded' =>'true'),'400px','100%',
 			$GLOBALS['egw_info']['user']['preferences']['phpbrain']['upload_dir']);
 
