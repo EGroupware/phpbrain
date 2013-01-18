@@ -9,9 +9,11 @@ added link %1	phpbrain	zh-tw	新增連結 %1
 added related articles %1	phpbrain	zh-tw	新增相關文章 %1
 advanced search	phpbrain	zh-tw	進階搜尋
 all articles	phpbrain	zh-tw	所有文章
+allow posting of questions	phpbrain	zh-tw	允許發表問題
 answer	phpbrain	zh-tw	答案項目
 anytime	phpbrain	zh-tw	任何時間
 anywhere in the article	phpbrain	zh-tw	文章中的任何位置
+are you sure?	phpbrain	zh-tw	您確定？
 article	phpbrain	zh-tw	文章
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	zh-tw	文章已經新增到資料庫中，您現在可以附加檔案、連結或是相關文章
 article created	phpbrain	zh-tw	文章建立了
@@ -56,6 +58,7 @@ e-groupware knowledge base article attached	phpbrain	zh-tw	附加到E-GroupWare�
 e-mail has been sent	phpbrain	zh-tw	電子郵件已經寄出
 edit article	phpbrain	zh-tw	編輯文章
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	zh-tw	輸入一兩個文字來描述問題，如果您知道文章編號也可以直接輸入
+enterprise knowledge articles repository	phpbrain	zh-tw	企業知識庫
 error deleting article from database	phpbrain	zh-tw	無法從資料庫刪除文章
 error deleting link	phpbrain	zh-tw	刪除連結時發生錯誤
 error downloading file	phpbrain	zh-tw	下載檔案時發生錯誤
@@ -87,6 +90,7 @@ in the title	phpbrain	zh-tw	在標題裡
 in the topic	phpbrain	zh-tw	在主題中
 include subcategories	phpbrain	zh-tw	包含附屬類別
 keywords	phpbrain	zh-tw	關鍵字
+knowledge base	phpbrain	zh-tw	知識庫
 knowledge base article #%1	phpbrain	zh-tw	知識庫文章 #%1
 knowledge base configuration	common	zh-tw	知識庫設定
 last modification by %1 on %2	phpbrain	zh-tw	最後由%1在%2修改
@@ -153,6 +157,7 @@ submit comment	phpbrain	zh-tw	送出意見
 submit comment and rating	phpbrain	zh-tw	送出意見與評分
 suggested category	phpbrain	zh-tw	建議的類別
 summary	phpbrain	zh-tw	概要
+table of contents	phpbrain	zh-tw	內容表單
 that file already exists	phpbrain	zh-tw	檔案已經存在
 the article id must be a number	phpbrain	zh-tw	文章編號必須是數字
 the article is empty	phpbrain	zh-tw	這個文章沒有資料

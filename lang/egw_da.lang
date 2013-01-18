@@ -90,6 +90,7 @@ keywords	phpbrain	da	Nøgleord
 knowledge base article #%1	phpbrain	da	Videns-base artikel #%1
 knowledge base configuration	common	da	Videns-base konfigurering
 last modification by %1 on %2	phpbrain	da	Sidste opdatering af %1 på %2
+last modified	phpbrain	da	Sidst opdateret
 latest	phpbrain	da	Sidste
 latest comments	phpbrain	da	Sidste kommentarer
 leave empty to automatically generate an id	phpbrain	da	Eferlad tom for automatisk at generere et ID
@@ -152,6 +153,7 @@ submit comment	phpbrain	da	Afsend kommentar
 submit comment and rating	phpbrain	da	Afsend kommentar og vurdering
 suggested category	phpbrain	da	Foreslået kategori
 summary	phpbrain	da	Opsummering
+table of contents	phpbrain	da	Indhold
 that file already exists	phpbrain	da	Filen eksisterer allerede
 the article id must be a number	phpbrain	da	Artikel ID skal være et nummer
 the article is empty	phpbrain	da	Artiklen er tom
@@ -186,4 +188,3 @@ you must enter a topic	phpbrain	da	Du skal angive et emne
 your message could not be sent!	phpbrain	da	Din besked kunne ikke afsendes
 your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	da	Dit spørgsmål vil blive afsendt, men vil først blive publiceret efter godkendelse af en bruger med ret til at publicere.
 your question will be published immediately	phpbrain	da	Dit spørgsmål vil blive publiceret straks
-

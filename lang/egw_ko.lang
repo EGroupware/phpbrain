@@ -12,6 +12,7 @@ all articles	phpbrain	ko	모든 게시물
 answer	phpbrain	ko	응답
 anytime	phpbrain	ko	언제나
 anywhere in the article	phpbrain	ko	게시물 전체
+are you sure?	phpbrain	ko	확실합니까?
 article	phpbrain	ko	게시물
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	ko	게시물이 데이터베이스에 저장되었습니다. 이제 파일,링크,관련 게시물을 삽입할 수 있습니다.
 article created	phpbrain	ko	게시물 생성됨
@@ -32,7 +33,6 @@ attached files	phpbrain	ko	첨부 파일
 average rating	phpbrain	ko	평균 평가도
 base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	ko	기본 디렉토리가 존재하지 않습니다. 관리자에게 전역설정의 확인을 요청해주세요
 before submiting a question, please search in the knowledge base first	phpbrain	ko	질문을 등록하기전에, 지식기반검색을 먼저 해보시기 바랍니다
-category	phpbrain	ko	분류
 comment	phpbrain	ko	커멘트
 comment and rating have been published	phpbrain	ko	커멘트와 평가가 발행되었습니다.
 comment could not be inserted in the database	phpbrain	ko	커멘트가 데이터베이스에 삽입되지 못했습니다.
@@ -43,6 +43,7 @@ comment has been submited for revision and rating will be published	phpbrain	ko	
 comments	phpbrain	ko	커멘트들
 configuration	phpbrain	ko	설정
 created by %1 on %2	phpbrain	ko	%2 일 %1에 의해 생성됨
+creation	phpbrain	ko	생성
 creation date	phpbrain	ko	생성일
 delete article	phpbrain	ko	게시물 삭제
 delete selected	phpbrain	ko	선택 삭제
