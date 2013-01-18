@@ -9,11 +9,11 @@ added link %1	phpbrain	pl	Dodany link %1
 added related articles %1	phpbrain	pl	Dodane powiązane artykuly %1
 advanced search	phpbrain	pl	Szukanie zaawansowane
 all articles	phpbrain	pl	Wszystkie artykuły
-allow posting of questions	phpbrain	pl	Pozwól na przesyłanie pytań
+allow posting of questions	phpbrain	pl	Pozwól na stawianie pytań
 answer	phpbrain	pl	odpowiedź
 anytime	phpbrain	pl	kiedykolwiek
 anywhere in the article	phpbrain	pl	Wszędzie w artykule
-are you sure?	phpbrain	pl	Czy jesteś pewien?
+are you sure?	phpbrain	pl	CZY JESTEŚ PEWIEN?
 article	phpbrain	pl	Artykuł
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	pl	Artykuł został dodany do bazy, możesz teraz podłączyć do niego linki lub pliki, lub powiązać go z innymi artykułami
 article created	phpbrain	pl	Artykuł stworzony
@@ -59,7 +59,7 @@ e-groupware knowledge base article attached	phpbrain	pl	Artykuł Bazy Wiedzy eGr
 e-mail has been sent	phpbrain	pl	e-mail został wysłany
 edit article	phpbrain	pl	Edytuj artykuł
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	pl	Wpisz jedno lub dwa słowa opisujące przypadek, lub numer artykułu, jeżeli go znasz
-enterprise knowledge articles repository	phpbrain	pl	Baza artykułów z wiedzą przemysłową
+enterprise knowledge articles repository	phpbrain	pl	Zbiór artykułów wiedzy
 error deleting article from database	phpbrain	pl	Błąd kasowania artykułu z bazy danych
 error deleting link	phpbrain	pl	Błąd kasowania linku
 error downloading file	phpbrain	pl	Błąd ładowania pliku
@@ -161,7 +161,7 @@ submit comment	phpbrain	pl	Wyślij komentarz
 submit comment and rating	phpbrain	pl	Wyślij komentarz i ocenę
 suggested category	phpbrain	pl	Sugerowana kategoria
 summary	phpbrain	pl	Podsumowanie
-table of contents	phpbrain	pl	Tabela zawartości
+table of contents	phpbrain	pl	Spis treści
 that file already exists	phpbrain	pl	Ten plik już istnieje
 the article id must be a number	phpbrain	pl	Idenyfikator artykułu musi być numeryczny
 the article is empty	phpbrain	pl	Ten artykuł jest pusty

@@ -1,0 +1,139 @@
+/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	id	direktori /kb tidak ada dan tidak dapat dibikin, mohon tanyakan ke administrator untuk melihat konfigurasi global
+action	phpbrain	id	Tindakan
+actions	phpbrain	id	Tindakan
+add articles	phpbrain	id	Tambah artikel
+add link	phpbrain	id	Tambah tautan
+add question	phpbrain	id	Tambah Pertanyaan
+added file %1	phpbrain	id	Menambah berkas %1
+added link %1	phpbrain	id	Menambah tautan %1
+added related articles %1	phpbrain	id	Menambah artikel berkaitan %1
+advanced search	phpbrain	id	Pencarian Canggih
+all articles	phpbrain	id	Semua artikel
+allow posting of questions	phpbrain	id	Bolehkan mengirim pertanyaan
+answer	phpbrain	id	jawaban
+anytime	phpbrain	id	kapanpun
+anywhere in the article	phpbrain	id	Dimanapun dalam artikel
+are you sure?	phpbrain	id	Anda yakin?
+article	phpbrain	id	Artikel
+article added to database, you can now attach files or links, or relate to other articles	phpbrain	id	Artikel ditambahkan ke database, sekarang anda dapat melampirkan berkas atau tautan, atau kaitkan ke artikel lain
+article created	phpbrain	id	Artikel dibikin
+article deleted	phpbrain	id	Artikel dihapus
+article deleted successfully	phpbrain	id	Artikel sukses dihapus
+article edited	phpbrain	id	Artikel di-edit
+article has been published	phpbrain	id	Artikel telah diterbitkan
+article id	phpbrain	id	ID Artikel
+articles added	phpbrain	id	Artikel ditambah
+articles deleted successfully	phpbrain	id	Artikel sukses dihapus
+articles have been published	phpbrain	id	Artikel telah diterbitkan
+articles in %1	phpbrain	id	Artikel pada %1
+articles in %1 and all its subcategories	phpbrain	id	Artikel pada %1 dan semua sub-kategorinya
+articles not classified under any category	phpbrain	id	Artikel tidak termasuk pada kategori apapun
+ascendent	phpbrain	id	Menaik
+attach file	phpbrain	id	Lampirkan Berkas
+attached files	phpbrain	id	Berkas Terlampir
+average rating	phpbrain	id	Rerata rating
+base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	id	Direktori basis tidak ada, mohon tanyakan administrator untuk melihat konfigurasi global
+before submiting a question, please search in the knowledge base first	phpbrain	id	Sebelum menyampaikan pertanyaan, mohon cari dulu pada basis pengetahuan
+by answering this question you will help to get the answer quicker the next time	phpbrain	id	Dengan menjawab pertanyaan ini anda turut membantu mendapatkan jawaban lebih cepat
+comment	phpbrain	id	komentar
+comment and rating have been published	phpbrain	id	Komentar dan rating telah diterbitkan
+comment could not be inserted in the database	phpbrain	id	Komentar tidak dapat dimasukan ke database
+comment has been deleted	phpbrain	id	Komentar telah dihapus
+comment has been published	phpbrain	id	Komentar telah diterbitkan
+comment has been submited for revision	phpbrain	id	Komentar telah dikirimkan untuk revisi
+comment has been submited for revision and rating will be published	phpbrain	id	Komentar telah dikirimkan untuk revisi dan rating akan diterbitkan
+comments	phpbrain	id	Komentar
+configuration	phpbrain	id	Konfigurasi
+contents	phpbrain	id	Isi
+create a new article to answer the question asked by %1 in %2	phpbrain	id	Bikin artikel baru untuk menjawab pertanyaan yang ditanyakan oleh %1 dalam %2
+created by %1 on %2	phpbrain	id	Dibikin oleh %1 pada %2
+creation	phpbrain	id	pembuatan
+creation date	phpbrain	id	Tanggal dibuat
+delete article	phpbrain	id	Hapus artikel
+delete selected	phpbrain	id	Hapus terpilih
+deleted relation to  article %1	phpbrain	id	Menghapus kaitan ke artikel %1
+deleted relation to article %1	phpbrain	id	Menghapus kaitan ke artikel %1
+descendent	phpbrain	id	Menurun
+details	phpbrain	id	Detil
+e-groupware knowledge base article attached	phpbrain	id	Terlampir artikel Basis Pengetahuan E-GroupWare
+e-mail has been sent	phpbrain	id	e-mail telah dikirm
+edit article	phpbrain	id	Edit artikel
+enter one or two words describing the issue, or type the article number if you know it	phpbrain	id	Jelaskan permasalahan anda dalam beberapa kata atau bila anda tahu, ketikan saja nomor artikelnya
+excellent	phpbrain	id	Bagus
+find results	phpbrain	id	Hasil pencarian
+global categories	phpbrain	id	Kategori Global
+have to be approved first	common	id	Harus dengan persetujuan
+history	phpbrain	id	Riwayat
+if you wish, you can comment this article here	phpbrain	id	Bila diinginkan, anda dapat mengomentari artikel disini
+in %1	phpbrain	id	pada %1
+in the text	phpbrain	id	pada teks
+in the title	phpbrain	id	pada judul
+in the topic	phpbrain	id	pada topik
+include subcategories	phpbrain	id	Termasuk sub-kategori
+keywords	phpbrain	id	Katakunci
+knowledge base	phpbrain	id	Basis Pengetahuan
+knowledge base article #%1	phpbrain	id	Artikel #%1 Basis Pengetahuan
+knowledge base configuration	common	id	Konfigurasi Basis Pengetahuan
+last modification by %1 on %2	phpbrain	id	Diubah terakhir oleh %1 pada %2
+last modified	phpbrain	id	Pengubahan terakhir
+latest	phpbrain	id	Terkini
+latest comments	phpbrain	id	Komentar terkini
+links	phpbrain	id	Tautan
+links & files	phpbrain	id	Tautan & Berkas
+mail article	phpbrain	id	Kirimkan artikel
+main view	phpbrain	id	Tampilan Utama
+maintain articles	phpbrain	id	Pemeliharaan Artikel
+maintain questions	phpbrain	id	Pemeliharaan Pertanyaan
+modification date	phpbrain	id	Tanggal pengubahan
+most viewed	phpbrain	id	Paling sering dilihat
+new article	phpbrain	id	Artikel Baru
+ocurrences	phpbrain	id	Kejadian
+or browse the categories	phpbrain	id	Atau jelajahi kategori
+order results by	phpbrain	id	Urutkan hasil dengan
+overwrite file	phpbrain	id	tindas berkas yang ada?
+past %1 months	phpbrain	id	%1 bulan lalu
+past year	phpbrain	id	tahun lalu
+phpbrain	common	id	Basis Pengetahuan
+please try again	phpbrain	id	Coba lagi
+poor	phpbrain	id	Buruk
+printer view	phpbrain	id	Tampilan cetak
+publication date	phpbrain	id	Tanggal publikasi
+publish	phpbrain	id	Terbitkan
+publish articles automatically?	common	id	Otomatis terbitkan artikel?
+publish comments automatically?	common	id	Otomatis terbitkan komentar?
+publish questions automatically?	common	id	Otomatis terbitkan pertanyaan?
+publish selected	phpbrain	id	Terbitkan yang terpilih
+published	phpbrain	id	Diterbitkan
+rating invalid	phpbrain	id	Rating cacat
+recipient	phpbrain	id	Penerima
+related articles in the knowledge base	phpbrain	id	Artikel terkait dalam Basis Pengetahuan
+removed file %1	phpbrain	id	Membuang berkas %1
+removed link %1	phpbrain	id	Membuang tautan %1
+reply-to	phpbrain	id	Balas-ke
+search in all the knowledge base	phpbrain	id	Cari di semua Basis Pengetahuan
+search results	phpbrain	id	Hasil pencarian
+see more questions	phpbrain	id	Lihat lebih banyak pertanyaan
+see more questions...	phpbrain	id	Lihat lebih banyak pertanyaan...
+select articles	phpbrain	id	Pilih artikel
+show all comments	phpbrain	id	Tampilkan semua komentar
+show articles belonging to:	phpbrain	id	Tampilkan artikel kepunyaan:
+show messages in category	phpbrain	id	Tampilkan pesan-pesan pada kategori
+submit comment	phpbrain	id	Kirimkan komentar
+submit comment and rating	phpbrain	id	Kirimkan komentar dan rating
+suggested category	phpbrain	id	Kategori yang disarankan
+summary	phpbrain	id	Ringkasan
+table of contents	phpbrain	id	Daftar Isi
+the present category and all subcategories under it	phpbrain	id	Kategori ini dan semua sub-kategori dibawahnya
+the present category only	phpbrain	id	Hanya kategori ini saja
+there are no articles	phpbrain	id	Tiada artikel
+there are no articles available	phpbrain	id	Tiada artikel yang tersedia
+this article hasn't yet been published in the knowledge base	phpbrain	id	Artikel ini belum diterbitkan pada Basis Pengetahuan
+title	phpbrain	id	Judul
+to create categories, press 'edit categories' in the preferences menu	phpbrain	id	Untuk membuat kategori, tekan 'Edit Kategori' pada menu kesukaan
+topic	phpbrain	id	Topik
+unanswered questions	phpbrain	id	Pertanyaan belum dijawab
+unpublish	phpbrain	id	Batal terbit
+unpublished	phpbrain	id	batal diterbitkan
+user preferences	phpbrain	id	Kesukaan pengguna
+views	phpbrain	id	views
+you are in %1	phpbrain	id	Anda di %1
