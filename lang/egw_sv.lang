@@ -12,6 +12,7 @@ all articles	phpbrain	sv	Samtliga artiklar
 answer	phpbrain	sv	Svara
 anytime	phpbrain	sv	När som helst
 anywhere in the article	phpbrain	sv	Var som helst i artikeln
+are you sure?	phpbrain	sv	ÄR DU SÄKER?
 article	phpbrain	sv	Artikel
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	sv	Artikeln har lagts till i databasen, du kan nu bifoga filer, länkar eller relatera till andra artiklar
 article created	phpbrain	sv	Artikeln skapad
@@ -153,6 +154,7 @@ submit comment	phpbrain	sv	Skicka kommentar
 submit comment and rating	phpbrain	sv	Skicka kommentar och omdöme
 suggested category	phpbrain	sv	Föreslagen kategori
 summary	phpbrain	sv	Summering
+table of contents	phpbrain	sv	Innehåll
 that file already exists	phpbrain	sv	Filen existerar redan
 the article id must be a number	phpbrain	sv	Artikel ID måste vara ett nummer
 the article is empty	phpbrain	sv	Artikeln är tom

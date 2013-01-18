@@ -3,11 +3,10 @@ action	phpbrain	zh	操作
 actions	phpbrain	zh	操作
 add articles	phpbrain	zh	添加文章
 add link	phpbrain	zh	添加链接
-add question	common	zh	添加问题
+add question	phpbrain	zh	添加问题
 added file %1	phpbrain	zh	文件%1已添加
 added link %1	phpbrain	zh	链接%1已添加
 added related articles %1	phpbrain	zh	相关文章%1已添加
-administration	common	zh	系统管理
 advanced search	phpbrain	zh	高级搜索
 all articles	phpbrain	zh	所有文章
 allow posting of questions	phpbrain	zh	允许张贴的问题
@@ -105,14 +104,14 @@ link has been added	phpbrain	zh	链接已添加
 links	phpbrain	zh	链接
 links & files	phpbrain	zh	链接与文件
 mail article	phpbrain	zh	邮件正文
-main view	common	zh	主窗口
-maintain articles	common	zh	文章维护
-maintain questions	common	zh	问题维护
+main view	phpbrain	zh	主窗口
+maintain articles	phpbrain	zh	文章维护
+maintain questions	phpbrain	zh	问题维护
 maximum number of comments to show:	phpbrain	zh	最多显示几条评论：
 maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	zh	热门文章、最新文章以及未回答的问题等在主窗口的最多显示篇数。
 modification date	phpbrain	zh	修改日期
 most viewed	phpbrain	zh	热门点击
-new article	common	zh	新建文章
+new article	phpbrain	zh	新建文章
 nobody has rated this article so far	phpbrain	zh	至今没有人给这篇文章评分
 nothing was uploaded!	phpbrain	zh	没有任何上传
 number of results per page	phpbrain	zh	搜寻结果条目数
@@ -158,6 +157,7 @@ submit comment	phpbrain	zh	提交评论
 submit comment and rating	phpbrain	zh	提交评论和评分
 suggested category	phpbrain	zh	建议类别
 summary	phpbrain	zh	概要
+table of contents	phpbrain	zh	目录
 that file already exists	phpbrain	zh	该文件已存在
 the article id must be a number	phpbrain	zh	文章ID必须是数字
 the article is empty	phpbrain	zh	这篇文章是空的

@@ -9,9 +9,11 @@ added link %1	phpbrain	it	Aggiunto link %1
 added related articles %1	phpbrain	it	Aggiunti articoli correlati %1
 advanced search	phpbrain	it	Ricerca avanzata
 all articles	phpbrain	it	Tutti gli articoli
+allow posting of questions	phpbrain	it	Consenti di porre domande
 answer	phpbrain	it	Risposta
 anytime	phpbrain	it	In qualunque momento
 anywhere in the article	phpbrain	it	Ovunque nell'articolo
+are you sure?	phpbrain	it	SEI SICURO?
 article	phpbrain	it	Articolo
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	it	Articolo aggiunto alla base dati, ora puoi aggiungere file o link, o fare riferimento ad altri articoli.
 article created	phpbrain	it	Articolo creato
@@ -56,6 +58,7 @@ e-groupware knowledge base article attached	phpbrain	it	Articolo Archivio Conosc
 e-mail has been sent	phpbrain	it	l'e-mail è stata spedita
 edit article	phpbrain	it	Modifica articolo
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	it	Inserisci una o due parole che descrivono il problema, o digita il numero dell'articolo se lo conosci
+enterprise knowledge articles repository	phpbrain	it	Repositori degli articoli della Knowledge (della conoscenza ;) )
 error deleting article from database	phpbrain	it	Errore durante la cancellazione dell'articolo dal database
 error deleting link	phpbrain	it	Errore durante la cancellazione del link
 error downloading file	phpbrain	it	Errore durante il download del file
@@ -87,6 +90,7 @@ in the title	phpbrain	it	nel titolo
 in the topic	phpbrain	it	nell'argomento
 include subcategories	phpbrain	it	Includi sottocategorie
 keywords	phpbrain	it	Parole chiave
+knowledge base	phpbrain	it	Knowledge Base
 knowledge base article #%1	phpbrain	it	Articolo Archivio Conoscenza n. %1
 knowledge base configuration	common	it	Configurazione Archivio Conoscenza
 last modification by %1 on %2	phpbrain	it	Ultima modifica di %1 il %2
@@ -153,6 +157,7 @@ submit comment	phpbrain	it	Invia commento
 submit comment and rating	phpbrain	it	Invia commento e valutazione
 suggested category	phpbrain	it	Categoria suggerita
 summary	phpbrain	it	Sommario
+table of contents	phpbrain	it	Indice dei contenuti
 that file already exists	phpbrain	it	Quel File esiste già
 the article id must be a number	phpbrain	it	L'ID dell'articolo deve essere un numero
 the article is empty	phpbrain	it	L'articolo è vuoto

@@ -9,9 +9,11 @@ added link %1	phpbrain	no	La til lenke %1
 added related articles %1	phpbrain	no	La til relatert artikkel %1
 advanced search	phpbrain	no	Avansert søk
 all articles	phpbrain	no	Alle artikler
+allow posting of questions	phpbrain	no	Tillate posting av spørsmål
 answer	phpbrain	no	svar
 anytime	phpbrain	no	når som helst
 anywhere in the article	phpbrain	no	Hvor som helst i artikkelen
+are you sure?	phpbrain	no	ER DU SIKKER?
 article	phpbrain	no	Artikkel
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	no	Artikkel lagt til database, du kan nå legge ved filer og lenker, eller relatere til andre artikler
 article created	phpbrain	no	Artikkel opprettet
@@ -56,6 +58,7 @@ e-groupware knowledge base article attached	phpbrain	no	E-GroupWare kunnskapsbas
 e-mail has been sent	phpbrain	no	e-mail ble sendt
 edit article	phpbrain	no	Endre artikkel
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	no	Registrer ett eller to ord som beskriver utgavene, eller tast inn artikkelnummer om du kjenner dette.
+enterprise knowledge articles repository	phpbrain	no	Foretagets arkiv for kunnskapsartikler
 error deleting article from database	phpbrain	no	Feil ved sletting av artikkel fra databasen
 error deleting link	phpbrain	no	Feil ved sletting av lenke
 error downloading file	phpbrain	no	Feil ved nedlasting av filen
@@ -87,9 +90,11 @@ in the title	phpbrain	no	i tittelen
 in the topic	phpbrain	no	i emnet
 include subcategories	phpbrain	no	Inkluder underkategorier
 keywords	phpbrain	no	Nøkkelord
+knowledge base	phpbrain	no	Kunnskapsbase
 knowledge base article #%1	phpbrain	no	Kunnskapsbase artikkel #%1
 knowledge base configuration	common	no	Kunnskapsbase konfigurasjon
 last modification by %1 on %2	phpbrain	no	Siste endret av %1 den %2
+last modified	phpbrain	no	Sist endret
 latest	phpbrain	no	Siste
 latest comments	phpbrain	no	Siste kommentar
 leave empty to automatically generate an id	phpbrain	no	La denne stå blankt for å generere en ident
@@ -152,6 +157,7 @@ submit comment	phpbrain	no	Send kommentar
 submit comment and rating	phpbrain	no	Send kommentar og vurdering
 suggested category	phpbrain	no	Forslått kategori
 summary	phpbrain	no	Sammendrag
+table of contents	phpbrain	no	Innhold
 that file already exists	phpbrain	no	File finnes allerede
 the article id must be a number	phpbrain	no	Artikkelident må være et nummer
 the article is empty	phpbrain	no	Artikkelen er tom
