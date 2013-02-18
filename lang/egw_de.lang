@@ -1,3 +1,6 @@
+%1 entries %2	phpbrain	de	%1 Einträge %2
+%1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	de	%1 Datensätze%2, %3 nicht möglich, wegen fehlender Rechte
+%1 entries %2, %3 failed.	phpbrain	de	%1 Einträge %2, %3 fehlgeschlagen.
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	de	Das Verzeichnis /kb existiert nicht oder konnte nicht erstellt werden. Bitte kontaktieren Sie den Administrator zur Überprüfung der Konfiguration.
 action	phpbrain	de	Befehl
 actions	phpbrain	de	Befehle
@@ -14,6 +17,8 @@ allow the publishing of articles by the author? (effective only if the approval 
 answer	phpbrain	de	Antwort
 anytime	phpbrain	de	jederzeit
 anywhere in the article	phpbrain	de	Im gesamten Artikel
+are you sure you want to delete the selected articles ?	phpbrain	de	Sind Sie sicher, das Sie die ausgewählten Artikel löschen wollen?
+are you sure you want to delete the selected questions ?	phpbrain	de	Sind Sie sicher, das Sie die ausgewählten Fragen löschen wollen?
 are you sure?	phpbrain	de	Sind Sie Sicher?
 article	phpbrain	de	Artikel
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	de	Der Artikel wurde zur Datenbank hinzugefügt. Sie können nun Links, Dateien oder verwandte Artikel zu diesem Artikel hinzufügen.
@@ -36,12 +41,13 @@ average rating	phpbrain	de	Durchschnittliche Bewertung
 base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	de	Das Hauptverzeichnis existiert nicht. Bitte kontaktieren Sie den Administrator damit dieser die Konfiguration überprüft.
 before submiting a question, please search in the knowledge base first	phpbrain	de	Bevor Sie eine Frage einreichen, durchsuchen Sie bitte die Wissensdatenbank zuerst
 by answering this question you will help to get the answer quicker the next time	phpbrain	de	Durch beantworten diese Frage helfen Sie, das nächste mal eine schnellere Antwort zu erhalten.
+changed category from %1 to %2	phpbrain	de	Kategorie %1 nach %2 umbenannt
 comment	phpbrain	de	Kommentare
 comment and rating have been published	phpbrain	de	Kommentar und Bewertung wurden veröffentlicht
 comment could not be inserted in the database	phpbrain	de	Der Kommentar konnte nicht zur Datenbank hinzugefügt werden
 comment has been deleted	phpbrain	de	Kommentar wurde hinzugefügt
-comment has been published	phpbrain	de	Kommantar wurde veröffentlicht
-comment has been submited for revision	phpbrain	de	Kommantar wurde eingereicht zur überprüfung
+comment has been published	phpbrain	de	Kommentar wurde veröffentlicht
+comment has been submited for revision	phpbrain	de	Kommentar wurde eingereicht zur Überprüfung
 comment has been submited for revision and rating will be published	phpbrain	de	Kommentar wurde eingereicht zur Überprüfung. Ihre Bewertung wird veröffentlicht
 comments	phpbrain	de	Kommentare
 configuration	phpbrain	de	Konfiguration
@@ -52,11 +58,12 @@ creation	phpbrain	de	Erstellung
 creation date	phpbrain	de	Erstellungsdatum
 delete article	phpbrain	de	Artikel löschen
 delete selected	phpbrain	de	Ausgewählte löschen
+deleted	phpbrain	de	gelöscht
 deleted relation to  article %1	phpbrain	de	Verbindung zu Artikel %1 gelöscht
 deleted relation to article %1	phpbrain	de	Verbindung zu Artikel %1 gelöscht
 descendent	phpbrain	de	Absteigend
 details	phpbrain	de	Details
-e-groupware knowledge base article attached	phpbrain	de	eGroupWare Wissensdatenbank Artikel angehangen
+e-groupware knowledge base article attached	phpbrain	de	EGroupware Wissensdatenbank Artikel angehangen
 e-mail has been sent	phpbrain	de	E-Mail wurde versendet
 edit article	phpbrain	de	Artikel bearbeiten
 edit unpublished article to answer the question asked by %1 in %2	phpbrain	de	Einen nicht veröffentlichten Artikel bearbeiten um auf die Frage, gestellt von %1 am %2 zu antworten
@@ -64,7 +71,7 @@ enter one or two words describing the issue, or type the article number if you k
 enterprise knowledge articles repository	phpbrain	de	Wissensdatenbank Artikel Speicherort
 error deleting article from database	phpbrain	de	Es ist ein Fehler beim löschen des Artikel in der Datenbank aufgetreten
 error deleting link	phpbrain	de	Fehler beim löschen des Link
-error downloading file	phpbrain	de	Fehler beim runterladen der Datei
+error downloading file	phpbrain	de	Fehler beim herunterladen der Datei
 error locating files directory	phpbrain	de	Der Datei Ordner konnte nicht gefunden werden
 error moving file to directory	phpbrain	de	Beim verschieben der Dateien in den Ordner ist ein Fehler aufgetreten
 error publishing comment	phpbrain	de	Es ist ein Fehler beim veröffentlichen des Kommentars aufgetreten
@@ -83,9 +90,9 @@ file was deleted successfully	phpbrain	de	Dateien wurde erfolgreich gelöscht
 file wasn't in server and it couldn't be deleted from the database	phpbrain	de	Die Datei war weder auf dem Server noch in der Datenbank vorhanden und konnte nicht gelöscht werden
 find results	phpbrain	de	Finde Ergebnisse
 global categories	phpbrain	de	Globale Kategorien
-have to be approved first	common	de	Muß zuerst überprüft werden
+have to be approved first	common	de	Muss zuerst überprüft werden
 history	phpbrain	de	Historie
-if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	de	Falls Sie keine Antwort zu Ihrem problem finden in der Wissensdatenbank, beschreiben Sie es bitte unten.
+if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	de	Falls Sie keine Antwort zu Ihrem Problem finden in der Wissensdatenbank, beschreiben Sie es bitte unten.
 if you wish, you can comment this article here	phpbrain	de	Sie können diesen Artikel hier kommentieren
 in %1	phpbrain	de	in %1
 in the text	phpbrain	de	im Text
@@ -95,7 +102,7 @@ include subcategories	phpbrain	de	inklusive Unterkategorien
 keywords	phpbrain	de	Schlüsselworte
 knowledge base	phpbrain	de	Wissensdatenbank
 knowledge base article #%1	phpbrain	de	Wissensdatenbank Artikel %1
-knowledge base configuration	common	de	Wissensdatenbank konfiguration
+knowledge base configuration	common	de	Wissensdatenbank Konfiguration
 last modification by %1 on %2	phpbrain	de	Zuletzt bearbeitet von %1 am %2
 last modified	phpbrain	de	Zuletzt bearbeitet
 latest	phpbrain	de	Zuletzt
@@ -112,7 +119,7 @@ maintain articles	phpbrain	de	Artikel verwalten
 maintain questions	phpbrain	de	Fragen verwalten
 maximum number of comments to show:	phpbrain	de	Maximale Anzahl von Kommentaren (zu Artikeln) welche angezeigt werden soll
 maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	de	Maximale Anzahl der meist gelesenen Artikel, der letzten Artikel und der offenen Fragen welche in der Übersicht angezeigt werden sollen
-modification date	phpbrain	de	Änderungs Datum
+modification date	phpbrain	de	Änderungsdatum
 most viewed	phpbrain	de	Meist gelesen
 name of the backlink to the index:	admin	de	Name des Rückverweises zum Index
 new article	phpbrain	de	Neuer Artikel
@@ -126,14 +133,14 @@ outstanding published questions	phpbrain	de	Ausstehende veröffentlichte Fragen
 overwrite file	phpbrain	de	existierende Datei überschreiben?
 past %1 months	phpbrain	de	letzte %1 Monate
 past year	phpbrain	de	letztes Jahr
-people have rated this article	phpbrain	de	Dieser Artikel wurde bewerted von folgenden Personen mit
+people have rated this article	phpbrain	de	Dieser Artikel wurde bewertet von folgenden Personen mit
 phpbrain	common	de	Wissensdatenbank
 please rate the pertinence and quality of this article	phpbrain	de	Bewerten Sie bitte die Angemessenheit und die Qualität dieses Artikels
 please try again	phpbrain	de	Bitte versuchen Sie es erneut
 poor	phpbrain	de	Schlecht
 printer view	phpbrain	de	Drucker freundliche Darstellung
 problem relating articles	phpbrain	de	Fehler beim bewerten des Artikels
-publication date	phpbrain	de	Erstellungs Datum
+publication date	phpbrain	de	Erstellungsdatum
 publish	phpbrain	de	Veröffentlichen
 publish articles automatically?	common	de	Artikel automatisch veröffentlichen
 publish comments automatically?	common	de	Kommentare automatisch veröffentlichen
@@ -147,7 +154,7 @@ rating has been submited	phpbrain	de	Ihre Bewertung wurde veröffentlicht
 rating invalid	phpbrain	de	Bewertung ungültig
 recipient	phpbrain	de	Empfänger
 related articles in the knowledge base	phpbrain	de	In Verbindung stehende Artikel in der Wissensbasis
-relation with article was removed successfully	phpbrain	de	Verbing zu diesem Artikel wurde erfolgreich gelöscht
+relation with article was removed successfully	phpbrain	de	Verbindung zu diesem Artikel wurde erfolgreich gelöscht
 removed file %1	phpbrain	de	Datei %1 gelöscht
 removed link %1	phpbrain	de	Link %1 gelöscht
 reply-to	phpbrain	de	Antwort an
@@ -166,10 +173,10 @@ suggested category	phpbrain	de	Vorgeschlagene Kategorie
 summary	phpbrain	de	Zusammenfassung
 table of contents	phpbrain	de	Inhaltsverzeichnis
 that file already exists	phpbrain	de	Diese Datei existiert bereits
-the article id must be a number	phpbrain	de	Die Artikel ID muß eine Zahl sein
+the article id must be a number	phpbrain	de	Die Artikel ID muss eine Zahl sein
 the article is empty	phpbrain	de	Dieser Artikel ist leer
 the file was already missing in the server	phpbrain	de	Die Datei war auf dem Server nicht vorhanden
-the following errors occurred	phpbrain	de	Die follgenden Fehler sind aufgetreten
+the following errors occurred	phpbrain	de	Die folgenden Fehler sind aufgetreten
 the mail server returned:	phpbrain	de	Der Mailserver antwortete:
 the present category and all subcategories under it	phpbrain	de	Die momentane Kategorie und alle Unterkategorien
 the present category only	phpbrain	de	Nur in der momentanen Kategorie
@@ -196,6 +203,7 @@ you have already qualified this article	phpbrain	de	Sie haben schon eine Bewertu
 you have not the proper permissions to do that	phpbrain	de	Sie haben keine ausreichenden Rechte
 you must enter a title	phpbrain	de	Sie müssen einen Titel eingeben
 you must enter a topic	phpbrain	de	Sie müssen ein Thema eingeben
+you need to select some entries first	phpbrain	de	Sie müssen zuerst einen Einträge auswählen
 your message could not be sent!	phpbrain	de	Ihre Nachricht konnte nicht gesendet werden!
-your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	de	Ihre Frage wurde weitegeleitet, Sie wird jedoch zuerst veröffentlicht nachdem ein user mit administrativen Rechten diese überprüft hat
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	de	Ihre Frage wurde weitergeleitet, Sie wird jedoch zuerst veröffentlicht nachdem ein Benutzer mit administrativen Rechten diese überprüft hat
 your question will be published immediately	phpbrain	de	Ihre Frage wird schnellstens veröffentlicht
