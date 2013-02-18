@@ -1,3 +1,6 @@
+%1 entries %2	phpbrain	en	%1 entries %2
+%1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	en	%1 entries %2, %3 failed because of insufficent rights !!!
+%1 entries %2, %3 failed.	phpbrain	en	%1 entries %2, %3 failed.
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	en	/kb directory does not exist and could not be created, please ask the administrator to check the global configuration
 action	phpbrain	en	Action
 actions	phpbrain	en	Actions
@@ -9,11 +12,13 @@ added link %1	phpbrain	en	Added link %1
 added related articles %1	phpbrain	en	Added related articles %1
 advanced search	phpbrain	en	Advanced search
 all articles	phpbrain	en	All articles
-allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	en	Allow the publishing of articles by the author? (effective only if the approval of articles is required)
 allow posting of questions	phpbrain	en	Allow posting of questions
+allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	en	Allow the publishing of articles by the author? (effective only if the approval of articles is required)
 answer	phpbrain	en	Answer
 anytime	phpbrain	en	Anytime
 anywhere in the article	phpbrain	en	Anywhere in the article
+are you sure you want to delete the selected articles ?	phpbrain	en	Are you sure you want to delete the selected articles ?
+are you sure you want to delete the selected questions ?	phpbrain	en	Are you sure you want to delete the selected questions ?
 are you sure?	phpbrain	en	Are you sure?
 article	phpbrain	en	Article
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	en	Article added to database, you can now attach files or links, or relate to other articles.
@@ -53,6 +58,7 @@ creation	phpbrain	en	Creation
 creation date	phpbrain	en	Creation date
 delete article	phpbrain	en	Delete article
 delete selected	phpbrain	en	Delete selected
+deleted	phpbrain	en	deleted
 deleted relation to  article %1	phpbrain	en	Deleted relation to  article %1
 deleted relation to article %1	phpbrain	en	Deleted relation to article %1
 descendent	phpbrain	en	Descendent
@@ -197,6 +203,7 @@ you have already qualified this article	phpbrain	en	You have already qualified t
 you have not the proper permissions to do that	phpbrain	en	You have not the proper permissions to do that.
 you must enter a title	phpbrain	en	You must enter a title.
 you must enter a topic	phpbrain	en	You must enter a topic.
+you need to select some entries first	phpbrain	en	You need to select some entries first
 your message could not be sent!	phpbrain	en	Your message could not be sent!
 your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	en	Your question will be posted, but only will be published after approval by a user with publishing rights.
 your question will be published immediately	phpbrain	en	Your question will be published immediately
