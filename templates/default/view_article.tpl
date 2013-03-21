@@ -104,7 +104,7 @@
 					<div style='font:bold 12px sans-serif;position: relative'>
 						{lang_article} {art_id}&nbsp;&nbsp;&nbsp;{img_stars}&nbsp;&nbsp;&nbsp;{lang_unpublished}
 							<span style='width:100%; position: absolute;right:0; text-align:right;'>
-								<a href="{href_printer}" TARGET="article_print"><img src="{img_printer}" alt="{alt_printer}" title="{alt_printer}"></a>&nbsp;&nbsp;<a href="{href_mail}"><img src="{img_mail}" alt="{alt_mail}" title="{alt_mail}"></a>
+								<a href="{href_printer}" TARGET="article_print"><img src="{img_printer}" alt="{alt_printer}" title="{alt_printer}"></a>&nbsp;&nbsp;<a href="{href_mail}"  onclick="window.open(this,this.target,'width=700,height=750,location=no,menubar=no,toolbar=no,scrollbars=yes,status=yes'); return false;"><img src="{img_mail}" alt="{alt_mail}" title="{alt_mail}"></a>
 							</span>
 					</div>
 				</td>
