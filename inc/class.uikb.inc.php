@@ -735,7 +735,10 @@ class uikb extends bokb
 				$this->t->set_var('link_main_view', "<a href='". $this->link('menuaction=phpbrain.uikb.index') ."'>". lang('Main View', 'phpbrain') ."</a>&nbsp;&nbsp;|<br>");
 			}
 		}
-
+		if ($GLOBALS['egw_info']['user']['apps']['felamimail'])
+		{
+			$ma = egw_link::get_registry('felamimail','add');
+		}
 		$this->t->set_var(array(
 			'message'				=> "<div style='text-align:center; color:red'>".$this->message."</div>",
 			'mail_message'			=> '',
@@ -764,11 +767,11 @@ class uikb extends bokb
 			'lang_confirm_delete'   => lang('Are you sure?'),
 			'img_printer'			=> $GLOBALS['egw']->common->image('phpbrain', 'articleprint'),
 			'href_printer'			=> $this->link('menuaction=phpbrain.uikb.view_article&art_id='. $article_id .'&printer=1'),
-			'img_mail'				=> $GLOBALS['egw']->common->image('phpbrain', 'mail'),
-			'img_src_del'			=> $GLOBALS['egw']->common->image('phpbrain', 'delete'),
 			'alt_printer'			=> lang('Printer view'),
-			'alt_mail'				=> lang('Mail article'),
-			'href_mail'				=> $this->link('menuaction=phpbrain.uikb.mail_article&art_id='. $article_id),
+			'img_src_del'			=> $GLOBALS['egw']->common->image('phpbrain', 'delete'),
+			'img_mail'				=> isset($ma)?$GLOBALS['egw']->common->image('phpbrain', 'mail'):'',
+			'alt_mail'				=> isset($ma)?lang('Mail article'):'',
+			'href_mail'				=> isset($ma)?$this->link('menuaction='.$ma['menuaction'].'&app=phpbrain&method=fetch&id='. $article_id):'',
 			'form_article_action'	=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $article_id),
 			'form_del_action'		=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $article_id),
 			'url_bluedot'			=> $GLOBALS['egw']->common->image('phpbrain', 'bluedot')
