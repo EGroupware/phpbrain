@@ -96,7 +96,11 @@
 {search_tpl}
 <div align="center">
 	<script type="text/javascript">
-		var tab = new Tabs(3,'activetab','inactivetab','tab','tabcontent','','','tabpage');
+		var tab;
+		egw.LAB.wait(function() {
+			tab = new Tabs(3,'activetab','inactivetab','tab','tabcontent','','','tabpage');
+			tab.init();
+		});
 	</script>
 		<table  width="100%" border="0" cellspacing="0" cellpadding="3" style='border:1px solid black'>
 			<tr class="th">

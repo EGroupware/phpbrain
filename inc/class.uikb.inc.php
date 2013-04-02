@@ -134,7 +134,7 @@ class uikb extends bokb
 		if ($link)
 		{
 			$this->link					= $link;
-			$GLOBALS['egw']->translation->add_app('phpbrain');
+			translation::add_app('phpbrain');
 		}
 		else
 		{
@@ -206,7 +206,7 @@ class uikb extends bokb
 
 		if(!$this->sitemgr)
 		{
-			$GLOBALS['egw']->common->egw_header();
+			common::egw_header();
 			echo parse_navbar();
 			$this->navbar_shown = True;
 
@@ -327,7 +327,7 @@ class uikb extends bokb
 			{
 				if ($article_preview['total_votes'])	// only show stars if article has been rated
 				{
-					$img_stars = "<img src='" . $GLOBALS['egw']->common->image('phpbrain', round($article_preview['average_votes']) . 'stars') . "' width=50 height=10>";
+					$img_stars = "<img src='" . common::image('phpbrain', round($article_preview['average_votes']) . 'stars') . "' width=50 height=10>";
 				}
 				else
 				{
@@ -335,7 +335,7 @@ class uikb extends bokb
 				}
 				if ($article_preview['files'] = $this->bo->get_files($article_preview['art_id']))
 				{
-					$attachment = "<img src='" . $GLOBALS['egw']->common->image('phpbrain', 'attach') . "'>";
+					$attachment = "<img src='" . common::image('phpbrain', 'attach') . "'>";
 				}
 				else
 				{
@@ -349,7 +349,7 @@ class uikb extends bokb
 					'art_num'		=> $article_preview['art_id'],
 					'art_href'		=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $article_preview['art_id'] . $query),
 					'art_title'		=> $article_preview['title'],
-					'art_date'		=> $GLOBALS['egw']->common->show_date($article_preview['modified'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat'] . ' H:i'),
+					'art_date'		=> common::show_date($article_preview['modified'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat'] . ' H:i'),
 					'img_stars'		=> $img_stars,
 					'attachment'	=> $attachment,
 					'art_category'	=> $category_path? lang('in %1', $category_path) : '',
@@ -376,7 +376,7 @@ class uikb extends bokb
 				'art_href'		=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $articles_latest[$i]['art_id']),
 				'art_title'		=> $articles_latest[$i]['title'],
 				'unpublished'	=> $unpublished,
-				'art_date'		=> $GLOBALS['egw']->common->show_date($articles_latest[$i]['created'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']),
+				'art_date'		=> common::show_date($articles_latest[$i]['created'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']),
 				'art_category'	=> $category_path? lang('in %1', $category_path) : ''
 			));
 			$this->t->parse('articles_latest', 'articles_latest_block', True);
@@ -465,7 +465,7 @@ class uikb extends bokb
 	{
 		if (!$this->sitemgr)
 		{
-			$GLOBALS['egw']->common->egw_header();
+			common::egw_header();
 			echo parse_navbar();
 			$this->navbar_shown = True;
 		}
@@ -550,8 +550,8 @@ class uikb extends bokb
 		if ($_POST['delete_article'])
 		{
 			$message = $this->bo->delete_article();
-			$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.index&message=' . $message);
-			$GLOBALS['egw']->common->egw_exit();
+			egw::redirect_link($this->link, 'menuaction=phpbrain.uikb.index&message=' . $message);
+			common::egw_exit();
 		}
 
 		// Process article publication
@@ -559,7 +559,7 @@ class uikb extends bokb
 		{
 			$message = $this->bo->publish_article();
 			$this->reload_page($article_id, $message);
-			$GLOBALS['egw']->common->egw_exit();
+			common::egw_exit();
 		}
 
 		// Process comment publication
@@ -567,7 +567,7 @@ class uikb extends bokb
 		{
 			$message = $this->bo->publish_comment();
 			$this->reload_page($article_id, $message);
-			$GLOBALS['egw']->common->egw_exit();
+			common::egw_exit();
 		}
 
 		// Process comment deletion
@@ -575,7 +575,7 @@ class uikb extends bokb
 		{
 			$message = $this->bo->delete_comment();
 			$this->reload_page($article_id, $message);
-			$GLOBALS['egw']->common->egw_exit();
+			common::egw_exit();
 		}
 
 		// Process comment and rating
@@ -607,7 +607,7 @@ class uikb extends bokb
 				}
 			}
 			$this->reload_page($article_id, $message);
-			$GLOBALS['egw']->common->egw_exit();
+			common::egw_exit();
 		}
 
 		// Process file upload
@@ -615,14 +615,14 @@ class uikb extends bokb
 		{
 			$message = $this->bo->process_upload($_POST['file_overwrite'] == 'on');
 			$this->reload_page($article_id, $message);
-			$GLOBALS['egw']->common->egw_exit();
+			common::egw_exit();
 		}
 		// Process file deletion
 		if ($_GET['delete_file'])
 		{
 			$message = $this->bo->delete_file($_GET['delete_file']);
 			$this->reload_page($article_id, $message);
-			$GLOBALS['egw']->common->egw_exit();
+			common::egw_exit();
 		}
 
 		// Process related articles added
@@ -630,14 +630,14 @@ class uikb extends bokb
 		{
 			$message = $this->bo->add_related();
 			$this->reload_page($article_id, $message);
-			$GLOBALS['egw']->common->egw_exit();
+			common::egw_exit();
 		}
 		// Process related articles deletion
 		if ($_GET['delete_related'])
 		{
 			$this->bo->delete_related();
 			$this->reload_page($article_id, 'del_rel_ok');	// I think there's no way of telling a deletion went wrong... (affected rows=0 always)
-			$GLOBALS['egw']->common->egw_exit();
+			common::egw_exit();
 		}
 
 		// Process links added
@@ -645,21 +645,21 @@ class uikb extends bokb
 		{
 			$message = $this->bo->add_link();
 			$this->reload_page($article_id, $message);
-			$GLOBALS['egw']->common->egw_exit();
+			common::egw_exit();
 		}
 		// Process links deletion
 		if ($_GET['delete_link'])
 		{
 			$message = $this->bo->delete_link();
 			$this->reload_page($article_id, $message);
-			$GLOBALS['egw']->common->egw_exit();
+			common::egw_exit();
 		}
 
 		// *** SHOW ARTICLE ***
 		if ($print_view)
 		{
 			// add a content-type header to overwrite an existing default charset in apache (AddDefaultCharset directiv)
-			header('Content-type: text/html; charset='.$GLOBALS['egw']->translation->charset());
+			header('Content-type: text/html; charset='.translation::charset());
 			#ob_end_flush();
 
 			$this->t->set_file('view_article', 'print_article.tpl');
@@ -693,11 +693,7 @@ class uikb extends bokb
 			if (!$this->sitemgr)
 			{
 				// $GLOBALS['egw_info']['flags']['css'] = $this->tabs_css();	Don't use this 'cause incompatible with sitemgr
-				if(!@is_object($GLOBALS['egw']->js))
-				{
-					$GLOBALS['egw']->js = CreateObject('phpgwapi.javascript');
-				}
-				$GLOBALS['egw']->js->validate_file('tabs','tabs');
+				egw_framework::validate_file('tabs','tabs');
 
 				$toc_header = "";
 				$backlinkText = "";
@@ -705,30 +701,29 @@ class uikb extends bokb
 				{
 					$toc_header = '<div id="toc"><h1>'.lang("Table of Contents").'</h1></div>';
 					$this->bo->admin_config['backlinkText'] == "" ? $backlinkText = lang("Contents") : $backlinkText = $this->bo->admin_config['backlinkText'];
-					$GLOBALS['egw']->js->validate_file('toc','toc','phpbrain');
+					egw_framework::validate_file('toc','toc','phpbrain');
 				}
 				$this->t->set_var('toc_header', $toc_header);
 				$this->t->set_var('backlinkText', $backlinkText);
-				$GLOBALS['egw']->js->set_onload('tab.init();');
 				$GLOBALS['egw_info']['flags']['java_script_thirst'] = "<script>function openpopup() {window1=window.open('" . $this->link('menuaction=phpbrain.uikb.pop_search') . "', 'Search', 'width=800,height=600,toolbar=no,scrollbars=yes,resizable=yes');}</script>";
 
 				$this->t->set_var('link_main_view', '');
 
-				$GLOBALS['egw']->common->egw_header();
+				common::egw_header();
 				echo parse_navbar();
 				$this->navbar_shown = True;
 			}
 			else
 			{
 				// Since cannot use js object with sitemanager, I have to manually insert the javascript include:
-				$this->t->set_var('tabs_script', $GLOBALS['egw']->link('/phpgwapi/js/tabs/tabs.js'));
+				$this->t->set_var('tabs_script', egw::link('/phpgwapi/js/tabs/tabs.js'));
 				$toc_header = "";
 				$backlinkText = "";
 				if ($this->bo->admin_config['show_toc'] == "True")
 				{
 					$toc_header = '<div id="toc"><h1>'.lang("Table of Contents").'</h1></div>';
 					$this->bo->admin_config['backlinkText'] == "" ? $backlinkText = lang("Contents") : $backlinkText = $this->bo->admin_config['backlinkText'];
-					$this->t->set_var('toc_script', $GLOBALS['egw']->link('/phpbrain/js/toc/toc.js'));
+					$this->t->set_var('toc_script', egw::link('/phpbrain/js/toc/toc.js'));
 				}
 				$this->t->set_var('toc_header', $toc_header);
 				$this->t->set_var('backlinkText', $backlinkText);
@@ -765,16 +760,16 @@ class uikb extends bokb
 			'lang_overwrite_file'	=> lang('overwrite file'),
 			'lang_delete'			=> lang('delete'),
 			'lang_confirm_delete'   => lang('Are you sure?'),
-			'img_printer'			=> $GLOBALS['egw']->common->image('phpbrain', 'articleprint'),
+			'img_printer'			=> common::image('phpbrain', 'articleprint'),
 			'href_printer'			=> $this->link('menuaction=phpbrain.uikb.view_article&art_id='. $article_id .'&printer=1'),
 			'alt_printer'			=> lang('Printer view'),
-			'img_src_del'			=> $GLOBALS['egw']->common->image('phpbrain', 'delete'),
-			'img_mail'				=> isset($ma)?$GLOBALS['egw']->common->image('phpbrain', 'mail'):'',
+			'img_src_del'			=> common::image('phpbrain', 'delete'),
+			'img_mail'				=> isset($ma)?common::image('phpbrain', 'mail'):'',
 			'alt_mail'				=> isset($ma)?lang('Mail article'):'',
 			'href_mail'				=> isset($ma)?$this->link('menuaction='.$ma['menuaction'].'&app=phpbrain&method=fetch&id='. $article_id):'',
 			'form_article_action'	=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $article_id),
 			'form_del_action'		=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $article_id),
-			'url_bluedot'			=> $GLOBALS['egw']->common->image('phpbrain', 'bluedot')
+			'url_bluedot'			=> common::image('phpbrain', 'bluedot')
 		));
 
 		$published = $article['published']? '' : lang("This article hasn't yet been published in the Knowledge Base");
@@ -782,12 +777,12 @@ class uikb extends bokb
 		$img_stars = '';
 		if ($article['modified_username'])
 		{
-			$lastmodif = lang('Last modification by %1 on %2', $article['modified_username'], $GLOBALS['egw']->common->show_date($article['modified'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']));
+			$lastmodif = lang('Last modification by %1 on %2', $article['modified_username'], common::show_date($article['modified'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']));
 		}
 		// only show stars if article has been rated
 		if ($article['total_votes'])
 		{
-			$img_stars = "<img src='" . $GLOBALS['egw']->common->image('phpbrain', round($article['average_votes']) . 'stars') . "' width=50 height=10>";
+			$img_stars = "<img src='" . common::image('phpbrain', round($article['average_votes']) . 'stars') . "' width=50 height=10>";
 		}
 
 		// show edit and delete button if user has edit rights and he's not using sitemgr
@@ -850,7 +845,7 @@ class uikb extends bokb
 			'title'				=> $article['title'],
 			'topic'				=> $article['topic'],
 			'keywords'			=> $article['keywords'],
-			'createdby'			=> lang('Created by %1 on %2', $article['username'], $GLOBALS['egw']->common->show_date($article['created'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat'])),
+			'createdby'			=> lang('Created by %1 on %2', $article['username'], common::show_date($article['created'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat'])),
 			'last_modif'		=> $lastmodif,
 			'content'			=> $article['text']
 		));
@@ -911,7 +906,7 @@ class uikb extends bokb
 				}
 
 				$this->t->set_var(array(
-					'comment_date'		=> $GLOBALS['egw']->common->show_date($comment['entered'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']),
+					'comment_date'		=> common::show_date($comment['entered'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']),
 					'comment_user'		=> $comment['username'],
 					'link_publish'		=> $link_publish,
 					'link_delete'		=> $link_delete,
@@ -1135,7 +1130,7 @@ class uikb extends bokb
 			$this->t->parse('plain_html', 'view_article');
 			$message = $this->bo->mail_article($this->t->get_var('plain_html'));
 			$this->reload_page($article_id, $message);
-			$GLOBALS['egw']->common->egw_exit();
+			common::egw_exit();
 		}
 		elseif ($this->sitemgr && !$print_view)
 		{
@@ -1181,7 +1176,7 @@ class uikb extends bokb
 
 		if (!$this->sitemgr)
 		{
-			$GLOBALS['egw']->common->egw_header();
+			common::egw_header();
 			echo parse_navbar();
 			$this->navbar_shown = True;
 		}
@@ -1327,8 +1322,8 @@ class uikb extends bokb
 				// if article is new tell to insert files and stuff
 				$message = '';
 				if (!$article) $message = '&message=add_ok_cont&tabpage=2';
-				$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.view_article&art_id=' .  $edited_art . $message);
-				$GLOBALS['egw']->common->egw_exit();
+				egw::redirect_link($this->link, 'menuaction=phpbrain.uikb.view_article&art_id=' .  $edited_art . $message);
+				common::egw_exit();
 			}
 			else
 			{
@@ -1354,8 +1349,8 @@ class uikb extends bokb
 			// Process cancel button
 			if ($_POST['cancel'])
 			{
-				$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.view_article&art_id=' .  $article_id);
-				$GLOBALS['egw']->common->egw_exit();
+				egw::redirect_link($this->link, 'menuaction=phpbrain.uikb.view_article&art_id=' .  $article_id);
+				common::egw_exit();
 			}
 
 			if (!$this->message)
@@ -1398,8 +1393,8 @@ class uikb extends bokb
 			// Process cancel button
 			if ($_POST['cancel'])
 			{
-				$GLOBALS['egw']->redirect_link($this->link, 'menuaction=phpbrain.uikb.index');
-				$GLOBALS['egw']->common->egw_exit();
+				egw::redirect_link($this->link, 'menuaction=phpbrain.uikb.index');
+				common::egw_exit();
 			}
 			$question = $this->bo->get_question($q_id,'both');
 			$hidden_fields .= "<input type=hidden name='answering_question' value='" . $q_id . "'>";
@@ -1424,7 +1419,7 @@ class uikb extends bokb
 		// Finally, fill the input fields
 		if (!$this->sitemgr)
 		{
-			$GLOBALS['egw']->common->egw_header();
+			common::egw_header();
 			echo parse_navbar();
 			$this->navbar_shown = True;
 		}
@@ -1469,7 +1464,7 @@ class uikb extends bokb
 		if ($_POST['submit'])
 		{
 			$this->bo->add_question();
-			$GLOBALS['egw']->redirect($this->link('menuaction=phpbrain.uikb.index'));	// don't use redirect_link cause it ain't work in sitemgr
+			egw::redirect($this->link('menuaction=phpbrain.uikb.index'));	// don't use redirect_link cause it ain't work in sitemgr
 			end;
 		}
 
@@ -1507,7 +1502,7 @@ class uikb extends bokb
 
 		if (!$this->sitemgr)
 		{
-			$GLOBALS['egw']->common->egw_header();
+			common::egw_header();
 			echo parse_navbar();
 			$this->navbar_shown = True;
 		}
@@ -1639,7 +1634,7 @@ class uikb extends bokb
 		foreach ($rows as &$row)
 		{
 			//_debug_array($row);
-			$row['modified'] = $GLOBALS['egw']->common->show_date($row['modified'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']);
+			$row['modified'] = common::show_date($row['modified'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']);
 			$publish = !$row['published'] &&
 				// Publish own config option
 				(($this->bo->admin_config['publish_own_articles'] == 'True' && !empty($row['user_id']) && $row['user_id']==$GLOBALS['egw_info']['user']['account_id']) ||
@@ -1782,7 +1777,7 @@ class uikb extends bokb
 		foreach ($rows as &$row)
 		{
 			//_debug_array($row);
-			$row['creation'] = $GLOBALS['egw']->common->show_date($row['creation'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']);
+			$row['creation'] = common::show_date($row['creation'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']);
 			$publish = !$row['published'] &&
 				// Publish own config option
 				(($this->bo->admin_config['publish_own_articles'] == 'True' && !empty($row['user_id']) && $row['user_id']==$GLOBALS['egw_info']['user']['account_id']) ||
@@ -1817,7 +1812,7 @@ class uikb extends bokb
 	*/
 	function reload_page($article_id, $message)
 	{
-		$GLOBALS['egw']->redirect($this->link("menuaction=phpbrain.uikb.view_article&art_id=$article_id&message=$message"));
+		egw::redirect($this->link("menuaction=phpbrain.uikb.view_article&art_id=$article_id&message=$message"));
 	}
 
 	/**
@@ -1969,7 +1964,7 @@ class uikb extends bokb
 		}
 		else
 		{
-			return $GLOBALS['egw']->link($this->link, $args);
+			return egw::link($this->link, $args);
 		}
 	}
 
@@ -2015,12 +2010,12 @@ class uikb extends bokb
 	{
 		if (!$this->navbar_shown && !$this->sitemgr)
 		{
-			$GLOBALS['egw']->common->egw_header();
+			common::egw_header();
 			echo parse_navbar();
 		}
 		echo "<div style='text-align:center; font-weight:bold'>" . lang($error_msg) . "</div>";
-		$GLOBALS['egw']->common->egw_footer();
-		$GLOBALS['egw']->common->egw_exit();
+		common::egw_footer();
+		common::egw_exit();
 	}
 
 	/**
@@ -2165,7 +2160,7 @@ class uikb extends bokb
 						$failed++;
 					}
 					break;
-				
+
 				case 'publish':
 					if(!$entry['published']) $mesg = $this->bo->publish_article($entry['art_id'], $entry['user_id']);
 					if (!empty($mesg))
