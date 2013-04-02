@@ -99,7 +99,9 @@
 		var tab;
 		egw.LAB.wait(function() {
 			tab = new Tabs(3,'activetab','inactivetab','tab','tabcontent','','','tabpage');
-			tab.init();
+			jQuery(document).ready(function(){
+				tab.init();
+			});
 		});
 	</script>
 		<table  width="100%" border="0" cellspacing="0" cellpadding="3" style='border:1px solid black'>
