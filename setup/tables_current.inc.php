@@ -1,6 +1,6 @@
 <?php
 /**
- * eGroupWare Knowledgebase - Setup
+ * EGroupware Knowledgebase - Setup
  *
  * Started off as a port of phpBrain - http://vrotvrot.com/phpBrain/ but quickly became a full rewrite
  *
@@ -20,13 +20,13 @@ $phpgw_baseline = array(
 			'title' => array('type' => 'varchar','precision' => '255','nullable' => False),
 			'topic' => array('type' => 'varchar','precision' => '255','nullable' => False),
 			'text' => array('type' => 'longtext'),
-			'cat_id' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+			'cat_id' => array('type' => 'int','meta' => 'category','precision' => '4','nullable' => False,'default' => '0'),
 			'published' => array('type' => 'int','precision' => '2','nullable' => False,'default' => '0'),
-			'user_id' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
+			'user_id' => array('type' => 'int','meta' => 'user','precision' => '4','nullable' => False,'default' => '0'),
 			'views' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
-			'created' => array('type' => 'int','precision' => '4'),
-			'modified' => array('type' => 'int','precision' => '4'),
-			'modified_user_id' => array('type' => 'int','precision' => '4','nullable' => False),
+			'created' => array('type' => 'int','meta' => 'timestamp','precision' => '4'),
+			'modified' => array('type' => 'int','meta' => 'timestamp','precision' => '4'),
+			'modified_user_id' => array('type' => 'int','meta' => 'user','precision' => '4','nullable' => False),
 			'votes_1' => array('type' => 'int','precision' => '4','nullable' => False),
 			'votes_2' => array('type' => 'int','precision' => '4','nullable' => False),
 			'votes_3' => array('type' => 'int','precision' => '4','nullable' => False),
@@ -41,9 +41,9 @@ $phpgw_baseline = array(
 	'egw_kb_comment' => array(
 		'fd' => array(
 			'comment_id' => array('type' => 'auto','nullable' => False),
-			'user_id' => array('type' => 'int','precision' => '4','nullable' => False),
+			'user_id' => array('type' => 'int','meta' => 'user','precision' => '4','nullable' => False),
 			'kb_comment' => array('type' => 'text','nullable' => False),
-			'entered' => array('type' => 'int','precision' => '4','nullable' => True),
+			'entered' => array('type' => 'int','meta' => 'timestamp','precision' => '4'),
 			'art_id' => array('type' => 'int','precision' => '4','nullable' => False),
 			'published' => array('type' => 'int','precision' => '2','nullable' => False)
 		),
@@ -55,11 +55,11 @@ $phpgw_baseline = array(
 	'egw_kb_questions' => array(
 		'fd' => array(
 			'question_id' => array('type' => 'auto','nullable' => False),
-			'user_id' => array('type' => 'int','precision' => '4','nullable' => False),
+			'user_id' => array('type' => 'int','meta' => 'user','precision' => '4','nullable' => False),
 			'summary' => array('type' => 'text','nullable' => False),
 			'details' => array('type' => 'text','nullable' => False),
-			'cat_id' => array('type' => 'int','precision' => '4','nullable' => False,'default' => '0'),
-			'creation' => array('type' => 'int','precision' => '4','nullable' => True),
+			'cat_id' => array('type' => 'int','meta' => 'category','precision' => '4','nullable' => False,'default' => '0'),
+			'creation' => array('type' => 'int','meta' => 'timestamp','precision' => '4'),
 			'published' => array('type' => 'int','precision' => '2','nullable' => False)
 		),
 		'pk' => array('question_id'),
@@ -69,7 +69,7 @@ $phpgw_baseline = array(
 	),
 	'egw_kb_ratings' => array(
 		'fd' => array(
-			'user_id' => array('type' => 'int','precision' => '4','nullable' => False),
+			'user_id' => array('type' => 'int','meta' => 'user','precision' => '4','nullable' => False),
 			'art_id' => array('type' => 'int','precision' => '4','nullable' => False)
 		),
 		'pk' => array('user_id','art_id'),
