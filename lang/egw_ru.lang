@@ -1,15 +1,19 @@
+%1 entries %2	phpbrain	ru	%1 записей %2
+%1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	ru	%1 записей %2, %3 не выполнено из-за недостаточности прав !!!
+%1 entries %2, %3 failed.	phpbrain	ru	%1 записей %2, %3 не выполнено
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	ru	Каталог /kb не существует и не может быть создан, пожалуйста, попросите администратора проверить общую конфигурацию
 action	phpbrain	ru	Действие
 actions	phpbrain	ru	Действия
 add articles	phpbrain	ru	Добавить статьи
 add link	phpbrain	ru	Добавить ссылку
-add question	phpbrain	ru	Добавить Вопрос
+add question	phpbrain	ru	Добавить вопрос
 added file %1	phpbrain	ru	Добавлен файл %1
 added link %1	phpbrain	ru	Добавлена ссылка %1
 added related articles %1	phpbrain	ru	Добавлены связанные статьи %1
-advanced search	phpbrain	ru	Расширенный Поиск
+advanced search	phpbrain	ru	Расширенный поиск
 all articles	phpbrain	ru	Все статьи
 allow posting of questions	phpbrain	ru	Разрешить публиковать вопросы
+allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	ru	Разрешить публикацию статей автором? (действует только если статьям требуется подтверждение)
 answer	phpbrain	ru	ответ
 anytime	phpbrain	ru	в любое время
 anywhere in the article	phpbrain	ru	В любом месте статьи
@@ -21,7 +25,7 @@ article deleted	phpbrain	ru	Статья удалена
 article deleted successfully	phpbrain	ru	Статья успешно удалена
 article edited	phpbrain	ru	Статья отредактирована
 article has been published	phpbrain	ru	Статья была опубликована
-article id	phpbrain	ru	Идентификатор Статьи
+article id	phpbrain	ru	Идентификатор статьи
 articles added	phpbrain	ru	Статьи добавлены
 articles deleted successfully	phpbrain	ru	Статьи успешно удалены
 articles have been published	phpbrain	ru	Статьи опубликованы
@@ -33,8 +37,9 @@ attach file	phpbrain	ru	Прикрепить файл
 attached files	phpbrain	ru	Прикрепленные файлы
 average rating	phpbrain	ru	Средний рейтинг
 base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	ru	Базовый каталог не существует, пожалуйста, попросите администратора проверить общую конфигурацию
-before submiting a question, please search in the knowledge base first	phpbrain	ru	Перед тем как отправить вопрос, пожалуйста, поищите сначала в Базе Знаний.
+before submiting a question, please search in the knowledge base first	phpbrain	ru	Перед тем как отправить вопрос, пожалуйста, поищите сначала в Базе знаний.
 by answering this question you will help to get the answer quicker the next time	phpbrain	ru	Ответив на этот вопрос, вы поможете быстрее найти ответ на него в следующий раз
+changed category from %1 to %2	phpbrain	ru	Категория изменена с %1 на %2
 comment	phpbrain	ru	комментарий
 comment and rating have been published	phpbrain	ru	Комментарий и рейтинг были опубликованы
 comment could not be inserted in the database	phpbrain	ru	Комментарий не может быть помещен в базу данных
@@ -51,28 +56,30 @@ creation	phpbrain	ru	создание
 creation date	phpbrain	ru	Дата создания
 delete article	phpbrain	ru	Удалить статью
 delete selected	phpbrain	ru	Удалить отмеченное
+deleted	phpbrain	ru	Удалено
 deleted relation to  article %1	phpbrain	ru	Удалена связь со статьей %1
 deleted relation to article %1	phpbrain	ru	Удалена связь со статьей %1
 descendent	phpbrain	ru	По убыванию
 details	phpbrain	ru	Подробности
-e-groupware knowledge base article attached	phpbrain	ru	Прикреплена статья Базы Знаний E-GroupWare
+e-groupware knowledge base article attached	phpbrain	ru	Прикреплена статья Базы знаний E-GroupWare
 e-mail has been sent	phpbrain	ru	сообщение электронно почты отправлено
 edit article	phpbrain	ru	Редактировать статью
+edit unpublished article to answer the question asked by %1 in %2	phpbrain	ru	Редактировать неопубликованную статью в ответ на вопрос, заданный %1 в %2
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	ru	Введите одно или два слова, описывающие запрос, или введите номер статьи, если Вы его знаете
-enterprise knowledge articles repository	phpbrain	ru	Хранилище статей Всеобщих Знаний
+enterprise knowledge articles repository	phpbrain	ru	Хранилище статей корпоративных знаний
 error deleting article from database	phpbrain	ru	Ошибка удаление статьи из базы данных
-error deleting link	phpbrain	ru	Ошибка удаления ссылки
-error downloading file	phpbrain	ru	Ошибка скачивания файла
-error locating files directory	phpbrain	ru	Ошибка размещения каталога файлов
-error moving file to directory	phpbrain	ru	Ошибка перемещения файла в каталог
-error publishing comment	phpbrain	ru	Ошибка публикации комментария
-error retrieving article	phpbrain	ru	Ошибка извлечения статтьи
-error trying to delete comment	phpbrain	ru	Ошибка попытки удаления комментария
-error trying to delete question	phpbrain	ru	Ошибка попытки удаления вопроса
-error trying to edit article	phpbrain	ru	Ошибка попытки редактирования статьи
-error trying to publish article	phpbrain	ru	Ошибка попытки удаления статьи
-error: file doesn't exist in the database	phpbrain	ru	Ошибка: файл отсутствует в базе данных
-excellent	phpbrain	ru	Отлично
+error deleting link	phpbrain	ru	Ошибка удаления ссылки!
+error downloading file	phpbrain	ru	Ошибка скачивания файла!
+error locating files directory	phpbrain	ru	Ошибка размещения каталога файлов!
+error moving file to directory	phpbrain	ru	Ошибка перемещения файла в каталог!
+error publishing comment	phpbrain	ru	Ошибка публикации комментария!
+error retrieving article	phpbrain	ru	Ошибка извлечения статтьи!
+error trying to delete comment	phpbrain	ru	Ошибка попытки удаления комментария!
+error trying to delete question	phpbrain	ru	Ошибка попытки удаления вопроса!
+error trying to edit article	phpbrain	ru	Ошибка попытки редактирования статьи!
+error trying to publish article	phpbrain	ru	Ошибка попытки удаления статьи!
+error: file doesn't exist in the database	phpbrain	ru	Ошибка: файл отсутствует в базе данных!
+excellent	phpbrain	ru	Отлично.
 failure trying to delete the file	phpbrain	ru	Ошибка попытки удаления файла
 file could be deleted from server but not from database	phpbrain	ru	Файл может быть удален с сервера, но не из базы данных
 file has been successfully uploaded	phpbrain	ru	Файл был успешно выгружен
@@ -80,7 +87,7 @@ file was already missing from server, and was deleted from the database	phpbrain
 file was deleted successfully	phpbrain	ru	Файл был успешно удален
 file wasn't in server and it couldn't be deleted from the database	phpbrain	ru	Файл осутствует на сервере и не может быть удален из базы данных
 find results	phpbrain	ru	Поиск результатов
-global categories	phpbrain	ru	Общие Категории
+global categories	phpbrain	ru	Общие категории
 have to be approved first	common	ru	Сначала необходимо одобрение
 history	phpbrain	ru	История
 if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	ru	Если вы не можете найти ответы на Ващу проблему в базе знаний, опишите её ниже
@@ -91,11 +98,11 @@ in the title	phpbrain	ru	в заголовке
 in the topic	phpbrain	ru	в теме
 include subcategories	phpbrain	ru	Включая подкатегории
 keywords	phpbrain	ru	Ключевые слова
-knowledge base	phpbrain	ru	База Знаний
-knowledge base article #%1	phpbrain	ru	Статья Базы Знаний #%1
-knowledge base configuration	common	ru	Конфигурация Базы Знаний
+knowledge base	phpbrain	ru	База знаний
+knowledge base article #%1	phpbrain	ru	Статья Базы знаний #%1
+knowledge base configuration	common	ru	Конфигурация Базы знаний
 last modification by %1 on %2	phpbrain	ru	Последние изменения внесены %1 (дата правки %2)
-last modified	phpbrain	ru	Последнее Изменение
+last modified	phpbrain	ru	Последнее изменение
 latest	phpbrain	ru	Последние
 latest comments	phpbrain	ru	Последние комментарии
 leave empty to automatically generate an id	phpbrain	ru	Оставьте пустой для автоматической генерации идентификатора
@@ -105,15 +112,15 @@ link has been added	phpbrain	ru	Ссылка была добавлена
 links	phpbrain	ru	Ссылки
 links & files	phpbrain	ru	Ссылки и файлы
 mail article	phpbrain	ru	Отправить по e-mail
-main view	phpbrain	ru	Основной Вид
-maintain articles	phpbrain	ru	Обслуживание Статей
-maintain questions	phpbrain	ru	Обслуживание Вопросов
+main view	phpbrain	ru	Основной вид
+maintain articles	phpbrain	ru	Обслуживание статей
+maintain questions	phpbrain	ru	Обслуживание вопросов
 maximum number of comments to show:	phpbrain	ru	Максимальное количество комментариев к показу:
 maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	ru	Максимальное количество наиболее популярных статей, последних статей и вопросов без ответа, показываемое в основном виде.
 modification date	phpbrain	ru	Дата изменения
 most viewed	phpbrain	ru	Наиболее просматриваемые
 name of the backlink to the index:	admin	ru	Имя обратной ссылки для индексаци:
-new article	phpbrain	ru	Новая Статья
+new article	phpbrain	ru	Новая статья
 nobody has rated this article so far	phpbrain	ru	Никто не оценивал эту статью уже очень давно
 nothing was uploaded!	phpbrain	ru	Ничего не выгружено!
 number of results per page	phpbrain	ru	Количество результатов
@@ -125,7 +132,7 @@ overwrite file	phpbrain	ru	перезаписать существующий ф�
 past %1 months	phpbrain	ru	спустя %1 месяц(ев)
 past year	phpbrain	ru	спустя год
 people have rated this article	phpbrain	ru	люди оценили данную статью
-phpbrain	common	ru	База Знаний
+phpbrain	common	ru	База знаний
 please rate the pertinence and quality of this article	phpbrain	ru	Пожалуйста оцените релевантность и качество данной статьи
 please try again	phpbrain	ru	Попробуйте еще раз
 poor	phpbrain	ru	Плохо
@@ -138,6 +145,7 @@ publish comments automatically?	common	ru	Публиковать коммент�
 publish questions automatically?	common	ru	Публиковать вопросы автоматически
 publish selected	phpbrain	ru	Опубликовать выбранное
 published	phpbrain	ru	Опубликовано
+question	phpbrain	ru	Вопрос
 question deleted successfully	phpbrain	ru	Вопрос удален успешно
 questions deleted successfully	phpbrain	ru	Вопросы удалены успешно
 rating has been submited	phpbrain	ru	Оценка отправлена
@@ -193,6 +201,7 @@ you have already qualified this article	phpbrain	ru	Вы уже оценили �
 you have not the proper permissions to do that	phpbrain	ru	У вас нет достаточных прав для выполнения этого действия
 you must enter a title	phpbrain	ru	Вы должны указать заголовок
 you must enter a topic	phpbrain	ru	Вы должны указать тему
+you need to select some entries first	phpbrain	ru	Необходимо сначала выбрать записи.
 your message could not be sent!	phpbrain	ru	Ваше сообщение не может быть послано!
 your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	ru	Ваш вопрос будет отправлен, но будет опубликован только после утверждения пользователем с правами публикации
 your question will be published immediately	phpbrain	ru	Ваш вопрос будет незамедлительно опубликован
