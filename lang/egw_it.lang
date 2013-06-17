@@ -50,6 +50,7 @@ creation	phpbrain	it	creazione
 creation date	phpbrain	it	Data creazione
 delete article	phpbrain	it	Elimina articolo
 delete selected	phpbrain	it	Elimina selezione
+deleted	phpbrain	it	cancellato
 deleted relation to  article %1	phpbrain	it	Eliminata relazione all'articolo %1
 deleted relation to article %1	phpbrain	it	Elimina il riferimento all'articolo %1
 descendent	phpbrain	it	Discendente
