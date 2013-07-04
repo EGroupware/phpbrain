@@ -1172,8 +1172,8 @@ class phpbrain_bo extends sokb
 		if (!$theresults) return 'mail_err';
 
 		$GLOBALS['egw']->send = CreateObject('phpgwapi.send');
-		$GLOBALS['egw']->send->From = $GLOBALS['egw_info']['user']['email'];
-		$GLOBALS['egw']->send->FromName = $GLOBALS['egw_info']['user']['fullname'];
+		$GLOBALS['egw']->send->From = $GLOBALS['egw_info']['user']['account_email'];
+		$GLOBALS['egw']->send->FromName = $GLOBALS['egw_info']['user']['account_fullname'];
 		if ($reply_to) $GLOBALS['egw']->send->AddReplyTo($reply_to);
 		$GLOBALS['egw']->send->AddAddress($recipient);
 		$GLOBALS['egw']->send->Subject = get_var('subject', 'POST');
