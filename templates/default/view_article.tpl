@@ -97,7 +97,7 @@
 <div align="center">
 	<script type="text/javascript">
 		var tab;
-		egw.LAB.wait(function() {
+		egw_LAB.wait(function() {
 			tab = new Tabs(3,'activetab','inactivetab','tab','tabcontent','','','tabpage');
 			jQuery(document).ready(function(){
 				tab.init();
