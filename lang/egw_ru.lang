@@ -17,6 +17,8 @@ allow the publishing of articles by the author? (effective only if the approval 
 answer	phpbrain	ru	ответ
 anytime	phpbrain	ru	в любое время
 anywhere in the article	phpbrain	ru	В любом месте статьи
+are you sure you want to delete the selected articles ?	phpbrain	ru	Вы уверены, что хотите удалить выбранную статью?
+are you sure you want to delete the selected questions ?	phpbrain	ru	Вы уверены, что хотите удалить выбранный вопрос?
 are you sure?	phpbrain	ru	Вы уверены?
 article	phpbrain	ru	Статья
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	ru	Статья добавлена в базу данных, теперь вы можете прикрепить файл или ссылку или связать с другими статьями
