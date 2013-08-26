@@ -1,3 +1,5 @@
+%1 entries %2	phpbrain	fr	%1 entrées %2
+%1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	fr	%1 entrées %2, %3 ont échoués par manque de droits suffisants !!!
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	fr	le répertoire /kb n'existe pas et n'a pas pu être créé, veuillez demander à votre administrateur qu'il vérifie la configuration globale
 action	phpbrain	fr	Action
 actions	phpbrain	fr	Actions
@@ -53,6 +55,7 @@ creation	phpbrain	fr	création
 creation date	phpbrain	fr	Date de création
 delete article	phpbrain	fr	Supprimer l'article
 delete selected	phpbrain	fr	Supprimer la sélection
+deleted	phpbrain	fr	supprimé
 deleted relation to  article %1	phpbrain	fr	Relation avec article %1 supprimée
 deleted relation to article %1	phpbrain	fr	Relation avec article %1 supprimée
 descendent	phpbrain	fr	Descendant
@@ -197,6 +200,7 @@ you have already qualified this article	phpbrain	fr	Vous avez déjà noté cet a
 you have not the proper permissions to do that	phpbrain	fr	Vous n'avez pas les droits suffisants pour cela
 you must enter a title	phpbrain	fr	Vous devez entrer un titre
 you must enter a topic	phpbrain	fr	Vous devez entrer un sujet
+you need to select some entries first	phpbrain	fr	Vous devez sélectionner des entrées d'abord.
 your message could not be sent!	phpbrain	fr	Votre message ne peut être envoyé
 your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	fr	Votre question sera postée, mais sera publiée seulement après approbation par un compte possédant les droits de publication
 your question will be published immediately	phpbrain	fr	Votre question sera publiée immédiatement
