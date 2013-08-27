@@ -13,7 +13,7 @@ allow posting of questions	phpbrain	fr	Permettre de poster des questions
 answer	phpbrain	fr	Réponse
 anytime	phpbrain	fr	N'importe quand
 anywhere in the article	phpbrain	fr	N'importe où dans l'article
-are you sure?	phpbrain	fr	Etes vous certain ?
+are you sure?	phpbrain	fr	Etes-vous certain ?
 article	phpbrain	fr	Article
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	fr	Article ajouté en base de données, vous pouvez maintenant attaché des fichiers ou des liens, ou pointer vers d'autres articles.
 article created	phpbrain	fr	Article créé
