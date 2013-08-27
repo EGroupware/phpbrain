@@ -1,5 +1,6 @@
 %1 entries %2	phpbrain	fr	%1 entrées %2
 %1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	fr	%1 entrées %2, %3 ont échoués par manque de droits suffisants !!!
+%1 entries %2, %3 failed.	phpbrain	fr	%1 entrées %2, %3 en échec.
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	fr	le répertoire /kb n'existe pas et n'a pas pu être créé, veuillez demander à votre administrateur qu'il vérifie la configuration globale
 action	phpbrain	fr	Action
 actions	phpbrain	fr	Actions
@@ -16,7 +17,9 @@ allow the publishing of articles by the author? (effective only if the approval 
 answer	phpbrain	fr	Réponse
 anytime	phpbrain	fr	N'importe quand
 anywhere in the article	phpbrain	fr	N'importe où dans l'article
-are you sure?	phpbrain	fr	Etes vous certain ?
+are you sure you want to delete the selected articles ?	phpbrain	fr	Êtes-vous sûr de vouloir supprimer les articles sélectionnés ?
+are you sure you want to delete the selected questions ?	phpbrain	fr	Êtes-vous sûr de vouloir supprimer les questions sélectionnées ?
+are you sure?	phpbrain	fr	Etes-vous certain ?
 article	phpbrain	fr	Article
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	fr	Article ajouté en base de données, vous pouvez maintenant attaché des fichiers ou des liens, ou pointer vers d'autres articles.
 article created	phpbrain	fr	Article créé
