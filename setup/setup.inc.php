@@ -37,6 +37,7 @@ $setup_info['phpbrain']['hooks'][] = 'sidebox_menu';
 $setup_info['phpbrain']['hooks']['deleteaccount'] = 'phpbrain.bokb.deleteaccount';
 $setup_info['phpbrain']['hooks']['search_link'] = 'phpbrain.bokb.search_link';
 $setup_info['phpbrain']['hooks']['delete_category'] = 'phpbrain.bokb.delete_category';
+$setup_info['phpbrain']['hooks']['acl_rights'] = 'phpbrain_bo::acl_rights';
 
 $setup_info['phpbrain']['tables'][] = 'egw_kb_articles';
 $setup_info['phpbrain']['tables'][] = 'egw_kb_comment';
@@ -51,7 +52,3 @@ $setup_info['phpbrain']['depends'][] = array(
 	'appname' => 'phpgwapi',
 	'versions' => Array('1.7','1.8','1.9')
 );
-
-
-
-
