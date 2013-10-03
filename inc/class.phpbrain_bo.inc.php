@@ -1331,4 +1331,15 @@ class phpbrain_bo extends sokb
 			acl::CUSTOM1 => 'publish',
 		);
 	}
+
+	/**
+	 * Hook to tell framework we use standard categories method
+	 *
+	 * @param string|array $data hook-data or location
+	 * @return boolean
+	 */
+	public static function categories($data)
+	{
+		return true;
+	}
 }

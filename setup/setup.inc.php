@@ -31,13 +31,13 @@ $setup_info['phpbrain']['hooks'][] = 'admin';
 $setup_info['phpbrain']['hooks'][] = 'add_def_pref';
 $setup_info['phpbrain']['hooks'][] = 'config';
 $setup_info['phpbrain']['hooks'][] = 'config_validate';
-$setup_info['phpbrain']['hooks'][] = 'preferences';
 $setup_info['phpbrain']['hooks'][] = 'settings';
 $setup_info['phpbrain']['hooks'][] = 'sidebox_menu';
 $setup_info['phpbrain']['hooks']['deleteaccount'] = 'phpbrain.bokb.deleteaccount';
 $setup_info['phpbrain']['hooks']['search_link'] = 'phpbrain.bokb.search_link';
 $setup_info['phpbrain']['hooks']['delete_category'] = 'phpbrain.bokb.delete_category';
 $setup_info['phpbrain']['hooks']['acl_rights'] = 'phpbrain_bo::acl_rights';
+$setup_info['phpbrain']['hooks']['categories'] = 'phpbrain_bo::categories';
 
 $setup_info['phpbrain']['tables'][] = 'egw_kb_articles';
 $setup_info['phpbrain']['tables'][] = 'egw_kb_comment';
