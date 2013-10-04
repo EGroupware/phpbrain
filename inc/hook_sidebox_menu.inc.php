@@ -21,16 +21,6 @@
 	);
 	display_sidebox($appname,$menu_title,$file);
 
-	if($GLOBALS['egw_info']['user']['apps']['preferences'])
-	{
-		$menu_title = lang('Preferences');
-		$file = Array(
-			'Preferences'     => $GLOBALS['egw']->link('/index.php','menuaction=preferences.uisettings.index&appname=' . $appname,'preferences'),
-			'Edit Categories' => $GLOBALS['egw']->link('/index.php','menuaction=preferences.preferences_categories_ui.index&cats_app='.$appname.'&cats_level=True&global_cats=True')
-		);
-		display_sidebox($appname,$menu_title,$file);
-	}
-
 	if($GLOBALS['egw_info']['user']['apps']['admin'])
 	{
 		$menu_title = 'Administration';
@@ -41,4 +31,3 @@
 		display_sidebox($appname,$menu_title,$file);
 	}
 }
-?>
