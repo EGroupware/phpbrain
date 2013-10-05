@@ -128,6 +128,9 @@ class uikb extends bokb
 	*/
 	function __construct($sitemgr=False, $link=False, $arguments=False)
 	{
+		// tell framework phpbrain needs eval and inline javascript :(
+		egw_framework::csp_script_src_attrs(array('unsafe-eval', 'unsafe-inline'));
+
 		#parent::__construct();
 		$this->bo						= CreateObject('phpbrain.bokb');
 		$this->sitemgr					= $sitemgr;
