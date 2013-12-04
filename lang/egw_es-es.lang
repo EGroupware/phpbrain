@@ -1,3 +1,5 @@
+%1 entries %2	phpbrain	es-es	%1 entradas %2
+%1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	es-es	%1 entradas %2, %3 fallaron por permisos insuficientes
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	es-es	El directorio /kb no existe y no se pudo crear. Por favor, consulte al administrador para comprobar la configuración global.
 action	phpbrain	es-es	Acción
 actions	phpbrain	es-es	Acciones
@@ -51,6 +53,7 @@ creation	phpbrain	es-es	creación
 creation date	phpbrain	es-es	Fecha de creación
 delete article	phpbrain	es-es	Borrar articulo
 delete selected	phpbrain	es-es	Borrar la selección
+deleted	phpbrain	es-es	borrado
 deleted relation to  article %1	phpbrain	es-es	Borrada la relación con el artículo %1
 deleted relation to article %1	phpbrain	es-es	Se ha borrado la relacion con el artículo %1
 descendent	phpbrain	es-es	Descendente
@@ -193,6 +196,7 @@ you have already qualified this article	phpbrain	es-es	Ya ha calificado este art
 you have not the proper permissions to do that	phpbrain	es-es	No tiene los permisos adecuados para hacer eso
 you must enter a title	phpbrain	es-es	Debe introducir un título
 you must enter a topic	phpbrain	es-es	Debe introducir un asunto
+you need to select some entries first	phpbrain	es-es	Necesita seleccionar antes algunas entradas
 your message could not be sent!	phpbrain	es-es	¡No se pudo enviar su mensaje!
 your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	es-es	La pregunta se enviará, pero sólo se publicará después de que la apruebe un usuario con derechos de publicación.
 your question will be published immediately	phpbrain	es-es	La pregunta se publicará inmediatamente.

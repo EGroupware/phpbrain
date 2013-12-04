@@ -51,6 +51,7 @@ creation	phpbrain	hu	Létrehozás
 creation date	phpbrain	hu	Létrehozás dátuma
 delete article	phpbrain	hu	Cikk törlése
 delete selected	phpbrain	hu	Kijelölt törlése
+deleted	phpbrain	hu	törölve
 deleted relation to  article %1	phpbrain	hu	%1 cikkre utalás törölve
 deleted relation to article %1	phpbrain	hu	%1 cikkre utalás törölve
 descendent	phpbrain	hu	Csökkenő

@@ -47,6 +47,7 @@ creation	phpbrain	ko	생성
 creation date	phpbrain	ko	생성일
 delete article	phpbrain	ko	게시물 삭제
 delete selected	phpbrain	ko	선택 삭제
+deleted	phpbrain	ko	삭제됨
 deleted relation to  article %1	phpbrain	ko	%1 게시물과 관련글이 삭제되었습니다.
 deleted relation to article %1	phpbrain	ko	%1 게시물과 관련글이 삭제되었습니다.
 descendent	phpbrain	ko	내림차순

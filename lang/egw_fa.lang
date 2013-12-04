@@ -50,6 +50,7 @@ creation	phpbrain	fa	ایجاد
 creation date	phpbrain	fa	تاریخ ایجاد
 delete article	phpbrain	fa	حذف مقاله
 delete selected	phpbrain	fa	حذف انتخاب شده ها
+deleted	phpbrain	fa	حذف شد
 deleted relation to  article %1	phpbrain	fa	حذف ارتباط با مقاله %1
 deleted relation to article %1	phpbrain	fa	حذف ارتباط با مقاله %1
 descendent	phpbrain	fa	نزولی

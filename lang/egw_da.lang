@@ -48,6 +48,7 @@ creation	phpbrain	da	Oprettet
 creation date	phpbrain	da	Oprettet dato
 delete article	phpbrain	da	Slet artikel
 delete selected	phpbrain	da	Slet valgte
+deleted	phpbrain	da	slettet
 deleted relation to  article %1	phpbrain	da	Slettet relation til artikel %1
 deleted relation to article %1	phpbrain	da	Slettet relation til artikel %1
 descendent	phpbrain	da	Faldende

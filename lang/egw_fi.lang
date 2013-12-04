@@ -1,3 +1,5 @@
+%1 entries %2	phpbrain	fi	%1 merkintää %2
+%1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	fi	%1 merkintää %2 epäonnistui riittämättömien oikeuksien takia!
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	fi	/kb hakemistoa ei ollut ja ei voitu luoda, pyydä ylläpitäjää tarkistamaan palvelun asetukset.
 action	phpbrain	fi	Toiminto
 actions	phpbrain	fi	Toiminnot
@@ -52,6 +54,7 @@ creation	phpbrain	fi	Luonut
 creation date	phpbrain	fi	Luomis päivämäärä
 delete article	phpbrain	fi	Poista artikkeli
 delete selected	phpbrain	fi	Poista valittu
+deleted	phpbrain	fi	Poistettu
 deleted relation to  article %1	phpbrain	fi	Poistettiin viittaus artikkeliin %1
 deleted relation to article %1	phpbrain	fi	Poistettiin viittaus artikkeliin %1
 descendent	phpbrain	fi	Laskeva
@@ -194,6 +197,7 @@ you have already qualified this article	phpbrain	fi	Olet jo muokannut tätä art
 you have not the proper permissions to do that	phpbrain	fi	Sinulla ei ole ACL-oikeuksia suorittaa toimintoa
 you must enter a title	phpbrain	fi	Anna otsikko
 you must enter a topic	phpbrain	fi	Anna aihe
+you need to select some entries first	phpbrain	fi	Valitse merkintä
 your message could not be sent!	phpbrain	fi	Viestiäsi ei voitu lähettää!
 your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	fi	Kysymyksesi toimitetaan, mutta julkaistaan vasta hyväksymisen jälkeen.
 your question will be published immediately	phpbrain	fi	Kysymyksesi julkaistaan heti

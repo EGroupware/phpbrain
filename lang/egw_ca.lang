@@ -50,6 +50,7 @@ creation	phpbrain	ca	creació
 creation date	phpbrain	ca	Data de creació
 delete article	phpbrain	ca	Esborra l'article
 delete selected	phpbrain	ca	Esborra la selecció
+deleted	phpbrain	ca	eliminat
 deleted relation to  article %1	phpbrain	ca	Esborrada la relació a l'article %1
 deleted relation to article %1	phpbrain	ca	Esborrada la relació a l'article %1
 descendent	phpbrain	ca	Descendent

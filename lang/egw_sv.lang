@@ -49,6 +49,7 @@ creation	phpbrain	sv	Skapad
 creation date	phpbrain	sv	Skapad den
 delete article	phpbrain	sv	Radera artikel
 delete selected	phpbrain	sv	Radera valda
+deleted	phpbrain	sv	Raderad
 deleted relation to  article %1	phpbrain	sv	Raderade relation till artikel %1
 deleted relation to article %1	phpbrain	sv	Raderade relation till artikel %1
 descendent	phpbrain	sv	Underordnad

@@ -50,6 +50,7 @@ creation	phpbrain	no	opprettelse
 creation date	phpbrain	no	Opprettet dato
 delete article	phpbrain	no	Slett artikkel
 delete selected	phpbrain	no	Slett valgte
+deleted	phpbrain	no	slettet
 deleted relation to  article %1	phpbrain	no	Fjernet relasjon til artikkel %1
 deleted relation to article %1	phpbrain	no	Fjernet relasjon til artikkel %1
 descendent	phpbrain	no	Synkende

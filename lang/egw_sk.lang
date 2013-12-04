@@ -1,3 +1,5 @@
+%1 entries %2	phpbrain	sk	%1 položiek %2
+%1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	sk	%1 položiek %2, %3 zlyhalo kvôli nedostatočným oprávneniam!
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	sk	/kb adresár neexistuje a nedá sa vytvoriť, prosím požiadajte správcu aby skontroloval globálne nastavenia
 action	phpbrain	sk	Akcia
 actions	phpbrain	sk	Akcie
@@ -53,6 +55,7 @@ creation	phpbrain	sk	vytvorenie
 creation date	phpbrain	sk	Dátum vytvorenia
 delete article	phpbrain	sk	Odstrániť článok
 delete selected	phpbrain	sk	Odstrániť označené
+deleted	phpbrain	sk	Odstránené
 deleted relation to  article %1	phpbrain	sk	Prepojenie s článkom %1 bolo odstránené
 deleted relation to article %1	phpbrain	sk	Prepojenie s článkom %1 bolo odstránené
 descendent	phpbrain	sk	Zostupne
@@ -197,6 +200,7 @@ you have already qualified this article	phpbrain	sk	Už ste článok kvalifikova
 you have not the proper permissions to do that	phpbrain	sk	Na toto nemáte dostatočné práva.
 you must enter a title	phpbrain	sk	Musíte zadať názov
 you must enter a topic	phpbrain	sk	Musíte zadať tému
+you need to select some entries first	phpbrain	sk	Najprv vyberte nejaké položky.
 your message could not be sent!	phpbrain	sk	Správu sa nepodarilo odoslať!
 your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	sk	Vaša otázka bude odoslaná, ale publikovaná bude iba po odsúhlasení používateľom s príslušným oprávnením
 your question will be published immediately	phpbrain	sk	Vaša otázka bude ihneď publikovaná

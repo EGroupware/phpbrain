@@ -51,6 +51,7 @@ creation	phpbrain	bg	създаване
 creation date	phpbrain	bg	Дата на създаване
 delete article	phpbrain	bg	Изтриване на статия
 delete selected	phpbrain	bg	Изтриване на избраните
+deleted	phpbrain	bg	изтрит
 deleted relation to  article %1	phpbrain	bg	Изтрита е връзката със статия %1
 deleted relation to article %1	phpbrain	bg	Изтрита е връзката със статия %1
 descendent	phpbrain	bg	Низходящ

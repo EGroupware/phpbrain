@@ -4,6 +4,7 @@ attach file	phpbrain	hr	attach file
 comment	phpbrain	hr	Comment
 configuration	phpbrain	hr	Konfiguracija
 delete selected	phpbrain	hr	Obriši izabrano
+deleted	phpbrain	hr	Obrisano
 global categories	phpbrain	hr	Globalne kategorije
 history	phpbrain	hr	povijest
 last modified	phpbrain	hr	Zadnja izmjena

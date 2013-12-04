@@ -49,6 +49,7 @@ created by %1 on %2	phpbrain	lv	Izveidoja %1 uz %2
 creation date	phpbrain	lv	Izveiodšanas datums
 delete article	phpbrain	lv	Dzēst rakstu
 delete selected	phpbrain	lv	Dzēst atzīmēto
+deleted	phpbrain	lv	Izdzēsts
 deleted relation to article %1	phpbrain	lv	Dzēst saiti uz rakstu %1
 descendent	phpbrain	lv	Dilstošs
 details	phpbrain	lv	Rekvizīti

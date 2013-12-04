@@ -42,6 +42,7 @@ creation	phpbrain	eu	sorkuntza
 creation date	phpbrain	eu	Sorrera data
 delete article	phpbrain	eu	Artikulua ezabatu
 delete selected	phpbrain	eu	Aukeraketa borratu
+deleted	phpbrain	eu	ezabatua
 deleted relation to  article %1	phpbrain	eu	%1 artikuluarekiko erlazioa ezabatu da
 deleted relation to article %1	phpbrain	eu	%1 artikuluarekiko erlazioa ezabatu da
 descendent	phpbrain	eu	Beherakorra

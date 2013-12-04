@@ -51,6 +51,7 @@ creation	phpbrain	cs	Vytvoření
 creation date	phpbrain	cs	Datum vytvoření
 delete article	phpbrain	cs	Smazat článek
 delete selected	phpbrain	cs	Smazat vybrané
+deleted	phpbrain	cs	smazáno
 deleted relation to  article %1	phpbrain	cs	Smazán vztah souvislosti s článkem %1
 deleted relation to article %1	phpbrain	cs	Smazán vztah souvislosti s článkem %1
 descendent	phpbrain	cs	Sestupně

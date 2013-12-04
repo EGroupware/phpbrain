@@ -35,6 +35,7 @@ creation	phpbrain	et	tegemine
 creation date	phpbrain	et	Tegemise kuupäev
 delete article	phpbrain	et	Kustuta artikkel
 delete selected	phpbrain	et	Kustuta valitud
+deleted	phpbrain	et	kustutatud
 details	phpbrain	et	Detailselt
 e-mail has been sent	phpbrain	et	e-mail on saadetud
 edit article	phpbrain	et	Muuda artiklit

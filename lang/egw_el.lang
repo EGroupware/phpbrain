@@ -48,6 +48,7 @@ creation	phpbrain	el	δημιουργία
 creation date	phpbrain	el	Ημερομηνία δημιουργίας
 delete article	phpbrain	el	Διαγραφή άρθρου
 delete selected	phpbrain	el	Διαγραφή επιλεγμένου
+deleted	phpbrain	el	διεγράφη
 deleted relation to  article %1	phpbrain	el	Διεγράφη η σχέση με το άρθρο %1
 deleted relation to article %1	phpbrain	el	Διεγράφη η σχέση με το άρθρο %1
 descendent	phpbrain	el	Απόγονος

@@ -51,6 +51,7 @@ creation	phpbrain	pl	tworzenie
 creation date	phpbrain	pl	Data stworzenia
 delete article	phpbrain	pl	Skasuj artykuł
 delete selected	phpbrain	pl	Skasuj zaznaczone
+deleted	phpbrain	pl	skasowany
 deleted relation to  article %1	phpbrain	pl	Skasowane powiązanie do artykułu %1
 deleted relation to article %1	phpbrain	pl	Skasowane powiązanie do artykułu %1
 descendent	phpbrain	pl	Malejąco

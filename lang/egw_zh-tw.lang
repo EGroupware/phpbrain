@@ -50,6 +50,7 @@ creation	phpbrain	zh-tw	建立
 creation date	phpbrain	zh-tw	建立日期
 delete article	phpbrain	zh-tw	刪除文章
 delete selected	phpbrain	zh-tw	刪除所選擇的
+deleted	phpbrain	zh-tw	刪除了
 deleted relation to  article %1	phpbrain	zh-tw	刪除與文章 %1 的關聯
 deleted relation to article %1	phpbrain	zh-tw	刪除與文章 %1 的關聯
 descendent	phpbrain	zh-tw	反向排序

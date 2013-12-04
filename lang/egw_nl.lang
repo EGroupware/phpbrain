@@ -51,6 +51,7 @@ creation	phpbrain	nl	aanmaken
 creation date	phpbrain	nl	Aanmaakdatum
 delete article	phpbrain	nl	Artikel verwijderen
 delete selected	phpbrain	nl	Verwijder geselecteerde
+deleted	phpbrain	nl	verwijderd
 deleted relation to  article %1	phpbrain	nl	Relatie met artikel %1 verwijderd
 deleted relation to article %1	phpbrain	nl	Relatie met artikel %1 verwijderd
 descendent	phpbrain	nl	Aflopend

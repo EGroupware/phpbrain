@@ -51,6 +51,7 @@ creation	phpbrain	sl	Ustvarjeno
 creation date	phpbrain	sl	Datum kreiranja
 delete article	phpbrain	sl	Briši članek
 delete selected	phpbrain	sl	Briši označeno
+deleted	phpbrain	sl	Zbrisano
 deleted relation to  article %1	phpbrain	sl	Brisana povezava s člankom %1
 deleted relation to article %1	phpbrain	sl	Brisana povezava s člankom %1
 descendent	phpbrain	sl	Padajoče

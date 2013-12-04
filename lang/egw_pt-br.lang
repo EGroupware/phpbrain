@@ -51,6 +51,7 @@ creation	phpbrain	pt-br	Criação
 creation date	phpbrain	pt-br	Data de criação
 delete article	phpbrain	pt-br	Apagar artigo
 delete selected	phpbrain	pt-br	Apagar selecionado
+deleted	phpbrain	pt-br	removido
 deleted relation to  article %1	phpbrain	pt-br	Relacionamento com o artigo %1, apagado
 deleted relation to article %1	phpbrain	pt-br	Relacionamento com o artigo %1, apagado
 descendent	phpbrain	pt-br	Descendente

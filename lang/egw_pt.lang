@@ -50,6 +50,7 @@ creation	phpbrain	pt	Data de criação
 creation date	phpbrain	pt	Data de criação
 delete article	phpbrain	pt	Eliminar artigo
 delete selected	phpbrain	pt	Eliminar itens seleccionados
+deleted	phpbrain	pt	eliminado/a
 deleted relation to  article %1	phpbrain	pt	A relação ao artigo %1 foi eliminada
 deleted relation to article %1	phpbrain	pt	A relação ao artigo %1 foi eliminada
 descendent	phpbrain	pt	Ordem decrescente

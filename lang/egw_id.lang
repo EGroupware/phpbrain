@@ -51,6 +51,7 @@ creation	phpbrain	id	pembuatan
 creation date	phpbrain	id	Tanggal dibuat
 delete article	phpbrain	id	Hapus artikel
 delete selected	phpbrain	id	Hapus terpilih
+deleted	phpbrain	id	terhapus
 deleted relation to  article %1	phpbrain	id	Menghapus kaitan ke artikel %1
 deleted relation to article %1	phpbrain	id	Menghapus kaitan ke artikel %1
 descendent	phpbrain	id	Menurun
