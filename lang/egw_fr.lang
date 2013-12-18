@@ -69,18 +69,18 @@ edit article	phpbrain	fr	Editer l'article
 edit unpublished article to answer the question asked by %1 in %2	phpbrain	fr	Editer l'article non publié pour répondre à la question posée par %1 dans %2
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	fr	Entrez un ou deux mots décrivant le problème, ou tapez le numéro d'article si vous le connaissez
 enterprise knowledge articles repository	phpbrain	fr	Repertoire d'article des Connaissances de l'Entreprise
-error deleting article from database	phpbrain	fr	Erreur lors de la suppression de l'article en base
-error deleting link	phpbrain	fr	Erreur lors de la suppression du lien
-error downloading file	phpbrain	fr	Erreur lors du téléchargement du fichier
-error locating files directory	phpbrain	fr	Erreur lors de la tentative d'accès au répertoire
-error moving file to directory	phpbrain	fr	Erreur lors du déplacement du fichier vers le répertoire
-error publishing comment	phpbrain	fr	Erreur lors de la publication du commentaire
-error retrieving article	phpbrain	fr	Erreur lors de la récuperation de l'article
-error trying to delete comment	phpbrain	fr	Erreur en essayant de supprimer le commentaire
-error trying to delete question	phpbrain	fr	Erreur en essayant de supprimer la question
-error trying to edit article	phpbrain	fr	Erreur en essayant d'éditer l'article
-error trying to publish article	phpbrain	fr	Erreur en essayant de publier l'article
-error: file doesn't exist in the database	phpbrain	fr	Erreur: le fichier n'existe pas dans la base de données
+error deleting article from database	phpbrain	fr	Erreur lors de la suppression de l'article en base !
+error deleting link	phpbrain	fr	Erreur lors de la suppression du lien !
+error downloading file	phpbrain	fr	Erreur lors du téléchargement du fichier !
+error locating files directory	phpbrain	fr	Erreur lors de la tentative d'accès au répertoire !
+error moving file to directory	phpbrain	fr	Erreur lors du déplacement du fichier vers le répertoire !
+error publishing comment	phpbrain	fr	Erreur lors de la publication du commentaire !
+error retrieving article	phpbrain	fr	Erreur lors de la récuperation de l'article !
+error trying to delete comment	phpbrain	fr	Erreur en essayant de supprimer le commentaire !
+error trying to delete question	phpbrain	fr	Erreur en essayant de supprimer la question !
+error trying to edit article	phpbrain	fr	Erreur en essayant d'éditer l'article !
+error trying to publish article	phpbrain	fr	Erreur en essayant de publier l'article !
+error: file doesn't exist in the database	phpbrain	fr	Erreur : le fichier n'existe pas dans la base de données !
 excellent	phpbrain	fr	Excellent
 failure trying to delete the file	phpbrain	fr	Echec lors de la tentative de suppression du fichier
 file could be deleted from server but not from database	phpbrain	fr	Le fichier a pu être effacé du serveur mais pas de la base de données
@@ -165,31 +165,31 @@ see more questions...	phpbrain	fr	Voir plus de questions...
 select articles	phpbrain	fr	Sélectionner les articles
 should the article view make an automatic table of contents?	admin	fr	Est-ce que la vue de l'article devrait créer une table de matières automatique ?
 show all comments	phpbrain	fr	Afficher l'ensemble des commentaires
-show articles belonging to:	phpbrain	fr	Afficher les articles appartenant à:
+show articles belonging to:	phpbrain	fr	Afficher les articles appartenant à :
 show messages in category	phpbrain	fr	Afficher les articles dans la catégorie
 submit comment	phpbrain	fr	Soumettre un commentaire
 submit comment and rating	phpbrain	fr	Soumettre un commentaire et une note
 suggested category	phpbrain	fr	Catégorie suggérée
 summary	phpbrain	fr	Sommaire
 table of contents	phpbrain	fr	Table de matières
-that file already exists	phpbrain	fr	Ce fichier existe déjà
-the article id must be a number	phpbrain	fr	L'ID d'article doit être un nombre
-the article is empty	phpbrain	fr	Cet article est vide
-the file was already missing in the server	phpbrain	fr	Le fichier était déjà absent du serveur
-the following errors occurred	phpbrain	fr	Les erreurs suivantes ont été commises
-the mail server returned:	phpbrain	fr	Le serveur de messagerie répond :
+that file already exists	phpbrain	fr	Ce fichier existe déjà !
+the article id must be a number	phpbrain	fr	L'ID d'article doit être un nombre.
+the article is empty	phpbrain	fr	Cet article est vide.
+the file was already missing in the server	phpbrain	fr	Le fichier était déjà absent du serveur.
+the following errors occurred	phpbrain	fr	Les erreurs suivantes sont relevées :
+the mail server returned:	phpbrain	fr	Le serveur de messagerie a retourné :
 the present category and all subcategories under it	phpbrain	fr	La catégorie actuelle et l'ensemble de ses sous-catégories
 the present category only	phpbrain	fr	La catégorie actuelle uniquement
-there are no articles	phpbrain	fr	Il n'y a pas d'articles
+there are no articles	phpbrain	fr	Il n'y a pas d'article.
 there are no articles available	phpbrain	fr	Aucun article disponible
-this article hasn't yet been published in the knowledge base	phpbrain	fr	Cet article n'a pas encore été publie dans la base des connaissances
+this article hasn't yet been published in the knowledge base	phpbrain	fr	Cet article n'a pas encore été publié dans la base des connaissances.
 title	phpbrain	fr	Titre
-to create categories, press 'edit categories' in the preferences menu	phpbrain	fr	Pour crééer des catégories, presser "Editer les catégories" dans le menu des préférences
+to create categories, press 'edit categories' in the preferences menu	phpbrain	fr	Pour créer des catégories, cliquer sur "Editer les catégories" dans le menu des préférences.
 topic	phpbrain	fr	Sujet
 unable to add rating to database	phpbrain	fr	Impossible d'ajouter la note dans la base
 unanswered questions	phpbrain	fr	Questions sans réponses
 unpublish	phpbrain	fr	Non publier
-unpublished	phpbrain	fr	non publié
+unpublished	phpbrain	fr	Non publié.
 user preferences	phpbrain	fr	Préférences utilisateurs
 views	phpbrain	fr	Vues
 was it easy to find this article using the above search string?	phpbrain	fr	Etait-ce facile de trouver cet article en utilisant la chaîne de recherche ci-dessus ?
@@ -199,11 +199,11 @@ with at least one of the words	phpbrain	fr	Avec au moins un de ces mots
 with the exact phrase	phpbrain	fr	Avec la phrase exacte
 without the words	phpbrain	fr	Sans ces mots
 you are in %1	phpbrain	fr	Vous êtes dans %1
-you have already qualified this article	phpbrain	fr	Vous avez déjà noté cet article
-you have not the proper permissions to do that	phpbrain	fr	Vous n'avez pas les droits suffisants pour cela
-you must enter a title	phpbrain	fr	Vous devez entrer un titre
-you must enter a topic	phpbrain	fr	Vous devez entrer un sujet
-you need to select some entries first	phpbrain	fr	Vous devez sélectionner des entrées d'abord.
-your message could not be sent!	phpbrain	fr	Votre message ne peut être envoyé
-your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	fr	Votre question sera postée, mais sera publiée seulement après approbation par un compte possédant les droits de publication
+you have already qualified this article	phpbrain	fr	Vous avez déjà noté cet article.
+you have not the proper permissions to do that	phpbrain	fr	Vous n'avez pas les droits suffisants pour cela.
+you must enter a title	phpbrain	fr	Vous devez entrer un titre.
+you must enter a topic	phpbrain	fr	Vous devez entrer un sujet.
+you need to select some entries first	phpbrain	fr	Vous devez d'abord sélectionner des entrées.
+your message could not be sent!	phpbrain	fr	Votre message n'a pu être envoyé !
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	fr	Votre question sera postée, mais sera publiée seulement après approbation par un compte possédant les droits de publication.
 your question will be published immediately	phpbrain	fr	Votre question sera publiée immédiatement
