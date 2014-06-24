@@ -476,6 +476,7 @@ function phpbrain_upgrade1_6()
 	return $GLOBALS['setup_info']['phpbrain']['currentver'] = '1.8';
 }
 
+
 function phpbrain_upgrade1_8()
 {
 	$GLOBALS['egw_setup']->oProc->CreateIndex('egw_kb_articles','cat_id');
@@ -484,3 +485,8 @@ function phpbrain_upgrade1_8()
 	return $GLOBALS['setup_info']['phpbrain']['currentver'] = '1.8.001';
 }
 
+
+function phpbrain_upgrade1_8_001()
+{
+	return $GLOBALS['setup_info']['phpbrain']['currentver'] = '14.1';
+}
