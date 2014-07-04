@@ -35,6 +35,7 @@ average rating	phpbrain	pt-br	Média de classificação
 base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	pt-br	Diretório base não existente, solicite ao administrador a verificação das configurações globais
 before submiting a question, please search in the knowledge base first	phpbrain	pt-br	Antes de submeter uma questão, faça uma pesquisa na base de conhecimento.
 by answering this question you will help to get the answer quicker the next time	phpbrain	pt-br	Rspondendo essa questão você ajudará a obter respostas mais rápidas em sua próxima pesquisa.
+changed category from %1 to %2	phpbrain	pt-br	Categoria alterado de% 1 para% 2
 comment	phpbrain	pt-br	Comentário
 comment and rating have been published	phpbrain	pt-br	Comentário e classificação publicado
 comment could not be inserted in the database	phpbrain	pt-br	Comentário não foi inserido na base de dados
@@ -139,6 +140,7 @@ publish comments automatically?	common	pt-br	Publicar comentários automáticame
 publish questions automatically?	common	pt-br	Publicar questões automáticamente
 publish selected	phpbrain	pt-br	Publicar selecionado
 published	phpbrain	pt-br	Publicado
+question	phpbrain	pt-br	pergunta
 question deleted successfully	phpbrain	pt-br	Questão removida
 questions deleted successfully	phpbrain	pt-br	Questões removidas
 rating has been submited	phpbrain	pt-br	Classificação submetida
