@@ -1,19 +1,38 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/*
-    Created on : 11.06.2014, 16:12:05
-    Author     : stefanreinhardt
-
-
-    Knowledgebase / Wissensdatenbank
-
-
-*/
+/**
+ * EGroupware: Stylite Pixelegg template
+ *
+ * Knowledgebase / Wissensdatenbank / phpbrain
+ *
+ * Please do NOT change css-files directly, instead change less-files and compile them!
+ *
+ * @link http://www.egroupware.org
+ * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
+ * @author Stefan Reinhard <stefan.reinhard@pixelegg.de>
+ * @package pixelegg
+ * @version $Id: layout_table.less 3089 2014-06-11 14:02:57Z pixelegg $
+ */
 /*@import (less) "../default/app.css";*/
 @media all {
+  body {
+    background-color: white !important;
+  }
+  div.PhPBrain_Search {
+    background-color: #ffffff;
+    margin: 1em 0 0 1em;
+    border-bottom: 10px solid #cdcdcd;
+  }
+  div.PhPBrain_Search .PhPBrain_SearchTable {
+    background-color: #ffffff;
+    width: 100%;
+  }
+  div.PhPBrain_Main {
+    background-color: #ffffff;
+    margin: 1em 0 0 1em;
+  }
+  div.PhPBrain_Main .PhPBrain_MainTable {
+    background-color: #ffffff;
+    width: 100%;
+  }
   table img {
     width: 16px;
     height: 16px;

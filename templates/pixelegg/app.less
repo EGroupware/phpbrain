@@ -1,24 +1,57 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/*
-    Created on : 11.06.2014, 16:12:05
-    Author     : stefanreinhardt
+/**
+ * EGroupware: Stylite Pixelegg template
+ *
+ * Knowledgebase / Wissensdatenbank / phpbrain
+ *
+ * Please do NOT change css-files directly, instead change less-files and compile them!
+ *
+ * @link http://www.egroupware.org
+ * @license http://opensource.org/licenses/gpl-license.php GPL - GNU General Public License
+ * @author Stefan Reinhard <stefan.reinhard@pixelegg.de>
+ * @package pixelegg
+ * @version $Id: layout_table.less 3089 2014-06-11 14:02:57Z pixelegg $
+ */
 
 
-    Knowledgebase / Wissensdatenbank
 
 
-*/
-
-@import (reference) "../../../pixelegg/less/def_buttons.less";
-@import (reference) "../../../pixelegg/less/def_design_pattern_color_font_shadow.less";
+@import (reference) "../../../pixelegg/less/definitions.less";
 /*@import (less) "../default/app.css";*/
 
 
+
+// #####################################################################
 @media all {
+
+    body {background-color: white !important;}
+
+    div.PhPBrain_Search{
+            background-color: @gray_0;
+            margin: 1em 0 0 1em;
+            border-bottom: 10px solid @gray_20;
+
+
+            // Tabelle mit dem Suchefeld
+             .PhPBrain_SearchTable{
+                 background-color: @gray_0;
+                 width: 100%;
+
+             }
+
+
+}
+
+    div.PhPBrain_Main{
+            background-color: @gray_0;
+            margin: 1em 0 0 1em;
+            // Tabelle mit dem Inhalt
+            .PhPBrain_MainTable {
+                    background-color: @gray_0;
+                    width: 100%;
+
+            }
+}
+
 
 
     table {
