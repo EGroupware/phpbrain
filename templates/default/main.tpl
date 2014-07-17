@@ -1,6 +1,7 @@
 {message}
 {search_tpl}
-<table width=100% style='border:1px solid black;'>
+<div class="PhPBrain_Main">
+<table width=100%  class="PhPBrain_MainTable">
 	{browse_cats}
 	<tr>
 		<td>
@@ -101,3 +102,5 @@
 		</td>
 	</tr>
 </table>
+
+</div>
