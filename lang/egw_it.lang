@@ -1,3 +1,6 @@
+%1 entries %2	phpbrain	it	%1 voci %2
+%1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	it	%1 voci %2, %3 fallito per diritti insufficienti!!!
+%1 entries %2, %3 failed.	phpbrain	it	%1 voci %2, %3 fallito.
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	it	la directory /kb non esiste e non può essere creata. Chiedi all'amministratore di controllare la configurazione generale.
 action	phpbrain	it	Azione
 actions	phpbrain	it	Azioni
@@ -10,9 +13,12 @@ added related articles %1	phpbrain	it	Aggiunti articoli correlati %1
 advanced search	phpbrain	it	Ricerca avanzata
 all articles	phpbrain	it	Tutti gli articoli
 allow posting of questions	phpbrain	it	Consenti di porre domande
+allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	it	Consentire la pubblicazione degli articoli agli autori? (effettivo solo se è richiesta l'approvazione degli articoli)
 answer	phpbrain	it	Risposta
 anytime	phpbrain	it	In qualunque momento
 anywhere in the article	phpbrain	it	Ovunque nell'articolo
+are you sure you want to delete the selected articles ?	phpbrain	it	Confermi la cancellazione degli articoli selezionati?
+are you sure you want to delete the selected questions ?	phpbrain	it	Confermi la cancellazione delle domande selezionate?
 are you sure?	phpbrain	it	SEI SICURO?
 article	phpbrain	it	Articolo
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	it	Articolo aggiunto alla base dati, ora puoi aggiungere file o link, o fare riferimento ad altri articoli.
@@ -35,6 +41,7 @@ average rating	phpbrain	it	Valutazione media
 base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	it	La directory base non esiste, chiedi all'amministratore di controllare la configurazione generale.
 before submiting a question, please search in the knowledge base first	phpbrain	it	Prima di porre una domanda, per favore prima cerca nell'archivio.
 by answering this question you will help to get the answer quicker the next time	phpbrain	it	Rispondendo a questa domanda, aiuterai ad ottenere una risposta più rapida la prossima volta.
+changed category from %1 to %2	phpbrain	it	Modificata la categoria da %1 a %2
 comment	phpbrain	it	Commenti
 comment and rating have been published	phpbrain	it	I commenti e la valutazione sono stati pubblicati.
 comment could not be inserted in the database	phpbrain	it	I commenti non possono essere inseriti nel database.
@@ -44,6 +51,7 @@ comment has been submited for revision	phpbrain	it	I commenti sono stati sottopo
 comment has been submited for revision and rating will be published	phpbrain	it	I commenti sono stati sottoposti a revisione e la valutazione sarà pubblicata.
 comments	phpbrain	it	Commenti
 configuration	phpbrain	it	Configurazione
+contents	phpbrain	it	Contenuti
 create a new article to answer the question asked by %1 in %2	phpbrain	it	Crea un nuovo articolo per rispondere alla domanda posta da %1 in %2
 created by %1 on %2	phpbrain	it	Creato da %1 il %2
 creation	phpbrain	it	creazione
@@ -58,6 +66,7 @@ details	phpbrain	it	Dettagli
 e-groupware knowledge base article attached	phpbrain	it	Articolo Archivio Conoscenza e-GroupWare allegato
 e-mail has been sent	phpbrain	it	l'e-mail è stata spedita
 edit article	phpbrain	it	Modifica articolo
+edit unpublished article to answer the question asked by %1 in %2	phpbrain	it	Modifica un articolo non pubblicato per rispondere alla domanda posta da %1 in %2
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	it	Inserisci una o due parole che descrivono il problema, o digita il numero dell'articolo se lo conosci
 enterprise knowledge articles repository	phpbrain	it	Repositori degli articoli della Knowledge (della conoscenza ;) )
 error deleting article from database	phpbrain	it	Errore durante la cancellazione dell'articolo dal database
@@ -112,6 +121,7 @@ maximum number of comments to show:	phpbrain	it	Numero massimo di commenti da vi
 maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	it	Numero massimo di articoli più visti, articoli recenti e domande senza risposta da mostrare nella Vista Principale:
 modification date	phpbrain	it	Data modifica
 most viewed	phpbrain	it	Più visti
+name of the backlink to the index:	admin	it	Nome del link all'indice:
 new article	phpbrain	it	Nuovo articolo
 nobody has rated this article so far	phpbrain	it	Nessuno ha valutato questo articolo finora
 nothing was uploaded!	phpbrain	it	Non è stato caricato niente!
@@ -120,6 +130,7 @@ ocurrences	phpbrain	it	Occorrenze
 or browse the categories	phpbrain	it	O sfoglia le categorie
 order results by	phpbrain	it	Ordina i risultati per
 outstanding published questions	phpbrain	it	Domande pubblicate Outstanding
+overwrite file	phpbrain	it	Sovrascrivere il fle esistente?
 past %1 months	phpbrain	it	Negli ultimi %1 mesi
 past year	phpbrain	it	L'anno scorso
 people have rated this article	phpbrain	it	alcuni hanno valutato questo articolo
@@ -136,6 +147,7 @@ publish comments automatically?	common	it	Pubblica i commenti automaticamente?
 publish questions automatically?	common	it	Pubblica le domande automaticamente?
 publish selected	phpbrain	it	Pubblica i selezionati
 published	phpbrain	it	Pubblicato
+question	phpbrain	it	Domanda
 question deleted successfully	phpbrain	it	Domanda eliminata con successo
 questions deleted successfully	phpbrain	it	Domande eliminate con successo
 rating has been submited	phpbrain	it	La valutazione è stata inviata
@@ -151,6 +163,7 @@ search results	phpbrain	it	Risultati Ricerca
 see more questions	phpbrain	it	Vedi altre domande
 see more questions...	phpbrain	it	Vedi altre domande...
 select articles	phpbrain	it	Seleziona articolli
+should the article view make an automatic table of contents?	admin	it	La visualizzazione dell'articolo deve creare automaticamente una tabella dei contenuti?
 show all comments	phpbrain	it	Mostra tutti i commenti
 show articles belonging to:	phpbrain	it	Mostra gli articoli appartenenti a:
 show messages in category	phpbrain	it	Mostra i messaggi nella categoria
@@ -190,6 +203,7 @@ you have already qualified this article	phpbrain	it	Hai già valutato questo art
 you have not the proper permissions to do that	phpbrain	it	Non hai i permessi necessari per farlo
 you must enter a title	phpbrain	it	Devi inserire un titolo
 you must enter a topic	phpbrain	it	Devi inserire un argomento
+you need to select some entries first	phpbrain	it	Devi selezionare qualche voce prima
 your message could not be sent!	phpbrain	it	Il tuo messaggio non può essere inviato!
 your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	it	La tua domanda sarà inviata, ma verrà pubblicata dopo l'approvazione da parte di un utente con diritti di pubblicazione.
 your question will be published immediately	phpbrain	it	La tua domanda sarà pubblicata immediatamente
