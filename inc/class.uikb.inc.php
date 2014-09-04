@@ -1833,8 +1833,7 @@ class uikb extends bokb
 		$num_main_cat = 0;
 		foreach ($this->bo->categories as $cat)
 		{
-			$data = unserialize($cat['data']);
-			if ($data) $cat['icon'] = $data['icon'];
+			if ($cat['data'] && $cat['data']['icon']) $cat['icon'] = $cat['data']['icon'];
 			if ($cat['parent'] != $parent_id) continue;
 			$num_main_cat ++;
 			$categories_str .= "<tr><td valign=top>";
