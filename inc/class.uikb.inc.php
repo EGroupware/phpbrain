@@ -733,9 +733,9 @@ class uikb extends bokb
 				$this->t->set_var('link_main_view', "<a href='". $this->link('menuaction=phpbrain.uikb.index') ."'>". lang('Main View', 'phpbrain') ."</a>&nbsp;&nbsp;|<br>");
 			}
 		}
-		if ($GLOBALS['egw_info']['user']['apps']['felamimail'])
+		if ($GLOBALS['egw_info']['user']['apps']['mail'])
 		{
-			$ma = egw_link::get_registry('felamimail','add');
+			$ma = egw_link::get_registry('mail','add');
 		}
 		$this->t->set_var(array(
 			'message'				=> "<div style='text-align:center; color:red'>".$this->message."</div>",
