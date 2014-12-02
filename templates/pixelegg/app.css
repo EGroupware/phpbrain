@@ -33,7 +33,7 @@
     background-color: #ffffff;
     width: 100%;
   }
-  table img {
+  [class*="PhPBrain"] table img {
     width: 16px;
     height: 16px;
   }
