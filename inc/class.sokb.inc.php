@@ -495,9 +495,30 @@ class sokb
 		}
 		if ($query)
 		{
-			$query = self::$db->db_addslashes($query);
-			$words = explode(' ', $query);
-			$sql .= " AND (summary {$loclike} '%" . implode("%' OR summary {$loclike} '%", $words) . "%' OR details {$loclike} '%" . implode("%' OR details {$loclike} '%", $words) . "%')";
+			$words = $likes = array();
+			foreach (explode(' ',$query) as $word)
+			{
+				if (strpos($word,"user_id=")!==false)
+				{
+					$word = str_replace('user_id=','',$word);
+					$adduserquery  = 'egw_kb_questions.user_id='.(int)$word;
+					continue;
+				}
+				$scores[] = 'keyword='.self::$db->quote($word);
+
+				if ((int)$word)
+				{
+					$likes[] = 'question_id='.(int)$word;
+					continue;	// numbers are only searched as article-id
+				}
+				foreach(array('summary','details') as $col)
+				{
+					$likes[] = $col.' '.self::$like.' '.self::$db->quote('%'.$word.'%');
+				}
+			}
+			
+			if($adduserquery) $sql .=' AND '. $adduserquery;
+			if($likes) $sql.= ' AND ('.implode(' OR ',$likes).')';
 		}
 		if ($order)
 		{
