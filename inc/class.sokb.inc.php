@@ -149,6 +149,12 @@ class sokb
 			$words = $likes = $scores = array();
 			foreach (explode(' ',$query) as $word)
 			{
+				if (strpos($word,"user_id=")!==false)
+				{
+					$word = str_replace('user_id=','',$word);
+					$adduserquery[]  = 'egw_kb_articles.user_id='.(int)$word;
+					continue;
+				}
 				$scores[] = 'keyword='.self::$db->quote($word);
 
 				if ((int)$word)
@@ -156,21 +162,20 @@ class sokb
 					$likes[] = 'egw_kb_articles.art_id='.(int)$word;
 					continue;	// numbers are only searched as article-id
 				}
-				if (strpos($word,"user_id=")!==false)
-				{
-					$word = str_replace('user_id=','',$word);
-					$adduserquery[]  = 'egw_kb_articles.user_id='.(int)$word;
-					continue;
-				}
 				foreach(array('title','topic','text') as $col)
 				{
 					$likes[] = $col.' '.$loclike.' '.self::$db->quote('%'.$word.'%');
 				}
 			}
-			$score = 'SELECT sum(score) FROM egw_kb_search WHERE art_id=egw_kb_articles.art_id AND ('.implode(' OR ',$scores).')';
-			$fields .= ",($score) AS pertinence";
-
-			$where[] = "(($score) > 0 OR ".implode(' OR ',$likes).')';
+			if(count($scores))
+			{
+				$score = 'SELECT sum(score) FROM egw_kb_search WHERE art_id=egw_kb_articles.art_id AND ('.implode(' OR ',$scores).')';
+				$fields .= ",($score) AS pertinence";
+			}
+			if(count($scores) || count($likes))
+			{
+				$where[] = "(($score) > 0 OR ".implode(' OR ',$likes).')';
+			}
 			if($adduserquery) $where[] = $adduserquery;
 		}
 		$order_sql = array();
@@ -178,7 +183,7 @@ class sokb
 		{
 			$order_sql[] = $order.' '.($sort != 'DESC' ? 'ASC' : 'DESC');
 		}
-		if ($query)
+		if ($score)
 		{
 			$order_sql[] = "pertinence DESC";
 		}
