@@ -160,7 +160,7 @@ class sokb
 				if ((int)$word)
 				{
 					$likes[] = 'egw_kb_articles.art_id='.(int)$word;
-					continue;	// numbers are only searched as article-id
+					//continue;	// numbers are only searched as article-id
 				}
 				foreach(array('title','topic','text') as $col)
 				{
