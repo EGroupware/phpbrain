@@ -1,3 +1,5 @@
+%1 entries %2	phpbrain	pt	% 1% 2 entradas
+%1 entries %2, %3 failed.	phpbrain	pt	% 1% 2 entradas, 3% falharam.
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	pt	/a directoria da base de conhecimento não existe e não pôde ser criada. Por favor, peça ao administrador para verificar as configurações gerais
 action	phpbrain	pt	Acção
 actions	phpbrain	pt	Acções
@@ -190,6 +192,7 @@ you have already qualified this article	phpbrain	pt	Já classificou este artigo
 you have not the proper permissions to do that	phpbrain	pt	Não tem permissões para o fazer
 you must enter a title	phpbrain	pt	É necessário inserir um título
 you must enter a topic	phpbrain	pt	É necessário inserir um tópico
+you need to select some entries first	phpbrain	pt	Você precisa selecionar algumas entradas em primeiro lugar.
 your message could not be sent!	phpbrain	pt	Não foi possível enviar a sua mensagem!
 your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	pt	A sua questão será colocada, mas apenas será publicada depois de ser aprovada por um utilizador com permissões de publicação
 your question will be published immediately	phpbrain	pt	A sua questão será publicada imediatamente
