@@ -850,7 +850,7 @@ class uikb extends bokb
 			'keywords'			=> $article['keywords'],
 			'createdby'			=> lang('Created by %1 on %2', $article['username'], common::show_date($article['created'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat'])),
 			'last_modif'		=> $lastmodif,
-			'content'			=> $article['text']
+			'content'			=> html::activate_links($article['text'])
 		));
 
 		$this->t->set_var(array(
