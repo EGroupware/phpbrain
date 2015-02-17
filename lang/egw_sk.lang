@@ -1,5 +1,6 @@
 %1 entries %2	phpbrain	sk	%1 položiek %2
 %1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	sk	%1 položiek %2, %3 zlyhalo kvôli nedostatočným oprávneniam!
+%1 entries %2, %3 failed.	phpbrain	sk	%1 položiek %2, %3 zlyhalo.
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	sk	/kb adresár neexistuje a nedá sa vytvoriť, prosím požiadajte správcu aby skontroloval globálne nastavenia
 action	phpbrain	sk	Akcia
 actions	phpbrain	sk	Akcie
@@ -16,6 +17,8 @@ allow the publishing of articles by the author? (effective only if the approval 
 answer	phpbrain	sk	odpoveď
 anytime	phpbrain	sk	kedykoľvek
 anywhere in the article	phpbrain	sk	Kdekoľvek v článku
+are you sure you want to delete the selected articles ?	phpbrain	sk	Ste si istí že chcete odstrániť označené články?
+are you sure you want to delete the selected questions ?	phpbrain	sk	Ste si istí že chcete odstrániť označené otázky?
 are you sure?	phpbrain	sk	Ste si istí?
 article	phpbrain	sk	Článok
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	sk	Článok pridaný do databázy, teraz môžete priložiť súbory alebo odkazy, alebo sa odkázať na iné články
