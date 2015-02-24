@@ -520,6 +520,30 @@ class uikb extends bokb
 		}
 	}
 
+	static function transform_url2link($matches)
+	{
+		//error_log(__METHOD__.__LINE__.array2string($matches));
+		$webserverURL   = $GLOBALS['egw_info']['server']['webserver_url'];
+		$fullWebServerUrl = (substr(trim($webserverURL),0,1) == '/'?($GLOBALS['egw_info']['server']['enforce_ssl'] || $_SERVER['HTTPS'] ? 'https://' : 'http://').
+			($GLOBALS['egw_info']['server']['hostname'] ? $GLOBALS['egw_info']['server']['hostname'] : $_SERVER['HTTP_HOST']):$webserverURL);
+
+		$linkTextislink = false;
+		// this is the actual url
+		$matches[2] = trim(strip_tags($matches[2],'<img>'));
+		if ($matches[1]===$matches[2]) $linkTextislink = true;
+		$matches[1] = str_replace(' ','%20',$matches[1]);
+//error_log(__METHOD__.__LINE__.array2string($matches[1]));
+//error_log(__METHOD__.__LINE__.array2string($matches[2]));
+		//return ($linkTextislink?' ':'[ ').$matches[1].($linkTextislink?'':' -> '.$matches[2]).($linkTextislink?' ':' ]');
+		return '<a target="'.((stripos($matches[1],$webserverURL) !== false || stripos($matches[1],$fullWebServerUrl) !== false || substr(trim($matches[1]),0,1) == '/')?'_top':'_blank').'" href="'.$matches[1].'">'.($linkTextislink?$matches[1]:$matches[2]).'</a>';
+	}
+
+	function parseHREF (&$body) {
+		$body = preg_replace_callback('~<a[^>]+href=\"([^"]+)\"[^>]*>(.*?)</a>~si','self::transform_url2link',$body,-1,$counts);
+		return $counts;
+	}
+
+
 	/**
 	* Shows article details
 	*
@@ -840,6 +864,7 @@ class uikb extends bokb
 		}
 
 		$this->path = '';
+		$this->parseHREF($article['text']);
 		$this->t->set_var(array(
 			'art_id'			=> $article['art_id'],
 			'lang_unpublished'	=> $published,
@@ -850,7 +875,7 @@ class uikb extends bokb
 			'keywords'			=> $article['keywords'],
 			'createdby'			=> lang('Created by %1 on %2', $article['username'], common::show_date($article['created'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat'])),
 			'last_modif'		=> $lastmodif,
-			'content'			=> html::activate_links($article['text'])
+			'content'			=> $article['text'] //html::activate_links($article['text'])
 		));
 
 		$this->t->set_var(array(
