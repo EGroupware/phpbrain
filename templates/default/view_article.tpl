@@ -285,7 +285,7 @@
 							<!-- BEGIN file_item_block -->
 							<li>
 								{img_delete}
-								<a href="{href_file}">{file_name}</a>: {file_comment}
+								<a href="{href_file}" target="_blank">{file_name}</a>: {file_comment}
 							</li>
 							<!-- END file_item_block -->
 							</ul>
