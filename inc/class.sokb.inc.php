@@ -516,7 +516,7 @@ class sokb
 					$likes[] = $col.' '.self::$like.' '.self::$db->quote('%'.$word.'%');
 				}
 			}
-			
+
 			if($adduserquery) $sql .=' AND '. $adduserquery;
 			if($likes) $sql.= ' AND ('.implode(' OR ',$likes).')';
 		}
@@ -1246,7 +1246,7 @@ class sokb
 		foreach ((array)$articles as $article)
 		{
 			if ($art_id == $article) {
-				error_log(__FILE__.':'.__METHOD__,":Sorry, I dont relate an Articel (No.:$article) to itself");
+				error_log(__FILE__.':'.__METHOD__.":Sorry, I dont relate an Articel (No.:$article) to itself");
 				continue;
 			}
 			$added = true;
@@ -1256,7 +1256,7 @@ class sokb
 			);
 			$where = $valuzes;
 			if (!self::$db->insert('egw_kb_related_art',$valuzes,$where,__LINE__,__FILE__,PHPBRAIN_APP)) {
-				error_log(__FILE__.':'.__METHOD__,":Could not add related Articel No.:$article to Article No.:$art_id");
+				error_log(__FILE__.':'.__METHOD__.":Could not add related Articel No.:$article to Article No.:$art_id");
 				$added = false;
 			}
 		}
