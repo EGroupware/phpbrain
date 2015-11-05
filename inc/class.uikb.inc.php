@@ -793,7 +793,7 @@ class uikb extends bokb
 			'img_src_del'			=> common::image('phpbrain', 'delete'),
 			'img_mail'				=> isset($ma)?common::image('phpbrain', 'mail'):'',
 			'alt_mail'				=> isset($ma)?lang('Mail article'):'',
-			'href_mail'				=> isset($ma)?$this->link('menuaction='.$ma['menuaction'].'&app=phpbrain&method=fetch&id='. $article_id):'',
+			'href_mail'				=> isset($ma)?$this->link('menuaction='.$ma['menuaction'].'&mimeType=html&app=phpbrain&method=fetch&id='. $article_id):'',
 			'form_article_action'	=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $article_id),
 			'form_del_action'		=> $this->link('menuaction=phpbrain.uikb.view_article&art_id=' . $article_id),
 			'url_bluedot'			=> common::image('phpbrain', 'bluedot')
