@@ -165,6 +165,35 @@
 			<table class="tabcontent" width="100%" style="padding: 10px"border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td colspan=3>
+						<table border=0>
+							<tr>
+								<td>
+									<!-- BEGIN edit_btn_block2 -->
+									<form method="POST" action ="{form_edit_art}">
+										<input type="submit" name="edit_article" value="{lang_edit_art}">
+									</form>
+									<!-- END edit_btn_block2 -->
+								</td>
+								<td>
+									<!-- BEGIN del_btn_block2 -->
+									<form method="POST" action ="{form_del_art}">
+										&nbsp;&nbsp;<input type="submit" name="delete_article" value="{lang_delete_article}" onclick="return confirm('{lang_confirm_delete}');">
+									</form>
+									<!-- END del_btn_block2 -->
+								</td>
+								<td>
+									<!-- BEGIN publish_btn_block2 -->
+									<form method="POST" action ="{form_publish_art}">
+										&nbsp;&nbsp;<input type="submit" name="publish_article" value="{lang_publish_article}">
+									</form>
+									<!-- END publish_btn_block2 -->
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td colspan=3>
 						<input name="backlinkText" id="backlinkText" type="hidden" size="40" value="{backlinkText}"/>						
 						{toc_header}
 						{content}

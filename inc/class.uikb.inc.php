@@ -715,6 +715,9 @@ class uikb extends bokb
 			$this->t->set_block('view_article', 'edit_btn_block', 'edit_btn');
 			$this->t->set_block('view_article', 'del_btn_block', 'del_btn');
 			$this->t->set_block('view_article', 'publish_btn_block', 'publish_btn');
+			$this->t->set_block('view_article', 'edit_btn_block2', 'edit_btn2');
+			$this->t->set_block('view_article', 'del_btn_block2', 'del_btn2');
+			$this->t->set_block('view_article', 'publish_btn_block2', 'publish_btn2');
 			$this->t->set_block('view_article', 'history_line_block', 'history_line');
 
 			if (!$this->sitemgr)
@@ -822,10 +825,12 @@ class uikb extends bokb
 					'lang_edit_art'			=> lang('Edit article'),
 				));
 				$this->t->parse('edit_btn', 'edit_btn_block');
+				$this->t->parse('edit_btn2', 'edit_btn_block2');
 			}
 			else
 			{
 				$this->t->set_var('edit_btn', '');
+				$this->t->set_var('edit_btn2', '');
 			}
 			if($can_delete)
 			{
@@ -834,16 +839,20 @@ class uikb extends bokb
 					'lang_delete_article'	=> lang('Delete article')
 				));
 				$this->t->parse('del_btn', 'del_btn_block');
+				$this->t->parse('del_btn2', 'del_btn_block2');
 			}
 			else
 			{
 				$this->t->set_var('del_btn', '');
+				$this->t->set_var('del_btn2', '');
 			}
 		}
 		else
 		{
 			$this->t->set_var('edit_btn', '');
 			$this->t->set_var('del_btn', '');
+			$this->t->set_var('edit_btn2', '');
+			$this->t->set_var('del_btn2', '');
 		}
 
 		// show publish button if article is unpublish and user has publish rights on owner
@@ -857,10 +866,12 @@ class uikb extends bokb
 				'lang_publish_article'	=> lang('publish')
 			));
 			$this->t->parse('publish_btn', 'publish_btn_block');
+			$this->t->parse('publish_btn2', 'publish_btn_block2');
 		}
 		else
 		{
 			$this->t->set_var('publish_btn', '');
+			$this->t->set_var('publish_btn2', '');
 		}
 
 		$this->path = '';
