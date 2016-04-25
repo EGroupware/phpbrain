@@ -1,15 +1,15 @@
 <?php
-    /**************************************************************************\
-    * eGroupWare - Knowledge Base                                              *
-    * http://www.egroupware.org                                                *
-    * -----------------------------------------------                          *
-    *  This program is free software; you can redistribute it and/or modify it *
-    *  under the terms of the GNU General Public License as published by the   *
-    *  Free Software Foundation; either version 2 of the License, or (at your  *
-    *  option) any later version.                                              *
-    \**************************************************************************/
+/**************************************************************************\
+* eGroupWare - Knowledge Base                                              *
+* http://www.egroupware.org                                                *
+* -----------------------------------------------                          *
+*  This program is free software; you can redistribute it and/or modify it *
+*  under the terms of the GNU General Public License as published by the   *
+*  Free Software Foundation; either version 2 of the License, or (at your  *
+*  option) any later version.                                              *
+\**************************************************************************/
 
-	/* $Id$ */
+/* $Id$ */
 {
 	$menu_title = $GLOBALS['egw_info']['apps'][$appname]['title'] . ' '. lang('Menu');
 	$file=Array(
@@ -25,8 +25,8 @@
 	{
 		$menu_title = 'Administration';
 		$file = Array(
-			'Configuration'     => $GLOBALS['egw']->link('/index.php','menuaction=admin.uiconfig.index&appname=phpbrain'),
-			'Global Categories' => $GLOBALS['egw']->link('/index.php','menuaction=admin.admin_categories.index&appname=phpbrain')
+			'Site Configuration'		=> egw::link('/index.php','menuaction=admin.admin_config.index&appname=' . $appname.'&ajax=true'),
+			'Global Categories'			=> egw::link('/index.php','menuaction=admin.admin_categories.index&appname=phpbrain')
 		);
 		display_sidebox($appname,$menu_title,$file);
 	}

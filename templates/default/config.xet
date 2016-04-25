@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE overlay PUBLIC "-//Stylite AG//eTemplate 2//EN" "http://www.egroupware.org/etemplate2.dtd">
+<!-- $Id$ -->
+<overlay>
+	<template id="phpbrain.config" template="" lang="" group="0" version="16.1">
+		<grid width="100%" class="admin-config egwGridView_grid">
+			<columns>
+				<column width="60%"/>
+				<column/>
+			</columns>
+			<rows>
+				<row>
+					<description value="Publish articles automatically?"/>
+					<select id="newsettings[publish_articles]">
+						<option value="True">Yes</option>
+						<option value="False">Have to be approved first</option>
+					</select>
+				</row>
+				<row>
+					<description value="Allow the publishing of articles by the author? (effective only if the approval of articles is required)"/>
+					<select id="newsettings[publish_own_articles]">
+						<option value="False">No</option>
+						<option value="True">Yes</option>
+					</select>
+				</row>
+				<row>
+					<description value="Publish comments automatically?"/>
+					<select id="newsettings[publish_comments]">
+						<option value="True">Yes</option>
+						<option value="False">Have to be approved first</option>
+					</select>
+				</row>
+				<row>
+					<description value="Publish questions automatically?"/>
+					<select id="newsettings[publish_questions]">
+						<option value="True">Yes</option>
+						<option value="False">Have to be approved first</option>
+					</select>
+				</row>
+				<row>
+					<description value="Should the article view make an automatic table of contents?"/>
+					<select id="newsettings[show_toc]">
+						<option value="False">No</option>
+						<option value="True">Yes</option>
+					</select>
+				</row>
+				<row>
+					<description value="Name of the backlink to the index:"/>
+					<textbox id="newsettings[backlinkText]" size="40"/>
+				</row>
+			</rows>
+		</grid>
+	</template>
+</overlay>
