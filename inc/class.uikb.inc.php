@@ -2067,7 +2067,7 @@ class uikb extends bokb
 		$actions = array(
 			'view' => array(
 				'default' => true,
-				'caption' => 'View article',
+				'caption' => 'View',
 				'allowOnMultiple' => false,
 				'group' => $group,
 				'url' => 'menuaction=phpbrain.uikb.view_article&art_id=$id',
