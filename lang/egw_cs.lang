@@ -1,3 +1,6 @@
+%1 entries %2	phpbrain	cs	%1 záznamů %2
+%1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	cs	%1 záznamů %2, %3 selhalo kvůli nedostatečným právům!
+%1 entries %2, %3 failed.	phpbrain	cs	%1 záznamů %2, %3 selhalo.
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	cs	adresář /kb neexistuje a nemohl být vytvořen, požádejte prosím svého administrátora ať zkontroluje globální konfiguraci
 action	phpbrain	cs	Akce
 actions	phpbrain	cs	Akce
@@ -10,9 +13,12 @@ added related articles %1	phpbrain	cs	Přidány související články %1
 advanced search	phpbrain	cs	Rozšířené hledání
 all articles	phpbrain	cs	Všechny články
 allow posting of questions	phpbrain	cs	Povolit posílání otázek
+allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	cs	Povolit publikování článků autorem? (Má význam pouze, pokud je vyžadováno schvalování článků)
 answer	phpbrain	cs	odpověď
 anytime	phpbrain	cs	Kdykoli
 anywhere in the article	phpbrain	cs	Kdekoli v článku
+are you sure you want to delete the selected articles ?	phpbrain	cs	Opravdu chcete smazat označené články?
+are you sure you want to delete the selected questions ?	phpbrain	cs	Opravdu chcete smazat označené otázky?
 are you sure?	phpbrain	cs	Jste si jistý(á)?
 article	phpbrain	cs	Článek
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	cs	Článek byl přidán do databáze. Nyní k němu můžete připojit soubory a odkazy nebo ho uvést do souvislosti s jinými články
@@ -35,6 +41,7 @@ average rating	phpbrain	cs	Průměrné hodnocení
 base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	cs	Základní adresář neexistuje, požádejte prosím administrátora, aby zkontroloval globální konfiguraci
 before submiting a question, please search in the knowledge base first	phpbrain	cs	Než odešlete otázku, prohledejte prosím nejprve databázi znalostí
 by answering this question you will help to get the answer quicker the next time	phpbrain	cs	Odpovědí na tuto otázku pomůžete příště k rychlejšímu získáni odpovědi
+changed category from %1 to %2	phpbrain	cs	Kategorie %1 byla změněna na %2
 comment	phpbrain	cs	komentář
 comment and rating have been published	phpbrain	cs	Komentář a hodnocení byly publikovány
 comment could not be inserted in the database	phpbrain	cs	Komentář nemohl být vložen do databáze
@@ -59,6 +66,7 @@ details	phpbrain	cs	Podrobnosti
 e-groupware knowledge base article attached	phpbrain	cs	Článek z databáze znalostí eGroupWare připojen
 e-mail has been sent	phpbrain	cs	e-mail byl odeslán
 edit article	phpbrain	cs	Editovat článek
+edit unpublished article to answer the question asked by %1 in %2	phpbrain	cs	Upravit nepublikovaný článek jako odpověď na otázku položenou %1 v %2
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	cs	Zadejte jedno nebo dvě slova popisující záležitost nebo napište rovnou číslo článku, pokud ho znáte
 enterprise knowledge articles repository	phpbrain	cs	Podniková databáze znalostí
 error deleting article from database	phpbrain	cs	Chyba při mazání článku z databáze
@@ -139,6 +147,7 @@ publish comments automatically?	common	cs	Publikovat komentáře automaticky?
 publish questions automatically?	common	cs	Publikovat otázky automaticky?
 publish selected	phpbrain	cs	Publikovat vybrané
 published	phpbrain	cs	Publikované
+question	phpbrain	cs	Otázka
 question deleted successfully	phpbrain	cs	Otázka úspěšně smazána
 questions deleted successfully	phpbrain	cs	Otázky úspěšně smazány
 rating has been submited	phpbrain	cs	Hodnocení bylo odesláno
@@ -194,6 +203,7 @@ you have already qualified this article	phpbrain	cs	Již jste článek ohodnotil
 you have not the proper permissions to do that	phpbrain	cs	Pro uvedenou činnost nemáte příslušná oprávnění
 you must enter a title	phpbrain	cs	Musíte zadat název
 you must enter a topic	phpbrain	cs	Musíte zadat téma
+you need to select some entries first	phpbrain	cs	Nejprve musíte vybrat nějaký záznam
 your message could not be sent!	phpbrain	cs	Vaše zpráva nemohla být odeslána!
 your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	cs	Vaše otázka byla odeslána, ale publikována bude až po té, co jí schválí uživatel s publikačními právy
 your question will be published immediately	phpbrain	cs	Vaše otázka bude publikována okamžitě
