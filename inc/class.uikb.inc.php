@@ -535,7 +535,7 @@ class uikb extends bokb
 //error_log(__METHOD__.__LINE__.array2string($matches[1]));
 //error_log(__METHOD__.__LINE__.array2string($matches[2]));
 		//return ($linkTextislink?' ':'[ ').$matches[1].($linkTextislink?'':' -> '.$matches[2]).($linkTextislink?' ':' ]');
-		return '<a target="'.((stripos($matches[1],$webserverURL) !== false || stripos($matches[1],$fullWebServerUrl) !== false || substr(trim($matches[1]),0,1) == '/')?'_top':'_blank').'" href="'.$matches[1].'">'.($linkTextislink?$matches[1]:$matches[2]).'</a>';
+		return '<a target="'.((stripos($matches[1],$webserverURL) !== false || stripos($matches[1],$fullWebServerUrl) !== false || substr(trim($matches[1]),0,1) == '/')?'_self':'_blank').'" href="'.$matches[1].'">'.($linkTextislink?$matches[1]:$matches[2]).'</a>';
 	}
 
 	function parseHREF (&$body) {
