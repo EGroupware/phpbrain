@@ -442,19 +442,20 @@ function phpbrain_upgrade1_5_002()
 	$current_is_root = egw_vfs::$is_root; egw_vfs::$is_root = true;
 	$current_user = egw_vfs::$user; egw_vfs::$user = 0;
 
-	$ok = sqlfs_stream_wrapper::mkdir('/apps/phpbrain',0,STREAM_MKDIR_RECURSIVE);
+	$sqlfs = new sqlfs_stream_wrapper();
+	$ok = $sqlfs->mkdir('/apps/phpbrain',0,STREAM_MKDIR_RECURSIVE);
 	foreach($GLOBALS['egw_setup']->db->query("SELECT * FROM egw_kb_files ORDER BY art_id",__LINE__,__FILE__,0,-1,false,egw_db::FETCH_ASSOC) as $file)
 	{
 		if ($art_id != $file['art_id'])
 		{
-			$ok = sqlfs_stream_wrapper::mkdir('/apps/phpbrain/'.$file['art_id'],0,0);
-			$ok = sqlfs_stream_wrapper::chmod('/apps/phpbrain/'.$file['art_id'],0);	// no default access
+			$ok = $sqlfs->mkdir('/apps/phpbrain/'.$file['art_id'],0,0);
+			$ok = $sqlfs->chmod('/apps/phpbrain/'.$file['art_id'],0);	// no default access
 			$art_id = $file['art_id'];
 		}
 		list(,$fname) = explode('-',$file['art_file'],2);
 		sqlfs_stream_wrapper::rename('/kb/'.$file['art_file'],'/apps/phpbrain/'.$file['art_id'].'/'.$fname);
 	}
-	$ok = sqlfs_stream_wrapper::rmdir('/kb',0);
+	$ok = $sqlfs->rmdir('/kb',0);
 	egw_vfs::$is_root = $current_is_root;
 	egw_vfs::$user = $current_user;
 
