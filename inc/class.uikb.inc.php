@@ -183,7 +183,7 @@ class uikb extends bokb
 	}
 
 	/**
-	* Shows main screen
+	* Shows  home screen
 	*
 	* @author	Alejandro Pedraza
 	* @access	public
