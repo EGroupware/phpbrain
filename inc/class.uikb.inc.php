@@ -232,7 +232,7 @@ class uikb extends bokb
 			if ($category_passed)
 			{
 				$parent_cat = $this->bo->return_single_category($category_passed);
-				list(,$parent_cat) = each($parent_cat);
+				$parent_cat = current($parent_cat);
 				$parent_id = $parent_cat['id'];
 				$this->path= '';
 				$show_path = lang ('You are in %1', $this->category_path($category_passed, True));
@@ -1602,7 +1602,7 @@ class uikb extends bokb
 			{
 				if(isset($content['nm']['rows'][$button]))
 				{
-					list($id) = @each($content['nm']['rows'][$button]);
+					$id = @key($content['nm']['rows'][$button]);
 					$content['nm']['action'] = $button;
 					$content['nm']['selected'] = array($id);
 					break; // Only one can come per submit
@@ -1744,7 +1744,7 @@ class uikb extends bokb
 			{
 				if(isset($content['nm']['rows'][$button]))
 				{
-					list($id) = @each($content['nm']['rows'][$button]);
+					$id = @key($content['nm']['rows'][$button]);
 					$content['nm']['action'] = $button;
 					$content['nm']['selected'] = array($id);
 					break; // Only one can come per submit
