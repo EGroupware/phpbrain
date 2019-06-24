@@ -1258,6 +1258,10 @@ class phpbrain_bo extends sokb
 			'fetch'	=>	'phpbrain.phpbrain_bo.retrieve_article',
 			'view_id' => 'art_id',
 			'view_list'	=>	'phpbrain.uikb.index',
+			'owner' => array(
+				'key' => 'egw_kb_articles.art_id',
+				'column' => 'egw_kb_articles.user_id'
+			)
 		);
 	}
 
