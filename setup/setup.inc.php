@@ -47,6 +47,9 @@ $setup_info['phpbrain']['tables'][] = 'egw_kb_related_art';
 $setup_info['phpbrain']['tables'][] = 'egw_kb_search';
 $setup_info['phpbrain']['tables'][] = 'egw_kb_urls';
 
+// uncomment to automatic deinstall knowledgebase, if it contains no or only one article
+//$setup_info['wiki']['autodeinstall'] = "SELECT COUNT(*)<=1 FROM egw_kb_articles";
+
 /* Dependencies for this app to work */
 $setup_info['phpbrain']['depends'][] = array(
 	'appname' => 'phpgwapi',
