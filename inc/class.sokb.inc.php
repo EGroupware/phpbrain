@@ -224,17 +224,14 @@ class sokb
 	*/
 	function adv_search_articles($owners, $cats_ids, $ocurrences, $pub_date, $start, $num_res, $all_words, $phrase, $one_word, $without_words, $cat, $include_subs)
 	{
-		$loclike = self::$like;
 		$fields= array('egw_kb_articles.art_id', 'title', 'topic', 'views', 'cat_id', 'published', 'user_id', 'created', 'modified', 'votes_1', 'votes_2',  'votes_3', 'votes_4', 'votes_5');
 		$fields_str	= implode(' , ', $fields);
 
 		// permissions filtering
-		$owners	= implode(', ', $owners);
-		$sql = "SELECT DISTINCT $fields_str FROM egw_kb_articles LEFT JOIN egw_kb_search ON egw_kb_articles.art_id=egw_kb_search.art_id WHERE user_id IN ($owners)";
+		$sql = "SELECT $fields_str FROM egw_kb_articles WHERE user_id IN (".implode(',', array_map('intval', $owners)).")";
 
 		// categories filtering
-		$cats_ids	= implode (',', $cats_ids);
-		if ($cats_ids) $sql .= " AND cat_id IN ($cats_ids)";
+		if ($cats_ids) $sql .= " AND cat_id IN (".implode(',', array_map('intval', $cats_ids)).")";
 
 		// date filtering
 		switch ($pub_date)
@@ -254,74 +251,91 @@ class sokb
 		switch ($ocurrences)
 		{
 			case 'title':
-				$target_fields = array('title');
+				$sql .= ' AND '.implode(' AND ', $this->fields2sql(array('title'), $all_words, $phrase, $one_word, $without_words));
 				break;
 			case 'topic':
-				$target_fields = array('topic');
+				$sql .= ' AND '.implode(' AND ', $this->fields2sql(array('topic'), $all_words, $phrase, $one_word, $without_words));
 				break;
 			case 'text':
-				$target_fields = array('text');
+				$sql .= ' AND '.implode(' AND ', $this->fields2sql(array('text'), $all_words, $phrase, $one_word, $without_words));
 				break;
 			default:
-				$target_fields = array('title', 'topic', 'keyword', 'text');
+				$sql .= ' AND art_id IN ('.
+					'SELECT art_id FROM egw_kb_articles WHERE '.
+						implode(' AND ', $this->fields2sql(array('title', 'topic', 'text'), $all_words, $phrase, $one_word, $without_words)).
+					' UNION SELECT art_id FROM egw_kb_search WHERE '.
+						implode(' AND ', $this->fields2sql(array('keyword'), $all_words, $phrase, $one_word, $without_words)).
+					')';
 				break;
-		}
-
-		// "with all the words" filtering
-		$all_words = self::$db->db_addslashes($all_words);
-		$all_words = strlen($all_words)? explode(' ', $all_words) : False;
-		$each_field = array();
-		if ($all_words)
-		{
-			foreach ($all_words as $word)
-			{
-				$each_field[] = "(" . implode(" {$loclike} '%$word%' OR ", $target_fields) . " {$loclike} '%$word%')";
-			}
-			if ($each_field)
-			{
-				$sql .= " AND " . implode(" AND ", $each_field);
-			}
-		}
-
-		// "with the exact phrase" filtering
-		$phrase = self::$db->db_addslashes($phrase);
-		if ($phrase)
-		{
-			$sql .= " AND (" . implode (" {$loclike} '%$phrase%' OR ", $target_fields) . " {$loclike} '%$phrase%')";
-		}
-
-		// "With at least one of the words" filtering
-		$one_word = self::$db->db_addslashes($one_word);
-		$one_word = strlen($one_word)? explode(' ', $one_word) : False;
-		if ($one_word)
-		{
-			$each_field = array();
-			foreach ($one_word as $word)
-			{
-				$each_field[] = "(" . implode(" {$loclike} '%$word' OR ", $target_fields) . " {$loclike} '%$word%')";
-			}
-			$sql .= " AND (". implode (" OR ", $each_field) . ")";
-		}
-
-		// "Without the words" filtering
-		$without_words = self::$db->db_addslashes($without_words);
-		$without_words = strlen($without_words)? explode(' ', $without_words) : False;
-		$each_field = array();
-		if ($without_words)
-		{
-			foreach ($without_words as $word)
-			{
-				$each_field[] = "(" . implode(" NOT {$loclike} '%$word' AND ", $target_fields) . " NOT {$loclike} '%$word%')";
-			}
-			$sql .= " AND " . implode(" AND ", $each_field);
 		}
 
 		// do the query
 		//echo "query: $sql <br>";
-		self::$db->query($sql, __LINE__, __FILE__);
-		self::$num_rows = self::$db->num_rows();
+		if (($limited = $start === false || !$start && $num_res == -1))
+		{
+			self::$db->query($sql, __LINE__, __FILE__);
+			self::$num_rows = self::$db->num_rows();
+		}
 		self::$db->limit_query($sql, $start, __LINE__, __FILE__, $num_res);
+		if (!$limited) self::$num_rows = self::$db->num_rows();
+
 		return $this->results_to_array($fields);
+	}
+
+	/**
+	* Returns sql for given fields and search words
+	*
+	* @param	array	$target_fields		Field names to search
+	* @param	string	$all_words		'with all the words' filtering
+	* @param	string	$phrase			'exact phrase' filtering
+	* @param	string	$one_word		'with at least one of the words' filtering
+	* @param	string	$without_words	'without the words' filtering
+	* @return	array with SQL fragments to AND
+	*/
+	protected function fields2sql(array $target_fields, $all_words, $phrase, $one_word, $without_words)
+	{
+		$loclike = self::$like;
+		$where = array();
+
+		// "with all the words" filtering
+		if ($all_words)
+		{
+			foreach (explode(' ', $all_words) as $word)
+			{
+				$word = self::$db->quote('%'.$word.'%');
+				$where[] = "(" . implode(" $loclike $word OR ", $target_fields) . " $loclike $word)";
+			}
+		}
+
+		// "with the exact phrase" filtering
+		if ($phrase)
+		{
+			$phrase = self::$db->quote('%'.$phrase.'%');
+			$where[] = "(" . implode (" $loclike $phrase OR ", $target_fields) . " $loclike $phrase)";
+		}
+
+		// "With at least one of the words" filtering
+		if ($one_word)
+		{
+			$each_field = array();
+			foreach (explode(' ', $one_word) as $word)
+			{
+				$one_word = self::$db->quote('%'.$word.'%');
+				$each_field[] = "(" . implode(" $loclike $word OR ", $target_fields) . " $loclike $word)";
+			}
+			$where[] = "(". implode (" OR ", $each_field) . ")";
+		}
+
+		// "Without the words" filtering
+		if ($without_words)
+		{
+			foreach (explode(' ', $without_words) as $word)
+			{
+				$word = self::$db->quote('%'.$word.'%');
+				$where[] = "(" . implode(" NOT $loclike $word AND ", $target_fields) . " NOT $loclike $word)";
+			}
+		}
+		return $where;
 	}
 
 	/**
