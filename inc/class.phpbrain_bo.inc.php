@@ -1221,7 +1221,7 @@ class phpbrain_bo extends sokb
 	function link_query( $pattern, Array &$options = array() )
 	{
 		$result = array();
-		$start = isset($options['start']) ? $options['start'] : 0;
+		$start = isset($options['start']) ? $options['start'] : false;
 		$limit = isset($options['num_rows']) ? $options['num_rows'] : -1;
 		$owners = $this->accessible_owners();
 		$this->phrase=$pattern;
