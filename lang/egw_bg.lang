@@ -59,6 +59,7 @@ details	phpbrain	bg	Подробности
 e-groupware knowledge base article attached	phpbrain	bg	Приложена е статия от Базата знания на E-GroupWare
 e-mail has been sent	phpbrain	bg	E-Mail-ът е изпратен
 edit article	phpbrain	bg	Редактирай статия
+edit unpublished article to answer the question asked by %1 in %2	phpbrain	bg	Редактирайте непубликувана статия, за да отговорите на въпроса, зададен от %1 в %2
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	bg	Въведете една или две думи с описание на публикацията, или номера на статията, ако го знаете.
 error deleting article from database	phpbrain	bg	Грешка при изтриване на статия от базата данни
 error deleting link	phpbrain	bg	Грешка при изтриване на връзка
@@ -138,6 +139,7 @@ publish comments automatically?	common	bg	Автоматично публику�
 publish questions automatically?	common	bg	Автоматично публикуване на въпроси?
 publish selected	phpbrain	bg	Пубилувай избраните
 published	phpbrain	bg	Публикувани
+question	phpbrain	bg	Въпрос
 question deleted successfully	phpbrain	bg	Въпросът е изтрит успешно
 questions deleted successfully	phpbrain	bg	Въпросите са изтрити успешно
 rating has been submited	phpbrain	bg	Оценката е изпратена
@@ -193,6 +195,7 @@ you have already qualified this article	phpbrain	bg	Вече сте оценил
 you have not the proper permissions to do that	phpbrain	bg	Нямата права за това действие
 you must enter a title	phpbrain	bg	Необходимо е да въведете заглавие
 you must enter a topic	phpbrain	bg	Необходимо е да въведете тема
+you need to select some entries first	phpbrain	bg	Необходимо е първо да изберете някои записи
 your message could not be sent!	phpbrain	bg	Съобщението Ви не беше изпратено!
 your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	bg	Въпросът Ви е изпратен, но ще бъде публикуван само след одобрение на потребител със съответните права
 your question will be published immediately	phpbrain	bg	Въпросът Ви ще бъде публикуван незабавно
