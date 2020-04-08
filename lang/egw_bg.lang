@@ -1,3 +1,6 @@
+%1 entries %2	phpbrain	bg	%1 записи %2
+%1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	bg	%1 записи %2, %3 не успя поради недостатъчни права !!!
+%1 entries %2, %3 failed.	phpbrain	bg	%1 записи %2, %3 не успя.
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	bg	Директория /kb не съществува и не може да бъде създадена. Моля, обърнете се към Администратора да провери конфигурацията.
 action	phpbrain	bg	Действие
 actions	phpbrain	bg	Действия
@@ -10,9 +13,12 @@ added related articles %1	phpbrain	bg	Добавени са свързани с�
 advanced search	phpbrain	bg	Разширено търсене
 all articles	phpbrain	bg	Всички статии
 allow posting of questions	phpbrain	bg	Позволява добавяне на въпроси
+allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	bg	Разрешавате ли публикуването на статии от автора? (в сила само, ако се изисква одобрение)
 answer	phpbrain	bg	отговор
 anytime	phpbrain	bg	по всяко време
 anywhere in the article	phpbrain	bg	където и да е в статията
+are you sure you want to delete the selected articles ?	phpbrain	bg	Сигурни ли сте, че искате да изтриете избраните статии?
+are you sure you want to delete the selected questions ?	phpbrain	bg	Сигурни ли сте, че искате да изтриете избраните въпроси?
 are you sure?	phpbrain	bg	Сигурни ли сте?
 article	phpbrain	bg	Статия
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	bg	Статията е добавена в базата данни. Сега може да приложите файлове или връзки, или да я свържете с други статии.
@@ -35,7 +41,8 @@ average rating	phpbrain	bg	Усреднена оценка
 base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	bg	Базовата директория не съществува. Моля, обърнете се към Администратора да провери конфигурацията.
 before submiting a question, please search in the knowledge base first	phpbrain	bg	Преди да изпратите въпрос, моля, потърсете в Базата знания
 by answering this question you will help to get the answer quicker the next time	phpbrain	bg	Като отговорите на въпроса ще помогнете за по-бързо получаване на отговор на следващи въпроси.
-comment	phpbrain	bg	коментар
+changed category from %1 to %2	phpbrain	bg	Променена категория от %1 на %2
+comment	phpbrain	bg	Коментар
 comment and rating have been published	phpbrain	bg	Коментарът и оценката са публикувани
 comment could not be inserted in the database	phpbrain	bg	Записът на коментара в базата данни е неуспешен
 comment has been deleted	phpbrain	bg	Коментарът е изтрит
@@ -61,6 +68,7 @@ e-mail has been sent	phpbrain	bg	E-Mail-ът е изпратен
 edit article	phpbrain	bg	Редактирай статия
 edit unpublished article to answer the question asked by %1 in %2	phpbrain	bg	Редактирайте непубликувана статия, за да отговорите на въпроса, зададен от %1 в %2
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	bg	Въведете една или две думи с описание на публикацията, или номера на статията, ако го знаете.
+enterprise knowledge articles repository	phpbrain	bg	Хранилище за статии в Enterprise Knowledge
 error deleting article from database	phpbrain	bg	Грешка при изтриване на статия от базата данни
 error deleting link	phpbrain	bg	Грешка при изтриване на връзка
 error downloading file	phpbrain	bg	Грешка при изтегляне на файла
