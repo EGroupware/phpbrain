@@ -320,7 +320,7 @@ class sokb
 			$each_field = array();
 			foreach (explode(' ', $one_word) as $word)
 			{
-				$one_word = self::$db->quote('%'.$word.'%');
+				$word = self::$db->quote('%'.$word.'%');
 				$each_field[] = "(" . implode(" $loclike $word OR ", $target_fields) . " $loclike $word)";
 			}
 			$where[] = "(". implode (" OR ", $each_field) . ")";
@@ -335,6 +335,9 @@ class sokb
 				$where[] = "(" . implode(" NOT $loclike $word AND ", $target_fields) . " NOT $loclike $word)";
 			}
 		}
+		// make sure we return anything, to not generate an SQL error
+		if (!$where) $where[] = '1=1';
+
 		return $where;
 	}
 
