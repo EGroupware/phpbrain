@@ -1167,7 +1167,7 @@ class uikb extends bokb
 		{
 			$this->t->set_var('mail_message', $_POST['val_message']);
 			$this->t->parse('plain_html', 'view_article');
-			$message = $this->bo->mail_article($this->t->get_var('plain_html'));
+			$message = $this->bo->mail($this->t->get_var('plain_html'));
 			$this->reload_page($article_id, $message);
 			common::egw_exit();
 		}

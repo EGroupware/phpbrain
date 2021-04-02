@@ -17,20 +17,20 @@
     background-color: white !important;
   }
   div.PhPBrain_Search {
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     margin: 1em 0 0 1em;
-    border-bottom: 10px solid #cdcdcd;
+    border-bottom: 10px solid #CDCDCD;
   }
   div.PhPBrain_Search .PhPBrain_SearchTable {
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     width: 100%;
   }
   div.PhPBrain_Main {
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     margin: 1em 0 0 1em;
   }
   div.PhPBrain_Main .PhPBrain_MainTable {
-    background-color: #ffffff;
+    background-color: #FFFFFF;
     width: 100%;
   }
   [class*="PhPBrain"] table img {

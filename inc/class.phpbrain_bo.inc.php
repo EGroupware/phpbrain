@@ -18,7 +18,7 @@
 **/
 require_once(EGW_INCLUDE_ROOT.'/phpbrain/inc/class.sokb.inc.php');
 
-class phpbrain_bo extends sokb
+class phpbrain_bo
 {
 	/**
 	* Categories object
@@ -208,6 +208,10 @@ class phpbrain_bo extends sokb
 		'mail_err'				=> 'Error in e-mail address'
 	);
 
+	/**
+	 * @var sokb
+	 */
+	protected $so;
 
 	/**
 	* Class constructor
@@ -217,7 +221,7 @@ class phpbrain_bo extends sokb
 	**/
 	function __construct()
 	{
-		parent::__construct();
+		$this->so = new sokb();
 		$this->categories_obj			= CreateObject('phpgwapi.categories', '', 'phpbrain');	// force phpbrain cause it might be running from sitemgr...
 		$GLOBALS['egw']->historylog	= CreateObject('phpgwapi.historylog','phpbrain');
 
@@ -403,14 +407,14 @@ class phpbrain_bo extends sokb
 			}
 			$cats_ids[] = $category_id;
 
-			$articles = parent::$search($owners, $cats_ids, $this->start, '', $this->sort, $this->order, $publish_filter, $this->query);
+			$articles = $this->so->$search($owners, $cats_ids, $this->start, '', $this->sort, $this->order, $publish_filter, $this->query);
 		}
 		else
 		{
 			// show only articles in present category
-			$articles = parent::$search($owners, array($category_id), $this->start, ($this->num_rows?$this->num_rows:''), $this->sort, $this->order, $publish_filter, $this->query);
+			$articles = $this->so->$search($owners, array($category_id), $this->start, ($this->num_rows?$this->num_rows:''), $this->sort, $this->order, $publish_filter, $this->query);
 		}
-		$this->num_rows = parent::$num_rows;
+		$this->num_rows = sokb::$num_rows;
 
 		return $articles;
 	}
@@ -442,8 +446,8 @@ class phpbrain_bo extends sokb
 			$cats_ids[] = $this->cat;
 		}
 
-		$articles = parent::adv_search_articles($owners, $cats_ids, $this->ocurrences, $this->pub_date, $this->start, $this->num_res, $this->all_words, $this->phrase, $this->one_word, $this->without_words, $this->cat, $this->include_subs);
-		$this->num_rows = parent::$num_rows;
+		$articles = $this->so->adv_search_articles($owners, $cats_ids, $this->ocurrences, $this->pub_date, $this->start, $this->num_res, $this->all_words, $this->phrase, $this->one_word, $this->without_words, $this->cat, $this->include_subs);
+		$this->num_rows = sokb::$num_rows;
 		return $articles;
 	}
 
@@ -469,8 +473,8 @@ class phpbrain_bo extends sokb
 		}
 		$cats_ids[] = $category_id;
 
-		$questions = parent::unanswered_questions($owners, $cats_ids, 0, $this->preferences['num_lines'], 'DESC', 'creation', 'published', '');
-		self::$num_questions = parent::$num_questions;
+		$questions = $this->so->unanswered_questions($owners, $cats_ids, 0, $this->preferences['num_lines'], 'DESC', 'creation', 'published', '');
+		self::$num_questions = sokb::$num_questions;
 		return $questions;
 	}
 
@@ -546,7 +550,7 @@ class phpbrain_bo extends sokb
 			$cats_ids[] = $cat['id'];
 		}
 
-		return parent::search_articles($owners, $cats_ids, 0, $this->preferences['num_lines'], 'DESC', $order, 'published', '');
+		return $this->so->search_articles($owners, $cats_ids, 0, $this->preferences['num_lines'], 'DESC', $order, 'published', '');
 	}
 
 	/**
@@ -584,7 +588,7 @@ class phpbrain_bo extends sokb
 		}
 		elseif ($content['editing_article_id'])
 		{
-			if(!$art_id = parent::save_article($content, False))
+			if(!$art_id = $this->so->save_article($content, False))
 			{
 				$this->error_msg = 'edit_err';
 				return False;
@@ -601,7 +605,7 @@ class phpbrain_bo extends sokb
 		}
 
 		// if adding a new article, check that the  articleID doesn't already exist if it was given
-		if ($content['articleID'] && parent::exist_articleID($content['articleID']))
+		if ($content['articleID'] && $this->so->exist_articleID($content['articleID']))
 		{
 			$this->error_msg = "Article ID already exists";
 			return False;
@@ -610,7 +614,7 @@ class phpbrain_bo extends sokb
 		$publish = False;
 		if ($this->admin_config['publish_articles'] == 'True') $publish = True;
 		if ($this->admin_config['publish_own_articles'] == 'True' && isset($content['user_id']) && $content['user_id']==$GLOBALS['egw_info']['user']['account_id']) $publish = True;
-		$art_id = parent::save_article($content, True, $publish);
+		$art_id = $this->so->save_article($content, True, $publish);
 		if ($art_id) $GLOBALS['egw']->historylog->add('NA', $art_id, 'article created', '');
 
 		return $art_id;
@@ -634,17 +638,17 @@ class phpbrain_bo extends sokb
 		// delete files
 		egw_link::delete_attached('phpbrain',$art_id);
 		// delete comments
-		parent::delete_comments($art_id);
+		$this->so->delete_comments($art_id);
 		// delete ratings
-		parent::delete_ratings($art_id);
+		$this->so->delete_ratings($art_id);
 		// delete related articles
-		parent::delete_related($art_id, $art_id, True);
+		$this->so->delete_related($art_id, $art_id, True);
 		// delete search index
-		parent::delete_search($art_id);
+		$this->so->delete_search($art_id);
 		// delete urls
-		parent::delete_urls($art_id);
+		$this->so->delete_urls($art_id);
 		// delete article
-		if (!parent::delete_article($art_id)) return 'err_del_art';
+		if (!$this->so->delete_article($art_id)) return 'err_del_art';
 		if ($art_id) $GLOBALS['egw']->historylog->add('AD', $art_id, 'article deleted', '');
 		return 'del_art_ok';
 	}
@@ -661,14 +665,14 @@ class phpbrain_bo extends sokb
 		if (!(int) $args['new_owner'])
 		{
 			// fetch articles from user
-			foreach (parent::get_articles_ids((int)$args['account_id']) as $article_id)
+			foreach ($this->so->get_articles_ids((int)$args['account_id']) as $article_id)
 			{
 				$this->delete_article($article_id, -1);
 			}
 		}
 		else
 		{
-			parent::change_articles_owner((int)$args['account_id'], (int) $args['new_owner']);
+			$this->so->change_articles_owner((int)$args['account_id'], (int) $args['new_owner']);
 		}
 	}
 
@@ -687,7 +691,7 @@ class phpbrain_bo extends sokb
 		$this->article_owner = $owner;
 		if (!$this->check_permission(EGW_ACL_DELETE, $owner)) return 'no_perm';
 
-		if (!parent::delete_question($q_id)) return 'err_del_q';
+		if (!$this->so->delete_question($q_id)) return 'err_del_q';
 		return 'del_q_ok';
 	}
 
@@ -705,7 +709,7 @@ class phpbrain_bo extends sokb
 	**/
 	function get_article($art_id,$die_if_no_access=true,$register_view=true)
 	{
-		if (!$article = parent::get_article($art_id)) return null;
+		if (!$article = $this->so->get_article($art_id)) return null;
 		$this->article_id = $article['art_id'];
 
 		// check permissions
@@ -730,7 +734,7 @@ class phpbrain_bo extends sokb
 		{
 			$data[] = $this->article_id;
 			$GLOBALS['egw']->session->appsession('views', 'phpbrain', $data);
-			parent::register_view($this->article_id, $article['views']);
+			$this->so->register_view($this->article_id, $article['views']);
 		}
 
 		// process search_feedback (can do this only once per session per article)
@@ -743,7 +747,7 @@ class phpbrain_bo extends sokb
 			$words = explode(' ', $_POST['feedback_query']);
 			foreach ($words as $word)
 			{
-				parent::update_keywords($this->article_id, $word, $upgrade_key);
+				$this->so->update_keywords($this->article_id, $word, $upgrade_key);
 			}
 		}
 		//_debug_array($article);
@@ -789,7 +793,7 @@ class phpbrain_bo extends sokb
 			$art_id = $art_id[0];
 			if (count($art_id)>1) $mimetype = $art_id[1];
 		}
-		if (!$article = parent::get_article($art_id)) return null;
+		if (!$article = $this->so->get_article($art_id)) return null;
 		// check permissions
 		$this->article_owner = $article['user_id'];
 		if (!$this->check_permission($this->read_right | $this->publish_right))
@@ -819,8 +823,8 @@ class phpbrain_bo extends sokb
 	function get_comments($art_id, $limit = False)
 	{
 		if ($limit) $limit = $this->preferences['num_comments'];
-		$comments = parent::get_comments($art_id, $limit);
-		self::$num_comments = parent::$num_comments;
+		$comments = $this->so->get_comments($art_id, $limit);
+		self::$num_comments = sokb::$num_comments;
 		return $comments;
 	}
 
@@ -835,7 +839,7 @@ class phpbrain_bo extends sokb
 	function get_related_articles($art_id)
 	{
 		$owners = $this->accessible_owners();
-		return parent::get_related_articles($art_id, $owners);
+		return $this->so->get_related_articles($art_id, $owners);
 	}
 
 	/**
@@ -847,7 +851,7 @@ class phpbrain_bo extends sokb
 	**/
 	function user_has_voted()
 	{
-		return parent::user_has_voted($this->article_id);
+		return $this->so->user_has_voted($this->article_id);
 	}
 
 	/**
@@ -861,10 +865,10 @@ class phpbrain_bo extends sokb
 	*/
 	function add_rating($current_rating, $sitemgr=False)
 	{
-		if(!parent::add_vote($this->article_id, $_POST['Rate'], $current_rating)) return 0;
+		if(!$this->so->add_vote($this->article_id, $_POST['Rate'], $current_rating)) return 0;
 		if (!$sitemgr)
 		{
-			if (!parent::add_rating_user($this->article_id)) return 0;
+			if (!$this->so->add_rating_user($this->article_id)) return 0;
 		}
 		// register vote in session
 		if (!$data = $GLOBALS['egw']->session->appsession('ratings', 'phpbrain')) $data = array();
@@ -894,7 +898,7 @@ class phpbrain_bo extends sokb
 			$publish = False;
 			$message = 'comm_submited';
 		}
-		if (!parent::add_comment($comment, $this->article_id, $publish)) return 0;
+		if (!$this->so->add_comment($comment, $this->article_id, $publish)) return 0;
 		return $message;
 	}
 
@@ -910,7 +914,7 @@ class phpbrain_bo extends sokb
 		// first check permission
 		if (!$this->check_permission($this->edit_right)) return 'no_perm';
 		if (strlen(get_var('url', 'POST'))==0) return 'link_prob';
-		if(!parent::add_link(get_var('url', 'POST'), get_var('url_title', 'POST'), $this->article_id)) return 'link_prob';
+		if(!$this->so->add_link(get_var('url', 'POST'), get_var('url_title', 'POST'), $this->article_id)) return 'link_prob';
 
 		$GLOBALS['egw']->historylog->add('AL', $this->article_id, get_var('url', 'POST'), '');
 		return 'link_ok';
@@ -942,7 +946,7 @@ class phpbrain_bo extends sokb
 			}
 		}
 
-		if (!parent::publish_article($art_id)) return 'publish_err';
+		if (!$this->so->publish_article($art_id)) return 'publish_err';
 		return 'publish_ok';
 	}
 
@@ -960,7 +964,7 @@ class phpbrain_bo extends sokb
 		// first check permission
 		if (!$this->check_permission($this->publish_right, $owner)) return 'no_perm';
 
-		if (!parent::publish_question($q_id)) return 'publish_err';
+		if (!$this->so->publish_question($q_id)) return 'publish_err';
 		return 'publish_ok';
 	}
 
@@ -977,7 +981,7 @@ class phpbrain_bo extends sokb
 		// first check permission
 		if (!$this->check_permission($this->edit_right)) return 'no_perm';
 
-		if (!parent::publish_comment($this->article_id, $comment_id)) return 'publish_comm_err';
+		if (!$this->so->publish_comment($this->article_id, $comment_id)) return 'publish_comm_err';
 		return 'publish_comm_ok';
 	}
 
@@ -995,7 +999,7 @@ class phpbrain_bo extends sokb
 		// check permission
 		if (!$this->check_permission($this->edit_right)) return 'no_perm';
 
-		if (!parent::delete_comment($this->article_id, $comment_id)) return 'del_comm_err';
+		if (!$this->so->delete_comment($this->article_id, $comment_id)) return 'del_comm_err';
 		return 'del_comm_ok';
 	}
 
@@ -1012,7 +1016,7 @@ class phpbrain_bo extends sokb
 		// first check permission
 		if (!$this->check_permission($this->edit_right)) return 'no_perm';
 
-		if (!parent::delete_link($this->article_id, $link)) return 'link_del_err';
+		if (!$this->so->delete_link($this->article_id, $link)) return 'link_del_err';
 
 		$GLOBALS['egw']->historylog->add('RL', $this->article_id, $link, '');
 		return 'link_del_ok';
@@ -1092,14 +1096,14 @@ class phpbrain_bo extends sokb
 		}
 
 		// check permissions on those articles
-		$owners_list = parent::owners_list($parsed_list);
+		$owners_list = $this->so->owners_list($parsed_list);
 		foreach ($owners_list as $owner)
 		{
 			if ($this->check_permission($this->edit_right, $owner['user_id'])) $final_list[] = $owner['art_id'];
 		}
 
 		// update database
-		if (!parent::add_related($this->article_id, $final_list)) return 'articles_not_added';
+		if (!$this->so->add_related($this->article_id, $final_list)) return 'articles_not_added';
 
 		$final_list = implode(', ', $final_list);
 		$GLOBALS['egw']->historylog->add('AR', $this->article_id, $final_list, '');
@@ -1116,7 +1120,7 @@ class phpbrain_bo extends sokb
 	function delete_related()
 	{
 		$related_article = urldecode($_GET['delete_related']);
-		parent::delete_related($this->article_id, $related_article);
+		$this->so->delete_related($this->article_id, $related_article);
 		$GLOBALS['egw']->historylog->add('DR', $this->article_id, $related_article, '');
 	}
 
@@ -1134,7 +1138,7 @@ class phpbrain_bo extends sokb
 		$data['details'] = get_var('details', 'POST');
 		$data['cat_id'] = (int)get_var('cat_id', 'POST', 0);
 		$publish = ($this->admin_config['publish_questions'] == 'True')? True : False;
-		return parent::add_question($data, $publish);
+		return $this->so->add_question($data, $publish);
 	}
 
 	/**
@@ -1148,7 +1152,7 @@ class phpbrain_bo extends sokb
 	*/
 	function get_question($q_id,$published=1)
 	{
-		$question = parent::get_question($q_id,$published);
+		$question = $this->so->get_question($q_id,$published);
 		$username = $GLOBALS['egw']->accounts->get_account_name($question['user_id'], $lid, $fname, $lname);
 		$question['username'] = $fname . ' ' . $lname;
 		$question['creation'] = $GLOBALS['egw']->common->show_date($question['creation'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']);
@@ -1163,12 +1167,12 @@ class phpbrain_bo extends sokb
 	* @param	array	$article_contents
 	* @return	string	Success or error message
 	*/
-	function mail_article($article_contents)
+	function mail($article_contents)
 	{
 		// check address syntaxis
 		$recipient = get_var('recipient', 'POST');
 		$reply_to = get_var('reply', 'POST', 0);
-		$theresults = ereg("^[^@ ]+@[^@ ]+\.[^@ \.]+$", $recipient, $trashed);
+		$theresults = preg_match("/^[^@ ]+@[^@ ]+\.[^@ \.]+$/", $recipient, $trashed);
 		if (!$theresults) return 'mail_err';
 
 		$GLOBALS['egw']->send = CreateObject('phpgwapi.send');
@@ -1226,11 +1230,11 @@ class phpbrain_bo extends sokb
 		$owners = $this->accessible_owners();
 		$this->phrase=$pattern;
 		$this->ocurrences="all";
-		foreach((array) $articles = parent::adv_search_articles($owners, array(), $this->ocurrences, $this->pub_date, $start, $limit, $this->all_words, $this->phrase, $this->one_word, $this->without_words, $this->cat, $this->include_subs) as $item )
+		foreach((array) $articles = $this->so->adv_search_articles($owners, array(), $this->ocurrences, $this->pub_date, $start, $limit, $this->all_words, $this->phrase, $this->one_word, $this->without_words, $this->cat, $this->include_subs) as $item )
 		{
 			if ($item) $result[$item['art_id']] = $this->link_title($item);
 		}
-		$options['total'] = parent::$num_rows;
+		$options['total'] = sokb::$num_rows;
 
 		// Support linking by article number
 		if(is_numeric($pattern) || $pattern[0] == '#' && is_numeric(substr($pattern,1))) {
@@ -1288,15 +1292,15 @@ class phpbrain_bo extends sokb
 		{
 			$buff = $this->return_single_category($cat_id);
 			$oldcat = $buff[0];
-			$allarticles = parent::search_articles(array('fetch'=>'all'), $cat_id, 0, '', 'DESC', 'art_id', false, '');
-			parent::change_articles_cat($cat_id, 0);
+			$allarticles = $this->so->search_articles(array('fetch'=>'all'), $cat_id, 0, '', 'DESC', 'art_id', false, '');
+			$this->so->change_articles_cat($cat_id, 0);
 			foreach ((array)$allarticles as $art)
 			{
 				//error_log(__METHOD__.__LINE__.array2string($art));
 				$GLOBALS['egw']->historylog->add('CC', $art['art_id'], 'none',$oldcat['name'].' (ID:'.$oldcat['id'].')');
 			}
 			unset($allarticles);
-			parent::change_questions_cat($cat_id, 0);
+			$this->so->change_questions_cat($cat_id, 0);
 		}
 	}
 
