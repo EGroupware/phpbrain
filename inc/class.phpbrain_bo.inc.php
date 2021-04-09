@@ -1350,4 +1350,20 @@ class phpbrain_bo
 	{
 		return true;
 	}
+
+	/**
+	 * Call sokb methods, as we no longer extend sokb
+	 *
+	 * @param $name
+	 * @param array $parms
+	 * @return mixed
+	 */
+	public function __call($name, array $parms)
+	{
+		if (method_exists($this->so, $name))
+		{
+			return $this->so->$name(...$parms);
+		}
+		throw new Error("Call to invalid method ".__CLASS__.'::'.$name.'()');
+	}
 }
