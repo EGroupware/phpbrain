@@ -791,7 +791,7 @@ class phpbrain_bo
 		if (is_array($art_id))
 		{
 			$art_id = $art_id[0];
-			if (count($art_id)>1) $mimetype = $art_id[1];
+			if (count((array)$art_id)>1) $mimetype = $art_id[1];
 		}
 		if (!$article = $this->so->get_article($art_id)) return null;
 		// check permissions
