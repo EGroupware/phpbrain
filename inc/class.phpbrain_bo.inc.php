@@ -489,7 +489,7 @@ class phpbrain_bo
 	{
 		$history = $GLOBALS['egw']->historylog->return_array('', '', 'history_timestamp', 'DESC', $this->article_id);
 		// echo "history: <pre>";print_r($history);echo "</pre>";
-		for ($i = 0; $i<sizeof($history); $i++)
+		for ($i = 0; $i<count($history ?? []); $i++)
 		{
 			$history[$i]['datetime'] = $GLOBALS['egw']->common->show_date($history[$i]['datetime'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']);
 			$GLOBALS['egw']->accounts->get_account_name($history[$i]['owner'], $lid, $fname, $lname);
