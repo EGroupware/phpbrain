@@ -1,7 +1,7 @@
 %1 entries %2	phpbrain	de	%1 Einträge %2
 %1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	de	%1 Datensätze%2, %3 nicht möglich, wegen fehlender Rechte
 %1 entries %2, %3 failed.	phpbrain	de	%1 Einträge %2, %3 fehlgeschlagen.
-/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	de	Das Verzeichnis /kb existiert nicht oder konnte nicht erstellt werden. Bitte kontaktieren Sie den Administrator zur Überprüfung der Konfiguration.
+/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	de	Der Ordner /kb existiert nicht oder konnte nicht erstellt werden. Bitte kontaktieren Sie den Administrator zur Überprüfung der Konfiguration.
 action	phpbrain	de	Befehl
 actions	phpbrain	de	Befehle
 add articles	phpbrain	de	Artikel hinzufügen
@@ -38,7 +38,7 @@ ascendent	phpbrain	de	Aufsteigend
 attach file	phpbrain	de	Datei hinzufügen
 attached files	phpbrain	de	Hinzugefügte Dateien
 average rating	phpbrain	de	Durchschnittliche Bewertung
-base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	de	Das Hauptverzeichnis existiert nicht. Bitte kontaktieren Sie den Administrator damit dieser die Konfiguration überprüft.
+base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	de	Der Hauptordner existiert nicht. Bitte kontaktieren Sie den Administrator damit dieser die Konfiguration überprüft.
 before submiting a question, please search in the knowledge base first	phpbrain	de	Bevor Sie eine Frage einreichen, durchsuchen Sie bitte die Wissensdatenbank zuerst
 by answering this question you will help to get the answer quicker the next time	phpbrain	de	Durch beantworten diese Frage helfen Sie, das nächste mal eine schnellere Antwort zu erhalten.
 changed category from %1 to %2	phpbrain	de	Kategorie %1 nach %2 umbenannt
