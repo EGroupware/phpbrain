@@ -97,12 +97,14 @@
 <div align="center">
 	<script type="text/javascript">
 		var tab;
-		egw_LAB.wait(function() {
-			tab = new Tabs(3,'activetab','inactivetab','tab','tabcontent','','','tabpage');
-			jQuery(document).ready(function(){
-				tab.init();
+        window.setTimeout(function() {
+			egw_LAB.wait(function() {
+				tab = new Tabs(3,'activetab','inactivetab','tab','tabcontent','','','tabpage');
+				jQuery(document).ready(function(){
+					tab.init();
+				});
 			});
-		});
+        }, 200);
 	</script>
 		<table  width="100%" border="0" cellspacing="0" cellpadding="3" style='border:1px solid black'>
 			<tr class="th">
