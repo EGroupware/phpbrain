@@ -1,0 +1,209 @@
+%1 entries %2	phpbrain	km	%1 ធាតុ %2
+%1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	km	%1 ធាតុ %2, %3 បានបរាជ័យ ដោយសារសិទ្ធិមិនគ្រប់គ្រាន់ !!!
+%1 entries %2, %3 failed.	phpbrain	km	%1 ធាតុ %2, %3 បានបរាជ័យ។
+/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	km	ថត /kb មិនមានទេ ហើយមិនអាចបង្កើតបានទេ សូមសួរអ្នកគ្រប់គ្រងឱ្យពិនិត្យមើលការកំណត់សកល
+action	phpbrain	km	សកម្មភាព
+actions	phpbrain	km	សកម្មភាព
+add articles	phpbrain	km	បន្ថែមអត្ថបទ
+add link	phpbrain	km	បន្ថែមតំណ
+add question	phpbrain	km	បន្ថែមសំណួរ
+added file %1	phpbrain	km	បាន​បន្ថែម​ឯកសារ %1
+added link %1	phpbrain	km	បាន​បន្ថែម​តំណ %1
+added related articles %1	phpbrain	km	បានបន្ថែមអត្ថបទពាក់ព័ន្ធ %1
+advanced search	phpbrain	km	ការស្វែងរកកម្រិតខ្ពស់
+all articles	phpbrain	km	អត្ថបទទាំងអស់
+allow posting of questions	phpbrain	km	អនុញ្ញាតឱ្យបង្ហោះសំណួរ
+allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	km	អនុញ្ញាតឱ្យបោះពុម្ពអត្ថបទដោយអ្នកនិពន្ធ? (មានប្រសិទ្ធភាពលុះត្រាតែមានការយល់ព្រមលើអត្ថបទ)
+answer	phpbrain	km	ចម្លើយ
+anytime	phpbrain	km	គ្រប់ពេលវេលា
+anywhere in the article	phpbrain	km	កន្លែងណាមួយនៅក្នុងអត្ថបទ
+are you sure you want to delete the selected articles ?	phpbrain	km	តើអ្នកប្រាកដថាចង់លុបអត្ថបទដែលបានជ្រើសរើសទេ?
+are you sure you want to delete the selected questions ?	phpbrain	km	តើអ្នកប្រាកដថាចង់លុបសំណួរដែលបានជ្រើសរើសទេ?
+are you sure?	phpbrain	km	តើ​អ្នក​ប្រាកដ​ឬ​អត់?
+article	phpbrain	km	អត្ថបទ
+article added to database, you can now attach files or links, or relate to other articles	phpbrain	km	អត្ថបទត្រូវបានបន្ថែមទៅមូលដ្ឋានទិន្នន័យ ឥឡូវនេះអ្នកអាចភ្ជាប់ឯកសារ ឬតំណភ្ជាប់ ឬទាក់ទងនឹងអត្ថបទផ្សេងទៀត។
+article created	phpbrain	km	អត្ថបទត្រូវបានបង្កើតឡើង។
+article deleted	phpbrain	km	អត្ថបទត្រូវបានលុប។
+article deleted successfully	phpbrain	km	អត្ថបទត្រូវបានលុបដោយជោគជ័យ។
+article edited	phpbrain	km	អត្ថបទត្រូវបានកែសម្រួល។
+article has been published	phpbrain	km	អត្ថបទត្រូវបានបោះពុម្ព។
+article id	phpbrain	km	លេខសម្គាល់អត្ថបទ
+articles added	phpbrain	km	អត្ថបទបន្ថែម។
+articles deleted successfully	phpbrain	km	អត្ថបទត្រូវបានលុបដោយជោគជ័យ។
+articles have been published	phpbrain	km	អត្ថបទត្រូវបានបោះពុម្ពផ្សាយ។
+articles in %1	phpbrain	km	អត្ថបទក្នុង %1
+articles in %1 and all its subcategories	phpbrain	km	អត្ថបទនៅក្នុង % 1 និងប្រភេទរងរបស់វាទាំងអស់។
+articles not classified under any category	phpbrain	km	អត្ថបទមិនត្រូវបានចាត់ថ្នាក់ក្រោមប្រភេទណាមួយឡើយ។
+ascendent	phpbrain	km	ឡើង
+attach file	phpbrain	km	ភ្ជាប់ឯកសារ
+attached files	phpbrain	km	ឯកសារ​ភ្ជាប់
+average rating	phpbrain	km	ការវាយតម្លៃជាមធ្យម
+base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	km	មិនមានថតមូលដ្ឋានទេ សូមសួរអ្នកគ្រប់គ្រងឱ្យពិនិត្យមើលការកំណត់រចនាសម្ព័ន្ធសកល។
+before submiting a question, please search in the knowledge base first	phpbrain	km	មុននឹងដាក់សំណួរ សូមស្វែងរកក្នុង Knowledge Base ជាមុនសិន។
+by answering this question you will help to get the answer quicker the next time	phpbrain	km	តាមរយៈការឆ្លើយសំណួរនេះ អ្នកនឹងជួយឱ្យទទួលបានចម្លើយកាន់តែលឿននៅពេលបន្ទាប់។
+changed category from %1 to %2	phpbrain	km	បានផ្លាស់ប្តូរប្រភេទពី %1 ទៅ %2
+comment	phpbrain	km	មតិយោបល់
+comment and rating have been published	phpbrain	km	មតិយោបល់ និងការវាយតម្លៃត្រូវបានបោះពុម្ពផ្សាយ។
+comment could not be inserted in the database	phpbrain	km	មិន​អាច​បញ្ចូល​មតិ​ក្នុង​មូលដ្ឋាន​ទិន្នន័យ​បាន​ទេ។
+comment has been deleted	phpbrain	km	មតិ​ត្រូវ​បាន​លុប។
+comment has been published	phpbrain	km	មតិត្រូវបានបោះពុម្ពផ្សាយ។
+comment has been submited for revision	phpbrain	km	មតិ​ត្រូវ​បាន​ដាក់​ជូន​សម្រាប់​ការ​កែប្រែ។
+comment has been submited for revision and rating will be published	phpbrain	km	មតិ​ត្រូវ​បាន​ដាក់​ជូន​សម្រាប់​ការ​កែប្រែ ហើយ​ការ​វាយតម្លៃ​នឹង​ត្រូវ​បាន​បោះពុម្ព​ផ្សាយ។
+comments	phpbrain	km	មតិយោបល់
+configuration	phpbrain	km	ការកំណត់​រចនាសម្ព័ន្ធ
+contents	phpbrain	km	មាតិកា
+create a new article to answer the question asked by %1 in %2	phpbrain	km	បង្កើតអត្ថបទថ្មីមួយដើម្បីឆ្លើយសំណួរដែលសួរដោយ% 1 ក្នុង % 2
+created by %1 on %2	phpbrain	km	បង្កើតដោយ %1 នៅលើ %2
+creation	phpbrain	km	ការបង្កើត
+creation date	phpbrain	km	កាលបរិច្ឆេទ​បង្កើត
+delete article	phpbrain	km	លុបអត្ថបទ
+delete selected	phpbrain	km	លុបដែលបានជ្រើសរើស
+deleted	phpbrain	km	បានលុប
+deleted relation to  article %1	phpbrain	km	បានលុបទំនាក់ទំនងទៅអត្ថបទ %1
+deleted relation to article %1	phpbrain	km	បានលុបទំនាក់ទំនងទៅអត្ថបទ %1
+descendent	phpbrain	km	បន្តពូជ
+details	phpbrain	km	ព័ត៌មានលម្អិត
+e-groupware knowledge base article attached	phpbrain	km	អត្ថបទមូលដ្ឋានចំណេះដឹងត្រូវបានភ្ជាប់
+e-mail has been sent	phpbrain	km	អ៊ីមែលត្រូវបានផ្ញើ
+edit article	phpbrain	km	កែសម្រួលអត្ថបទ
+edit unpublished article to answer the question asked by %1 in %2	phpbrain	km	កែសម្រួលអត្ថបទដែលមិនបានបោះពុម្ព ដើម្បីឆ្លើយសំណួរដែលសួរដោយ %1 ក្នុង %2
+enter one or two words describing the issue, or type the article number if you know it	phpbrain	km	បញ្ចូលពាក្យពីរបីដែលពិពណ៌នាអំពីបញ្ហា ឬវាយលេខអត្ថបទ ប្រសិនបើអ្នកស្គាល់វា។
+enterprise knowledge articles repository	phpbrain	km	ឃ្លាំងអត្ថបទចំណេះដឹងសហគ្រាស
+error deleting article from database	phpbrain	km	កំហុសក្នុងការលុបអត្ថបទចេញពីមូលដ្ឋានទិន្នន័យ!
+error deleting link	phpbrain	km	កំហុសក្នុងការលុបតំណ!
+error downloading file	phpbrain	km	កំហុសក្នុងការទាញយកឯកសារ!
+error locating files directory	phpbrain	km	កំហុសក្នុងការកំណត់ទីតាំងថតឯកសារ!
+error moving file to directory	phpbrain	km	កំហុសក្នុងការផ្លាស់ទីឯកសារទៅថត!
+error publishing comment	phpbrain	km	កំហុសក្នុងការបោះពុម្ពមតិ!
+error retrieving article	phpbrain	km	កំហុសក្នុងការទាញយកអត្ថបទ!
+error trying to delete comment	phpbrain	km	មាន​កំហុស​ក្នុង​ការ​ព្យាយាម​លុប​មតិ​!
+error trying to delete question	phpbrain	km	មាន​បញ្ហា​ក្នុង​ការ​ព្យាយាម​លុប​សំណួរ!
+error trying to edit article	phpbrain	km	កំហុសក្នុងការព្យាយាមកែសម្រួលអត្ថបទ!
+error trying to publish article	phpbrain	km	កំហុសក្នុងការព្យាយាមបោះពុម្ពអត្ថបទ!
+error: file doesn't exist in the database	phpbrain	km	កំហុស៖ ឯកសារមិនមាននៅក្នុងមូលដ្ឋានទិន្នន័យទេ!
+excellent	phpbrain	km	ល្អឥតខ្ចោះ
+failure trying to delete the file	phpbrain	km	បរាជ័យក្នុងការព្យាយាមលុបឯកសារ។
+file could be deleted from server but not from database	phpbrain	km	ឯកសារអាចត្រូវបានលុបចេញពីម៉ាស៊ីនមេ ប៉ុន្តែមិនមែនចេញពីមូលដ្ឋានទិន្នន័យទេ។
+file has been successfully uploaded	phpbrain	km	ឯកសារត្រូវបានផ្ទុកឡើងដោយជោគជ័យ។
+file was already missing from server, and was deleted from the database	phpbrain	km	ឯកសារត្រូវបានបាត់ពីម៉ាស៊ីនមេរួចហើយ ហើយត្រូវបានលុបចេញពីមូលដ្ឋានទិន្នន័យ។
+file was deleted successfully	phpbrain	km	ឯកសារត្រូវបានលុបដោយជោគជ័យ។
+file wasn't in server and it couldn't be deleted from the database	phpbrain	km	ឯកសារមិនមាននៅក្នុងម៉ាស៊ីនមេទេ ហើយវាមិនអាចត្រូវបានលុបចេញពីមូលដ្ឋានទិន្នន័យទេ។
+find results	phpbrain	km	ស្វែងរកលទ្ធផល
+global categories	phpbrain	km	ប្រភេទសកល
+have to be approved first	common	km	ត្រូវតែអនុម័តជាមុន
+history	phpbrain	km	ប្រវត្តិសាស្ត្រ
+if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	km	ប្រសិនបើអ្នកមិនអាចស្វែងរកចម្លើយចំពោះបញ្ហារបស់អ្នកនៅក្នុង Knowledge Base សូមពណ៌នាវាខាងក្រោម។
+if you wish, you can comment this article here	phpbrain	km	ប្រសិនបើអ្នកចង់អ្នកអាច comment អត្ថបទនេះ។
+in %1	phpbrain	km	ក្នុង% 1
+in the text	phpbrain	km	នៅក្នុងអត្ថបទ
+in the title	phpbrain	km	នៅក្នុងចំណងជើង
+in the topic	phpbrain	km	នៅក្នុងប្រធានបទ
+include subcategories	phpbrain	km	រួមបញ្ចូលប្រភេទរង
+keywords	phpbrain	km	ពាក្យគន្លឹះ
+knowledge base	phpbrain	km	មូលដ្ឋានចំណេះដឹង
+knowledge base article #%1	phpbrain	km	អត្ថបទមូលដ្ឋានចំណេះដឹង #%1
+knowledge base configuration	common	km	ការកំណត់រចនាសម្ព័ន្ធចំណេះដឹង
+last modification by %1 on %2	phpbrain	km	ការកែប្រែចុងក្រោយដោយ %1 នៅលើ %2
+last modified	phpbrain	km	កែប្រែចុងក្រោយ
+latest	phpbrain	km	ចុងក្រោយ
+latest comments	phpbrain	km	មតិចុងក្រោយ
+leave empty to automatically generate an id	phpbrain	km	ទុកទទេដើម្បីបង្កើតលេខសម្គាល់ដោយស្វ័យប្រវត្តិ
+link could not be added	phpbrain	km	តំណភ្ជាប់មិនអាចបន្ថែមបានទេ!
+link deleted successfully	phpbrain	km	តំណត្រូវបានលុបដោយជោគជ័យ។
+link has been added	phpbrain	km	តំណភ្ជាប់ត្រូវបានបន្ថែម។
+links	phpbrain	km	តំណភ្ជាប់
+links & files	phpbrain	km	តំណភ្ជាប់ និងឯកសារ
+mail article	phpbrain	km	អត្ថបទសំបុត្រ
+main view	phpbrain	km	ទិដ្ឋភាពចម្បង
+maintain articles	phpbrain	km	ថែរក្សាអត្ថបទ
+maintain questions	phpbrain	km	រក្សាសំណួរ
+maximum number of comments to show:	phpbrain	km	ចំនួនអតិបរមានៃមតិយោបល់ដើម្បីបង្ហាញ៖
+maximum number of most popular articles, latest articles and unanswered questions to show in the main view:	phpbrain	km	ចំនួនអតិបរមានៃអត្ថបទពេញនិយមបំផុត អត្ថបទចុងក្រោយបំផុត និងសំណួរដែលមិនទាន់មានចម្លើយដែលត្រូវបង្ហាញនៅក្នុងទិដ្ឋភាពចម្បង៖
+modification date	phpbrain	km	កាលបរិច្ឆេទកែប្រែ
+most viewed	phpbrain	km	បានមើលច្រើនបំផុត
+name of the backlink to the index:	admin	km	ឈ្មោះ backlink ទៅលិបិក្រម៖
+new article	phpbrain	km	អត្ថបទថ្មី។
+nobody has rated this article so far	phpbrain	km	រហូតមកដល់ពេលនេះ គ្មាននរណាម្នាក់វាយតម្លៃអត្ថបទនេះទេ។
+nothing was uploaded!	phpbrain	km	គ្មាន​អ្វី​ត្រូវ​បាន​បង្ហោះ!
+number of results per page	phpbrain	km	ចំនួនលទ្ធផល
+ocurrences	phpbrain	km	ការកើតឡើង
+or browse the categories	phpbrain	km	រកមើលប្រភេទ
+order results by	phpbrain	km	បញ្ជាទិញលទ្ធផលដោយ
+outstanding published questions	phpbrain	km	សំណួរដែលបានបោះពុម្ពផ្សាយ
+overwrite file	phpbrain	km	សរសេរជាន់លើឯកសារដែលមានស្រាប់?
+past %1 months	phpbrain	km	%1 ខែកន្លងមក
+past year	phpbrain	km	ឆ្នាំមុន
+people have rated this article	phpbrain	km	មនុស្សបានវាយតម្លៃអត្ថបទនេះ។
+phpbrain	common	km	មូលដ្ឋានចំណេះដឹង
+please rate the pertinence and quality of this article	phpbrain	km	សូមវាយតម្លៃភាពពាក់ព័ន្ធ និងគុណភាពនៃអត្ថបទនេះ។
+please try again	phpbrain	km	សូម​ព្យាយាម​ម្តង​ទៀត
+poor	phpbrain	km	ក្រីក្រ
+printer view	phpbrain	km	ទិដ្ឋភាពម៉ាស៊ីនបោះពុម្ព
+problem relating articles	phpbrain	km	បញ្ហាទាក់ទងនឹងអត្ថបទ
+publication date	phpbrain	km	កាលបរិច្ឆេទបោះពុម្ពផ្សាយ
+publish	phpbrain	km	បោះពុម្ពផ្សាយ
+publish articles automatically?	common	km	បោះពុម្ពអត្ថបទដោយស្វ័យប្រវត្តិ
+publish comments automatically?	common	km	បញ្ចេញមតិដោយស្វ័យប្រវត្តិ
+publish questions automatically?	common	km	បោះពុម្ពសំណួរដោយស្វ័យប្រវត្តិ
+publish selected	phpbrain	km	បានជ្រើសរើសបោះពុម្ព
+published	phpbrain	km	បោះពុម្ពផ្សាយ
+question	phpbrain	km	សំណួរ
+question deleted successfully	phpbrain	km	បានលុបសំណួរដោយជោគជ័យ
+questions deleted successfully	phpbrain	km	សំណួរត្រូវបានលុបដោយជោគជ័យ
+rating has been submited	phpbrain	km	ការវាយតម្លៃត្រូវបានដាក់ជូន
+rating invalid	phpbrain	km	ការវាយតម្លៃមិនត្រឹមត្រូវ
+recipient	phpbrain	km	អ្នកទទួល
+related articles in the knowledge base	phpbrain	km	អត្ថបទពាក់ព័ន្ធនៅក្នុង មូលដ្ឋានចំណេះដឹង
+relation with article was removed successfully	phpbrain	km	ទំនាក់ទំនងជាមួយអត្ថបទត្រូវបានដកចេញដោយជោគជ័យ។
+removed file %1	phpbrain	km	បានលុបឯកសារ %1
+removed link %1	phpbrain	km	បាន​លុប​តំណ %1
+reply-to	phpbrain	km	ឆ្លើយតបទៅ
+search in all the knowledge base	phpbrain	km	ស្វែងរកក្នុងមូលដ្ឋានចំណេះដឹង
+search results	phpbrain	km	លទ្ធផលស្វែងរក
+see more questions	phpbrain	km	មើលសំណួរបន្ថែម
+see more questions...	phpbrain	km	មើលសំណួរបន្ថែម...
+select articles	phpbrain	km	ជ្រើសរើសអត្ថបទ
+should the article view make an automatic table of contents?	admin	km	តើការមើលអត្ថបទគួរតែបង្កើតតារាងមាតិកាដោយស្វ័យប្រវត្តិទេ?
+show all comments	phpbrain	km	បង្ហាញមតិទាំងអស់។
+show articles belonging to:	phpbrain	km	បង្ហាញអត្ថបទដែលជាកម្មសិទ្ធិរបស់៖
+show messages in category	phpbrain	km	បង្ហាញសារក្នុងប្រភេទ
+submit comment	phpbrain	km	ដាក់​ស្នើ​យោបល់
+submit comment and rating	phpbrain	km	ដាក់ស្នើមតិយោបល់ និងការវាយតម្លៃ
+suggested category	phpbrain	km	ប្រភេទដែលបានណែនាំ
+summary	phpbrain	km	សង្ខេប
+table of contents	phpbrain	km	តារាង​មាតិកា
+that file already exists	phpbrain	km	ឯកសារនោះមានរួចហើយ!
+the article id must be a number	phpbrain	km	លេខសម្គាល់អត្ថបទត្រូវតែជាលេខ។
+the article is empty	phpbrain	km	អត្ថបទគឺទទេ។
+the file was already missing in the server	phpbrain	km	ឯកសារ​បាន​បាត់​នៅ​ក្នុង​ម៉ាស៊ីន​មេ​ហើយ។
+the following errors occurred	phpbrain	km	កំហុសខាងក្រោមបានកើតឡើង៖
+the mail server returned:	phpbrain	km	ម៉ាស៊ីនមេអ៊ីមែលបានត្រឡប់មកវិញ៖
+the present category and all subcategories under it	phpbrain	km	ប្រភេទបច្ចុប្បន្ន និងទាំងអស់របស់វារង
+the present category only	phpbrain	km	ប្រភេទបច្ចុប្បន្នតែប៉ុណ្ណោះ
+there are no articles	phpbrain	km	មិនមានអត្ថបទទេ។
+there are no articles available	phpbrain	km	មិនមានអត្ថបទដែលអាចប្រើបានទេ។
+this article hasn't yet been published in the knowledge base	phpbrain	km	អត្ថបទនេះមិនទាន់ត្រូវបានបោះពុម្ពនៅក្នុង Knowledge Base នៅឡើយទេ។
+title	phpbrain	km	ចំណងជើង
+to create categories, press 'edit categories' in the preferences menu	phpbrain	km	ដើម្បីបង្កើតប្រភេទសូមចុច 'កែសម្រួលប្រភេទ' នៅក្នុងម៉ឺនុយចំណូលចិត្ត។
+topic	phpbrain	km	ប្រធានបទ
+unable to add rating to database	phpbrain	km	មិនអាចបន្ថែមការវាយតម្លៃទៅមូលដ្ឋានទិន្នន័យបានទេ។
+unanswered questions	phpbrain	km	សំណួរដែលមិនមានចម្លើយ
+unpublish	phpbrain	km	ឈប់ផ្សព្វផ្សាយ
+unpublished	phpbrain	km	មិនបានផ្សព្វផ្សាយ។
+user preferences	phpbrain	km	ចំណូលចិត្តរបស់អ្នកប្រើប្រាស់
+views	phpbrain	km	ទស្សនៈ
+was it easy to find this article using the above search string?	phpbrain	km	តើវាងាយស្រួលក្នុងការស្វែងរកអត្ថបទនេះដោយប្រើខ្សែអក្សរស្វែងរកខាងលើទេ?
+when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	km	នៅពេលរុករកតាមប្រភេទ សូមជ្រើសរើសថាតើបញ្ជីអត្ថបទដែលបានបង្ហាញត្រូវគ្នានឹងប្រភេទបច្ចុប្បន្ន ឬប្រភេទបច្ចុប្បន្ន និងទាំងអស់វាជារង។
+with all the words	phpbrain	km	ជាមួយនឹងពាក្យទាំងអស់។
+with at least one of the words	phpbrain	km	យ៉ាងហោចណាស់មួយពាក្យ
+with the exact phrase	phpbrain	km	ជាមួយនឹងឃ្លាជាក់លាក់
+without the words	phpbrain	km	ដោយគ្មានពាក្យ
+you are in %1	phpbrain	km	អ្នកស្ថិតនៅក្នុង %1
+you have already qualified this article	phpbrain	km	អ្នក​បាន​បំពេញ​អត្ថបទ​នេះ​រួច​ហើយ។
+you have not the proper permissions to do that	phpbrain	km	អ្នក​មិន​មាន​ការ​អនុញ្ញាត​ត្រឹមត្រូវ​ក្នុង​ការ​ធ្វើ​ដូច្នេះ​ទេ។
+you must enter a title	phpbrain	km	អ្នកត្រូវតែបញ្ចូលចំណងជើង។
+you must enter a topic	phpbrain	km	អ្នកត្រូវតែបញ្ចូលប្រធានបទ។
+you need to select some entries first	phpbrain	km	អ្នកត្រូវជ្រើសរើសធាតុមួយចំនួនជាមុនសិន
+your message could not be sent!	phpbrain	km	សាររបស់អ្នកមិនអាចផ្ញើបានទេ!
+your question will be posted, but only will be published after approval by a user with publishing rights	phpbrain	km	សំណួររបស់អ្នកនឹងត្រូវបានបង្ហោះ ប៉ុន្តែនឹងត្រូវបានបោះពុម្ពបន្ទាប់ពីមានការយល់ព្រមពីអ្នកប្រើប្រាស់ដែលមានសិទ្ធិបោះពុម្ព។
+your question will be published immediately	phpbrain	km	សំណួររបស់អ្នកនឹងត្រូវបានផ្សព្វផ្សាយភ្លាមៗ
