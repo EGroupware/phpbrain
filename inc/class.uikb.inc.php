@@ -11,6 +11,8 @@
  * @version $Id$
  */
 
+use EGroupware\Api;
+
 /**
 * Presentation layer of the Knowledge Base
 *
@@ -1633,10 +1635,11 @@ class uikb extends bokb
 			}
 		}
 		unset($content['nm']['rows']['selected']);
+		$sel_options = $readonlys = [];
 		$sel_options['filter'] = array(lang('All'),lang('unpublished'),lang('published'));
 		$content['msg'] = $msg;
 
-		$tmpl = new etemplate('phpbrain.maintain_articles');
+		$tmpl = new Api\Etemplate('phpbrain.maintain_articles');
 		$tmpl->exec('phpbrain.uikb.maintain_articles',$content,$sel_options,$readonlys,array(
 			'nm' => $content['nm'],
 		));
@@ -1775,10 +1778,11 @@ class uikb extends bokb
 			}
 		}
 		unset($content['nm']['rows']['selected']);
+		$sel_options = $readonlys = [];
 		$sel_options['filter'] = array(lang('All'),lang('unpublished'),lang('published'));
 		$content['msg'] = $msg;
 
-		$tmpl = new etemplate('phpbrain.maintain_questions');
+		$tmpl = new Api\Etemplate('phpbrain.maintain_questions');
 		$tmpl->exec('phpbrain.uikb.maintain_questions',$content,$sel_options,$readonlys,array(
 			'nm' => $content['nm'],
 		));
