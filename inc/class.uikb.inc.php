@@ -1426,6 +1426,12 @@ class uikb extends bokb
 			));
 			$this->t->parse('article_id', 'article_id_block');
 		}
+		// Process cancel button
+		if ($_POST['cancel'])
+		{
+			egw::redirect_link($this->link, 'menuaction=phpbrain.uikb.index');
+			common::egw_exit();
+		}
 
 		// answering a question
 		$q_id			= (int)($_art_id&&$_isQuestion?$_art_id:get_var('q_id', 'GET', 0));
