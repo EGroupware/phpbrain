@@ -449,11 +449,11 @@ function phpbrain_upgrade1_5_002()
 		if ($art_id != $file['art_id'])
 		{
 			$ok = $sqlfs->mkdir('/apps/phpbrain/'.$file['art_id'],0,0);
-			$ok = $sqlfs->chmod('/apps/phpbrain/'.$file['art_id'],0);	// no default access
+			$ok = $sqlfs->stream_metadata('/apps/phpbrain/'.$file['art_id'],STREAM_META_OWNER, 0);	// no default access
 			$art_id = $file['art_id'];
 		}
 		list(,$fname) = explode('-',$file['art_file'],2);
-		sqlfs_stream_wrapper::rename('/kb/'.$file['art_file'],'/apps/phpbrain/'.$file['art_id'].'/'.$fname);
+		$sqlfs->rename('/kb/'.$file['art_file'],'/apps/phpbrain/'.$file['art_id'].'/'.$fname);
 	}
 	$ok = $sqlfs->rmdir('/kb',0);
 	egw_vfs::$is_root = $current_is_root;
