@@ -42,8 +42,8 @@
     display: block;
   }
   #late-sidebox Form,
-  #late-sidebox Form > Table {
-    height: 100%;
+  #late-sidebox .tox.tox-tinymce {
+    height: 100% !important;
   }
 }
 /*# sourceMappingURL=app.css.map */

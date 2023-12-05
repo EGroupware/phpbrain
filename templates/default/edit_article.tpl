@@ -1,6 +1,6 @@
 <form method="POST" action="{form_action}">
 {hidden_fields}
-<table  width="100%" border="0" cellspacing="1" cellpadding="3" style='border:1px solid black'>
+<table  width="100%" border="0" cellspacing="1" cellpadding="3">
 	{message}
 	<!-- BEGIN answer_question_block -->
 	<tr class="th">
@@ -58,22 +58,12 @@
 			<input type=text size=40 name="keywords" value="{value_keywords}">
 		</td>
 	</tr>
-	<tr>
-		<td colspan=2>
-			{value_text}
-		</td>
-	</tr>
-	<tr class="th">
-		<td colspan=2>
-			&nbsp;
-		</td>
-	</tr>
-
-	<tr>
-		<td colspan=2>
-			{btn_save}{btn_cancel}
-		</td>
-	</tr>
 </table>
+<div style="display: block;height: calc(100% - 180px);margin-top:10px;margin-bottom:10px;">
+    {value_text}
+</div>
+<div>
+    {btn_save}{btn_cancel}
+</div>
 </form>
 
