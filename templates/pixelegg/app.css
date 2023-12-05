@@ -37,4 +37,13 @@
     width: 16px;
     height: 16px;
   }
+  #late-sidebox {
+    height: 100%;
+    display: block;
+  }
+  #late-sidebox Form,
+  #late-sidebox Form > Table {
+    height: 100%;
+  }
 }
+/*# sourceMappingURL=app.css.map */
