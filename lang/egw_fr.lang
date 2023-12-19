@@ -1,7 +1,7 @@
 %1 entries %2	phpbrain	fr	%1 entrées %2
-%1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	fr	%1 entrées %2, %3 ont échoués par manque de droits suffisants !!!
+%1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	fr	%1 entrées %2, %3 ont échoués par manque de droits suffisants!
 %1 entries %2, %3 failed.	phpbrain	fr	%1 entrées %2, %3 en échec.
-/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	fr	le répertoire /kb n'existe pas et n'a pas pu être créé, veuillez demander à votre administrateur qu'il vérifie la configuration globale
+/kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	fr	Le répertoire /kb n'existe pas et n'a pas pu être créé, veuillez demander à votre administrateur qu'il vérifie la configuration globale
 action	phpbrain	fr	Action
 actions	phpbrain	fr	Actions
 add articles	phpbrain	fr	Ajouter un article
@@ -54,7 +54,7 @@ configuration	phpbrain	fr	Configuration
 contents	phpbrain	fr	Contenus
 create a new article to answer the question asked by %1 in %2	phpbrain	fr	Créez un nouvel article pour répondre à la question posée par %1 dans %2
 created by %1 on %2	phpbrain	fr	Créé par %1 le %2
-creation	phpbrain	fr	création
+creation	phpbrain	fr	Création
 creation date	phpbrain	fr	Date de création
 delete article	phpbrain	fr	Supprimer l'article
 delete selected	phpbrain	fr	Supprimer la sélection
@@ -63,7 +63,7 @@ deleted relation to  article %1	phpbrain	fr	Relation avec article %1 supprimée
 deleted relation to article %1	phpbrain	fr	Relation avec article %1 supprimée
 descendent	phpbrain	fr	Descendant
 details	phpbrain	fr	Détails
-e-groupware knowledge base article attached	phpbrain	fr	Article intégré à la base de connaissances E-GroupWare
+e-groupware knowledge base article attached	phpbrain	fr	Article de la base de connaissances EGroupware joint
 e-mail has been sent	phpbrain	fr	l'e-mail a été envoyé
 edit article	phpbrain	fr	Editer l'article
 edit unpublished article to answer the question asked by %1 in %2	phpbrain	fr	Editer l'article non publié pour répondre à la question posée par %1 dans %2
@@ -94,10 +94,10 @@ have to be approved first	common	fr	Doivent être approuvés d'abord
 history	phpbrain	fr	Historique
 if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	fr	Si vous ne pouvez pas trouvez de réponses à vos problème dans la base de connaissances, décrivez le ci-dessous
 if you wish, you can comment this article here	phpbrain	fr	Si vous le souhaitez vous pouvez commenter cet article ici
-in %1	phpbrain	fr	dans %1
-in the text	phpbrain	fr	dans le texte
-in the title	phpbrain	fr	dans le titre
-in the topic	phpbrain	fr	dans le sujet
+in %1	phpbrain	fr	Dans %1
+in the text	phpbrain	fr	Dans le texte
+in the title	phpbrain	fr	Dans le titre
+in the topic	phpbrain	fr	Dans le sujet
 include subcategories	phpbrain	fr	Inclure les sous-catégories
 keywords	phpbrain	fr	Mots-clés
 knowledge base	phpbrain	fr	Base de Connaissances
@@ -131,9 +131,9 @@ or browse the categories	phpbrain	fr	Où consulter les catégories
 order results by	phpbrain	fr	Trier les résultats par
 outstanding published questions	phpbrain	fr	Questions éditées en suspens
 overwrite file	phpbrain	fr	Ecraser le ficher existant?
-past %1 months	phpbrain	fr	des derniers %1 mois
-past year	phpbrain	fr	de l'année dernière
-people have rated this article	phpbrain	fr	personnes ont noté cet article
+past %1 months	phpbrain	fr	Des derniers %1 mois
+past year	phpbrain	fr	De l'année dernière
+people have rated this article	phpbrain	fr	Personnes ont noté cet article
 phpbrain	common	fr	Base de connaissances
 please rate the pertinence and quality of this article	phpbrain	fr	Merci de noter la pertinence et la qualité de cet article
 please try again	phpbrain	fr	Merci d'essayer à nouveau

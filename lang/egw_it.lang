@@ -1,5 +1,5 @@
 %1 entries %2	phpbrain	it	%1 voci %2
-%1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	it	%1 voci %2, %3 fallito per diritti insufficienti!!!
+%1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	it	%1 voci %2, %3 fallito per diritti insufficienti!
 %1 entries %2, %3 failed.	phpbrain	it	%1 voci %2, %3 fallito.
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	it	la directory /kb non esiste e non può essere creata. Chiedi all'amministratore di controllare la configurazione generale.
 action	phpbrain	it	Azione
@@ -19,7 +19,7 @@ anytime	phpbrain	it	In qualunque momento
 anywhere in the article	phpbrain	it	Ovunque nell'articolo
 are you sure you want to delete the selected articles ?	phpbrain	it	Confermi la cancellazione degli articoli selezionati?
 are you sure you want to delete the selected questions ?	phpbrain	it	Confermi la cancellazione delle domande selezionate?
-are you sure?	phpbrain	it	SEI SICURO?
+are you sure?	phpbrain	it	Sei sicuro?
 article	phpbrain	it	Articolo
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	it	Articolo aggiunto alla base dati, ora puoi aggiungere file o link, o fare riferimento ad altri articoli.
 article created	phpbrain	it	Articolo creato
@@ -54,7 +54,7 @@ configuration	phpbrain	it	Configurazione
 contents	phpbrain	it	Contenuti
 create a new article to answer the question asked by %1 in %2	phpbrain	it	Crea un nuovo articolo per rispondere alla domanda posta da %1 in %2
 created by %1 on %2	phpbrain	it	Creato da %1 il %2
-creation	phpbrain	it	creazione
+creation	phpbrain	it	Creazione
 creation date	phpbrain	it	Data creazione
 delete article	phpbrain	it	Elimina articolo
 delete selected	phpbrain	it	Elimina selezione
@@ -63,7 +63,7 @@ deleted relation to  article %1	phpbrain	it	Eliminata relazione all'articolo %1
 deleted relation to article %1	phpbrain	it	Elimina il riferimento all'articolo %1
 descendent	phpbrain	it	Discendente
 details	phpbrain	it	Dettagli
-e-groupware knowledge base article attached	phpbrain	it	Articolo Archivio Conoscenza e-GroupWare allegato
+e-groupware knowledge base article attached	phpbrain	it	Articolo della Knowledge Base di EGroupware allegato
 e-mail has been sent	phpbrain	it	l'e-mail è stata spedita
 edit article	phpbrain	it	Modifica articolo
 edit unpublished article to answer the question asked by %1 in %2	phpbrain	it	Modifica un articolo non pubblicato per rispondere alla domanda posta da %1 in %2
@@ -94,10 +94,10 @@ have to be approved first	common	it	Deve prima essere approvato
 history	phpbrain	it	Cronologia
 if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	it	Se non trovi risposte al tuo problema nell'Archivio Conoscenza, descrivilo qui sotto
 if you wish, you can comment this article here	phpbrain	it	Se vuoi, puoi commentare questo articolo qui
-in %1	phpbrain	it	in %1
-in the text	phpbrain	it	nel testo
-in the title	phpbrain	it	nel titolo
-in the topic	phpbrain	it	nell'argomento
+in %1	phpbrain	it	In %1
+in the text	phpbrain	it	Nel testo
+in the title	phpbrain	it	Nel titolo
+in the topic	phpbrain	it	Nell'argomento
 include subcategories	phpbrain	it	Includi sottocategorie
 keywords	phpbrain	it	Parole chiave
 knowledge base	phpbrain	it	Knowledge Base
@@ -136,7 +136,7 @@ past year	phpbrain	it	L'anno scorso
 people have rated this article	phpbrain	it	alcuni hanno valutato questo articolo
 phpbrain	common	it	Archivio Conoscenza
 please rate the pertinence and quality of this article	phpbrain	it	Prego valuta la pertinenza e la qualità di questo articolo
-please try again	phpbrain	it	prego riprovare
+please try again	phpbrain	it	Prego riprovare
 poor	phpbrain	it	Scarso
 printer view	phpbrain	it	Vista stampa
 problem relating articles	phpbrain	it	Problema nella correlazione degli articoli

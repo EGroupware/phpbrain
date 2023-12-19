@@ -1,5 +1,6 @@
 %1 entries %2	phpbrain	es-es	%1 entradas %2
 %1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	es-es	%1 entradas %2, %3 fallaron por permisos insuficientes
+%1 entries %2, %3 failed.	phpbrain	es-es	%1 entradas %2, %3 fallidas.
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	es-es	El directorio /kb no existe y no se pudo crear. Por favor, consulte al administrador para comprobar la configuración global.
 action	phpbrain	es-es	Acción
 actions	phpbrain	es-es	Acciones
@@ -12,9 +13,12 @@ added related articles %1	phpbrain	es-es	Se han añadido los artículos relacion
 advanced search	phpbrain	es-es	Búsqueda avanzada
 all articles	phpbrain	es-es	Todos los artículos
 allow posting of questions	phpbrain	es-es	Permitir el envío de preguntas
+allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	es-es	¿Permitir la publicación de artículos por el autor? (efectivo sólo si se requiere la aprobación de los artículos)
 answer	phpbrain	es-es	Respuesta
 anytime	phpbrain	es-es	Cualquier hora
 anywhere in the article	phpbrain	es-es	En cualquier lugar del artículo
+are you sure you want to delete the selected articles ?	phpbrain	es-es	¿Está seguro de que desea eliminar los artículos seleccionados?
+are you sure you want to delete the selected questions ?	phpbrain	es-es	¿Está seguro de que desea eliminar las preguntas seleccionadas?
 are you sure?	phpbrain	es-es	¿Está seguro?
 article	phpbrain	es-es	Artículo
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	es-es	El artículo ha sido añadido a la base de datos. Ahora puede adjuntar ficheros o enlaces, así como relacionarlo con otros artículos.
@@ -37,6 +41,7 @@ average rating	phpbrain	es-es	Valoración media
 base directory does not exist, please ask the adminstrator to check the global configuratio	phpbrain	es-es	El directorio base no existe. Por favor, pida al administrador que compruebe la configuración global.
 before submiting a question, please search in the knowledge base first	phpbrain	es-es	Antes de enviar una pregunta, por favor, busque antes en la base de conocimiento
 by answering this question you will help to get the answer quicker the next time	phpbrain	es-es	Al responder esta pregunta, usted ayudará a obtener una respuesta más rápida la próxima vez
+changed category from %1 to %2	phpbrain	es-es	Cambiada la categoría de %1 a %2
 comment	phpbrain	es-es	Comentarios
 comment and rating have been published	phpbrain	es-es	El comentario y la valoración han sido publicados
 comment could not be inserted in the database	phpbrain	es-es	No se pudo insertar el comentario en la base de datos
@@ -49,7 +54,7 @@ configuration	phpbrain	es-es	Configuración
 contents	phpbrain	es-es	Contenido
 create a new article to answer the question asked by %1 in %2	phpbrain	es-es	Crear un nuevo artículo para responder la pregunta realizada por %1 en %2
 created by %1 on %2	phpbrain	es-es	Creado por %1 en %2
-creation	phpbrain	es-es	creación
+creation	phpbrain	es-es	Creación
 creation date	phpbrain	es-es	Fecha de creación
 delete article	phpbrain	es-es	Borrar articulo
 delete selected	phpbrain	es-es	Borrar la selección
@@ -58,9 +63,10 @@ deleted relation to  article %1	phpbrain	es-es	Borrada la relación con el artí
 deleted relation to article %1	phpbrain	es-es	Se ha borrado la relacion con el artículo %1
 descendent	phpbrain	es-es	Descendente
 details	phpbrain	es-es	Detalles
-e-groupware knowledge base article attached	phpbrain	es-es	Se ha adjuntado un artículo a la base de conocimiento de eGroupware
-e-mail has been sent	phpbrain	es-es	se ha enviado el correo
+e-groupware knowledge base article attached	phpbrain	es-es	Se adjunta artículo de la Base de Conocimientos de EGroupware
+e-mail has been sent	phpbrain	es-es	Se ha enviado el correo
 edit article	phpbrain	es-es	Editar artículo
+edit unpublished article to answer the question asked by %1 in %2	phpbrain	es-es	Editar artículo no publicado para responder a la pregunta formulada por %1 en %2
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	es-es	Introduzca una o dos palabras que describan el problema, o escriba el número del artículo si lo sabe
 enterprise knowledge articles repository	phpbrain	es-es	Repositorio para los artículos de conocimiento de la empresa
 error deleting article from database	phpbrain	es-es	Error al borrar el artículo de la base de datos
@@ -88,10 +94,10 @@ have to be approved first	common	es-es	Tiene que ser aprobado antes
 history	phpbrain	es-es	Historial
 if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	es-es	Si no puede encontrar respuestas a su problema en la base de conocimiento, descríbalo debajo
 if you wish, you can comment this article here	phpbrain	es-es	Si lo desea, puede comentar aquí este artículo
-in %1	phpbrain	es-es	en %1
-in the text	phpbrain	es-es	en el texto
-in the title	phpbrain	es-es	en el título
-in the topic	phpbrain	es-es	en el asunto
+in %1	phpbrain	es-es	En %1
+in the text	phpbrain	es-es	En el texto
+in the title	phpbrain	es-es	En el título
+in the topic	phpbrain	es-es	En el asunto
 include subcategories	phpbrain	es-es	Incluir subcategorías
 keywords	phpbrain	es-es	Palabras clave
 knowledge base	phpbrain	es-es	Base de conocimiento
@@ -126,8 +132,8 @@ order results by	phpbrain	es-es	Ordenar resultados por
 outstanding published questions	phpbrain	es-es	Preguntas publicadas más destacadas
 overwrite file	phpbrain	es-es	¿Sobreescribir el fichero existente?
 past %1 months	phpbrain	es-es	%1 meses anteriores
-past year	phpbrain	es-es	año pasado
-people have rated this article	phpbrain	es-es	personas han valorado este artículo
+past year	phpbrain	es-es	Año pasado
+people have rated this article	phpbrain	es-es	Personas han valorado este artículo
 phpbrain	common	es-es	Base de conocimiento
 please rate the pertinence and quality of this article	phpbrain	es-es	Por favor, valore la utilidad y calidad de este artículo
 please try again	phpbrain	es-es	Por favor, vuelva a intentarlo
@@ -141,6 +147,7 @@ publish comments automatically?	common	es-es	¿Publicar comentarios automáticam
 publish questions automatically?	common	es-es	¿Publicar preguntas automáticamente?
 publish selected	phpbrain	es-es	Publicar lo seleccionado
 published	phpbrain	es-es	Publicado
+question	phpbrain	es-es	Pregunta
 question deleted successfully	phpbrain	es-es	La pregunta se ha borrado correctamente
 questions deleted successfully	phpbrain	es-es	Las preguntas se han borrado correctamente
 rating has been submited	phpbrain	es-es	Se ha enviado la valoración
@@ -182,7 +189,7 @@ topic	phpbrain	es-es	Asunto
 unable to add rating to database	phpbrain	es-es	No se pudo añadir la valoración a la base de datos
 unanswered questions	phpbrain	es-es	Preguntas sin responder
 unpublish	phpbrain	es-es	Dejar de publicar
-unpublished	phpbrain	es-es	sin publicar
+unpublished	phpbrain	es-es	Sin publicar
 user preferences	phpbrain	es-es	Preferencias de usuario
 views	phpbrain	es-es	Vistas
 was it easy to find this article using the above search string?	phpbrain	es-es	¿Fue fácil encontrar este artículo usando la cadena de búsqueda de arriba?

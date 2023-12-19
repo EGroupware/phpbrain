@@ -14,7 +14,7 @@ advanced search	phpbrain	cs	Rozšířené hledání
 all articles	phpbrain	cs	Všechny články
 allow posting of questions	phpbrain	cs	Povolit posílání otázek
 allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	cs	Povolit publikování článků autorem? (Má význam pouze, pokud je vyžadováno schvalování článků)
-answer	phpbrain	cs	odpověď
+answer	phpbrain	cs	Odpověď
 anytime	phpbrain	cs	Kdykoli
 anywhere in the article	phpbrain	cs	Kdekoli v článku
 are you sure you want to delete the selected articles ?	phpbrain	cs	Opravdu chcete smazat označené články?
@@ -42,7 +42,7 @@ base directory does not exist, please ask the adminstrator to check the global c
 before submiting a question, please search in the knowledge base first	phpbrain	cs	Než odešlete otázku, prohledejte prosím nejprve databázi znalostí
 by answering this question you will help to get the answer quicker the next time	phpbrain	cs	Odpovědí na tuto otázku pomůžete příště k rychlejšímu získáni odpovědi
 changed category from %1 to %2	phpbrain	cs	Kategorie %1 byla změněna na %2
-comment	phpbrain	cs	komentář
+comment	phpbrain	cs	Komentář
 comment and rating have been published	phpbrain	cs	Komentář a hodnocení byly publikovány
 comment could not be inserted in the database	phpbrain	cs	Komentář nemohl být vložen do databáze
 comment has been deleted	phpbrain	cs	Komentář byl smazán
@@ -63,8 +63,8 @@ deleted relation to  article %1	phpbrain	cs	Smazán vztah souvislosti s článke
 deleted relation to article %1	phpbrain	cs	Smazán vztah souvislosti s článkem %1
 descendent	phpbrain	cs	Sestupně
 details	phpbrain	cs	Podrobnosti
-e-groupware knowledge base article attached	phpbrain	cs	Článek z databáze znalostí eGroupWare připojen
-e-mail has been sent	phpbrain	cs	e-mail byl odeslán
+e-groupware knowledge base article attached	phpbrain	cs	Připojen článek znalostní databáze EGroupware
+e-mail has been sent	phpbrain	cs	E-mail byl odeslán
 edit article	phpbrain	cs	Editovat článek
 edit unpublished article to answer the question asked by %1 in %2	phpbrain	cs	Upravit nepublikovaný článek jako odpověď na otázku položenou %1 v %2
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	cs	Zadejte jedno nebo dvě slova popisující záležitost nebo napište rovnou číslo článku, pokud ho znáte
@@ -94,7 +94,7 @@ have to be approved first	common	cs	Musí být nejprve schválen
 history	phpbrain	cs	Historie
 if you can't find answers to your problem in the knowledge base, describe it below	phpbrain	cs	Pokud se Vám nedaří nalézt v databázi znalostí odpovědi a Váš problém, popište jej níže
 if you wish, you can comment this article here	phpbrain	cs	Pokud si přejete, můžete zde tento článek okomentovat
-in %1	phpbrain	cs	v %1
+in %1	phpbrain	cs	V %1
 in the text	phpbrain	cs	V textu
 in the title	phpbrain	cs	V titulku
 in the topic	phpbrain	cs	V tématu
@@ -191,7 +191,7 @@ unanswered questions	phpbrain	cs	Nezodpovězené otázky
 unpublish	phpbrain	cs	Zrušit publikování
 unpublished	phpbrain	cs	Nepublikované
 user preferences	phpbrain	cs	Uživatelské předvolby
-views	phpbrain	cs	pohledy
+views	phpbrain	cs	Pohledy
 was it easy to find this article using the above search string?	phpbrain	cs	Bylo snadné nají tento článek pomocí výše uvedeného výrazu?
 when navigating through categories, choose whether the list of articles shown corresponds only to the present category, or the present category and all categories under it.	phpbrain	cs	Při procházení kategoriemi zvolte, zda má zobrazený seznam článků odpovídat jen současné kategorii nebo současné kategorii a všem kategoriím pod ní.
 with all the words	phpbrain	cs	Se všemi uvedenými slovy

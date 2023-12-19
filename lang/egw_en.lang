@@ -1,5 +1,5 @@
 %1 entries %2	phpbrain	en	%1 entries %2
-%1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	en	%1 entries %2, %3 failed because of insufficent rights !!!
+%1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	en	%1 entries %2, %3 failed because of insufficent rights!
 %1 entries %2, %3 failed.	phpbrain	en	%1 entries %2, %3 failed.
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	en	/kb directory does not exist and could not be created, please ask the administrator to check the global configuration
 action	phpbrain	en	Action
@@ -17,8 +17,8 @@ allow the publishing of articles by the author? (effective only if the approval 
 answer	phpbrain	en	Answer
 anytime	phpbrain	en	Anytime
 anywhere in the article	phpbrain	en	Anywhere in the article
-are you sure you want to delete the selected articles ?	phpbrain	en	Are you sure you want to delete the selected articles ?
-are you sure you want to delete the selected questions ?	phpbrain	en	Are you sure you want to delete the selected questions ?
+are you sure you want to delete the selected articles ?	phpbrain	en	Are you sure you want to delete the selected articles?
+are you sure you want to delete the selected questions ?	phpbrain	en	Are you sure you want to delete the selected questions?
 are you sure?	phpbrain	en	Are you sure?
 article	phpbrain	en	Article
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	en	Article added to database, you can now attach files or links, or relate to other articles.
@@ -63,7 +63,7 @@ deleted relation to  article %1	phpbrain	en	Deleted relation to  article %1
 deleted relation to article %1	phpbrain	en	Deleted relation to article %1
 descendent	phpbrain	en	Descendent
 details	phpbrain	en	Details
-e-groupware knowledge base article attached	phpbrain	en	Knowledge Base article attached
+e-groupware knowledge base article attached	phpbrain	en	EGroupware Knowledge Base article attached
 e-mail has been sent	phpbrain	en	Email has been sent
 edit article	phpbrain	en	Edit article
 edit unpublished article to answer the question asked by %1 in %2	phpbrain	en	Edit unpublished article to answer the question asked by %1 in %2
