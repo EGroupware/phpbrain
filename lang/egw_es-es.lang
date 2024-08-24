@@ -2,15 +2,12 @@
 %1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	es-es	%1 entradas %2, %3 fallaron por permisos insuficientes
 %1 entries %2, %3 failed.	phpbrain	es-es	%1 entradas %2, %3 fallidas.
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	es-es	El directorio /kb no existe y no se pudo crear. Por favor, consulte al administrador para comprobar la configuración global.
-action	phpbrain	es-es	Acción
-actions	phpbrain	es-es	Acciones
 add articles	phpbrain	es-es	Añadir artículos
 add link	phpbrain	es-es	Añadir enlace
 add question	phpbrain	es-es	Añadir pregunta
 added file %1	phpbrain	es-es	Se ha añadido el fichero %1
 added link %1	phpbrain	es-es	Se ha añadido el enlace %1
 added related articles %1	phpbrain	es-es	Se han añadido los artículos relacionados %1
-advanced search	phpbrain	es-es	Búsqueda avanzada
 all articles	phpbrain	es-es	Todos los artículos
 allow posting of questions	phpbrain	es-es	Permitir el envío de preguntas
 allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	es-es	¿Permitir la publicación de artículos por el autor? (efectivo sólo si se requiere la aprobación de los artículos)

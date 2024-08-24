@@ -2,15 +2,12 @@
 %1 entries %2, %3 failed because of insufficent rights !!!	phpbrain	en	%1 entries %2, %3 failed because of insufficent rights!
 %1 entries %2, %3 failed.	phpbrain	en	%1 entries %2, %3 failed.
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	en	/kb directory does not exist and could not be created, please ask the administrator to check the global configuration
-action	phpbrain	en	Action
-actions	phpbrain	en	Actions
 add articles	phpbrain	en	Add articles
 add link	phpbrain	en	Add link
 add question	phpbrain	en	Add question
 added file %1	phpbrain	en	Added file %1
 added link %1	phpbrain	en	Added link %1
 added related articles %1	phpbrain	en	Added related articles %1
-advanced search	phpbrain	en	Advanced search
 all articles	phpbrain	en	All articles
 allow posting of questions	phpbrain	en	Allow posting of questions
 allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	en	Allow the publishing of articles by the author? (effective only if the approval of articles is required)
