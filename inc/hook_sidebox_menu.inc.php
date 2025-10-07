@@ -21,7 +21,7 @@
 	);
 	display_sidebox($appname,$menu_title,$file);
 
-	if($GLOBALS['egw_info']['user']['apps']['admin'])
+	if($GLOBALS['egw_info']['user']['apps']['admin'] && $args['location'] == "admin")
 	{
 		$menu_title = 'Administration';
 		$file = Array(
