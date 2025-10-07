@@ -11,7 +11,6 @@
 
 /* $Id$ */
 {
-	$menu_title = $GLOBALS['egw_info']['apps'][$appname]['title'] . ' '. lang('Menu');
 	$file=Array(
 		'Main View'					=> $GLOBALS['egw']->link('/index.php','menuaction=phpbrain.uikb.index'),
 		'New Article'				=> $GLOBALS['egw']->link('/index.php','menuaction=phpbrain.uikb.edit_article'),
@@ -19,7 +18,10 @@
 		'Maintain Articles'			=> $GLOBALS['egw']->link('/index.php','menuaction=phpbrain.uikb.maintain_articles&ajax=true'),
 		'Maintain Questions'		=> $GLOBALS['egw']->link('/index.php','menuaction=phpbrain.uikb.maintain_questions&ajax=true')
 	);
-	display_sidebox($appname,$menu_title,$file);
+	foreach($file as $text => $link)
+	{
+		display_sidebox($appname, lang($text), [['link' => $link]]);
+	}
 
 	if($GLOBALS['egw_info']['user']['apps']['admin'] && $args['location'] == "admin")
 	{
