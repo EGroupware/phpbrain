@@ -20,7 +20,7 @@
 	);
 	foreach($file as $text => $link)
 	{
-		display_sidebox($appname, lang($text), [['link' => $link]]);
+		$GLOBALS['egw']->framework->sidebox($appname, lang($text), [['link' => $link]]);
 	}
 
 	if($GLOBALS['egw_info']['user']['apps']['admin'] && $args['location'] == "admin")
@@ -30,6 +30,6 @@
 			'Site Configuration'		=> egw::link('/index.php','menuaction=admin.admin_config.index&appname=' . $appname.'&ajax=true'),
 			'Global Categories'			=> egw::link('/index.php','menuaction=admin.admin_categories.index&appname=phpbrain')
 		);
-		display_sidebox($appname,$menu_title,$file);
+		$GLOBALS['egw']->framework->sidebox($appname,$menu_title,$file);
 	}
 }
