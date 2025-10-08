@@ -12,15 +12,20 @@
 /* $Id$ */
 {
 	$file=Array(
-		'Main View'					=> $GLOBALS['egw']->link('/index.php','menuaction=phpbrain.uikb.index'),
-		'New Article'				=> $GLOBALS['egw']->link('/index.php','menuaction=phpbrain.uikb.edit_article'),
-		'Add Question'				=> $GLOBALS['egw']->link('/index.php','menuaction=phpbrain.uikb.add_question'),
-		'Maintain Articles'			=> $GLOBALS['egw']->link('/index.php','menuaction=phpbrain.uikb.maintain_articles&ajax=true'),
-		'Maintain Questions'		=> $GLOBALS['egw']->link('/index.php','menuaction=phpbrain.uikb.maintain_questions&ajax=true')
+		'Main View'          => ['icon' => 'list',
+								 'link' => $GLOBALS['egw']->link('/index.php', 'menuaction=phpbrain.uikb.index')],
+		'New Article'        => ['icon' => 'plus',
+								 'link' => $GLOBALS['egw']->link('/index.php', 'menuaction=phpbrain.uikb.edit_article')],
+		'Add Question'       => ['icon' => 'plus',
+								 'link' => $GLOBALS['egw']->link('/index.php', 'menuaction=phpbrain.uikb.add_question')],
+		'Maintain Articles'  => ['icon' => 'list-check',
+								 'link' => $GLOBALS['egw']->link('/index.php', 'menuaction=phpbrain.uikb.maintain_articles&ajax=true')],
+		'Maintain Questions' => ['icon' => 'list-check',
+								 'link' => $GLOBALS['egw']->link('/index.php', 'menuaction=phpbrain.uikb.maintain_questions&ajax=true')]
 	);
 	foreach($file as $text => $link)
 	{
-		$GLOBALS['egw']->framework->sidebox($appname, lang($text), [['link' => $link]]);
+		$GLOBALS['egw']->framework->sidebox($appname, lang($text), [$link]);
 	}
 
 	if($GLOBALS['egw_info']['user']['apps']['admin'] && $args['location'] == "admin")
