@@ -1,7 +1,9 @@
-action	phpbrain	ja	アクション
-actions	phpbrain	ja	動作
+allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	ja	著者が記事を投稿できるようにしますか？（記事の承認が必要な場合のみ有効）
 answer	phpbrain	ja	回答
+are you sure you want to delete the selected articles ?	phpbrain	ja	選択した記事を削除してもよろしいですか？
 configuration	phpbrain	ja	環境設定
 delete selected	phpbrain	ja	削除
+edit unpublished article to answer the question asked by %1 in %2	phpbrain	ja	未公開の記事を編集して、%1 が %2 で質問した内容に回答します
 global categories	phpbrain	ja	グローバルカテゴリ
 search results	phpbrain	ja	検索結果
+should the article view make an automatic table of contents?	admin	ja	記事表示時に自動目次を作成しますか？

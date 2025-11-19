@@ -1,16 +1,15 @@
-action	phpbrain	et	Tegevus
-actions	phpbrain	et	Tegevused
 add articles	phpbrain	et	Lisa artiklid
 add link	phpbrain	et	Lisa link
 add question	phpbrain	et	Lisa Küsimus
 added file %1	phpbrain	et	Lisatud fail %1
 added link %1	phpbrain	et	Lisatud link %1
-advanced search	phpbrain	et	Laiendatud Otsing
 all articles	phpbrain	et	Kõik artiklid
 allow posting of questions	phpbrain	et	Luba postitada küsimus
+allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	et	Lubada autoril artikleid avaldada? (Kehtib ainult juhul, kui artiklite avaldamiseks on vaja heakskiitu)
 answer	phpbrain	et	vastus
 anytime	phpbrain	et	igal ajal
 anywhere in the article	phpbrain	et	Ükskõik kus artiklis
+are you sure you want to delete the selected articles ?	phpbrain	et	Kas soovite kindlasti valitud artiklid kustutada?
 are you sure?	phpbrain	et	Oled kindel ?
 article	phpbrain	et	Artikkel
 article created	phpbrain	et	Artikkel tehtud
@@ -39,6 +38,7 @@ deleted	phpbrain	et	kustutatud
 details	phpbrain	et	Detailselt
 e-mail has been sent	phpbrain	et	e-mail on saadetud
 edit article	phpbrain	et	Muuda artiklit
+edit unpublished article to answer the question asked by %1 in %2	phpbrain	et	Muuda avaldamata artiklit, et vastata %1 poolt %2 esitatud küsimusele
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	et	Sisesta üks või paar kirjeldavat sõna või trüki artikli number
 error deleting link	phpbrain	et	Viga lingi kustutamisel
 error downloading file	phpbrain	et	Viga faili allalaadimisel
@@ -94,6 +94,7 @@ search results	phpbrain	et	Otsingu tulemused
 see more questions	phpbrain	et	Näita rohkem küsimusi
 see more questions...	phpbrain	et	Näita rohkem küsimusi:
 select articles	phpbrain	et	Märgi artikklid
+should the article view make an automatic table of contents?	admin	et	Kas artikli vaates peaks automaatselt sisukord loodama?
 show all comments	phpbrain	et	Näita kõiki kommentaare
 show articles belonging to:	phpbrain	et	Näita artikkleid mis kuuluvad:
 summary	phpbrain	et	Summarselt

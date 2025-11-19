@@ -1,18 +1,17 @@
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	nl	/kb directory bestaat niet en kon niet worden aangemaakt.
-action	phpbrain	nl	Actie
-actions	phpbrain	nl	Acties
 add articles	phpbrain	nl	Artikelen toevoegen
 add link	phpbrain	nl	Link toevoegen
 add question	phpbrain	nl	Vraag stellen
 added file %1	phpbrain	nl	file %1 toegevoegd
 added link %1	phpbrain	nl	link %1 toegevoegd
 added related articles %1	phpbrain	nl	Gerelateerde artikelen %1 toegevoegd
-advanced search	phpbrain	nl	Geavanceerd zoeken
 all articles	phpbrain	nl	Alle artikelen
 allow posting of questions	phpbrain	nl	Sta toe dat vragen gesteld worden
+allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	nl	De publicatie van artikelen door de auteur toestaan? (Alleen van kracht als goedkeuring van artikelen vereist is)
 answer	phpbrain	nl	antwoord
 anytime	phpbrain	nl	willekeurig
 anywhere in the article	phpbrain	nl	Ergens in het artikel
+are you sure you want to delete the selected articles ?	phpbrain	nl	Weet u zeker dat u de geselecteerde artikelen wilt verwijderen?
 are you sure?	phpbrain	nl	Weet u het zeker?
 article	phpbrain	nl	Artikel
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	nl	Artikel toegevoed aan de database, u kunt nu bestanden of links toevoegen of relaties naar andere artikelen maken
@@ -59,6 +58,7 @@ details	phpbrain	nl	Details
 e-groupware knowledge base article attached	phpbrain	nl	eGroupWare kennisbankartikel bijgevoegd
 e-mail has been sent	phpbrain	nl	e-mail is verzonden
 edit article	phpbrain	nl	Artikel bewerken
+edit unpublished article to answer the question asked by %1 in %2	phpbrain	nl	Bewerk ongepubliceerd artikel om de vraag van %1 in %2 te beantwoorden
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	nl	Voer een of meerdere woorden in om uw probleem te omschrijven of voer indien bekend het artikelnummer in
 enterprise knowledge articles repository	phpbrain	nl	Enterprise Kennis Bank artikelen repositorie
 error deleting article from database	phpbrain	nl	Fout bij het verwijderen van het artikel uit de database

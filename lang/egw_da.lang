@@ -1,17 +1,16 @@
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	da	/Vidensbase bibliotek eksisterer ikke og kunne ikke dannes. Bed Administrator om at checke global configuration.
-action	phpbrain	da	Hændelse
-actions	phpbrain	da	Hændelser
 add articles	phpbrain	da	Tilføj artikler
 add link	phpbrain	da	Tilføj link
 add question	phpbrain	da	Tilføj spørgsmål
 added file %1	phpbrain	da	tilføjet fil %1
 added link %1	phpbrain	da	Tilføjet link %1
 added related articles %1	phpbrain	da	Tilføjet relaterede artikler %1
-advanced search	phpbrain	da	Avanceret søgning
 all articles	phpbrain	da	Alle artikler
+allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	da	Tillad forfatteren at offentliggøre artikler? (Gælder kun, hvis godkendelse af artikler er påkrævet)
 answer	phpbrain	da	svar
 anytime	phpbrain	da	Enhver tid
 anywhere in the article	phpbrain	da	Hvor som helst i artikel
+are you sure you want to delete the selected articles ?	phpbrain	da	Er du sikker på, at du vil slette de valgte artikler?
 article	phpbrain	da	Artikel
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	da	Artikel tilføjet database, du kan nu vedhæfte filer eller links, eller relatere til andre artikler
 article created	phpbrain	da	Artikel skabt
@@ -56,6 +55,7 @@ details	phpbrain	da	Detaljer
 e-groupware knowledge base article attached	phpbrain	da	E-GroupWare videns-base artikel vedhæftet
 e-mail has been sent	phpbrain	da	E-mail sendt
 edit article	phpbrain	da	Rediger artikel
+edit unpublished article to answer the question asked by %1 in %2	phpbrain	da	Rediger ikke-offentliggjort artikel for at besvare spørgsmålet stillet af %1 i %2
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	da	Skriv et eller to ord for at beskrive denne udgave, eller skriv artikelnummeret hvsi du kender det.
 error deleting article from database	phpbrain	da	Fejl ved sletning af artikel fra database
 error deleting link	phpbrain	da	Fejl ved sletning af link
@@ -147,6 +147,7 @@ search results	phpbrain	da	Søg i resultater
 see more questions	phpbrain	da	Se flere spørgsmål
 see more questions...	phpbrain	da	Se flere spørgsmål ...
 select articles	phpbrain	da	Vælg artikler
+should the article view make an automatic table of contents?	admin	da	Skal artikelvisningen oprette en automatisk indholdsfortegnelse?
 show all comments	phpbrain	da	Vis alle kommentarer
 show articles belonging to:	phpbrain	da	Vis artikler tilhørende:
 show messages in category	phpbrain	da	Vis beskeder i kategori

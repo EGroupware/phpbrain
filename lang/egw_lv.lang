@@ -1,18 +1,17 @@
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	lv	/kb direktorija neeksistē un nevar tikt izveidota, palūdz administratoru pārbaudīt vispārējo konfigurāciju
-action	phpbrain	lv	Darbība
-actions	phpbrain	lv	Darbības
 add articles	phpbrain	lv	Pievienot rakstus
 add link	phpbrain	lv	PIevienot saiti
 add question	phpbrain	lv	Pievienot jautājumu
 added file %1	phpbrain	lv	Pievienota %1 datne
 added link %1	phpbrain	lv	PIevienota %1 saite
 added related articles %1	phpbrain	lv	PIevienoti saistītie raksti %1
-advanced search	phpbrain	lv	Uzlabota meklēšana
 all articles	phpbrain	lv	Visi raksti
 allow posting of questions	phpbrain	lv	Atļaut jautājumu apziņošanu
+allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	lv	Atļaut rakstu publicēšanu pēc autora apstiprinājuma? (Spēkā tikai tad, ja ir nepieciešams rakstu apstiprinājums)
 answer	phpbrain	lv	atbilde
 anytime	phpbrain	lv	jebakad
 anywhere in the article	phpbrain	lv	Jebkur rakstā
+are you sure you want to delete the selected articles ?	phpbrain	lv	Vai esat pārliecināts, ka vēlaties dzēst atlasītos rakstus?
 are you sure?	phpbrain	lv	VAI ESAT PĀRLIECINĀTS?
 article	phpbrain	lv	Raksts
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	lv	Raksts pievienots datubāzei, tagad tu vari pievienot datnes un saites, vai saistīt ar citiem  rakstiem
@@ -55,6 +54,7 @@ descendent	phpbrain	lv	Dilstošs
 details	phpbrain	lv	Rekvizīti
 e-mail has been sent	phpbrain	lv	e-pasts tika nosūtīts
 edit article	phpbrain	lv	Rediģēt rakstu
+edit unpublished article to answer the question asked by %1 in %2	phpbrain	lv	Rediģēt nepublicētu rakstu, lai atbildētu uz jautājumu, ko uzdeva %1 %2
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	lv	Ievadīt vienu vai divus vārdus, lai aprakstītu rezultātu, vai arī uzraksti raksta numuru, ja tu to zini
 error deleting article from database	phpbrain	lv	Kļūda dzēšot rakstu no datubāzes
 error deleting link	phpbrain	lv	Kļūda dzēšot saiti
@@ -145,6 +145,7 @@ search in all the knowledge base	phpbrain	lv	Meklēt visās zināšanu bāzēs
 search results	phpbrain	lv	Meklēšanas rezultāti
 see more questions	phpbrain	lv	Skatīt vairāk jautājumus
 select articles	phpbrain	lv	Atzīmēt rakstus
+should the article view make an automatic table of contents?	admin	lv	Vai raksta skatījumam ir jāizveido automātiska satura rādītāja tabula?
 show all comments	phpbrain	lv	Rādīt visus komentārus
 show articles belonging to:	phpbrain	lv	Rādīt, ar kuriem rakstiem saistīts
 show messages in category	phpbrain	lv	Rādīt ziņojuma kategoriju

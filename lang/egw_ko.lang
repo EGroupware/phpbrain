@@ -1,17 +1,16 @@
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	ko	/kb 디렉토리가 존재하지 않거나, 생성할 수 없습니다. 관리자에게 전역설정 확인을 요청해주세요
-action	phpbrain	ko	활동
-actions	phpbrain	ko	활동들
 add articles	phpbrain	ko	게시물 추가
 add link	phpbrain	ko	링크 추가
 add question	phpbrain	ko	질문 추가
 added file %1	phpbrain	ko	파일 %1 추가됨
 added link %1	phpbrain	ko	링크 %1 추가됨
 added related articles %1	phpbrain	ko	관련 게시물 %1 추가됨
-advanced search	phpbrain	ko	상세검색
 all articles	phpbrain	ko	모든 게시물
+allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	ko	작성자가 문서를 게시하도록 허용하시겠습니까? (문서 승인이 필요한 경우에만 적용됨)
 answer	phpbrain	ko	응답
 anytime	phpbrain	ko	언제나
 anywhere in the article	phpbrain	ko	게시물 전체
+are you sure you want to delete the selected articles ?	phpbrain	ko	선택한 문서를 삭제하시겠습니까?
 are you sure?	phpbrain	ko	확실합니까?
 article	phpbrain	ko	게시물
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	ko	게시물이 데이터베이스에 저장되었습니다. 이제 파일,링크,관련 게시물을 삽입할 수 있습니다.
@@ -42,6 +41,7 @@ comment has been submited for revision	phpbrain	ko	커멘트가 개정에 적용
 comment has been submited for revision and rating will be published	phpbrain	ko	커멘트가 개정에 적용되었으며 평가가 발행되었습니다
 comments	phpbrain	ko	커멘트들
 configuration	phpbrain	ko	설정
+create a new article to answer the question asked by %1 in %2	phpbrain	ko	%1이 %2에서 질문한 내용에 답변하기 위해 새 문서 생성하기
 created by %1 on %2	phpbrain	ko	%2 일 %1에 의해 생성됨
 creation	phpbrain	ko	생성
 creation date	phpbrain	ko	생성일
@@ -55,6 +55,7 @@ details	phpbrain	ko	내용
 e-groupware knowledge base article attached	phpbrain	ko	E-그룹웨어의 지식기반 게시물이 첨부되었습니다
 e-mail has been sent	phpbrain	ko	E-Mail이 발송되었습니다.
 edit article	phpbrain	ko	게시물 수정
+edit unpublished article to answer the question asked by %1 in %2	phpbrain	ko	미게시 문서를 편집하여 %1이 %2에서 질문한 내용에 답변하십시오
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	ko	한두가지 단어를 입력하거나, 게시물 번호로 검색할 수 있습니다
 error deleting article from database	phpbrain	ko	데이터베이스에서 게시물 삭제 오류발생
 error deleting link	phpbrain	ko	링크 삭제 오류 발생
@@ -143,6 +144,7 @@ search results	phpbrain	ko	검색 결과들
 see more questions	phpbrain	ko	더 많은 질문들 보기
 see more questions...	phpbrain	ko	더 많은 질문들 보기...
 select articles	phpbrain	ko	게시물 선택
+should the article view make an automatic table of contents?	admin	ko	문서 보기에서 자동 목차를 생성할까요?
 show all comments	phpbrain	ko	모든 커멘트 보이기
 show articles belonging to:	phpbrain	ko	해당 분류에 속한 게시물 보이기:
 show messages in category	phpbrain	ko	분류내의 메시지 보이기
