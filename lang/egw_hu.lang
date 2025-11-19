@@ -1,18 +1,17 @@
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	hu	A Tudástár alapkönyvtára nem létezik a fájlrendszeren és nem lehet létrehozni, kérem értesítse az adminisztrátort a problémáról.
-action	phpbrain	hu	Művelet
-actions	phpbrain	hu	Műveletek
 add articles	phpbrain	hu	Cikk hozzáadása
 add link	phpbrain	hu	Hivatkozás hozzáadása
 add question	phpbrain	hu	Kérdés hozzáadása
 added file %1	phpbrain	hu	%1 állomány hozzáadva
 added link %1	phpbrain	hu	%1 hivatkozás hozzáadva
 added related articles %1	phpbrain	hu	%1 kapcsolódó cikk hozzáadva
-advanced search	phpbrain	hu	Kiterjesztett keresés
 all articles	phpbrain	hu	Összes cikk
 allow posting of questions	phpbrain	hu	Kérdések postázásának engedélyezése
+allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	hu	Engedélyezze a cikkek közzétételét a szerző által? (Csak akkor hatékony, ha a cikkek jóváhagyása szükséges)
 answer	phpbrain	hu	válasz
 anytime	phpbrain	hu	bármikor
 anywhere in the article	phpbrain	hu	Bárhol a cikkben
+are you sure you want to delete the selected articles ?	phpbrain	hu	Biztosan törölni szeretné a kiválasztott cikkeket?
 are you sure?	phpbrain	hu	Biztos vagy benne?
 article	phpbrain	hu	Cikk
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	hu	Cikk hozzáadva az adatbázishoz, lehetősége van állományok és hivatkozások csatolására vagy más cikkekre utalásra
@@ -59,6 +58,7 @@ details	phpbrain	hu	Részletek
 e-groupware knowledge base article attached	phpbrain	hu	Tudástár cikk csatolva
 e-mail has been sent	phpbrain	hu	email elküldve
 edit article	phpbrain	hu	Cikk szerkesztése
+edit unpublished article to answer the question asked by %1 in %2	phpbrain	hu	Szerkessze a még nem közzétett cikket, hogy megválaszolja %1 által %2-ben feltett kérdést
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	hu	A probléma néhány szavas leírása, vagy a cikk sorszáma, amennyiben ismert.
 enterprise knowledge articles repository	phpbrain	hu	Vállalati Tudástár cikktörzs
 error deleting article from database	phpbrain	hu	Hiba a cikk adatbázisból való törlésekor

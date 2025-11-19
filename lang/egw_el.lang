@@ -1,17 +1,16 @@
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	el	/kb κατάλογος δεν υπάρχει και δεν μπόρεσε να δημιουργηθεί, παρακαλώ ζητήστε από τον διαχειριστή να ελέγξει τη γενκή δομή
-action	phpbrain	el	Ενέργεια
-actions	phpbrain	el	Ενέργειες
 add articles	phpbrain	el	Προσθήκη άρθρου
 add link	phpbrain	el	Προσθήκη συνδέσμου
 add question	phpbrain	el	Προσθήκη ερωτήματος
 added file %1	phpbrain	el	Προστέθηκε αρχείο %1
 added link %1	phpbrain	el	Προστέθηκε σύνδεσμος %1
 added related articles %1	phpbrain	el	Προστέθηκαν συναφή άρθρα %1
-advanced search	phpbrain	el	Προηγμένη αναζήτηση
 all articles	phpbrain	el	Όλα τα άρθρα
+allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	el	Να επιτρέψετε τη δημοσίευση άρθρων από τον συγγραφέα; (Ισχύει μόνο εάν απαιτείται έγκριση των άρθρων)
 answer	phpbrain	el	Απάντηση
 anytime	phpbrain	el	οποτεδήποτε
 anywhere in the article	phpbrain	el	οπουδήποτε
+are you sure you want to delete the selected articles ?	phpbrain	el	Είστε βέβαιοι ότι θέλετε να διαγράψετε τα επιλεγμένα άρθρα;
 article	phpbrain	el	Άρθρο
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	el	Προστέθηκε άρθρο στο ηλεκτρονικό αρχείο, μπορείτε τώρα να επισυνάψετε αρχεία ή συνδέσμους, ή να συσχετίσετε με άλλα άρθρα
 article created	phpbrain	el	Δημιουργήθηκε άρθρο
@@ -56,6 +55,7 @@ details	phpbrain	el	Λεπτομέρειες
 e-groupware knowledge base article attached	phpbrain	el	Προσκολλήθηκε άρθρο της E-GroupWare Γνωσιακής Βάσης
 e-mail has been sent	phpbrain	el	e-mail εστάλη
 edit article	phpbrain	el	Επεξεργασία άρθρου
+edit unpublished article to answer the question asked by %1 in %2	phpbrain	el	Επεξεργασία μη δημοσιευμένου άρθρου για να απαντήσετε στην ερώτηση που έθεσε ο %1 στο %2
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	el	Πληκτρολογήστε μία ή δύο λέξεις οι οποίες να περιγράφουν το θέμα το οποίο ψάχνετε ή δώστε τον αριθμό του άρθρου εφόσον τον γνωρίζετε
 error deleting article from database	phpbrain	el	Σφάλμα κατά τη διαγραφή άρθρου από το ηλεκτρονικό αρχείο
 error deleting link	phpbrain	el	Σφάλμα κατά τη διαγραφή του συνδέσμου
@@ -146,6 +146,7 @@ search results	phpbrain	el	Αναζήτηση αποτελεσμάτων
 see more questions	phpbrain	el	Προβολή περισσότερων ερωτήσεων
 see more questions...	phpbrain	el	Προβολή περισσότερων ερωτήσεων...
 select articles	phpbrain	el	Επιλογή άρθρων
+should the article view make an automatic table of contents?	admin	el	Η προβολή του άρθρου πρέπει να δημιουργήσει αυτόματα πίνακα περιεχομένων;
 show all comments	phpbrain	el	Παρουσίαση όλων των σχολίων
 show articles belonging to:	phpbrain	el	Παρουσίαση των άρθρων που ανήκουν στον:
 show messages in category	phpbrain	el	Παρουσίαση των μηνυμάτων στην κατηγορία

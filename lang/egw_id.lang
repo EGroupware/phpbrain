@@ -1,18 +1,17 @@
 /kb directory does not exist and could not be created, please ask the adminstrator to check the global configuration	phpbrain	id	direktori /kb tidak ada dan tidak dapat dibikin, mohon tanyakan ke administrator untuk melihat konfigurasi global
-action	phpbrain	id	Tindakan
-actions	phpbrain	id	Tindakan
 add articles	phpbrain	id	Tambah artikel
 add link	phpbrain	id	Tambah tautan
 add question	phpbrain	id	Tambah Pertanyaan
 added file %1	phpbrain	id	Menambah berkas %1
 added link %1	phpbrain	id	Menambah tautan %1
 added related articles %1	phpbrain	id	Menambah artikel berkaitan %1
-advanced search	phpbrain	id	Pencarian Canggih
 all articles	phpbrain	id	Semua artikel
 allow posting of questions	phpbrain	id	Bolehkan mengirim pertanyaan
+allow the publishing of articles by the author? (effective only if the approval of articles is required)	phpbrain	id	Izinkan penerbitan artikel oleh penulis? (Berlaku hanya jika persetujuan artikel diperlukan)
 answer	phpbrain	id	jawaban
 anytime	phpbrain	id	kapanpun
 anywhere in the article	phpbrain	id	Dimanapun dalam artikel
+are you sure you want to delete the selected articles ?	phpbrain	id	Apakah Anda yakin ingin menghapus artikel yang dipilih?
 are you sure?	phpbrain	id	Anda yakin?
 article	phpbrain	id	Artikel
 article added to database, you can now attach files or links, or relate to other articles	phpbrain	id	Artikel ditambahkan ke database, sekarang anda dapat melampirkan berkas atau tautan, atau kaitkan ke artikel lain
@@ -59,6 +58,7 @@ details	phpbrain	id	Detil
 e-groupware knowledge base article attached	phpbrain	id	Terlampir artikel Basis Pengetahuan E-GroupWare
 e-mail has been sent	phpbrain	id	e-mail telah dikirm
 edit article	phpbrain	id	Edit artikel
+edit unpublished article to answer the question asked by %1 in %2	phpbrain	id	Edit artikel yang belum diterbitkan untuk menjawab pertanyaan yang diajukan oleh %1 di %2
 enter one or two words describing the issue, or type the article number if you know it	phpbrain	id	Jelaskan permasalahan anda dalam beberapa kata atau bila anda tahu, ketikan saja nomor artikelnya
 excellent	phpbrain	id	Bagus
 find results	phpbrain	id	Hasil pencarian
@@ -116,6 +116,7 @@ search results	phpbrain	id	Hasil pencarian
 see more questions	phpbrain	id	Lihat lebih banyak pertanyaan
 see more questions...	phpbrain	id	Lihat lebih banyak pertanyaan...
 select articles	phpbrain	id	Pilih artikel
+should the article view make an automatic table of contents?	admin	id	Apakah tampilan artikel harus membuat daftar isi otomatis?
 show all comments	phpbrain	id	Tampilkan semua komentar
 show articles belonging to:	phpbrain	id	Tampilkan artikel kepunyaan:
 show messages in category	phpbrain	id	Tampilkan pesan-pesan pada kategori
