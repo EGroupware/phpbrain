@@ -17,7 +17,7 @@
 	$file = array
 	(
 		'Site Configuration'		=> egw::link('/index.php','menuaction=admin.admin_config.index&appname=' . $appname.'&ajax=true'),
-		'Global Categories'			=> egw::link('/index.php','menuaction=admin.admin_categories.index&appname=phpbrain')
+		'Global Categories'			=> egw::link('/index.php','menuaction=admin.admin_categories.index&appname=phpbrain&ajax=true')
 	);
 	display_section($appname,$file);
 }
