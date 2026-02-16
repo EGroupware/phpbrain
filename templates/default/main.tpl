@@ -1,3 +1,4 @@
+<div style="height: 100%; overflow-y: auto">
 {message}
 {search_tpl}
 <div class="PhPBrain_Main">
@@ -103,4 +104,5 @@
 	</tr>
 </table>
 
+</div>
 </div>
