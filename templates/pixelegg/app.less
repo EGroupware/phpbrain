@@ -14,8 +14,6 @@
 
 
 
-
-@import (reference) "../../../pixelegg/less/definitions.less";
 /*@import (less) "../default/app.css";*/
 
 
@@ -26,14 +24,14 @@
     body {background-color: white !important;}
 
     div.PhPBrain_Search{
-            background-color: @gray_0;
+            background-color: var(--sl-color-neutral-50, white);
             margin: 1em 0 0 1em;
-            border-bottom: 10px solid @gray_20;
+            border-bottom: 10px solid var(--sl-color-neutral-200, #CDCDCD);
 
 
             // Tabelle mit dem Suchefeld
              .PhPBrain_SearchTable{
-                 background-color: @gray_0;
+                 background-color: var(--sl-color-neutral-50, white);
                  width: 100%;
 
              }
@@ -42,11 +40,11 @@
 }
 
     div.PhPBrain_Main{
-            background-color: @gray_0;
+            background-color: var(--sl-color-neutral-50, white);
             margin: 1em 0 0 1em;
             // Tabelle mit dem Inhalt
             .PhPBrain_MainTable {
-                    background-color: @gray_0;
+                    background-color: var(--sl-color-neutral-50, white);
                     width: 100%;
 
             }
@@ -56,7 +54,7 @@
 
     [class*="PhPBrain"] table {
 
-        img{ .dimension_width_height_s;}
+        img{ width: 16px; height: 16px;}
 
     }
     #late-sidebox  {

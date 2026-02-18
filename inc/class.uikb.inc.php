@@ -1460,7 +1460,7 @@ class uikb extends bokb
 		}
 
 		$content = html::fckEditor('exec[text]', $content,'',
-			array('toolbar_expanded' =>'true'),'400px','100%',
+			array('toolbar_expanded' =>'true'),'100%','100%',
 			$GLOBALS['egw_info']['user']['preferences']['phpbrain']['upload_dir']);
 
 		// Finally, fill the input fields

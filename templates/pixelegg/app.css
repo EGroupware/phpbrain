@@ -17,20 +17,20 @@
     background-color: white !important;
   }
   div.PhPBrain_Search {
-    background-color: #FFFFFF;
+    background-color: var(--sl-color-neutral-50, white);
     margin: 1em 0 0 1em;
-    border-bottom: 10px solid #CDCDCD;
+    border-bottom: 10px solid var(--sl-color-neutral-200, #CDCDCD);
   }
   div.PhPBrain_Search .PhPBrain_SearchTable {
-    background-color: #FFFFFF;
+    background-color: var(--sl-color-neutral-50, white);
     width: 100%;
   }
   div.PhPBrain_Main {
-    background-color: #FFFFFF;
+    background-color: var(--sl-color-neutral-50, white);
     margin: 1em 0 0 1em;
   }
   div.PhPBrain_Main .PhPBrain_MainTable {
-    background-color: #FFFFFF;
+    background-color: var(--sl-color-neutral-50, white);
     width: 100%;
   }
   [class*="PhPBrain"] table img {
@@ -46,3 +46,4 @@
     height: 100% !important;
   }
 }
+/*# sourceMappingURL=app.css.map */
