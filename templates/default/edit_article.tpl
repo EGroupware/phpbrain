@@ -59,7 +59,7 @@
 		</td>
 	</tr>
 </table>
-<div style="display: block;height: calc(100% - 180px);margin-top:10px;margin-bottom:10px;">
+<div style="display: block;height: calc(100% - 10lh);margin-top:10px;margin-bottom:10px;">
     {value_text}
 </div>
 <div>
