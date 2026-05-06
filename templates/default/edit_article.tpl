@@ -1,4 +1,4 @@
-<form method="POST" action="{form_action}" style="height:100%;">
+<form method="POST" action="{form_action}" style="height:100%; display: flex; flex-direction: column; gap: var(--sl-spacing-medium,1rem)">
 {hidden_fields}
 <table  width="100%" border="0" cellspacing="1" cellpadding="3">
 	{message}
@@ -59,7 +59,7 @@
 		</td>
 	</tr>
 </table>
-<div style="display: block;height: calc(100% - 10lh);margin-top:10px;margin-bottom:10px;">
+<div style="display: block; flex: 1 1 auto; width: 99%;">
     {value_text}
 </div>
 <div>
