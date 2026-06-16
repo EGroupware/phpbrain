@@ -1299,202 +1299,90 @@ class uikb extends bokb
 	*
 	* @author	Alejandro Pedraza
 	* @access	public
-	* @param 	int $_art_id Article ID (by function call)
+	* @param 	array|null $_content content-array or Article ID (by function call)
 	* @param 	boolean $_isQuestion isQuestion flag (by function call)
 	* @return	void
 	*/
-	function edit_article($_art_id=null, $_isQuestion=false)
+	function edit_article(?array $_content=null, $_isQuestion=false)
 	{
-		$active_cat =& egw_cache::getSession('phpbrain','active_cat');
-		$this->t->set_file('edit_article', 'edit_article.tpl');
-		$this->t->set_block('edit_article', 'answer_question_block', 'answer_question');
-		$this->t->set_block('edit_article', 'article_id_block', 'article_id');
-
-		$this->t->set_var(array(
-			'lang_articleID'		=> lang('Article ID'),
-			'lang_category'			=> lang('Category'),
-			'lang_none'				=> lang('None'),
-			'lang_title'			=> lang('Title'),
-			'lang_topic'			=> lang('Topic'),
-			'lang_keywords'			=> lang('Keywords'),
-		));
-
-		// These are the default values, that apply for entering a new article
-		$article_id			= (int)($_art_id&&!$_isQuestion?$_art_id:get_var('art_id', 'any', 0));
-		$title				= '';
-		$topic				= '';
-		$keywords			= '';
-		$content			= '';
-		$category_selected	= ($active_cat?$active_cat:'');
-		$hidden_fields		= '';
-		$btn_save			= "<input type='submit' value='". lang('Save') . "' name='save'>&nbsp;";
-		$btn_cancel			= "<input type='submit' value='". lang('Cancel') . "' name='cancel'>";
-		$extra				= '';
-		$this->t->set_var(array(
-			'answer_question'	=> '',
-			'article_id'		=> '',
-			));
-		// saving either an edited or a new article (answering a question or just a new article)
-		if ($_POST['save'])
+		if (empty($_content))
 		{
-			$article_id = (int)get_var('editing_article_id', 'POST', 0);
-			$article	= ($article_id)? $this->bo->get_article($article_id) : false;
-
-			//data validation
-			if (!$_POST['title'])
+			if (empty($_GET['art_id']))
 			{
-				$this->message .= lang('You must enter a title') . '<br>';
-			}
-			if (!$_POST['topic'])
-			{
-				$this->message .= lang('You must enter a topic') . '<br>';
-			}
-			if (!$_POST['exec']['text'])
-			{
-				$this->message .= lang('The article is empty') . '<br>';
-			}
-
-			if ($this->message)
-			{
-				$this->message .= '<br>' . lang('Please try again');
-			}
-			elseif ($edited_art = $this->bo->save_article())
-			{
-				// if article is new tell to insert files and stuff
-				$message = '';
-				if (!$article) $message = '&message=add_ok_cont&tabpage=2';
-				egw::redirect_link($this->link, 'menuaction=phpbrain.uikb.view_article&art_id=' .  $edited_art . $message);
-				common::egw_exit();
-			}
-			else
-			{
-				$this->message = $this->bo->error_msg;
-			}
-		}
-
-		// if an error ocurred fill fields with values
-		if ($this->message)
-		{
-			$category_selected	= (int)get_var('cat_id', 'POST', 0);
-			$title				= get_var('title', 'POST', '');
-			$topic				= get_var('topic', 'POST', '');
-			$keywords			= get_var('keywords', 'POST', '');
-			$temp = get_var('exec', 'POST', '');
-			$content = $temp['text'];
-		}
-
-		// Edit existant article
-		$article_id			= (int)($_art_id&&!$_isQuestion?$_art_id:get_var('art_id', 'GET', 0));
-		if ($article_id)
-		{
-			// Process cancel button
-			if ($_POST['cancel'])
-			{
-				egw::redirect_link($this->link, 'menuaction=phpbrain.uikb.view_article&art_id=' .  $article_id);
-				common::egw_exit();
-			}
-
-			if (!$this->message)
-			{
-				$article	= $this->bo->get_article($article_id);
-				// Check edit rights
-				if (!$this->bo->check_permission($this->bo->edit_right)) $this->die_peacefully('You have not the proper permissions to do that');
-
-				$title		= $article['title'];
-				$topic		= $article['topic'];
-				$keywords	= $article['keywords'];
-				$content	= $article['text'];
-				$category_selected = $article['cat_id'];
-			}
-			if (isset($article['q_id'])&&!empty($article['q_id']))
-			{
-				$question = $this->bo->get_question($article['q_id'],'both');
-				if ($question['question_id'])
+				$content = [
+					'cat_id' => Api\Cache::getSession('phpbrain','active_cat') ?? '',
+				];
+				if (!empty($_GET['q_id']))
 				{
-					$this->t->set_var(array(
-						'lang_summary'			=> lang('Summary'),
-						'lang_details'			=> lang('Details'),
-						'lang_head_question'	=> lang('edit unpublished article to answer the question asked by %1 in %2', $question['username'], $question['creation']),
-						'question_summary'		=> $question['summary'],
-						'question_details'		=> $question['details']
-					));
-					$this->t->parse('answer_question', 'answer_question_block');
+					$content['question'] = $this->bo->get_question($_GET['q_id'],'both');
+					$content['question']['head'] = lang('edit unpublished article to answer the question asked by %1 in %2',
+						$content['question']['username'], $content['question']['creation']);
 				}
 			}
-			$this->t->set_var(array(
-				'show_articleID'	=> $article_id . "<input type=hidden name='editing_article_id' value=" . $article_id . ">",
-			));
-			$this->t->parse('article_id', 'article_id_block');
-		}
-		// Process cancel button
-		if ($_POST['cancel'])
-		{
-			egw::redirect_link($this->link, 'menuaction=phpbrain.uikb.index');
-			common::egw_exit();
-		}
-
-		// answering a question
-		$q_id			= (int)($_art_id&&$_isQuestion?$_art_id:get_var('q_id', 'GET', 0));
-		if ($q_id)
-		{
-			// Process cancel button
-			if ($_POST['cancel'])
+			elseif (!($content = $this->bo->get_article($_GET['art_id'])))
 			{
-				egw::redirect_link($this->link, 'menuaction=phpbrain.uikb.index');
-				common::egw_exit();
+				Api\Framework::redirect_link($this->link, [
+					'menuaction' => 'phpbrain.uikb.index',
+				]);
 			}
-			$question = $this->bo->get_question($q_id,'both');
-			$hidden_fields .= "<input type=hidden name='answering_question' value='" . $q_id . "'>";
-			$this->t->set_var(array(
-				'lang_summary'			=> lang('Summary'),
-				'lang_details'			=> lang('Details'),
-				'lang_category'			=> lang('Suggested category'),
-				'lang_head_question'	=> lang('Create a new article to answer the question asked by %1 in %2', $question['username'], $question['creation']),
-				'question_summary'		=> $question['summary'],
-				'question_details'		=> $question['details']
-			));
-			$this->t->parse('answer_question', 'answer_question_block');
-
-			$title = $question['summary'];
-			$category_selected = $question['cat_id'];
+			if (empty($content['cat_id']))
+			{
+				$content['cat_id'] = '';
+			}
 		}
-
-		$content = html::fckEditor('exec[text]', $content,'',
-			array('toolbar_expanded' =>'true'),'100%','100%',
-			$GLOBALS['egw_info']['user']['preferences']['phpbrain']['upload_dir']);
-
-		// Finally, fill the input fields
-		if (!$this->sitemgr)
+		elseif (!empty($_content['button']))
 		{
-			common::egw_header();
-			echo parse_navbar();
-			$this->navbar_shown = True;
+			$button = key($_content['button']);
+			unset($_content['button']);
+			switch ($button)
+			{
+				case 'cancel':
+					if (empty($content['art_id']))
+					{
+						Api\Framework::redirect_link($this->link, [
+							'menuaction' => 'phpbrain.uikb.index',
+						]);
+					}
+					Api\Framework::redirect_link($this->link, [
+						'menuaction' => 'phpbrain.uikb.view_article',
+						'art_id' => $_content['art_id'],
+					]);
+
+				case 'apply':
+				case 'save':
+					if (!empty($_content['art_id']))
+					{
+						$this->bo->get_article($_content['art_id']);    // required by bo->save!!!
+					}
+					if (($art_id = $this->bo->save_article([
+						'articleID' => $_content['art_id'] ?? null,
+						'editing_article_id' => $_content['art_id'] ?? null,
+						'answering_question' => $_content['question']['question_id'] ?? null,
+						'exec' => ['text' => $_content['text']],
+					]+$_content)) && $button === 'save')
+					{
+						// if article is new tell to insert files and stuff
+						$message = '';
+						if (empty($_content['art_id'])) $message = '&message=add_ok_cont&tabpage=2';
+						Api\Framework::redirect_link($this->link, 'menuaction=phpbrain.uikb.view_article&art_id=' .  $art_id . $message);
+					}
+					if (empty($art_id))
+					{
+						Api\Framework::message($this->bo->error_msg, 'error');
+					}
+					$content = [
+						'art_id' => $art_id ?: $_content['art_id'] ?? null,
+					] + $_content;
+					break;
+			}
 		}
-
-		$select_category = $this->bo->select_category($category_selected);
-		$this->t->set_var('select_category', $select_category);
-
-		if ((int)get_var('art_id', 'GET', 0))
+		$readonlys = [];
+		if (empty($_content['art_id']))
 		{
-			$extra .= '&art_id='. $_GET['art_id'];
+			$readonlys['button[delete]'] = true;
 		}
-		elseif((int)get_var('q_id', 'GET', 0))
-		{
-			$extra .= '&q_id='. $_GET['q_id'];
-		}
-		$this->t->set_var(array(
-			'message'			=> "<tr><td colspan=2 align=center style='color:red'>" . $this->message . "</td></tr>",
-			'hidden_fields'		=> $hidden_fields,
-			'form_action'		=> $this->link('menuaction=phpbrain.uikb.edit_article'. $extra),
-			'value_title'		=> htmlspecialchars($title),
-			'value_topic'		=> htmlspecialchars($topic),
-			'value_keywords'	=> htmlspecialchars($keywords),
-			'value_text'		=> $content,
-			'btn_save'			=> $btn_save,
-			'btn_cancel'		=> $btn_cancel
-		));
-
-		$this->t->pparse('output', 'edit_article');
+		$tpl = new Api\Etemplate('phpbrain.edit');
+		$tpl->exec('phpbrain.uikb.edit_article', $content, null, $readonlys, $content);
 	}
 
 	/**
