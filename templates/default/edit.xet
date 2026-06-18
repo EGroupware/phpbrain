@@ -8,40 +8,40 @@
 				<column/>
 			</columns>
 			<rows>
-				<row disabled="!@question">
+				<row disabled="!@question"  height="3lh">
 					<et2-description id="question[head]" span="all"></et2-description>
 				</row>
-				<row disabled="!@question">
+				<row disabled="!@question"  height="3lh">
 					<et2-description label="Summary"></et2-description>
 					<et2-description id="question[summary]"></et2-description>
 				</row>
-				<row disabled="!@question">
+				<row disabled="!@question"  height="3lh">
 					<et2-description label="Details"></et2-description>
 					<et2-description id="question[details]"></et2-description>
 				</row>
-				<row>
+				<row  height="3lh">
 					<et2-description for="cat_id" label="Category"></et2-description>
 					<et2-hbox>
 						<et2-select-cat id="cat_id" emptyLabel="None"></et2-select-cat>
 						<et2-description id="art_id" label="Article-ID" align="right"></et2-description>
 					</et2-hbox>
 				</row>
-				<row>
+				<row  height="3lh">
 					<et2-description for="title" label="Title"></et2-description>
 					<et2-textbox id="title" required="true"></et2-textbox>
 				</row>
-				<row>
+				<row  height="3lh">
 					<et2-description for="topic" label="Topic"></et2-description>
 					<et2-textbox id="topic" required="true"></et2-textbox>
 				</row>
-				<row>
+				<row  height="3lh">
 					<et2-description for="keywords" label="Keywords"></et2-description>
 					<et2-textbox id="keywords"></et2-textbox>
 				</row>
 				<row>
-					<et2-htmlarea id="text" required="true" span="all" style="height: 70vh"></et2-htmlarea>
+					<et2-htmlarea id="text" required="true" span="all"></et2-htmlarea>
 				</row>
-				<row>
+				<row  height="3lh">
 					<et2-hbox  span="all" width="100%">
 						<et2-button accesskey="s" label="Save" id="button[save]" hideOnReadonly="true"></et2-button>
 						<et2-button label="Apply" id="button[apply]" hideOnReadonly="true"></et2-button>
