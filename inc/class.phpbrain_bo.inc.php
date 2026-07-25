@@ -238,12 +238,12 @@ class phpbrain_bo
 		// acl grants puts all rights (-1) on current the user itself. That has to be modified here since the user doesn't have necessarily publish rights
 		// Here I have to accumulate the rights the user has on every group it belongs to
 		$grants_user = $this->read_right | $this->edit_right | EGW_ACL_DELETE;	// The user can always read and edit his own articles
-		if (($user_groups = $GLOBALS['egw']->accounts->membership($GLOBALS['egw_info']['user']['account_id'])))
+		if (($user_groups = $GLOBALS['egw']->accounts->memberships($GLOBALS['egw_info']['user']['account_id'])))
 		{
-			foreach ($user_groups as $group)
+			foreach ($user_groups as $group_id => $group_name)
 			{
-				$grants_user |= $this->grants[$group['account_id']];
-				//echo "for the group: ";echo $group['account_id'];echo " the right: ";echo $this->grants[$group['account_id']];echo "<br>";
+				$grants_user |= $this->grants[$group_id];
+				//echo "for the group: ";echo $group_id;echo " the right: ";echo $this->grants[$group_id];echo "<br>";
 			}
 		}
 		//echo "grants_user: $grants_user<br>";
