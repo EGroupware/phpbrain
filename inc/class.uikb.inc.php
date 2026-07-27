@@ -573,7 +573,7 @@ class uikb extends bokb
 
 		if (!$article_id || !$article) $this->die_peacefully("Error retrieving article");
 		$can_edit = $this->bo->check_permission($this->bo->edit_right)? True : False;
-		$can_delete = $this->bo->check_permission(EGW_ACL_DELETE)? True : False;
+		$can_delete = $this->bo->check_permission(Api\Acl::DELETE)? True : False;
 
 		// Process article deletion
 		if ($_POST['delete_article'])
@@ -1579,7 +1579,7 @@ class uikb extends bokb
 				($this->bo->grants[$row['user_id']] & $this->bo->publish_right);
 			//echo '#'.$row['art_id'].'#'.$row['user_id'].'<->'.$GLOBALS['egw_info']['user']['account_id'].":$publish#".$this->bo->admin_config['publish_own_articles']."#<br/>";
 
-			if(!($this->bo->grants[$row['user_id']] & EGW_ACL_EDIT))
+			if(!($this->bo->grants[$row['user_id']] & Api\Acl::EDIT))
 			{
 				$row['class'] .= ' rowNoEdit';
 			}
@@ -1588,7 +1588,7 @@ class uikb extends bokb
 				$readonlys['publish['.$row['art_id'].']'] = true;
 				$row['class'] .= ' rowNoPublish';
 			}
-			if (!($this->bo->grants[$row['user_id']] & EGW_ACL_DELETE))
+			if (!($this->bo->grants[$row['user_id']] & Api\Acl::DELETE))
 			{
 				$readonlys['delete['.$row['art_id'].']'] = true;
 				$row['class'] .= ' rowNoDelete';
@@ -1728,7 +1728,7 @@ class uikb extends bokb
 				$readonlys['publish['.$row['question_id'].']'] = true;
 				$row['class'] .= ' rowNoPublish';
 			}
-			if (!($this->bo->grants[$row['user_id']] & EGW_ACL_DELETE))
+			if (!($this->bo->grants[$row['user_id']] & Api\Acl::DELETE))
 			{
 				$readonlys['delete['.$row['question_id'].']'] = true;
 				$row['class'] .= ' rowNoDelete';

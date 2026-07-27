@@ -18,6 +18,8 @@
 **/
 require_once(EGW_INCLUDE_ROOT.'/phpbrain/inc/class.sokb.inc.php');
 
+use EGroupware\Api\Acl;
+
 class phpbrain_bo
 {
 	/**
@@ -231,13 +233,13 @@ class phpbrain_bo
 		if ($GLOBALS['egw']->acl->check('run',1,'admin')) $this->grants[0] = -1;
 		$this->preferences			= $GLOBALS['egw']->preferences->data['phpbrain'];
 
-		$this->read_right			= EGW_ACL_READ;
-		$this->edit_right			= EGW_ACL_EDIT;
-		$this->publish_right		= EGW_ACL_CUSTOM_1;
+		$this->read_right			= Acl::READ;
+		$this->edit_right			= Acl::EDIT;
+		$this->publish_right		= Acl::CUSTOM1;
 
 		// acl grants puts all rights (-1) on current the user itself. That has to be modified here since the user doesn't have necessarily publish rights
 		// Here I have to accumulate the rights the user has on every group it belongs to
-		$grants_user = $this->read_right | $this->edit_right | EGW_ACL_DELETE;	// The user can always read and edit his own articles
+		$grants_user = $this->read_right | $this->edit_right | Acl::DELETE;	// The user can always read and edit his own articles
 		if (($user_groups = $GLOBALS['egw']->accounts->memberships($GLOBALS['egw_info']['user']['account_id'])))
 		{
 			foreach ($user_groups as $group_id => $group_name)
@@ -634,7 +636,7 @@ class phpbrain_bo
 		if (!$art_id) $art_id = $this->article_id;
 		//error_log(__METHOD__.__LINE__.' ArticleID'.$art_id.' Owner:'.$owner);
 		// check user has edit rights
-		if ($owner != -1 && !$this->check_permission(EGW_ACL_DELETE, $owner)) return 'no_perm';
+		if ($owner != -1 && !$this->check_permission(Acl::DELETE, $owner)) return 'no_perm';
 		// delete files
 		egw_link::delete_attached('phpbrain',$art_id);
 		// delete comments
@@ -689,7 +691,7 @@ class phpbrain_bo
 	{
 		// check user has edit rights on owner
 		$this->article_owner = $owner;
-		if (!$this->check_permission(EGW_ACL_DELETE, $owner)) return 'no_perm';
+		if (!$this->check_permission(Acl::DELETE, $owner)) return 'no_perm';
 
 		if (!$this->so->delete_question($q_id)) return 'err_del_q';
 		return 'del_q_ok';
