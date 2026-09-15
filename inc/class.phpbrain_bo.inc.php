@@ -18,6 +18,7 @@
 **/
 require_once(EGW_INCLUDE_ROOT.'/phpbrain/inc/class.sokb.inc.php');
 
+use EGroupware\Api\Accounts;
 use EGroupware\Api\Acl;
 
 class phpbrain_bo
@@ -380,6 +381,27 @@ class phpbrain_bo
 	}
 
 	/**
+	 * Check current user's access to files/links attached to article $id
+	 *
+	 * Used as 'file_access' hook by the linking system, see Api\Link::file_access() - without this,
+	 * Api\Link::file_access() never grants Acl::EDIT for an app that has not registered a hook, so
+	 * attach_file() (used by process_upload()) always failed with "not writable" (ticket #124021).
+	 *
+	 * @param int $id art_id
+	 * @param int $check =Acl::READ Acl::READ or Acl::EDIT
+	 * @param string $rel_path =null not used
+	 * @return bool
+	 */
+	function file_access($id, $check=Acl::READ, $rel_path=null)
+	{
+		if (($owner = $this->so->get_owner($id)) === false)
+		{
+			return false;
+		}
+		return (bool)$this->check_permission($check, $owner);
+	}
+
+	/**
 	* Returns array of articles
 	*
 	* @author	Alejandro Pedraza
@@ -494,8 +516,7 @@ class phpbrain_bo
 		for ($i = 0; $i<count($history ?? []); $i++)
 		{
 			$history[$i]['datetime'] = $GLOBALS['egw']->common->show_date($history[$i]['datetime'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']);
-			$GLOBALS['egw']->accounts->get_account_name($history[$i]['owner'], $lid, $fname, $lname);
-			$history[$i]['owner'] = $fname . ' ' . $lname;
+			$history[$i]['owner'] = Accounts::username($history[$i]['owner']);
 
 			switch ($history[$i]['status'])
 			{
@@ -724,11 +745,8 @@ class phpbrain_bo
 			}
 			return false;
 		}
-		$GLOBALS['egw']->accounts->get_account_name($article['user_id'], $lid, $fname, $lname);
-		$article['username'] = $fname . ' ' . $lname;
-		$fname = ''; $lname = '';
-		$GLOBALS['egw']->accounts->get_account_name($article['modified_user_id'], $lid, $fname, $lname);
-		$article['modified_username'] = $fname . ' ' .$lname;
+		$article['username'] = Accounts::username($article['user_id']);
+		$article['modified_username'] = Accounts::username($article['modified_user_id']);
 
 		// register article view if it has been published (one hit per session)
 		if (!$data = $GLOBALS['egw']->session->appsession('views', 'phpbrain')) $data = array();
@@ -1155,8 +1173,7 @@ class phpbrain_bo
 	function get_question($q_id,$published=1)
 	{
 		$question = $this->so->get_question($q_id,$published);
-		$username = $GLOBALS['egw']->accounts->get_account_name($question['user_id'], $lid, $fname, $lname);
-		$question['username'] = $fname . ' ' . $lname;
+		$question['username'] = Accounts::username($question['user_id']);
 		$question['creation'] = $GLOBALS['egw']->common->show_date($question['creation'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']);
 		return $question;
 	}
@@ -1264,6 +1281,7 @@ class phpbrain_bo
 			'fetch'	=>	'phpbrain.phpbrain_bo.retrieve_article',
 			'view_id' => 'art_id',
 			'view_list'	=>	'phpbrain.uikb.index',
+			'file_access' => 'phpbrain.phpbrain_bo.file_access',
 			'owner' => array(
 				'key' => 'egw_kb_articles.art_id',
 				'column' => 'egw_kb_articles.user_id'

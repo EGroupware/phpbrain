@@ -17,6 +17,8 @@
 * Last Editor:	$Author$
 */
 
+use EGroupware\Api\Accounts;
+
 if (!defined('PHPBRAIN_APP'))
 {
     define('PHPBRAIN_APP','phpbrain');
@@ -552,8 +554,7 @@ class sokb
 			{
 				$questions[$i][$field] = self::$db->f($field);
 			}
-			$username = $GLOBALS['egw']->accounts->get_account_name($questions[$i]['user_id'], $lid, $fname, $lname);
-			$questions[$i]['username'] = $fname . ' ' . $lname;
+			$questions[$i]['username'] = Accounts::username($questions[$i]['user_id']);
 		}
 		return $questions;
 	}
@@ -861,8 +862,7 @@ class sokb
 		$where = array('art_id'=>$art_id );
 		foreach(self::$db->select('egw_kb_comment',$fields_str,$where,__LINE__,__FILE__,($limit ? 0:false),' ORDER BY entered DESC',PHPBRAIN_APP,$limit) as $row)
 		{
-			$GLOBALS['egw']->accounts->get_account_name($row['user_id'], $lid, $fname, $lname);
-			$row['username'] = $fname . ' ' . $lname;
+			$row['username'] = Accounts::username($row['user_id']);
 			$comments[] = $row;
 		}
 		return $comments;
@@ -1186,6 +1186,24 @@ class sokb
 			$added = false;
 		}
 		return $added;
+	}
+
+	/**
+	* Returns the owner (user_id) of an article, for ACL checks that need it without loading the
+	* whole article (eg. file_access())
+	*
+	* @param	int		$art_id		article id
+	* @return	int|false	owner user_id, or false if the article does not exist
+	**/
+	function get_owner($art_id)
+	{
+		$fields_str = "user_id";
+		$where = array('art_id'=>$art_id);
+		foreach(self::$db->select('egw_kb_articles',$fields_str,$where,__LINE__,__FILE__,false,'',PHPBRAIN_APP) as $row)
+		{
+			return $row[$fields_str];
+		}
+		return false;
 	}
 
 	/**
