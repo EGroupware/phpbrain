@@ -516,7 +516,13 @@ class phpbrain_bo
 		for ($i = 0; $i<count($history ?? []); $i++)
 		{
 			$history[$i]['datetime'] = $GLOBALS['egw']->common->show_date($history[$i]['datetime'], $GLOBALS['egw_info']['user']['preferences']['common']['dateformat']);
-			$history[$i]['owner'] = Accounts::username($history[$i]['owner']);
+			// historylog::return_array() already resolved the owner to an account_lid, or to a
+			// plain label like "EGroupware" for entries written by the system: only real accounts
+			// can be turned into a formatted full name, everything else is shown as-is.
+			if (($owner_id = Accounts::getInstance()->name2id($history[$i]['owner'])))
+			{
+				$history[$i]['owner'] = Accounts::username($owner_id);
+			}
 
 			switch ($history[$i]['status'])
 			{
