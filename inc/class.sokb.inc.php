@@ -102,7 +102,9 @@ class sokb
 	**/
 	function __construct()
 	{
-		self::$db = $GLOBALS['egw']->db;
+		// this old, never-audited app still builds raw SQL fragments the legacy way throughout -
+		// opt its own Db clone out of Db\SqlFragment enforcement rather than chasing every site
+		self::$db = (clone $GLOBALS['egw']->db)->requireSqlFragmentObjects(false);
 		self::$tz_offset_s = $GLOBALS['egw']->datetime->tz_offset;
 		self::$now = time() + self::$tz_offset_s;   // time() is server-time and we need a user-time
 		self::$today = mktime(0,0,0,date('m',self::$now),date('d',self::$now),date('Y',self::$now));
